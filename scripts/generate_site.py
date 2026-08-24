@@ -14,6 +14,7 @@ import uadb
 
 HOME_FEATURED_KEY = "solo-leveling-sung-jinwoo"
 COLOR_ONLY = {"purple", "red", "yellow", "green", "blue", "black"}
+COLOR_MARK = re.compile(r"【\s*(?:PURPLE|RED|YELLOW|GREEN|BLUE|BLACK)\s*】", re.I)
 
 
 def load_cache() -> dict:
@@ -42,6 +43,7 @@ def archetypes_from_contender() -> list[dict]:
                 "key": key,
                 "name": char_name,
                 "full": name,
+                "from_color": char_name.lower() in COLOR_ONLY,
                 "title": title_name,
                 "page": f"decklists/{key}.html",
                 "dir": f"decklists/{key}",
@@ -179,33 +181,132 @@ def title_matches(title: str, cid: str, card_title: str) -> bool:
     return False
 
 
-def pick_feature(arch: dict, items: list[dict], cache: dict) -> dict:
-    char = arch.get("name") or ""
-    title = arch.get("title") or ""
-    char_n = norm_name(char)
-    candidates = []
-    if char_n not in COLOR_ONLY:
-        for cid, meta in cache.items():
-            if "/" not in cid or cid.startswith("UEPR"):
-                continue
-            base, _num = uadb.parse_named_card(meta.get("name") or "")
-            base_n = norm_name(base)
-            if char_n not in base_n:
-                continue
-            if title and not title_matches(title, cid, meta.get("title") or ""):
-                continue
-            exact = 1 if base_n == char_n else 0
-            candidates.append((cid, meta, exact))
-    if not candidates:
-        for it in items:
-            cid = it["id"]
-            meta = cache.get(cid) or {}
-            candidates.append((cid, meta, 0))
-    if candidates:
-        candidates.sort(key=lambda row: (row[2], *_feature_score(row[0], row[1])), reverse=True)
-        cid, meta, _exact = candidates[0]
-        return {"id": cid, "name": meta.get("name") or cid, "meta": meta}
-    return {"id": "", "name": arch.get("full") or "", "meta": {}}
+def card_character(name: str) -> str:
+    base, _num = uadb.parse_named_card(name or "")
+    return uadb.display_name(base)
+
+
+def strip_color_marks(s: str) -> str:
+    s = COLOR_MARK.sub("", s or "")
+    s = uadb.no_em(s)
+    s = re.sub(r"\s+", " ", s)
+    s = re.sub(r"\s*·\s*", " · ", s)
+    return s.strip(" ·-")
+
+
+def pick_feature(items: list[dict], cache: dict, prefer_name: str | None = None) -> dict:
+    def char_of(it: dict) -> str:
+        meta = cache.get(it.get("id") or "") or {}
+        return card_character(meta.get("name") or it.get("name") or "")
+
+    pool = [it for it in items if it.get("group") != "AP cards"]
+    use = [it for it in pool if it.get("group") == "Characters"] or pool
+    prefer_n = norm_name(prefer_name or "")
+    if prefer_n and prefer_n not in COLOR_ONLY:
+        matched = [it for it in use if prefer_n in norm_name(char_of(it))]
+        if matched:
+            use = matched
+    totals: dict[str, int] = defaultdict(int)
+    by_name: dict[str, list] = defaultdict(list)
+    for it in use:
+        name = char_of(it)
+        if not name or norm_name(name) in COLOR_ONLY:
+            continue
+        totals[name] += int(it.get("count") or 0)
+        by_name[name].append((it, cache.get(it["id"]) or {}))
+    if not totals:
+        if pool:
+            it = pool[0]
+            meta = cache.get(it["id"]) or {}
+            return {
+                "id": it["id"],
+                "name": meta.get("name") or it.get("name") or "",
+                "meta": meta,
+                "character": card_character(meta.get("name") or it.get("name") or ""),
+            }
+        return {"id": "", "name": prefer_name or "", "meta": {}, "character": prefer_name or ""}
+    best = max(totals, key=lambda n: (totals[n], len(n)))
+    cands = by_name[best]
+    cands.sort(key=lambda row: _feature_score(row[0]["id"], row[1]), reverse=True)
+    it, meta = cands[0]
+    return {
+        "id": it["id"],
+        "name": meta.get("name") or it.get("name") or best,
+        "meta": meta,
+        "character": best,
+    }
+
+
+def face_card(character: str, title: str, cache: dict) -> dict:
+    char_n = norm_name(character)
+    if not char_n or char_n in COLOR_ONLY:
+        return {}
+    cands = []
+    for cid, meta in cache.items():
+        if "/" not in cid or cid.startswith("UEPR") or cid.endswith(("_p1", "_p2")):
+            continue
+        base, _num = uadb.parse_named_card(meta.get("name") or "")
+        base_n = norm_name(base)
+        if char_n not in base_n:
+            continue
+        if title and not title_matches(title, cid, meta.get("title") or ""):
+            continue
+        exact = 1 if base_n == char_n else 0
+        cands.append((cid, meta, exact))
+    if not cands:
+        return {}
+    cands.sort(key=lambda row: (row[2], *_feature_score(row[0], row[1])), reverse=True)
+    cid, meta, _exact = cands[0]
+    return {"id": cid, "name": meta.get("name") or cid, "meta": meta, "character": character}
+
+
+def apply_archetype(arch: dict, items: list[dict], cache: dict) -> dict:
+    prefer = None if arch.get("from_color") else arch.get("name")
+    from_list = pick_feature(items, cache, prefer)
+    char = from_list.get("character") or arch.get("name") or ""
+    if char and norm_name(char) not in COLOR_ONLY:
+        arch["name"] = char
+        arch["full"] = f"{arch.get('title') or char} - {char}" if arch.get("title") else char
+    face = face_card(arch["name"], arch.get("title") or "", cache)
+    return face if face.get("id") else from_list
+
+
+def identity_for_list(items: list[dict], cache: dict, arch: dict) -> dict:
+    from_list = pick_feature(items, cache, arch.get("name"))
+    char = from_list.get("character") or arch.get("name") or ""
+    face = face_card(char, arch.get("title") or "", cache)
+    if face.get("id"):
+        face["character"] = char
+        return face
+    return from_list
+
+
+def unique_arches(arches: list[dict]) -> list[dict]:
+    ordered = [a for a in arches if not a.get("from_color")] + [a for a in arches if a.get("from_color")]
+    seen = set()
+    picked = []
+    for arch in ordered:
+        ident = (norm_name(arch.get("title") or ""), norm_name(arch.get("name") or ""))
+        if ident in seen:
+            continue
+        seen.add(ident)
+        picked.append(arch)
+    rank = {a["key"]: i for i, a in enumerate(arches)}
+    picked.sort(key=lambda a: rank.get(a["key"], 10_000))
+    return picked
+
+
+def list_subtitle(entry: dict) -> str:
+    player = strip_color_marks(entry.get("player") or "")
+    if player.lower() in {"consensus", ""}:
+        player = ""
+    sub = strip_color_marks(entry.get("subtitle") or "")
+    bits = []
+    if player and player not in sub:
+        bits.append(player)
+    if sub:
+        bits.append(sub)
+    return " · ".join(bits)
 
 
 def sim_text(items: list[dict]) -> str:
@@ -371,13 +472,6 @@ def pretty_blurb(s: str) -> str:
     return uadb.no_em((s or "").replace("_", " "))
 
 
-def recent_who(player: str, name: str) -> str:
-    who = (player or "").strip()
-    if not who or who.lower() == "consensus":
-        return name
-    return f"{who} · {name}"
-
-
 def take_text(arch: dict) -> str:
     bits = []
     if arch.get("style"):
@@ -398,7 +492,7 @@ def take_text(arch: dict) -> str:
 
 def write_list_page(arch: dict, entry: dict, items: list[dict], cache: dict, feature: dict) -> None:
     color = uadb.color_class((feature.get("meta") or {}).get("color"))
-    title = uadb.no_em(entry.get("title") or f"{entry.get('player')} - {arch['name']}")
+    title = uadb.no_em(entry.get("title") or arch["name"])
     subtitle = uadb.no_em(entry.get("subtitle") or "")
     kind_note = {
         "contender": "Consensus 50-card list aggregated from public Union Arena tournament results on TCG Contender.",
@@ -753,19 +847,21 @@ def main() -> None:
     index = {}
     for arch in arches:
         items = flatten_contender(arch, cache)
-        feature = pick_feature(arch, items, cache)
+        feature = apply_archetype(arch, items, cache)
         features[arch["key"]] = feature
         arch["color"] = (feature.get("meta") or {}).get("color") or ""
         lists = []
         cons_entry = {
             "slug": "contender-consensus",
             "kind": "contender",
-            "title": f"Consensus - {arch['full']}",
+            "title": arch["name"],
             "subtitle": f"TCG Contender Standard snapshot · {arch.get('updated') or ''}",
-            "player": "Consensus",
+            "player": "",
             "date": arch.get("updated") or "",
             "source_url": f"https://tcgcontender.com/unionarena/decks/standard/{arch['key']}",
             "sim_text": sim_text(items),
+            "img": uadb.card_image_url(feature.get("id") or "", cache),
+            "color": (feature.get("meta") or {}).get("color") or "",
         }
         write_list_page(arch, cons_entry, items, cache, feature)
         lists.append(cons_entry)
@@ -774,17 +870,25 @@ def main() -> None:
             if sum(counts.values()) < uadb.MIN_CARDS:
                 continue
             c_items = flatten_counts(counts, cache)
+            c_feat = identity_for_list(c_items, cache, arch)
             comm_entry = {
                 "slug": comm.get("slug") or uadb.slugify(comm.get("title") or "community"),
                 "kind": comm.get("kind") or "web",
-                "title": comm.get("title") or comm.get("player") or "Community list",
-                "subtitle": comm.get("subtitle") or "",
-                "player": comm.get("player") or "Community",
+                "title": c_feat.get("character") or arch["name"],
+                "subtitle": list_subtitle(
+                    {
+                        "player": comm.get("player") or "",
+                        "subtitle": comm.get("subtitle") or "",
+                    }
+                ),
+                "player": comm.get("player") or "",
                 "date": comm.get("date") or "",
                 "source_url": comm.get("source_url") or "",
                 "sim_text": sim_text(c_items),
+                "img": uadb.card_image_url(c_feat.get("id") or "", cache),
+                "color": (c_feat.get("meta") or {}).get("color") or "",
             }
-            write_list_page(arch, comm_entry, c_items, cache, feature)
+            write_list_page(arch, comm_entry, c_items, cache, c_feat)
             lists.append(comm_entry)
         lists.sort(key=lambda e: e.get("date") or "0000", reverse=True)
         write_hub(arch, lists, items, cache, feature)
@@ -794,12 +898,12 @@ def main() -> None:
             recent.append(
                 {
                     "href": f"/{arch['dir']}/{entry['slug']}.html",
-                    "img": uadb.card_image_url(feature.get("id") or "", cache),
-                    "name": arch["name"],
-                    "who": recent_who(entry.get("player") or "", arch["name"]),
+                    "img": entry.get("img") or uadb.card_image_url(feature.get("id") or "", cache),
+                    "name": entry.get("title") or arch["name"],
+                    "who": entry.get("title") or arch["name"],
                     "meta": entry.get("subtitle") or arch["full"],
                     "when": entry.get("date") or "",
-                    "color": arch.get("color") or "",
+                    "color": entry.get("color") or arch.get("color") or "",
                     "key": arch["key"],
                 }
             )
@@ -809,9 +913,10 @@ def main() -> None:
         uadb.log("hub", arch["key"], "lists", len(lists), "feature", feature.get("id"))
 
     recent.sort(key=lambda r: r.get("when") or "0000", reverse=True)
-    write_home(arches, recent, cache, features)
-    write_characters_index(arches, features, cache)
-    write_format(arches)
+    roster = unique_arches(arches)
+    write_home(roster, recent, cache, features)
+    write_characters_index(roster, features, cache)
+    write_format(roster)
     write_privacy()
     write_sitemap(sitemap)
     write_404()

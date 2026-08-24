@@ -318,14 +318,15 @@ def scrape_official(found: list[dict], seen: set[str], cache: dict, arches: list
         if not key:
             uadb.log("official no-key", code, label[:50])
             return None
-        place = label.split("·")[0].strip() if "·" in label else "Official"
+        place = re.sub(r"【[^】]+】", "", label.split("·")[0]).strip() if "·" in label else "Official"
+        place = re.sub(r"\s+", " ", place).strip() or "Official"
         slug = uadb.slugify(f"official-{place}-{key}-{code[-6:]}")
         return item_from_counts(
             counts,
             key=key,
             kind="official",
             player=place or "Official",
-            title=f"{label} - {event_name}"[:110],
+            title=place or "Official",
             subtitle=f"Official Bandai top-placing list · {event_name}",
             source_url=f"https://www.bandai-tcg-plus.com/deck_code_recipe/{code}",
             slug=slug,

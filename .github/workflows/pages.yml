@@ -3,7 +3,6 @@ on:
   push:
     branches:
       - main
-      - cursor/union-arena-deck-base-b64a
   workflow_dispatch:
 permissions:
   contents: read
