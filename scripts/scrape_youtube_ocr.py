@@ -13,12 +13,16 @@ from pathlib import Path
 
 import uadb
 
-VIDEO_CAP = 24
+VIDEO_CAP = 40
 CLIP_SECONDS = 70
 FPS = "1/6"
 MAX_FRAMES = 10
 MIN_UNIQUE = 12
+NODE = "/exec-daemon/node"
 YTDLP = [os.environ.get("PYTHON", "python3"), "-m", "yt_dlp"]
+if Path(NODE).is_file():
+    YTDLP += ["--js-runtimes", f"node:{NODE}"]
+STILLS = ("maxresdefault", "hq720", "sddefault", "hqdefault", "0", "1", "2", "3")
 FFMPEG = shutil.which("ffmpeg") or "ffmpeg"
 TESSERACT = shutil.which("tesseract") or "tesseract"
 
@@ -191,19 +195,58 @@ def download_clip(vid: str, dest: Path) -> bool:
     return False
 
 
-def thumbnail(vid: str, dest: Path) -> Path | None:
-    for q in ("maxresdefault", "sddefault", "hqdefault"):
-        url = f"https://i.ytimg.com/vi/{vid}/{q}.jpg"
-        try:
-            req = urllib.request.Request(url, headers={"User-Agent": uadb.BROWSER_UA})
-            with urllib.request.urlopen(req, timeout=18) as resp:
-                raw = resp.read()
-        except Exception:
-            continue
-        if raw[:3] == b"\xff\xd8" and len(raw) > 4000:
-            dest.write_bytes(raw)
-            return dest
+def fetch_jpeg(url: str) -> bytes | None:
+    try:
+        req = urllib.request.Request(
+            url,
+            headers={"User-Agent": uadb.BROWSER_UA, "Accept": "image/jpeg,image/webp,*/*", "Referer": "https://www.youtube.com/"},
+        )
+        with urllib.request.urlopen(req, timeout=14) as resp:
+            raw = resp.read()
+    except Exception:
+        return None
+    if raw.startswith(b"\xff\xd8") and len(raw) > 2500:
+        return raw
     return None
+
+
+def crops(path: Path, tmp: Path, tag: str) -> list[Path]:
+    try:
+        from PIL import Image
+    except ImportError:
+        return []
+    try:
+        im = Image.open(path)
+    except OSError:
+        return []
+    w, h = im.size
+    if w < 400 or h < 300:
+        return []
+    boxes = {
+        "bottom": (0, h // 2, w, h),
+        "right": (w // 2, 0, w, h),
+        "left": (0, 0, w // 2, h),
+    }
+    out = []
+    for name, box in boxes.items():
+        dest = tmp / f"{tag}_{name}.png"
+        im.crop(box).save(dest)
+        out.append(dest)
+    return out
+
+
+def stills(vid: str, tmp: Path) -> list[Path]:
+    paths: list[Path] = []
+    for q in STILLS:
+        raw = fetch_jpeg(f"https://i.ytimg.com/vi/{vid}/{q}.jpg")
+        if not raw:
+            continue
+        dest = tmp / f"{vid}_{q}.jpg"
+        dest.write_bytes(raw)
+        paths.append(dest)
+        if q == "maxresdefault" and len(raw) > 50000:
+            paths.extend(crops(dest, tmp, f"{vid}_{q}"))
+    return paths
 
 
 def looks_like_deck(title: str) -> bool:
@@ -250,10 +293,8 @@ def scrape_ocr(found: list[dict], seen: set[str], cache: dict, arches: list[dict
             date = watch_date(page)
             title = title or watch_title(page)
             merged: dict[str, int] = {}
-            thumb = tmp / f"{vid}.jpg"
-            tpath = thumbnail(vid, thumb)
-            if tpath:
-                for cid, n in ocr_image(tpath, cache, idx).items():
+            for image in stills(vid, tmp):
+                for cid, n in ocr_image(image, cache, idx).items():
                     merged[cid] = max(merged.get(cid, 0), n)
             if not complete_enough(merged) and downloads < 18:
                 clip = tmp / f"{vid}.mp4"
@@ -267,7 +308,9 @@ def scrape_ocr(found: list[dict], seen: set[str], cache: dict, arches: list[dict
                     except OSError:
                         pass
             if not complete_enough(merged):
+                uadb.log("ocr miss", vid, "unique", len(merged), "cards", sum(merged.values()) if merged else 0)
                 continue
+            uadb.log("ocr hit", vid, "unique", len(merged), "cards", sum(merged.values()))
             blob = f"{title} {page[:4000]}"
             key = guess_key(blob, merged, cache, arches)
             if not key:

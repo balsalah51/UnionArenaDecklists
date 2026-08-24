@@ -22,7 +22,7 @@ GitHub Pages must serve this branch (or merge to `main`). The old `Index.html` s
 
 ## Rebuild
 
-Python 3.12. YouTube screenshot lists also need `tesseract-ocr`, `ffmpeg`, `yt-dlp`, and `pillow`.
+Python 3.12. YouTube screenshot lists also need `tesseract-ocr`, `ffmpeg`, `yt-dlp`, and `pillow`. Video-frame OCR uses the public thumbnail/still images always; early-video clips are used when YouTube allows the download (the weekly GitHub Action).
 
 ```bash
 python3 scripts/ingest.py
