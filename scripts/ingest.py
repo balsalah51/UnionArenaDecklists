@@ -2,7 +2,7 @@
 """Build Union Arena Deck Base from public sources.
 
 Order: TCG Contender decks + cards, official Bandai cardlist, YouTube + official
-top-placing lists, then HTML. Does not touch any OPTCG simulator.
+top-placing lists (including on-screen YouTube lists), then HTML.
 """
 
 from __future__ import annotations

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Pull Union Arena meta decks from TCG Contender (not Limitless / not OPTCG)."""
+"""Pull Union Arena meta decks from TCG Contender."""
 
 from __future__ import annotations
 

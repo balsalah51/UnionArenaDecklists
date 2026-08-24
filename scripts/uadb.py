@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Shared helpers for Union Arena Deck Base — GitHub Pages static site."""
+"""Shared helpers for Union Arena Deck Base, GitHub Pages static site."""
 
 from __future__ import annotations
 
@@ -19,7 +19,7 @@ BROWSER_UA = (
     "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
     "(KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36"
 )
-DISCORD = "https://discord.gg/adZ2WUQ3D"
+DISCORD = "https://discord.gg/aY9RfB662"
 BRAND = "Union Arena Deck Base"
 SUBTITLE = "Union Arena TCG decklists"
 LOGO = "UA"
@@ -282,7 +282,7 @@ def page_chrome(title: str, description: str, color: str, body: str, current: st
       </div>
     </main>
     <footer>
-      © <span id="year"></span> {html.escape(BRAND)} — Fan site, not affiliated with Bandai.
+      © <span id="year"></span> {html.escape(BRAND)}. Fan site, not affiliated with Bandai.
       <a href="/characters.html">Characters</a> · <a href="/#recent">Recent lists</a> · <a href="/format.html">Format</a> · <a href="/privacy.html">Privacy</a>
     </footer>
   </div>
@@ -323,7 +323,7 @@ def home_chrome(body: str) -> str:
 {body}
     </main>
     <footer>
-      © <span id="year"></span> {html.escape(BRAND)} — Fan site, not affiliated with Bandai.
+      © <span id="year"></span> {html.escape(BRAND)}. Fan site, not affiliated with Bandai.
       <a href="/characters.html">Characters</a> · <a href="/#recent">Recent lists</a> · <a href="/format.html">Format</a> · <a href="/privacy.html">Privacy</a>
     </footer>
   </div>
@@ -399,3 +399,7 @@ def parse_counts(text: str) -> dict[str, int]:
 def list_is_complete(counts: dict[str, int]) -> bool:
     total = sum(counts.values())
     return MIN_CARDS <= total <= 60
+
+
+def no_em(s: str) -> str:
+    return (s or "").replace("\u2014", " - ").replace("\u2013", "-").replace("\u2015", "-")

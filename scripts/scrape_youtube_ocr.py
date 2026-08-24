@@ -1,0 +1,329 @@
+#!/usr/bin/env python3
+"""Read Union Arena 50-card lists from YouTube thumbnails and early video frames."""
+
+from __future__ import annotations
+
+import os
+import re
+import shutil
+import subprocess
+import tempfile
+import urllib.request
+from pathlib import Path
+
+import uadb
+
+VIDEO_CAP = 24
+CLIP_SECONDS = 70
+FPS = "1/6"
+MAX_FRAMES = 10
+MIN_UNIQUE = 12
+YTDLP = [os.environ.get("PYTHON", "python3"), "-m", "yt_dlp"]
+FFMPEG = shutil.which("ffmpeg") or "ffmpeg"
+TESSERACT = shutil.which("tesseract") or "tesseract"
+
+LOOSE_ID = re.compile(
+    r"((?:UEX|UE)\s*\d{2}\s*(?:BT|ST|PR))\W{0,8}([A-Z]{2,6})\W{0,6}(\d)\W{0,6}(\d{3})",
+    re.I,
+)
+QTY_NEAR = re.compile(r"(\d)\s*[xX×*]?\s*$")
+PUB = re.compile(r'"publishDate"\s*:\s*"(\d{4}-\d{2}-\d{2})"')
+UPLOAD = re.compile(r'"uploadDate"\s*:\s*"(\d{4}-\d{2}-\d{2})"')
+TITLE_META = re.compile(r'<meta name="title" content="([^"]+)"')
+DECK_WORDS = (
+    "deck",
+    "list",
+    "profile",
+    "top 8",
+    "top 16",
+    "top 32",
+    "1st",
+    "2nd",
+    "3rd",
+    "winner",
+    "regionals",
+)
+
+
+def ocr_available() -> bool:
+    return bool(shutil.which("tesseract") and shutil.which("ffmpeg"))
+
+
+def watch_date(html: str) -> str:
+    m = PUB.search(html or "") or UPLOAD.search(html or "")
+    return m.group(1) if m else ""
+
+
+def watch_title(html: str) -> str:
+    m = TITLE_META.search(html or "")
+    if m:
+        return re.sub(r"\s+", " ", m.group(1)).replace(" - YouTube", "").strip()
+    return ""
+
+
+def compact_index(cache: dict) -> dict[str, str]:
+    idx: dict[str, str] = {}
+    for cid in cache:
+        if cid.endswith(("_p1", "_p2")):
+            continue
+        key = re.sub(r"[^A-Z0-9]", "", cid.upper())
+        idx[key] = cid
+    return idx
+
+
+def qty_before(text: str, start: int) -> int:
+    window = text[max(0, start - 14) : start]
+    m = QTY_NEAR.search(window.replace("\n", " "))
+    if m and 1 <= int(m.group(1)) <= 4:
+        return int(m.group(1))
+    return 4
+
+
+def add_count(counts: dict[str, int], cid: str, n: int, cache: dict) -> None:
+    if cid not in cache:
+        return
+    if not (1 <= n <= 4):
+        n = 4
+    counts[cid] = max(counts.get(cid, 0), n)
+
+
+def counts_from_ocr(text: str, cache: dict, idx: dict[str, str]) -> dict[str, int]:
+    counts: dict[str, int] = {}
+    blob = text or ""
+    for m in uadb.QTY_BEFORE_RE.finditer(blob):
+        cid = uadb.normalize_cid(m.group(2))
+        if cid:
+            add_count(counts, cid, int(m.group(1)), cache)
+    for m in uadb.QTY_AFTER_RE.finditer(blob):
+        cid = uadb.normalize_cid(m.group(1))
+        if cid:
+            add_count(counts, cid, int(m.group(2)), cache)
+    for m in LOOSE_ID.finditer(blob):
+        setn = re.sub(r"\s+", "", m.group(1).upper())
+        cid = f"{setn}/{m.group(2).upper()}-{m.group(3)}-{m.group(4)}"
+        add_count(counts, cid, qty_before(blob, m.start()), cache)
+        compact = re.sub(r"[^A-Z0-9]", "", cid)
+        if compact in idx:
+            add_count(counts, idx[compact], qty_before(blob, m.start()), cache)
+    if len(counts) >= 6:
+        alnum = re.sub(r"[^A-Z0-9]", "", blob.upper())
+        for compact, cid in idx.items():
+            if 12 <= len(compact) <= 22 and compact in alnum:
+                add_count(counts, cid, 4, cache)
+    return counts
+
+
+def preprocess(path: Path) -> Path | None:
+    try:
+        from PIL import Image, ImageEnhance, ImageOps
+    except ImportError:
+        return None
+    try:
+        im = Image.open(path).convert("L")
+        im = im.resize((im.width * 2, im.height * 2), Image.Resampling.LANCZOS)
+        im = ImageOps.autocontrast(im)
+        im = ImageEnhance.Contrast(im).enhance(1.7)
+        out = path.with_name(path.stem + "_prep.png")
+        im.save(out)
+        return out
+    except OSError:
+        return None
+
+
+def tesseract(path: Path) -> str:
+    try:
+        r = subprocess.run(
+            [TESSERACT, str(path), "stdout", "-l", "eng", "--psm", "6"],
+            capture_output=True,
+            timeout=25,
+            check=False,
+        )
+        return (r.stdout or b"").decode("utf-8", "replace")
+    except (OSError, subprocess.TimeoutExpired):
+        return ""
+
+
+def ocr_image(path: Path, cache: dict, idx: dict[str, str]) -> dict[str, int]:
+    merged = counts_from_ocr(tesseract(path), cache, idx)
+    if len(merged) >= 8:
+        return merged
+    prep = preprocess(path)
+    if not prep:
+        return merged
+    part = counts_from_ocr(tesseract(prep), cache, idx)
+    for cid, n in part.items():
+        merged[cid] = max(merged.get(cid, 0), n)
+    return merged
+
+
+def frames_from_video(video: Path, out_dir: Path) -> list[Path]:
+    out_dir.mkdir(parents=True, exist_ok=True)
+    pat = str(out_dir / "f_%03d.png")
+    subprocess.run(
+        [FFMPEG, "-y", "-i", str(video), "-vf", f"fps={FPS}", "-frames:v", str(MAX_FRAMES), pat],
+        capture_output=True,
+        timeout=120,
+        check=False,
+    )
+    return sorted(out_dir.glob("f_*.png"))
+
+
+def download_clip(vid: str, dest: Path) -> bool:
+    url = f"https://www.youtube.com/watch?v={vid}"
+    dest.parent.mkdir(parents=True, exist_ok=True)
+    attempts = [
+        ["-f", "18/best[height<=480]/worst", "--download-sections", f"*0-{CLIP_SECONDS}", "--force-keyframes-at-cuts"],
+        ["-f", "worst", "--download-sections", f"*0-{CLIP_SECONDS}"],
+        ["-f", "18/worst", "--external-downloader", "ffmpeg", "--external-downloader-args", f"ffmpeg_i:-ss 0 -t {CLIP_SECONDS}"],
+    ]
+    for extra in attempts:
+        cmd = YTDLP + extra + ["--no-playlist", "--no-warnings", "-o", str(dest), url]
+        try:
+            subprocess.run(cmd, capture_output=True, timeout=200, check=False)
+        except (OSError, subprocess.TimeoutExpired):
+            continue
+        if dest.exists() and dest.stat().st_size > 12000:
+            return True
+        try:
+            dest.unlink()
+        except OSError:
+            pass
+    return False
+
+
+def thumbnail(vid: str, dest: Path) -> Path | None:
+    for q in ("maxresdefault", "sddefault", "hqdefault"):
+        url = f"https://i.ytimg.com/vi/{vid}/{q}.jpg"
+        try:
+            req = urllib.request.Request(url, headers={"User-Agent": uadb.BROWSER_UA})
+            with urllib.request.urlopen(req, timeout=18) as resp:
+                raw = resp.read()
+        except Exception:
+            continue
+        if raw[:3] == b"\xff\xd8" and len(raw) > 4000:
+            dest.write_bytes(raw)
+            return dest
+    return None
+
+
+def looks_like_deck(title: str) -> bool:
+    low = (title or "").lower()
+    return any(w in low for w in DECK_WORDS)
+
+
+def complete_enough(counts: dict[str, int]) -> bool:
+    return len(counts) >= MIN_UNIQUE and uadb.list_is_complete(counts)
+
+
+def scrape_ocr(found: list[dict], seen: set[str], cache: dict, arches: list[dict], video_ids: list[str]) -> None:
+    from scrape_community import guess_key, item_from_counts, record
+
+    if not ocr_available():
+        uadb.log("youtube ocr skipped: tesseract or ffmpeg missing")
+        return
+    idx = compact_index(cache)
+    picks: list[tuple[str, str]] = []
+    used = set()
+    for vid, title in video_ids:
+        if vid in used or not looks_like_deck(title):
+            continue
+        used.add(vid)
+        picks.append((vid, title))
+        if len(picks) >= VIDEO_CAP:
+            break
+    if len(picks) < VIDEO_CAP:
+        for vid, title in video_ids:
+            if vid in used:
+                continue
+            used.add(vid)
+            picks.append((vid, title or ""))
+            if len(picks) >= VIDEO_CAP:
+                break
+    uadb.log("youtube ocr videos", len(picks))
+    downloads = 0
+    with tempfile.TemporaryDirectory(prefix="uadb-ocr-") as td:
+        tmp = Path(td)
+        for i, (vid, title) in enumerate(picks, 1):
+            uadb.log("ocr", i, "/", len(picks), vid, (title or "")[:48])
+            status, html = uadb.fetch(f"https://www.youtube.com/watch?v={vid}", timeout=22, browser=True)
+            page = html if status == 200 else ""
+            date = watch_date(page)
+            title = title or watch_title(page)
+            merged: dict[str, int] = {}
+            thumb = tmp / f"{vid}.jpg"
+            tpath = thumbnail(vid, thumb)
+            if tpath:
+                for cid, n in ocr_image(tpath, cache, idx).items():
+                    merged[cid] = max(merged.get(cid, 0), n)
+            if not complete_enough(merged) and downloads < 18:
+                clip = tmp / f"{vid}.mp4"
+                if download_clip(vid, clip):
+                    downloads += 1
+                    for frame in frames_from_video(clip, tmp / f"{vid}_frames"):
+                        for cid, n in ocr_image(frame, cache, idx).items():
+                            merged[cid] = max(merged.get(cid, 0), n)
+                    try:
+                        clip.unlink()
+                    except OSError:
+                        pass
+            if not complete_enough(merged):
+                continue
+            blob = f"{title} {page[:4000]}"
+            key = guess_key(blob, merged, cache, arches)
+            if not key:
+                uadb.log("ocr no-key", vid, "cards", sum(merged.values()))
+                continue
+            player = re.sub(r"\s*[-|].*", "", title or "").strip()[:40] or "YouTube"
+            record(
+                found,
+                item_from_counts(
+                    merged,
+                    key=key,
+                    kind="youtube",
+                    player=player,
+                    title=(title or f"{key} YouTube list")[:90],
+                    subtitle="YouTube on-screen list (from the video or thumbnail)",
+                    source_url=f"https://www.youtube.com/watch?v={vid}",
+                    slug=uadb.slugify(f"yt-ocr-{player}-{key}-{vid}"),
+                    date=date,
+                ),
+                seen,
+            )
+
+
+def main() -> int:
+    import scrape_community
+
+    cache = uadb.load_json("data/card-cache.json", {})
+    extra = uadb.load_json("data/contender-cards.json", {})
+    for cid, card in extra.items():
+        cache.setdefault(cid, {}).update({k: v for k, v in card.items() if v})
+    arches = scrape_community.archetypes()
+    ids: list[tuple[str, str]] = []
+    seen: set[str] = set()
+    for query in scrape_community.youtube_queries(arches)[:24]:
+        for vid in scrape_community.youtube_search(query):
+            if vid not in seen:
+                seen.add(vid)
+                ids.append((vid, ""))
+        if len(ids) >= 80:
+            break
+    found: list[dict] = []
+    scrape_ocr(found, set(), cache, arches, ids)
+    existing = uadb.load_json("data/community-decks.json", [])
+    seen_raw = {row.get("raw") for row in existing}
+    added = 0
+    for item in found:
+        if item.get("raw") in seen_raw:
+            continue
+        existing.append(item)
+        seen_raw.add(item.get("raw"))
+        added += 1
+    uadb.save_json("data/youtube-ocr-decks.json", found)
+    uadb.save_json("data/community-decks.json", existing)
+    print("youtube ocr lists", len(found), "added", added)
+    return 0
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())

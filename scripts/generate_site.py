@@ -1,8 +1,5 @@
 #!/usr/bin/env python3
-"""Render Union Arena Deck Base HTML from scraped TCG Contender + official cards.
-
-Layout and averaging algorithm follow One Piece Deck Base. No OPTCG sim.
-"""
+"""Render Union Arena Deck Base HTML from scraped TCG Contender + official cards."""
 
 from __future__ import annotations
 
@@ -253,7 +250,7 @@ def render_text_deck(items: list[dict], cache: dict, heading: str = "Text list")
             <h3>{html.escape(heading)}</h3>
             {uadb.copy_button(sim_text(items))}
           </div>
-          <p class="muted">Hover or tap a name for the picture. Copy pastes <code>NxSET/CODE</code> lines — no simulator import.</p>
+          <p class="muted">Hover or tap a name for the picture. Copy pastes <code>NxSET/CODE</code> lines. No simulator import.</p>
           <div class="text-deck-cols">
 {chr(10).join(cols)}
           </div>
@@ -371,7 +368,14 @@ def render_pictures(items: list[dict], cache: dict) -> str:
 
 
 def pretty_blurb(s: str) -> str:
-    return (s or "").replace("_", " ")
+    return uadb.no_em((s or "").replace("_", " "))
+
+
+def recent_who(player: str, name: str) -> str:
+    who = (player or "").strip()
+    if not who or who.lower() == "consensus":
+        return name
+    return f"{who} · {name}"
 
 
 def take_text(arch: dict) -> str:
@@ -394,11 +398,11 @@ def take_text(arch: dict) -> str:
 
 def write_list_page(arch: dict, entry: dict, items: list[dict], cache: dict, feature: dict) -> None:
     color = uadb.color_class((feature.get("meta") or {}).get("color"))
-    title = entry.get("title") or f"{entry.get('player')} — {arch['name']}"
-    subtitle = entry.get("subtitle") or ""
+    title = uadb.no_em(entry.get("title") or f"{entry.get('player')} - {arch['name']}")
+    subtitle = uadb.no_em(entry.get("subtitle") or "")
     kind_note = {
         "contender": "Consensus 50-card list aggregated from public Union Arena tournament results on TCG Contender.",
-        "youtube": "List from a YouTube deck profile description. Card pictures from the official Bandai cardlist.",
+        "youtube": "List from a YouTube deck profile. Card pictures from the official Bandai cardlist.",
         "web": "Community list from a public deck page. Card pictures from the official Bandai cardlist.",
         "tournament": "Tournament list. Card pictures from the official Bandai cardlist.",
         "official": "Official Bandai top-placing constructed list from unionarena-tcg.com.",
@@ -424,7 +428,7 @@ def write_list_page(arch: dict, entry: dict, items: list[dict], cache: dict, fea
 {render_text_deck(items, cache)}
 {render_pictures(items, cache)}
         <p class="muted" style="margin-top:22px">{html.escape(kind_note)} Source: <a href="{html.escape(source)}">{html.escape(source)}</a>. Images hosted by Bandai. Not affiliated with Bandai.</p>"""
-    page = uadb.page_chrome(title, f"{arch['full']} decklist — {subtitle}"[:160], color, body)
+    page = uadb.page_chrome(title, f"{arch['full']} decklist - {subtitle}"[:160], color, body)
     dest = uadb.ROOT / arch["dir"] / f"{entry['slug']}.html"
     dest.parent.mkdir(parents=True, exist_ok=True)
     dest.write_text(page)
@@ -456,8 +460,8 @@ def write_hub(arch: dict, lists: list[dict], items: list[dict], cache: dict, fea
             f"""            <li class="list-row">
               <a class="item" href="{html.escape(href)}">
                 <div>
-                  <div style="font-weight:700">{html.escape(entry.get('title') or entry['slug'])}</div>
-                  <div class="muted" style="font-size:13px">{html.escape(entry.get('subtitle') or '')}</div>
+                  <div style="font-weight:700">{html.escape(uadb.no_em(entry.get('title') or entry['slug']))}</div>
+                  <div class="muted" style="font-size:13px">{html.escape(uadb.no_em(entry.get('subtitle') or ''))}</div>
                 </div>
                 <div class="link">{html.escape(str(right))} →</div>
               </a>
@@ -538,7 +542,7 @@ def write_home(arches: list[dict], recent: list[dict], cache: dict, features: di
     splash_href = f"/{feat['page']}" if feat else "/characters.html"
     body = f"""        <section class="home-splash" aria-label="Union Arena Deck Base">
           <img class="home-splash-bg" src="/img/uadb-hero.png" alt="UADB" />
-          <a class="home-splash-luffy" href="{html.escape(splash_href)}">
+          <a class="home-splash-feature" href="{html.escape(splash_href)}">
             <img src="{html.escape(feat_img)}" alt="{html.escape(feat['full'] if feat else 'Union Arena')}" />
           </a>
           <div class="home-splash-bar">
@@ -555,7 +559,7 @@ def write_home(arches: list[dict], recent: list[dict], cache: dict, features: di
               </svg>
             </span>
             <span class="home-big-title">Recent Lists</span>
-            <span class="home-big-note">Newest 50-card results from every character</span>
+            <span class="home-big-note">Newest published 50-card lists first</span>
           </a>
           <a class="home-big home-big-leaders" href="#characters">
             <span class="home-big-icon" aria-hidden="true">
@@ -601,7 +605,7 @@ def write_home(arches: list[dict], recent: list[dict], cache: dict, features: di
             <h3>Recent lists</h3>
             <div class="muted">{len(recent)} lists</div>
           </div>
-          <p class="muted">Newest first. At least one list from each character, then the latest results.</p>
+          <p class="muted">Newest published lists first.</p>
           <ul class="recent-list" aria-label="Recent decklists">
 {chr(10).join(rec_items)}
           </ul>
@@ -648,14 +652,14 @@ def write_format(arches: list[dict]) -> None:
         )
     body = f"""        <div class="crumb"><a href="/">Home</a> / Format</div>
         <h2>Standard format</h2>
-        <p>Lists on this site are 50-card constructed Union Arena decks. English events are single-title Standard. A deck is usually one IP — Solo Leveling, Sakamoto Days, Evangelion, Chainsaw Man — plus up to 4 copies of each card number.</p>
+        <p>Lists on this site are 50-card constructed Union Arena decks. English events are single-title Standard. A deck is usually one IP (Solo Leveling, Sakamoto Days, Evangelion, Chainsaw Man) plus up to 4 copies of each card number.</p>
 
         <section class="meta-take" id="meta" style="margin-top:22px">
           <div class="section-title">
             <h3>Current metagame</h3>
             <div class="muted">From lists on this site</div>
           </div>
-          <p>The snapshot follows public Union Arena tournaments, not One Piece. Sung Jinwoo, Hajime Saito, Shin Asakura, and Rei Ayanami are the names that keep showing up. Everything else is a step down or a title specialist.</p>
+          <p>The snapshot follows public Union Arena tournaments. Sung Jinwoo, Hajime Saito, Shin Asakura, and Rei Ayanami are the names that keep showing up. Everything else is a step down or a title specialist.</p>
           <ul class="meta-blurbs">
 {chr(10).join(blurbs)}
           </ul>
@@ -756,7 +760,7 @@ def main() -> None:
         cons_entry = {
             "slug": "contender-consensus",
             "kind": "contender",
-            "title": f"Consensus — {arch['full']}",
+            "title": f"Consensus - {arch['full']}",
             "subtitle": f"TCG Contender Standard snapshot · {arch.get('updated') or ''}",
             "player": "Consensus",
             "date": arch.get("updated") or "",
@@ -782,6 +786,7 @@ def main() -> None:
             }
             write_list_page(arch, comm_entry, c_items, cache, feature)
             lists.append(comm_entry)
+        lists.sort(key=lambda e: e.get("date") or "0000", reverse=True)
         write_hub(arch, lists, items, cache, feature)
         sitemap.append(arch["page"])
         for entry in lists:
@@ -791,7 +796,7 @@ def main() -> None:
                     "href": f"/{arch['dir']}/{entry['slug']}.html",
                     "img": uadb.card_image_url(feature.get("id") or "", cache),
                     "name": arch["name"],
-                    "who": f"{entry.get('player')} — {arch['name']}",
+                    "who": recent_who(entry.get("player") or "", arch["name"]),
                     "meta": entry.get("subtitle") or arch["full"],
                     "when": entry.get("date") or "",
                     "color": arch.get("color") or "",
@@ -803,19 +808,8 @@ def main() -> None:
         ]
         uadb.log("hub", arch["key"], "lists", len(lists), "feature", feature.get("id"))
 
-    # recent: one per character first, then the rest by date
-    seen = set()
-    head = []
-    rest = []
-    for row in recent:
-        if row["key"] not in seen:
-            seen.add(row["key"])
-            head.append(row)
-        else:
-            rest.append(row)
-    rest.sort(key=lambda r: r.get("when") or "", reverse=True)
-    ordered = head + rest
-    write_home(arches, ordered, cache, features)
+    recent.sort(key=lambda r: r.get("when") or "0000", reverse=True)
+    write_home(arches, recent, cache, features)
     write_characters_index(arches, features, cache)
     write_format(arches)
     write_privacy()
