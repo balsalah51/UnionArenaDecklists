@@ -15,6 +15,10 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 SITE = "https://unionarenadecklists.com"
 UA = "UnionArenaDecklists/1.0 (+https://unionarenadecklists.com; public UA list scrape)"
+BROWSER_UA = (
+    "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
+    "(KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36"
+)
 DISCORD = "https://discord.gg/adZ2WUQ3D"
 BRAND = "Union Arena Deck Base"
 SUBTITLE = "Union Arena TCG decklists"
@@ -26,7 +30,16 @@ RESTRICTED_ONE = {
     "UE15BT/EVA-1-063",  # Spear of Gaius
 }
 LINE_RE = re.compile(
-    r"(?i)(\d+)\s*[x×*]\s*((?:UE|UA|ST|PR|UEX)[A-Z0-9]{0,6}/[A-Z]{2,4}-\d-\d{3})"
+    r"(?i)(\d+)\s*[x×*]\s*((?:UE|UA|ST|PR|UEX)[A-Z0-9]{0,8}[/_\-]+[A-Z]{2,4}-\d-\d{3})"
+)
+CID_TOKEN_RE = re.compile(
+    r"(?i)\b((?:UE|UA|ST|PR|UEX)[A-Z0-9]{2,8})[/_\-]+([A-Z]{2,4}-\d-\d{3})\b"
+)
+QTY_BEFORE_RE = re.compile(
+    r"(?i)(\d{1,2})\s*[x×*]\s*((?:UE|UA|ST|PR|UEX)[A-Z0-9]{2,8}[/_\-]+[A-Z]{2,4}-\d-\d{3})"
+)
+QTY_AFTER_RE = re.compile(
+    r"(?i)((?:UE|UA|ST|PR|UEX)[A-Z0-9]{2,8}[/_\-]+[A-Z]{2,4}-\d-\d{3})\s*[x×*]\s*(\d{1,2})"
 )
 POPUP_JS = r"""
     (function(){
@@ -111,18 +124,29 @@ def log(*args) -> None:
     print(*args, flush=True)
 
 
-def fetch(url: str, timeout: int = 20, data: bytes | None = None) -> tuple[int, str]:
+def fetch(
+    url: str,
+    timeout: int = 20,
+    data: bytes | None = None,
+    content_type: str | None = None,
+    browser: bool = False,
+    extra_headers: dict | None = None,
+) -> tuple[int, str]:
+    headers = {
+        "User-Agent": BROWSER_UA if browser else UA,
+        "Accept": "text/html,application/json,*/*",
+        "Accept-Language": "en-US,en;q=0.9",
+    }
+    if extra_headers:
+        headers.update(extra_headers)
     req = urllib.request.Request(
         url,
         data=data,
-        headers={
-            "User-Agent": UA,
-            "Accept": "text/html,application/json,*/*",
-        },
+        headers=headers,
         method="POST" if data is not None else "GET",
     )
     if data is not None:
-        req.add_header("Content-Type", "application/x-www-form-urlencoded")
+        req.add_header("Content-Type", content_type or "application/x-www-form-urlencoded")
     try:
         with urllib.request.urlopen(req, timeout=timeout) as resp:
             return resp.status, resp.read().decode("utf-8", "replace")
@@ -339,3 +363,39 @@ def parse_named_card(label: str) -> tuple[str, str | None]:
     if m:
         return m.group(1).strip(), m.group(2).zfill(3)
     return raw, None
+
+
+def normalize_cid(raw: str) -> str | None:
+    m = CID_TOKEN_RE.search(raw or "")
+    if not m:
+        return None
+    set_code = m.group(1).upper()
+    number = m.group(2).upper()
+    if "-AP" in number:
+        return None
+    return f"{set_code}/{number}"
+
+
+def parse_counts(text: str) -> dict[str, int]:
+    counts: dict[str, int] = {}
+    blob = text or ""
+    seen_spans: list[tuple[int, int]] = []
+    for m in QTY_BEFORE_RE.finditer(blob):
+        cid = normalize_cid(m.group(2))
+        if not cid:
+            continue
+        counts[cid] = counts.get(cid, 0) + int(m.group(1))
+        seen_spans.append(m.span())
+    for m in QTY_AFTER_RE.finditer(blob):
+        if any(m.start() >= a and m.end() <= b for a, b in seen_spans):
+            continue
+        cid = normalize_cid(m.group(1))
+        if not cid:
+            continue
+        counts[cid] = counts.get(cid, 0) + int(m.group(2))
+    return {cid: n for cid, n in counts.items() if 1 <= n <= 4}
+
+
+def list_is_complete(counts: dict[str, int]) -> bool:
+    total = sum(counts.values())
+    return MIN_CARDS <= total <= 60

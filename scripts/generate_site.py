@@ -398,14 +398,28 @@ def write_list_page(arch: dict, entry: dict, items: list[dict], cache: dict, fea
     subtitle = entry.get("subtitle") or ""
     kind_note = {
         "contender": "Consensus 50-card list aggregated from public Union Arena tournament results on TCG Contender.",
-        "youtube": "List from a YouTube deck profile. Card pictures from the official Bandai cardlist.",
+        "youtube": "List from a YouTube deck profile description. Card pictures from the official Bandai cardlist.",
         "web": "Community list from a public deck page. Card pictures from the official Bandai cardlist.",
         "tournament": "Tournament list. Card pictures from the official Bandai cardlist.",
+        "official": "Official Bandai top-placing constructed list from unionarena-tcg.com.",
     }.get(entry.get("kind"), "Community Union Arena list.")
     source = entry.get("source_url") or "https://tcgcontender.com/unionarena/meta"
+    over = [
+        f"{it['id']}"
+        for it in items
+        if it["id"] in uadb.RESTRICTED_ONE and int(it.get("count") or 0) > 1
+    ]
+    flag = ""
+    if over:
+        flag = (
+            "<p class=\"muted\"><strong>Restricted:</strong> this list still plays more than one copy of "
+            + ", ".join(html.escape(x) for x in over)
+            + ". Bandai limited those cards to one copy each as of 17 April 2026.</p>"
+        )
     body = f"""        <div class="crumb"><a href="/">Home</a> / <a href="/characters.html">Characters</a> / <a href="/{html.escape(arch['page'])}">{html.escape(arch['full'])}</a> / Decklist</div>
         <h2>{html.escape(title)}</h2>
         <p>{html.escape(subtitle)}</p>
+{flag}
 {render_deck_stats(items, cache)}
 {render_text_deck(items, cache)}
 {render_pictures(items, cache)}
@@ -700,6 +714,14 @@ def write_privacy() -> None:
     (uadb.ROOT / "privacy.html").write_text(page)
 
 
+def write_404() -> None:
+    body = """        <div class="crumb"><a href="/">Home</a> / Missing page</div>
+        <h2>That page is not here</h2>
+        <p>Try the <a href="/">home splash</a>, <a href="/characters.html">character pages</a>, or <a href="/#recent">recent lists</a>.</p>"""
+    page = uadb.page_chrome("Page not found | Union Arena Deck Base", "That Union Arena Deck Base page is missing.", "color-red", body)
+    (uadb.ROOT / "404.html").write_text(page)
+
+
 def write_sitemap(paths: list[str]) -> None:
     urls = "\n".join(
         f"  <url><loc>{uadb.SITE}/{p.lstrip('/')}</loc></url>" for p in paths
@@ -798,6 +820,7 @@ def main() -> None:
     write_format(arches)
     write_privacy()
     write_sitemap(sitemap)
+    write_404()
     uadb.save_json("data/site-index.json", index)
     uadb.log("wrote site", "pages", len(sitemap))
 

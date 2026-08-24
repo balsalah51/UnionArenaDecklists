@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 """Build Union Arena Deck Base from public sources.
 
-Order: TCG Contender decks + cards, official Bandai cardlist, optional community
-YouTube/web scrape, then HTML. Does not touch any OPTCG simulator.
+Order: TCG Contender decks + cards, official Bandai cardlist, YouTube + official
+top-placing lists, then HTML. Does not touch any OPTCG simulator.
 """
 
 from __future__ import annotations
@@ -28,8 +28,8 @@ def main() -> None:
     scrape_official_cards.main()
     scrape_contender.merge_card_caches()
 
-    if "--community" in sys.argv:
-        print("=== YouTube / public pages ===")
+    if "--skip-community" not in sys.argv:
+        print("=== YouTube + official top-placing ===")
         import scrape_community
 
         scrape_community.main()
