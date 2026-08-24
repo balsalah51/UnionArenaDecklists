@@ -1,0 +1,3438 @@
+{
+  "formats": {
+    "gameId": "unionarena",
+    "formats": [
+      {
+        "slug": "standard",
+        "name": "Standard",
+        "desc": "All released cards legal unless restricted",
+        "isDefault": true,
+        "sortOrder": 0
+      }
+    ]
+  },
+  "defaultOverview": {
+    "gameId": "unionarena",
+    "formatSlug": "standard",
+    "formatName": "Standard",
+    "formatDesc": "All released cards legal unless restricted",
+    "blendWeights": {
+      "factors": 50,
+      "tournament": 30,
+      "matchup": 20
+    },
+    "defaultScoreMode": "blended",
+    "factors": [
+      {
+        "factor": "Matchup Spread",
+        "weight": 18,
+        "key": "matchup_spread",
+        "desc": "Favorable or neutral coverage across the meta's IP archetypes and color strategies. With an expanded 15-deck meta field, decks with fewer polarized matchups perform more reliably across tournament swiss rounds."
+      },
+      {
+        "factor": "Tempo",
+        "weight": 16,
+        "key": "tempo",
+        "desc": "Efficient AP usage and energy curve optimization for early and mid-game board development. Includes the ability to deploy threats ahead of curve and maintain proactive pressure."
+      },
+      {
+        "factor": "Consistency",
+        "weight": 13,
+        "key": "consistency",
+        "desc": "Reliable access to key characters and combo pieces through draw, search, and filtering effects. Decks that consistently assemble their core strategy outperform those reliant on natural draws."
+      },
+      {
+        "factor": "Power Ceiling",
+        "weight": 11,
+        "key": "power_ceiling",
+        "desc": "Maximum damage output potential through Impact, Double Attack, Damage 2, and high BP thresholds. Measures how decisively a deck can close games once its win condition is assembled."
+      },
+      {
+        "factor": "Resource Management",
+        "weight": 10,
+        "key": "resource_management",
+        "desc": "Energy and AP economy, hand size management, and long-term card advantage. Measures how efficiently a deck converts its resources into board presence and damage over the course of a game."
+      },
+      {
+        "factor": "Resilience",
+        "weight": 9,
+        "key": "resilience",
+        "desc": "Ability to recover from life damage pressure, board wipes, and resource deficit through trigger activations, defensive keywords, and comeback mechanics."
+      },
+      {
+        "factor": "Flexibility",
+        "weight": 6,
+        "key": "flexibility",
+        "desc": "Adaptable game plans, multi-color tech options, and the ability to pivot between aggressive and defensive postures depending on game state and matchup."
+      },
+      {
+        "factor": "Disruption",
+        "weight": 6,
+        "key": "disruption",
+        "desc": "Ability to interfere with the opponent's board state, hand, or game plan through removal, Snipe, retire effects, and denial of key setups. Increasingly relevant as combo-oriented IPs populate the meta."
+      },
+      {
+        "factor": "Trigger Quality",
+        "weight": 6,
+        "key": "trigger_quality",
+        "desc": "Overall value and composition of triggers in the deck's life area, including Color triggers for resource generation, Active triggers for board impact, and Final triggers for last-resort defense."
+      },
+      {
+        "factor": "Skill Ceiling",
+        "weight": 5,
+        "key": "skill_ceiling",
+        "desc": "Decision tree depth, AP sequencing complexity, and the gap between average and optimal play lines. Decks that reward mastery with significantly higher win rates score well here."
+      }
+    ],
+    "decks": [
+      {
+        "name": "Solo Leveling - Cha Hae-In",
+        "archetype": "Solo Leveling - Cha Hae-In",
+        "tier": "5",
+        "style": "Midrange",
+        "metaShares": {
+          "weighted": 0.010436062459042331,
+          "recent30d": 0.006329113924050633,
+          "sinceBanlist": 0.007128309572301426
+        },
+        "metaShareWeighted": 0.010436063,
+        "poe": 0.04095951332248481,
+        "tempo": 36,
+        "poeLabel": "Mild overperformer",
+        "metaShare": 0.010436062606920532,
+        "disruption": 28,
+        "resilience": 38,
+        "consistency": 42,
+        "flexibility": 34,
+        "power_ceiling": 56,
+        "skill_ceiling": 58,
+        "conversionRate": 0.9954753901645917,
+        "matchup_spread": 50,
+        "trigger_quality": 40,
+        "_tournament_score": 58,
+        "resource_management": 46,
+        "_tournament_confidence": 0.04
+      },
+      {
+        "name": "CSM - Chainsaw Man",
+        "archetype": "Chainsaw Man Aggro/Midrange Devil Hunters",
+        "tier": "3",
+        "style": "Aggro",
+        "metaShares": {
+          "weighted": 0.025056906363874608,
+          "recent30d": 0.03375527426160337,
+          "sinceBanlist": 0.016293279022403257
+        },
+        "metaShareWeighted": 0.025056906,
+        "poe": 0.07470276240701776,
+        "tempo": 65,
+        "poeLabel": "Mild overperformer",
+        "metaShare": 0.025056906718929038,
+        "disruption": 35,
+        "resilience": 40,
+        "consistency": 58,
+        "flexibility": 45,
+        "power_ceiling": 60,
+        "skill_ceiling": 58,
+        "_matchup_score": 52,
+        "conversionRate": 0.8168928305903905,
+        "matchup_spread": 52,
+        "trigger_quality": 48,
+        "_tournament_score": 65,
+        "_matchup_confidence": 1,
+        "resource_management": 52,
+        "_tournament_confidence": 0.1
+      },
+      {
+        "name": "CSM - Denji",
+        "archetype": "CSM - Denji",
+        "tier": "2",
+        "style": "Aggro",
+        "metaShares": {
+          "weighted": 0.02703604339589989,
+          "recent30d": 0.0379746835443038,
+          "sinceBanlist": 0.018329938900203666
+        },
+        "metaShareWeighted": 0.027036043,
+        "poe": 0.05409051932471841,
+        "tempo": 70,
+        "poeLabel": "Mild overperformer",
+        "metaShare": 0.027036043778998545,
+        "disruption": 52,
+        "resilience": 45,
+        "consistency": 62,
+        "flexibility": 40,
+        "power_ceiling": 66,
+        "skill_ceiling": 60,
+        "_matchup_score": 52,
+        "conversionRate": 0.5623742001172167,
+        "matchup_spread": 52,
+        "trigger_quality": 50,
+        "_tournament_score": 61,
+        "_matchup_confidence": 1,
+        "resource_management": 55,
+        "_tournament_confidence": 0.11
+      },
+      {
+        "name": "Bleach - Kenpachi Zaraki",
+        "archetype": "Bleach - Kenpachi Zaraki",
+        "tier": "4",
+        "style": "Midrange",
+        "metaShares": {
+          "weighted": 0.00964284540380966,
+          "recent30d": 0.008438818565400843,
+          "sinceBanlist": 0.010183299389002037
+        },
+        "metaShareWeighted": 0.009642845,
+        "poe": 0.011400588480885427,
+        "tempo": 48,
+        "poeLabel": "Performing as expected",
+        "metaShare": 0.009642845540448036,
+        "disruption": 36,
+        "resilience": 46,
+        "consistency": 55,
+        "flexibility": 44,
+        "power_ceiling": 66,
+        "skill_ceiling": 60,
+        "_matchup_score": 43,
+        "conversionRate": 0.3054323456834679,
+        "matchup_spread": 43,
+        "trigger_quality": 48,
+        "_tournament_score": 52,
+        "_matchup_confidence": 1,
+        "resource_management": 52,
+        "_tournament_confidence": 0.04
+      },
+      {
+        "name": "Jujutsu Kaisen - Aoi Todo",
+        "archetype": "JJK - Aoi Todo",
+        "tier": "2",
+        "style": "Midrange",
+        "metaShares": {
+          "weighted": 0.02009267998004066,
+          "recent30d": 0.016877637130801686,
+          "sinceBanlist": 0.016293279022403257
+        },
+        "metaShareWeighted": 0.02009268,
+        "poe": 0.061955370508899044,
+        "tempo": 67,
+        "poeLabel": "Mild overperformer",
+        "metaShare": 0.020092678493512133,
+        "disruption": 58,
+        "resilience": 59,
+        "consistency": 72,
+        "flexibility": 57,
+        "power_ceiling": 71,
+        "skill_ceiling": 67,
+        "_matchup_score": 44,
+        "conversionRate": 0.8237539314445566,
+        "matchup_spread": 44,
+        "trigger_quality": 54,
+        "_tournament_score": 62,
+        "_matchup_confidence": 1,
+        "resource_management": 63,
+        "_tournament_confidence": 0.08
+      },
+      {
+        "name": "Rurouni Kenshin - Kaoru Kamiya",
+        "archetype": "Rurouni Kenshin - Kaoru Kamiya",
+        "tier": "3",
+        "style": "Midrange",
+        "metaShares": {
+          "weighted": 0.03518820493621232,
+          "recent30d": 0.03164556962025317,
+          "sinceBanlist": 0.02240325865580448
+        },
+        "metaShareWeighted": 0.035188206,
+        "poe": 0.08872113531468434,
+        "tempo": 62,
+        "poeLabel": "Mild overperformer",
+        "metaShare": 0.035188205434826474,
+        "disruption": 38,
+        "resilience": 48,
+        "consistency": 68,
+        "flexibility": 45,
+        "power_ceiling": 55,
+        "skill_ceiling": 64,
+        "_matchup_score": 45,
+        "conversionRate": 0.7303950497461108,
+        "matchup_spread": 45,
+        "trigger_quality": 50,
+        "_tournament_score": 68,
+        "_matchup_confidence": 1,
+        "resource_management": 58,
+        "_tournament_confidence": 0.15
+      },
+      {
+        "name": "Sakamoto Days - Lu Shaotang",
+        "archetype": "Sakamoto Days - Lu Shaotang",
+        "tier": "4",
+        "style": "Midrange",
+        "metaShares": {
+          "weighted": 0.013670281401334843,
+          "recent30d": 0.010548523206751054,
+          "sinceBanlist": 0.009164969450101833
+        },
+        "metaShareWeighted": 0.0136702815,
+        "poe": 0.05104000563760642,
+        "tempo": 53,
+        "poeLabel": "Mild overperformer",
+        "metaShare": 0.01367028159504168,
+        "disruption": 36,
+        "resilience": 45,
+        "consistency": 52,
+        "flexibility": 52,
+        "power_ceiling": 55,
+        "skill_ceiling": 56,
+        "_matchup_score": 47,
+        "conversionRate": 0.9628085429895139,
+        "matchup_spread": 47,
+        "trigger_quality": 43,
+        "_tournament_score": 60,
+        "_matchup_confidence": 1,
+        "resource_management": 51,
+        "_tournament_confidence": 0.06
+      },
+      {
+        "name": "That Time I Got Reincarnated As A Slime - Milim",
+        "archetype": "TenSura - Milim",
+        "tier": "5",
+        "style": "Aggro",
+        "metaShares": {
+          "weighted": 0.0133914667655877,
+          "recent30d": 0.006329113924050633,
+          "sinceBanlist": 0.008146639511201629
+        },
+        "metaShareWeighted": 0.013391467,
+        "poe": 0.038992744170223706,
+        "tempo": 55,
+        "poeLabel": "Mild overperformer",
+        "metaShare": 0.013391465184103498,
+        "disruption": 28,
+        "resilience": 40,
+        "consistency": 45,
+        "flexibility": 32,
+        "power_ceiling": 78,
+        "skill_ceiling": 60,
+        "_matchup_score": 45,
+        "conversionRate": 0.7527844776556762,
+        "matchup_spread": 45,
+        "trigger_quality": 42,
+        "_tournament_score": 58,
+        "_matchup_confidence": 1,
+        "resource_management": 38,
+        "_tournament_confidence": 0.06
+      },
+      {
+        "name": "Sword Art Online - Yuna",
+        "archetype": "SAO - Yuna",
+        "tier": "3",
+        "style": "Midrange",
+        "metaShares": {
+          "weighted": 0.009308278905449295,
+          "recent30d": 0.004219409282700422,
+          "sinceBanlist": 0.006109979633401222
+        },
+        "metaShareWeighted": 0.009308279,
+        "poe": 0.012422726149215225,
+        "tempo": 63,
+        "poeLabel": "Performing as expected",
+        "metaShare": 0.009308277266106633,
+        "disruption": 38,
+        "resilience": 52,
+        "consistency": 71,
+        "flexibility": 45,
+        "power_ceiling": 55,
+        "skill_ceiling": 70,
+        "_matchup_score": 38,
+        "conversionRate": 0.3427555198032645,
+        "matchup_spread": 38,
+        "trigger_quality": 50,
+        "_tournament_score": 52,
+        "_matchup_confidence": 1,
+        "resource_management": 65,
+        "_tournament_confidence": 0.04
+      },
+      {
+        "name": "That Time I Got Reincarnated As A Slime - Rimuru",
+        "archetype": "TenSura - Rimuru",
+        "tier": "2",
+        "style": "Midrange",
+        "metaShares": {
+          "weighted": 0.017865721200811986,
+          "recent30d": 0.012658227848101266,
+          "sinceBanlist": 0.013238289205702648
+        },
+        "metaShareWeighted": 0.017865721,
+        "poe": 0.06719926908933772,
+        "tempo": 60,
+        "poeLabel": "Mild overperformer",
+        "metaShare": 0.017865721453967878,
+        "disruption": 73,
+        "resilience": 63,
+        "consistency": 74,
+        "flexibility": 58,
+        "power_ceiling": 74,
+        "skill_ceiling": 71,
+        "_matchup_score": 46,
+        "conversionRate": 0.9898274880467227,
+        "matchup_spread": 46,
+        "trigger_quality": 56,
+        "_tournament_score": 63,
+        "_matchup_confidence": 1,
+        "resource_management": 68,
+        "_tournament_confidence": 0.07
+      },
+      {
+        "name": "CSM - Power",
+        "archetype": "Chainsaw Man - Power Aggro",
+        "tier": "2",
+        "style": "Aggro",
+        "metaShares": {
+          "weighted": 0.012093890673114664,
+          "recent30d": 0.02109704641350211,
+          "sinceBanlist": 0.010183299389002037
+        },
+        "metaShareWeighted": 0.01209389,
+        "poe": 0.03645767496918617,
+        "tempo": 72,
+        "poeLabel": "Mild overperformer",
+        "metaShare": 0.012093890844484164,
+        "disruption": 64,
+        "resilience": 51,
+        "consistency": 62,
+        "flexibility": 58,
+        "power_ceiling": 74,
+        "skill_ceiling": 64,
+        "_matchup_score": 52,
+        "conversionRate": 0.7736776440064961,
+        "matchup_spread": 52,
+        "trigger_quality": 53,
+        "_tournament_score": 57,
+        "_matchup_confidence": 1,
+        "resource_management": 57,
+        "_tournament_confidence": 0.05
+      },
+      {
+        "name": "Evangelion - Evangelion Proto Type-00",
+        "archetype": "Evangelion - Evangelion Proto Type-00",
+        "tier": "2",
+        "style": "Tempo",
+        "metaShares": {
+          "weighted": 0.02167827279879655,
+          "recent30d": 0.016877637130801686,
+          "sinceBanlist": 0.015274949083503055
+        },
+        "metaShareWeighted": 0.021678273,
+        "poe": 0.07810430389184944,
+        "tempo": 74,
+        "poeLabel": "Mild overperformer",
+        "metaShare": 0.021678273105976014,
+        "disruption": 33,
+        "resilience": 62,
+        "consistency": 78,
+        "flexibility": 48,
+        "power_ceiling": 55,
+        "skill_ceiling": 62,
+        "_matchup_score": 47,
+        "conversionRate": 0.9664268725746094,
+        "matchup_spread": 47,
+        "trigger_quality": 60,
+        "_tournament_score": 66,
+        "_matchup_confidence": 1,
+        "resource_management": 62,
+        "_tournament_confidence": 0.09
+      },
+      {
+        "name": "Evangelion - Rei Ayanami",
+        "archetype": "Evangelion - Rei Ayanami",
+        "tier": "1",
+        "style": "Tempo",
+        "metaShares": {
+          "weighted": 0.03886345940514151,
+          "recent30d": 0.02531645569620253,
+          "sinceBanlist": 0.02240325865580448
+        },
+        "metaShareWeighted": 0.038863458,
+        "poe": 0.11223230107809676,
+        "tempo": 78,
+        "poeLabel": "Strong overperformer",
+        "metaShare": 0.038863458184593476,
+        "disruption": 50,
+        "resilience": 66,
+        "consistency": 80,
+        "flexibility": 63,
+        "power_ceiling": 60,
+        "skill_ceiling": 70,
+        "_matchup_score": 58,
+        "conversionRate": 0.845747333803209,
+        "matchup_spread": 58,
+        "trigger_quality": 64,
+        "_tournament_score": 72,
+        "_matchup_confidence": 1,
+        "resource_management": 68,
+        "_tournament_confidence": 0.16
+      },
+      {
+        "name": "Kagurabachi - Hakuri Sazanami",
+        "archetype": "Kagurabachi - Hakuri Sazanami",
+        "tier": "3",
+        "style": "Midrange",
+        "metaShares": {
+          "weighted": 0.012295360613682851,
+          "recent30d": 0.006329113924050633,
+          "sinceBanlist": 0.006109979633401222
+        },
+        "metaShareWeighted": 0.012295361,
+        "poe": 0.023500345334315408,
+        "tempo": 56,
+        "poeLabel": "Performing as expected",
+        "metaShare": 0.012295359016666908,
+        "disruption": 44,
+        "resilience": 50,
+        "consistency": 57,
+        "flexibility": 42,
+        "power_ceiling": 64,
+        "skill_ceiling": 66,
+        "_matchup_score": 41,
+        "conversionRate": 0.4955477071305638,
+        "matchup_spread": 41,
+        "trigger_quality": 48,
+        "_tournament_score": 55,
+        "_matchup_confidence": 1,
+        "resource_management": 55,
+        "_tournament_confidence": 0.05
+      },
+      {
+        "name": "Rurouni Kenshin - Hajime Saito",
+        "archetype": "Rurouni Kenshin - Hajime Saito",
+        "tier": "1",
+        "style": "Aggro",
+        "metaShares": {
+          "weighted": 0.024630827615910567,
+          "recent30d": 0.027426160337552744,
+          "sinceBanlist": 0.018329938900203666
+        },
+        "metaShareWeighted": 0.024630828,
+        "poe": 0.08785669653495526,
+        "tempo": 85,
+        "poeLabel": "Mild overperformer",
+        "metaShare": 0.024630827964927503,
+        "disruption": 68,
+        "resilience": 73,
+        "consistency": 81,
+        "flexibility": 66,
+        "power_ceiling": 83,
+        "skill_ceiling": 73,
+        "_matchup_score": 64,
+        "conversionRate": 0.9704858861743181,
+        "matchup_spread": 64,
+        "trigger_quality": 77,
+        "_tournament_score": 68,
+        "_matchup_confidence": 1,
+        "resource_management": 80,
+        "_tournament_confidence": 0.1
+      },
+      {
+        "name": "Sakamoto Days - Heisuke Mashimo",
+        "archetype": "Sakamoto Days Yellow/Tempo",
+        "tier": "2",
+        "style": "Tempo",
+        "metaShares": {
+          "weighted": 0.020692586214233633,
+          "recent30d": 0.023206751054852322,
+          "sinceBanlist": 0.016293279022403257
+        },
+        "metaShareWeighted": 0.020692587,
+        "poe": 0.04353313817932712,
+        "tempo": 72,
+        "poeLabel": "Mild overperformer",
+        "metaShare": 0.020692586507445987,
+        "disruption": 32,
+        "resilience": 44,
+        "consistency": 68,
+        "flexibility": 66,
+        "power_ceiling": 62,
+        "skill_ceiling": 64,
+        "_matchup_score": 54,
+        "conversionRate": 0.5702784823271377,
+        "matchup_spread": 54,
+        "trigger_quality": 50,
+        "_tournament_score": 59,
+        "_matchup_confidence": 1,
+        "resource_management": 58,
+        "_tournament_confidence": 0.09
+      },
+      {
+        "name": "Sakamoto Days - Shin Asakura",
+        "archetype": "Sakamoto Days - Shin Asakura",
+        "tier": "1",
+        "style": "Aggro",
+        "metaShares": {
+          "weighted": 0.02771169774871558,
+          "recent30d": 0.02109704641350211,
+          "sinceBanlist": 0.017311608961303463
+        },
+        "metaShareWeighted": 0.027711697,
+        "poe": 0.09433915557626603,
+        "tempo": 84,
+        "poeLabel": "Mild overperformer",
+        "metaShare": 0.027711698141388203,
+        "disruption": 66,
+        "resilience": 72,
+        "consistency": 82,
+        "flexibility": 66,
+        "power_ceiling": 80,
+        "skill_ceiling": 76,
+        "_matchup_score": 63,
+        "conversionRate": 0.9409293088385908,
+        "matchup_spread": 63,
+        "trigger_quality": 78,
+        "_tournament_score": 69,
+        "_matchup_confidence": 1,
+        "resource_management": 78,
+        "_tournament_confidence": 0.12
+      },
+      {
+        "name": "Sakamoto Days - Taro Sakamoto",
+        "archetype": "Sakamoto Days - Taro Sakamoto",
+        "tier": "2",
+        "style": "Aggro",
+        "metaShares": {
+          "weighted": 0.018719711182936232,
+          "recent30d": 0.008438818565400843,
+          "sinceBanlist": 0.024439918533604887
+        },
+        "metaShareWeighted": 0.01871971,
+        "poe": 0.06903103733115706,
+        "tempo": 89,
+        "poeLabel": "Mild overperformer",
+        "metaShare": 0.018719711448193108,
+        "disruption": 68,
+        "resilience": 71,
+        "consistency": 85,
+        "flexibility": 71,
+        "power_ceiling": 87,
+        "skill_ceiling": 82,
+        "_matchup_score": 65,
+        "conversionRate": 0.9747757268348451,
+        "matchup_spread": 65,
+        "trigger_quality": 76,
+        "_tournament_score": 64,
+        "_matchup_confidence": 1,
+        "resource_management": 80,
+        "_tournament_confidence": 0.08
+      },
+      {
+        "name": "Solo Leveling - Sung Jinwoo",
+        "archetype": "Solo Leveling - Sung Jinwoo",
+        "tier": "1",
+        "style": "Midrange",
+        "metaShares": {
+          "weighted": 0.08849934821738123,
+          "recent30d": 0.06962025316455696,
+          "sinceBanlist": 0.06517311608961303
+        },
+        "metaShareWeighted": 0.088499345,
+        "poe": 0.2185630390574752,
+        "tempo": 82,
+        "poeLabel": "Strong overperformer",
+        "metaShare": 0.08849934770016989,
+        "disruption": 77,
+        "resilience": 84,
+        "consistency": 86,
+        "flexibility": 73,
+        "power_ceiling": 91,
+        "skill_ceiling": 83,
+        "_matchup_score": 57,
+        "conversionRate": 0.9011182013334451,
+        "matchup_spread": 57,
+        "trigger_quality": 84,
+        "_tournament_score": 94,
+        "_matchup_confidence": 1,
+        "resource_management": 85,
+        "_tournament_confidence": 0.37
+      },
+      {
+        "name": "Evangelion - Evangelion Test Type-01 Pseudo DMS Phase",
+        "archetype": "Evangelion Tempo",
+        "tier": "1",
+        "style": "Tempo",
+        "metaShares": {
+          "weighted": 0.037004650638754785,
+          "recent30d": 0.029535864978902954,
+          "sinceBanlist": 0.026476578411405296
+        },
+        "metaShareWeighted": 0.03700465,
+        "poe": 0.10306354815894213,
+        "tempo": 76,
+        "poeLabel": "Strong overperformer",
+        "metaShare": 0.03700464939186758,
+        "disruption": 50,
+        "resilience": 65,
+        "consistency": 79,
+        "flexibility": 53,
+        "power_ceiling": 66,
+        "skill_ceiling": 71,
+        "_matchup_score": 48,
+        "conversionRate": 0.8100135767365171,
+        "matchup_spread": 48,
+        "trigger_quality": 66,
+        "_tournament_score": 71,
+        "_matchup_confidence": 1,
+        "resource_management": 71,
+        "_tournament_confidence": 0.15
+      },
+      {
+        "name": "CSM - Makima",
+        "archetype": "CSM - Makima",
+        "tier": "2",
+        "style": "Control",
+        "metaShares": {
+          "weighted": 0.01302637642121226,
+          "recent30d": 0.012658227848101266,
+          "sinceBanlist": 0.006109979633401222
+        },
+        "metaShareWeighted": 0.013026376,
+        "poe": 0.025582541155067848,
+        "tempo": 52,
+        "poeLabel": "Performing as expected",
+        "metaShare": 0.01302637660579501,
+        "disruption": 58,
+        "resilience": 60,
+        "consistency": 68,
+        "flexibility": 55,
+        "power_ceiling": 74,
+        "skill_ceiling": 62,
+        "_matchup_score": 46,
+        "conversionRate": 0.5110097472323062,
+        "matchup_spread": 46,
+        "trigger_quality": 55,
+        "_tournament_score": 55,
+        "_matchup_confidence": 1,
+        "resource_management": 65,
+        "_tournament_confidence": 0.05
+      },
+      {
+        "name": "CSM - Aki Hayakawa",
+        "archetype": "CSM - Aki Hayakawa",
+        "tier": "3",
+        "style": "Midrange",
+        "metaShares": {
+          "weighted": 0.011954504006241993,
+          "recent30d": 0.012658227848101266,
+          "sinceBanlist": 0.006109979633401222
+        },
+        "metaShareWeighted": 0.011954504,
+        "poe": 0.02758059267696284,
+        "tempo": 58,
+        "poeLabel": "Performing as expected",
+        "metaShare": 0.011954504175636394,
+        "disruption": 45,
+        "resilience": 48,
+        "consistency": 66,
+        "flexibility": 50,
+        "power_ceiling": 55,
+        "skill_ceiling": 55,
+        "_matchup_score": 44,
+        "conversionRate": 0.5944963042569678,
+        "matchup_spread": 44,
+        "trigger_quality": 50,
+        "_tournament_score": 56,
+        "_matchup_confidence": 1,
+        "resource_management": 60,
+        "_tournament_confidence": 0.05
+      },
+      {
+        "name": "Tokyo Ghoul - Kotaro Amon",
+        "archetype": "Tokyo Ghoul - Kotaro Amon",
+        "tier": "3",
+        "style": "Midrange",
+        "metaShares": {
+          "weighted": 0.010101056062309242,
+          "recent30d": 0.006329113924050633,
+          "sinceBanlist": 0.004073319755600814
+        },
+        "metaShareWeighted": 0.010101056,
+        "poe": 0.02519575818398849,
+        "tempo": 58,
+        "poeLabel": "Performing as expected",
+        "metaShare": 0.010101056205440427,
+        "disruption": 50,
+        "resilience": 50,
+        "consistency": 62,
+        "flexibility": 48,
+        "power_ceiling": 55,
+        "skill_ceiling": 55,
+        "_matchup_score": 40,
+        "conversionRate": 0.6352968053746396,
+        "matchup_spread": 40,
+        "trigger_quality": 45,
+        "_tournament_score": 55,
+        "_matchup_confidence": 1,
+        "resource_management": 55,
+        "_tournament_confidence": 0.04
+      },
+      {
+        "name": "CSM - Purple",
+        "archetype": "CSM - Purple",
+        "tier": "2",
+        "style": "Aggro",
+        "metaShares": {
+          "weighted": 0.009503241844077453,
+          "recent30d": 0.006329113924050633,
+          "sinceBanlist": 0.003054989816700611
+        },
+        "metaShareWeighted": 0.009503242,
+        "poe": 0.021378501616389878,
+        "tempo": 72,
+        "poeLabel": "Performing as expected",
+        "metaShare": 0.009503241978737658,
+        "disruption": 50,
+        "resilience": 45,
+        "consistency": 58,
+        "flexibility": 48,
+        "power_ceiling": 62,
+        "skill_ceiling": 55,
+        "_matchup_score": 49,
+        "conversionRate": 0.5720048451669412,
+        "matchup_spread": 49,
+        "trigger_quality": 50,
+        "_tournament_score": 54,
+        "_matchup_confidence": 1,
+        "resource_management": 55,
+        "_tournament_confidence": 0.04
+      },
+      {
+        "name": "CSM - Bomb Devil",
+        "archetype": "CSM - Bomb Devil",
+        "tier": "2",
+        "style": "Aggro",
+        "metaShares": {
+          "weighted": 0.009366295901853743,
+          "recent30d": 0.014767932489451477,
+          "sinceBanlist": 0.007128309572301426
+        },
+        "metaShareWeighted": 0.009366296,
+        "poe": 0.028990245572289894,
+        "tempo": 74,
+        "poeLabel": "Performing as expected",
+        "metaShare": 0.009366296034573436,
+        "disruption": 40,
+        "resilience": 45,
+        "consistency": 68,
+        "flexibility": 48,
+        "power_ceiling": 66,
+        "skill_ceiling": 58,
+        "_matchup_score": 51,
+        "conversionRate": 0.7828735336203215,
+        "matchup_spread": 51,
+        "trigger_quality": 55,
+        "_tournament_score": 56,
+        "_matchup_confidence": 1,
+        "resource_management": 58,
+        "_tournament_confidence": 0.04
+      },
+      {
+        "name": "Kagurabachi - Red",
+        "archetype": "Kagurabachi - Red",
+        "tier": "3",
+        "style": "Aggro",
+        "metaShares": null,
+        "metaShareWeighted": null,
+        "tempo": 63,
+        "disruption": 38,
+        "resilience": 40,
+        "consistency": 55,
+        "flexibility": 32,
+        "power_ceiling": 52,
+        "skill_ceiling": 52,
+        "matchup_spread": 50,
+        "trigger_quality": 45,
+        "resource_management": 50
+      },
+      {
+        "name": "Evangelion - Yellow",
+        "archetype": "Evangelion Yellow Tempo",
+        "tier": "3",
+        "style": "Tempo",
+        "metaShares": null,
+        "metaShareWeighted": null,
+        "tempo": 72,
+        "disruption": 36,
+        "resilience": 52,
+        "consistency": 68,
+        "flexibility": 55,
+        "power_ceiling": 40,
+        "skill_ceiling": 58,
+        "_matchup_score": 43,
+        "matchup_spread": 43,
+        "trigger_quality": 54,
+        "_matchup_confidence": 1,
+        "resource_management": 60
+      },
+      {
+        "name": "Sakamoto Days - Purple",
+        "archetype": "Sakamoto Days - Purple",
+        "tier": "3",
+        "style": "Midrange",
+        "metaShares": null,
+        "metaShareWeighted": null,
+        "tempo": 44,
+        "disruption": 48,
+        "resilience": 54,
+        "consistency": 62,
+        "flexibility": 45,
+        "power_ceiling": 42,
+        "skill_ceiling": 60,
+        "matchup_spread": 50,
+        "trigger_quality": 46,
+        "resource_management": 58
+      },
+      {
+        "name": "Rurouni Kenshin - Red",
+        "archetype": "Kenshin Himura Aggro",
+        "tier": "4",
+        "style": "Aggro",
+        "metaShares": null,
+        "metaShareWeighted": null,
+        "tempo": 58,
+        "disruption": 26,
+        "resilience": 36,
+        "consistency": 52,
+        "flexibility": 32,
+        "power_ceiling": 55,
+        "skill_ceiling": 60,
+        "matchup_spread": 50,
+        "trigger_quality": 44,
+        "resource_management": 48
+      },
+      {
+        "name": "That Time I Got Reincarnated As A Slime - Soei",
+        "archetype": "TenSura Soei Disruption Tempo",
+        "tier": "3",
+        "style": "Tempo",
+        "metaShares": {
+          "weighted": 0.008923911998860851,
+          "recent30d": 0.008438818565400843,
+          "sinceBanlist": 0.008146639511201629
+        },
+        "metaShareWeighted": 0.008923912,
+        "poe": 0.022960325715631447,
+        "tempo": 58,
+        "poeLabel": "Performing as expected",
+        "metaShare": 0.008923912125311996,
+        "disruption": 74,
+        "resilience": 52,
+        "consistency": 60,
+        "flexibility": 48,
+        "power_ceiling": 48,
+        "skill_ceiling": 66,
+        "_matchup_score": 44,
+        "conversionRate": 0.6507740869502455,
+        "matchup_spread": 44,
+        "trigger_quality": 50,
+        "_tournament_score": 55,
+        "_matchup_confidence": 1,
+        "resource_management": 60,
+        "_tournament_confidence": 0.04
+      },
+      {
+        "name": "Tokyo Ghoul - Purple",
+        "archetype": "Tokyo Ghoul - Purple",
+        "tier": "3",
+        "style": "Midrange",
+        "metaShares": null,
+        "metaShareWeighted": null,
+        "tempo": 46,
+        "disruption": 55,
+        "resilience": 52,
+        "consistency": 58,
+        "flexibility": 40,
+        "power_ceiling": 58,
+        "skill_ceiling": 62,
+        "matchup_spread": 50,
+        "trigger_quality": 48,
+        "resource_management": 55
+      },
+      {
+        "name": "Solo Leveling - Han Song-Yi",
+        "archetype": "Solo Leveling",
+        "tier": "4",
+        "style": "Midrange",
+        "metaShares": {
+          "weighted": 0.0019073636462569909,
+          "recent30d": 0.004219409282700422,
+          "sinceBanlist": 0.009164969450101833
+        },
+        "metaShareWeighted": 0.0019073637,
+        "poe": 0.005912543241519672,
+        "tempo": 50,
+        "poeLabel": "Performing as expected",
+        "metaShare": 0.0019073636732841873,
+        "disruption": 42,
+        "resilience": 46,
+        "consistency": 58,
+        "flexibility": 48,
+        "power_ceiling": 62,
+        "skill_ceiling": 60,
+        "_matchup_score": 41,
+        "conversionRate": 0.753463727273733,
+        "matchup_spread": 41,
+        "trigger_quality": 52,
+        "_tournament_score": 51,
+        "_matchup_confidence": 1,
+        "resource_management": 54,
+        "_tournament_confidence": 0.01
+      },
+      {
+        "name": "The 100 Girlfriends - Shizuka Yoshimoto",
+        "archetype": "The 100 Girlfriends - Shizuka Yoshimoto",
+        "tier": "5",
+        "style": "Combo",
+        "metaShares": {
+          "weighted": 0.0044312113594888345,
+          "recent30d": 0.002109704641350211,
+          "sinceBanlist": 0.0010183299389002036
+        },
+        "metaShareWeighted": 0.0044312114,
+        "poe": 0.01800841377862704,
+        "tempo": 40,
+        "poeLabel": "Performing as expected",
+        "metaShare": 0.004431211422278759,
+        "disruption": 18,
+        "resilience": 33,
+        "consistency": 52,
+        "flexibility": 28,
+        "power_ceiling": 35,
+        "skill_ceiling": 48,
+        "conversionRate": 1,
+        "matchup_spread": 50,
+        "trigger_quality": 30,
+        "_tournament_score": 54,
+        "resource_management": 42,
+        "_tournament_confidence": 0.02
+      },
+      {
+        "name": "Tokyo Ghoul - Uta",
+        "archetype": "Tokyo Ghoul - Uta",
+        "tier": "4",
+        "style": "Aggro",
+        "metaShares": {
+          "weighted": 0.007501440940500637,
+          "recent30d": 0.008438818565400843,
+          "sinceBanlist": 0.013238289205702648
+        },
+        "metaShareWeighted": 0.007501441,
+        "poe": 0.01944999259091129,
+        "tempo": 58,
+        "poeLabel": "Performing as expected",
+        "metaShare": 0.007501441046795477,
+        "disruption": 42,
+        "resilience": 45,
+        "consistency": 55,
+        "flexibility": 38,
+        "power_ceiling": 48,
+        "skill_ceiling": 56,
+        "_matchup_score": 46,
+        "conversionRate": 0.6506364918321801,
+        "matchup_spread": 46,
+        "trigger_quality": 46,
+        "_tournament_score": 54,
+        "_matchup_confidence": 1,
+        "resource_management": 50,
+        "_tournament_confidence": 0.03
+      },
+      {
+        "name": "Evangelion - Evangelion Production Model-02",
+        "archetype": "Evangelion - Berserk Beast Form Tempo",
+        "tier": "3",
+        "style": "Tempo",
+        "metaShares": {
+          "weighted": 0.008071058681729087,
+          "recent30d": 0.008438818565400843,
+          "sinceBanlist": 0.008146639511201629
+        },
+        "metaShareWeighted": 0.008071058,
+        "poe": 0.020747225786756113,
+        "tempo": 62,
+        "poeLabel": "Performing as expected",
+        "metaShare": 0.008071058796095367,
+        "disruption": 30,
+        "resilience": 40,
+        "consistency": 48,
+        "flexibility": 44,
+        "power_ceiling": 58,
+        "skill_ceiling": 55,
+        "conversionRate": 0.6471480057577089,
+        "matchup_spread": 50,
+        "trigger_quality": 40,
+        "_tournament_score": 54,
+        "resource_management": 48,
+        "_tournament_confidence": 0.03
+      },
+      {
+        "name": "Rurouni Kenshin - Purple",
+        "archetype": "Rurouni Kenshin - Purple",
+        "tier": "4",
+        "style": "Midrange",
+        "metaShares": {
+          "weighted": 0.0006197680976879143,
+          "recent30d": 0.002109704641350211,
+          "sinceBanlist": 0.0010183299389002036
+        },
+        "metaShareWeighted": 0.0006197681,
+        "poe": 0.002568335979184936,
+        "tempo": 40,
+        "poeLabel": "Performing as expected",
+        "metaShare": 0.0006197681064699807,
+        "disruption": 50,
+        "resilience": 47,
+        "consistency": 45,
+        "flexibility": 52,
+        "power_ceiling": 60,
+        "skill_ceiling": 58,
+        "conversionRate": 1,
+        "matchup_spread": 50,
+        "trigger_quality": 45,
+        "_tournament_score": 51,
+        "resource_management": 46,
+        "_tournament_confidence": 0
+      },
+      {
+        "name": "Bleach - Ichigo Kurosaki",
+        "archetype": "Bleach - Ichigo Kurosaki",
+        "tier": "5",
+        "style": "Midrange",
+        "metaShares": {
+          "weighted": 0.009140217870642552,
+          "recent30d": 0.010548523206751054,
+          "sinceBanlist": 0.01120162932790224
+        },
+        "metaShareWeighted": 0.009140218,
+        "poe": 0.0103195836242123,
+        "tempo": 42,
+        "poeLabel": "Performing as expected",
+        "metaShare": 0.009140218000158736,
+        "disruption": 20,
+        "resilience": 40,
+        "consistency": 62,
+        "flexibility": 26,
+        "power_ceiling": 58,
+        "skill_ceiling": 55,
+        "conversionRate": 0.2910388239722822,
+        "matchup_spread": 50,
+        "trigger_quality": 44,
+        "_tournament_score": 52,
+        "resource_management": 48,
+        "_tournament_confidence": 0.04
+      },
+      {
+        "name": "Bleach - Toshiro Hitsugaya",
+        "archetype": "Bleach - Toshiro Hitsugaya",
+        "tier": "4",
+        "style": "Midrange",
+        "metaShares": {
+          "weighted": 0.003834876263082712,
+          "recent30d": 0.002109704641350211,
+          "sinceBanlist": 0.003054989816700611
+        },
+        "metaShareWeighted": 0.0038348762,
+        "poe": 0.004114881480640879,
+        "tempo": 45,
+        "poeLabel": "Performing as expected",
+        "metaShare": 0.003834876317422614,
+        "disruption": 32,
+        "resilience": 46,
+        "consistency": 48,
+        "flexibility": 48,
+        "power_ceiling": 60,
+        "skill_ceiling": 60,
+        "conversionRate": 0.2660548478256193,
+        "matchup_spread": 50,
+        "trigger_quality": 42,
+        "_tournament_score": 51,
+        "resource_management": 50,
+        "_tournament_confidence": 0.02
+      },
+      {
+        "name": "Evangelion - Red",
+        "archetype": "Evangelion - Red",
+        "tier": "5",
+        "style": "Midrange",
+        "metaShares": null,
+        "metaShareWeighted": null,
+        "tempo": 48,
+        "disruption": 26,
+        "resilience": 40,
+        "consistency": 55,
+        "flexibility": 32,
+        "power_ceiling": 40,
+        "skill_ceiling": 48,
+        "matchup_spread": 50,
+        "trigger_quality": 40,
+        "resource_management": 50
+      },
+      {
+        "name": "Kagurabachi - Chihiro Rokuhira",
+        "archetype": "Chihiro Rokuhira Raid Midrange",
+        "tier": "4",
+        "style": "Midrange",
+        "metaShares": {
+          "weighted": 0.0010202874206045505,
+          "recent30d": 0,
+          "sinceBanlist": 0.0010183299389002036
+        },
+        "metaShareWeighted": 0.0010202874,
+        "poe": 0.004219397000193781,
+        "tempo": 40,
+        "poeLabel": "Performing as expected",
+        "metaShare": 0.0010202874350619447,
+        "disruption": 36,
+        "resilience": 40,
+        "consistency": 55,
+        "flexibility": 34,
+        "power_ceiling": 58,
+        "skill_ceiling": 60,
+        "conversionRate": 1,
+        "matchup_spread": 50,
+        "trigger_quality": 44,
+        "_tournament_score": 51,
+        "resource_management": 52,
+        "_tournament_confidence": 0
+      },
+      {
+        "name": "That Time I Got Reincarnated As A Slime - Diablo",
+        "archetype": "TenSura Purple Demon Lord Combo",
+        "tier": "2",
+        "style": "Combo",
+        "metaShares": {
+          "weighted": 0.0044996490098954504,
+          "recent30d": 0.002109704641350211,
+          "sinceBanlist": 0.008146639511201629
+        },
+        "metaShareWeighted": 0.004499649,
+        "poe": 0.001551919351672486,
+        "tempo": 52,
+        "poeLabel": "Performing as expected",
+        "metaShare": 0.00449964907365513,
+        "disruption": 50,
+        "resilience": 55,
+        "consistency": 72,
+        "flexibility": 50,
+        "power_ceiling": 78,
+        "skill_ceiling": 78,
+        "_matchup_score": 41,
+        "conversionRate": 0.08901392960906454,
+        "matchup_spread": 41,
+        "trigger_quality": 60,
+        "_tournament_score": 50,
+        "_matchup_confidence": 1,
+        "resource_management": 68,
+        "_tournament_confidence": 0.02
+      },
+      {
+        "name": "Evangelion - Evangelion 13",
+        "archetype": "Evangelion - Evangelion 13",
+        "tier": "4",
+        "style": "Tempo",
+        "metaShares": {
+          "weighted": 0.001055371085131536,
+          "recent30d": 0,
+          "sinceBanlist": 0.002036659877800407
+        },
+        "metaShareWeighted": 0.0010553711,
+        "poe": 0.004218482860360487,
+        "tempo": 48,
+        "poeLabel": "Performing as expected",
+        "metaShare": 0.0010553711000860632,
+        "disruption": 28,
+        "resilience": 45,
+        "consistency": 52,
+        "flexibility": 40,
+        "power_ceiling": 58,
+        "skill_ceiling": 58,
+        "conversionRate": 0.9667570345433399,
+        "matchup_spread": 50,
+        "trigger_quality": 40,
+        "_tournament_score": 51,
+        "resource_management": 50,
+        "_tournament_confidence": 0
+      },
+      {
+        "name": "Rurouni Kenshin - Sojiro Seta",
+        "archetype": "Rurouni Kenshin - Sojiro Seta",
+        "tier": "5",
+        "style": "Tempo",
+        "metaShares": {
+          "weighted": 0.0010202874206045505,
+          "recent30d": 0,
+          "sinceBanlist": 0.0010183299389002036
+        },
+        "metaShareWeighted": 0.0010202874,
+        "poe": 0.004219397000193781,
+        "tempo": 58,
+        "poeLabel": "Performing as expected",
+        "metaShare": 0.0010202874350619447,
+        "disruption": 28,
+        "resilience": 32,
+        "consistency": 40,
+        "flexibility": 33,
+        "power_ceiling": 48,
+        "skill_ceiling": 60,
+        "conversionRate": 1,
+        "matchup_spread": 50,
+        "trigger_quality": 35,
+        "_tournament_score": 51,
+        "resource_management": 40,
+        "_tournament_confidence": 0
+      },
+      {
+        "name": "Code Geass - Suzaku Kururugi",
+        "archetype": "Code Geass - Suzaku Kururugi",
+        "tier": "4",
+        "style": "Midrange",
+        "metaShares": {
+          "weighted": 0.004452692526975382,
+          "recent30d": 0.004219409282700422,
+          "sinceBanlist": 0.006109979633401222
+        },
+        "metaShareWeighted": 0.0044526923,
+        "poe": 0.017421861615582217,
+        "tempo": 48,
+        "poeLabel": "Performing as expected",
+        "metaShare": 0.004452692590069692,
+        "disruption": 33,
+        "resilience": 45,
+        "consistency": 56,
+        "flexibility": 46,
+        "power_ceiling": 50,
+        "skill_ceiling": 58,
+        "conversionRate": 0.9630323563221596,
+        "matchup_spread": 50,
+        "trigger_quality": 40,
+        "_tournament_score": 53,
+        "resource_management": 54,
+        "_tournament_confidence": 0.02
+      },
+      {
+        "name": "Evangelion - Evangelion Production Model-08",
+        "archetype": "Evangelion - Production Model-08",
+        "tier": "2",
+        "style": "Tempo",
+        "metaShares": {
+          "weighted": 0.008872473929639454,
+          "recent30d": 0.012658227848101266,
+          "sinceBanlist": 0.008146639511201629
+        },
+        "metaShareWeighted": 0.008872474,
+        "poe": 0.006079372617596871,
+        "tempo": 85,
+        "poeLabel": "Performing as expected",
+        "metaShare": 0.008872472284121467,
+        "disruption": 66,
+        "resilience": 76,
+        "consistency": 80,
+        "flexibility": 72,
+        "power_ceiling": 82,
+        "skill_ceiling": 80,
+        "_matchup_score": 49,
+        "conversionRate": 0.17976987213943532,
+        "matchup_spread": 49,
+        "trigger_quality": 82,
+        "_tournament_score": 51,
+        "_matchup_confidence": 1,
+        "resource_management": 79,
+        "_tournament_confidence": 0.04
+      },
+      {
+        "name": "Evangelion - Asuka Shikinami Langley",
+        "archetype": "Evangelion - Asuka Shikinami Langley",
+        "tier": "3",
+        "style": "Aggro",
+        "metaShares": {
+          "weighted": 0.005587543135542766,
+          "recent30d": 0.002109704641350211,
+          "sinceBanlist": 0.004073319755600814
+        },
+        "metaShareWeighted": 0.0055875434,
+        "poe": 0.022574805424544528,
+        "tempo": 60,
+        "poeLabel": "Performing as expected",
+        "metaShare": 0.005587543214717823,
+        "disruption": 40,
+        "resilience": 48,
+        "consistency": 58,
+        "flexibility": 50,
+        "power_ceiling": 50,
+        "skill_ceiling": 58,
+        "_matchup_score": 45,
+        "conversionRate": 1,
+        "matchup_spread": 45,
+        "trigger_quality": 52,
+        "_tournament_score": 55,
+        "_matchup_confidence": 1,
+        "resource_management": 55,
+        "_tournament_confidence": 0.02
+      },
+      {
+        "name": "Evangelion - Evangelion Test Type-01 (Spear Of Gaius)",
+        "archetype": "Evangelion Tempo/Midrange - Multi-EVA Value Engine",
+        "tier": "3",
+        "style": "Tempo",
+        "metaShares": {
+          "weighted": 0.006922129261628401,
+          "recent30d": 0.006329113924050633,
+          "sinceBanlist": 0.013238289205702648
+        },
+        "metaShareWeighted": 0.006922129,
+        "poe": 0.026363514995277323,
+        "tempo": 64,
+        "poeLabel": "Performing as expected",
+        "metaShare": 0.00692212935971444,
+        "disruption": 35,
+        "resilience": 50,
+        "consistency": 60,
+        "flexibility": 52,
+        "power_ceiling": 55,
+        "skill_ceiling": 58,
+        "_matchup_score": 42,
+        "conversionRate": 0.9494095212880548,
+        "matchup_spread": 42,
+        "trigger_quality": 48,
+        "_tournament_score": 55,
+        "_matchup_confidence": 1,
+        "resource_management": 58,
+        "_tournament_confidence": 0.03
+      },
+      {
+        "name": "Evangelion - Purple",
+        "archetype": "Evangelion - Purple",
+        "tier": "2",
+        "style": "Control",
+        "metaShares": {
+          "weighted": 0.00016745758915403264,
+          "recent30d": 0,
+          "sinceBanlist": 0.003054989816700611
+        },
+        "metaShareWeighted": 0.00016745759,
+        "poe": 0.0004994009252234795,
+        "tempo": 34,
+        "poeLabel": "Performing as expected",
+        "metaShare": 0.00016745759152689385,
+        "disruption": 70,
+        "resilience": 60,
+        "consistency": 62,
+        "flexibility": 50,
+        "power_ceiling": 48,
+        "skill_ceiling": 68,
+        "_matchup_score": 52,
+        "conversionRate": 0.7180234644266544,
+        "matchup_spread": 52,
+        "trigger_quality": 55,
+        "_tournament_score": 50,
+        "_matchup_confidence": 1,
+        "resource_management": 65,
+        "_tournament_confidence": 0
+      },
+      {
+        "name": "One Punch Man - Green",
+        "archetype": "One Punch Man - King/Genos Green Midrange",
+        "tier": "4",
+        "style": "Midrange",
+        "metaShares": null,
+        "metaShareWeighted": null,
+        "tempo": 40,
+        "disruption": 34,
+        "resilience": 58,
+        "consistency": 46,
+        "flexibility": 38,
+        "power_ceiling": 58,
+        "skill_ceiling": 54,
+        "matchup_spread": 50,
+        "trigger_quality": 45,
+        "resource_management": 54
+      },
+      {
+        "name": "Rurouni Kenshin - Kenshin Himura",
+        "archetype": "Rurouni Kenshin - Kenshin Himura",
+        "tier": "2",
+        "style": "Midrange",
+        "metaShares": {
+          "weighted": 0.005773520948556294,
+          "recent30d": 0,
+          "sinceBanlist": 0.009164969450101833
+        },
+        "metaShareWeighted": 0.005773521,
+        "poe": 0.02113270416830477,
+        "tempo": 60,
+        "poeLabel": "Performing as expected",
+        "metaShare": 0.005773521030366643,
+        "disruption": 45,
+        "resilience": 55,
+        "consistency": 70,
+        "flexibility": 55,
+        "power_ceiling": 58,
+        "skill_ceiling": 62,
+        "_matchup_score": 46,
+        "conversionRate": 0.9073566784443503,
+        "matchup_spread": 46,
+        "trigger_quality": 50,
+        "_tournament_score": 54,
+        "_matchup_confidence": 1,
+        "resource_management": 62,
+        "_tournament_confidence": 0.02
+      },
+      {
+        "name": "Sakamoto Days - Osaragi",
+        "archetype": "Sakamoto Days - Osaragi",
+        "tier": "4",
+        "style": "Midrange",
+        "metaShares": {
+          "weighted": 0.005002569797791154,
+          "recent30d": 0.006329113924050633,
+          "sinceBanlist": 0.012219959266802444
+        },
+        "metaShareWeighted": 0.00500257,
+        "poe": 0.010110528873996372,
+        "tempo": 46,
+        "poeLabel": "Performing as expected",
+        "metaShare": 0.005002569868677182,
+        "disruption": 34,
+        "resilience": 45,
+        "consistency": 55,
+        "flexibility": 48,
+        "power_ceiling": 45,
+        "skill_ceiling": 55,
+        "conversionRate": 0.5012642413407443,
+        "matchup_spread": 50,
+        "trigger_quality": 44,
+        "_tournament_score": 52,
+        "resource_management": 55,
+        "_tournament_confidence": 0.02
+      },
+      {
+        "name": "Solo Leveling - Purple",
+        "archetype": "Sung Jinwoo Shadow Army",
+        "tier": "3",
+        "style": "Midrange",
+        "metaShares": {
+          "weighted": 0.005488625845749244,
+          "recent30d": 0.004219409282700422,
+          "sinceBanlist": 0.003054989816700611
+        },
+        "metaShareWeighted": 0.0054886257,
+        "poe": -6.395480360449259e-05,
+        "tempo": 42,
+        "poeLabel": "Performing as expected",
+        "metaShare": 0.0054886259235226486,
+        "disruption": 35,
+        "resilience": 52,
+        "consistency": 70,
+        "flexibility": 40,
+        "power_ceiling": 68,
+        "skill_ceiling": 60,
+        "_matchup_score": 41,
+        "conversionRate": 0.002621819307658462,
+        "matchup_spread": 41,
+        "trigger_quality": 55,
+        "_tournament_score": 50,
+        "_matchup_confidence": 1,
+        "resource_management": 62,
+        "_tournament_confidence": 0.02
+      },
+      {
+        "name": "Evangelion - Evangelion Production Model-New 02",
+        "archetype": "Evangelion EVA-Unit Tempo",
+        "tier": "3",
+        "style": "Tempo",
+        "metaShares": {
+          "weighted": 0.007723253338323001,
+          "recent30d": 0.006329113924050633,
+          "sinceBanlist": 0.004073319755600814
+        },
+        "metaShareWeighted": 0.007723253,
+        "poe": 0.030868637992940054,
+        "tempo": 70,
+        "poeLabel": "Mild overperformer",
+        "metaShare": 0.007723253447760905,
+        "disruption": 36,
+        "resilience": 48,
+        "consistency": 62,
+        "flexibility": 52,
+        "power_ceiling": 55,
+        "skill_ceiling": 60,
+        "_matchup_score": 46,
+        "conversionRate": 1,
+        "matchup_spread": 46,
+        "trigger_quality": 48,
+        "_tournament_score": 56,
+        "_matchup_confidence": 1,
+        "resource_management": 56,
+        "_tournament_confidence": 0.03
+      },
+      {
+        "name": "Sakamoto Days - Shishiba",
+        "archetype": "Sakamoto Days - Shishiba",
+        "tier": "3",
+        "style": "Midrange",
+        "metaShares": {
+          "weighted": 5.0971717122579035e-05,
+          "recent30d": 0,
+          "sinceBanlist": 0.002036659877800407
+        },
+        "metaShareWeighted": 5.0971717e-05,
+        "poe": 0.00021184807119259118,
+        "tempo": 45,
+        "poeLabel": "Performing as expected",
+        "metaShare": 5.0971717844844334e-05,
+        "disruption": 35,
+        "resilience": 50,
+        "consistency": 58,
+        "flexibility": 48,
+        "power_ceiling": 48,
+        "skill_ceiling": 55,
+        "conversionRate": 1,
+        "matchup_spread": 50,
+        "trigger_quality": 48,
+        "_tournament_score": 50,
+        "resource_management": 55,
+        "_tournament_confidence": 0
+      },
+      {
+        "name": "Jujutsu Kaisen - Purple",
+        "archetype": "Jujutsu Kaisen - Purple",
+        "tier": "4",
+        "style": "Midrange",
+        "metaShares": {
+          "weighted": 0.001550940676535277,
+          "recent30d": 0.002109704641350211,
+          "sinceBanlist": 0.003054989816700611
+        },
+        "metaShareWeighted": 0.0015509407,
+        "poe": 0.0044943488878552915,
+        "tempo": 42,
+        "poeLabel": "Performing as expected",
+        "metaShare": 0.0015509406985119872,
+        "disruption": 50,
+        "resilience": 47,
+        "consistency": 58,
+        "flexibility": 40,
+        "power_ceiling": 58,
+        "skill_ceiling": 62,
+        "_matchup_score": 42,
+        "conversionRate": 0.7030924948686899,
+        "matchup_spread": 42,
+        "trigger_quality": 45,
+        "_tournament_score": 51,
+        "_matchup_confidence": 1,
+        "resource_management": 55,
+        "_tournament_confidence": 0.01
+      },
+      {
+        "name": "Sakamoto Days - Yellow",
+        "archetype": "Sakamoto Days Multi-Character Toolbox",
+        "tier": "3",
+        "style": "Tempo",
+        "metaShares": null,
+        "metaShareWeighted": null,
+        "tempo": 62,
+        "disruption": 35,
+        "resilience": 42,
+        "consistency": 48,
+        "flexibility": 60,
+        "power_ceiling": 58,
+        "skill_ceiling": 66,
+        "_matchup_score": 52,
+        "matchup_spread": 52,
+        "trigger_quality": 48,
+        "_matchup_confidence": 1,
+        "resource_management": 56
+      }
+    ],
+    "topCards": [
+      {
+        "name": "What Kind of Idiot Are You?",
+        "type": "Event",
+        "tier": null,
+        "versatility": 58,
+        "power_impact": 77,
+        "synergy_value": 80,
+        "meta_relevance": 73,
+        "replaceability": 35,
+        "consistency_impact": 69
+      },
+      {
+        "name": "A Hot Bath Lets You Wash Your Life and Begin Anew",
+        "type": "Event",
+        "tier": null,
+        "versatility": 57,
+        "power_impact": 55,
+        "synergy_value": 61,
+        "meta_relevance": 49,
+        "replaceability": 41,
+        "consistency_impact": 73
+      },
+      {
+        "name": "Asuka Shikinami Langley (013)",
+        "type": "Character",
+        "tier": null,
+        "versatility": 47,
+        "power_impact": 66,
+        "synergy_value": 72,
+        "meta_relevance": 54,
+        "replaceability": 37,
+        "consistency_impact": 67
+      },
+      {
+        "name": "Mari Makinami Illustrious (018)",
+        "type": "Character",
+        "tier": null,
+        "versatility": 53,
+        "power_impact": 62,
+        "synergy_value": 63,
+        "meta_relevance": 52,
+        "replaceability": 42,
+        "consistency_impact": 61
+      },
+      {
+        "name": "Misato Katsuragi (008)",
+        "type": "Character",
+        "tier": null,
+        "versatility": 48,
+        "power_impact": 57,
+        "synergy_value": 61,
+        "meta_relevance": 49,
+        "replaceability": 45,
+        "consistency_impact": 61
+      },
+      {
+        "name": "Asuka Shikinami Langley (012)",
+        "type": "Character",
+        "tier": null,
+        "versatility": 48,
+        "power_impact": 72,
+        "synergy_value": 70,
+        "meta_relevance": 66,
+        "replaceability": 35,
+        "consistency_impact": 65
+      },
+      {
+        "name": "Mari Makinami Illustrious (017)",
+        "type": "Character",
+        "tier": null,
+        "versatility": 45,
+        "power_impact": 58,
+        "synergy_value": 68,
+        "meta_relevance": 48,
+        "replaceability": 45,
+        "consistency_impact": 68
+      },
+      {
+        "name": "Rei Ayanami (005)",
+        "type": "Character",
+        "tier": null,
+        "versatility": 40,
+        "power_impact": 78,
+        "synergy_value": 85,
+        "meta_relevance": 88,
+        "replaceability": 20,
+        "consistency_impact": 82
+      },
+      {
+        "name": "Rei Ayanami (110)",
+        "type": "Character",
+        "tier": null,
+        "versatility": 44,
+        "power_impact": 73,
+        "synergy_value": 82,
+        "meta_relevance": 71,
+        "replaceability": 31,
+        "consistency_impact": 75
+      },
+      {
+        "name": "Misato Katsuragi (006)",
+        "type": "Character",
+        "tier": null,
+        "versatility": 50,
+        "power_impact": 60,
+        "synergy_value": 62,
+        "meta_relevance": 55,
+        "replaceability": 40,
+        "consistency_impact": 65
+      },
+      {
+        "name": "Rei Ayanami (004)",
+        "type": "Character",
+        "tier": null,
+        "versatility": 42,
+        "power_impact": 62,
+        "synergy_value": 78,
+        "meta_relevance": 55,
+        "replaceability": 40,
+        "consistency_impact": 68
+      },
+      {
+        "name": "Mari Makinami Illustrious",
+        "type": "Character",
+        "tier": null,
+        "versatility": 58,
+        "power_impact": 77,
+        "synergy_value": 80,
+        "meta_relevance": 73,
+        "replaceability": 35,
+        "consistency_impact": 69
+      },
+      {
+        "name": "Evangelion Proto Type-00",
+        "type": "Character",
+        "tier": null,
+        "versatility": 39,
+        "power_impact": 66,
+        "synergy_value": 71,
+        "meta_relevance": 53,
+        "replaceability": 37,
+        "consistency_impact": 58
+      },
+      {
+        "name": "Rei Ayanami (102)",
+        "type": "Character",
+        "tier": null,
+        "versatility": 48,
+        "power_impact": 64,
+        "synergy_value": 72,
+        "meta_relevance": 55,
+        "replaceability": 38,
+        "consistency_impact": 68
+      },
+      {
+        "name": "Shinji Ikari (075)",
+        "type": "Character",
+        "tier": null,
+        "versatility": 46,
+        "power_impact": 59,
+        "synergy_value": 63,
+        "meta_relevance": 43,
+        "replaceability": 42,
+        "consistency_impact": 56
+      },
+      {
+        "name": "Evangelion Test Type-01 Pseudo DMS Phase",
+        "type": "Character",
+        "tier": null,
+        "versatility": 42,
+        "power_impact": 65,
+        "synergy_value": 69,
+        "meta_relevance": 53,
+        "replaceability": 38,
+        "consistency_impact": 61
+      },
+      {
+        "name": "Rei Ayanami (071)",
+        "type": "Character",
+        "tier": null,
+        "versatility": 59,
+        "power_impact": 76,
+        "synergy_value": 76,
+        "meta_relevance": 70,
+        "replaceability": 35,
+        "consistency_impact": 71
+      },
+      {
+        "name": "Shinji Ikari (074)",
+        "type": "Character",
+        "tier": null,
+        "versatility": 50,
+        "power_impact": 65,
+        "synergy_value": 69,
+        "meta_relevance": 57,
+        "replaceability": 39,
+        "consistency_impact": 71
+      },
+      {
+        "name": "Ayanami! Give Me Your Hand... Come Here!!",
+        "type": "Event",
+        "tier": null,
+        "versatility": 40,
+        "power_impact": 64,
+        "synergy_value": 79,
+        "meta_relevance": 58,
+        "replaceability": 39,
+        "consistency_impact": 69
+      },
+      {
+        "name": "Misato Katsuragi (084)",
+        "type": "Character",
+        "tier": null,
+        "versatility": 48,
+        "power_impact": 59,
+        "synergy_value": 63,
+        "meta_relevance": 53,
+        "replaceability": 45,
+        "consistency_impact": 67
+      }
+    ],
+    "deckSummaries": {
+      "Solo Leveling - Cha Hae-In": {
+        "skillRating": {
+          "label": "Expert",
+          "inputHash": "1af667c19d509e26",
+          "reasoning": "Cha Hae-In demands careful sequencing of the layered raid chain (055/056/058) and strategic deployment of Choi Jong-in's flexible toolbox, creating high timing sensitivity and matchup-dependent lines. The deck's thin disruption and resilience mean mistakes are heavily punished, especially against aggressive meta decks, while its reliance on precise resource management and trigger optimization keeps autopilot factor low despite moderate consistency issues.",
+          "components": {
+            "autopilotFactor": 38,
+            "decisionDensity": 62,
+            "errorPunishment": 71,
+            "matchupVariance": 72,
+            "timingSensitivity": 68
+          },
+          "skillFloor": 39,
+          "pilotReward": 24,
+          "skillCeiling": 63
+        },
+        "representativeCardName": "Cha Hae-in (055)",
+        "representativeImageUrl": "/cdn/cards/unionarena/415912/788457_thumb_0.webp",
+        "colorIdentity": [
+          "Green"
+        ],
+        "championClasses": null
+      },
+      "CSM - Chainsaw Man": {
+        "skillRating": {
+          "label": "Advanced",
+          "inputHash": "810f56165789ddc0",
+          "reasoning": "CSM Aggro is a relatively straightforward deck with a linear game plan: curve out Denji/Power efficiently and apply early pressure. While card filtering via 'Love Me Some Baddies' adds some decision points, the deck's core strategy remains consistent across most matchups. Errors are punished moderately hard due to thin resilience and lack of disruption—falling behind on tempo is difficult to recover from—but the deck's inherent engine (strong curve, natural synergies) carries much of the load, reducing the skill ceiling. Timing matters for sequencing threats and using events optimally, but the deck doesn't demand expert-level play to function.",
+          "components": {
+            "autopilotFactor": 68,
+            "decisionDensity": 42,
+            "errorPunishment": 62,
+            "matchupVariance": 48,
+            "timingSensitivity": 55
+          },
+          "skillFloor": 46,
+          "pilotReward": 7,
+          "skillCeiling": 53
+        },
+        "representativeCardName": "Chainsaw Man (047)",
+        "representativeImageUrl": "/cdn/cards/unionarena/725125/1312551_thumb_0.webp",
+        "colorIdentity": [
+          "Red"
+        ],
+        "championClasses": null
+      },
+      "CSM - Denji": {
+        "skillRating": {
+          "label": "Expert",
+          "inputHash": "00d84a6411bdb5af",
+          "reasoning": "CSM - Denji is a tempo-focused aggro deck with moderate complexity. While the deep Denji redundancy and curve consistency reduce decision points (high autopilot factor), the inclusion of Bomb Devil disruption and Reze secondary lines create meaningful sequencing decisions around when to commit resources vs. hold for disruption. The deck's vulnerability to stumbling on curve and reliance on tempo advantage means mistakes are heavily punished, but the linear game plan and high consistency limit the total number of decisions per game.",
+          "components": {
+            "autopilotFactor": 65,
+            "decisionDensity": 58,
+            "errorPunishment": 68,
+            "matchupVariance": 55,
+            "timingSensitivity": 62
+          },
+          "skillFloor": 38,
+          "pilotReward": 23,
+          "skillCeiling": 61
+        },
+        "representativeCardName": "Denji (004)",
+        "representativeImageUrl": "/cdn/cards/unionarena/725142/1312568_thumb_0.webp",
+        "colorIdentity": [
+          "Purple"
+        ],
+        "championClasses": null
+      },
+      "Bleach - Kenpachi Zaraki": {
+        "skillRating": {
+          "label": "Advanced",
+          "inputHash": "a6fd19e815f6eb16",
+          "reasoning": "Kenpachi Zaraki is a moderately straightforward midrange deck with a linear raid-chain gameplan that naturally guides sequencing decisions. While assembling the Kenpachi chain and timing Bankai payoffs require some care, the deck's core strategy is relatively transparent—build toward the threat, then leverage Bankai for swing turns. The high autopilot factor reflects that once key pieces resolve, the engine largely plays itself; however, weak disruption and draw filtering mean pilots must carefully manage resource sequencing and matchup positioning to avoid being run over before the payoff arrives.",
+          "components": {
+            "autopilotFactor": 62,
+            "decisionDensity": 42,
+            "errorPunishment": 54,
+            "matchupVariance": 51,
+            "timingSensitivity": 58
+          },
+          "skillFloor": 47,
+          "pilotReward": 5,
+          "skillCeiling": 52
+        },
+        "representativeCardName": "Kenpachi Zaraki (067)",
+        "representativeImageUrl": "/cdn/cards/unionarena/123660/228605.webp",
+        "colorIdentity": [
+          "Green"
+        ],
+        "championClasses": null
+      },
+      "Jujutsu Kaisen - Aoi Todo": {
+        "skillRating": {
+          "label": "Expert",
+          "inputHash": "e1e495e27083394f",
+          "reasoning": "Aoi Todo is a moderately complex midrange deck that demands careful sequencing of raid chains and Boogie Woogie positioning plays. The high skill ceiling (67) and tempo-dependent gameplan create meaningful decision points around when to commit resources versus hold for setup, while the setup-heavy nature and reliance on assembling multiple same-name pieces means timing and resource management errors are significantly punished. However, the strong consistency (72) and deep redundancy provide some margin for error, preventing it from reaching the highest difficulty tier.",
+          "components": {
+            "autopilotFactor": 45,
+            "decisionDensity": 68,
+            "errorPunishment": 64,
+            "matchupVariance": 58,
+            "timingSensitivity": 72
+          },
+          "skillFloor": 38,
+          "pilotReward": 24,
+          "skillCeiling": 62
+        },
+        "representativeCardName": "Aoi Todo",
+        "representativeImageUrl": "/cdn/cards/unionarena/123669/228614.webp",
+        "colorIdentity": [
+          "Purple"
+        ],
+        "championClasses": null
+      },
+      "Rurouni Kenshin - Kaoru Kamiya": {
+        "skillRating": {
+          "label": "Advanced",
+          "inputHash": "f53110213ae415cf",
+          "reasoning": "Kaoru Kamiya is a midrange deck with moderate complexity driven by six distinct Kenshin Himura printings that enable matchup-specific raid sequencing and resource management decisions. However, the deck's high consistency and deep character redundancy mean many games follow a similar engine-driven game plan, reducing decision density and increasing autopilot factor. Timing matters significantly for stabilization windows and trigger sequencing, but the lack of removal and reactive tools limits the range of meaningful plays available per turn.",
+          "components": {
+            "autopilotFactor": 62,
+            "decisionDensity": 58,
+            "errorPunishment": 55,
+            "matchupVariance": 52,
+            "timingSensitivity": 62
+          },
+          "skillFloor": 42,
+          "pilotReward": 15,
+          "skillCeiling": 57
+        },
+        "representativeCardName": "Kaoru Kamiya (071)",
+        "representativeImageUrl": "/cdn/cards/unionarena/123819/228764.webp",
+        "colorIdentity": [
+          "Red"
+        ],
+        "championClasses": null
+      },
+      "Sakamoto Days - Lu Shaotang": {
+        "skillRating": {
+          "label": "Advanced",
+          "inputHash": "710464f9c7510ad7",
+          "reasoning": "Lu Shaotang midrange requires moderate pilot skill due to its multiple attack angles (Lu Shaotang/Taro/Shin Asakura) that demand matchup-aware pivoting and careful sequencing of redundant threats. The deck's inconsistent late-game payoff and thin disruption suite mean timing decisions around resource commitment are critical, but its solid consistency (52) and reasonable resilience (45) prevent it from being brutally punishing for mistakes. The skill ceiling is capped by the deck's Tier 4 positioning and reliance on inherent card synergies rather than complex decision trees.",
+          "components": {
+            "autopilotFactor": 48,
+            "decisionDensity": 58,
+            "errorPunishment": 55,
+            "matchupVariance": 64,
+            "timingSensitivity": 62
+          },
+          "skillFloor": 43,
+          "pilotReward": 15,
+          "skillCeiling": 58
+        },
+        "representativeCardName": "Lu Shaotang (031)",
+        "representativeImageUrl": "/cdn/cards/unionarena/127168/232113_thumb_0.webp",
+        "colorIdentity": [
+          "Yellow"
+        ],
+        "championClasses": null
+      },
+      "That Time I Got Reincarnated As A Slime - Milim": {
+        "skillRating": {
+          "label": "Advanced",
+          "inputHash": "676d27b0aec585c0",
+          "reasoning": "Milim is a high-power but relatively linear aggro deck that relies heavily on its raid engine to function. While the deck has a strong power ceiling and some sequencing decisions around which Milim variant to raid into, it lacks the decision branches and flexibility of more complex archetypes. The deck is moderately punishing of mistakes (poor raid sequencing or resource mismanagement can waste turns), but its high autopilot factor—once you resolve the raid chain, the game plan is straightforward—and low disruption/flexibility keep overall pilot difficulty moderate. Matchup variance exists but is limited by the deck's linear nature.",
+          "components": {
+            "autopilotFactor": 68,
+            "decisionDensity": 42,
+            "errorPunishment": 62,
+            "matchupVariance": 48,
+            "timingSensitivity": 58
+          },
+          "skillFloor": 45,
+          "pilotReward": 9,
+          "skillCeiling": 54
+        },
+        "representativeCardName": "Milim (064)",
+        "representativeImageUrl": "/cdn/cards/unionarena/587202/1089873_thumb_0.webp",
+        "colorIdentity": [
+          "Green"
+        ],
+        "championClasses": null
+      },
+      "Sword Art Online - Yuna": {
+        "skillRating": {
+          "label": "Expert",
+          "inputHash": "deb89612f35e5e11",
+          "reasoning": "This Yuna midrange deck demands significant pilot skill due to its five-card raid chain (028-032) that rewards precise sequencing and resource management across multiple turns. The high consistency (71) and cantrip support create decision-heavy turns where sequencing order matters greatly for scaling payoffs, while the lack of disruption and finishers means pilots must navigate matchups through tempo and board positioning rather than reactive tools, making mistakes against faster decks particularly costly.",
+          "components": {
+            "autopilotFactor": 35,
+            "decisionDensity": 72,
+            "errorPunishment": 68,
+            "matchupVariance": 58,
+            "timingSensitivity": 75
+          },
+          "skillFloor": 37,
+          "pilotReward": 26,
+          "skillCeiling": 63
+        },
+        "representativeCardName": "Yuna (030)",
+        "representativeImageUrl": "/cdn/cards/unionarena/123571/228516.webp",
+        "colorIdentity": [
+          "Purple"
+        ],
+        "championClasses": null
+      },
+      "That Time I Got Reincarnated As A Slime - Rimuru": {
+        "skillRating": {
+          "label": "Expert",
+          "inputHash": "dad070d46b11c035",
+          "reasoning": "This is a moderately difficult deck that demands careful sequencing and resource management. The high skill ceiling (71) and strong resource engine (68) indicate pilots must make meaningful decisions about when to deploy disruption, which Rimuru variant to play, and how to manage the Report/Feast card flow. The weak trigger quality and single Predator copy mean mistakes in sequencing or resource allocation are heavily punished, while the matchup-dependent nature of choosing the right Rimuru evolution stage adds significant decision complexity.",
+          "components": {
+            "autopilotFactor": 38,
+            "decisionDensity": 72,
+            "errorPunishment": 69,
+            "matchupVariance": 68,
+            "timingSensitivity": 75
+          },
+          "skillFloor": 35,
+          "pilotReward": 31,
+          "skillCeiling": 66
+        },
+        "representativeCardName": "Rimuru (017)",
+        "representativeImageUrl": "/cdn/cards/unionarena/546283/999121_thumb_0.webp",
+        "colorIdentity": [
+          "Blue"
+        ],
+        "championClasses": null
+      },
+      "CSM - Power": {
+        "skillRating": {
+          "label": "Expert",
+          "inputHash": "5462b0fdd8d639e3",
+          "reasoning": "CSM - Power is a moderately difficult aggro deck that demands precise sequencing and tempo management rather than raw decision volume. The pilot must carefully order cheap threats, time disruption events optimally, and know when to pivot from pure aggression to resource management—mistakes in these areas are heavily punished given the deck's thin stabilization and light draw engine. While the core game plan is straightforward (apply early pressure), matchup-specific lines and the need to maximize limited resources elevate the skill floor significantly above typical linear aggro.",
+          "components": {
+            "autopilotFactor": 45,
+            "decisionDensity": 68,
+            "errorPunishment": 72,
+            "matchupVariance": 64,
+            "timingSensitivity": 71
+          },
+          "skillFloor": 36,
+          "pilotReward": 29,
+          "skillCeiling": 65
+        },
+        "representativeCardName": "Power (057)",
+        "representativeImageUrl": "/cdn/cards/unionarena/725108/1312534_thumb_0.webp",
+        "colorIdentity": [
+          "Red"
+        ],
+        "championClasses": null
+      },
+      "Evangelion - Evangelion Proto Type-00": {
+        "skillRating": {
+          "label": "Advanced",
+          "inputHash": "004a2a030a170a41",
+          "reasoning": "Evangelion Proto Type-00 is a moderately complex tempo deck with solid consistency but limited decision trees. The recursive Ayanami engine and redundant Rei/Shinji lines create meaningful sequencing decisions around when to rebuild vs. push tempo, but the lack of disruption and removal options constrains the branching plays available. Timing matters significantly for raid sequencing and resource management, and mistakes in ordering same-named copies or misallocating AP can be punishing, but the deck's high consistency and recursive resilience prevent catastrophic punishment. The autopilot factor is elevated because once the core engine pieces resolve, the gameplan is relatively linear—swarm and rebuild—reducing the skill expression ceiling despite the Tier 2 positioning.",
+          "components": {
+            "autopilotFactor": 62,
+            "decisionDensity": 58,
+            "errorPunishment": 61,
+            "matchupVariance": 52,
+            "timingSensitivity": 64
+          },
+          "skillFloor": 40,
+          "pilotReward": 19,
+          "skillCeiling": 59
+        },
+        "representativeCardName": "Evangelion Proto Type-00",
+        "representativeImageUrl": "/cdn/cards/unionarena/123528/228473.webp",
+        "colorIdentity": [
+          "Red"
+        ],
+        "championClasses": null
+      },
+      "Evangelion - Rei Ayanami": {
+        "skillRating": {
+          "label": "Expert",
+          "inputHash": "5a2ad5daa3203130",
+          "reasoning": "Rei Ayanami is a moderately complex tempo deck that demands careful sequencing of its raid chain and resource management across multiple Rei printings. The high consistency (80) and strong tempo (78) provide a solid foundation, but the deck's reliance on precise timing of raids, Misato support, and Mari pressure creates meaningful decision points each turn. Mistakes in sequencing the raid chain or misallocating resources are punished significantly, especially against decks with early removal or strong blockers, making pilot skill a meaningful differentiator despite the deck's inherent power.",
+          "components": {
+            "autopilotFactor": 62,
+            "decisionDensity": 72,
+            "errorPunishment": 71,
+            "matchupVariance": 68,
+            "timingSensitivity": 75
+          },
+          "skillFloor": 30,
+          "pilotReward": 40,
+          "skillCeiling": 70
+        },
+        "representativeCardName": "Rei Ayanami (005)",
+        "representativeImageUrl": "/cdn/cards/unionarena/123501/228446.webp",
+        "colorIdentity": [
+          "Yellow"
+        ],
+        "championClasses": null
+      },
+      "Kagurabachi - Hakuri Sazanami": {
+        "skillRating": {
+          "label": "Advanced",
+          "inputHash": "08be4cca4e2fcabc",
+          "reasoning": "Hakuri Sazanami is a moderately difficult midrange deck with a fairly linear game plan that reduces decision density and matchup adaptability. However, the raid chain sequencing (Chihiro Rokuhira into 059/060) and resource management around multiple Sazanami variants create meaningful timing windows, while mistakes in sequencing or early removal disruption are heavily punished due to the deck's clunky evolution lines. The high autopilot factor reflects that once the core engine pieces resolve, the deck's power is largely predetermined.",
+          "components": {
+            "autopilotFactor": 68,
+            "decisionDensity": 52,
+            "errorPunishment": 62,
+            "matchupVariance": 38,
+            "timingSensitivity": 58
+          },
+          "skillFloor": 43,
+          "pilotReward": 11,
+          "skillCeiling": 54
+        },
+        "representativeCardName": "Hakuri Sazanami (046)",
+        "representativeImageUrl": "/cdn/cards/unionarena/126483/788477_thumb_0.webp",
+        "colorIdentity": [
+          "Red"
+        ],
+        "championClasses": null
+      },
+      "Rurouni Kenshin - Hajime Saito": {
+        "skillRating": {
+          "label": "Expert",
+          "inputHash": "99f364d80e4123ca",
+          "reasoning": "This is a high-power aggro deck with moderate pilot difficulty. The six Saito printings and strong consistency (81) mean the deck often finds its key threats naturally, reducing decision complexity. However, the tight resource economy, high tempo demands (85), and need to sequence threats optimally against varied matchups create meaningful sequencing decisions and punish stumbles severely. The deck's limited flexibility and disruption tools mean pilots must read matchups well and execute their game plan precisely, but the inherent power of the engine carries much of the load.",
+          "components": {
+            "autopilotFactor": 72,
+            "decisionDensity": 62,
+            "errorPunishment": 74,
+            "matchupVariance": 58,
+            "timingSensitivity": 71
+          },
+          "skillFloor": 32,
+          "pilotReward": 34,
+          "skillCeiling": 66
+        },
+        "representativeCardName": "Hajime Saito (037)",
+        "representativeImageUrl": "/cdn/cards/unionarena/126133/231078.webp",
+        "colorIdentity": [
+          "Purple"
+        ],
+        "championClasses": null
+      },
+      "Sakamoto Days - Heisuke Mashimo": {
+        "skillRating": {
+          "label": "Expert",
+          "inputHash": "8e0821309cacf066",
+          "reasoning": "Sakamoto Days Heisuke is a tempo deck with moderate-to-high pilot demands. The multiple character variants (Heisuke/Taro/Shin across 3-4 printings each) create meaningful sequencing decisions about which version to deploy and when to switch postures, while the high tempo score (72) and resource management (58) indicate timing windows matter significantly. Matchup variance is notable due to the deck's flexibility and need to adapt against disruption-heavy or faster aggro decks. However, the thin disruption (32) and resilience (44) mean mistakes are punished but not catastrophically—the deck has some margin for error. The skill ceiling (64) and moderate autopilot factor suggest this is a deck that rewards good play without requiring frame-perfect sequencing.",
+          "components": {
+            "autopilotFactor": 45,
+            "decisionDensity": 68,
+            "errorPunishment": 58,
+            "matchupVariance": 64,
+            "timingSensitivity": 72
+          },
+          "skillFloor": 38,
+          "pilotReward": 25,
+          "skillCeiling": 63
+        },
+        "representativeCardName": "Heisuke Mashimo (008)",
+        "representativeImageUrl": "/cdn/cards/unionarena/127280/993800_thumb_0.webp",
+        "colorIdentity": [
+          "Yellow"
+        ],
+        "championClasses": null
+      },
+      "Sakamoto Days - Shin Asakura": {
+        "skillRating": {
+          "label": "Expert",
+          "inputHash": "3a5effcd5ae17d79",
+          "reasoning": "Shin Asakura is a high-tempo aggro deck with meaningful sequencing demands around raid assembly, resource management, and knowing when to commit vs. hold for triggers. While the core game plan is straightforward (pressure early, evolve threats), the deck's declining meta share despite strong power level suggests execution difficulty—specifically around timing raid payoffs, managing AP efficiently with An Ordinary Everyday Life, and adapting lines against removal-heavy or combo-focused opponents. Mistakes in sequencing or overcommitting into disruption are heavily punished in a tempo-focused shell.",
+          "components": {
+            "autopilotFactor": 58,
+            "decisionDensity": 62,
+            "errorPunishment": 74,
+            "matchupVariance": 68,
+            "timingSensitivity": 71
+          },
+          "skillFloor": 34,
+          "pilotReward": 33,
+          "skillCeiling": 67
+        },
+        "representativeCardName": "Shin Asakura (017)",
+        "representativeImageUrl": "/cdn/cards/unionarena/538206/990243_thumb_0.webp",
+        "colorIdentity": [
+          "Yellow"
+        ],
+        "championClasses": null
+      },
+      "Sakamoto Days - Taro Sakamoto": {
+        "skillRating": {
+          "label": "Expert",
+          "inputHash": "0010b69fe11cb219",
+          "reasoning": "Sakamoto Days Taro is a high-tempo aggro deck with strong consistency and redundancy, but its linear game plan (curve out threats, apply pressure) limits decision density. The deck demands precise sequencing to maximize tempo windows and punishes overcommitment to the board, while matchup-specific play (when to pivot from pure aggression vs. when to hold back) adds moderate complexity. The high skill ceiling (82) reflects that expert pilots can extract significant value through resource timing and trigger management, but the deck's inherent power and redundancy mean competent play often carries the day.",
+          "components": {
+            "autopilotFactor": 68,
+            "decisionDensity": 62,
+            "errorPunishment": 75,
+            "matchupVariance": 68,
+            "timingSensitivity": 71
+          },
+          "skillFloor": 32,
+          "pilotReward": 36,
+          "skillCeiling": 68
+        },
+        "representativeCardName": "Taro Sakamoto (024)",
+        "representativeImageUrl": "/cdn/cards/unionarena/538207/990244_thumb_0.webp",
+        "colorIdentity": [
+          "Yellow"
+        ],
+        "championClasses": null
+      },
+      "Solo Leveling - Sung Jinwoo": {
+        "skillRating": {
+          "label": "Expert",
+          "inputHash": "4e9e3cfa1ae26eea",
+          "reasoning": "Sung Jinwoo demands expert sequencing around the four-tier raid chain assembly and shadow recursion engine, with high skill ceiling (83) and resource management (85) reflecting constant optimization decisions. The deck's power comes from precise timing of evolution windows and resource allocation rather than autopilot value, making pilot skill directly correlate to performance despite its high consistency and resilience stats.",
+          "components": {
+            "autopilotFactor": 35,
+            "decisionDensity": 78,
+            "errorPunishment": 79,
+            "matchupVariance": 68,
+            "timingSensitivity": 82
+          },
+          "skillFloor": 31,
+          "pilotReward": 39,
+          "skillCeiling": 70
+        },
+        "representativeCardName": "Sung Jinwoo (018)",
+        "representativeImageUrl": "/cdn/cards/unionarena/415904/788449_thumb_0.webp",
+        "colorIdentity": [
+          "Purple"
+        ],
+        "championClasses": null
+      },
+      "Evangelion - Evangelion Test Type-01 Pseudo DMS Phase": {
+        "skillRating": {
+          "label": "Expert",
+          "inputHash": "73d5106d73d703b5",
+          "reasoning": "This is a moderately difficult tempo deck that demands solid sequencing and resource management (71 resource_management score) but isn't overwhelmingly complex. The high consistency (79) and strong early curve reduce decision density somewhat—many turns have a clear optimal line. However, the lack of disruption (50) and finishers means pilots must carefully navigate timing windows and know when to pivot strategies, especially in unfavorable matchups. The deck's reliance on its Rei/Shinji core makes early removal punishing, but the redundancy built into the suite provides some resilience. Overall, this is a skill-rewarding deck for intermediate-to-advanced players, but not at the ceiling of competitive complexity.",
+          "components": {
+            "autopilotFactor": 62,
+            "decisionDensity": 72,
+            "errorPunishment": 64,
+            "matchupVariance": 55,
+            "timingSensitivity": 68
+          },
+          "skillFloor": 34,
+          "pilotReward": 30,
+          "skillCeiling": 64
+        },
+        "representativeCardName": "Evangelion Test Type-01 Pseudo DMS Phase",
+        "representativeImageUrl": "/cdn/cards/unionarena/123506/228451.webp",
+        "colorIdentity": [
+          "Red"
+        ],
+        "championClasses": null
+      },
+      "CSM - Makima": {
+        "skillRating": {
+          "label": "Expert",
+          "inputHash": "22c96317136f2a97",
+          "reasoning": "CSM - Makima is a moderately complex control deck requiring careful sequencing of its deep Makima card pool and resource management across multiple axes (control pieces vs. Denji pressure). The high skill ceiling (62) and resource management demands (65) indicate pilots must make meaningful decisions about when to deploy threats vs. hold disruption, with timing-sensitive interactions against combo decks. However, the thin event count and matchup-dependent results (4.8 average placement) suggest the deck's difficulty is somewhat mitigated by its inherent engine consistency, preventing it from reaching elite difficulty levels.",
+          "components": {
+            "autopilotFactor": 35,
+            "decisionDensity": 68,
+            "errorPunishment": 71,
+            "matchupVariance": 64,
+            "timingSensitivity": 72
+          },
+          "skillFloor": 38,
+          "pilotReward": 25,
+          "skillCeiling": 63
+        },
+        "representativeCardName": "Makima (021)",
+        "representativeImageUrl": "/cdn/cards/unionarena/725121/1312547_thumb_0.webp",
+        "colorIdentity": [
+          "Purple"
+        ],
+        "championClasses": null
+      },
+      "CSM - Aki Hayakawa": {
+        "skillRating": {
+          "label": "Advanced",
+          "inputHash": "3c12caacd8a53a38",
+          "reasoning": "CSM - Aki Hayakawa is a moderately complex midrange deck centered on raid chain sequencing and character synergy. The deep redundancy in Aki/Himeno lines creates meaningful decisions about when to trigger raids, how to sequence upgrades, and resource allocation, but the relatively linear game plan (build board → raid chains → close) limits decision density. Timing is critical—the order of raid triggers and Kon filtering directly impacts board development and hand quality. The deck's matchup-dependent nature (struggles against fast aggro, needs different sequencing against control) adds variance, but its mid-tier power level and lack of a clear finisher means mistakes are punishing but not always unrecoverable. The deck requires pilot skill to optimize raid chains and trigger sequencing, but the engine-driven nature of consistent Aki/Himeno redundancy provides some autopilot elements once the core pieces resolve.",
+          "components": {
+            "autopilotFactor": 45,
+            "decisionDensity": 62,
+            "errorPunishment": 55,
+            "matchupVariance": 58,
+            "timingSensitivity": 68
+          },
+          "skillFloor": 42,
+          "pilotReward": 17,
+          "skillCeiling": 59
+        },
+        "representativeCardName": "Aki Hayakawa (052)",
+        "representativeImageUrl": "/cdn/cards/unionarena/725184/1312610_thumb_0.webp",
+        "colorIdentity": [
+          "Red"
+        ],
+        "championClasses": null
+      },
+      "Tokyo Ghoul - Kotaro Amon": {
+        "skillRating": {
+          "label": "Advanced",
+          "inputHash": "66aa2be6c99441d0",
+          "reasoning": "Kotaro Amon is a midrange deck with moderate complexity centered on sequencing the four-copy raid chain and managing the investigator support suite. The deck requires careful timing decisions around when to commit resources to the Amon line versus developing board presence through Suzuya/Arima, and mistakes in sequencing the raid targets can leave you vulnerable to tempo pressure. However, the redundancy and consistency (62 consistency score) provide some buffer against suboptimal plays, and the deck doesn't demand the split-second decision-making of higher-tier archetypes.",
+          "components": {
+            "autopilotFactor": 45,
+            "decisionDensity": 58,
+            "errorPunishment": 56,
+            "matchupVariance": 52,
+            "timingSensitivity": 62
+          },
+          "skillFloor": 45,
+          "pilotReward": 10,
+          "skillCeiling": 55
+        },
+        "representativeCardName": "Kotaro Amon (080)",
+        "representativeImageUrl": "/cdn/cards/unionarena/482735/888431_thumb_0.webp",
+        "colorIdentity": [
+          "Red"
+        ],
+        "championClasses": null
+      },
+      "CSM - Purple": {
+        "skillRating": {
+          "label": "Expert",
+          "inputHash": "2092cc6827a2a0b1",
+          "reasoning": "CSM - Purple is a tempo-focused aggro deck where sequencing matters significantly—knowing when to commit resources, when to hold for Bomb Devil burst, and how to navigate the Denji/Reze curve requires careful play. The deck's narrow game plan (pure aggression with minimal filtering) means mistakes are heavily punished and matchup outcomes swing dramatically based on whether the pilot can execute the tempo line before opponents stabilize. However, once the core engine resolves, the deck has enough redundancy that some plays feel predetermined, preventing it from reaching the highest difficulty ceiling.",
+          "components": {
+            "autopilotFactor": 58,
+            "decisionDensity": 62,
+            "errorPunishment": 72,
+            "matchupVariance": 71,
+            "timingSensitivity": 68
+          },
+          "skillFloor": 35,
+          "pilotReward": 31,
+          "skillCeiling": 66
+        },
+        "representativeCardName": "Bomb Devil (017)",
+        "representativeImageUrl": "/cdn/cards/unionarena/725188/1333686_thumb_0.webp",
+        "colorIdentity": [
+          "Purple"
+        ],
+        "championClasses": null
+      },
+      "CSM - Bomb Devil": {
+        "skillRating": {
+          "label": "Advanced",
+          "inputHash": "d0469faa6ab53810",
+          "reasoning": "CSM Bomb Devil is a straightforward aggressive deck with a clear game plan: curve out efficient threats and close before opponents stabilize. While the redundant Reze/Denji core and Bomb Devil scaling provide some sequencing decisions, the deck largely plays itself once you're committing characters to pressure. However, mistakes are heavily punished—poor resource allocation between board and energy line, or missequencing your threats against blockers, can quickly spiral into unrecoverable positions. Matchup variance is moderate since the deck's aggressive shell requires different pacing against control versus other aggro decks, but the linear game plan limits overall decision complexity.",
+          "components": {
+            "autopilotFactor": 72,
+            "decisionDensity": 42,
+            "errorPunishment": 68,
+            "matchupVariance": 58,
+            "timingSensitivity": 55
+          },
+          "skillFloor": 43,
+          "pilotReward": 14,
+          "skillCeiling": 57
+        },
+        "representativeCardName": "Bomb Devil (017)",
+        "representativeImageUrl": "/cdn/cards/unionarena/725188/1333686_thumb_0.webp",
+        "colorIdentity": [
+          "Purple"
+        ],
+        "championClasses": null
+      },
+      "Kagurabachi - Red": {
+        "skillRating": {
+          "label": "Advanced",
+          "inputHash": "b6ebdd331f0cde63",
+          "reasoning": "Kagurabachi Red is a moderately difficult aggro deck with clear sequencing demands around raid chains and combat tricks, but limited decision branching once the core game plan is established. Timing matters significantly for raid upgrades and combat resolution, and mistakes—particularly missequencing raids or misusing the event trick—are heavily punished in a tempo-focused strategy. The deck's high autopilot factor reflects that once positioned correctly, the redundant Chihiro/Hakuri engine largely executes itself, reducing pilot skill expression relative to its skill ceiling.",
+          "components": {
+            "autopilotFactor": 62,
+            "decisionDensity": 48,
+            "errorPunishment": 68,
+            "matchupVariance": 55,
+            "timingSensitivity": 62
+          },
+          "skillFloor": 42,
+          "pilotReward": 16,
+          "skillCeiling": 58
+        },
+        "representativeCardName": "Chihiro Rokuhira (060)",
+        "representativeImageUrl": "/cdn/cards/unionarena/125113/230058.webp",
+        "colorIdentity": [
+          "Red"
+        ],
+        "championClasses": null
+      },
+      "Evangelion - Yellow": {
+        "skillRating": {
+          "label": "Advanced",
+          "inputHash": "fe07df05ce3cb373",
+          "reasoning": "Evangelion Yellow Tempo demands careful sequencing of character variants and event timing to maximize resource efficiency and AP curves, with meaningful decisions around which named unit to deploy based on available energy. The deck's reliance on precise ordering (evidenced by high tempo and resource management scores) and vulnerability to disruption creates moderate punishment for mistakes, though its deep redundancy and consistency provide some safety net. The skill ceiling is respectable but not elite—the deck rewards good sequencing and matchup adaptation without requiring the frame-perfect execution of higher-tier archetypes.",
+          "components": {
+            "autopilotFactor": 45,
+            "decisionDensity": 62,
+            "errorPunishment": 58,
+            "matchupVariance": 55,
+            "timingSensitivity": 68
+          },
+          "skillFloor": 42,
+          "pilotReward": 16,
+          "skillCeiling": 58
+        },
+        "representativeCardName": "A Hot Bath Lets You Wash Your Life and Begin Anew",
+        "representativeImageUrl": "/cdn/cards/unionarena/123633/228578.webp",
+        "colorIdentity": [
+          "Yellow"
+        ],
+        "championClasses": null
+      },
+      "Sakamoto Days - Purple": {
+        "skillRating": {
+          "label": "Advanced",
+          "inputHash": "021e2ea781bc5d01",
+          "reasoning": "Sakamoto Days - Purple is a moderately complex midrange deck that requires thoughtful sequencing of its multi-step raid chains and resource allocation across three separate character lines. The deck's skill ceiling (60) and resource management demands (58) indicate meaningful pilot decisions around which threats to develop and when to commit resources, but its moderate consistency (62) and flexibility (45) prevent it from reaching the highest complexity tiers. Mistakes in raid chain ordering or inefficient AP allocation are punishing but not immediately fatal, and the deck's redundancy provides some resilience for recovery.",
+          "components": {
+            "autopilotFactor": 45,
+            "decisionDensity": 62,
+            "errorPunishment": 52,
+            "matchupVariance": 55,
+            "timingSensitivity": 58
+          },
+          "skillFloor": 45,
+          "pilotReward": 10,
+          "skillCeiling": 55
+        },
+        "representativeCardName": "Taro Sakamoto (047)",
+        "representativeImageUrl": "/cdn/cards/unionarena/538229/990266_thumb_0.webp",
+        "colorIdentity": [
+          "Purple"
+        ],
+        "championClasses": null
+      },
+      "Rurouni Kenshin - Red": {
+        "skillRating": {
+          "label": "Advanced",
+          "inputHash": "fb1553176bfa3f98",
+          "reasoning": "This is a straightforward aggro deck with moderate pilot difficulty. The character-heavy build and redundant Kenshin copies create a linear game plan (attack, boost, repeat) that doesn't demand complex sequencing, but timing combat tricks like Ryuutsuisen and Oath Not to Kill correctly matters significantly. The deck's lack of disruption and resilience means mistakes are punished harshly—missing lethal or misallocating resources often leads to unrecoverable positions—but the inherent engine does much of the heavy lifting once threats are in play.",
+          "components": {
+            "autopilotFactor": 68,
+            "decisionDensity": 42,
+            "errorPunishment": 62,
+            "matchupVariance": 48,
+            "timingSensitivity": 55
+          },
+          "skillFloor": 46,
+          "pilotReward": 7,
+          "skillCeiling": 53
+        },
+        "representativeCardName": "Kenshin Himura (085)",
+        "representativeImageUrl": "/cdn/cards/unionarena/125130/230075.webp",
+        "colorIdentity": [
+          "Red"
+        ],
+        "championClasses": null
+      },
+      "That Time I Got Reincarnated As A Slime - Soei": {
+        "skillRating": {
+          "label": "Expert",
+          "inputHash": "082c7a34bdf9194e",
+          "reasoning": "Soei disruption tempo demands high pilot skill due to complex sequencing of retire effects, careful positioning between front/energy lines, and resource management through Report refills. The deck's strength lies in tactical disruption rather than raw power, requiring constant decision-making about when to dismantle threats vs. develop board presence. Timing mistakes in deploying Soei variants or mismanaging AP allocation are heavily punished in tempo matchups, while the lack of a dedicated finisher means suboptimal disruption sequencing can cost games.",
+          "components": {
+            "autopilotFactor": 35,
+            "decisionDensity": 72,
+            "errorPunishment": 68,
+            "matchupVariance": 62,
+            "timingSensitivity": 75
+          },
+          "skillFloor": 37,
+          "pilotReward": 27,
+          "skillCeiling": 64
+        },
+        "representativeCardName": "Soei (059)",
+        "representativeImageUrl": "/cdn/cards/unionarena/546195/999033_thumb_0.webp",
+        "colorIdentity": [
+          "Blue"
+        ],
+        "championClasses": null
+      },
+      "Tokyo Ghoul - Purple": {
+        "skillRating": {
+          "label": "Advanced",
+          "inputHash": "9b089dd27a41b42c",
+          "reasoning": "Tokyo Ghoul - Purple demands careful sequencing around its Kaneki/Tsukiyama redundancy and raid-style upgrades, with meaningful decisions about when to deploy threats and how to sequence named variants for maximum value. The deck's reliance on specific synergies and vulnerability to targeted disruption means mistakes in resource management or sequencing are heavily punished, though its resilience and consistency provide some margin for error recovery.",
+          "components": {
+            "autopilotFactor": 38,
+            "decisionDensity": 62,
+            "errorPunishment": 64,
+            "matchupVariance": 58,
+            "timingSensitivity": 68
+          },
+          "skillFloor": 42,
+          "pilotReward": 17,
+          "skillCeiling": 59
+        },
+        "representativeCardName": "Hinami Fueguchi (055)",
+        "representativeImageUrl": "/cdn/cards/unionarena/482722/888418_thumb_0.webp",
+        "colorIdentity": [
+          "Purple"
+        ],
+        "championClasses": null
+      },
+      "Solo Leveling - Han Song-Yi": {
+        "skillRating": {
+          "label": "Advanced",
+          "inputHash": "b076e199787cf5c3",
+          "reasoning": "Han Song-Yi demands careful sequencing of its multi-step raid chain and resource management through Arise/Elixir filtering, creating meaningful decision points around when to assemble threats versus when to pivot. The deck is highly sensitive to the order of operations—missequencing the five Sung Jinwoo pieces or mismanaging energy/AP severely punishes pilots, and disruption can derail the entire game plan. While matchup variance is moderate (the core strategy remains similar across most matchups), the skill ceiling is notably high due to layered raid optimization, making pilot expertise a significant differentiator.",
+          "components": {
+            "autopilotFactor": 38,
+            "decisionDensity": 62,
+            "errorPunishment": 71,
+            "matchupVariance": 54,
+            "timingSensitivity": 68
+          },
+          "skillFloor": 41,
+          "pilotReward": 18,
+          "skillCeiling": 59
+        },
+        "representativeCardName": "Han Song-yi (002)",
+        "representativeImageUrl": "/cdn/cards/unionarena/415893/788438_thumb_0.webp",
+        "colorIdentity": [
+          "Purple"
+        ],
+        "championClasses": null
+      },
+      "The 100 Girlfriends - Shizuka Yoshimoto": {
+        "skillRating": {
+          "label": "Advanced",
+          "inputHash": "395bc1fb884dd446",
+          "reasoning": "This is a mid-difficulty combo deck that demands careful sequencing and resource management. The repeatable combo engine (4-of events) and redundant Shizuka payoffs create multiple decision branches per turn, but the narrow single-family core and lack of disruption tools mean pilots must navigate matchups reactively. Timing is critical—assembling the combo at the right moment while managing life total against faster decks requires precision, and mistakes in sequencing the four Shizuka variants or event triggers can derail the game plan. The deck's unproven tournament record and unclear trigger distribution add execution risk.",
+          "components": {
+            "autopilotFactor": 45,
+            "decisionDensity": 62,
+            "errorPunishment": 55,
+            "matchupVariance": 58,
+            "timingSensitivity": 68
+          },
+          "skillFloor": 42,
+          "pilotReward": 17,
+          "skillCeiling": 59
+        },
+        "representativeCardName": "Shizuka Yoshimoto (061)",
+        "representativeImageUrl": "/cdn/cards/unionarena/587270/1089941_thumb_0.webp",
+        "colorIdentity": [
+          "Green"
+        ],
+        "championClasses": null
+      },
+      "Tokyo Ghoul - Uta": {
+        "skillRating": {
+          "label": "Advanced",
+          "inputHash": "d3f43feaeb43b2d6",
+          "reasoning": "Uta is a mid-complexity aggro deck that demands careful sequencing around raid triggers and AP/energy curves to maximize tempo, but lacks the decision branching of control decks. Timing is critical—deploying Uta/Hinami ahead of curve via Coffee and sequencing Kaneki raids properly determines whether you maintain pressure or stall. The deck's reliance on specific card numbers and thin disruption means mistakes (poor mulligan decisions, suboptimal raid ordering, or misaligned burst windows) are heavily punished, especially against removal-heavy matchups. Matchup variance is moderate since the core game plan (raid into board pressure into burst) remains consistent, though Tier 1 matchups require different resource allocation. The deck has a reasonable skill ceiling but isn't autopilot—success hinges on pilot execution rather than inherent engine power.",
+          "components": {
+            "autopilotFactor": 45,
+            "decisionDensity": 62,
+            "errorPunishment": 64,
+            "matchupVariance": 58,
+            "timingSensitivity": 68
+          },
+          "skillFloor": 40,
+          "pilotReward": 20,
+          "skillCeiling": 60
+        },
+        "representativeCardName": "Uta (037)",
+        "representativeImageUrl": "/cdn/cards/unionarena/482660/888356_thumb_0.webp",
+        "colorIdentity": [
+          "Purple"
+        ],
+        "championClasses": null
+      },
+      "Evangelion - Evangelion Production Model-02": {
+        "skillRating": {
+          "label": "Advanced",
+          "inputHash": "154722cf3cce0ffe",
+          "reasoning": "This tempo deck demands careful sequencing around raid chains and AP management, with meaningful decisions about when to commit to the Model-02→Beast Form upgrade path versus holding resources. Timing is critical due to tight AP budgets and the need to position threats before opponents establish disruption, while mistakes in raid ordering or Crossbow usage can leave the pilot overextended and vulnerable to faster decks. The moderate skill ceiling reflects that while the core engine has clear lines, matchup-specific Asuka variant selection and trigger management require pilot expertise to maximize.",
+          "components": {
+            "autopilotFactor": 45,
+            "decisionDensity": 62,
+            "errorPunishment": 64,
+            "matchupVariance": 55,
+            "timingSensitivity": 68
+          },
+          "skillFloor": 41,
+          "pilotReward": 18,
+          "skillCeiling": 59
+        },
+        "representativeCardName": "Evangelion Production Model-02",
+        "representativeImageUrl": "/cdn/cards/unionarena/123507/228452.webp",
+        "colorIdentity": [
+          "Red"
+        ],
+        "championClasses": null
+      },
+      "Rurouni Kenshin - Purple": {
+        "skillRating": {
+          "label": "Advanced",
+          "inputHash": "dde901f3925e96f7",
+          "reasoning": "This midrange raid deck demands careful sequencing around the four-stage Kenshin Himura line and Hajime Saito variant selection, with meaningful decisions about when to commit resources vs. hold for Gatotsu finishers. The lack of draw/search engines and defensive tools means sequencing errors (playing the wrong Saito variant or committing too early) are heavily punished, while the slow raid gameplan requires reading matchups to know whether to race or stabilize—but the deck's unproven tournament record and reliance on a linear scaling threat keep overall complexity moderate rather than elite.",
+          "components": {
+            "autopilotFactor": 42,
+            "decisionDensity": 62,
+            "errorPunishment": 64,
+            "matchupVariance": 55,
+            "timingSensitivity": 68
+          },
+          "skillFloor": 41,
+          "pilotReward": 18,
+          "skillCeiling": 59
+        },
+        "representativeCardName": "Kenshin Himura (045)",
+        "representativeImageUrl": "/cdn/cards/unionarena/126792/231737.webp",
+        "colorIdentity": [
+          "Purple"
+        ],
+        "championClasses": null
+      },
+      "Bleach - Ichigo Kurosaki": {
+        "skillRating": {
+          "label": "Advanced",
+          "inputHash": "a2c227e9b7e5a543",
+          "reasoning": "This Ichigo midrange deck requires moderate-to-high skill due to complex raid sequencing decisions and tight timing windows around when to commit resources to the Bankai power spike. The multiple Ichigo variants create branching lines based on what's drawn, but the lack of disruption and tempo disadvantage means pilots must carefully manage when to raid versus develop, with limited room for recovery from poor sequencing choices. The deck's moderate consistency and flexibility mean it's neither autopilot nor exceptionally punishing, landing it in the mid-skill range.",
+          "components": {
+            "autopilotFactor": 45,
+            "decisionDensity": 58,
+            "errorPunishment": 52,
+            "matchupVariance": 48,
+            "timingSensitivity": 62
+          },
+          "skillFloor": 46,
+          "pilotReward": 7,
+          "skillCeiling": 53
+        },
+        "representativeCardName": "Ichigo Kurosaki",
+        "representativeImageUrl": "/cdn/cards/unionarena/124699/229644.webp",
+        "colorIdentity": [
+          "Blue",
+          "Purple"
+        ],
+        "championClasses": null
+      },
+      "Bleach - Toshiro Hitsugaya": {
+        "skillRating": {
+          "label": "Advanced",
+          "inputHash": "a2a87efed2699fbe",
+          "reasoning": "Toshiro Hitsugaya demands careful sequencing around raid mechanics and curve management, with meaningful decisions about when to commit resources vs. hold for upgrades. The fragmented card distribution creates timing-sensitive draws where sequencing errors (playing raid targets before bases) are heavily punished, and matchup-dependent decisions about whether to pivot to Kenpachi or hold for Toshiro payoffs add moderate complexity. The deck's mid-tier power ceiling and reliance on specific sequencing patterns prevent it from being autopilot, but the relatively linear raid-into-finisher game plan keeps it from reaching elite difficulty.",
+          "components": {
+            "autopilotFactor": 45,
+            "decisionDensity": 62,
+            "errorPunishment": 64,
+            "matchupVariance": 58,
+            "timingSensitivity": 68
+          },
+          "skillFloor": 40,
+          "pilotReward": 20,
+          "skillCeiling": 60
+        },
+        "representativeCardName": "Toshiro Hitsugaya (083)",
+        "representativeImageUrl": "/cdn/cards/unionarena/123879/228824.webp",
+        "colorIdentity": [
+          "Green"
+        ],
+        "championClasses": null
+      },
+      "Evangelion - Red": {
+        "skillRating": {
+          "label": "Advanced",
+          "inputHash": "a982a83f2d6c376f",
+          "reasoning": "Evangelion - Red is a moderately straightforward midrange deck with a clear character-swarm game plan. The deep redundancy and consistency-smoothing tools (Smiling Would Be a Start, Operations Room) reduce decision complexity and allow some autopiloting once the core pieces resolve. However, the lack of disruption and flexible pivots means pilots must carefully sequence their board development and resource allocation across matchups, particularly against faster decks and combo strategies. Mistakes are punished but not catastrophically, as the deck's resilience and redundancy provide some buffer for suboptimal plays.",
+          "components": {
+            "autopilotFactor": 58,
+            "decisionDensity": 52,
+            "errorPunishment": 42,
+            "matchupVariance": 55,
+            "timingSensitivity": 48
+          },
+          "skillFloor": 49,
+          "pilotReward": 2,
+          "skillCeiling": 51
+        },
+        "representativeCardName": "Evangelion Proto Type-00",
+        "representativeImageUrl": "/cdn/cards/unionarena/123528/228473.webp",
+        "colorIdentity": [
+          "Red"
+        ],
+        "championClasses": null
+      },
+      "Kagurabachi - Chihiro Rokuhira": {
+        "skillRating": {
+          "label": "Advanced",
+          "inputHash": "d0a5372421a17cf9",
+          "reasoning": "Chihiro Rokuhira Raid Midrange demands careful sequencing around the raid stacking mechanic and resource management (52 rating), with meaningful decisions about when to commit raid targets versus hold them for disruption. The deck's moderate skill ceiling (60) and matchup spread (50) reflect that while core lines exist, timing the raid chain against removal-heavy opponents and managing tempo against aggro requires pilot expertise. Mistakes in sequencing or raid commitment are punished hard by disruption-focused decks, but the deep redundancy in Chihiro printings provides some resilience against bricking.",
+          "components": {
+            "autopilotFactor": 45,
+            "decisionDensity": 62,
+            "errorPunishment": 64,
+            "matchupVariance": 58,
+            "timingSensitivity": 68
+          },
+          "skillFloor": 40,
+          "pilotReward": 20,
+          "skillCeiling": 60
+        },
+        "representativeCardName": "Chihiro Rokuhira (060)",
+        "representativeImageUrl": "/cdn/cards/unionarena/125113/230058.webp",
+        "colorIdentity": [
+          "Red"
+        ],
+        "championClasses": null
+      },
+      "That Time I Got Reincarnated As A Slime - Diablo": {
+        "skillRating": {
+          "label": "Expert",
+          "inputHash": "2545c40a34073d6c",
+          "reasoning": "This is a moderately difficult combo deck that demands precise sequencing and resource management. The high skill_ceiling (78) and resource_management (68) scores reflect the need to carefully order Feast, Rimuru, and Shion pieces while building toward Diablo's payoff. Timing is critical—assembling the combo at the right moment while managing tempo against faster decks requires expert play. The deck's setup-heavy nature and vulnerability to disruption mean mistakes in sequencing or resource allocation are heavily punished, though the redundancy in key pieces (quadruple Shion, multiple Rimuru) provides some resilience. Matchup variance is moderate since the core game plan remains relatively fixed, but the flex slots and resource-generation angles allow some adaptation.",
+          "components": {
+            "autopilotFactor": 35,
+            "decisionDensity": 72,
+            "errorPunishment": 68,
+            "matchupVariance": 58,
+            "timingSensitivity": 75
+          },
+          "skillFloor": 37,
+          "pilotReward": 26,
+          "skillCeiling": 63
+        },
+        "representativeCardName": "Diablo (030)",
+        "representativeImageUrl": "/cdn/cards/unionarena/546205/1090037_thumb_0.webp",
+        "colorIdentity": [
+          "Purple"
+        ],
+        "championClasses": null
+      },
+      "Evangelion - Evangelion 13": {
+        "skillRating": {
+          "label": "Advanced",
+          "inputHash": "160c6f6dce2d8f40",
+          "reasoning": "Evangelion 13 is a moderately difficult tempo deck with a clear synergy engine (Kaworu/Shinji) that provides structure but requires thoughtful sequencing around resource deployment and timing windows. The deck's high redundancy and linear game plan push it toward autopilot once the core pieces resolve, but matchup-dependent Shinji variant selection and the need to sequence Longinus/Lilith closers into the right board states create meaningful decision points. Lack of disruption and limited comeback tools (single copy of the reset event) mean mistakes are punished more severely than in resilient decks, though the redundancy on key pieces provides some buffer against catastrophic draws.",
+          "components": {
+            "autopilotFactor": 62,
+            "decisionDensity": 52,
+            "errorPunishment": 54,
+            "matchupVariance": 48,
+            "timingSensitivity": 58
+          },
+          "skillFloor": 45,
+          "pilotReward": 9,
+          "skillCeiling": 54
+        },
+        "representativeCardName": "Evangelion 13",
+        "representativeImageUrl": "/cdn/cards/unionarena/123508/228453.webp",
+        "colorIdentity": [
+          "Purple"
+        ],
+        "championClasses": null
+      },
+      "Rurouni Kenshin - Sojiro Seta": {
+        "skillRating": {
+          "label": "Expert",
+          "inputHash": "667527138a72a329",
+          "reasoning": "This Sojiro Seta tempo deck demands precise sequencing of its five distinct character printings to enable raid-based scaling, making timing and error punishment critical. The tight single-theme build with heavy synergy requirements creates high decision density around resource ordering and Ten Swords assembly, while matchup variance is moderate since the core gameplan remains consistent despite needing tech adjustments against faster decks. The deck's low autopilot factor reflects that even with strong synergies, pilot skill directly determines whether the scaling engine snowballs or stalls.",
+          "components": {
+            "autopilotFactor": 35,
+            "decisionDensity": 72,
+            "errorPunishment": 75,
+            "matchupVariance": 62,
+            "timingSensitivity": 78
+          },
+          "skillFloor": 35,
+          "pilotReward": 31,
+          "skillCeiling": 66
+        },
+        "representativeCardName": "Sojiro Seta (057)",
+        "representativeImageUrl": "/cdn/cards/unionarena/126653/231598.webp",
+        "colorIdentity": [
+          "Purple"
+        ],
+        "championClasses": null
+      },
+      "Code Geass - Suzaku Kururugi": {
+        "skillRating": {
+          "label": "Advanced",
+          "inputHash": "68011c79b4f03e2f",
+          "reasoning": "Suzaku Kururugi presents moderate-to-high pilot difficulty centered on resource sequencing and matchup adaptation. The deck requires careful timing around raid assembly and evolution sequencing (three Suzaku printings create decision trees), while the lack of disruption forces pilots to make proactive rather than reactive plays—mistakes in sequencing or tempo decisions are punished by faster decks. However, the midrange engine provides some resilience, and once the raid line resolves, the deck has reasonable autopilot elements, preventing extreme difficulty.",
+          "components": {
+            "autopilotFactor": 48,
+            "decisionDensity": 52,
+            "errorPunishment": 54,
+            "matchupVariance": 62,
+            "timingSensitivity": 58
+          },
+          "skillFloor": 46,
+          "pilotReward": 9,
+          "skillCeiling": 55
+        },
+        "representativeCardName": "Suzaku Kururugi (034)",
+        "representativeImageUrl": "/cdn/cards/unionarena/123977/228922.webp",
+        "colorIdentity": [
+          "Green"
+        ],
+        "championClasses": null
+      },
+      "Evangelion - Evangelion Production Model-08": {
+        "skillRating": {
+          "label": "Expert",
+          "inputHash": "67c39959eda0348a",
+          "reasoning": "This is a moderately difficult tempo deck that demands careful sequencing of its raid engine and burst windows, but benefits from a relatively consistent core gameplan. The high skill ceiling (80) and tempo rating (85) indicate meaningful decisions around when to evolve, when to hold resources for burst events, and how to navigate blocking assignments—but the moderate matchup spread (49) and some autopilot elements from the raid engine itself prevent this from being a true expert-only deck. Mistakes in resource management or timing windows are punished, but the deck's inherent consistency and redundancy provide some margin for error.",
+          "components": {
+            "autopilotFactor": 62,
+            "decisionDensity": 72,
+            "errorPunishment": 68,
+            "matchupVariance": 58,
+            "timingSensitivity": 75
+          },
+          "skillFloor": 32,
+          "pilotReward": 35,
+          "skillCeiling": 67
+        },
+        "representativeCardName": "Evangelion Production Model-08",
+        "representativeImageUrl": "/cdn/cards/unionarena/123493/228438_thumb_0.webp",
+        "colorIdentity": [
+          "Purple"
+        ],
+        "championClasses": null
+      },
+      "Evangelion - Asuka Shikinami Langley": {
+        "skillRating": {
+          "label": "Advanced",
+          "inputHash": "cf40f1ec87405bb2",
+          "reasoning": "This Asuka aggro deck is moderately difficult to pilot. While it has a relatively straightforward game plan (deploy aggressive characters and push damage), the need to sequence events optimally, manage resource allocation across multiple Rei/Mari printings, and time trigger checks creates meaningful decision points. However, the deck's high redundancy and consistent engine mean many games follow a predictable aggressive curve, reducing the skill ceiling—mistakes are punishable but the deck's inherent consistency provides some margin for error.",
+          "components": {
+            "autopilotFactor": 62,
+            "decisionDensity": 52,
+            "errorPunishment": 55,
+            "matchupVariance": 48,
+            "timingSensitivity": 58
+          },
+          "skillFloor": 45,
+          "pilotReward": 9,
+          "skillCeiling": 54
+        },
+        "representativeCardName": "Asuka Shikinami Langley (012)",
+        "representativeImageUrl": "/cdn/cards/unionarena/123570/228515.webp",
+        "colorIdentity": [
+          "Yellow"
+        ],
+        "championClasses": null
+      },
+      "Evangelion - Evangelion Test Type-01 (Spear Of Gaius)": {
+        "skillRating": {
+          "label": "Advanced",
+          "inputHash": "d3da8663c14e3b48",
+          "reasoning": "This deck demands moderate pilot skill due to its multi-piece synergy engine (Shinji/Misato/Mari) requiring careful sequencing and resource management across turns. The tempo gameplan with layered character variants creates meaningful decisions about which pieces to deploy and when, but the lack of interactive tools (removal/disruption) and clear win conditions reduces both the complexity ceiling and the punishment for suboptimal play—mistakes are costly but not always unrecoverable given the deck's redundancy. The archetype's middling matchup spread and reliance on assembling synergies rather than adapting to opponents further moderates the skill expression required.",
+          "components": {
+            "autopilotFactor": 45,
+            "decisionDensity": 62,
+            "errorPunishment": 54,
+            "matchupVariance": 48,
+            "timingSensitivity": 58
+          },
+          "skillFloor": 45,
+          "pilotReward": 9,
+          "skillCeiling": 54
+        },
+        "representativeCardName": "Evangelion Test Type-01 (Spear of Gaius)",
+        "representativeImageUrl": "/cdn/cards/unionarena/123492/228437.webp",
+        "colorIdentity": [
+          "Purple"
+        ],
+        "championClasses": null
+      },
+      "Evangelion - Purple": {
+        "skillRating": {
+          "label": "Expert",
+          "inputHash": "3b2ca7c8421c4b36",
+          "reasoning": "Evangelion - Purple is a high-skill control deck requiring precise sequencing of disruption and resource management. The high skill ceiling (68), deep redundancy on core engines, and disruption-heavy gameplan demand careful decision-making about when to deploy Misato/Shinji pieces and how to sequence Spear of Gaius payoffs. Mistakes in timing disruption or resource allocation are heavily punished in grindy matchups, and the deck plays fundamentally differently against tempo threats versus resource-rich midrange opponents.",
+          "components": {
+            "autopilotFactor": 28,
+            "decisionDensity": 72,
+            "errorPunishment": 70,
+            "matchupVariance": 68,
+            "timingSensitivity": 75
+          },
+          "skillFloor": 37,
+          "pilotReward": 28,
+          "skillCeiling": 65
+        },
+        "representativeCardName": "Evangelion Production Model-08",
+        "representativeImageUrl": "/cdn/cards/unionarena/123493/228438_thumb_0.webp",
+        "colorIdentity": [
+          "Purple"
+        ],
+        "championClasses": null
+      },
+      "One Punch Man - Green": {
+        "skillRating": {
+          "label": "Advanced",
+          "inputHash": "876dc9c5438de021",
+          "reasoning": "This midrange deck requires moderate pilot skill with meaningful sequencing decisions around assembling the King engine and timing Saitama/Terrible Tornado closers. The deck's inconsistency (46 consistency score) and thin character spread create decision points about resource allocation and curve management, while its vulnerability to tempo decks means matchup-specific pivots are necessary. Mistakes in sequencing the King package or mismanaging resources before stabilization are moderately punishing given the deck's lack of disruption and slow payoff assembly.",
+          "components": {
+            "autopilotFactor": 42,
+            "decisionDensity": 58,
+            "errorPunishment": 54,
+            "matchupVariance": 56,
+            "timingSensitivity": 62
+          },
+          "skillFloor": 45,
+          "pilotReward": 10,
+          "skillCeiling": 55
+        },
+        "representativeCardName": "Serious Punch",
+        "representativeImageUrl": "/cdn/cards/unionarena/124454/229399.webp",
+        "colorIdentity": [
+          "Green"
+        ],
+        "championClasses": null
+      },
+      "Rurouni Kenshin - Kenshin Himura": {
+        "skillRating": {
+          "label": "Advanced",
+          "inputHash": "fb27cf1d84cd30bb",
+          "reasoning": "This Kenshin Himura midrange deck has moderate complexity driven by raid sequencing and resource management (62 skill ceiling), but high redundancy and consistency (70) reduce decision density. Timing matters significantly for raid chains and event triggers, and mistakes in sequencing raids or resource allocation are punished harshly by faster decks. However, the linear raid-focused game plan and autopilot nature of the core engine (high redundancy, repeatable value) mean the deck doesn't demand exceptional pilot skill once the core strategy is understood—it's a solid Tier 2 deck that rewards competent play but doesn't separate skilled pilots from average ones.",
+          "components": {
+            "autopilotFactor": 62,
+            "decisionDensity": 58,
+            "errorPunishment": 65,
+            "matchupVariance": 48,
+            "timingSensitivity": 62
+          },
+          "skillFloor": 40,
+          "pilotReward": 18,
+          "skillCeiling": 58
+        },
+        "representativeCardName": "Kenshin Himura (085)",
+        "representativeImageUrl": "/cdn/cards/unionarena/125130/230075.webp",
+        "colorIdentity": [
+          "Red"
+        ],
+        "championClasses": null
+      },
+      "Sakamoto Days - Osaragi": {
+        "skillRating": {
+          "label": "Advanced",
+          "inputHash": "3bd9132932f4a4be",
+          "reasoning": "Osaragi is a moderately complex midrange deck that requires thoughtful sequencing of its Osaragi/Shishiba raid lines and careful resource management across multiple character variants. The deck's lack of clear finishers and disruption means pilots must make deliberate decisions about when to commit resources and how to navigate different matchups, but its inherent consistency and resilience provide some margin for error recovery.",
+          "components": {
+            "autopilotFactor": 42,
+            "decisionDensity": 58,
+            "errorPunishment": 48,
+            "matchupVariance": 54,
+            "timingSensitivity": 62
+          },
+          "skillFloor": 47,
+          "pilotReward": 7,
+          "skillCeiling": 54
+        },
+        "representativeCardName": "Osaragi (046)",
+        "representativeImageUrl": "/cdn/cards/unionarena/127318/990432_thumb_0.webp",
+        "colorIdentity": [
+          "Purple"
+        ],
+        "championClasses": null
+      },
+      "Solo Leveling - Purple": {
+        "skillRating": {
+          "label": "Expert",
+          "inputHash": "a526ab6f67976897",
+          "reasoning": "Solo Leveling Purple demands careful sequencing of Arise, raids, and shadow-soldier deployment to maximize AP efficiency and board presence, with meaningful decisions around which Sung Jinwoo to raid and when to commit resources. However, the linear game plan and high consistency (70) mean the core strategy is relatively straightforward once you understand the synergy engine, and mistakes in resource management or timing can quickly leave you without a payoff turn, making errors costly but not always fatal given the deck's resilience (52).",
+          "components": {
+            "autopilotFactor": 62,
+            "decisionDensity": 58,
+            "errorPunishment": 65,
+            "matchupVariance": 48,
+            "timingSensitivity": 72
+          },
+          "skillFloor": 38,
+          "pilotReward": 22,
+          "skillCeiling": 60
+        },
+        "representativeCardName": "Sung Jinwoo (018)",
+        "representativeImageUrl": "/cdn/cards/unionarena/415904/788449_thumb_0.webp",
+        "colorIdentity": [
+          "Purple"
+        ],
+        "championClasses": null
+      },
+      "Evangelion - Evangelion Production Model-New 02": {
+        "skillRating": {
+          "label": "Advanced",
+          "inputHash": "f2db054c697b1640",
+          "reasoning": "This tempo deck demands careful sequencing of its raid chain and resource management to maximize the scaling potential of its EVA units while navigating a mid-range power level. The pilot must make meaningful decisions about when to commit pieces to the raid chain, how to sequence Mari's filtering with hand development, and when to use tempo events—but the deck's moderate consistency and lack of high-impact finishers mean mistakes are punishing but not always unrecoverable. The skill ceiling is real but not extreme; the deck rewards good play without requiring frame-perfect execution.",
+          "components": {
+            "autopilotFactor": 45,
+            "decisionDensity": 62,
+            "errorPunishment": 55,
+            "matchupVariance": 58,
+            "timingSensitivity": 68
+          },
+          "skillFloor": 42,
+          "pilotReward": 17,
+          "skillCeiling": 59
+        },
+        "representativeCardName": "Evangelion Production Model-New 02",
+        "representativeImageUrl": "/cdn/cards/unionarena/123496/228441.webp",
+        "colorIdentity": [
+          "Purple"
+        ],
+        "championClasses": null
+      },
+      "Sakamoto Days - Shishiba": {
+        "skillRating": {
+          "label": "Advanced",
+          "inputHash": "b283c3141977d2a2",
+          "reasoning": "Sakamoto Days - Shishiba is a moderately complex midrange deck that demands careful sequencing between its dual character lines (Shishiba/Osaragi) and resource management through events like B5 and For the Order. The deck's lack of disruption and defensive tools means matchup-specific play patterns are critical—pilots must adapt significantly against combo, aggro, and control shells, but the core engine is stable enough that suboptimal plays don't immediately spiral into losses. Skill ceiling is meaningful but not extreme; the deck rewards good sequencing and matchup knowledge without requiring frame-perfect execution.",
+          "components": {
+            "autopilotFactor": 45,
+            "decisionDensity": 58,
+            "errorPunishment": 52,
+            "matchupVariance": 68,
+            "timingSensitivity": 62
+          },
+          "skillFloor": 44,
+          "pilotReward": 14,
+          "skillCeiling": 58
+        },
+        "representativeCardName": "Shishiba (052)",
+        "representativeImageUrl": "/cdn/cards/unionarena/538222/990259_thumb_0.webp",
+        "colorIdentity": [
+          "Purple"
+        ],
+        "championClasses": null
+      },
+      "Jujutsu Kaisen - Purple": {
+        "skillRating": {
+          "label": "Advanced",
+          "inputHash": "9ba17e1894a56362",
+          "reasoning": "Purple Jujutsu Kaisen demands moderate-to-high pilot skill due to complex sequencing around Domain Expansion setup and Mechamaru transformation chains, combined with positional combat decisions via Boogie Woogie. However, the deck's clunky setup requirements and limited disruption options mean many games follow predictable lines once pieces align, reducing decision density in practice. Mistakes in resource timing or combat math are punished but not catastrophically, as the deck has reasonable resilience and redundancy through multiple Todo variants.",
+          "components": {
+            "autopilotFactor": 45,
+            "decisionDensity": 58,
+            "errorPunishment": 52,
+            "matchupVariance": 55,
+            "timingSensitivity": 62
+          },
+          "skillFloor": 45,
+          "pilotReward": 10,
+          "skillCeiling": 55
+        },
+        "representativeCardName": "Boogie Woogie",
+        "representativeImageUrl": "/cdn/cards/unionarena/123728/228673.webp",
+        "colorIdentity": [
+          "Purple"
+        ],
+        "championClasses": null
+      },
+      "Sakamoto Days - Yellow": {
+        "skillRating": {
+          "label": "Expert",
+          "inputHash": "22481801d5572512",
+          "reasoning": "This multi-character toolbox demands consistent sequencing decisions around which character line to develop, when to pivot between game plans (Taro/Shin aggression vs. Lu Shaotang/Heisuke control), and careful energy management across four distinct families. The flexibility is a double-edged sword—while it enables adaptation to varied matchups, it also requires the pilot to recognize which plan is optimal per opponent, increasing decision density and matchup-specific play. Mistakes in character sequencing or energy allocation are moderately punishing given the deck's middling resilience (42), but the deep redundancy on Taro Sakamoto and card flow from An Ordinary Everyday Life provide some buffer against minor errors.",
+          "components": {
+            "autopilotFactor": 45,
+            "decisionDensity": 68,
+            "errorPunishment": 58,
+            "matchupVariance": 71,
+            "timingSensitivity": 64
+          },
+          "skillFloor": 39,
+          "pilotReward": 24,
+          "skillCeiling": 63
+        },
+        "representativeCardName": "Taro Sakamoto (026)",
+        "representativeImageUrl": "/cdn/cards/unionarena/127206/232151.webp",
+        "colorIdentity": [
+          "Yellow"
+        ],
+        "championClasses": null
+      }
+    },
+    "cardMetrics": [
+      {
+        "key": "versatility",
+        "name": "Versatility",
+        "desc": "How many different decks or IP archetypes the card fits into, distinguishing cross-IP staples from IP-specific role-players."
+      },
+      {
+        "key": "power_impact",
+        "name": "Power Impact",
+        "desc": "How much the card improves win rate when drawn or played, measuring its direct contribution to winning game states."
+      },
+      {
+        "key": "consistency_impact",
+        "name": "Consistency Impact",
+        "desc": "How much the card contributes to reliable execution of the deck's core game plan through search, draw, or filtering."
+      },
+      {
+        "key": "meta_relevance",
+        "name": "Meta Relevance",
+        "desc": "Current competitive usage rate and frequency across top tournament placements and winning decklists."
+      },
+      {
+        "key": "replaceability",
+        "name": "Replaceability",
+        "desc": "How easily the card can be substituted without meaningful loss in deck quality; lower replaceability indicates higher importance."
+      },
+      {
+        "key": "synergy_value",
+        "name": "Synergy Value",
+        "desc": "How well the card enables or benefits from interactions with other cards in its archetype, measuring combo potential and IP-internal cohesion."
+      }
+    ],
+    "factorExamples": {
+      "consistency": [
+        {
+          "name": "Shinji Ikari (074)",
+          "desc": "Evangelion core central to the IP's internal search and cycling engine, ensuring EVA reliably assembles its synergy-dependent board states."
+        },
+        {
+          "name": "Misato Katsuragi (084)",
+          "desc": "Evangelion support whose tutor and coordination effects help the deck consistently access key pilot and mech pairings."
+        },
+        {
+          "name": "Toshiro Hitsugaya (083)",
+          "desc": "Bleach character whose draw and filtering utility reduces variance, helping the archetype find its threats reliably."
+        },
+        {
+          "name": "Sung Jinwoo (022)",
+          "desc": "Solo Leveling core whose search and shadow-army setup effects reliably assemble the deck's key pieces each game."
+        }
+      ],
+      "power_ceiling": [
+        {
+          "name": "Evangelion Test Type-01 (Spear of Gaius)",
+          "desc": "EVA's peak-turn damage enabler combining high BP with the Spear of Gaius synergy to create devastating game-closing attack turns."
+        },
+        {
+          "name": "Kenpachi Zaraki",
+          "desc": "Bleach finisher with massive BP and aggressive keywords capable of overwhelming opponents in a single decisive combat phase."
+        },
+        {
+          "name": "Ichigo Kurosaki (104)",
+          "desc": "Bleach payoff whose high-BP Bankai form delivers lethal offensive output when the deck's setup is complete."
+        },
+        {
+          "name": "Evangelion 13",
+          "desc": "EVA finisher whose overwhelming stats and synergy payoffs represent one of the highest damage ceilings among the mech archetypes."
+        }
+      ],
+      "tempo": [
+        {
+          "name": "Denji (003)",
+          "desc": "Chainsaw Man early-curve character providing efficient board presence at low AP cost, enabling proactive tempo openings."
+        },
+        {
+          "name": "Rei Ayanami (004)",
+          "desc": "Evangelion low-cost character enabling smooth early board development while feeding into the archetype's later payoffs."
+        },
+        {
+          "name": "Suzaku Kururugi (034)",
+          "desc": "Code Geass early-game character whose efficient statline maintains proactive pressure and smooth curve development."
+        },
+        {
+          "name": "Power (057)",
+          "desc": "Chainsaw Man aggressive low-cost body that develops the board ahead of curve and pressures early life."
+        }
+      ],
+      "disruption": [
+        {
+          "name": "Lancelot Air Cavalry",
+          "desc": "Code Geass unit whose on-play removal interferes with opposing board development and neutralizes key threats."
+        },
+        {
+          "name": "Boom",
+          "desc": "Chainsaw Man event delivering targeted removal that clears opposing threats and disrupts established board states."
+        },
+        {
+          "name": "Bomb Devil (017)",
+          "desc": "Chainsaw Man character whose removal effects deny opposing setups and dismantle developing board states."
+        },
+        {
+          "name": "Lancelot",
+          "desc": "Code Geass unit whose combat and removal utility disrupts opposing board plans and win conditions."
+        }
+      ],
+      "matchup_spread": [
+        {
+          "name": "Sung Jinwoo (022)",
+          "desc": "Solo Leveling core whose balanced offensive and defensive toolkit lets the deck adapt against both aggro and control across the meta field."
+        },
+        {
+          "name": "Ichigo Kurosaki (051)",
+          "desc": "Bleach character whose flexible combat profile allows the archetype to compete against both aggressive and defensive game plans."
+        },
+        {
+          "name": "Misato Katsuragi (006)",
+          "desc": "Evangelion support whose versatile utility helps the EVA archetype maintain competitive matchups across diverse opponents."
+        },
+        {
+          "name": "Kenshin Himura (085)",
+          "desc": "Rurouni Kenshin character whose adaptable statline provides neutral coverage across a wide range of opposing strategies."
+        }
+      ],
+      "skill_ceiling": [
+        {
+          "name": "Sung Jinwoo (022)",
+          "desc": "Solo Leveling core whose shadow-summon timing, target selection, and AP sequencing create deep decision trees rewarding mastery."
+        },
+        {
+          "name": "Shinji Ikari (074)",
+          "desc": "Evangelion core whose search target selection and synergy sequencing create complex lines separating optimal from suboptimal play."
+        },
+        {
+          "name": "Toshiro Hitsugaya (085)",
+          "desc": "Bleach character whose removal timing and resource commitment decisions create meaningful skill expression gaps."
+        },
+        {
+          "name": "Misato Katsuragi (084)",
+          "desc": "Evangelion support whose activation timing and synergy orchestration create sequencing puzzles that reward experienced pilots."
+        }
+      ],
+      "trigger_quality": [
+        {
+          "name": "Rei Ayanami (005)",
+          "desc": "Evangelion card with strong trigger activation contributing to EVA's defensive trigger suite, turning life damage into stabilization."
+        },
+        {
+          "name": "Bankai (100)",
+          "desc": "Bleach event whose trigger provides impactful board or resource value when hit in the life area, raising trigger density."
+        },
+        {
+          "name": "Rei Ayanami (102)",
+          "desc": "Evangelion card whose high-value trigger generates meaningful defensive or resource value when revealed during damage resolution."
+        },
+        {
+          "name": "Arise",
+          "desc": "Solo Leveling event whose trigger delivers resource or board value when revealed from life, boosting comeback potential."
+        }
+      ],
+      "resilience": [
+        {
+          "name": "Evangelion Proto Type-00",
+          "desc": "EVA mech whose defensive stats and field presence help the archetype weather early aggression and maintain board stability."
+        },
+        {
+          "name": "Rei Ayanami (110)",
+          "desc": "Evangelion defensive character whose protective effects enable recovery from board pressure and anchor the defensive layer."
+        },
+        {
+          "name": "Tank",
+          "desc": "Solo Leveling shadow soldier whose durable body absorbs aggression and helps stabilize the board under pressure."
+        },
+        {
+          "name": "Arise",
+          "desc": "Solo Leveling event whose trigger and comeback value help the deck recover from life damage and resource deficit."
+        }
+      ],
+      "resource_management": [
+        {
+          "name": "Toshiro Hitsugaya (083)",
+          "desc": "Bleach support whose card cycling and economy effects help maintain hand advantage over extended games."
+        },
+        {
+          "name": "Misato Katsuragi (084)",
+          "desc": "EVA support that optimizes AP allocation and card flow, maximizing value extracted from each turn's resources."
+        },
+        {
+          "name": "Shinji Ikari (074)",
+          "desc": "Evangelion card contributing to energy management and resource cycling, enabling sustained plays without depleting hand."
+        },
+        {
+          "name": "Tank",
+          "desc": "Solo Leveling shadow soldier that generates recurring board value while preserving resources for the shadow-army engine."
+        }
+      ],
+      "flexibility": [
+        {
+          "name": "Mari Makinami Illustrious (056)",
+          "desc": "Evangelion versatile character allowing the EVA deck to shift between aggressive pushes and defensive stabilization as needed."
+        },
+        {
+          "name": "Suzaku Kururugi (035)",
+          "desc": "Code Geass character whose adaptable effects support both offensive and defensive postures depending on matchup context."
+        },
+        {
+          "name": "Kaworu Nagisa (037)",
+          "desc": "Evangelion character whose multi-role utility lets the deck adapt its approach based on the opponent's strategy."
+        },
+        {
+          "name": "Mari Makinami Illustrious (054)",
+          "desc": "EVA character whose situational utility provides flexible pivots across game states."
+        }
+      ]
+    },
+    "lastUpdated": "2026-08-23T22:46:23.915Z",
+    "energyCurve": [
+      {
+        "cost": 0,
+        "totalCopies": 559,
+        "avgPerDeck": 10
+      },
+      {
+        "cost": 1,
+        "totalCopies": 269,
+        "avgPerDeck": 4.8
+      },
+      {
+        "cost": 2,
+        "totalCopies": 318,
+        "avgPerDeck": 5.7
+      },
+      {
+        "cost": 3,
+        "totalCopies": 712,
+        "avgPerDeck": 12.7
+      },
+      {
+        "cost": 4,
+        "totalCopies": 638,
+        "avgPerDeck": 11.4
+      },
+      {
+        "cost": 5,
+        "totalCopies": 159,
+        "avgPerDeck": 2.8
+      },
+      {
+        "cost": 6,
+        "totalCopies": 74,
+        "avgPerDeck": 1.3
+      },
+      {
+        "cost": 7,
+        "totalCopies": 39,
+        "avgPerDeck": 0.7
+      },
+      {
+        "cost": 8,
+        "totalCopies": 32,
+        "avgPerDeck": 0.6
+      }
+    ],
+    "metaShareSummary": {
+      "sinceBanlistDate": "2026-02-14",
+      "sinceBanlistSource": "firstTournament",
+      "totalSampleSize": 1971,
+      "recent30dSampleSize": 474,
+      "sinceBanlistSampleSize": 1971,
+      "hhi": 188.74432994108597,
+      "top3Share": 0.16436745826127752
+    }
+  }
+}

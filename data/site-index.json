@@ -1,0 +1,732 @@
+{
+  "solo-leveling-sung-jinwoo": [
+    {
+      "slug": "contender-consensus",
+      "kind": "contender",
+      "title": "Consensus — Solo Leveling - Sung Jinwoo",
+      "date": "2026-08-23"
+    },
+    {
+      "slug": "official-1st-place-solo-leveling-sung-jinwoo-xrb8ya",
+      "kind": "official",
+      "title": "1st Place · 【PURPLE】SOLO LEVELING — Championship 26-27 Offline Regionals Wave 2 (GENCON)",
+      "date": "2026-08-21"
+    },
+    {
+      "slug": "official-official-solo-leveling-sung-jinwoo-losktn",
+      "kind": "official",
+      "title": "【PURPLE】SOLO LEVELING — Championship 26-27 Offline Regionals Wave 1 (Versus Games)",
+      "date": "2026-06-26"
+    },
+    {
+      "slug": "official-1st-place-solo-leveling-sung-jinwoo-jjipqp",
+      "kind": "official",
+      "title": "1st Place · 【PURPLE】SOLO LEVELING — Championship 26-27 Offline Regionals Wave 1 (The Booster Box)",
+      "date": "2026-05-08"
+    },
+    {
+      "slug": "web-solo-leveling-sung-jinwoo-0-6-top-union-arena-decks-from-the-virgi",
+      "kind": "web",
+      "title": "Community list",
+      "date": ""
+    }
+  ],
+  "evangelion-rei-ayanami": [
+    {
+      "slug": "contender-consensus",
+      "kind": "contender",
+      "title": "Consensus — Evangelion - Rei Ayanami",
+      "date": "2026-08-23"
+    },
+    {
+      "slug": "official-3rd-place-evangelion-rei-ayanami-u2nbmp",
+      "kind": "official",
+      "title": "3rd Place · 【YELLOW】Evangelion: New Theatrical Edition — Championship 26-27 Offline Regionals Wave 2 (GENCON)",
+      "date": "2026-08-21"
+    },
+    {
+      "slug": "official-1st-place-evangelion-rei-ayanami-gsvq0c",
+      "kind": "official",
+      "title": "1st Place · 【YELLOW】Evangelion: New Theatrical Edition — Championship 26-27 Offline Regionals Wave 1 (Carta Ma",
+      "date": "2026-05-22"
+    },
+    {
+      "slug": "official-4th-place-evangelion-rei-ayanami-dk7ql8",
+      "kind": "official",
+      "title": "4th Place · 【YELLOW】Evangelion: New Theatrical Edition — Championship 26-27 Offline Regionals Wave 1 (The Boos",
+      "date": "2026-05-08"
+    },
+    {
+      "slug": "official-3rd-place-evangelion-rei-ayanami-oj7kdr",
+      "kind": "official",
+      "title": "3rd Place · 【YELLOW】Evangelion: New Theatrical Edition — Championship 25-26 Offline Regionals(Last Chance Qual",
+      "date": "2026-02-24"
+    },
+    {
+      "slug": "official-3rd-place-evangelion-rei-ayanami-vzfqn5",
+      "kind": "official",
+      "title": "3rd Place · 【RED】Evangelion: New Theatrical Edition — Championship 25-26 North America Finals",
+      "date": "2026-02-24"
+    }
+  ],
+  "evangelion-evangelion-test-type-01-pseudo-dms-phase": [
+    {
+      "slug": "contender-consensus",
+      "kind": "contender",
+      "title": "Consensus — Evangelion - Evangelion Test Type-01 Pseudo DMS Phase",
+      "date": "2026-08-23"
+    }
+  ],
+  "rurouni-kenshin-kaoru-kamiya": [
+    {
+      "slug": "contender-consensus",
+      "kind": "contender",
+      "title": "Consensus — Rurouni Kenshin - Kaoru Kamiya",
+      "date": "2026-08-23"
+    }
+  ],
+  "sakamoto-days-shin-asakura": [
+    {
+      "slug": "contender-consensus",
+      "kind": "contender",
+      "title": "Consensus — Sakamoto Days - Shin Asakura",
+      "date": "2026-08-23"
+    }
+  ],
+  "csm-denji": [
+    {
+      "slug": "contender-consensus",
+      "kind": "contender",
+      "title": "Consensus — CSM - Denji",
+      "date": "2026-08-23"
+    }
+  ],
+  "csm-chainsaw-man": [
+    {
+      "slug": "contender-consensus",
+      "kind": "contender",
+      "title": "Consensus — CSM - Chainsaw Man",
+      "date": "2026-08-23"
+    }
+  ],
+  "rurouni-kenshin-hajime-saito": [
+    {
+      "slug": "contender-consensus",
+      "kind": "contender",
+      "title": "Consensus — Rurouni Kenshin - Hajime Saito",
+      "date": "2026-08-23"
+    },
+    {
+      "slug": "official-official-rurouni-kenshin-hajime-saito-s17kkr",
+      "kind": "official",
+      "title": "【PURPLE】Rurouni Kenshin — Championship 26-27 Offline Regionals Wave 1 (Versus Games)",
+      "date": "2026-06-26"
+    },
+    {
+      "slug": "official-2nd-place-rurouni-kenshin-hajime-saito-kathli",
+      "kind": "official",
+      "title": "2nd Place · 【PURPLE】Rurouni Kenshin — Championship 26-27 Offline Regionals Wave 1 (The Booster Box)",
+      "date": "2026-05-08"
+    },
+    {
+      "slug": "official-3rd-place-rurouni-kenshin-hajime-saito-urwvv2",
+      "kind": "official",
+      "title": "3rd Place · 【PURPLE】Rurouni Kenshin — Championship 25-26 Offline Regionals (CoreTCG)",
+      "date": "2025-12-25"
+    },
+    {
+      "slug": "official-2nd-place-rurouni-kenshin-hajime-saito-7l6lvx",
+      "kind": "official",
+      "title": "2nd Place · 【PURPLE】Rurouni Kenshin — Championship 25-26 Offline Regionals (Versus Games)",
+      "date": "2025-12-25"
+    },
+    {
+      "slug": "web-rurouni-kenshin-hajime-saito-3-6-top-union-arena-decks-from-the-vi",
+      "kind": "web",
+      "title": "Community list",
+      "date": ""
+    }
+  ],
+  "evangelion-evangelion-proto-type-00": [
+    {
+      "slug": "contender-consensus",
+      "kind": "contender",
+      "title": "Consensus — Evangelion - Evangelion Proto Type-00",
+      "date": "2026-08-23"
+    }
+  ],
+  "sakamoto-days-heisuke-mashimo": [
+    {
+      "slug": "contender-consensus",
+      "kind": "contender",
+      "title": "Consensus — Sakamoto Days - Heisuke Mashimo",
+      "date": "2026-08-23"
+    },
+    {
+      "slug": "official-2nd-place-sakamoto-days-heisuke-mashimo-lx5kgu",
+      "kind": "official",
+      "title": "2nd Place · 【YELLOW】SAKAMOTO DAYS — Championship 26-27 Offline Regionals Wave 2 (GENCON)",
+      "date": "2026-08-21"
+    }
+  ],
+  "jujutsu-kaisen-aoi-todo": [
+    {
+      "slug": "contender-consensus",
+      "kind": "contender",
+      "title": "Consensus — Jujutsu Kaisen - Aoi Todo",
+      "date": "2026-08-23"
+    },
+    {
+      "slug": "official-1st-place-jujutsu-kaisen-aoi-todo-o8khns",
+      "kind": "official",
+      "title": "1st Place · 【PURPLE】JUJUTSU KAISEN — Championship 26-27 Offline Regionals Wave 1(Core TCG)",
+      "date": "2026-07-31"
+    },
+    {
+      "slug": "official-3rd-place-jujutsu-kaisen-aoi-todo-9xldxz",
+      "kind": "official",
+      "title": "3rd Place · 【BLUE】JUJUTSU KAISEN — Championship 25-26 Offline Regionals (Versus Games)",
+      "date": "2025-12-25"
+    }
+  ],
+  "sakamoto-days-taro-sakamoto": [
+    {
+      "slug": "contender-consensus",
+      "kind": "contender",
+      "title": "Consensus — Sakamoto Days - Taro Sakamoto",
+      "date": "2026-08-23"
+    },
+    {
+      "slug": "official-4th-place-sakamoto-days-taro-sakamoto-nrxeaw",
+      "kind": "official",
+      "title": "4th Place · 【YELLOW】SAKAMOTO DAYS — Championship 26-27 Offline Regionals Wave 2 (GENCON)",
+      "date": "2026-08-21"
+    },
+    {
+      "slug": "official-4th-place-sakamoto-days-taro-sakamoto-ki2570",
+      "kind": "official",
+      "title": "4th Place · 【YELLOW】SAKAMOTO DAYS — Championship 26-27 Offline Regionals Wave 1(Core TCG)",
+      "date": "2026-07-31"
+    },
+    {
+      "slug": "official-official-sakamoto-days-taro-sakamoto-trlgrd",
+      "kind": "official",
+      "title": "【YELLOW】SAKAMOTO DAYS — Championship 26-27 Offline Regionals Wave 1 (Versus Games)",
+      "date": "2026-06-26"
+    },
+    {
+      "slug": "official-official-sakamoto-days-taro-sakamoto-ipac8p",
+      "kind": "official",
+      "title": "【YELLOW】SAKAMOTO DAYS — Championship 26-27 Offline Regionals Wave 1 (Versus Games)",
+      "date": "2026-06-26"
+    }
+  ],
+  "that-time-i-got-reincarnated-as-a-slime-rimuru": [
+    {
+      "slug": "contender-consensus",
+      "kind": "contender",
+      "title": "Consensus — That Time I Got Reincarnated As A Slime - Rimuru",
+      "date": "2026-08-23"
+    }
+  ],
+  "sakamoto-days-lu-shaotang": [
+    {
+      "slug": "contender-consensus",
+      "kind": "contender",
+      "title": "Consensus — Sakamoto Days - Lu Shaotang",
+      "date": "2026-08-23"
+    }
+  ],
+  "that-time-i-got-reincarnated-as-a-slime-milim": [
+    {
+      "slug": "contender-consensus",
+      "kind": "contender",
+      "title": "Consensus — That Time I Got Reincarnated As A Slime - Milim",
+      "date": "2026-08-23"
+    }
+  ],
+  "csm-makima": [
+    {
+      "slug": "contender-consensus",
+      "kind": "contender",
+      "title": "Consensus — CSM - Makima",
+      "date": "2026-08-23"
+    }
+  ],
+  "kagurabachi-hakuri-sazanami": [
+    {
+      "slug": "contender-consensus",
+      "kind": "contender",
+      "title": "Consensus — Kagurabachi - Hakuri Sazanami",
+      "date": "2026-08-23"
+    }
+  ],
+  "csm-power": [
+    {
+      "slug": "contender-consensus",
+      "kind": "contender",
+      "title": "Consensus — CSM - Power",
+      "date": "2026-08-23"
+    }
+  ],
+  "csm-aki-hayakawa": [
+    {
+      "slug": "contender-consensus",
+      "kind": "contender",
+      "title": "Consensus — CSM - Aki Hayakawa",
+      "date": "2026-08-23"
+    }
+  ],
+  "solo-leveling-cha-hae-in": [
+    {
+      "slug": "contender-consensus",
+      "kind": "contender",
+      "title": "Consensus — Solo Leveling - Cha Hae-In",
+      "date": "2026-08-23"
+    }
+  ],
+  "tokyo-ghoul-kotaro-amon": [
+    {
+      "slug": "contender-consensus",
+      "kind": "contender",
+      "title": "Consensus — Tokyo Ghoul - Kotaro Amon",
+      "date": "2026-08-23"
+    }
+  ],
+  "bleach-kenpachi-zaraki": [
+    {
+      "slug": "contender-consensus",
+      "kind": "contender",
+      "title": "Consensus — Bleach - Kenpachi Zaraki",
+      "date": "2026-08-23"
+    },
+    {
+      "slug": "official-3rd-place-bleach-kenpachi-zaraki-zixwtk",
+      "kind": "official",
+      "title": "3rd Place · 【GREEN】BLEACH: Thousand-Year Blood War — Championship 26-27 Offline Regionals Wave 1(Core TCG)",
+      "date": "2026-07-31"
+    },
+    {
+      "slug": "official-4th-place-bleach-kenpachi-zaraki-1qag1v",
+      "kind": "official",
+      "title": "4th Place · 【GREEN】BLEACH: Thousand-Year Blood War — Championship 25-26 Offline Regionals (BCG Fest. 25-26 in ",
+      "date": "2025-12-25"
+    },
+    {
+      "slug": "official-4th-place-bleach-kenpachi-zaraki-sg8tka",
+      "kind": "official",
+      "title": "4th Place · 【GREEN】BLEACH: Thousand-Year Blood War — Championship 25-26 Offline Regionals (Versus Games)",
+      "date": "2025-12-25"
+    }
+  ],
+  "csm-purple": [
+    {
+      "slug": "contender-consensus",
+      "kind": "contender",
+      "title": "Consensus — CSM - Purple",
+      "date": "2026-08-23"
+    }
+  ],
+  "csm-bomb-devil": [
+    {
+      "slug": "contender-consensus",
+      "kind": "contender",
+      "title": "Consensus — CSM - Bomb Devil",
+      "date": "2026-08-23"
+    }
+  ],
+  "sword-art-online-yuna": [
+    {
+      "slug": "contender-consensus",
+      "kind": "contender",
+      "title": "Consensus — Sword Art Online - Yuna",
+      "date": "2026-08-23"
+    }
+  ],
+  "bleach-ichigo-kurosaki": [
+    {
+      "slug": "contender-consensus",
+      "kind": "contender",
+      "title": "Consensus — Bleach - Ichigo Kurosaki",
+      "date": "2026-08-23"
+    },
+    {
+      "slug": "official-2nd-place-bleach-ichigo-kurosaki-0edi10",
+      "kind": "official",
+      "title": "2nd Place · 【PURPLE】BLEACH: Thousand-Year Blood War — Championship 25-26 Offline Regionals (Gen Con)",
+      "date": "2025-12-25"
+    },
+    {
+      "slug": "official-3rd-place-bleach-ichigo-kurosaki-mgsgw0",
+      "kind": "official",
+      "title": "3rd Place · 【PURPLE】BLEACH: Thousand-Year Blood War — Championship 25-26 Offline Regionals (Carta Magica)",
+      "date": "2025-12-25"
+    }
+  ],
+  "that-time-i-got-reincarnated-as-a-slime-soei": [
+    {
+      "slug": "contender-consensus",
+      "kind": "contender",
+      "title": "Consensus — That Time I Got Reincarnated As A Slime - Soei",
+      "date": "2026-08-23"
+    }
+  ],
+  "evangelion-evangelion-production-model-08": [
+    {
+      "slug": "contender-consensus",
+      "kind": "contender",
+      "title": "Consensus — Evangelion - Evangelion Production Model-08",
+      "date": "2026-08-23"
+    }
+  ],
+  "evangelion-evangelion-production-model-02": [
+    {
+      "slug": "contender-consensus",
+      "kind": "contender",
+      "title": "Consensus — Evangelion - Evangelion Production Model-02",
+      "date": "2026-08-23"
+    }
+  ],
+  "evangelion-evangelion-production-model-new-02": [
+    {
+      "slug": "contender-consensus",
+      "kind": "contender",
+      "title": "Consensus — Evangelion - Evangelion Production Model-New 02",
+      "date": "2026-08-23"
+    }
+  ],
+  "tokyo-ghoul-uta": [
+    {
+      "slug": "contender-consensus",
+      "kind": "contender",
+      "title": "Consensus — Tokyo Ghoul - Uta",
+      "date": "2026-08-23"
+    },
+    {
+      "slug": "official-official-tokyo-ghoul-uta-phq2oc",
+      "kind": "official",
+      "title": "【PURPLE】Tokyo Ghoul — Championship 26-27 Offline Regionals Wave 1 (Top Cut Events)",
+      "date": "2026-06-12"
+    }
+  ],
+  "evangelion-evangelion-test-type-01-spear-of-gaius": [
+    {
+      "slug": "contender-consensus",
+      "kind": "contender",
+      "title": "Consensus — Evangelion - Evangelion Test Type-01 (Spear Of Gaius)",
+      "date": "2026-08-23"
+    }
+  ],
+  "rurouni-kenshin-kenshin-himura": [
+    {
+      "slug": "contender-consensus",
+      "kind": "contender",
+      "title": "Consensus — Rurouni Kenshin - Kenshin Himura",
+      "date": "2026-08-23"
+    },
+    {
+      "slug": "official-2nd-place-rurouni-kenshin-kenshin-himura-cwfdok",
+      "kind": "official",
+      "title": "2nd Place · 【RED】Rurouni Kenshin — Championship 26-27 Offline Regionals Wave 1(Core TCG)",
+      "date": "2026-07-31"
+    },
+    {
+      "slug": "official-1st-place-rurouni-kenshin-kenshin-himura-5pwvqn",
+      "kind": "official",
+      "title": "1st Place · 【RED】Rurouni Kenshin — Championship 25-26 North America Finals",
+      "date": "2026-02-24"
+    },
+    {
+      "slug": "official-4th-place-rurouni-kenshin-kenshin-himura-iom9ya",
+      "kind": "official",
+      "title": "4th Place · 【RED】Rurouni Kenshin — Championship 25-26 North America Finals",
+      "date": "2026-02-24"
+    },
+    {
+      "slug": "official-1st-place-rurouni-kenshin-kenshin-himura-6ukbcj",
+      "kind": "official",
+      "title": "1st Place · 【RED】Rurouni Kenshin — Championship 25-26 Offline Regionals (CoreTCG)",
+      "date": "2025-12-25"
+    },
+    {
+      "slug": "official-4th-place-rurouni-kenshin-kenshin-himura-ndnohk",
+      "kind": "official",
+      "title": "4th Place · 【RED】Rurouni Kenshin — Championship 25-26 Offline Regionals (CoreTCG)",
+      "date": "2025-12-25"
+    },
+    {
+      "slug": "official-2nd-place-rurouni-kenshin-kenshin-himura-n8cuva",
+      "kind": "official",
+      "title": "2nd Place · 【RED】Rurouni Kenshin — Championship 25-26 Offline Regionals (Carta Magica)",
+      "date": "2025-12-25"
+    },
+    {
+      "slug": "official-4th-place-rurouni-kenshin-kenshin-himura-7ojfel",
+      "kind": "official",
+      "title": "4th Place · 【RED】Rurouni Kenshin — Championship 25-26 Offline Regionals (Carta Magica)",
+      "date": "2025-12-25"
+    },
+    {
+      "slug": "official-1st-place-rurouni-kenshin-kenshin-himura-eoamxb",
+      "kind": "official",
+      "title": "1st Place · 【RED】Rurouni Kenshin — Championship 25-26 Offline Regionals (Versus Games)",
+      "date": "2025-12-25"
+    },
+    {
+      "slug": "web-rurouni-kenshin-kenshin-himura-11-6-top-union-arena-decks-from-the",
+      "kind": "web",
+      "title": "Community list",
+      "date": ""
+    }
+  ],
+  "evangelion-asuka-shikinami-langley": [
+    {
+      "slug": "contender-consensus",
+      "kind": "contender",
+      "title": "Consensus — Evangelion - Asuka Shikinami Langley",
+      "date": "2026-08-23"
+    },
+    {
+      "slug": "official-2nd-place-evangelion-asuka-shikinami-langley-goeybg",
+      "kind": "official",
+      "title": "2nd Place · 【PURPLE】Evangelion: New Theatrical Edition — Championship 26-27 Offline Regionals Wave 1 (Carta Ma",
+      "date": "2026-05-22"
+    },
+    {
+      "slug": "official-1st-place-evangelion-asuka-shikinami-langley-yimxe5",
+      "kind": "official",
+      "title": "1st Place · 【PURPLE】Evangelion: New Theatrical Edition — Championship 25-26 Offline Regionals(Last Chance Qual",
+      "date": "2026-02-24"
+    },
+    {
+      "slug": "official-2nd-place-evangelion-asuka-shikinami-langley-g4tdng",
+      "kind": "official",
+      "title": "2nd Place · 【PURPLE】Evangelion: New Theatrical Edition — Championship 25-26 Offline Regionals(Last Chance Qual",
+      "date": "2026-02-24"
+    }
+  ],
+  "solo-leveling-purple": [
+    {
+      "slug": "contender-consensus",
+      "kind": "contender",
+      "title": "Consensus — Solo Leveling - Purple",
+      "date": "2026-08-23"
+    }
+  ],
+  "sakamoto-days-osaragi": [
+    {
+      "slug": "contender-consensus",
+      "kind": "contender",
+      "title": "Consensus — Sakamoto Days - Osaragi",
+      "date": "2026-08-23"
+    }
+  ],
+  "that-time-i-got-reincarnated-as-a-slime-diablo": [
+    {
+      "slug": "contender-consensus",
+      "kind": "contender",
+      "title": "Consensus — That Time I Got Reincarnated As A Slime - Diablo",
+      "date": "2026-08-23"
+    }
+  ],
+  "code-geass-suzaku-kururugi": [
+    {
+      "slug": "contender-consensus",
+      "kind": "contender",
+      "title": "Consensus — Code Geass - Suzaku Kururugi",
+      "date": "2026-08-23"
+    },
+    {
+      "slug": "official-1st-place-code-geass-suzaku-kururugi-b3jrie",
+      "kind": "official",
+      "title": "1st Place · 【GREEN】CODE GEASS Lelouch of the Rebellion — Championship 25-26 Offline Regionals (BCG Fest. 25-26",
+      "date": "2025-12-25"
+    },
+    {
+      "slug": "official-3rd-place-code-geass-suzaku-kururugi-0xngfk",
+      "kind": "official",
+      "title": "3rd Place · 【GREEN】CODE GEASS Lelouch of the Rebellion — Championship 25-26 Offline Regionals (BCG Fest. 25-26",
+      "date": "2025-12-25"
+    }
+  ],
+  "the-100-girlfriends-shizuka-yoshimoto": [
+    {
+      "slug": "contender-consensus",
+      "kind": "contender",
+      "title": "Consensus — The 100 Girlfriends - Shizuka Yoshimoto",
+      "date": "2026-08-23"
+    }
+  ],
+  "bleach-toshiro-hitsugaya": [
+    {
+      "slug": "contender-consensus",
+      "kind": "contender",
+      "title": "Consensus — Bleach - Toshiro Hitsugaya",
+      "date": "2026-08-23"
+    }
+  ],
+  "solo-leveling-han-song-yi": [
+    {
+      "slug": "contender-consensus",
+      "kind": "contender",
+      "title": "Consensus — Solo Leveling - Han Song-Yi",
+      "date": "2026-08-23"
+    }
+  ],
+  "jujutsu-kaisen-purple": [
+    {
+      "slug": "contender-consensus",
+      "kind": "contender",
+      "title": "Consensus — Jujutsu Kaisen - Purple",
+      "date": "2026-08-23"
+    }
+  ],
+  "evangelion-evangelion-13": [
+    {
+      "slug": "contender-consensus",
+      "kind": "contender",
+      "title": "Consensus — Evangelion - Evangelion 13",
+      "date": "2026-08-23"
+    }
+  ],
+  "kagurabachi-chihiro-rokuhira": [
+    {
+      "slug": "contender-consensus",
+      "kind": "contender",
+      "title": "Consensus — Kagurabachi - Chihiro Rokuhira",
+      "date": "2026-08-23"
+    },
+    {
+      "slug": "official-official-kagurabachi-chihiro-rokuhira-jmixfy",
+      "kind": "official",
+      "title": "【RED】KAGURABACHI — Championship 26-27 Offline Regionals Wave 1 (Top Cut Events)",
+      "date": "2026-06-12"
+    },
+    {
+      "slug": "official-official-kagurabachi-chihiro-rokuhira-iwwu4v",
+      "kind": "official",
+      "title": "【RED】KAGURABACHI — Championship 26-27 Offline Regionals Wave 1 (Top Cut Events)",
+      "date": "2026-06-12"
+    },
+    {
+      "slug": "official-3rd-place-kagurabachi-chihiro-rokuhira-0m3am8",
+      "kind": "official",
+      "title": "3rd Place · 【RED】KAGURABACHI — Championship 26-27 Offline Regionals Wave 1 (Carta Magica)",
+      "date": "2026-05-22"
+    },
+    {
+      "slug": "official-4th-place-kagurabachi-chihiro-rokuhira-dooj23",
+      "kind": "official",
+      "title": "4th Place · 【PURPLE】KAGURABACHI — Championship 26-27 Offline Regionals Wave 1 (Carta Magica)",
+      "date": "2026-05-22"
+    },
+    {
+      "slug": "web-kagurabachi-chihiro-rokuhira-9-6-top-union-arena-decks-from-the-vi",
+      "kind": "web",
+      "title": "Community list",
+      "date": ""
+    }
+  ],
+  "rurouni-kenshin-sojiro-seta": [
+    {
+      "slug": "contender-consensus",
+      "kind": "contender",
+      "title": "Consensus — Rurouni Kenshin - Sojiro Seta",
+      "date": "2026-08-23"
+    }
+  ],
+  "rurouni-kenshin-purple": [
+    {
+      "slug": "contender-consensus",
+      "kind": "contender",
+      "title": "Consensus — Rurouni Kenshin - Purple",
+      "date": "2026-08-23"
+    }
+  ],
+  "evangelion-purple": [
+    {
+      "slug": "contender-consensus",
+      "kind": "contender",
+      "title": "Consensus — Evangelion - Purple",
+      "date": "2026-08-23"
+    },
+    {
+      "slug": "official-3rd-place-evangelion-purple-go6qs1",
+      "kind": "official",
+      "title": "3rd Place · 【PURPLE】Evangelion: New Theatrical Edition — Championship 26-27 Offline Regionals Wave 1 (The Boos",
+      "date": "2026-05-08"
+    }
+  ],
+  "sakamoto-days-shishiba": [
+    {
+      "slug": "contender-consensus",
+      "kind": "contender",
+      "title": "Consensus — Sakamoto Days - Shishiba",
+      "date": "2026-08-23"
+    }
+  ],
+  "evangelion-red": [
+    {
+      "slug": "contender-consensus",
+      "kind": "contender",
+      "title": "Consensus — Evangelion - Red",
+      "date": "2026-08-23"
+    }
+  ],
+  "evangelion-yellow": [
+    {
+      "slug": "contender-consensus",
+      "kind": "contender",
+      "title": "Consensus — Evangelion - Yellow",
+      "date": "2026-08-23"
+    }
+  ],
+  "kagurabachi-red": [
+    {
+      "slug": "contender-consensus",
+      "kind": "contender",
+      "title": "Consensus — Kagurabachi - Red",
+      "date": "2026-08-23"
+    }
+  ],
+  "one-punch-man-green": [
+    {
+      "slug": "contender-consensus",
+      "kind": "contender",
+      "title": "Consensus — One Punch Man - Green",
+      "date": "2026-08-23"
+    }
+  ],
+  "rurouni-kenshin-red": [
+    {
+      "slug": "contender-consensus",
+      "kind": "contender",
+      "title": "Consensus — Rurouni Kenshin - Red",
+      "date": "2026-08-23"
+    }
+  ],
+  "sakamoto-days-purple": [
+    {
+      "slug": "contender-consensus",
+      "kind": "contender",
+      "title": "Consensus — Sakamoto Days - Purple",
+      "date": "2026-08-23"
+    }
+  ],
+  "sakamoto-days-yellow": [
+    {
+      "slug": "contender-consensus",
+      "kind": "contender",
+      "title": "Consensus — Sakamoto Days - Yellow",
+      "date": "2026-08-23"
+    }
+  ],
+  "tokyo-ghoul-purple": [
+    {
+      "slug": "contender-consensus",
+      "kind": "contender",
+      "title": "Consensus — Tokyo Ghoul - Purple",
+      "date": "2026-08-23"
+    }
+  ]
+}
