@@ -1,9 +1,8 @@
 #!/usr/bin/env python3
 """Pull public Union Arena 50-card lists from YouTube and official pages.
 
-Same style as One Piece Deck Base: only complete NxSET/CODE (or _/-) text lists.
-Does not invent cards from screenshots. YouTube uses search + video descriptions;
-official regionals use Bandai's published top-placing recipes.
+Uses complete NxSET/CODE (or _/-) text lists, official Bandai recipes, and
+on-screen lists read from YouTube thumbnails and early video frames.
 """
 
 from __future__ import annotations
@@ -80,6 +79,16 @@ def walk_strings(obj, found: list[str], budget: int = 40) -> None:
     elif isinstance(obj, list):
         for item in obj[:120]:
             walk_strings(item, found, budget)
+
+
+def youtube_publish_date(vid: str) -> str:
+    status, html = uadb.fetch(f"https://www.youtube.com/watch?v={vid}", timeout=20, browser=True)
+    if status != 200:
+        return ""
+    m = re.search(r'"publishDate"\s*:\s*"(\d{4}-\d{2}-\d{2})"', html)
+    if not m:
+        m = re.search(r'"uploadDate"\s*:\s*"(\d{4}-\d{2}-\d{2})"', html)
+    return m.group(1) if m else ""
 
 
 def youtube_search(query: str) -> list[str]:
@@ -309,14 +318,15 @@ def scrape_official(found: list[dict], seen: set[str], cache: dict, arches: list
         if not key:
             uadb.log("official no-key", code, label[:50])
             return None
-        place = label.split("·")[0].strip() if "·" in label else "Official"
+        place = re.sub(r"【[^】]+】", "", label.split("·")[0]).strip() if "·" in label else "Official"
+        place = re.sub(r"\s+", " ", place).strip() or "Official"
         slug = uadb.slugify(f"official-{place}-{key}-{code[-6:]}")
         return item_from_counts(
             counts,
             key=key,
             kind="official",
             player=place or "Official",
-            title=f"{label} — {event_name}"[:110],
+            title=place or "Official",
             subtitle=f"Official Bandai top-placing list · {event_name}",
             source_url=f"https://www.bandai-tcg-plus.com/deck_code_recipe/{code}",
             slug=slug,
@@ -443,26 +453,30 @@ def follow_links(text: str, cache: dict, arches: list[dict]) -> list[dict]:
     return out
 
 
-def scrape_youtube(found: list[dict], seen: set[str], cache: dict, arches: list[dict]) -> None:
+def scrape_youtube(found: list[dict], seen: set[str], cache: dict, arches: list[dict]) -> list[tuple[str, str]]:
     ids: list[str] = []
+    titles: dict[str, str] = {}
     for query in youtube_queries(arches):
         for vid in youtube_search(query):
             if vid not in ids:
                 ids.append(vid)
         time.sleep(0.12)
     uadb.log("youtube unique videos", len(ids))
+    tagged: list[tuple[str, str]] = []
     for vid in ids[:160]:
         info = youtube_video(vid)
-        blob = " ".join([info.get("title") or "", info.get("desc") or "", info.get("blob") or ""])
+        title = info.get("title") or ""
+        titles[vid] = title
+        tagged.append((vid, title))
+        blob = " ".join([title, info.get("desc") or "", info.get("blob") or ""])
         url = f"https://www.youtube.com/watch?v={vid}"
         counts = uadb.parse_counts(blob)
-        title_l = (info.get("title") or "").lower()
+        title_l = title.lower()
         if not any(w in title_l for w in ("deck", "list", "profile", "top 8", "top 16", "top 32", "1st", "2nd", "3rd")):
             continue
         if uadb.list_is_complete(counts):
             key = guess_key(blob, counts, cache, arches)
             if key:
-                title = info.get("title") or f"{key} YouTube list"
                 player = re.sub(r"\s*[-|].*", "", title)[:40] or "YouTube"
                 record(
                     found,
@@ -471,10 +485,11 @@ def scrape_youtube(found: list[dict], seen: set[str], cache: dict, arches: list[
                         key=key,
                         kind="youtube",
                         player=player,
-                        title=title[:90],
+                        title=title[:90] or f"{key} YouTube list",
                         subtitle="YouTube deck profile from a public description",
                         source_url=url,
                         slug=uadb.slugify(f"yt-{player}-{key}-{vid}"),
+                        date=youtube_publish_date(vid),
                     ),
                     seen,
                 )
@@ -482,6 +497,7 @@ def scrape_youtube(found: list[dict], seen: set[str], cache: dict, arches: list[
             extra["subtitle"] = extra.get("subtitle") or "Linked from YouTube"
             record(found, extra, seen)
         time.sleep(0.08)
+    return tagged
 
 
 def main() -> None:
@@ -494,8 +510,13 @@ def main() -> None:
     seen: set[str] = set()
     scrape_official(found, seen, cache, arches)
     scrape_web_pages(found, seen, cache, arches)
+    video_ids: list[tuple[str, str]] = []
     if "--skip-youtube" not in sys.argv:
-        scrape_youtube(found, seen, cache, arches)
+        video_ids = scrape_youtube(found, seen, cache, arches)
+        if "--skip-ocr" not in sys.argv:
+            import scrape_youtube_ocr
+
+            scrape_youtube_ocr.scrape_ocr(found, seen, cache, arches, video_ids)
     stored = []
     for item in found:
         row = dict(item)

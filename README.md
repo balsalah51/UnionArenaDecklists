@@ -1,6 +1,6 @@
 # Union Arena Deck Base
 
-Static GitHub Pages site for **Union Arena** TCG 50-card lists. Same layout and averaging style as [One Piece Deck Base](https://onepiecedeckbase.com/) — no OPTCG simulator.
+Static GitHub Pages site for **Union Arena** TCG 50-card lists.
 
 Live domain: [unionarenadecklists.com](https://unionarenadecklists.com)
 
@@ -8,23 +8,21 @@ GitHub Pages must serve this branch (or merge to `main`). The old `Index.html` s
 
 ## What it is
 
-- Home splash, character grid, and recent lists
+- Home splash, character grid, and recent lists (newest published first)
 - One page per current-format character / title
-- Consensus 50-card lists plus official top-placing lists and public YouTube descriptions
-- Copy button pastes `NxSET/CODE` lines (not OP TCG SIM)
+- Consensus 50-card lists plus official top-placing lists and public YouTube lists
+- Copy button pastes `NxSET/CODE` lines
 
 ## Data sources
 
-Different sites than the One Piece version:
-
-- [TCG Contender Union Arena](https://tcgcontender.com/unionarena/meta) — Standard archetypes and 50-card cores
-- [Official Bandai cardlist](https://www.unionarena-tcg.com/na/cardlist/) — names and pictures
-- [Official top-placing decks](https://www.unionarena-tcg.com/na/decks/top-placing/) — Bandai TCG Plus recipes
-- YouTube — search + public video descriptions (only complete text lists)
+- [TCG Contender Union Arena](https://tcgcontender.com/unionarena/meta): Standard archetypes and 50-card cores
+- [Official Bandai cardlist](https://www.unionarena-tcg.com/na/cardlist/): names and pictures
+- [Official top-placing decks](https://www.unionarena-tcg.com/na/decks/top-placing/): Bandai TCG Plus recipes
+- YouTube: search, public video descriptions, and on-screen lists read from thumbnails and early video frames
 
 ## Rebuild
 
-Python 3.12, stdlib only.
+Python 3.12. YouTube screenshot lists also need `tesseract-ocr`, `ffmpeg`, `yt-dlp`, and `pillow`. Video-frame OCR uses the public thumbnail/still images always; early-video clips are used when YouTube allows the download (the weekly GitHub Action).
 
 ```bash
 python3 scripts/ingest.py
@@ -34,6 +32,12 @@ Skip the YouTube / official-list pass:
 
 ```bash
 python3 scripts/ingest.py --skip-community
+```
+
+Skip screenshot OCR only:
+
+```bash
+python3 scripts/ingest.py --skip-ocr
 ```
 
 Or run the pieces:
