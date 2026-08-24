@@ -12,7 +12,6 @@ from pathlib import Path
 
 import uadb
 
-HOME_FEATURED_KEY = "solo-leveling-sung-jinwoo"
 COLOR_ONLY = {"purple", "red", "yellow", "green", "blue", "black"}
 COLOR_MARK = re.compile(r"【\s*(?:PURPLE|RED|YELLOW|GREEN|BLUE|BLACK)\s*】", re.I)
 
@@ -605,9 +604,6 @@ def write_hub(arch: dict, lists: list[dict], items: list[dict], cache: dict, fea
 
 
 def write_home(arches: list[dict], recent: list[dict], cache: dict, features: dict) -> None:
-    feat = next((a for a in arches if a["key"] == HOME_FEATURED_KEY), arches[0] if arches else None)
-    feat_card = features.get(feat["key"]) if feat else {}
-    feat_img = uadb.card_image_url(feat_card.get("id") or "", cache) if feat_card else ""
     cards = []
     for arch in arches:
         f = features.get(arch["key"]) or {}
@@ -633,15 +629,11 @@ def write_home(arches: list[dict], recent: list[dict], cache: dict, features: di
               </a>
             </li>"""
         )
-    splash_href = f"/{feat['page']}" if feat else "/characters.html"
     body = f"""        <section class="home-splash" aria-label="Union Arena Deck Base">
-          <img class="home-splash-bg" src="/img/uadb-hero.png" alt="UADB" />
-          <a class="home-splash-feature" href="{html.escape(splash_href)}">
-            <img src="{html.escape(feat_img)}" alt="{html.escape(feat['full'] if feat else 'Union Arena')}" />
-          </a>
+          <img class="home-splash-bg" src="/img/uadb-hero.png" alt="Union Arena Trading Card Game" />
           <div class="home-splash-bar">
             <h2>Union Arena Deck Base</h2>
-            <p>Union Arena decklists. Jump a section, or keep scrolling into the characters.</p>
+            <p>50-card lists for Standard. Jump a section, or keep scrolling into the characters.</p>
           </div>
         </section>
 

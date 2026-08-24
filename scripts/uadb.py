@@ -261,7 +261,7 @@ def page_chrome(title: str, description: str, color: str, body: str, current: st
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>{html.escape(title)}</title>
   <meta name="description" content="{html.escape(description)}" />
-  <link rel="stylesheet" href="/css/site.css?v=ua1" />
+  <link rel="stylesheet" href="/css/site.css?v=ua2" />
 </head>
 <body class="{html.escape(color)}">
   <div class="wrap">
@@ -304,7 +304,7 @@ def home_chrome(body: str) -> str:
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Union Arena TCG Decklists | Union Arena Deck Base</title>
   <meta name="description" content="Union Arena TCG decklists. Character pictures and recent 50-card lists for Standard." />
-  <link rel="stylesheet" href="/css/site.css?v=ua1" />
+  <link rel="stylesheet" href="/css/site.css?v=ua2" />
 </head>
 <body>
   <div class="wrap">
