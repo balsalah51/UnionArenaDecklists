@@ -377,7 +377,9 @@ def pretty_blurb(s: str) -> str:
 def take_text(arch: dict) -> str:
     bits = []
     if arch.get("style"):
-        bits.append(f"{arch['full']} is a {arch['style'].lower()} list")
+        style = arch["style"].lower()
+        article = "an" if style[:1] in "aeiou" else "a"
+        bits.append(f"{arch['full']} is {article} {style} list")
     else:
         bits.append(arch["full"])
     if arch.get("tier"):
