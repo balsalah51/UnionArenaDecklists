@@ -263,9 +263,12 @@ def apply_archetype(arch: dict, items: list[dict], cache: dict) -> dict:
     prefer = None if arch.get("from_color") else arch.get("name")
     from_list = pick_feature(items, cache, prefer)
     char = from_list.get("character") or arch.get("name") or ""
+    anime = pretty_anime(arch.get("title") or "")
+    if anime:
+        arch["title"] = anime
     if char and norm_name(char) not in COLOR_ONLY:
         arch["name"] = char
-        arch["full"] = f"{arch.get('title') or char} - {char}" if arch.get("title") else char
+        arch["full"] = f"{anime} - {char}" if anime and norm_name(anime) != norm_name(char) else char
     face = face_card(arch["name"], arch.get("title") or "", cache)
     return face if face.get("id") else from_list
 
@@ -293,6 +296,18 @@ def unique_arches(arches: list[dict]) -> list[dict]:
     rank = {a["key"]: i for i, a in enumerate(arches)}
     picked.sort(key=lambda a: rank.get(a["key"], 10_000))
     return picked
+
+
+def pretty_anime(name: str) -> str:
+    return uadb.pretty_anime(name)
+
+
+def list_heading(arch: dict, character: str | None = None) -> str:
+    anime = pretty_anime(arch.get("title") or "")
+    char = (character or arch.get("name") or "").strip()
+    if anime and char and norm_name(anime) != norm_name(char):
+        return f"{anime} - {char}"
+    return char or anime
 
 
 def list_subtitle(entry: dict) -> str:
@@ -499,6 +514,9 @@ def write_list_page(arch: dict, entry: dict, items: list[dict], cache: dict, fea
         "web": "Community list from a public deck page. Card pictures from the official Bandai cardlist.",
         "tournament": "Tournament list. Card pictures from the official Bandai cardlist.",
         "official": "Official Bandai top-placing constructed list from unionarena-tcg.com.",
+        "event": "Public tournament list (TCG Contender / ExBurst and other event pages).",
+        "twitter": "List posted on X.",
+        "reddit": "List posted on Reddit.",
     }.get(entry.get("kind"), "Community Union Arena list.")
     source = entry.get("source_url") or "https://tcgcontender.com/unionarena/meta"
     over = [
@@ -824,14 +842,95 @@ def write_sitemap(paths: list[str]) -> None:
     (uadb.ROOT / "sitemap.xml").write_text(xml)
 
 
-def community_for(key: str) -> list[dict]:
+_COMMUNITY: list[dict] | None = None
+
+
+def load_community(cache: dict, arches: list[dict]) -> list[dict]:
+    global _COMMUNITY
+    if _COMMUNITY is not None:
+        return _COMMUNITY
+    from scrape_community import key_from_counts
+
+    have = {a["key"] for a in arches}
     rows = uadb.load_json("data/community-decks.json", [])
+    mash = re.compile(r"(opm|bcv|kj8|htr|csm|slg).{0,8}(opm|bcv|kj8|htr|csm|slg)")
+    for row in rows:
+        key = row.get("key") or ""
+        label = row.get("archetype") or ""
+        messy = key not in have and (
+            len(key) > 48 or key.count("-") > 8 or mash.search(key) or len(label) > 48
+        )
+        if messy:
+            new = key_from_counts(row.get("counts") or {}, cache)
+            if new:
+                row["key"] = new
+    _COMMUNITY = rows
+    return rows
+
+
+def community_for(key: str) -> list[dict]:
+    rows = _COMMUNITY if _COMMUNITY is not None else uadb.load_json("data/community-decks.json", [])
     return [r for r in rows if r.get("key") == key]
+
+
+def extra_arches(existing: list[dict]) -> list[dict]:
+    have = {a["key"] for a in existing}
+    grouped: dict[str, list] = defaultdict(list)
+    for row in _COMMUNITY if _COMMUNITY is not None else uadb.load_json("data/community-decks.json", []):
+        key = row.get("key") or ""
+        if not key or key in have:
+            continue
+        if sum((row.get("counts") or {}).values()) < uadb.MIN_CARDS:
+            continue
+        grouped[key].append(row)
+    extra = []
+    for key, rows in grouped.items():
+        rows.sort(key=lambda r: r.get("date") or "0000", reverse=True)
+        sample = rows[0]
+        label = sample.get("archetype") or ""
+        if " - " in label:
+            title_name, char_name = split_arch(label)
+        else:
+            title_name = pretty_anime(sample.get("anime") or "")
+            char_name = sample.get("character") or key
+        title_name = pretty_anime(title_name) or title_name
+        if len(char_name) > 36 or key.count("-") > 8:
+            continue
+        if re.search(r"(opm|bcv|kj8|htr|csm|slg).{0,8}(opm|bcv|kj8|htr|csm|slg)", key):
+            continue
+        if re.search(r"mommy|i-don-t-know|dont-know", key):
+            continue
+        extra.append(
+            {
+                "id": key,
+                "key": key,
+                "name": char_name,
+                "full": f"{title_name} - {char_name}" if title_name else char_name,
+                "from_color": char_name.lower() in COLOR_ONLY,
+                "title": title_name,
+                "page": f"decklists/{key}.html",
+                "dir": f"decklists/{key}",
+                "tier": "",
+                "style": "",
+                "meta_share": 0.0,
+                "updated": sample.get("date") or "",
+                "strengths": [],
+                "weaknesses": [],
+                "decklist": {},
+            }
+        )
+    extra.sort(key=lambda a: a["full"])
+    return extra
 
 
 def main() -> None:
     cache = load_cache()
     arches = archetypes_from_contender()
+    load_community(cache, arches)
+    extra = extra_arches(arches)
+    if extra:
+        arches.extend(extra)
+        uadb.log("extra community archetypes", len(extra))
     uadb.log("generate archetypes", len(arches), "cards in cache", len(cache))
     features = {}
     recent = []
@@ -839,25 +938,29 @@ def main() -> None:
     index = {}
     for arch in arches:
         items = flatten_contender(arch, cache)
+        comm_rows = community_for(arch["key"])
+        if not items and comm_rows:
+            items = flatten_counts(comm_rows[0].get("counts") or {}, cache)
         feature = apply_archetype(arch, items, cache)
         features[arch["key"]] = feature
         arch["color"] = (feature.get("meta") or {}).get("color") or ""
         lists = []
-        cons_entry = {
-            "slug": "contender-consensus",
-            "kind": "contender",
-            "title": arch["name"],
-            "subtitle": f"TCG Contender Standard snapshot · {arch.get('updated') or ''}",
-            "player": "",
-            "date": arch.get("updated") or "",
-            "source_url": f"https://tcgcontender.com/unionarena/decks/standard/{arch['key']}",
-            "sim_text": sim_text(items),
-            "img": uadb.card_image_url(feature.get("id") or "", cache),
-            "color": (feature.get("meta") or {}).get("color") or "",
-        }
-        write_list_page(arch, cons_entry, items, cache, feature)
-        lists.append(cons_entry)
-        for comm in community_for(arch["key"]):
+        if arch.get("decklist"):
+            cons_entry = {
+                "slug": "contender-consensus",
+                "kind": "contender",
+                "title": list_heading(arch),
+                "subtitle": f"TCG Contender Standard snapshot · {arch.get('updated') or ''}",
+                "player": "",
+                "date": arch.get("updated") or "",
+                "source_url": f"https://tcgcontender.com/unionarena/decks/standard/{arch['key']}",
+                "sim_text": sim_text(items),
+                "img": uadb.card_image_url(feature.get("id") or "", cache),
+                "color": (feature.get("meta") or {}).get("color") or "",
+            }
+            write_list_page(arch, cons_entry, items, cache, feature)
+            lists.append(cons_entry)
+        for comm in comm_rows:
             counts = comm.get("counts") or {}
             if sum(counts.values()) < uadb.MIN_CARDS:
                 continue
@@ -866,7 +969,7 @@ def main() -> None:
             comm_entry = {
                 "slug": comm.get("slug") or uadb.slugify(comm.get("title") or "community"),
                 "kind": comm.get("kind") or "web",
-                "title": c_feat.get("character") or arch["name"],
+                "title": list_heading(arch, c_feat.get("character") or arch["name"]),
                 "subtitle": list_subtitle(
                     {
                         "player": comm.get("player") or "",

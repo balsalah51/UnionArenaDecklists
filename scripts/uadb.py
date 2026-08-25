@@ -33,8 +33,35 @@ LINE_RE = re.compile(
     r"(?i)(\d+)\s*[x×*]\s*((?:UE|UA|ST|PR|UEX)[A-Z0-9]{0,8}[/_\-]+[A-Z]{2,4}-\d-\d{3})"
 )
 CID_TOKEN_RE = re.compile(
-    r"(?i)\b((?:UE|UA|ST|PR|UEX)[A-Z0-9]{2,8})[/_\-]+([A-Z]{2,4}-\d-\d{3})\b"
+    r"(?i)\b((?:UE|UA|ST|PR|UEX)[A-Z0-9]{2,8})[/_\-]+([A-Z]{2,4}-\d-\d{3})(?:-ALT\d+)?"
 )
+ANIME_PRETTY = {
+    "csm": "Chainsaw Man",
+    "chainsaw man": "Chainsaw Man",
+    "iys": "Inuyasha",
+    "inuyasha": "Inuyasha",
+    "opm": "One Punch Man",
+    "one punch man": "One Punch Man",
+    "fma": "Fullmetal Alchemist",
+    "fullmetal alchemist": "Fullmetal Alchemist",
+    "aot": "Attack On Titan",
+    "attack on titan": "Attack On Titan",
+    "yyh": "Yu Yu Hakusho",
+    "yu yu hakusho": "Yu Yu Hakusho",
+    "bcv": "Black Clover",
+    "black clover": "Black Clover",
+    "htr": "Hunter x Hunter",
+    "hunter x hunter": "Hunter x Hunter",
+    "kmy": "Demon Slayer",
+    "demon slayer": "Demon Slayer",
+    "mha": "My Hero Academia",
+    "my hero academia": "My Hero Academia",
+    "rez": "Re:Zero",
+    "re zero": "Re:Zero",
+    "nik": "Nikke",
+    "nikke": "Nikke",
+    "slime": "That Time I Got Reincarnated As A Slime",
+}
 QTY_BEFORE_RE = re.compile(
     r"(?i)(\d{1,2})\s*[x×*]\s*((?:UE|UA|ST|PR|UEX)[A-Z0-9]{2,8}[/_\-]+[A-Z]{2,4}-\d-\d{3})"
 )
@@ -365,8 +392,17 @@ def parse_named_card(label: str) -> tuple[str, str | None]:
     return raw, None
 
 
+def pretty_anime(name: str) -> str:
+    raw = (name or "").strip()
+    key = re.sub(r"[^a-z0-9]+", " ", raw.lower()).strip()
+    if key in ANIME_PRETTY:
+        return ANIME_PRETTY[key]
+    return raw
+
+
 def normalize_cid(raw: str) -> str | None:
-    m = CID_TOKEN_RE.search(raw or "")
+    cleaned = re.sub(r"(?i)-ALT\d+$", "", (raw or "").strip())
+    m = CID_TOKEN_RE.search(cleaned)
     if not m:
         return None
     set_code = m.group(1).upper()

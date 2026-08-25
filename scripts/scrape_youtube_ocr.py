@@ -13,7 +13,7 @@ from pathlib import Path
 
 import uadb
 
-VIDEO_CAP = 40
+VIDEO_CAP = 55
 CLIP_SECONDS = 70
 FPS = "1/6"
 MAX_FRAMES = 10
