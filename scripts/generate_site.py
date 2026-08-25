@@ -709,12 +709,12 @@ def write_home(arches: list[dict], recent: list[dict], cache: dict, features: di
         splash_card = f"""          <a class="home-splash-feature" href="{html.escape(href)}" title="{html.escape(label)}">
             <img src="{html.escape(img)}" alt="{html.escape(label)}" />
           </a>"""
-    body = f"""        <section class="home-splash" aria-label="Union Arena Deck Base">
+    body = f"""        <section class="home-splash" aria-label="{html.escape(uadb.BRAND)}">
           <img class="home-splash-bg" src="/img/uadb-hero.png" alt="Union Arena Trading Card Game" />
 {splash_card}
           <div class="home-splash-bar">
-            <h2>Union Arena Deck Base</h2>
-            <p>50-card lists for Standard. Jump a section, or keep scrolling into the characters.</p>
+            <h2>{html.escape(uadb.BRAND)}</h2>
+            <p>Jump a section, or keep scrolling into the characters.</p>
           </div>
         </section>
 
@@ -803,7 +803,7 @@ def write_characters_index(arches: list[dict], features: dict, cache: dict) -> N
         <div class="leader-grid">
 {chr(10).join(tiles)}
         </div>"""
-    page = uadb.page_chrome("Union Arena characters", "Every character page on Union Arena Deck Base.", "color-red", body, "characters")
+    page = uadb.page_chrome("Union Arena characters", "Every character page on Union Arena Decklists.", "color-red", body, "characters")
     (uadb.ROOT / "characters.html").write_text(page)
 
 
@@ -849,7 +849,7 @@ def write_format(arches: list[dict]) -> None:
           <p>Exactly 50 cards in the main deck. AP cards sit next to the list, not inside the 50. Most sanctioned events are single-title. Confirm the event before mixing IPs.</p>
           <p class="muted">Official events: <a href="https://www.unionarena-tcg.com/na/events/">Bandai events hub</a>.</p>
         </section>"""
-    page = uadb.page_chrome("Union Arena format and restricted cards | Union Arena Deck Base", "Standard constructed rules for Union Arena: 50-card lists, restricted Evangelion cards, current-format characters.", "color-red", body, "format")
+    page = uadb.page_chrome("Union Arena format and restricted cards | Union Arena Decklists", "Standard constructed rules for Union Arena: 50-card lists, restricted Evangelion cards, current-format characters.", "color-red", body, "format")
     (uadb.ROOT / "format.html").write_text(page)
 
 
@@ -857,7 +857,7 @@ def write_privacy() -> None:
     body = f"""        <div class="crumb"><a href="/">Home</a> / Privacy Policy</div>
         <h2>Privacy Policy</h2>
         <p class="muted">Last updated: August 24, 2026</p>
-        <p>Union Arena Deck Base ("we," "us," or "this site") respects your privacy. This Privacy Policy explains what information we collect when you visit unionarenadecklists.com, how we use it, and the choices you have.</p>
+        <p>Union Arena Decklists ("we," "us," or "this site") respects your privacy. This Privacy Policy explains what information we collect when you visit unionarenadecklists.com, how we use it, and the choices you have.</p>
         <section>
           <h3>Information We Collect</h3>
           <p><strong>Automatically collected information:</strong> Like most websites, we automatically collect certain information when you visit, including your IP address, browser type, device type, pages viewed, and time spent on the site. This is collected through cookies, log files, and similar technologies.</p>
@@ -879,7 +879,7 @@ def write_privacy() -> None:
           <h3>Contact</h3>
           <p>Questions about this policy can go through the Discord linked in the header.</p>
         </section>"""
-    page = uadb.page_chrome("Privacy Policy | Union Arena Deck Base", "Privacy Policy for Union Arena Deck Base.", "color-red", body)
+    page = uadb.page_chrome("Privacy Policy | Union Arena Decklists", "Privacy Policy for Union Arena Decklists.", "color-red", body)
     # privacy uses policy class
     page = page.replace('<div class="card hero">', '<div class="card hero policy">')
     (uadb.ROOT / "privacy.html").write_text(page)
@@ -889,7 +889,7 @@ def write_404() -> None:
     body = """        <div class="crumb"><a href="/">Home</a> / Missing page</div>
         <h2>That page is not here</h2>
         <p>Try the <a href="/">home splash</a>, <a href="/characters.html">character pages</a>, or <a href="/#recent">recent lists</a>.</p>"""
-    page = uadb.page_chrome("Page not found | Union Arena Deck Base", "That Union Arena Deck Base page is missing.", "color-red", body)
+    page = uadb.page_chrome("Page not found | Union Arena Decklists", "That Union Arena Decklists page is missing.", "color-red", body)
     (uadb.ROOT / "404.html").write_text(page)
 
 
