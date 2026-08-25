@@ -1,4 +1,4 @@
-# Union Arena Deck Base
+# Union Arena Decklists
 
 Static GitHub Pages site for **Union Arena** TCG 50-card lists.
 
