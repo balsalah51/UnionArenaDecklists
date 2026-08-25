@@ -25,10 +25,11 @@ SUBTITLE = "Union Arena TCG decklists"
 LOGO = "UA"
 MIN_CARDS = 40
 TARGET = 50
-RESTRICTED_ONE = {
+RESTRICTED_CARDS = (
     "UE15BT/EVA-1-051",  # Asuka Shikinami Langley
     "UE15BT/EVA-1-063",  # Spear of Gaius
-}
+)
+RESTRICTED_ONE = set(RESTRICTED_CARDS)
 LINE_RE = re.compile(
     r"(?i)(\d+)\s*[x×*]\s*((?:UE|UA|ST|PR|UEX)[A-Z0-9]{0,8}[/_\-]+[A-Z]{2,4}-\d-\d{3})"
 )
@@ -288,7 +289,7 @@ def page_chrome(title: str, description: str, color: str, body: str, current: st
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>{html.escape(title)}</title>
   <meta name="description" content="{html.escape(description)}" />
-  <link rel="stylesheet" href="/css/site.css?v=ua2" />
+  <link rel="stylesheet" href="/css/site.css?v=ua3" />
 </head>
 <body class="{html.escape(color)}">
   <div class="wrap">
@@ -331,7 +332,7 @@ def home_chrome(body: str) -> str:
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Union Arena TCG Decklists | Union Arena Deck Base</title>
   <meta name="description" content="Union Arena TCG decklists. Character pictures and recent 50-card lists for Standard." />
-  <link rel="stylesheet" href="/css/site.css?v=ua2" />
+  <link rel="stylesheet" href="/css/site.css?v=ua3" />
 </head>
 <body>
   <div class="wrap">
