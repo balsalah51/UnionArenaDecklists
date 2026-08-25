@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="/css/site.css?v=ua7" />
+  <link rel="stylesheet" href="/css/site.css?v=ua8" />
 </head>
 <body class="color-red">
   <div class="wrap">
@@ -32,7 +32,7 @@
       <div class="card hero policy">
         <div class="crumb"><a href="/">Home</a> / Privacy Policy</div>
         <h2>Privacy Policy</h2>
-        <p class="muted">Last updated: August 24, 2026</p>
+        <p class="muted">Last updated: August 25, 2026</p>
         <p>Union Arena Decklists ("we," "us," or "this site") respects your privacy. This Privacy Policy explains what information we collect when you visit unionarenadecklists.com, how we use it, and the choices you have.</p>
         <section>
           <h3>Information We Collect</h3>
@@ -48,8 +48,12 @@
           <p>This site may display advertisements served by third-party providers, including Google AdSense. You can opt out of personalized advertising at <a href="https://adssettings.google.com/" target="_blank" rel="noopener">Google's Ads Settings</a>.</p>
         </section>
         <section>
+          <h3>TCGplayer links</h3>
+          <p>Deck and card buy buttons open TCGplayer so you can purchase a 50-card list or a single card. When an affiliate tracking link is configured, those clicks may be routed through TCGplayer's partner program and this site may earn a commission on qualifying purchases. TCGplayer may set its own cookies on that visit. Until an affiliate ID is added, buy links go straight to TCGplayer with no tracking wrapper.</p>
+        </section>
+        <section>
           <h3>Third-Party Links</h3>
-          <p>Our site links to third-party content, including tournament results, the official Bandai cardlist, and Discord. We are not responsible for the privacy practices of these external sites.</p>
+          <p>Our site links to third-party content, including tournament results, the official Bandai cardlist, TCGplayer, and Discord. We are not responsible for the privacy practices of these external sites.</p>
         </section>
         <section>
           <h3>Contact</h3>
@@ -100,6 +104,7 @@
         line.addEventListener('mouseenter', function(){ place(line); });
         line.addEventListener('focus', function(){ place(line); });
         line.addEventListener('click', function(e){
+          if (e.target.closest('a')) return;
           if (window.matchMedia('(hover: hover)').matches) return;
           e.stopPropagation();
           lines.forEach(function(other){ if (other !== line) other.classList.remove('is-open'); });
@@ -115,6 +120,7 @@
     })();
 
   </script>
-  <script src="/js/site.js?v=ua1"></script>
+  <script src="/js/affiliate.js?v=ua2"></script>
+  <script src="/js/site.js?v=ua2"></script>
 </body>
 </html>

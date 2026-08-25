@@ -83,10 +83,32 @@
     });
   }
 
+  function withAffiliate(url) {
+    var base = String(window.UADB_TCGPLAYER_PARTNER || "").trim();
+    if (!base || !url) return url;
+    var sep = base.indexOf("?") >= 0 ? "&" : "?";
+    return base.replace(/[?&]+$/, "") + sep + "u=" + encodeURIComponent(url);
+  }
+
+  function initBuyLinks() {
+    document.querySelectorAll("a.buy-tcg").forEach(function (a) {
+      var dest = a.getAttribute("href");
+      if (!dest) return;
+      var wrapped = withAffiliate(dest);
+      if (wrapped === dest) return;
+      a.setAttribute("href", wrapped);
+      var rel = (a.getAttribute("rel") || "").split(/\s+/).filter(Boolean);
+      if (rel.indexOf("sponsored") < 0) rel.push("sponsored");
+      if (rel.indexOf("noopener") < 0) rel.push("noopener");
+      a.setAttribute("rel", rel.join(" "));
+    });
+  }
+
   function ready() {
     ensureCopyButtons();
     initCopy();
     initFilters();
+    initBuyLinks();
   }
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", ready);
   else ready();

@@ -432,11 +432,13 @@ def render_text_deck(items: list[dict], cache: dict, heading: str = "Text list")
             meta = cache.get(it["id"], {})
             name = uadb.display_name(meta.get("name") or it["name"])
             img = uadb.card_image_url(it["id"], cache)
+            buy = uadb.buy_card_link(uadb.tcgplayer_card_search_url(it["id"], name))
             lines.append(
                 f"""            <li class="text-line" tabindex="0">
               <span class="qty">{html.escape(str(it['count']))}x</span>
               <span class="card-title">{html.escape(name)}</span>
               <span class="muted card-id">{html.escape(it['id'])}</span>
+              {buy}
               <img class="card-pop" src="{html.escape(img)}" alt="{html.escape(name)}" />
             </li>"""
             )
@@ -449,12 +451,16 @@ def render_text_deck(items: list[dict], cache: dict, heading: str = "Text list")
           </div>"""
         )
     total = sum(it["count"] for it in items if it["group"] != "AP cards")
+    actions = uadb.list_actions(
+        uadb.copy_button(sim_text(items)),
+        uadb.buy_deck_button(uadb.tcgplayer_mass_entry_url(items, cache)),
+    )
     return f"""        <section class="text-deck">
           <div class="section-title">
             <h3>{html.escape(heading)}</h3>
-            {uadb.copy_button(sim_text(items))}
+            {actions}
           </div>
-          <p class="muted">Hover or tap a name for the picture. Copy pastes <code>NxSET/CODE</code> lines. No simulator import.</p>
+          <p class="muted">Hover or tap a name for the picture. Buy opens TCGplayer. Copy pastes <code>NxSET/CODE</code> lines.</p>
           <div class="text-deck-cols">
 {chr(10).join(cols)}
           </div>
@@ -477,6 +483,7 @@ def render_card_entry(item: dict, meta: dict, cache: dict) -> str:
         bits.append(meta["color"])
     stats = " · ".join(bits)
     text = meta.get("effect") or meta.get("trigger") or ""
+    buy = uadb.buy_card_link(uadb.tcgplayer_card_search_url(cid, name), "Buy on TCGplayer")
     return f"""        <article class="card-entry">
           <img src="{html.escape(img)}" alt="{html.escape(name)} {html.escape(cid)}" loading="lazy" />
           <div>
@@ -484,6 +491,7 @@ def render_card_entry(item: dict, meta: dict, cache: dict) -> str:
             <h4>{html.escape(name)}</h4>
             {f'<div class="stats">{html.escape(stats)}</div>' if stats else ''}
             {f'<div class="text">{html.escape(text)}</div>' if text else ''}
+            {f'<div class="card-buy">{buy}</div>' if buy else ''}
           </div>
         </article>"""
 
@@ -626,14 +634,19 @@ def write_list_page(arch: dict, entry: dict, items: list[dict], cache: dict, fea
             f"<p class=\"muted\"><strong>Copy limits:</strong> alt-art and stamp versions of the same card "
             f"number count as one card. Restricted cards are 1-ofs. This snapshot is {main_n} cards after those caps.</p>"
         )
+    buy = uadb.buy_deck_button(
+        uadb.tcgplayer_mass_entry_url(items, cache),
+        "Buy this list on TCGplayer",
+    )
     body = f"""        <div class="crumb"><a href="/">Home</a> / <a href="/characters.html">Characters</a> / <a href="/{html.escape(arch['page'])}">{html.escape(arch['full'])}</a> / Decklist</div>
         <h2>{html.escape(title)}</h2>
         <p>{html.escape(subtitle)}</p>
 {flag}
+        {f'<p class="deck-buy">{buy}</p>' if buy else ''}
 {render_deck_stats(items, cache)}
 {render_text_deck(items, cache)}
 {render_pictures(items, cache)}
-        <p class="muted" style="margin-top:22px">{html.escape(kind_note)} Source: <a href="{html.escape(source)}">{html.escape(source)}</a>. Images hosted by Bandai. Not affiliated with Bandai.</p>"""
+        <p class="muted" style="margin-top:22px">{html.escape(kind_note)} Source: <a href="{html.escape(source)}">{html.escape(source)}</a>. Images hosted by Bandai. Buy links open TCGplayer. Not affiliated with Bandai or TCGplayer.</p>"""
     page = uadb.page_chrome(title, f"{arch['full']} decklist - {subtitle}"[:160], color, body)
     dest = uadb.ROOT / arch["dir"] / f"{entry['slug']}.html"
     dest.parent.mkdir(parents=True, exist_ok=True)
@@ -662,6 +675,7 @@ def write_hub(arch: dict, lists: list[dict], items: list[dict], cache: dict, fea
         href = f"/{arch['dir']}/{entry['slug']}.html"
         right = entry.get("date") or entry.get("kind") or "View"
         copy_btn = uadb.copy_button(entry.get("sim_text") or "")
+        buy_btn = uadb.buy_deck_button(entry.get("buy_url") or "")
         rows.append(
             f"""            <li class="list-row">
               <a class="item" href="{html.escape(href)}">
@@ -671,7 +685,7 @@ def write_hub(arch: dict, lists: list[dict], items: list[dict], cache: dict, fea
                 </div>
                 <div class="link">{html.escape(str(right))} →</div>
               </a>
-              {copy_btn}
+              {uadb.list_actions(copy_btn, buy_btn)}
             </li>"""
         )
     filters = ""
@@ -951,7 +965,7 @@ def write_format(arches: list[dict]) -> None:
 def write_privacy() -> None:
     body = f"""        <div class="crumb"><a href="/">Home</a> / Privacy Policy</div>
         <h2>Privacy Policy</h2>
-        <p class="muted">Last updated: August 24, 2026</p>
+        <p class="muted">Last updated: August 25, 2026</p>
         <p>Union Arena Decklists ("we," "us," or "this site") respects your privacy. This Privacy Policy explains what information we collect when you visit unionarenadecklists.com, how we use it, and the choices you have.</p>
         <section>
           <h3>Information We Collect</h3>
@@ -967,8 +981,12 @@ def write_privacy() -> None:
           <p>This site may display advertisements served by third-party providers, including Google AdSense. You can opt out of personalized advertising at <a href="https://adssettings.google.com/" target="_blank" rel="noopener">Google's Ads Settings</a>.</p>
         </section>
         <section>
+          <h3>TCGplayer links</h3>
+          <p>Deck and card buy buttons open TCGplayer so you can purchase a 50-card list or a single card. When an affiliate tracking link is configured, those clicks may be routed through TCGplayer's partner program and this site may earn a commission on qualifying purchases. TCGplayer may set its own cookies on that visit. Until an affiliate ID is added, buy links go straight to TCGplayer with no tracking wrapper.</p>
+        </section>
+        <section>
           <h3>Third-Party Links</h3>
-          <p>Our site links to third-party content, including tournament results, the official Bandai cardlist, and Discord. We are not responsible for the privacy practices of these external sites.</p>
+          <p>Our site links to third-party content, including tournament results, the official Bandai cardlist, TCGplayer, and Discord. We are not responsible for the privacy practices of these external sites.</p>
         </section>
         <section>
           <h3>Contact</h3>
@@ -1113,6 +1131,7 @@ def main() -> None:
                 "date": arch.get("updated") or "",
                 "source_url": f"https://tcgcontender.com/unionarena/decks/standard/{arch['key']}",
                 "sim_text": sim_text(items),
+                "buy_url": uadb.tcgplayer_mass_entry_url(items, cache),
                 "img": uadb.card_image_url(feature.get("id") or "", cache),
                 "color": (feature.get("meta") or {}).get("color") or "",
             }
@@ -1138,6 +1157,7 @@ def main() -> None:
                 "date": comm.get("date") or "",
                 "source_url": comm.get("source_url") or "",
                 "sim_text": sim_text(c_items),
+                "buy_url": uadb.tcgplayer_mass_entry_url(c_items, cache),
                 "img": uadb.card_image_url(c_feat.get("id") or "", cache),
                 "color": (c_feat.get("meta") or {}).get("color") or "",
             }

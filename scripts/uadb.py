@@ -23,7 +23,8 @@ DISCORD = "https://discord.gg/aY9RfB662"
 BRAND = "Union Arena Decklists"
 SUBTITLE = "50-card lists for Standard"
 LOGO = "UA"
-CSS_VER = "ua7"
+CSS_VER = "ua8"
+JS_VER = "ua2"
 FONT_LINKS = """  <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet" />
@@ -119,6 +120,7 @@ POPUP_JS = r"""
         line.addEventListener('mouseenter', function(){ place(line); });
         line.addEventListener('focus', function(){ place(line); });
         line.addEventListener('click', function(e){
+          if (e.target.closest('a')) return;
           if (window.matchMedia('(hover: hover)').matches) return;
           e.stopPropagation();
           lines.forEach(function(other){ if (other !== line) other.classList.remove('is-open'); });
@@ -341,7 +343,8 @@ def page_chrome(title: str, description: str, color: str, body: str, current: st
     document.getElementById('year').textContent = new Date().getFullYear();
 {POPUP_JS}
   </script>
-  <script src="/js/site.js?v=ua1"></script>
+  <script src="/js/affiliate.js?v={JS_VER}"></script>
+  <script src="/js/site.js?v={JS_VER}"></script>
 </body>
 </html>
 """
@@ -381,7 +384,8 @@ def home_chrome(body: str) -> str:
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
   </script>
-  <script src="/js/site.js?v=ua1"></script>
+  <script src="/js/affiliate.js?v={JS_VER}"></script>
+  <script src="/js/site.js?v={JS_VER}"></script>
 </body>
 </html>
 """
@@ -395,6 +399,85 @@ def copy_button(sim_text: str) -> str:
         f'<button type="button" class="copy-sim" data-copy-sim data-sim="{html.escape(compact, quote=True)}">'
         "Copy list</button>"
     )
+
+
+def _tcgplayer_card_label(cid: str, name: str) -> tuple[str, str, str]:
+    cid = (cid or "").strip()
+    set_code = cid.split("/", 1)[0] if "/" in cid else ""
+    number = legal_number(cid) if cid else ""
+    label, _printed = parse_named_card(name)
+    label = display_name(label)
+    if not label or label.upper() == cid.upper() or "/" in label:
+        label = ""
+    return label, set_code, number
+
+
+def tcgplayer_card_search_url(cid: str, name: str = "") -> str:
+    cid = (cid or "").strip()
+    if not cid or "UNRESOLVED" in cid:
+        return ""
+    label, set_code, number = _tcgplayer_card_label(cid, name)
+    q = " ".join(part for part in (label, set_code, number) if part)
+    if not q:
+        return ""
+    query = urllib.parse.urlencode(
+        {"productLineName": "union-arena", "q": q, "view": "grid"}
+    )
+    return f"https://www.tcgplayer.com/search/union-arena/product?{query}"
+
+
+def tcgplayer_mass_entry_url(items: list | None, cache: dict | None = None) -> str:
+    cache = cache or {}
+    parts: list[str] = []
+    for it in items or []:
+        if (it.get("group") or "") == "AP cards":
+            continue
+        cid = (it.get("id") or "").strip()
+        if not cid or "UNRESOLVED" in cid:
+            continue
+        try:
+            qty = int(it.get("count") or 0)
+        except (TypeError, ValueError):
+            continue
+        if qty < 1:
+            continue
+        meta = cache.get(cid) or {}
+        label, set_code, number = _tcgplayer_card_label(
+            cid, meta.get("name") or it.get("name") or ""
+        )
+        if not label:
+            label = number or cid
+        line = " ".join(part for part in (str(qty), label, set_code, number) if part)
+        parts.append(line)
+    if not parts:
+        return ""
+    query = urllib.parse.urlencode({"productline": "Union Arena", "c": "||".join(parts)})
+    return f"https://www.tcgplayer.com/massentry?{query}"
+
+
+def buy_deck_button(url: str, label: str = "Buy on TCGplayer") -> str:
+    if not url:
+        return ""
+    return (
+        f'<a class="buy-tcg buy-deck" href="{html.escape(url, quote=True)}" '
+        f'target="_blank" rel="noopener">{html.escape(label)}</a>'
+    )
+
+
+def buy_card_link(url: str, label: str = "Buy") -> str:
+    if not url:
+        return ""
+    return (
+        f'<a class="buy-tcg buy-card" href="{html.escape(url, quote=True)}" '
+        f'target="_blank" rel="noopener">{html.escape(label)}</a>'
+    )
+
+
+def list_actions(*bits: str) -> str:
+    packed = "".join(bit for bit in bits if bit)
+    if not packed:
+        return ""
+    return f'<div class="list-actions">{packed}</div>'
 
 
 def group_for(card_type: str) -> str:
