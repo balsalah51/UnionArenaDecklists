@@ -62,16 +62,29 @@ main.single{grid-template-columns:1fr}
 .home-jump-recent:hover{border-color:var(--accent)}
 .home{display:flex;flex-direction:column;gap:0}
 .home-splash{
-  border-radius:16px;overflow:hidden;
+  position:relative;border-radius:16px;overflow:hidden;
   background:#0a0a0a;box-shadow:var(--shadow)
 }
 .home-splash-bg{
   display:block;width:100%;height:auto;
   object-fit:contain;object-position:center;background:#0a0a0a
 }
+.home-splash-feature{
+  position:absolute;right:16px;bottom:12px;z-index:2;
+  width:min(156px,22%);
+  transform:rotate(6deg);
+  filter:drop-shadow(0 14px 20px rgba(0,0,0,.5));
+  text-decoration:none
+}
+.home-splash-feature img{
+  display:block;width:100%;height:auto;border-radius:12px;
+  border:3px solid #fff;background:#eee
+}
+.home-splash-feature:hover{transform:rotate(3deg) scale(1.03)}
 .home-splash-bar{
+  position:relative;z-index:1;
   display:flex;flex-wrap:wrap;align-items:end;justify-content:space-between;gap:8px 16px;
-  padding:12px 18px 14px;
+  padding:12px 18px 14px;padding-right:min(200px,30%);
   background:linear-gradient(90deg,#a31414,#c62828 55%,#8e1515);
   color:#fff
 }
@@ -130,26 +143,7 @@ main.single{grid-template-columns:1fr}
 .home-leaders-grid .home-cards{margin-top:0}
 .home-panel{margin:0}
 .home-panel + .home-panel{margin-top:18px}
-.home-banned{margin:18px 0 0}
-.ban-cards{
-  display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin-top:14px
-}
-.ban-card{
-  position:relative;display:block;text-decoration:none;color:inherit;
-  border-radius:12px;overflow:hidden;background:#fff;
-  border:1px solid rgba(0,0,0,0.06);box-shadow:0 2px 10px rgba(16,22,26,0.04)
-}
-.ban-card img{display:block;width:100%;height:auto;aspect-ratio:63/88;object-fit:cover;background:#eee}
-.ban-card:hover{border-color:color-mix(in srgb, var(--accent) 40%, white);box-shadow:var(--shadow)}
-.ban-card .caption{padding:8px 10px 2px;font-size:13px;font-weight:800;text-align:center}
-.ban-card .ban-id{padding:0 10px 10px;font-size:11px;color:var(--muted);text-align:center;font-weight:700;overflow-wrap:anywhere}
-.ban-badge{
-  position:absolute;top:8px;left:8px;z-index:1;
-  font-size:11px;font-weight:800;letter-spacing:.02em;text-transform:uppercase;
-  padding:4px 8px;border-radius:999px;color:#fff;background:#8e1515
-}
-.ban-card.best .ban-badge{background:#6a1b9a}
-#leaders,#recent,#banned{scroll-margin-top:18px}
+#leaders,#recent{scroll-margin-top:18px}
 .recent-list{list-style:none;padding:0;margin:12px 0 0;display:flex;flex-direction:column;gap:6px}
 .recent-item{
   display:flex;align-items:center;gap:10px;padding:8px 10px;border-radius:10px;
@@ -392,7 +386,9 @@ footer a{color:var(--accent);font-weight:700;text-decoration:none}
   .home-jump{flex-direction:column}
   .home-big3{grid-template-columns:1fr}
   .home-big{min-height:104px;padding:18px 16px}
-  .home-splash-bar{padding:10px 14px 12px}
+  .home-splash-feature{width:min(112px,30%);right:10px;bottom:10px}
+  .home-splash-feature:hover{transform:rotate(3deg) scale(1.03)}
+  .home-splash-bar{padding:10px 14px 12px;padding-right:min(140px,38%)}
   .home-splash-bar h2{font-size:16px}
   .home-flow{margin:16px 0 10px}
   .home-flow p{white-space:normal;text-align:center}
