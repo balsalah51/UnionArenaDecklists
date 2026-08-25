@@ -359,7 +359,7 @@ footer a{color:var(--accent);font-weight:700;text-decoration:none}
   nav a{margin-left:0;margin-right:14px}
   .wrap{padding:16px;margin:18px auto}
   .leader-grid,.home-leaders{grid-template-columns:1fr}
-  .leader-cards,.home-cards,.ban-cards{grid-template-columns:repeat(2,1fr)}
+  .leader-cards,.home-cards{grid-template-columns:repeat(2,1fr)}
   .hero{padding:18px 14px}
   .card{padding:16px}
   header{align-items:flex-start}
@@ -397,7 +397,7 @@ footer a{color:var(--accent);font-weight:700;text-decoration:none}
   .home-flow{margin:16px 0 10px}
   .home-flow p{white-space:normal;text-align:center}
   .home-leaders-intro-row{flex-direction:column;align-items:flex-start}
-  .leader-cards.home-cards,.ban-cards{grid-template-columns:repeat(2,1fr)}
+  .leader-cards.home-cards{grid-template-columns:repeat(2,1fr)}
 }
 @media (max-width:420px){
   .wrap{padding:12px;margin:12px auto}
