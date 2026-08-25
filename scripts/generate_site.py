@@ -621,20 +621,6 @@ def write_hub(arch: dict, lists: list[dict], items: list[dict], cache: dict, fea
     dest.write_text(page)
 
 
-def page_for_card(cid: str, name: str, arches: list[dict], features: dict) -> str:
-    for arch in arches:
-        feat = features.get(arch["key"]) or {}
-        if feat.get("id") == cid:
-            return f"/{arch['page']}"
-    want = norm_name(name)
-    if want:
-        for arch in arches:
-            blob = norm_name(f"{arch.get('full') or ''} {arch.get('name') or ''}")
-            if want in blob:
-                return f"/{arch['page']}"
-    return "/format.html"
-
-
 def best_in_format_card(arches: list[dict], features: dict, cache: dict) -> dict:
     ranked = [a for a in arches if a.get("meta_share")]
     ranked.sort(key=lambda a: (-float(a.get("meta_share") or 0), int(str(a.get("tier") or "99") or "99")))
@@ -688,30 +674,6 @@ def best_in_format_card(arches: list[dict], features: dict, cache: dict) -> dict
     }
 
 
-def render_ban_tile(cid: str, name: str, badge: str, href: str, cache: dict, kind: str) -> str:
-    img = uadb.card_image_url(cid, cache)
-    return f"""            <a class="ban-card {html.escape(kind)}" href="{html.escape(href)}">
-              <span class="ban-badge">{html.escape(badge)}</span>
-              <img src="{html.escape(img)}" alt="{html.escape(name)}" />
-              <div class="caption">{html.escape(name)}</div>
-              <div class="ban-id">{html.escape(cid)}</div>
-            </a>"""
-
-
-def render_top_banned(arches: list[dict], features: dict, cache: dict) -> str:
-    tiles = []
-    for cid in uadb.RESTRICTED_CARDS:
-        meta = cache.get(cid) or {}
-        name = uadb.display_name(meta.get("name") or cid)
-        href = page_for_card(cid, name, arches, features)
-        tiles.append(render_ban_tile(cid, name, "Restricted 1", href, cache, "restricted"))
-    best = best_in_format_card(arches, features, cache)
-    if best.get("id"):
-        href = f"/{best['arch']['page']}" if best.get("arch") else "/format.html"
-        tiles.append(render_ban_tile(best["id"], best["name"], "Best in format", href, cache, "best"))
-    return "\n".join(tiles)
-
-
 def write_home(arches: list[dict], recent: list[dict], cache: dict, features: dict) -> None:
     cards = []
     for arch in arches:
@@ -738,8 +700,18 @@ def write_home(arches: list[dict], recent: list[dict], cache: dict, features: di
               </a>
             </li>"""
         )
+    best = best_in_format_card(arches, features, cache)
+    splash_card = ""
+    if best.get("id"):
+        href = f"/{best['arch']['page']}" if best.get("arch") else "/characters.html"
+        img = uadb.card_image_url(best["id"], cache)
+        label = (best.get("arch") or {}).get("full") or best.get("name") or "Best in format"
+        splash_card = f"""          <a class="home-splash-feature" href="{html.escape(href)}" title="{html.escape(label)}">
+            <img src="{html.escape(img)}" alt="{html.escape(label)}" />
+          </a>"""
     body = f"""        <section class="home-splash" aria-label="Union Arena Deck Base">
           <img class="home-splash-bg" src="/img/uadb-hero.png" alt="Union Arena Trading Card Game" />
+{splash_card}
           <div class="home-splash-bar">
             <h2>Union Arena Deck Base</h2>
             <p>50-card lists for Standard. Jump a section, or keep scrolling into the characters.</p>
@@ -776,17 +748,6 @@ def write_home(arches: list[dict], recent: list[dict], cache: dict, features: di
             <span class="home-big-note">Talk lists and the roster</span>
           </a>
         </nav>
-
-        <section class="card home-panel home-banned" id="banned">
-          <div class="section-title">
-            <h3>Top banned</h3>
-            <a href="/format.html">Format notes →</a>
-          </div>
-          <p class="muted">Official 1-ofs plus the card sitting on top of Standard.</p>
-          <div class="ban-cards" aria-label="Banned, restricted, and best-in-format cards">
-{render_top_banned(arches, features, cache)}
-          </div>
-        </section>
 
         <section class="home-leaders-flow" id="characters">
           <div class="home-leaders-intro">
@@ -846,7 +807,7 @@ def write_characters_index(arches: list[dict], features: dict, cache: dict) -> N
     (uadb.ROOT / "characters.html").write_text(page)
 
 
-def write_format(arches: list[dict], features: dict, cache: dict) -> None:
+def write_format(arches: list[dict]) -> None:
     blurbs = []
     for arch in arches[:8]:
         blurbs.append(
@@ -871,15 +832,12 @@ def write_format(arches: list[dict], features: dict, cache: dict) -> None:
           </ul>
         </section>
 
-        <section class="top-banned" id="banned" style="margin-top:22px">
+        <section style="margin-top:22px">
           <div class="section-title">
-            <h3>Top banned</h3>
+            <h3>Restricted in constructed</h3>
             <div class="muted">Effective 17 April 2026</div>
           </div>
-          <p>Bandai limited <strong>Asuka Shikinami Langley</strong> and <strong>Spear of Gaius</strong> to one copy each. This site flags lists that still play more than one. The extra picture is the current best card in Standard, not an official ban.</p>
-          <div class="ban-cards" aria-label="Banned, restricted, and best-in-format cards">
-{render_top_banned(arches, features, cache)}
-          </div>
+          <p>Bandai limited <strong>Asuka Shikinami Langley <code>UE15BT/EVA-1-051</code></strong> and <strong>Spear of Gaius <code>UE15BT/EVA-1-063</code></strong> to one copy each. This site flags lists that still play more than one.</p>
           <p class="muted">Official notice: <a href="https://www.unionarena-tcg.com/na/rules/limited.php">About Banned/Restricted Cards</a>.</p>
         </section>
 
@@ -1116,7 +1074,7 @@ def main() -> None:
     roster = unique_arches(arches)
     write_home(roster, recent, cache, features)
     write_characters_index(roster, features, cache)
-    write_format(roster, features, cache)
+    write_format(roster)
     write_privacy()
     write_sitemap(sitemap)
     write_404()
