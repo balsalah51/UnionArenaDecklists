@@ -211,11 +211,15 @@ footer a{color:var(--accent);font-weight:700;text-decoration:none}
 .text-leader-list a{color:var(--accent);font-weight:800;text-decoration:none}
 .text-leader-list a:hover{text-decoration:underline}
 .leader-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:14px}
+.leader-card{display:flex;flex-direction:column;gap:8px;min-width:0}
+.leader-card .buy-deck{margin-left:0;width:100%;font-size:12px;padding:8px 10px}
 .leader-card-link{display:block;text-decoration:none;color:inherit;border-radius:12px;overflow:hidden;background:#fff;border:1px solid rgba(0,0,0,0.06);box-shadow:0 2px 10px rgba(16,22,26,0.04)}
 .leader-card-link img{display:block;width:100%;height:auto;aspect-ratio:63/88;object-fit:cover;background:#eee}
 .leader-card-link:hover{border-color:color-mix(in srgb, var(--accent) 40%, white);box-shadow:var(--shadow)}
 .leader-card-link .caption{padding:8px 10px 10px;font-size:13px;font-weight:800;text-align:center}
 .leader-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:14px}
+.leader-tile-wrap{display:flex;flex-direction:column;gap:8px;min-width:0}
+.leader-tile-wrap .buy-deck{margin-left:0;width:100%;font-size:12px;padding:8px 10px}
 .leader-tile{
   display:flex;gap:12px;align-items:center;padding:14px;border-radius:12px;
   border:1px solid rgba(0,0,0,0.06);background:#fff;text-decoration:none;color:inherit;
@@ -233,6 +237,7 @@ footer a{color:var(--accent);font-weight:700;text-decoration:none}
 .leader-hero img{width:min(200px,62vw);height:auto;border-radius:12px;box-shadow:var(--shadow);background:#eee}
 .leader-hero .effect{text-align:left;width:100%}
 .leader-hero .stat-row{justify-content:flex-start}
+.leader-hero .buy-deck{margin:12px 0 0}
 .stat-row{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0 4px}
 .pill{font-size:12px;font-weight:700;padding:5px 9px;border-radius:999px;background:var(--accent-bleed);color:var(--text)}
 .effect{margin-top:12px;line-height:1.55;font-size:15px}
@@ -328,25 +333,36 @@ footer a{color:var(--accent);font-weight:700;text-decoration:none}
 .swatch.dual-purple-yellow{background:linear-gradient(90deg,#6a1b9a 50%,#c9a227 50%)}
 .swatch.dual-red-black{background:linear-gradient(90deg,#d32f2f 50%,#212121 50%)}
 .swatch.dual-blue-purple{background:linear-gradient(90deg,#1565c0 50%,#6a1b9a 50%)}
-.copy-sim,.buy-deck{
+.copy-sim{
   margin-left:auto;padding:6px 10px;border-radius:8px;border:1px solid rgba(110,58,58,0.28);
   background:#fff;color:#6e3a3a;font:inherit;font-size:12px;font-weight:800;cursor:pointer;
   white-space:nowrap;text-decoration:none;text-align:center
 }
-.copy-sim:hover,.buy-deck:hover{border-color:#6e3a3a}
+.copy-sim:hover{border-color:#6e3a3a}
+.buy-deck{
+  display:inline-flex;align-items:center;justify-content:center;
+  margin-left:auto;padding:9px 14px;border-radius:8px;border:1px solid #5c2a2a;
+  background:#5c2a2a;color:#f4efea;font:inherit;font-size:13px;font-weight:800;
+  white-space:nowrap;text-decoration:none;text-align:center
+}
+.buy-deck:hover{background:#4a2222;border-color:#4a2222;color:#fff}
 .list-actions{display:flex;flex-wrap:wrap;gap:8px;margin-left:auto;align-items:center}
 .list-actions .copy-sim,.list-actions .buy-deck{margin-left:0}
 .list-row{display:flex;align-items:stretch;gap:8px;min-width:0;width:100%;max-width:100%}
 .list-row > .item{flex:1;min-width:0;max-width:100%}
 .list-row > .copy-sim,.list-row > .list-actions{margin-left:0;align-self:center;flex-shrink:0}
-.deck-buy{margin:14px 0 0}
-.deck-buy .buy-deck{display:inline-block;margin-left:0;padding:8px 14px}
+.deck-buy{margin:16px 0 4px}
+.deck-buy .buy-deck{display:inline-flex;margin-left:0;padding:12px 18px;font-size:15px}
 .card-buy{margin-top:10px}
 .buy-card{
-  font-size:12px;font-weight:800;color:#6e3a3a;text-decoration:none;
-  border-bottom:1px solid rgba(110,58,58,.35);white-space:nowrap
+  display:inline-flex;align-items:center;justify-content:center;
+  padding:3px 9px;border-radius:999px;background:#5c2a2a;color:#f4efea;
+  font-size:11px;font-weight:800;text-decoration:none;white-space:nowrap;border:0
 }
-.buy-card:hover{border-bottom-color:#6e3a3a}
+.buy-card:hover{background:#4a2222;color:#fff;border:0}
+.recent-row{display:flex;align-items:stretch;gap:8px}
+.recent-row .recent-item{flex:1;min-width:0}
+.recent-row .buy-deck{margin-left:0;align-self:center;flex-shrink:0;padding:8px 12px;font-size:12px}
 .deck-stats{margin-top:16px;padding:12px 14px;border-radius:12px;border:1px solid rgba(0,0,0,0.06);background:#fff}
 .deck-stats .kicker{font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);font-weight:800}
 .stat-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:8px}
@@ -398,6 +414,9 @@ footer a{color:var(--accent);font-weight:700;text-decoration:none}
   .list-actions .copy-sim,.list-actions .buy-deck{
     flex:1;text-align:center;white-space:normal
   }
+  .recent-row{flex-direction:column;align-items:stretch;gap:6px}
+  .recent-row .buy-deck{width:100%}
+  .deck-buy .buy-deck{width:100%}
   .section-title{flex-direction:column;align-items:stretch}
   .section-title .copy-sim,.section-title .list-actions,.section-title .buy-deck{
     margin-left:0;width:100%;max-width:100%;text-align:center;white-space:normal

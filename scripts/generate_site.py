@@ -704,6 +704,7 @@ def write_hub(arch: dict, lists: list[dict], items: list[dict], cache: dict, fea
               {pill_html}
             </div>
             {f'<div class="effect">{html.escape(effect)}</div>' if effect else ''}
+            {uadb.buy_deck_button(arch.get('buy_url') or uadb.tcgplayer_mass_entry_url(items, cache), 'Buy this 50 on TCGplayer')}
           </div>
         </div>
         <section class="leader-analysis" style="margin-top:22px">
@@ -789,16 +790,20 @@ def write_home(arches: list[dict], recent: list[dict], cache: dict, features: di
         f = features.get(arch["key"]) or {}
         img = uadb.card_image_url(f.get("id") or "", cache) if f.get("id") else ""
         cards.append(
-            f"""            <a class="leader-card-link" href="/{html.escape(arch['page'])}">
-              <img src="{html.escape(img)}" alt="{html.escape(arch['full'])} character card" />
-              <div class="caption">{html.escape(arch['name'])}</div>
-            </a>"""
+            f"""            <div class="leader-card">
+              <a class="leader-card-link" href="/{html.escape(arch['page'])}">
+                <img src="{html.escape(img)}" alt="{html.escape(arch['full'])} character card" />
+                <div class="caption">{html.escape(arch['name'])}</div>
+              </a>
+              {uadb.buy_deck_button(arch.get('buy_url') or '', 'Buy 50 on TCGplayer')}
+            </div>"""
         )
     rec_items = []
     for row in recent[:100]:
         color = uadb.color_class((row.get("color") or ""))
+        buy = uadb.buy_deck_button(row.get("buy_url") or "", "Buy")
         rec_items.append(
-            f"""            <li>
+            f"""            <li class="recent-row">
               <a class="recent-item {html.escape(color)}" href="{html.escape(row['href'])}">
                 <img class="recent-leader" src="{html.escape(row['img'])}" alt="{html.escape(row['name'])}" />
                 <div class="recent-copy">
@@ -807,6 +812,7 @@ def write_home(arches: list[dict], recent: list[dict], cache: dict, features: di
                 </div>
                 <div class="when">{html.escape(row.get('when') or '')}</div>
               </a>
+              {buy}
             </li>"""
         )
     best = best_in_format_card(arches, features, cache)
@@ -864,7 +870,7 @@ def write_home(arches: list[dict], recent: list[dict], cache: dict, features: di
             <div class="home-leaders-intro-row">
               <div>
                 <h3>Characters</h3>
-                <p>Pick a picture. Each page has lists for that character.</p>
+                <p>Pick a picture. Each page has lists for that character. Buy 50 opens TCGplayer.</p>
               </div>
               <a href="/characters.html">All character pages →</a>
             </div>
@@ -881,7 +887,7 @@ def write_home(arches: list[dict], recent: list[dict], cache: dict, features: di
             <h3>Recent lists</h3>
             <div class="muted">{len(recent)} lists</div>
           </div>
-          <p class="muted">Newest published lists first.</p>
+          <p class="muted">Newest published lists first. Buy opens that 50 on TCGplayer.</p>
           <ul class="recent-list" aria-label="Recent decklists">
 {chr(10).join(rec_items)}
           </ul>
@@ -898,17 +904,20 @@ def write_characters_index(arches: list[dict], features: dict, cache: dict) -> N
         color = uadb.color_class((f.get("meta") or {}).get("color"))
         share = f"{arch['meta_share']*100:.1f}% meta" if arch.get("meta_share") else ""
         tiles.append(
-            f"""          <a class="leader-tile {html.escape(color)}" href="/{html.escape(arch['page'])}">
-            <img src="{html.escape(img)}" alt="{html.escape(arch['full'])}" />
-            <div>
-              <div class="name">{html.escape(arch['name'])}</div>
-              <div class="meta">{html.escape(arch['title'])} · {html.escape(share)}</div>
-            </div>
-          </a>"""
+            f"""          <div class="leader-tile-wrap {html.escape(color)}">
+            <a class="leader-tile {html.escape(color)}" href="/{html.escape(arch['page'])}">
+              <img src="{html.escape(img)}" alt="{html.escape(arch['full'])}" />
+              <div>
+                <div class="name">{html.escape(arch['name'])}</div>
+                <div class="meta">{html.escape(arch['title'])} · {html.escape(share)}</div>
+              </div>
+            </a>
+            {uadb.buy_deck_button(arch.get('buy_url') or '', 'Buy 50 on TCGplayer')}
+          </div>"""
         )
     body = f"""        <div class="crumb"><a href="/">Home</a> / Characters</div>
         <h2>Characters</h2>
-        <p>Standard Union Arena lists grouped by the character people actually sleeve. Same grid as the homepage, with the title next to the picture.</p>
+          <p>Standard Union Arena lists grouped by the character people actually sleeve. Same grid as the homepage, with the title next to the picture. Buy 50 opens that character's list on TCGplayer.</p>
         <div class="leader-grid">
 {chr(10).join(tiles)}
         </div>"""
@@ -1120,6 +1129,7 @@ def main() -> None:
         feature = apply_archetype(arch, items, cache)
         features[arch["key"]] = feature
         arch["color"] = (feature.get("meta") or {}).get("color") or ""
+        arch["buy_url"] = uadb.tcgplayer_mass_entry_url(items, cache)
         lists = []
         if arch.get("decklist"):
             cons_entry = {
@@ -1178,6 +1188,7 @@ def main() -> None:
                     "when": entry.get("date") or "",
                     "color": entry.get("color") or arch.get("color") or "",
                     "key": arch["key"],
+                    "buy_url": entry.get("buy_url") or "",
                 }
             )
         index[arch["key"]] = [
