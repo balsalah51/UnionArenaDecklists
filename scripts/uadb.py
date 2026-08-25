@@ -23,7 +23,7 @@ DISCORD = "https://discord.gg/aY9RfB662"
 BRAND = "Union Arena Decklists"
 SUBTITLE = "50-card lists for Standard"
 LOGO = "UA"
-CSS_VER = "ua8"
+CSS_VER = "ua9"
 JS_VER = "ua2"
 FONT_LINKS = """  <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
