@@ -332,7 +332,7 @@ def home_chrome(body: str) -> str:
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Union Arena TCG Decklists | Union Arena Deck Base</title>
   <meta name="description" content="Union Arena TCG decklists. Character pictures and recent 50-card lists for Standard." />
-  <link rel="stylesheet" href="/css/site.css?v=ua3" />
+  <link rel="stylesheet" href="/css/site.css?v=ua4" />
 </head>
 <body>
   <div class="wrap">
