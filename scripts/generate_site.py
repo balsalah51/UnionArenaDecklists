@@ -72,27 +72,65 @@ def norm_name(s: str) -> str:
     return " ".join(s.split())
 
 
-def resolve_card(label: str, title_hint: str, cache: dict) -> str | None:
+def resolve_card(
+    label: str,
+    title_hint: str,
+    cache: dict,
+    used_numbers: set[str] | None = None,
+) -> str | None:
+    used_numbers = used_numbers or set()
+    label = (label or "").strip()
+    if not label:
+        return None
+
+    def pick(cids: list[str]) -> str | None:
+        if not cids:
+            return None
+        titled = [
+            cid
+            for cid in cids
+            if title_matches(title_hint, cid, (cache.get(cid) or {}).get("title") or "")
+        ]
+        pool = titled or list(cids)
+        unused = [cid for cid in pool if uadb.legal_number(cid) not in used_numbers]
+        pool = unused or pool
+        pool.sort(key=lambda cid: _feature_score(cid, cache.get(cid) or {}), reverse=True)
+        return pool[0]
+
+    exact = []
+    want_exact = norm_name(label)
+    for cid, meta in cache.items():
+        if cid.endswith(("_p1", "_p2")) or "/" not in cid:
+            continue
+        if norm_name(meta.get("name") or "") == want_exact:
+            exact.append(cid)
+    if exact:
+        return pick(exact)
+
     name, number = uadb.parse_named_card(label)
     want = norm_name(name)
-    title_n = norm_name(title_hint)
     scored = []
     for cid, meta in cache.items():
         if cid.endswith(("_p1", "_p2")):
             continue
         mname = norm_name(meta.get("name") or "")
-        # Contender names often already include (018)
         mname_base, mnum = uadb.parse_named_card(meta.get("name") or "")
         base = norm_name(mname_base)
         if want not in (mname, base) and base not in want and want not in base:
             continue
-        score = 0
         if number:
-            if cid.endswith("-" + number) or (mnum and mnum == number):
-                score += 50
-            else:
-                score -= 20
+            num = uadb.legal_number(cid)
+            if not (num.endswith("-" + number) or cid.endswith("-" + number) or (mnum and mnum == number)):
+                continue
+        score = 0
+        if want and want == base:
+            score += 40
+        elif want and want == mname:
+            score += 30
+        if number:
+            score += 50
         mt = norm_name(meta.get("title") or "")
+        title_n = norm_name(title_hint)
         if title_n and title_n[:8] and title_n[:8] in mt:
             score += 10
         if "BT/" in cid:
@@ -107,15 +145,59 @@ def resolve_card(label: str, title_hint: str, cache: dict) -> str | None:
     if not scored:
         return None
     scored.sort(key=lambda row: (row[0], "BT/" in row[1], row[1]), reverse=True)
-    return scored[0][1]
+    ranked = [cid for _score, cid in scored]
+    return pick(ranked)
+
+
+def legalize_items(items: list[dict], cache: dict, cap_restricted: bool = False) -> list[dict]:
+    grouped: dict[tuple[str, str], dict] = {}
+    order: list[tuple[str, str]] = []
+    for it in items:
+        cid = it.get("id") or ""
+        if it.get("group") == "AP cards" or "UNRESOLVED" in cid:
+            key = ("unique", cid or it.get("name") or "")
+        else:
+            key = ("card", uadb.legal_number(cid) or cid)
+        if key not in grouped:
+            grouped[key] = {
+                "count": int(it.get("count") or 0),
+                "id": cid,
+                "name": it.get("name") or cid,
+                "group": it.get("group") or "Characters",
+            }
+            order.append(key)
+            continue
+        row = grouped[key]
+        row["count"] += int(it.get("count") or 0)
+        other = cid
+        cur = row["id"]
+        if _feature_score(other, cache.get(other) or {}) > _feature_score(cur, cache.get(cur) or {}):
+            row["id"] = other
+            if cache.get(other, {}).get("name"):
+                row["name"] = it.get("name") or row["name"]
+    out = []
+    for key in order:
+        row = grouped[key]
+        cap = uadb.max_copies(row["id"], cap_restricted=cap_restricted)
+        row["count"] = min(int(row["count"]), cap)
+        if row["count"] > 0:
+            out.append(row)
+    return out
 
 
 def flatten_contender(arch: dict, cache: dict) -> list[dict]:
     dl = arch.get("decklist") or {}
-    items = []
+    numbered = []
+    pending = []
     for card in dl.get("main") or []:
+        _name, number = uadb.parse_named_card(card.get("name") or "")
+        (numbered if number else pending).append(card)
+    items = []
+    used: set[str] = set()
+
+    def add_main(card: dict) -> None:
         label = card.get("name") or ""
-        cid = resolve_card(label, arch.get("title") or "", cache)
+        cid = resolve_card(label, arch.get("title") or "", cache, used)
         if not cid:
             cid = f"UNRESOLVED/{uadb.slugify(label)}"
         items.append(
@@ -126,6 +208,13 @@ def flatten_contender(arch: dict, cache: dict) -> list[dict]:
                 "group": uadb.group_for(card.get("cardType") or cache.get(cid, {}).get("category") or ""),
             }
         )
+        if "UNRESOLVED" not in cid:
+            used.add(uadb.legal_number(cid))
+
+    for card in numbered:
+        add_main(card)
+    for card in pending:
+        add_main(card)
     for card in dl.get("ap") or []:
         label = card.get("name") or "Action Point"
         cid = resolve_card(label, arch.get("title") or "", cache) or f"AP/{uadb.slugify(label)}"
@@ -137,7 +226,7 @@ def flatten_contender(arch: dict, cache: dict) -> list[dict]:
                 "group": "AP cards",
             }
         )
-    return [it for it in items if it["count"] > 0]
+    return legalize_items([it for it in items if it["count"] > 0], cache, cap_restricted=True)
 
 
 def flatten_counts(counts: dict[str, int], cache: dict) -> list[dict]:
@@ -152,7 +241,7 @@ def flatten_counts(counts: dict[str, int], cache: dict) -> list[dict]:
                 "group": uadb.group_for(meta.get("category") or "Character"),
             }
         )
-    return items
+    return legalize_items(items, cache, cap_restricted=False)
 
 
 def _feature_score(cid: str, meta: dict) -> tuple:
@@ -509,7 +598,7 @@ def write_list_page(arch: dict, entry: dict, items: list[dict], cache: dict, fea
     title = uadb.no_em(entry.get("title") or arch["name"])
     subtitle = uadb.no_em(entry.get("subtitle") or "")
     kind_note = {
-        "contender": "Consensus 50-card list aggregated from public Union Arena tournament results on TCG Contender.",
+        "contender": "Consensus constructed list from public Union Arena tournament results on TCG Contender. Same card numbers are merged and capped at 4 copies (1 if restricted).",
         "youtube": "List from a YouTube deck profile. Card pictures from the official Bandai cardlist.",
         "web": "Community list from a public deck page. Card pictures from the official Bandai cardlist.",
         "tournament": "Tournament list. Card pictures from the official Bandai cardlist.",
@@ -522,7 +611,7 @@ def write_list_page(arch: dict, entry: dict, items: list[dict], cache: dict, fea
     over = [
         f"{it['id']}"
         for it in items
-        if it["id"] in uadb.RESTRICTED_ONE and int(it.get("count") or 0) > 1
+        if uadb.is_restricted(it["id"]) and int(it.get("count") or 0) > 1
     ]
     flag = ""
     if over:
@@ -530,6 +619,12 @@ def write_list_page(arch: dict, entry: dict, items: list[dict], cache: dict, fea
             "<p class=\"muted\"><strong>Restricted:</strong> this list still plays more than one copy of "
             + ", ".join(html.escape(x) for x in over)
             + ". Bandai limited those cards to one copy each as of 17 April 2026.</p>"
+        )
+    main_n = sum(int(it.get("count") or 0) for it in items if it.get("group") != "AP cards")
+    if entry.get("kind") == "contender" and main_n != uadb.TARGET:
+        flag += (
+            f"<p class=\"muted\"><strong>Copy limits:</strong> alt-art and stamp versions of the same card "
+            f"number count as one card. Restricted cards are 1-ofs. This snapshot is {main_n} cards after those caps.</p>"
         )
     body = f"""        <div class="crumb"><a href="/">Home</a> / <a href="/characters.html">Characters</a> / <a href="/{html.escape(arch['page'])}">{html.escape(arch['full'])}</a> / Decklist</div>
         <h2>{html.escape(title)}</h2>
