@@ -29,7 +29,7 @@ def main() -> None:
     scrape_contender.merge_card_caches()
 
     if "--skip-community" not in sys.argv:
-        print("=== YouTube + official top-placing ===")
+        print("=== events, sites, X, Reddit, YouTube ===")
         import scrape_community
 
         scrape_community.main()

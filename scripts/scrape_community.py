@@ -42,10 +42,48 @@ SET_PREFIX = {
     "CGH": "code-geass",
     "OPM": "one-punch-man",
     "RLY": "the-100-girlfriends",
+    "IYS": "inuyasha",
+    "KMY": "demon-slayer",
+    "HTR": "hunter-x-hunter",
+    "AOT": "attack-on-titan",
+    "FMA": "fullmetal-alchemist",
+    "BCV": "black-clover",
+    "YYH": "yu-yu-hakusho",
+    "NIK": "nikke",
+    "MHA": "my-hero-academia",
+    "REZ": "re-zero",
 }
 WEB_PAGES = [
     "https://www.josephwriteranderson.com/blog/6-top-union-arena-decks-from-the-virginia-regionals-analyzed-by-deck-sensei",
+    "https://www.josephwriteranderson.com/blog/the-best-union-arena-tcg-decks-right-now",
+    "https://www.josephwriteranderson.com/blog/union-arena-purple-yuna-deck-list-and-guide",
+    "https://www.josephwriteranderson.com/blog/union-arena-purple-gaius-deck-list-and-guide",
+    "https://www.josephwriteranderson.com/blog/red-inuyasha-deck-list-and-guide",
+    "https://www.josephwriteranderson.com/blog/how-i-topped-my-first-solo-leveling-union-arena-rare-battle",
     "https://www.unionarena-tcg.com/na/decks/top-placing/",
+    "https://www.shonentcg.com/blog/union-arena-current-meta-tier-list",
+    "https://www.shonentcg.com/blog/ua-en-meta-tier-list-2026",
+]
+YT_CHANNELS = [
+    "https://www.youtube.com/@DamosTCG/videos",
+    "https://www.youtube.com/@SpencerUA/videos",
+    "https://www.youtube.com/@josephwriteranderson/videos",
+    "https://www.youtube.com/@EggmanEvents/videos",
+]
+X_SEARCHES = [
+    "union arena decklist",
+    "union arena 4xUE",
+    "union arena UE17BT deck",
+    "union arena UE19BT decklist",
+    "union arena UE22BT deck",
+    "\"union arena\" \"4xUE\" deck",
+]
+REDDIT_URLS = [
+    "https://old.reddit.com/r/Union_Arena_TCG/new.json?limit=100",
+    "https://old.reddit.com/r/UnionArena/new.json?limit=100",
+    "https://old.reddit.com/search.json?q=union+arena+decklist+UE&sort=new&t=year&limit=100",
+    "https://www.reddit.com/r/Union_Arena_TCG/new.json?limit=100",
+    "https://www.reddit.com/search.json?q=union+arena+decklist+UE&sort=new&t=year&limit=100",
 ]
 
 
@@ -135,8 +173,39 @@ def archetypes() -> list[dict]:
 COLOR_ONLY = {"purple", "red", "yellow", "green", "blue", "black"}
 
 
+def key_from_counts(counts: dict[str, int], cache: dict, set_hint: str = "") -> str | None:
+    prefixes: dict[str, int] = {}
+    names: dict[str, int] = {}
+    for cid, n in counts.items():
+        m = re.search(r"/([A-Z]{2,4})-\d-", cid)
+        if m:
+            prefixes[m.group(1)] = prefixes.get(m.group(1), 0) + n
+        raw = (cache.get(cid) or {}).get("name") or ""
+        base, _num = uadb.parse_named_card(raw)
+        base = uadb.display_name(base)
+        if base and base.lower() not in COLOR_ONLY:
+            names[base] = names.get(base, 0) + n
+    pref = (set_hint or (max(prefixes, key=prefixes.get) if prefixes else "")).upper()
+    anime = SET_PREFIX.get(pref)
+    char = max(names, key=names.get) if names else ""
+    if anime and char:
+        return uadb.slugify(f"{anime}-{char}")
+    if char:
+        return uadb.slugify(char)
+    if anime:
+        return anime
+    return None
+
+
 def guess_key(text: str, counts: dict[str, int], cache: dict, arches: list[dict], set_hint: str = "") -> str | None:
     blob = f"{text}".lower()
+    slug = uadb.slugify(text or "")
+    exact = {a["key"]: a for a in arches}
+    if slug in exact:
+        return slug
+    for arch in arches:
+        if arch["full"].lower() == blob.strip() or arch["key"] == slug:
+            return arch["key"]
     needles = []
     for arch in arches:
         if arch["name"].lower() in COLOR_ONLY:
@@ -221,6 +290,7 @@ def item_from_counts(
         "raw": raw,
         "counts": counts,
         "cards": sum(counts.values()),
+        "archetype": title[:110],
     }
 
 
@@ -316,6 +386,8 @@ def scrape_official(found: list[dict], seen: set[str], cache: dict, arches: list
             return None
         key = guess_key(label + " " + event_name, counts, cache, arches, set_hint=set_hint)
         if not key:
+            key = key_from_counts(counts, cache, set_hint=set_hint)
+        if not key:
             uadb.log("official no-key", code, label[:50])
             return None
         place = re.sub(r"【[^】]+】", "", label.split("·")[0]).strip() if "·" in label else "Official"
@@ -401,11 +473,24 @@ def youtube_queries(arches: list[dict]) -> list[str]:
         "Union Arena 4xUE11BT Saito",
         "EVERY TOP 16 DECK LIST Union Arena",
         "EVERY TOP 32 DECK LIST Union Arena",
+        "Union Arena Gen Con decklist",
+        "Union Arena Montreal Regional decklist",
+        "Union Arena Virginia Regional decklist",
+        "Union Arena Inuyasha decklist",
+        "Union Arena Hunter x Hunter deck profile",
+        "Union Arena Demon Slayer decklist",
+        "Union Arena Attack on Titan deck",
+        "Union Arena Fullmetal Alchemist decklist",
+        "Union Arena Black Clover deck profile",
+        "Union Arena Yu Yu Hakusho decklist",
+        "Union Arena King One Punch Man deck",
+        "Union Arena Reze deck profile",
+        "Joseph Writer Anderson Union Arena deck",
+        "Eggman Events Union Arena",
     ]
-    # A few more character names from the current meta snapshot
-    for arch in arches[:18]:
+    for arch in arches[:28]:
         queries.append(f"Union Arena {arch['name']} deck profile")
-        queries.append(f"Union Arena {arch['name']} decklist")
+        queries.append(f"Union Arena {arch['title']} {arch['name']} decklist")
     return list(dict.fromkeys(queries))
 
 
@@ -432,7 +517,7 @@ def follow_links(text: str, cache: dict, arches: list[dict]) -> list[dict]:
                         )
                     )
             continue
-        if any(host in href for host in ("josephwriteranderson.com", "unionarena-tcg.com")):
+        if any(host in href for host in ("josephwriteranderson.com", "unionarena-tcg.com", "shonentcg.com", "exburst.dev")):
             status, body = uadb.fetch(href, timeout=20, browser=True)
             counts = uadb.parse_counts(body)
             if uadb.list_is_complete(counts):
@@ -461,9 +546,17 @@ def scrape_youtube(found: list[dict], seen: set[str], cache: dict, arches: list[
             if vid not in ids:
                 ids.append(vid)
         time.sleep(0.12)
+    for url in YT_CHANNELS:
+        status, html = uadb.fetch(url, timeout=22, browser=True)
+        extra = video_ids_from(html)
+        uadb.log("yt channel", url.split("/")[-2] if "/" in url else url, status, "ids", len(extra))
+        for vid in extra:
+            if vid not in ids:
+                ids.append(vid)
+        time.sleep(0.15)
     uadb.log("youtube unique videos", len(ids))
     tagged: list[tuple[str, str]] = []
-    for vid in ids[:160]:
+    for vid in ids[:280]:
         info = youtube_video(vid)
         title = info.get("title") or ""
         titles[vid] = title
@@ -500,6 +593,137 @@ def scrape_youtube(found: list[dict], seen: set[str], cache: dict, arches: list[
     return tagged
 
 
+def ingest_text(found: list[dict], seen: set[str], cache: dict, arches: list[dict], text: str, *, kind: str, player: str, title: str, subtitle: str, source_url: str, slug: str, date: str = "") -> None:
+    counts = uadb.parse_counts(text or "")
+    if not uadb.list_is_complete(counts):
+        return
+    key = guess_key(f"{title} {subtitle} {text[:1500]}", counts, cache, arches)
+    if not key:
+        return
+    record(
+        found,
+        item_from_counts(
+            counts,
+            key=key,
+            kind=kind,
+            player=player,
+            title=title[:90] or "Community list",
+            subtitle=subtitle,
+            source_url=source_url,
+            slug=uadb.slugify(slug)[:70],
+            date=date,
+        ),
+        seen,
+    )
+
+
+def scrape_reddit(found: list[dict], seen: set[str], cache: dict, arches: list[dict]) -> None:
+    headers = {"User-Agent": uadb.BROWSER_UA}
+    for url in REDDIT_URLS:
+        status, body = uadb.fetch(url, timeout=22, browser=True, extra_headers=headers)
+        uadb.log("reddit", status, url.split("reddit.com")[-1][:60], "len", len(body))
+        if status != 200 or not body.startswith("{"):
+            continue
+        try:
+            data = json.loads(body)
+        except json.JSONDecodeError:
+            continue
+        children = ((data.get("data") or {}).get("children")) or []
+        for child in children:
+            post = child.get("data") or {}
+            title = post.get("title") or "Reddit list"
+            selftext = post.get("selftext") or ""
+            permalink = post.get("permalink") or ""
+            created = post.get("created_utc")
+            date = ""
+            if created:
+                try:
+                    date = datetime.utcfromtimestamp(float(created)).date().isoformat()
+                except Exception:
+                    date = ""
+            source = f"https://www.reddit.com{permalink}" if permalink else url
+            blob = f"{title}\n{selftext}"
+            ingest_text(
+                found,
+                seen,
+                cache,
+                arches,
+                blob,
+                kind="reddit",
+                player=post.get("author") or "Reddit",
+                title=title,
+                subtitle="Reddit post",
+                source_url=source,
+                slug=f"reddit-{title}-{post.get('id') or ''}",
+                date=date,
+            )
+        time.sleep(0.2)
+
+
+def scrape_x(found: list[dict], seen: set[str], cache: dict, arches: list[dict]) -> None:
+    nitter = [
+        "https://nitter.net/search?f=tweets&q=",
+        "https://nitter.poast.org/search?f=tweets&q=",
+        "https://nitter.privacyredirect.com/search?f=tweets&q=",
+    ]
+    ddg = "https://html.duckduckgo.com/html/?q="
+    queries = X_SEARCHES + [
+        "site:x.com union arena decklist UE",
+        "site:twitter.com union arena 4xUE",
+    ]
+    for q in queries:
+        encoded = urllib.parse.quote_plus(q)
+        urls = [ddg + encoded] + [host + encoded for host in nitter]
+        for url in urls:
+            status, body = uadb.fetch(url, timeout=18, browser=True)
+            uadb.log("x search", status, q[:48], "ids", len(uadb.CID_TOKEN_RE.findall(body)))
+            if status != 200 or len(body) < 200:
+                continue
+            chunks = re.split(r"(?i)(?=https?://(?:x|twitter|nitter)\.)", body)
+            if len(chunks) == 1:
+                chunks = re.split(r"(?i)(?<=\n\n)", body)
+            for i, chunk in enumerate(chunks):
+                if len(uadb.CID_TOKEN_RE.findall(chunk)) < 8:
+                    continue
+                ingest_text(
+                    found,
+                    seen,
+                    cache,
+                    arches,
+                    chunk,
+                    kind="twitter",
+                    player="X",
+                    title="X post",
+                    subtitle="Public X / search result",
+                    source_url=url.split("?")[0],
+                    slug=f"x-{q}-{i}",
+                )
+            time.sleep(0.15)
+
+
+def discover_blog_pages() -> list[str]:
+    extra = []
+    seeds = [
+        "https://www.josephwriteranderson.com/blog",
+        "https://www.josephwriteranderson.com/blog?tag=UNION+ARENA",
+        "https://www.shonentcg.com/blog",
+    ]
+    for url in seeds:
+        status, body = uadb.fetch(url, timeout=20, browser=True)
+        uadb.log("blog index", status, url[-40:], "len", len(body))
+        for href in re.findall(r'href="(https?://[^"]+|/?blog/[^"]+)"', body):
+            if href.startswith("/"):
+                if "josephwriteranderson" in url:
+                    href = "https://www.josephwriteranderson.com" + href
+                elif "shonentcg" in url:
+                    href = "https://www.shonentcg.com" + href
+            low = href.lower()
+            if "union-arena" in low or "union arena" in low or "/ua-" in low:
+                extra.append(href.split("?")[0])
+        time.sleep(0.1)
+    return list(dict.fromkeys(extra))
+
+
 def main() -> None:
     cache = uadb.load_json("data/card-cache.json", {})
     extra = uadb.load_json("data/contender-cards.json", {})
@@ -509,7 +733,17 @@ def main() -> None:
     found: list[dict] = []
     seen: set[str] = set()
     scrape_official(found, seen, cache, arches)
+    more = discover_blog_pages()
+    for url in more:
+        if url not in WEB_PAGES:
+            WEB_PAGES.append(url)
     scrape_web_pages(found, seen, cache, arches)
+    scrape_reddit(found, seen, cache, arches)
+    scrape_x(found, seen, cache, arches)
+    if "--skip-events" not in sys.argv:
+        import scrape_events
+
+        scrape_events.scrape_events(found, seen, cache, arches)
     video_ids: list[tuple[str, str]] = []
     if "--skip-youtube" not in sys.argv:
         video_ids = scrape_youtube(found, seen, cache, arches)
