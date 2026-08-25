@@ -35,6 +35,15 @@ RESTRICTED_CARDS = (
     "UE15BT/EVA-1-063",  # Spear of Gaius
 )
 RESTRICTED_ONE = set(RESTRICTED_CARDS)
+STAMP_RE = re.compile(
+    r"\s*\((?:"
+    r"winner|box topper foil|ur|sr|r|c\*|alt\s*\d+"
+    r"|release event(?: participation| participant| winner)?"
+    r"|super pre-release event participation"
+    r"|regionals[^)]*"
+    r")\)\s*",
+    re.I,
+)
 LINE_RE = re.compile(
     r"(?i)(\d+)\s*[x×*]\s*((?:UE|UA|ST|PR|UEX)[A-Z0-9]{0,8}[/_\-]+[A-Z]{2,4}-\d-\d{3})"
 )
@@ -399,12 +408,38 @@ def group_for(card_type: str) -> str:
     return "Characters"
 
 
+def legal_number(cid: str) -> str:
+    raw = re.sub(r"(?i)-ALT\d+$", "", (cid or "").strip())
+    if "/" in raw:
+        raw = raw.split("/", 1)[1]
+    return raw.upper()
+
+
+def is_restricted(cid: str) -> bool:
+    if not cid or "UNRESOLVED" in cid:
+        return False
+    if cid in RESTRICTED_ONE:
+        return True
+    num = legal_number(cid)
+    return any(legal_number(r) == num for r in RESTRICTED_CARDS)
+
+
+def max_copies(cid: str, cap_restricted: bool = True) -> int:
+    if cap_restricted and is_restricted(cid):
+        return 1
+    return 4
+
+
 def parse_named_card(label: str) -> tuple[str, str | None]:
     raw = (label or "").strip()
-    m = re.search(r"^(.*?)\s*\((\d{2,3})\)\s*$", raw)
+    number = None
+    m = re.search(r"\((\d{2,3})\)", raw)
     if m:
-        return m.group(1).strip(), m.group(2).zfill(3)
-    return raw, None
+        number = m.group(1).zfill(3)
+    cleaned = STAMP_RE.sub(" ", raw)
+    cleaned = re.sub(r"\s*\(\d{2,3}\)\s*", " ", cleaned)
+    cleaned = re.sub(r"\s+", " ", cleaned).strip(" -")
+    return cleaned or raw, number
 
 
 def pretty_anime(name: str) -> str:
