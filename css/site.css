@@ -18,8 +18,8 @@ html,body{height:100%;margin:0;background:var(--bg);color:var(--text);-webkit-fo
 header{display:flex;align-items:center;justify-content:space-between;gap:18px}
 .brand{display:flex;align-items:center;gap:12px;text-decoration:none;color:inherit;min-width:0}
 .logo{
-  width:56px;height:56px;border-radius:10px;background:linear-gradient(180deg,#ff1744,#8e1515);
-  display:flex;align-items:center;justify-content:center;color:white;font-family:Bungee,sans-serif;
+  width:56px;height:56px;border-radius:10px;background:#7a2e2e;
+  display:flex;align-items:center;justify-content:center;color:#f4efea;font-family:Bungee,sans-serif;
   font-weight:400;font-size:16px;letter-spacing:.04em;box-shadow:var(--shadow)
 }
 .brand-copy{display:flex;flex-direction:column;gap:2px;min-width:0}
@@ -27,23 +27,12 @@ header{display:flex;align-items:center;justify-content:space-between;gap:18px}
 .brand-kicker{
   font-family:Nunito,ui-sans-serif,sans-serif;
   font-size:11px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;
-  color:#e53935
+  color:#8a6f6f
 }
 .brand-name{
   font-family:Bungee,"Trebuchet MS",sans-serif;
   font-size:clamp(18px,2.6vw,26px);font-weight:400;letter-spacing:.04em;
-  color:#e53935
-}
-@supports ((-webkit-background-clip:text) or (background-clip:text)){
-  .brand-kicker{
-    background:linear-gradient(90deg,#e53935,#fb8c00 45%,#8e24aa);
-    -webkit-background-clip:text;background-clip:text;color:transparent
-  }
-  .brand-name{
-    background:linear-gradient(92deg,#ff1744 0%,#ff9100 28%,#ffd600 50%,#d500f9 74%,#2979ff 100%);
-    -webkit-background-clip:text;background-clip:text;color:transparent;
-    filter:drop-shadow(0 1px 0 rgba(160,20,40,.18))
-  }
+  color:#5c2a2a
 }
 .subtitle{color:var(--muted);font-size:13px;margin-top:2px;font-weight:600}
 nav a{color:var(--muted);text-decoration:none;margin-left:14px;font-weight:600}
@@ -86,11 +75,12 @@ main.single{grid-template-columns:1fr}
 .home{display:flex;flex-direction:column;gap:0}
 .home-splash{
   position:relative;border-radius:16px;overflow:hidden;
-  background:#0a0a0a;box-shadow:var(--shadow)
+  background:#161414;box-shadow:var(--shadow)
 }
 .home-splash-bg{
   display:block;width:100%;height:auto;
-  object-fit:contain;object-position:center;background:#0a0a0a
+  object-fit:contain;object-position:center;background:#161414;
+  filter:saturate(.28) brightness(.72) contrast(.88)
 }
 .home-splash-feature{
   position:absolute;right:16px;bottom:12px;z-index:2;
@@ -108,12 +98,12 @@ main.single{grid-template-columns:1fr}
   position:relative;z-index:1;
   display:flex;flex-wrap:wrap;align-items:end;justify-content:space-between;gap:8px 16px;
   padding:12px 18px 14px;padding-right:min(200px,30%);
-  background:linear-gradient(90deg,#a31414,#c62828 55%,#8e1515);
-  color:#fff
+  background:#3a3030;
+  color:#f3eee9
 }
 .home-splash-bar h2{
   margin:0;font-family:Bungee,sans-serif;font-weight:400;font-size:clamp(16px,2.3vw,22px);
-  letter-spacing:.04em;color:#fff;text-shadow:0 2px 0 rgba(80,0,0,.25)
+  letter-spacing:.04em;color:#f3eee9;text-shadow:none
 }
 .home-splash-bar p{margin:0;font-size:13px;opacity:.9;font-weight:600}
 .home-big3{
@@ -129,18 +119,18 @@ main.single{grid-template-columns:1fr}
 .home-big-title{font-size:22px;font-weight:800;letter-spacing:-.02em;line-height:1.1}
 .home-big-note{font-size:13px;line-height:1.35;font-weight:600;opacity:.82}
 .home-big-recent{
-  background:#fff;color:var(--accent);border:2px solid rgba(211,47,47,.28)
+  background:#fff;color:#6e3a3a;border:1px solid rgba(0,0,0,.1)
 }
-.home-big-recent:hover{border-color:var(--accent)}
+.home-big-recent:hover{border-color:#8a5555}
 .home-big-leaders{
-  background:linear-gradient(180deg,var(--accent),#8e1515);color:#fff;
-  box-shadow:0 10px 22px rgba(211,47,47,.2)
+  background:#fff;color:#6e3a3a;border:1px solid rgba(0,0,0,.1);
+  box-shadow:var(--shadow)
 }
-.home-big-leaders:hover{filter:brightness(1.06)}
+.home-big-leaders:hover{border-color:#8a5555;filter:none}
 .home-big-discord{
-  background:#fff;color:#4f46c8;border:2px solid rgba(79,70,200,.28)
+  background:#fff;color:#4a4a5c;border:1px solid rgba(0,0,0,.1)
 }
-.home-big-discord:hover{border-color:#4f46c8}
+.home-big-discord:hover{border-color:#6a6a7a}
 .home-flow{
   display:flex;align-items:center;gap:14px;margin:22px 0 14px;color:var(--accent)
 }
@@ -150,21 +140,21 @@ main.single{grid-template-columns:1fr}
 .home-flow-line{flex:1;height:3px;border-radius:99px;background:linear-gradient(90deg,transparent,var(--accent),transparent);opacity:.55}
 .home-leaders-flow{margin-top:28px}
 .home-leaders-intro{
-  padding:22px 22px 18px;border-radius:16px 16px 0 0;color:#fff;
-  background:linear-gradient(135deg,#c62828 0%,#a31414 55%,#8e1515)
+  padding:22px 22px 18px;border-radius:16px 16px 0 0;color:#3a3333;
+  background:#efeae6;border:1px solid rgba(0,0,0,.06);border-bottom:0
 }
 .home-leaders-kicker{
   margin:0 0 6px;font-size:11px;letter-spacing:.08em;text-transform:uppercase;
-  font-weight:800;opacity:.82
+  font-weight:800;color:#8a6f6f
 }
-.home-leaders-intro h3{margin:0;font-size:28px;color:#fff;letter-spacing:-.02em}
-.home-leaders-intro p{margin:6px 0 0;font-weight:600;opacity:.92}
+.home-leaders-intro h3{margin:0;font-size:28px;color:#3a3333;letter-spacing:-.02em}
+.home-leaders-intro p{margin:6px 0 0;font-weight:600;color:#6b6f73}
 .home-leaders-intro-row{display:flex;justify-content:space-between;align-items:flex-end;gap:16px}
 .home-leaders-intro a{
-  color:#fff;font-weight:800;text-decoration:none;white-space:nowrap;
-  border-bottom:2px solid rgba(255,255,255,.4)
+  color:#6e3a3a;font-weight:800;text-decoration:none;white-space:nowrap;
+  border-bottom:2px solid rgba(110,58,58,.35)
 }
-.home-leaders-intro a:hover{border-bottom-color:#fff}
+.home-leaders-intro a:hover{border-bottom-color:#6e3a3a}
 .home-leaders-grid{border-radius:0 0 16px 16px}
 .home-leaders-grid .home-cards{margin-top:0}
 .home-panel{margin:0}
