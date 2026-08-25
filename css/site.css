@@ -273,7 +273,7 @@ footer a{color:var(--accent);font-weight:700;text-decoration:none}
 .text-deck-cols h4{margin:0 0 8px;font-size:13px;letter-spacing:.04em;text-transform:uppercase;color:var(--muted)}
 .text-lines{list-style:none;padding:0;margin:0;width:100%;min-width:0}
 .text-line{
-  position:relative;display:grid;grid-template-columns:auto minmax(0,1fr) auto;
+  position:relative;display:grid;grid-template-columns:auto minmax(0,1fr) auto auto;
   align-items:baseline;column-gap:8px;row-gap:2px;
   padding:7px 4px;border-bottom:1px solid rgba(0,0,0,0.06);cursor:pointer;outline:none;
   min-width:0;max-width:100%
@@ -289,6 +289,7 @@ footer a{color:var(--accent);font-weight:700;text-decoration:none}
   overflow-wrap:anywhere;word-break:break-word
 }
 .text-line .card-id{grid-column:3;grid-row:1;font-size:12px;margin-left:0;min-width:0}
+.text-line .buy-card{grid-column:4;grid-row:1;justify-self:end}
 .text-line .card-pop{
   position:absolute;left:48px;bottom:calc(100% + 8px);z-index:80;
   grid-column:1;grid-row:1;
@@ -327,14 +328,25 @@ footer a{color:var(--accent);font-weight:700;text-decoration:none}
 .swatch.dual-purple-yellow{background:linear-gradient(90deg,#6a1b9a 50%,#c9a227 50%)}
 .swatch.dual-red-black{background:linear-gradient(90deg,#d32f2f 50%,#212121 50%)}
 .swatch.dual-blue-purple{background:linear-gradient(90deg,#1565c0 50%,#6a1b9a 50%)}
-.copy-sim{
-  margin-left:auto;padding:6px 10px;border-radius:8px;border:1px solid rgba(211,47,47,0.28);
-  background:#fff;color:var(--accent);font:inherit;font-size:12px;font-weight:800;cursor:pointer;white-space:normal
+.copy-sim,.buy-deck{
+  margin-left:auto;padding:6px 10px;border-radius:8px;border:1px solid rgba(110,58,58,0.28);
+  background:#fff;color:#6e3a3a;font:inherit;font-size:12px;font-weight:800;cursor:pointer;
+  white-space:nowrap;text-decoration:none;text-align:center
 }
-.copy-sim:hover{border-color:var(--accent)}
+.copy-sim:hover,.buy-deck:hover{border-color:#6e3a3a}
+.list-actions{display:flex;flex-wrap:wrap;gap:8px;margin-left:auto;align-items:center}
+.list-actions .copy-sim,.list-actions .buy-deck{margin-left:0}
 .list-row{display:flex;align-items:stretch;gap:8px;min-width:0;width:100%;max-width:100%}
 .list-row > .item{flex:1;min-width:0;max-width:100%}
-.list-row > .copy-sim{margin-left:0;align-self:center;flex-shrink:0}
+.list-row > .copy-sim,.list-row > .list-actions{margin-left:0;align-self:center;flex-shrink:0}
+.deck-buy{margin:14px 0 0}
+.deck-buy .buy-deck{display:inline-block;margin-left:0;padding:8px 14px}
+.card-buy{margin-top:10px}
+.buy-card{
+  font-size:12px;font-weight:800;color:#6e3a3a;text-decoration:none;
+  border-bottom:1px solid rgba(110,58,58,.35);white-space:nowrap
+}
+.buy-card:hover{border-bottom-color:#6e3a3a}
 .deck-stats{margin-top:16px;padding:12px 14px;border-radius:12px;border:1px solid rgba(0,0,0,0.06);background:#fff}
 .deck-stats .kicker{font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);font-weight:800}
 .stat-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:8px}
@@ -379,15 +391,20 @@ footer a{color:var(--accent);font-weight:700;text-decoration:none}
   .item .link{display:none}
   .deck-index .item .link{display:none}
   .list-row{flex-direction:column;align-items:stretch;gap:6px}
-  .list-row > .copy-sim{
+  .list-row > .copy-sim,.list-row > .list-actions{
     align-self:stretch;width:100%;max-width:100%;text-align:center;white-space:normal
   }
+  .list-actions{margin-left:0}
+  .list-actions .copy-sim,.list-actions .buy-deck{
+    flex:1;text-align:center;white-space:normal
+  }
   .section-title{flex-direction:column;align-items:stretch}
-  .section-title .copy-sim{
+  .section-title .copy-sim,.section-title .list-actions,.section-title .buy-deck{
     margin-left:0;width:100%;max-width:100%;text-align:center;white-space:normal
   }
-  .text-line{grid-template-columns:auto minmax(0,1fr)}
+  .text-line{grid-template-columns:auto minmax(0,1fr) auto}
   .text-line .card-id{grid-column:2;grid-row:2;justify-self:start}
+  .text-line .buy-card{grid-column:3;grid-row:2;justify-self:end}
   .curve{height:56px;gap:2px}
   .curve span em{font-size:9px}
   .text-leader-list li{flex-wrap:wrap}
