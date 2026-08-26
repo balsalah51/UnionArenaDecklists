@@ -23,7 +23,7 @@ DISCORD = "https://discord.gg/aY9RfB662"
 BRAND = "Union Arena Decklists"
 SUBTITLE = "50-card lists for Standard"
 LOGO = "UA"
-CSS_VER = "ua10"
+CSS_VER = "ua11"
 JS_VER = "ua2"
 FONT_LINKS = """  <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -291,6 +291,7 @@ def nav_html(current: str = "") -> str:
             item("/#recent", "Recent lists", "recent"),
             item("/#characters", "Characters", "characters"),
             item("/format.html", "Format", "format"),
+            item("/shop.html", "Shop", "shop"),
             item(DISCORD, "Discord", "discord"),
             "      </nav>",
         ]
@@ -336,7 +337,8 @@ def page_chrome(title: str, description: str, color: str, body: str, current: st
     </main>
     <footer>
       © <span id="year"></span> {html.escape(BRAND)}. Fan site, not affiliated with Bandai.
-      <a href="/characters.html">Characters</a> · <a href="/#recent">Recent lists</a> · <a href="/format.html">Format</a> · <a href="/privacy.html">Privacy</a>
+      <a href="/characters.html">Characters</a> · <a href="/#recent">Recent lists</a> · <a href="/format.html">Format</a> · <a href="/shop.html">Shop</a> · <a href="/privacy.html">Privacy</a>
+      <span class="footer-amazon">As an Amazon Associate I earn from qualifying purchases.</span>
     </footer>
   </div>
   <script>
@@ -378,7 +380,8 @@ def home_chrome(body: str) -> str:
     </main>
     <footer>
       © <span id="year"></span> {html.escape(BRAND)}. Fan site, not affiliated with Bandai.
-      <a href="/characters.html">Characters</a> · <a href="/#recent">Recent lists</a> · <a href="/format.html">Format</a> · <a href="/privacy.html">Privacy</a>
+      <a href="/characters.html">Characters</a> · <a href="/#recent">Recent lists</a> · <a href="/format.html">Format</a> · <a href="/shop.html">Shop</a> · <a href="/privacy.html">Privacy</a>
+      <span class="footer-amazon">As an Amazon Associate I earn from qualifying purchases.</span>
     </footer>
   </div>
   <script>

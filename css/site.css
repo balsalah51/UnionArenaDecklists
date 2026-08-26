@@ -459,6 +459,8 @@ footer a{color:var(--accent);font-weight:700;text-decoration:none}
   .home-flow p{white-space:normal;text-align:center}
   .home-leaders-intro-row{flex-direction:column;align-items:flex-start}
   .leader-cards.home-cards{grid-template-columns:repeat(2,1fr)}
+  .shop-grid{grid-template-columns:repeat(2,1fr)}
+  .shop-card .buy-deck{width:100%}
 }
 @media (max-width:420px){
   .wrap{padding:12px;margin:12px auto}
@@ -468,6 +470,7 @@ footer a{color:var(--accent);font-weight:700;text-decoration:none}
   .logo{width:44px;height:44px;font-size:14px}
   .brand-kicker{font-size:10px;letter-spacing:.12em}
   .brand-name{font-size:18px}
+  .shop-grid{grid-template-columns:1fr}
 }
 @media (min-width:1100px){
   .leader-hero{
@@ -483,8 +486,23 @@ footer a{color:var(--accent);font-weight:700;text-decoration:none}
   border:1px solid rgba(0,0,0,0.06);background:#fff;text-decoration:none;color:inherit
 }
 a.shop-card:hover{border-color:rgba(211,47,47,0.28);box-shadow:var(--shadow)}
+.shop-card img{
+  display:block;width:100%;height:160px;object-fit:contain;background:#f3f1ef;border-radius:10px
+}
+.shop-card-copy{min-width:0}
+.shop-card h3{margin:0;font-size:16px;font-weight:800;line-height:1.25;color:#3a3333}
+.shop-card p{margin:4px 0 0}
+.shop-kicker{font-size:11px;letter-spacing:.08em;text-transform:uppercase;font-weight:800}
+.shop-card .buy-deck{margin-left:0;width:100%;margin-top:auto}
 .shop-card .price{font-weight:800;color:var(--accent);font-size:18px}
 .shop-card .swatch-row{display:flex;gap:6px;flex-wrap:wrap}
+.amazon-note{
+  margin:10px 0 0;padding:12px 14px;border-radius:10px;
+  background:#efeae6;border:1px solid rgba(0,0,0,.06);
+  font-size:13px;line-height:1.55;color:#5a4545;font-weight:600
+}
+.footer-amazon{display:block;margin-top:8px;font-size:12px;color:var(--muted)}
+.home-shop .shop-card img{height:132px}
 .shop-mock{
   height:110px;border-radius:10px;background:
     linear-gradient(135deg,rgba(211,47,47,0.16),rgba(211,47,47,0.02));

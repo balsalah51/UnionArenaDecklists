@@ -52,6 +52,65 @@ SERIES_ALIASES = {
     "yu yu hakusho ghost files": "Yu Yu Hakusho",
 }
 
+AMAZON_SHORT = "As an Amazon Associate I earn from qualifying purchases."
+AMAZON_LONG = (
+    "As an Amazon Associate I earn from qualifying purchases. "
+    "Union Arena Decklists is a participant in the Amazon Services LLC Associates Program, "
+    "an affiliate advertising program designed to provide a means for sites to earn advertising fees "
+    "by advertising and linking to Amazon.com. If you buy through these links, this site may earn a commission, "
+    "at no extra cost to you. Amazon and the Amazon logo are trademarks of Amazon.com, Inc. or its affiliates."
+)
+SHOP_ITEMS = [
+    {
+        "group": "Sleeves",
+        "name": "Dragon Shield Matte Jet",
+        "note": "100 standard-size sleeves",
+        "href": "https://amzn.to/4qFzNrw",
+        "asin": "B073G88D1M",
+        "kind": "sleeves",
+    },
+    {
+        "group": "Sleeves",
+        "name": "Dragon Shield Matte Dual Red/Gold",
+        "note": "100 standard-size sleeves",
+        "href": "https://amzn.to/46s2YVu",
+        "asin": "B0DJQRPPLV",
+        "kind": "sleeves",
+    },
+    {
+        "group": "Sleeves",
+        "name": "Dragon Shield Matte Dual Soul",
+        "note": "100 standard-size sleeves",
+        "href": "https://amzn.to/4wMuTKw",
+        "asin": "B0CRRPCT5P",
+        "kind": "sleeves",
+    },
+    {
+        "group": "Dice",
+        "name": "Power counter dice, 32 pcs",
+        "note": "Plus and minus counters for life and damage",
+        "href": "https://amzn.to/46pbKUi",
+        "asin": "B0GZKFDSQF",
+        "kind": "dice",
+    },
+    {
+        "group": "Dice",
+        "name": "Premium dice set with tin case",
+        "note": "Collectible dice in a tin",
+        "href": "https://amzn.to/4xEOaiF",
+        "asin": "B0D9KW7ZC1",
+        "kind": "dice",
+    },
+    {
+        "group": "Dice",
+        "name": "16mm D6 dice, blue/black",
+        "note": "10 acrylic six-siders",
+        "href": "https://amzn.to/4gQtpdA",
+        "asin": "B09NPQL2LT",
+        "kind": "dice",
+    },
+]
+
 
 def load_cache() -> dict:
     cache = uadb.load_json("data/card-cache.json", {})
@@ -1183,6 +1242,18 @@ def write_home(arches: list[dict], recent: list[dict], cache: dict, features: di
           </a>
         </nav>
 
+        <section class="card home-panel home-shop" id="shop">
+          <div class="section-title">
+            <h3>Shop</h3>
+            <a href="/shop.html">Full shop →</a>
+          </div>
+          <p class="muted">Sleeves and dice on Amazon. These are affiliate links.</p>
+          {amazon_note_html()}
+          <div class="shop-grid" aria-label="Sleeves and dice on Amazon">
+{chr(10).join(shop_cards_html())}
+          </div>
+        </section>
+
         <section class="home-leaders-flow" id="characters">
           <div class="home-leaders-intro">
             <p class="home-leaders-kicker">The roster</p>
@@ -1307,10 +1378,70 @@ def write_format(arches: list[dict]) -> None:
     (uadb.ROOT / "format.html").write_text(page)
 
 
+def amazon_note_html(long: bool = False) -> str:
+    text = AMAZON_LONG if long else AMAZON_SHORT
+    extra = "" if long else " Amazon links open Amazon.com."
+    return f'<p class="amazon-note">{html.escape(text + extra)}</p>'
+
+
+def shop_cards_html(items: list[dict] | None = None) -> list[str]:
+    cards = []
+    for item in items or SHOP_ITEMS:
+        img = f"/img/shop/{item['asin']}.jpg"
+        cards.append(
+            f"""            <a class="shop-card" href="{html.escape(item['href'])}" target="_blank" rel="nofollow sponsored noopener">
+              <img src="{html.escape(img)}" alt="{html.escape(item['name'])}" />
+              <div class="shop-card-copy">
+                <div class="muted shop-kicker">{html.escape(item['group'])}</div>
+                <h3>{html.escape(item['name'])}</h3>
+                <p class="muted">{html.escape(item['note'])}</p>
+              </div>
+              <span class="buy-deck">View on Amazon</span>
+            </a>"""
+        )
+    return cards
+
+
+def write_shop() -> None:
+    sleeves = [it for it in SHOP_ITEMS if it["group"] == "Sleeves"]
+    dice = [it for it in SHOP_ITEMS if it["group"] == "Dice"]
+    body = f"""        <div class="crumb"><a href="/">Home</a> / Shop</div>
+        <h2>Shop</h2>
+        <p>Sleeves and dice for Union Arena lists. Links go to Amazon.com.</p>
+        {amazon_note_html(long=True)}
+        <section class="shop-section" style="margin-top:22px">
+          <div class="section-title">
+            <h3>Sleeves</h3>
+            <div class="muted">{len(sleeves)} packs</div>
+          </div>
+          <div class="shop-grid" aria-label="Card sleeves on Amazon">
+{chr(10).join(shop_cards_html(sleeves))}
+          </div>
+        </section>
+        <section class="shop-section" style="margin-top:22px">
+          <div class="section-title">
+            <h3>Dice</h3>
+            <div class="muted">{len(dice)} sets</div>
+          </div>
+          <div class="shop-grid" aria-label="Dice on Amazon">
+{chr(10).join(shop_cards_html(dice))}
+          </div>
+        </section>
+        <p class="muted" style="margin-top:22px">Prices, stock, and shipping are set by Amazon. This site does not sell these products directly.</p>"""
+    page = uadb.page_chrome(
+        "Shop sleeves and dice | Union Arena Decklists",
+        "Dragon Shield sleeves and dice for Union Arena. Amazon Associate links with a clear commission disclosure.",
+        "color-red",
+        body,
+        "shop",
+    )
+    (uadb.ROOT / "shop.html").write_text(page)
+
+
 def write_privacy() -> None:
     body = f"""        <div class="crumb"><a href="/">Home</a> / Privacy Policy</div>
         <h2>Privacy Policy</h2>
-        <p class="muted">Last updated: August 25, 2026</p>
+        <p class="muted">Last updated: August 26, 2026</p>
         <p>Union Arena Decklists ("we," "us," or "this site") respects your privacy. This Privacy Policy explains what information we collect when you visit unionarenadecklists.com, how we use it, and the choices you have.</p>
         <section>
           <h3>Information We Collect</h3>
@@ -1330,8 +1461,12 @@ def write_privacy() -> None:
           <p>Deck and card buy buttons open TCGplayer so you can purchase a 50-card list or a single card. When an affiliate tracking link is configured, those clicks may be routed through TCGplayer's partner program and this site may earn a commission on qualifying purchases. TCGplayer may set its own cookies on that visit. Until an affiliate ID is added, buy links go straight to TCGplayer with no tracking wrapper.</p>
         </section>
         <section>
+          <h3>Amazon Associate links</h3>
+          <p><strong>As an Amazon Associate I earn from qualifying purchases.</strong> Union Arena Decklists is a participant in the Amazon Services LLC Associates Program, an affiliate advertising program designed to provide a means for sites to earn advertising fees by advertising and linking to Amazon.com. Shop links for sleeves and dice go to Amazon. If you buy through those links, this site may earn a commission, at no extra cost to you. Amazon may set its own cookies on that visit. Amazon and the Amazon logo are trademarks of Amazon.com, Inc. or its affiliates. We are not Amazon, and Amazon does not sponsor this site.</p>
+        </section>
+        <section>
           <h3>Third-Party Links</h3>
-          <p>Our site links to third-party content, including tournament results, the official Bandai cardlist, TCGplayer, and Discord. We are not responsible for the privacy practices of these external sites.</p>
+          <p>Our site links to third-party content, including tournament results, the official Bandai cardlist, TCGplayer, Amazon, and Discord. We are not responsible for the privacy practices of these external sites.</p>
         </section>
         <section>
           <h3>Contact</h3>
@@ -1346,7 +1481,7 @@ def write_privacy() -> None:
 def write_404() -> None:
     body = """        <div class="crumb"><a href="/">Home</a> / Missing page</div>
         <h2>That page is not here</h2>
-        <p>Try the <a href="/">home splash</a>, <a href="/characters.html">character pages</a>, or <a href="/#recent">recent lists</a>.</p>"""
+        <p>Try the <a href="/">home splash</a>, <a href="/characters.html">character pages</a>, <a href="/shop.html">shop</a>, or <a href="/#recent">recent lists</a>.</p>"""
     page = uadb.page_chrome("Page not found | Union Arena Decklists", "That Union Arena Decklists page is missing.", "color-red", body)
     (uadb.ROOT / "404.html").write_text(page)
 
@@ -1456,7 +1591,7 @@ def main() -> None:
     features = {}
     recent = []
     published = []
-    sitemap = ["", "characters.html", "format.html", "privacy.html"]
+    sitemap = ["", "characters.html", "format.html", "shop.html", "privacy.html"]
     index = {}
     for arch in arches:
         items = flatten_contender(arch, cache)
@@ -1556,6 +1691,7 @@ def main() -> None:
     write_home(home_roster, recent, cache, features)
     write_characters_index(home_roster, features, cache)
     write_format(unique_arches([a for a in arches if not a.get("from_color")]))
+    write_shop()
     write_privacy()
     write_sitemap(sitemap)
     write_404()
