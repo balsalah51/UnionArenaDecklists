@@ -10,6 +10,8 @@ import time
 import urllib.error
 import urllib.parse
 import urllib.request
+from collections import defaultdict
+from datetime import datetime, timezone
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -23,8 +25,10 @@ DISCORD = "https://discord.gg/aY9RfB662"
 BRAND = "Union Arena Decklists"
 SUBTITLE = "50-card lists for Standard"
 LOGO = "UA"
-CSS_VER = "ua14"
-JS_VER = "ua5"
+CSS_VER = "ua16"
+JS_VER = "ua6"
+TCGPLAYER_CATEGORY_ID = 81
+TCGPLAYER_PRICES_FILE = "data/tcgplayer-prices.json"
 FONT_LINKS = """  <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet" />
@@ -36,6 +40,10 @@ RESTRICTED_CARDS = (
     "UE15BT/EVA-1-063",  # Spear of Gaius
 )
 RESTRICTED_ONE = set(RESTRICTED_CARDS)
+# Shadow Soldiers (Solo Leveling) may exceed the usual 4-copy cap.
+HIGH_COPY_NUMBERS = {
+    "SLG-1-030": 12,
+}
 STAMP_RE = re.compile(
     r"\s*\((?:"
     r"winner|box topper foil|ur\*|sr\*|r\*|ur|sr|r|c\*|alt\s*\d+"
@@ -102,8 +110,8 @@ POPUP_JS = r"""
         if (!pop || !title) return;
         resetPop(pop);
         var tr = title.getBoundingClientRect();
-        var width = pop.offsetWidth || 110;
-        var height = pop.offsetHeight || 154;
+        var width = pop.offsetWidth || 340;
+        var height = pop.offsetHeight || 475;
         var left = tr.left;
         var top = tr.top - height - 10;
         if (left + width > window.innerWidth - 12) left = window.innerWidth - width - 12;
@@ -472,12 +480,121 @@ def tcgplayer_affiliate_url(url: str) -> str:
     return f"{TCGPLAYER_PARTNER}?u={urllib.parse.quote(dest, safe='')}"
 
 
+def _tcgplayer_row_median(row: dict) -> float:
+    """Listed median (midPrice) on TCGplayer, then market price."""
+    for key in ("midPrice", "marketPrice"):
+        raw = row.get(key)
+        if raw is None or raw == "":
+            continue
+        try:
+            val = float(raw)
+        except (TypeError, ValueError):
+            continue
+        if val > 0:
+            return val
+    return 0.0
+
+
+def _product_number(product: dict) -> str:
+    for field in product.get("extendedData") or []:
+        if (field.get("name") or "").lower() == "number":
+            return (field.get("value") or "").strip()
+    return ""
+
+
+def fetch_tcgplayer_medians() -> dict[str, float]:
+    """Map Union Arena card IDs to TCGplayer listed-median prices via tcgcsv.com."""
+    groups_url = f"https://tcgcsv.com/tcgplayer/{TCGPLAYER_CATEGORY_ID}/groups"
+    payload = http_json(groups_url, retries=3)
+    groups = payload.get("results") or []
+    by_cid: dict[str, float] = {}
+    for group in groups:
+        abbr = (group.get("abbreviation") or "").upper()
+        if "_RE" in abbr or "_PRE" in abbr:
+            continue
+        gid = group.get("groupId")
+        if not gid:
+            continue
+        try:
+            products = http_json(
+                f"https://tcgcsv.com/tcgplayer/{TCGPLAYER_CATEGORY_ID}/{gid}/products",
+                retries=3,
+            ).get("results") or []
+            prices = http_json(
+                f"https://tcgcsv.com/tcgplayer/{TCGPLAYER_CATEGORY_ID}/{gid}/prices",
+                retries=3,
+            ).get("results") or []
+        except Exception as exc:  # noqa: BLE001
+            log("tcgplayer prices skip group", abbr or gid, exc)
+            continue
+        by_pid: dict[int, list[dict]] = defaultdict(list)
+        for row in prices:
+            pid = row.get("productId")
+            if pid is None:
+                continue
+            by_pid[int(pid)].append(row)
+        for product in products:
+            cid = _product_number(product)
+            if not cid or "/" not in cid:
+                continue
+            pid = product.get("productId")
+            median = 0.0
+            if pid is not None:
+                median = max((_tcgplayer_row_median(row) for row in by_pid.get(int(pid), [])), default=0.0)
+            if median <= 0:
+                continue
+            prev = by_cid.get(cid, 0.0)
+            if median > prev:
+                by_cid[cid] = round(median, 2)
+    return by_cid
+
+
+def load_tcgplayer_prices(refresh: bool = False) -> dict[str, float]:
+    cached = load_json(TCGPLAYER_PRICES_FILE, {})
+    by_cid = cached.get("by_cid") if isinstance(cached, dict) else {}
+    if not refresh and isinstance(by_cid, dict) and by_cid:
+        return {str(k): float(v) for k, v in by_cid.items() if v is not None}
+    try:
+        by_cid = fetch_tcgplayer_medians()
+    except Exception as exc:  # noqa: BLE001
+        log("tcgplayer prices fetch failed", exc)
+        if isinstance(cached, dict) and cached.get("by_cid"):
+            return {str(k): float(v) for k, v in cached["by_cid"].items() if v is not None}
+        return {}
+    if by_cid:
+        save_json(
+            TCGPLAYER_PRICES_FILE,
+            {
+                "updated": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
+                "source": "https://tcgcsv.com/tcgplayer/81",
+                "by_cid": by_cid,
+            },
+        )
+        log("tcgplayer prices", len(by_cid))
+    return by_cid
+
+
+def tcgplayer_median_price(cid: str, prices: dict | None = None) -> float:
+    prices = prices or {}
+    cid = (cid or "").strip().replace("_", "/")
+    if not cid:
+        return 0.0
+    raw = prices.get(cid)
+    if raw is None:
+        return 0.0
+    try:
+        val = float(raw)
+    except (TypeError, ValueError):
+        return 0.0
+    return val if val > 0 else 0.0
+
+
 def buy_deck_button(url: str, label: str = "Buy on TCGplayer") -> str:
     if not url:
         return ""
     dest = tcgplayer_affiliate_url(url)
     return (
-        f'<a class="buy-tcg buy-deck" href="{html.escape(dest, quote=True)}" '
+        f'<a class="buy-tcg buy-deck buy-pill" href="{html.escape(dest, quote=True)}" '
         f'target="_blank" rel="noopener sponsored">{html.escape(label)}</a>'
     )
 
@@ -529,6 +646,9 @@ def is_restricted(cid: str) -> bool:
 def max_copies(cid: str, cap_restricted: bool = True) -> int:
     if cap_restricted and is_restricted(cid):
         return 1
+    num = legal_number(cid)
+    if num in HIGH_COPY_NUMBERS:
+        return HIGH_COPY_NUMBERS[num]
     return 4
 
 
@@ -581,7 +701,12 @@ def parse_counts(text: str) -> dict[str, int]:
         if not cid:
             continue
         counts[cid] = counts.get(cid, 0) + int(m.group(2))
-    return {cid: n for cid, n in counts.items() if 1 <= n <= 4}
+    out = {}
+    for cid, n in counts.items():
+        cap = max_copies(cid, cap_restricted=False)
+        if 1 <= n <= cap:
+            out[cid] = n
+    return out
 
 
 def list_is_complete(counts: dict[str, int]) -> bool:

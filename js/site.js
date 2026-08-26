@@ -142,28 +142,45 @@
         return;
       }
       out.hidden = false;
-      if (!data || !data.characters) {
+      if (!data || (!data.characters && !data.series)) {
         out.innerHTML = "<p class=\"muted char-search-empty\">Could not load character lists.</p>";
         return;
       }
-      var hits = data.characters.filter(function (row) {
-        return (row.norm || "").indexOf(q) >= 0 || (row.name || "").toLowerCase().indexOf(q) >= 0;
-      });
-      hits.sort(function (a, b) {
-        var an = (a.name || "").toLowerCase();
-        var bn = (b.name || "").toLowerCase();
-        var aExact = an === q || a.norm === q ? 1 : 0;
-        var bExact = bn === q || b.norm === q ? 1 : 0;
-        if (aExact !== bExact) return bExact - aExact;
-        return (b.lists || []).length - (a.lists || []).length;
-      });
-      var tight = hits.length === 1 || (hits[0] && ((hits[0].name || "").toLowerCase() === q || hits[0].norm === q));
-      hits = hits.slice(0, tight ? 1 : 8);
-      if (!hits.length) {
-        out.innerHTML = "<p class=\"muted char-search-empty\">No character matching \"" + escapeHtml(q) + "\".</p>";
+      function aliasHit(row, q) {
+        var aliases = row.aliases || [];
+        for (var i = 0; i < aliases.length; i++) {
+          var al = String(aliases[i] || "").toLowerCase();
+          if (al === q) return 2;
+          if (q.length >= 3 && (al.indexOf(q) >= 0 || (row.norm || "").indexOf(q) >= 0)) return 1;
+        }
+        if ((row.norm || "").indexOf(q) >= 0 || (row.name || "").toLowerCase().indexOf(q) >= 0) return 1;
+        return 0;
+      }
+      function nameHit(row, q) {
+        var name = (row.name || "").toLowerCase();
+        var norm = row.norm || "";
+        if (name === q || norm === q) return 2;
+        if (norm.indexOf(q) >= 0 || name.indexOf(q) >= 0) return 1;
+        return 0;
+      }
+      var seriesHits = (data.series || []).filter(function (row) { return aliasHit(row, q) > 0; });
+      seriesHits.sort(function (a, b) { return aliasHit(b, q) - aliasHit(a, q) || (b.lists || []).length - (a.lists || []).length; });
+      var charHits = (data.characters || []).filter(function (row) { return nameHit(row, q) > 0; });
+      charHits.sort(function (a, b) { return nameHit(b, q) - nameHit(a, q) || (b.lists || []).length - (a.lists || []).length; });
+      var seriesExact = seriesHits.length && aliasHit(seriesHits[0], q) === 2;
+      var charExact = charHits.length && nameHit(charHits[0], q) === 2;
+      if (seriesExact && !charExact) {
+        seriesHits = seriesHits.slice(0, 1);
+        charHits = [];
+      } else {
+        seriesHits = seriesHits.slice(0, 3);
+        charHits = charHits.slice(0, seriesHits.length ? 5 : 8);
+      }
+      if (!seriesHits.length && !charHits.length) {
+        out.innerHTML = "<p class=\"muted char-search-empty\">No character or title matching \"" + escapeHtml(q) + "\".</p>";
         return;
       }
-      out.innerHTML = hits.map(function (row) {
+      function listItems(row, tight) {
         var hubs = (row.hubs || []).map(function (hub) {
           var bits = [hub.label || row.name];
           if (hub.color) bits.push(hub.color);
@@ -179,15 +196,20 @@
             "</a></li>";
         }).join("");
         var more = all.length > shown.length
-          ? "<p class=\"muted char-search-empty\">" + (all.length - shown.length) + " more lists on the character page.</p>"
+          ? "<p class=\"muted char-search-empty\">" + (all.length - shown.length) + " more lists.</p>"
           : "";
+        var kind = row.kind === "series" ? "Title" : "Character";
         return "<article class=\"char-hit\">" +
-          "<h4 class=\"char-hit-name\">" + escapeHtml(row.name) + " · " + all.length + (all.length === 1 ? " list" : " lists") + "</h4>" +
+          "<h4 class=\"char-hit-name\">" + escapeHtml(row.name) + " · " + kind + " · " + all.length + (all.length === 1 ? " list" : " lists") + "</h4>" +
           (hubs ? "<div class=\"char-hit-hubs\">" + hubs + "</div>" : "") +
           (lists ? "<ul class=\"char-hit-lists\">" + lists + "</ul>" : "") +
           more +
           "</article>";
-      }).join("");
+      }
+      var tightSeries = seriesHits.length === 1 && aliasHit(seriesHits[0], q) === 2;
+      var tightChar = charHits.length === 1 && nameHit(charHits[0], q) === 2 && !seriesHits.length;
+      out.innerHTML = seriesHits.map(function (row) { return listItems(row, tightSeries); }).join("") +
+        charHits.map(function (row) { return listItems(row, tightChar); }).join("");
     }
     boxes.forEach(function (box) {
       if (box.dataset.bound) return;

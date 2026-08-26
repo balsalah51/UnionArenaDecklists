@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="/css/site.css?v=ua13" />
+  <link rel="stylesheet" href="/css/site.css?v=ua16" />
 </head>
 <body class="color-purple">
   <div class="wrap">
@@ -344,8 +344,8 @@
         if (!pop || !title) return;
         resetPop(pop);
         var tr = title.getBoundingClientRect();
-        var width = pop.offsetWidth || 110;
-        var height = pop.offsetHeight || 154;
+        var width = pop.offsetWidth || 340;
+        var height = pop.offsetHeight || 475;
         var left = tr.left;
         var top = tr.top - height - 10;
         if (left + width > window.innerWidth - 12) left = window.innerWidth - width - 12;

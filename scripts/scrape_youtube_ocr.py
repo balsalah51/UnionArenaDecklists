@@ -86,8 +86,11 @@ def qty_before(text: str, start: int) -> int:
 def add_count(counts: dict[str, int], cid: str, n: int, cache: dict) -> None:
     if cid not in cache:
         return
-    if not (1 <= n <= 4):
-        n = 4
+    cap = uadb.max_copies(cid, cap_restricted=False)
+    if n < 1:
+        return
+    if n > cap:
+        n = cap
     counts[cid] = max(counts.get(cid, 0), n)
 
 

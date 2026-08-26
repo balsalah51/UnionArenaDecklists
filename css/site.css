@@ -258,14 +258,14 @@ footer a{color:var(--accent);font-weight:700;text-decoration:none}
 .text-leader-list a:hover{text-decoration:underline}
 .leader-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:14px}
 .leader-card{display:flex;flex-direction:column;gap:8px;min-width:0}
-.leader-card .buy-deck{margin-left:0;width:100%;font-size:12px;padding:8px 10px}
+.leader-card .buy-deck,.leader-card .buy-pill{margin-left:0;width:auto;align-self:center}
 .leader-card-link{display:block;text-decoration:none;color:inherit;border-radius:12px;overflow:hidden;background:#fff;border:1px solid rgba(0,0,0,0.06);box-shadow:0 2px 10px rgba(16,22,26,0.04)}
 .leader-card-link img{display:block;width:100%;height:auto;aspect-ratio:63/88;object-fit:cover;background:#eee}
 .leader-card-link:hover{border-color:color-mix(in srgb, var(--accent) 40%, white);box-shadow:var(--shadow)}
 .leader-card-link .caption{padding:8px 10px 10px;font-size:13px;font-weight:800;text-align:center}
 .leader-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:14px}
 .leader-tile-wrap{display:flex;flex-direction:column;gap:8px;min-width:0}
-.leader-tile-wrap .buy-deck{margin-left:0;width:100%;font-size:12px;padding:8px 10px}
+.leader-tile-wrap .buy-deck,.leader-tile-wrap .buy-pill{margin-left:0;width:auto;align-self:flex-start;font-size:12px;padding:6px 12px}
 .leader-tile{
   display:flex;gap:12px;align-items:center;padding:14px;border-radius:12px;
   border:1px solid rgba(0,0,0,0.06);background:#fff;text-decoration:none;color:inherit;
@@ -341,11 +341,11 @@ footer a{color:var(--accent);font-weight:700;text-decoration:none}
 }
 .text-line .card-id{grid-column:3;grid-row:1;font-size:12px;margin-left:0;min-width:0}
 .text-line .card-pop{
-  position:absolute;left:48px;bottom:calc(100% + 8px);z-index:80;
+  position:absolute;left:48px;bottom:calc(100% + 8px);z-index:200;
   grid-column:1;grid-row:1;
-  width:110px;max-width:min(110px,42vw);height:auto;max-height:154px;border-radius:8px;background:#fff;
-  display:block;
-  box-shadow:0 10px 24px rgba(16,22,26,0.22);border:1px solid rgba(0,0,0,0.08);
+  width:340px;max-width:min(340px,88vw);height:auto;max-height:min(475px,82vh);border-radius:12px;background:#fff;
+  display:block;object-fit:contain;
+  box-shadow:0 14px 32px rgba(16,22,26,0.28);border:1px solid rgba(0,0,0,0.08);
   visibility:hidden;opacity:0;pointer-events:none;transform:translateY(4px);
   transition:opacity .12s ease, transform .12s ease, visibility .12s
 }
@@ -391,13 +391,23 @@ footer a{color:var(--accent);font-weight:700;text-decoration:none}
   white-space:nowrap;text-decoration:none;text-align:center
 }
 .buy-deck:hover{background:#4a2222;border-color:#4a2222;color:#fff}
+.buy-pill,.buy-tcg.buy-deck{
+  display:inline-flex;align-items:center;justify-content:center;
+  margin-left:auto;padding:6px 14px;border-radius:999px;
+  border:1.5px solid #6e3a3a;background:#fff;color:#6e3a3a;
+  font:inherit;font-size:12px;font-weight:800;
+  white-space:nowrap;text-decoration:none;text-align:center
+}
+.buy-pill:hover,.buy-tcg.buy-deck:hover{
+  background:#fff;border-color:#4a2222;color:#4a2222
+}
 .list-actions{display:flex;flex-wrap:wrap;gap:8px;margin-left:auto;align-items:center}
-.list-actions .copy-sim,.list-actions .buy-deck{margin-left:0}
+.list-actions .copy-sim,.list-actions .buy-deck,.list-actions .buy-pill{margin-left:0}
 .list-row{display:flex;align-items:stretch;gap:8px;min-width:0;width:100%;max-width:100%}
 .list-row > .item{flex:1;min-width:0;max-width:100%}
 .list-row > .copy-sim,.list-row > .list-actions{margin-left:0;align-self:center;flex-shrink:0}
 .deck-buy{margin:16px 0 4px}
-.deck-buy .buy-deck{display:inline-flex;margin-left:0;padding:12px 18px;font-size:15px}
+.deck-buy .buy-deck,.deck-buy .buy-pill{display:inline-flex;margin-left:0;padding:10px 18px;font-size:15px}
 .card-buy{margin-top:8px}
 .buy-card{
   display:inline;padding:0;border-radius:0;background:none;color:var(--muted);
@@ -407,6 +417,7 @@ footer a{color:var(--accent);font-weight:700;text-decoration:none}
 .buy-card:hover{background:none;color:var(--accent);border:0}
 .recent-row{display:flex;align-items:stretch;gap:8px}
 .recent-row .recent-item{flex:1;min-width:0}
+.recent-row .buy-pill,.recent-row .buy-deck{flex-shrink:0;align-self:center;margin-left:0}
 .deck-stats{margin-top:16px;padding:12px 14px;border-radius:12px;border:1px solid rgba(0,0,0,0.06);background:#fff}
 .deck-stats .kicker{font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);font-weight:800}
 .stat-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:8px}

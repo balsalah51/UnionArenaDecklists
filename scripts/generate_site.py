@@ -19,6 +19,7 @@ MIN_FACE_COST = 4
 HOME_RAID_LEADERS = 20
 MAX_HOME_PER_TITLE = 3
 RAID_RE = re.compile(r"\[raid\]", re.I)
+RAID_COPLAY_FRACTION = 0.5
 SEARCH_RECENT_DAYS = 21
 SERIES_ALIASES = {
     "100 girlfriends": "100 Girlfriends",
@@ -55,6 +56,33 @@ SERIES_ALIASES = {
     "tokyo ghoul": "Tokyo Ghoul",
     "yu yu hakusho": "Yu Yu Hakusho",
     "yu yu hakusho ghost files": "Yu Yu Hakusho",
+    "jjk": "Jujutsu Kaisen",
+    "sl": "Solo Leveling",
+    "slg": "Solo Leveling",
+    "csm": "Chainsaw Man",
+    "eva": "Evangelion",
+    "smd": "Sakamoto Days",
+    "rnk": "Rurouni Kenshin",
+    "kgr": "Kagurabachi",
+    "sao": "Sword Art Online",
+    "tsk": "That Time I Got Reincarnated As A Slime",
+    "tensura": "That Time I Got Reincarnated As A Slime",
+    "tkg": "Tokyo Ghoul",
+    "blc": "Bleach",
+    "opm": "One Punch Man",
+    "cgh": "Code Geass",
+    "aot": "Attack On Titan",
+    "fma": "Fullmetal Alchemist",
+    "htr": "Hunter x Hunter",
+    "hxh": "Hunter x Hunter",
+    "kmy": "Demon Slayer",
+    "iys": "Inuyasha",
+    "rly": "100 Girlfriends",
+    "yyh": "Yu Yu Hakusho",
+    "bcv": "Black Clover",
+    "mha": "My Hero Academia",
+    "nik": "Nikke",
+    "rez": "Re:Zero",
 }
 
 AMAZON_SHORT = "As an Amazon Associate I earn from qualifying purchases."
@@ -424,6 +452,49 @@ def combo_has_raid_face(arch: dict, cache: dict, features: dict) -> bool:
     return False
 
 
+def raid_names_in_items(items: list[dict] | None, cache: dict) -> set[str]:
+    names: set[str] = set()
+    for it in items or []:
+        if it.get("group") == "AP cards":
+            continue
+        meta = cache.get(it.get("id") or "") or {}
+        if not is_character_card(meta, it):
+            continue
+        if (card_cost(meta) or 0) < MIN_FACE_COST or not is_raid_meta(meta):
+            continue
+        nkey = norm_name(card_character(meta.get("name") or it.get("name") or ""))
+        if nkey and nkey not in COLOR_ONLY:
+            names.add(nkey)
+    return names
+
+
+def arch_raid_names(arch: dict, cache: dict) -> set[str]:
+    """Raid namesakes that show up in most of this archetype's 50s."""
+    want = norm_name(arch.get("name") or "")
+    counts: Counter[str] = Counter()
+    n = 0
+    for entry in arch.get("lists") or []:
+        names = raid_names_in_items(entry.get("items") or [], cache)
+        if not names:
+            continue
+        n += 1
+        counts.update(names)
+    if n == 0:
+        names = raid_names_in_items(arch.get("cons_items") or [], cache)
+        if want and want not in COLOR_ONLY:
+            names.add(want)
+        return names
+    frequent = {name for name, c in counts.items() if c / n >= RAID_COPLAY_FRACTION}
+    if want and want not in COLOR_ONLY:
+        frequent.add(want)
+    return frequent
+
+
+def arch_face_price(arch: dict, features: dict, prices: dict | None) -> float:
+    feat = features.get(arch.get("key") or "") or {}
+    return uadb.tcgplayer_median_price(feat.get("id") or "", prices or {})
+
+
 def current_raid_priority() -> dict[str, float]:
     """Character-name → current Standard share from TCG Contender."""
     ov = uadb.load_json("data/contender-overview.json", {})
@@ -445,10 +516,16 @@ def pick_home_raid_leaders(
     cache: dict,
     features: dict,
     meta_priority: dict[str, float] | None = None,
+    prices: dict | None = None,
 ) -> list[dict]:
-    """Top 20 current namesake raid leaders, at most three per title."""
+    """Top 20 namesake raid faces, one raider per archetype.
+
+    If a 50 plays several raiders, keep the one with the highest TCGplayer
+    listed-median price as the face of that cluster.
+    """
     cutoff = (datetime.now(timezone.utc) - timedelta(days=SEARCH_RECENT_DAYS)).date().isoformat()
     priority = current_raid_priority() if meta_priority is None else meta_priority
+    prices = prices or {}
     best_by_name: dict[str, dict] = {}
     for arch in combo_arches:
         nkey = norm_name(arch.get("name") or "")
@@ -459,6 +536,7 @@ def pick_home_raid_leaders(
             best_by_name[nkey] = arch
 
     scored = []
+    score_by_key: dict[str, float] = {}
     for nkey, arch in best_by_name.items():
         lists = arch.get("lists") or []
         n = len(lists)
@@ -473,32 +551,54 @@ def pick_home_raid_leaders(
         score = meta_share * 10000 + recent_n * 25 + n * 0.5 + raid_bonus
         if named_deck:
             score += 200
+        score_by_key[arch.get("key") or nkey] = score
         scored.append((score, meta_share, recent_n, n, arch.get("name") or "", arch))
     scored.sort(key=lambda row: (row[0], row[1], row[2], row[3], row[4]), reverse=True)
 
-    picked: list[dict] = []
-    per_title: dict[str, int] = defaultdict(int)
-    used = set()
+    def pick_cluster_face(arch: dict) -> dict:
+        raid_ns = arch_raid_names(arch, cache)
+        cands = [best_by_name[n] for n in raid_ns if n in best_by_name]
+        if not cands:
+            cands = [arch]
+        return max(
+            cands,
+            key=lambda a: (
+                arch_face_price(a, features, prices),
+                score_by_key.get(a.get("key") or "", 0.0),
+                len(a.get("lists") or []),
+                a.get("name") or "",
+            ),
+        )
 
-    def take(arch: dict) -> None:
-        key = arch.get("key") or ""
-        if key in used:
-            return
-        used.add(key)
-        picked.append(arch)
-        title = arch.get("title") or ""
-        per_title[title] += 1
-
+    cluster_score: dict[str, float] = defaultdict(float)
+    faces: dict[str, dict] = {}
     for row in scored:
         arch = row[5]
+        face = pick_cluster_face(arch)
+        key = face.get("key") or ""
+        if not key:
+            continue
+        cluster_score[key] = max(cluster_score[key], row[0])
+        faces.setdefault(key, face)
+
+    ranked = sorted(
+        faces.values(),
+        key=lambda a: (
+            cluster_score.get(a.get("key") or "", 0.0),
+            arch_face_price(a, features, prices),
+            len(a.get("lists") or []),
+            a.get("name") or "",
+        ),
+        reverse=True,
+    )
+    picked: list[dict] = []
+    per_title: dict[str, int] = defaultdict(int)
+    for arch in ranked:
         title = arch.get("title") or ""
         if per_title[title] >= MAX_HOME_PER_TITLE:
             continue
-        take(arch)
-        if len(picked) >= HOME_RAID_LEADERS:
-            return picked
-    for row in scored:
-        take(row[5])
+        picked.append(arch)
+        per_title[title] += 1
         if len(picked) >= HOME_RAID_LEADERS:
             break
     return picked
@@ -568,12 +668,111 @@ def build_character_search(
     return out
 
 
+def entry_series(entry: dict, cache: dict) -> str:
+    title = entry.get("title") or ""
+    if " - " in title:
+        found = series_name(title.split(" - ", 1)[0])
+        if found and found != "Other":
+            return found
+    counts: Counter[str] = Counter()
+    for it in entry.get("items") or []:
+        meta = cache.get(it.get("id") or "") or {}
+        sname = series_name(meta.get("title") or "")
+        if sname and sname != "Other":
+            counts[sname] += int(it.get("count") or 0)
+    return counts.most_common(1)[0][0] if counts else ""
+
+
+def series_alias_list(name: str) -> list[str]:
+    nkey = norm_name(name)
+    aliases = {nkey}
+    for alias, target in SERIES_ALIASES.items():
+        if norm_name(target) == nkey:
+            aliases.add(alias)
+    return sorted(a for a in aliases if a)
+
+
+def build_series_search(
+    published: list[dict],
+    combo_arches: list[dict],
+    cache: dict,
+    features: dict,
+) -> list[dict]:
+    series: dict[str, dict] = {}
+    for entry in published:
+        sname = entry_series(entry, cache)
+        nkey = norm_name(sname)
+        if not nkey:
+            continue
+        href = entry.get("href") or ""
+        rec = series.setdefault(
+            nkey,
+            {
+                "name": sname,
+                "norm": nkey,
+                "kind": "series",
+                "aliases": [],
+                "hubs": [],
+                "lists": [],
+                "_hrefs": set(),
+            },
+        )
+        if href and href not in rec["_hrefs"]:
+            rec["_hrefs"].add(href)
+            rec["lists"].append(
+                {
+                    "href": href,
+                    "title": uadb.no_em(entry.get("title") or ""),
+                    "sub": uadb.no_em(entry.get("subtitle") or ""),
+                    "date": entry.get("date") or "",
+                }
+            )
+    for arch in combo_arches:
+        sname = arch.get("title") or ""
+        nkey = norm_name(sname)
+        if not nkey:
+            continue
+        feat = features.get(arch["key"]) or {}
+        color = ((feat.get("meta") or {}).get("color") or arch.get("color") or "").strip()
+        rec = series.setdefault(
+            nkey,
+            {
+                "name": sname,
+                "norm": nkey,
+                "kind": "series",
+                "aliases": [],
+                "hubs": [],
+                "lists": [],
+                "_hrefs": set(),
+            },
+        )
+        rec["hubs"].append(
+            {
+                "href": f"/{arch['page']}",
+                "label": arch.get("full") or arch.get("name") or "",
+                "color": color,
+                "n": len(arch.get("lists") or []),
+            }
+        )
+    out = []
+    for rec in series.values():
+        rec["lists"].sort(key=lambda r: r.get("date") or "", reverse=True)
+        rec["lists"] = rec["lists"][:150]
+        rec["hubs"].sort(key=lambda h: (-int(h.get("n") or 0), h.get("label") or ""))
+        rec["aliases"] = series_alias_list(rec["name"])
+        rec.pop("_hrefs", None)
+        if rec["lists"] or rec["hubs"]:
+            out.append(rec)
+    out.sort(key=lambda r: (-len(r["lists"]), r["name"]))
+    return out
+
+
 def char_search_html() -> str:
     return """        <div class="char-search" data-char-search>
-          <label class="char-search-label">Search a character
-            <input type="search" placeholder="Sung Jinwoo, Denji, Igris…" autocomplete="off" aria-label="Search a character" />
+          <label class="char-search-label">Search a character or title
+            <input type="search" placeholder="Sung Jinwoo, JJK, Solo Leveling…" autocomplete="off" aria-label="Search a character or title" />
           </label>
-          <p class="muted char-search-hint">Any character in a public 50. Results are the lists that play them.</p>
+          <p class="muted char-search-hint">Characters or anime titles. Results are the lists from that faction.</p>
           <div class="char-search-results" data-char-results hidden></div>
         </div>"""
 
@@ -666,6 +865,40 @@ def pick_combo_face(entries: list[dict], character: str, color: str, cache: dict
                     "character": name,
                 }
     return best or {}
+
+
+def list_main_n(entry: dict) -> int:
+    return sum(int(it.get("count") or 0) for it in (entry.get("items") or []) if it.get("group") != "AP cards")
+
+
+def list_has_high_copies(entry: dict) -> bool:
+    for it in entry.get("items") or []:
+        num = uadb.legal_number(it.get("id") or "")
+        if num in uadb.HIGH_COPY_NUMBERS and int(it.get("count") or 0) > 4:
+            return True
+    return False
+
+
+def pick_combo_sample(entries: list[dict], display: str, color: str, cache: dict) -> dict:
+    """Prefer a complete 50 that uses a special copy-cap card when lists play it that way."""
+    special = [e for e in entries if list_has_high_copies(e) and list_main_n(e) >= uadb.MIN_CARDS]
+    if special:
+        special.sort(key=lambda e: (e.get("date") or "0000", list_main_n(e)), reverse=True)
+        return special[0]
+    cont = [
+        e
+        for e in entries
+        if e.get("kind") == "contender" and list_has_character_color(e.get("items") or [], display, color, cache)
+    ]
+    if cont:
+        return cont[0]
+    return max(
+        entries,
+        key=lambda e: (
+            namesake_copies(e.get("items") or [], display, color, cache),
+            e.get("date") or "0000",
+        ),
+    )
 
 
 def pick_feature(items: list[dict], cache: dict, prefer_name: str | None = None) -> dict:
@@ -868,17 +1101,7 @@ def build_character_color_hubs(
                 key=lambda e: (e.get("date") or "0000", e.get("slug") or ""),
                 reverse=True,
             )
-            cont = [e for e in entries if e.get("kind") == "contender" and list_has_character_color(e.get("items") or [], display, color, cache)]
-            if cont:
-                sample = cont[0]
-            else:
-                sample = max(
-                    entries,
-                    key=lambda e: (
-                        namesake_copies(e.get("items") or [], display, color, cache),
-                        e.get("date") or "0000",
-                    ),
-                )
+            sample = pick_combo_sample(entries, display, color, cache)
             sample_items = sample.get("items") or []
             srcs = meta_by_name.get(nkey) or []
             same = [a for a in srcs if card_color({"color": a.get("color") or ""}) == color]
@@ -904,7 +1127,7 @@ def build_character_color_hubs(
                 "weaknesses": list((src or {}).get("weaknesses") or []),
                 "decklist": {},
                 "lists": entries,
-                "cons_items": sample_items,
+                "cons_items": sample.get("items") or [],
                 "sample_label": "Consensus list" if sample.get("kind") == "contender" else "Featured list",
                 "combo_blurb": (
                     f"Every list on this page plays {display} in {color_label}. "
@@ -1140,7 +1363,7 @@ def write_list_page(arch: dict, entry: dict, items: list[dict], cache: dict, fea
     title = uadb.no_em(entry.get("title") or arch["name"])
     subtitle = uadb.no_em(entry.get("subtitle") or "")
     kind_note = {
-        "contender": "Consensus constructed list from public Union Arena tournament results on TCG Contender. Same card numbers are merged and capped at 4 copies (1 if restricted).",
+        "contender": "Consensus constructed list from public Union Arena tournament results on TCG Contender. Same card numbers are merged and capped at 4 copies (1 if restricted; Shadow Soldiers up to 12).",
         "youtube": "List from a YouTube deck profile. Card pictures from the official Bandai cardlist.",
         "web": "Community list from a public deck page. Card pictures from the official Bandai cardlist.",
         "tournament": "Tournament list. Card pictures from the official Bandai cardlist.",
@@ -1166,7 +1389,8 @@ def write_list_page(arch: dict, entry: dict, items: list[dict], cache: dict, fea
     if entry.get("kind") == "contender" and main_n != uadb.TARGET:
         flag += (
             f"<p class=\"muted\"><strong>Copy limits:</strong> alt-art and stamp versions of the same card "
-            f"number count as one card. Restricted cards are 1-ofs. This snapshot is {main_n} cards after those caps.</p>"
+            f"number count as one card. Restricted cards are 1-ofs. Shadow Soldiers may be up to 12. "
+            f"This snapshot is {main_n} cards after those caps.</p>"
         )
     buy = uadb.buy_deck_button(
         uadb.tcgplayer_mass_entry_url(items, cache),
@@ -1321,6 +1545,7 @@ def write_home(arches: list[dict], recent: list[dict], cache: dict, features: di
         f = features.get(arch["key"]) or {}
         img = uadb.card_image_url(f.get("id") or "", cache) if f.get("id") else ""
         color = ((f.get("meta") or {}).get("color") or arch.get("color") or "").strip()
+        buy = uadb.buy_deck_button(arch.get("buy_url") or "", "TCGplayer")
         return f"""            <div class="leader-card">
               <a class="leader-card-link" href="/{html.escape(arch['page'])}">
                 <img src="{html.escape(img)}" alt="{html.escape(arch['full'])} character card" />
@@ -1329,6 +1554,7 @@ def write_home(arches: list[dict], recent: list[dict], cache: dict, features: di
                   <span class="hub-sub">{html.escape(color)}</span>
                 </div>
               </a>
+              {buy}
             </div>"""
 
     sections = []
@@ -1352,8 +1578,9 @@ def write_home(arches: list[dict], recent: list[dict], cache: dict, features: di
     rec_items = []
     for row in recent[:100]:
         color = uadb.color_class((row.get("color") or ""))
+        buy = uadb.buy_deck_button(row.get("buy_url") or "", "TCGplayer")
         rec_items.append(
-            f"""            <li>
+            f"""            <li class="recent-row">
               <a class="recent-item {html.escape(color)}" href="{html.escape(row['href'])}">
                 <img class="recent-leader" src="{html.escape(row['img'])}" alt="{html.escape(row['name'])}" />
                 <div class="recent-copy">
@@ -1362,6 +1589,7 @@ def write_home(arches: list[dict], recent: list[dict], cache: dict, features: di
                 </div>
                 <div class="when">{html.escape(row.get('when') or '')}</div>
               </a>
+              {buy}
             </li>"""
         )
     best = best_in_format_card(arches, features, cache)
@@ -1400,7 +1628,7 @@ def write_home(arches: list[dict], recent: list[dict], cache: dict, features: di
               </svg>
             </span>
             <span class="home-big-title">Characters</span>
-            <span class="home-big-note">Top 20 raid leaders right now</span>
+            <span class="home-big-note">Top 20 Raiders right now</span>
           </a>
           <a class="home-big home-big-shop" href="/shop.html">
             <span class="home-big-icon" aria-hidden="true">
@@ -1428,7 +1656,7 @@ def write_home(arches: list[dict], recent: list[dict], cache: dict, features: di
             <p class="home-leaders-kicker">The roster</p>
             <div class="home-leaders-intro-row">
               <div>
-                <h3>Raid leaders</h3>
+                <h3>Raiders</h3>
                 <p>The 20 characters current Standard lists are built around. Click a picture for that character and color. Every list on the page plays them.</p>
               </div>
               <a class="home-leaders-search-link" href="/characters.html">Full roster →</a>
@@ -1475,13 +1703,16 @@ def write_characters_index(arches: list[dict], features: dict, cache: dict) -> N
             if arch.get("meta_share"):
                 meta_bits.append(f"{arch['meta_share']*100:.1f}% meta")
             tiles.append(
-                f"""          <a class="leader-tile {html.escape(color)}" href="/{html.escape(arch['page'])}">
+                f"""          <div class="leader-tile-wrap">
+            <a class="leader-tile {html.escape(color)}" href="/{html.escape(arch['page'])}">
               <img src="{html.escape(img)}" alt="{html.escape(arch['full'])}" />
               <div>
                 <div class="name">{html.escape(arch['name'])}</div>
                 <div class="meta">{html.escape(" · ".join(b for b in meta_bits if b))}</div>
               </div>
-            </a>"""
+            </a>
+            {uadb.buy_deck_button(arch.get("buy_url") or "", "TCGplayer")}
+          </div>"""
             )
         sections.append(
             f"""        <section class="home-ip">
@@ -1492,11 +1723,11 @@ def write_characters_index(arches: list[dict], features: dict, cache: dict) -> N
         </section>"""
         )
     body = f"""        <div class="crumb"><a href="/">Home</a> / Characters</div>
-        <h2>Raid leaders</h2>
-          <p>The 20 characters current Standard lists are built around. Search any character for every 50 that plays them.</p>
+        <h2>Raiders</h2>
+          <p>The 20 characters current Standard lists are built around. Search a character or title for every 50 that plays them.</p>
 {char_search_html()}
 {chr(10).join(sections)}"""
-    page = uadb.page_chrome("Union Arena characters", "Top raid leaders and a search for every Union Arena character on a public 50.", "color-red", body, "characters")
+    page = uadb.page_chrome("Union Arena characters", "Top Raiders and a search for every Union Arena character or title on a public 50.", "color-red", body, "characters")
     (uadb.ROOT / "characters.html").write_text(page)
 
 
@@ -1862,10 +2093,12 @@ def main() -> None:
         uadb.log("combo-hub", arch["key"], "lists", len(arch.get("lists") or []), "feature", feat.get("id"))
 
     recent.sort(key=lambda r: r.get("when") or "0000", reverse=True)
-    home_roster = pick_home_raid_leaders(combo_arches, cache, features)
+    prices = uadb.load_tcgplayer_prices()
+    home_roster = pick_home_raid_leaders(combo_arches, cache, features, prices=prices)
     search = build_character_search(published, combo_arches, cache, features)
-    uadb.save_json("data/character-search.json", {"characters": search})
-    uadb.log("home raid leaders", len(home_roster), "search characters", len(search))
+    series = build_series_search(published, combo_arches, cache, features)
+    uadb.save_json("data/character-search.json", {"characters": search, "series": series})
+    uadb.log("home raid leaders", len(home_roster), "search characters", len(search), "titles", len(series))
     write_home(home_roster, recent, cache, features)
     write_characters_index(home_roster, features, cache)
     write_format(unique_arches([a for a in arches if not a.get("from_color")]))
