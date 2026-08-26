@@ -6,14 +6,51 @@ from __future__ import annotations
 import html
 import json
 import re
-from collections import defaultdict
-from datetime import date
+from collections import Counter, defaultdict
 from pathlib import Path
 
 import uadb
 
 COLOR_ONLY = {"purple", "red", "yellow", "green", "blue", "black"}
 COLOR_MARK = re.compile(r"【\s*(?:PURPLE|RED|YELLOW|GREEN|BLUE|BLACK)\s*】", re.I)
+MIN_FACE_COST = 4
+MIN_HOME_LISTS = 2
+SERIES_ALIASES = {
+    "100 girlfriends": "100 Girlfriends",
+    "attack on titan": "Attack On Titan",
+    "black clover": "Black Clover",
+    "bleach": "Bleach",
+    "bleach thousand year blood war": "Bleach",
+    "chainsaw man": "Chainsaw Man",
+    "code geass": "Code Geass",
+    "code geass lelouch of the rebellion": "Code Geass",
+    "demon slayer": "Demon Slayer",
+    "demon slayer kimetsu no yaiba": "Demon Slayer",
+    "evangelion": "Evangelion",
+    "evangelion new theatrical edition": "Evangelion",
+    "fullmetal alchemist": "Fullmetal Alchemist",
+    "goddess of victory nikke": "Nikke",
+    "hunter x hunter": "Hunter x Hunter",
+    "inuyasha": "Inuyasha",
+    "jujutsu kaisen": "Jujutsu Kaisen",
+    "kagurabachi": "Kagurabachi",
+    "kaiju no 8": "Kaiju No. 8",
+    "my hero academia": "My Hero Academia",
+    "my hero acadamia": "My Hero Academia",
+    "nikke": "Nikke",
+    "one punch man": "One Punch Man",
+    "re zero": "Re:Zero",
+    "re zero starting life in another world": "Re:Zero",
+    "rurouni kenshin": "Rurouni Kenshin",
+    "sakamoto days": "Sakamoto Days",
+    "solo leveling": "Solo Leveling",
+    "sword art online": "Sword Art Online",
+    "that time i got reincarnated as a slime": "That Time I Got Reincarnated As A Slime",
+    "the 100 girlfriends who really really really really really love you": "100 Girlfriends",
+    "tokyo ghoul": "Tokyo Ghoul",
+    "yu yu hakusho": "Yu Yu Hakusho",
+    "yu yu hakusho ghost files": "Yu Yu Hakusho",
+}
 
 
 def load_cache() -> dict:
@@ -282,6 +319,115 @@ def strip_color_marks(s: str) -> str:
     return s.strip(" ·-")
 
 
+def card_cost(meta: dict) -> int | None:
+    raw = meta.get("cost")
+    if raw is None or raw == "":
+        return None
+    try:
+        return int(float(raw))
+    except (TypeError, ValueError):
+        return None
+
+
+def card_color(meta: dict) -> str:
+    return (meta.get("color") or "").split(";")[0].split("/")[0].strip().lower()
+
+
+def is_character_card(meta: dict, item: dict | None = None) -> bool:
+    cat = (meta.get("category") or (item or {}).get("group") or "").lower()
+    return "character" in cat
+
+
+def series_name(title: str) -> str:
+    pretty = pretty_anime(title)
+    for raw in (pretty, title):
+        key = re.sub(r"[^a-z0-9]+", " ", (raw or "").lower()).strip()
+        if key in SERIES_ALIASES:
+            return SERIES_ALIASES[key]
+    return pretty or title or "Other"
+
+
+def collector_num(cid: str) -> int:
+    m = re.search(r"-(\d{3})$", cid or "")
+    return int(m.group(1)) if m else 0
+
+
+def namesake_copies(items: list[dict], character: str, color: str, cache: dict) -> int:
+    want = norm_name(character)
+    total = 0
+    for it in items:
+        meta = cache.get(it.get("id") or "") or {}
+        if not is_character_card(meta, it):
+            continue
+        if card_color(meta) != color:
+            continue
+        name = card_character(meta.get("name") or it.get("name") or "")
+        if norm_name(name) != want:
+            continue
+        total += int(it.get("count") or 0)
+    return total
+
+
+def list_has_character_color(items: list[dict], character: str, color: str, cache: dict) -> bool:
+    return namesake_copies(items, character, color, cache) > 0
+
+
+def four_cost_combos(items: list[dict], cache: dict) -> list[tuple[str, str, str, dict, str]]:
+    """Unique (character, color) pairs that have a 4+ cost character in this list."""
+    seen: set[tuple[str, str]] = set()
+    out = []
+    for it in items:
+        cid = it.get("id") or ""
+        meta = cache.get(cid) or {}
+        if not is_character_card(meta, it):
+            continue
+        cost = card_cost(meta)
+        if cost is None or cost < MIN_FACE_COST:
+            continue
+        color = card_color(meta)
+        if not color:
+            continue
+        name = card_character(meta.get("name") or it.get("name") or "")
+        if not name or norm_name(name) in COLOR_ONLY:
+            continue
+        pair = (norm_name(name), color)
+        if pair in seen:
+            continue
+        seen.add(pair)
+        out.append((name, color, series_name(meta.get("title") or ""), meta, cid))
+    return out
+
+
+def pick_combo_face(entries: list[dict], character: str, color: str, cache: dict) -> dict:
+    best = None
+    best_key = None
+    want = norm_name(character)
+    for entry in entries:
+        for it in entry.get("items") or []:
+            cid = it.get("id") or ""
+            meta = cache.get(cid) or {}
+            if not is_character_card(meta, it):
+                continue
+            if card_color(meta) != color:
+                continue
+            name = card_character(meta.get("name") or it.get("name") or "")
+            if norm_name(name) != want:
+                continue
+            cost = card_cost(meta)
+            if cost is None or cost < MIN_FACE_COST:
+                continue
+            key = (cost, 1 if "BT/" in cid else 0, 0 if cid.startswith("UEPR") else 1, collector_num(cid), cid)
+            if best_key is None or key > best_key:
+                best_key = key
+                best = {
+                    "id": cid,
+                    "name": meta.get("name") or name,
+                    "meta": meta,
+                    "character": name,
+                }
+    return best or {}
+
+
 def pick_feature(items: list[dict], cache: dict, prefer_name: str | None = None) -> dict:
     def char_of(it: dict) -> str:
         meta = cache.get(it.get("id") or "") or {}
@@ -315,7 +461,14 @@ def pick_feature(items: list[dict], cache: dict, prefer_name: str | None = None)
         return {"id": "", "name": prefer_name or "", "meta": {}, "character": prefer_name or ""}
     best = max(totals, key=lambda n: (totals[n], len(n)))
     cands = by_name[best]
-    cands.sort(key=lambda row: _feature_score(row[0]["id"], row[1]), reverse=True)
+    cands.sort(
+        key=lambda row: (
+            (card_cost(row[1]) or -1) >= MIN_FACE_COST,
+            card_cost(row[1]) or -1,
+            *_feature_score(row[0]["id"], row[1]),
+        ),
+        reverse=True,
+    )
     it, meta = cands[0]
     return {
         "id": it["id"],
@@ -343,7 +496,17 @@ def face_card(character: str, title: str, cache: dict) -> dict:
         cands.append((cid, meta, exact))
     if not cands:
         return {}
-    cands.sort(key=lambda row: (row[2], *_feature_score(row[0], row[1])), reverse=True)
+    costly = [row for row in cands if (card_cost(row[1]) or -1) >= MIN_FACE_COST]
+    if costly:
+        cands = costly
+    cands.sort(
+        key=lambda row: (
+            row[2],
+            card_cost(row[1]) or -1,
+            *_feature_score(row[0], row[1]),
+        ),
+        reverse=True,
+    )
     cid, meta, _exact = cands[0]
     return {"id": cid, "name": meta.get("name") or cid, "meta": meta, "character": character}
 
@@ -385,6 +548,141 @@ def unique_arches(arches: list[dict]) -> list[dict]:
     rank = {a["key"]: i for i, a in enumerate(arches)}
     picked.sort(key=lambda a: rank.get(a["key"], 10_000))
     return picked
+
+
+def build_character_color_hubs(
+    published: list[dict],
+    cache: dict,
+    source_arches: list[dict],
+) -> tuple[list[dict], dict]:
+    groups: dict[tuple[str, str], list[dict]] = defaultdict(list)
+    names: dict[tuple[str, str], str] = {}
+    titles: dict[tuple[str, str], Counter] = defaultdict(Counter)
+    for entry in published:
+        for name, color, title, _meta, _cid in four_cost_combos(entry.get("items") or [], cache):
+            pair = (norm_name(name), color)
+            names[pair] = name
+            if title:
+                titles[pair][title] += 1
+            groups[pair].append(entry)
+
+    combo_keys = set(groups)
+    groups = defaultdict(list)
+    seen_href: dict[tuple[str, str], set[str]] = defaultdict(set)
+    for entry in published:
+        items = entry.get("items") or []
+        href = entry.get("href") or entry.get("slug") or ""
+        found = set()
+        for it in items:
+            meta = cache.get(it.get("id") or "") or {}
+            if not is_character_card(meta, it):
+                continue
+            color = card_color(meta)
+            name = card_character(meta.get("name") or it.get("name") or "")
+            pair = (norm_name(name), color)
+            if pair not in combo_keys:
+                continue
+            found.add(pair)
+        for pair in found:
+            if href and href in seen_href[pair]:
+                continue
+            if href:
+                seen_href[pair].add(href)
+            groups[pair].append(entry)
+
+    by_name: dict[str, list[tuple[str, list[dict]]]] = defaultdict(list)
+    for (nkey, color), entries in groups.items():
+        by_name[nkey].append((color, entries))
+
+    meta_by_name: dict[str, list[dict]] = defaultdict(list)
+    for arch in source_arches:
+        if arch.get("from_color"):
+            continue
+        meta_by_name[norm_name(arch.get("name") or "")].append(arch)
+
+    hubs = []
+    features = {}
+    used_keys = set()
+    for nkey, color_rows in sorted(by_name.items()):
+        color_rows.sort(key=lambda row: (-len(row[1]), row[0]))
+        multi = len(color_rows) > 1
+        display = names.get((nkey, color_rows[0][0]), color_rows[0][0])
+        for i, (color, entries) in enumerate(color_rows):
+            display = names.get((nkey, color), display)
+            title_counts = titles.get((nkey, color)) or Counter()
+            title = title_counts.most_common(1)[0][0] if title_counts else ""
+            face = pick_combo_face(entries, display, color, cache)
+            if not face.get("id"):
+                continue
+            if not title:
+                title = series_name((face.get("meta") or {}).get("title") or "")
+            base = uadb.slugify(display)
+            key = base if not (multi and i) else f"{base}-{color}"
+            if key in used_keys:
+                key = f"{base}-{color}"
+            if key in used_keys:
+                key = f"{base}-{color}-{uadb.slugify(title)}"
+            used_keys.add(key)
+            entries = sorted(
+                entries,
+                key=lambda e: (e.get("date") or "0000", e.get("slug") or ""),
+                reverse=True,
+            )
+            cont = [e for e in entries if e.get("kind") == "contender" and list_has_character_color(e.get("items") or [], display, color, cache)]
+            if cont:
+                sample = cont[0]
+            else:
+                sample = max(
+                    entries,
+                    key=lambda e: (
+                        namesake_copies(e.get("items") or [], display, color, cache),
+                        e.get("date") or "0000",
+                    ),
+                )
+            sample_items = sample.get("items") or []
+            srcs = meta_by_name.get(nkey) or []
+            same = [a for a in srcs if card_color({"color": a.get("color") or ""}) == color]
+            src = (same or srcs or [None])[0]
+            color_label = color.title()
+            full = f"{title} - {display}" if title and norm_name(title) != nkey else display
+            arch = {
+                "id": key,
+                "key": key,
+                "name": display,
+                "full": full,
+                "from_color": False,
+                "from_combo": True,
+                "title": title,
+                "color": (face.get("meta") or {}).get("color") or color_label,
+                "page": f"decklists/{key}.html",
+                "dir": f"decklists/{key}",
+                "tier": (src or {}).get("tier") or "",
+                "style": (src or {}).get("style") or "",
+                "meta_share": float((src or {}).get("meta_share") or 0),
+                "updated": (src or {}).get("updated") or "",
+                "strengths": list((src or {}).get("strengths") or []),
+                "weaknesses": list((src or {}).get("weaknesses") or []),
+                "decklist": {},
+                "lists": entries,
+                "cons_items": sample_items,
+                "sample_label": "Consensus list" if sample.get("kind") == "contender" else "Featured list",
+                "combo_blurb": (
+                    f"Every list on this page plays {display} in {color_label}. "
+                    f"{title or display} archetype, {len(entries)} public 50-card lists."
+                ),
+                "buy_url": uadb.tcgplayer_mass_entry_url(sample_items, cache),
+            }
+            hubs.append(arch)
+            features[key] = face
+    hubs.sort(
+        key=lambda a: (
+            (a.get("title") or "zzz").lower(),
+            -len(a.get("lists") or []),
+            a["name"].lower(),
+            (a.get("color") or "").lower(),
+        )
+    )
+    return hubs, features
 
 
 def pretty_anime(name: str) -> str:
@@ -584,6 +882,8 @@ def pretty_blurb(s: str) -> str:
 
 
 def take_text(arch: dict) -> str:
+    if arch.get("combo_blurb"):
+        return arch["combo_blurb"]
     bits = []
     if arch.get("style"):
         style = arch["style"].lower()
@@ -672,7 +972,7 @@ def write_hub(arch: dict, lists: list[dict], items: list[dict], cache: dict, fea
     effect = meta.get("effect") or meta.get("trigger") or ""
     rows = []
     for entry in lists:
-        href = f"/{arch['dir']}/{entry['slug']}.html"
+        href = entry.get("href") or f"/{arch['dir']}/{entry['slug']}.html"
         right = entry.get("date") or entry.get("kind") or "View"
         copy_btn = uadb.copy_button(entry.get("sim_text") or "")
         buy_btn = uadb.buy_deck_button(entry.get("buy_url") or "")
@@ -714,13 +1014,13 @@ def write_hub(arch: dict, lists: list[dict], items: list[dict], cache: dict, fea
           </div>
           <p class="leader-take">{html.escape(take_text(arch))}</p>
         </section>
-{render_text_deck(items, cache, "Consensus list")}
+{render_text_deck(items, cache, arch.get("sample_label") or "Consensus list")}
         <section class="deck-index" style="margin-top:22px">
           <div class="section-title">
             <h3>Decklists</h3>
             <div class="muted">{len(lists)} lists</div>
           </div>
-          <p class="muted">Newest public lists first. Each row opens a separate 50-card list.</p>
+          <p class="muted">{html.escape(arch.get("combo_blurb") or "Newest public lists first. Each row opens a separate 50-card list.")}</p>
 {filters}          <ul class="list" aria-label="Decklists">
 {chr(10).join(rows)}
           </ul>
@@ -737,7 +1037,7 @@ def best_in_format_card(arches: list[dict], features: dict, cache: dict) -> dict
     top = ranked[0] if ranked else (arches[0] if arches else None)
     if not top:
         return {}
-    items = flatten_contender(top, cache)
+    items = top.get("cons_items") or flatten_contender(top, cache)
     prefer = norm_name(top.get("name") or "")
     scored = []
     for it in items:
@@ -748,12 +1048,11 @@ def best_in_format_card(arches: list[dict], features: dict, cache: dict) -> dict
             continue
         meta = cache.get(cid) or {}
         copies = int(it.get("count") or 0)
-        try:
-            cost = int(float(meta.get("cost") or 0))
-        except (TypeError, ValueError):
-            cost = 0
+        cost = card_cost(meta) or 0
         name = norm_name(meta.get("name") or it.get("name") or "")
         cat = (meta.get("category") or it.get("group") or "").lower()
+        if "character" in cat and cost < MIN_FACE_COST:
+            continue
         score = copies * 10 + cost
         if prefer and prefer in name:
             score += 50
@@ -785,18 +1084,38 @@ def best_in_format_card(arches: list[dict], features: dict, cache: dict) -> dict
 
 
 def write_home(arches: list[dict], recent: list[dict], cache: dict, features: dict) -> None:
-    cards = []
-    for arch in arches:
+    def tile_html(arch: dict) -> str:
         f = features.get(arch["key"]) or {}
         img = uadb.card_image_url(f.get("id") or "", cache) if f.get("id") else ""
-        cards.append(
-            f"""            <div class="leader-card">
+        color = ((f.get("meta") or {}).get("color") or arch.get("color") or "").strip()
+        return f"""            <div class="leader-card">
               <a class="leader-card-link" href="/{html.escape(arch['page'])}">
                 <img src="{html.escape(img)}" alt="{html.escape(arch['full'])} character card" />
-                <div class="caption">{html.escape(arch['name'])}</div>
+                <div class="caption">
+                  <strong>{html.escape(arch['name'])}</strong>
+                  <span class="hub-sub">{html.escape(color)}</span>
+                </div>
               </a>
               {uadb.buy_deck_button(arch.get('buy_url') or '', 'Buy 50 on TCGplayer')}
             </div>"""
+
+    sections = []
+    grouped: dict[str, list[dict]] = defaultdict(list)
+    order = []
+    for arch in arches:
+        title = arch.get("title") or "Other"
+        if title not in grouped:
+            order.append(title)
+        grouped[title].append(arch)
+    for title in order:
+        tiles = [tile_html(arch) for arch in grouped[title]]
+        sections.append(
+            f"""            <section class="home-ip">
+              <h2 class="home-ip-title">{html.escape(title)}</h2>
+              <div class="leader-cards home-cards" aria-label="{html.escape(title)} characters">
+{chr(10).join(tiles)}
+              </div>
+            </section>"""
         )
     rec_items = []
     for row in recent[:100]:
@@ -851,7 +1170,7 @@ def write_home(arches: list[dict], recent: list[dict], cache: dict, features: di
               </svg>
             </span>
             <span class="home-big-title">Characters</span>
-            <span class="home-big-note">Every character picture on this site</span>
+            <span class="home-big-note">4-energy and up, grouped by title</span>
           </a>
           <a class="home-big home-big-discord" href="{html.escape(uadb.DISCORD)}" target="_blank" rel="noopener">
             <span class="home-big-icon" aria-hidden="true">
@@ -870,15 +1189,13 @@ def write_home(arches: list[dict], recent: list[dict], cache: dict, features: di
             <div class="home-leaders-intro-row">
               <div>
                 <h3>Characters</h3>
-                <p>Pick a picture. Each page has lists for that character. Buy 50 opens TCGplayer.</p>
+                <p>Characters that cost 4 energy or more, grouped by title. Click a picture for that character and color. Every list on the page plays that character.</p>
               </div>
               <a href="/characters.html">All character pages →</a>
             </div>
           </div>
           <div class="card home-panel home-leaders-grid">
-            <div class="leader-cards home-cards" aria-label="All character card pictures">
-{chr(10).join(cards)}
-            </div>
+{chr(10).join(sections)}
           </div>
         </section>
 
@@ -897,30 +1214,49 @@ def write_home(arches: list[dict], recent: list[dict], cache: dict, features: di
 
 
 def write_characters_index(arches: list[dict], features: dict, cache: dict) -> None:
-    tiles = []
+    grouped: dict[str, list[dict]] = defaultdict(list)
+    order = []
     for arch in arches:
-        f = features.get(arch["key"]) or {}
-        img = uadb.card_image_url(f.get("id") or "", cache) if f.get("id") else ""
-        color = uadb.color_class((f.get("meta") or {}).get("color"))
-        share = f"{arch['meta_share']*100:.1f}% meta" if arch.get("meta_share") else ""
-        tiles.append(
-            f"""          <div class="leader-tile-wrap {html.escape(color)}">
+        title = arch.get("title") or "Other"
+        if title not in grouped:
+            order.append(title)
+        grouped[title].append(arch)
+    sections = []
+    for title in order:
+        tiles = []
+        for arch in grouped[title]:
+            f = features.get(arch["key"]) or {}
+            img = uadb.card_image_url(f.get("id") or "", cache) if f.get("id") else ""
+            color = uadb.color_class((f.get("meta") or {}).get("color"))
+            color_label = ((f.get("meta") or {}).get("color") or arch.get("color") or "").strip()
+            n_lists = len(arch.get("lists") or [])
+            meta_bits = [color_label, f"{n_lists} list" + ("" if n_lists == 1 else "s")]
+            if arch.get("meta_share"):
+                meta_bits.append(f"{arch['meta_share']*100:.1f}% meta")
+            tiles.append(
+                f"""          <div class="leader-tile-wrap {html.escape(color)}">
             <a class="leader-tile {html.escape(color)}" href="/{html.escape(arch['page'])}">
               <img src="{html.escape(img)}" alt="{html.escape(arch['full'])}" />
               <div>
                 <div class="name">{html.escape(arch['name'])}</div>
-                <div class="meta">{html.escape(arch['title'])} · {html.escape(share)}</div>
+                <div class="meta">{html.escape(" · ".join(b for b in meta_bits if b))}</div>
               </div>
             </a>
             {uadb.buy_deck_button(arch.get('buy_url') or '', 'Buy 50 on TCGplayer')}
           </div>"""
+            )
+        sections.append(
+            f"""        <section class="home-ip">
+          <h2 class="home-ip-title">{html.escape(title)}</h2>
+          <div class="leader-grid">
+{chr(10).join(tiles)}
+          </div>
+        </section>"""
         )
     body = f"""        <div class="crumb"><a href="/">Home</a> / Characters</div>
         <h2>Characters</h2>
-          <p>Standard Union Arena lists grouped by the character people actually sleeve. Same grid as the homepage, with the title next to the picture. Buy 50 opens that character's list on TCGplayer.</p>
-        <div class="leader-grid">
-{chr(10).join(tiles)}
-        </div>"""
+          <p>Standard Union Arena lists grouped by title, then by the 4-energy-or-higher character people actually sleeve. Click a character for that color combo. Every list on the page plays that character.</p>
+{chr(10).join(sections)}"""
     page = uadb.page_chrome("Union Arena characters", "Every character page on Union Arena Decklists.", "color-red", body, "characters")
     (uadb.ROOT / "characters.html").write_text(page)
 
@@ -1119,6 +1455,7 @@ def main() -> None:
     uadb.log("generate archetypes", len(arches), "cards in cache", len(cache))
     features = {}
     recent = []
+    published = []
     sitemap = ["", "characters.html", "format.html", "privacy.html"]
     index = {}
     for arch in arches:
@@ -1144,9 +1481,12 @@ def main() -> None:
                 "buy_url": uadb.tcgplayer_mass_entry_url(items, cache),
                 "img": uadb.card_image_url(feature.get("id") or "", cache),
                 "color": (feature.get("meta") or {}).get("color") or "",
+                "href": f"/{arch['dir']}/contender-consensus.html",
+                "items": items,
             }
             write_list_page(arch, cons_entry, items, cache, feature)
             lists.append(cons_entry)
+            published.append(cons_entry)
         for comm in comm_rows:
             counts = comm.get("counts") or {}
             if sum(counts.values()) < uadb.MIN_CARDS:
@@ -1171,8 +1511,11 @@ def main() -> None:
                 "img": uadb.card_image_url(c_feat.get("id") or "", cache),
                 "color": (c_feat.get("meta") or {}).get("color") or "",
             }
+            comm_entry["href"] = f"/{arch['dir']}/{comm_entry['slug']}.html"
+            comm_entry["items"] = c_items
             write_list_page(arch, comm_entry, c_items, cache, c_feat)
             lists.append(comm_entry)
+            published.append(comm_entry)
         lists.sort(key=lambda e: e.get("date") or "0000", reverse=True)
         write_hub(arch, lists, items, cache, feature)
         sitemap.append(arch["page"])
@@ -1180,7 +1523,7 @@ def main() -> None:
             sitemap.append(f"{arch['dir']}/{entry['slug']}.html")
             recent.append(
                 {
-                    "href": f"/{arch['dir']}/{entry['slug']}.html",
+                    "href": entry.get("href") or f"/{arch['dir']}/{entry['slug']}.html",
                     "img": entry.get("img") or uadb.card_image_url(feature.get("id") or "", cache),
                     "name": entry.get("title") or arch["name"],
                     "who": entry.get("title") or arch["name"],
@@ -1196,11 +1539,23 @@ def main() -> None:
         ]
         uadb.log("hub", arch["key"], "lists", len(lists), "feature", feature.get("id"))
 
+    combo_arches, combo_features = build_character_color_hubs(published, cache, arches)
+    features.update(combo_features)
+    for arch in combo_arches:
+        feat = features.get(arch["key"]) or {}
+        write_hub(arch, arch.get("lists") or [], arch.get("cons_items") or [], cache, feat)
+        if arch["page"] not in sitemap:
+            sitemap.append(arch["page"])
+        index[arch["key"]] = [
+            {"slug": e["slug"], "kind": e["kind"], "title": e["title"], "date": e.get("date")} for e in (arch.get("lists") or [])
+        ]
+        uadb.log("combo-hub", arch["key"], "lists", len(arch.get("lists") or []), "feature", feat.get("id"))
+
     recent.sort(key=lambda r: r.get("when") or "0000", reverse=True)
-    roster = unique_arches(arches)
-    write_home(roster, recent, cache, features)
-    write_characters_index(roster, features, cache)
-    write_format(roster)
+    home_roster = [a for a in combo_arches if len(a.get("lists") or []) >= MIN_HOME_LISTS]
+    write_home(home_roster, recent, cache, features)
+    write_characters_index(home_roster, features, cache)
+    write_format(unique_arches([a for a in arches if not a.get("from_color")]))
     write_privacy()
     write_sitemap(sitemap)
     write_404()

@@ -23,7 +23,7 @@ DISCORD = "https://discord.gg/aY9RfB662"
 BRAND = "Union Arena Decklists"
 SUBTITLE = "50-card lists for Standard"
 LOGO = "UA"
-CSS_VER = "ua9"
+CSS_VER = "ua10"
 JS_VER = "ua2"
 FONT_LINKS = """  <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -38,7 +38,7 @@ RESTRICTED_CARDS = (
 RESTRICTED_ONE = set(RESTRICTED_CARDS)
 STAMP_RE = re.compile(
     r"\s*\((?:"
-    r"winner|box topper foil|ur|sr|r|c\*|alt\s*\d+"
+    r"winner|box topper foil|ur\*|sr\*|r\*|ur|sr|r|c\*|alt\s*\d+"
     r"|release event(?: participation| participant| winner)?"
     r"|super pre-release event participation"
     r"|regionals[^)]*"
