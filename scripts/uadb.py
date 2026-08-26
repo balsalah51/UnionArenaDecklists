@@ -25,7 +25,7 @@ DISCORD = "https://discord.gg/aY9RfB662"
 BRAND = "Union Arena Decklists"
 SUBTITLE = "50-card lists for Standard"
 LOGO = "UA"
-CSS_VER = "ua15"
+CSS_VER = "ua16"
 JS_VER = "ua6"
 TCGPLAYER_CATEGORY_ID = 81
 TCGPLAYER_PRICES_FILE = "data/tcgplayer-prices.json"
@@ -110,8 +110,8 @@ POPUP_JS = r"""
         if (!pop || !title) return;
         resetPop(pop);
         var tr = title.getBoundingClientRect();
-        var width = pop.offsetWidth || 220;
-        var height = pop.offsetHeight || 308;
+        var width = pop.offsetWidth || 340;
+        var height = pop.offsetHeight || 475;
         var left = tr.left;
         var top = tr.top - height - 10;
         if (left + width > window.innerWidth - 12) left = window.innerWidth - width - 12;

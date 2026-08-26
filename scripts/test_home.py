@@ -383,6 +383,12 @@ class RaidTests(unittest.TestCase):
         self.assertIn("recent-row", html)
         self.assertIn(">TCGplayer<", html)
 
+    def test_card_pop_is_large(self):
+        css = (ROOT / "css" / "site.css").read_text(encoding="utf-8")
+        self.assertIn("width:340px", css)
+        self.assertIn(".text-line .card-pop{", css)
+        self.assertIn("|| 340", (ROOT / "scripts" / "uadb.py").read_text(encoding="utf-8"))
+
     def test_site_js_parses(self):
         import subprocess
 

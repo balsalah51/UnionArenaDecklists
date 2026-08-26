@@ -341,11 +341,11 @@ footer a{color:var(--accent);font-weight:700;text-decoration:none}
 }
 .text-line .card-id{grid-column:3;grid-row:1;font-size:12px;margin-left:0;min-width:0}
 .text-line .card-pop{
-  position:absolute;left:48px;bottom:calc(100% + 8px);z-index:80;
+  position:absolute;left:48px;bottom:calc(100% + 8px);z-index:200;
   grid-column:1;grid-row:1;
-  width:220px;max-width:min(220px,72vw);height:auto;max-height:min(308px,70vh);border-radius:10px;background:#fff;
-  display:block;
-  box-shadow:0 10px 24px rgba(16,22,26,0.22);border:1px solid rgba(0,0,0,0.08);
+  width:340px;max-width:min(340px,88vw);height:auto;max-height:min(475px,82vh);border-radius:12px;background:#fff;
+  display:block;object-fit:contain;
+  box-shadow:0 14px 32px rgba(16,22,26,0.28);border:1px solid rgba(0,0,0,0.08);
   visibility:hidden;opacity:0;pointer-events:none;transform:translateY(4px);
   transition:opacity .12s ease, transform .12s ease, visibility .12s
 }
