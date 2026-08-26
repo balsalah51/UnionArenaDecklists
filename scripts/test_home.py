@@ -71,7 +71,108 @@ class RaidTests(unittest.TestCase):
             )
         picked = pick_home_raid_leaders(combo, cache, feats, meta_priority=meta)
         self.assertEqual(len(picked), 20)
+        self.assertEqual(len({a["key"] for a in picked}), 20)
         self.assertLessEqual(max(sum(1 for a in picked if a["title"] == t) for t in {a["title"] for a in picked}), 3)
+
+    def test_pick_one_raider_per_archetype_by_price(self):
+        trio = [
+            {"id": "csm-d", "group": "Characters", "name": "Denji", "count": 4},
+            {"id": "csm-c", "group": "Characters", "name": "Chainsaw Man", "count": 4},
+            {"id": "csm-p", "group": "Characters", "name": "Power", "count": 4},
+        ]
+        csm_lists = [{"date": "2026-08-20", "items": trio}]
+        jin_lists = [{"date": "2026-08-20", "items": [{"id": "sl-j", "group": "Characters", "name": "Sung Jinwoo", "count": 4}]}]
+        cha_lists = [{"date": "2026-08-20", "items": [{"id": "sl-c", "group": "Characters", "name": "Cha Hae-In", "count": 4}]}]
+
+        def hub(key: str, name: str, title: str, cid: str, lists: list, share: float) -> dict:
+            return {
+                "key": key,
+                "name": name,
+                "title": title,
+                "page": f"decklists/{key}.html",
+                "cons_items": [{"id": cid, "group": "Characters", "name": name}],
+                "lists": lists,
+                "meta_share": share,
+            }
+
+        combo = [
+            hub("denji", "Denji", "Chainsaw Man", "csm-d", csm_lists, 0.08),
+            hub("chainsaw-man", "Chainsaw Man", "Chainsaw Man", "csm-c", csm_lists, 0.05),
+            hub("power", "Power", "Chainsaw Man", "csm-p", csm_lists, 0.03),
+            hub("sung-jinwoo", "Sung Jinwoo", "Solo Leveling", "sl-j", jin_lists, 0.07),
+            hub("cha-hae-in", "Cha Hae-In", "Solo Leveling", "sl-c", cha_lists, 0.09),
+        ]
+        cache = {
+            "csm-d": raid_card("Denji"),
+            "csm-c": raid_card("Chainsaw Man", "6"),
+            "csm-p": raid_card("Power"),
+            "sl-j": raid_card("Sung Jinwoo"),
+            "sl-c": raid_card("Cha Hae-In"),
+        }
+        feats = {
+            row["key"]: {"id": row["cons_items"][0]["id"], "meta": cache[row["cons_items"][0]["id"]]}
+            for row in combo
+        }
+        prices = {"csm-d": 12.0, "csm-c": 45.0, "csm-p": 8.0, "sl-j": 20.0, "sl-c": 6.0}
+        meta = {
+            "denji": 0.08,
+            "chainsaw man": 0.05,
+            "power": 0.03,
+            "sung jinwoo": 0.07,
+            "cha hae-in": 0.09,
+        }
+        picked = pick_home_raid_leaders(combo, cache, feats, meta_priority=meta, prices=prices)
+        names = [a["name"] for a in picked]
+        self.assertEqual(names.count("Denji") + names.count("Chainsaw Man") + names.count("Power"), 1)
+        self.assertIn("Chainsaw Man", names)
+        self.assertIn("Sung Jinwoo", names)
+        self.assertIn("Cha Hae-In", names)
+
+    def test_pick_ignores_splash_raid_partner(self):
+        jin_lists = [
+            {"date": "2026-08-20", "items": [{"id": "sl-j", "group": "Characters", "name": "Sung Jinwoo", "count": 4}]},
+            {"date": "2026-08-21", "items": [{"id": "sl-j", "group": "Characters", "name": "Sung Jinwoo", "count": 4}]},
+            {
+                "date": "2026-08-22",
+                "items": [
+                    {"id": "sl-j", "group": "Characters", "name": "Sung Jinwoo", "count": 4},
+                    {"id": "sl-c", "group": "Characters", "name": "Cha Hae-In", "count": 4},
+                ],
+            },
+        ]
+        combo = [
+            {
+                "key": "sung-jinwoo",
+                "name": "Sung Jinwoo",
+                "title": "Solo Leveling",
+                "cons_items": [{"id": "sl-j", "group": "Characters", "name": "Sung Jinwoo"}],
+                "lists": jin_lists,
+                "meta_share": 0.08,
+            },
+            {
+                "key": "cha-hae-in",
+                "name": "Cha Hae-In",
+                "title": "Solo Leveling",
+                "cons_items": [{"id": "sl-c", "group": "Characters", "name": "Cha Hae-In"}],
+                "lists": [{"date": "2026-08-20", "items": [{"id": "sl-c", "group": "Characters", "name": "Cha Hae-In", "count": 4}]}],
+                "meta_share": 0.01,
+            },
+        ]
+        cache = {"sl-j": raid_card("Sung Jinwoo"), "sl-c": raid_card("Cha Hae-In")}
+        feats = {
+            "sung-jinwoo": {"id": "sl-j", "meta": cache["sl-j"]},
+            "cha-hae-in": {"id": "sl-c", "meta": cache["sl-c"]},
+        }
+        picked = pick_home_raid_leaders(
+            combo,
+            cache,
+            feats,
+            meta_priority={"sung jinwoo": 0.08, "cha hae in": 0.01},
+            prices={"sl-j": 20.0, "sl-c": 800.0},
+        )
+        names = [a["name"] for a in picked]
+        self.assertIn("Sung Jinwoo", names)
+        self.assertIn("Cha Hae-In", names)
 
     def test_pick_skips_unnamed_support(self):
         raid_meta = raid_card("Sung Jinwoo")
@@ -246,12 +347,25 @@ class RaidTests(unittest.TestCase):
                 "title": "One Punch Man",
                 "page": "decklists/opm-saitama.html",
                 "color": "Yellow",
+                "buy_url": "https://www.tcgplayer.com/massentry?productline=Union+Arena&c=4+Saitama",
+            }
+        ]
+        recent = [
+            {
+                "href": "/decklists/opm-saitama/x.html",
+                "img": "/img/x.png",
+                "name": "Saitama",
+                "who": "One Punch Man - Saitama",
+                "meta": "Locals",
+                "when": "2026-08-20",
+                "color": "Yellow",
+                "buy_url": "https://www.tcgplayer.com/massentry?productline=Union+Arena&c=4+Saitama",
             }
         ]
         with tempfile.TemporaryDirectory() as tmp:
             root = Path(tmp)
             with patch.object(generate_site.uadb, "ROOT", root):
-                write_home(combo, [], {}, {})
+                write_home(combo, recent, {}, {})
             html = (root / "index.html").read_text(encoding="utf-8")
         self.assertIn('href="/shop.html"', html)
         self.assertIn("home-big-shop", html)
@@ -263,6 +377,11 @@ class RaidTests(unittest.TestCase):
         self.assertNotIn("Raid leaders", html)
         self.assertIn("/decklists/opm-saitama.html", html)
         self.assertIn("Saitama", html)
+        self.assertIn("buy-pill", html)
+        self.assertIn("buy-tcg", html)
+        self.assertIn("partner.tcgplayer.com", html)
+        self.assertIn("recent-row", html)
+        self.assertIn(">TCGplayer<", html)
 
     def test_site_js_parses(self):
         import subprocess

@@ -51,7 +51,7 @@ def test_buttons() -> None:
     assert uadb.tcgplayer_affiliate_url("") == ""
     assert uadb.tcgplayer_affiliate_url(wrapped) == wrapped
     html = uadb.buy_deck_button(url)
-    assert 'class="buy-tcg buy-deck"' in html
+    assert 'class="buy-tcg buy-deck buy-pill"' in html
     assert "partner.tcgplayer.com" in html
     assert 'rel="noopener sponsored"' in html
     assert 'target="_blank"' in html
@@ -82,6 +82,15 @@ def test_deck_page_buy_placement() -> None:
     assert "card-buy" in entry
 
 
+def test_median_price_lookup() -> None:
+    prices = {"UE17BT/SLG-1-022": 19.39, "UEPR/SLG-1-030": 0.85}
+    assert uadb.tcgplayer_median_price("UE17BT/SLG-1-022", prices) == 19.39
+    assert uadb.tcgplayer_median_price("UEPR/SLG-1-030", prices) == 0.85
+    assert uadb.tcgplayer_median_price("UE17BT/SLG-1-030", prices) == 0.0
+    assert uadb.tcgplayer_median_price("missing", prices) == 0.0
+    assert uadb.tcgplayer_median_price("", prices) == 0.0
+
+
 def test_iys_key_alias() -> None:
     import scrape_community
 
@@ -95,5 +104,6 @@ if __name__ == "__main__":
     test_mass_entry()
     test_buttons()
     test_deck_page_buy_placement()
+    test_median_price_lookup()
     test_iys_key_alias()
     print("ok")
