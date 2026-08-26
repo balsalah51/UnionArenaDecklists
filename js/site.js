@@ -106,11 +106,112 @@
     });
   }
 
+  function initCharSearch() {
+    var boxes = document.querySelectorAll("[data-char-search]");
+    if (!boxes.length) return;
+    var data = null;
+    var pending = [];
+    function load(done) {
+      if (data) { done(); return; }
+      pending.push(done);
+      if (pending.length > 1) return;
+      fetch("/data/character-search.json")
+        .then(function (res) { return res.json(); })
+        .then(function (json) {
+          data = json;
+          pending.forEach(function (fn) { fn(); });
+          pending = [];
+        })
+        .catch(function () {
+          pending.forEach(function (fn) { fn(); });
+          pending = [];
+        });
+    }
+    function escapeHtml(s) {
+      return String(s || "").replace(/[&<>"']/g, function (ch) {
+        return ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[ch];
+      });
+    }
+    function render(box, q) {
+      var out = box.querySelector("[data-char-results]");
+      if (!out) return;
+      q = (q || "").trim().toLowerCase();
+      if (!q) {
+        out.hidden = true;
+        out.innerHTML = "";
+        return;
+      }
+      out.hidden = false;
+      if (!data || !data.characters) {
+        out.innerHTML = "<p class=\"muted char-search-empty\">Could not load character lists.</p>";
+        return;
+      }
+      var hits = data.characters.filter(function (row) {
+        return (row.norm || "").indexOf(q) >= 0 || (row.name || "").toLowerCase().indexOf(q) >= 0;
+      });
+      hits.sort(function (a, b) {
+        var an = (a.name || "").toLowerCase();
+        var bn = (b.name || "").toLowerCase();
+        var aExact = an === q || a.norm === q ? 1 : 0;
+        var bExact = bn === q || b.norm === q ? 1 : 0;
+        if (aExact !== bExact) return bExact - aExact;
+        return (b.lists || []).length - (a.lists || []).length;
+      });
+      var tight = hits.length === 1 || (hits[0] && ((hits[0].name || "").toLowerCase() === q || hits[0].norm === q));
+      hits = hits.slice(0, tight ? 1 : 8);
+      if (!hits.length) {
+        out.innerHTML = "<p class=\"muted char-search-empty\">No character matching \"" + escapeHtml(q) + "\".</p>";
+        return;
+      }
+      out.innerHTML = hits.map(function (row) {
+        var hubs = (row.hubs || []).map(function (hub) {
+          var bits = [hub.label || row.name];
+          if (hub.color) bits.push(hub.color);
+          if (hub.n) bits.push(hub.n + (hub.n === 1 ? " list" : " lists"));
+          return "<a href=\"" + escapeHtml(hub.href) + "\">" + escapeHtml(bits.join(" · ")) + "</a>";
+        }).join("");
+        var all = row.lists || [];
+        var shown = tight ? all : all.slice(0, 24);
+        var lists = shown.map(function (list) {
+          var meta = [list.sub, list.date].filter(Boolean).join(" · ");
+          return "<li><a href=\"" + escapeHtml(list.href) + "\"><div class=\"who\">" + escapeHtml(list.title || "Decklist") + "</div>" +
+            (meta ? "<div class=\"muted meta\">" + escapeHtml(meta) + "</div>" : "") +
+            "</a></li>";
+        }).join("");
+        var more = all.length > shown.length
+          ? "<p class=\"muted char-search-empty\">" + (all.length - shown.length) + " more lists on the character page.</p>"
+          : "";
+        return "<article class=\"char-hit\">" +
+          "<h4 class=\"char-hit-name\">" + escapeHtml(row.name) + " · " + all.length + (all.length === 1 ? " list" : " lists") + "</h4>" +
+          (hubs ? "<div class=\"char-hit-hubs\">" + hubs + "</div>" : "") +
+          (lists ? "<ul class=\"char-hit-lists\">" + lists + "</ul>" : "") +
+          more +
+          "</article>";
+      }).join("");
+    }
+    boxes.forEach(function (box) {
+      if (box.dataset.bound) return;
+      box.dataset.bound = "1";
+      var input = box.querySelector("input[type=search]");
+      if (!input) return;
+      var timer = null;
+      function go() {
+        load(function () { render(box, input.value); });
+      }
+      input.addEventListener("focus", go);
+      input.addEventListener("input", function () {
+        clearTimeout(timer);
+        timer = setTimeout(go, 80);
+      });
+    });
+  }
+
   function ready() {
     ensureCopyButtons();
     initCopy();
     initFilters();
     initBuyLinks();
+    initCharSearch();
   }
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", ready);
   else ready();
