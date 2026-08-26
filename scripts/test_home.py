@@ -157,6 +157,86 @@ class RaidTests(unittest.TestCase):
         igris = next(e for e in idx if e["name"] == "Igris")
         self.assertTrue(any(h["href"] == "/decklists/sl-igris.html" for h in igris["hubs"]))
 
+    def test_series_search_index(self):
+        cache = {
+            "a-01": {
+                "name": "Sung Jinwoo",
+                "cost": "1",
+                "category": "Character",
+                "color": "Purple",
+                "title": "SOLO LEVELING",
+            },
+            "j-01": {
+                "name": "Aoi Todo",
+                "cost": "5",
+                "category": "Character",
+                "color": "Purple",
+                "title": "JUJUTSU KAISEN",
+            },
+        }
+        combo = [
+            {
+                "key": "sung-jinwoo",
+                "name": "Sung Jinwoo",
+                "title": "Solo Leveling",
+                "page": "decklists/sung-jinwoo.html",
+                "full": "Solo Leveling - Sung Jinwoo",
+                "color": "Purple",
+                "lists": [{}, {}],
+            }
+        ]
+        published = [
+            {
+                "href": "/decklists/sung-jinwoo/a.html",
+                "title": "Solo Leveling - Sung Jinwoo",
+                "subtitle": "Locals",
+                "date": "2026-08-20",
+                "items": [{"id": "a-01", "count": 4, "group": "Characters", "name": "Sung Jinwoo"}],
+            },
+            {
+                "href": "/decklists/aoi-todo/b.html",
+                "title": "Jujutsu Kaisen - Aoi Todo",
+                "subtitle": "Regionals",
+                "date": "2026-08-21",
+                "items": [{"id": "j-01", "count": 4, "group": "Characters", "name": "Aoi Todo"}],
+            },
+        ]
+        series = generate_site.build_series_search(published, combo, cache, {})
+        by_name = {e["name"]: e for e in series}
+        self.assertIn("Solo Leveling", by_name)
+        self.assertIn("Jujutsu Kaisen", by_name)
+        self.assertIn("jjk", by_name["Jujutsu Kaisen"]["aliases"])
+        self.assertIn("sl", by_name["Solo Leveling"]["aliases"])
+        self.assertEqual(by_name["Solo Leveling"]["lists"][0]["href"], "/decklists/sung-jinwoo/a.html")
+        self.assertTrue(any(h["href"] == "/decklists/sung-jinwoo.html" for h in by_name["Solo Leveling"]["hubs"]))
+
+    def test_shadow_soldiers_copy_cap(self):
+        import uadb
+
+        self.assertEqual(uadb.max_copies("UE17BT/SLG-1-030"), 12)
+        self.assertEqual(uadb.max_copies("UEPR/SLG-1-030"), 12)
+        self.assertEqual(uadb.max_copies("UE17BT/SLG-1-022"), 4)
+        parsed = uadb.parse_counts("4xUE17BT/SLG-1-022 12xUE17BT/SLG-1-030 8xUE17BT/SLG-1-018")
+        self.assertEqual(parsed.get("UE17BT/SLG-1-030"), 12)
+        self.assertEqual(parsed.get("UE17BT/SLG-1-022"), 4)
+        self.assertNotIn("UE17BT/SLG-1-018", parsed)
+        items = generate_site.legalize_items(
+            [
+                {"id": "UE17BT/SLG-1-030", "name": "Shadow Soldiers", "count": 8, "group": "Characters"},
+                {"id": "UEPR/SLG-1-030", "name": "Shadow Soldiers", "count": 4, "group": "Characters"},
+                {"id": "UE17BT/SLG-1-022", "name": "Sung Jinwoo", "count": 6, "group": "Characters"},
+            ],
+            {
+                "UE17BT/SLG-1-030": {"name": "Shadow Soldiers"},
+                "UEPR/SLG-1-030": {"name": "Shadow Soldiers"},
+                "UE17BT/SLG-1-022": {"name": "Sung Jinwoo"},
+            },
+        )
+        merged = [it for it in items if uadb.legal_number(it["id"]) == "SLG-1-030"]
+        self.assertEqual(len(merged), 1)
+        self.assertEqual(merged[0]["count"], 12)
+        self.assertEqual(next(it for it in items if it["id"] == "UE17BT/SLG-1-022")["count"], 4)
+
     def test_home_markup(self):
         combo = [
             {
@@ -179,7 +259,8 @@ class RaidTests(unittest.TestCase):
         self.assertNotIn('id="shop"', html)
         self.assertIn("char-search", html)
         self.assertIn("data-char-search", html)
-        self.assertIn("Raid leaders", html)
+        self.assertIn("Raiders", html)
+        self.assertNotIn("Raid leaders", html)
         self.assertIn("/decklists/opm-saitama.html", html)
         self.assertIn("Saitama", html)
 

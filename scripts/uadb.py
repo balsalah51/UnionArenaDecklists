@@ -24,7 +24,7 @@ BRAND = "Union Arena Decklists"
 SUBTITLE = "50-card lists for Standard"
 LOGO = "UA"
 CSS_VER = "ua14"
-JS_VER = "ua5"
+JS_VER = "ua6"
 FONT_LINKS = """  <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet" />
@@ -36,6 +36,10 @@ RESTRICTED_CARDS = (
     "UE15BT/EVA-1-063",  # Spear of Gaius
 )
 RESTRICTED_ONE = set(RESTRICTED_CARDS)
+# Shadow Soldiers (Solo Leveling) may exceed the usual 4-copy cap.
+HIGH_COPY_NUMBERS = {
+    "SLG-1-030": 12,
+}
 STAMP_RE = re.compile(
     r"\s*\((?:"
     r"winner|box topper foil|ur\*|sr\*|r\*|ur|sr|r|c\*|alt\s*\d+"
@@ -529,6 +533,9 @@ def is_restricted(cid: str) -> bool:
 def max_copies(cid: str, cap_restricted: bool = True) -> int:
     if cap_restricted and is_restricted(cid):
         return 1
+    num = legal_number(cid)
+    if num in HIGH_COPY_NUMBERS:
+        return HIGH_COPY_NUMBERS[num]
     return 4
 
 
@@ -581,7 +588,12 @@ def parse_counts(text: str) -> dict[str, int]:
         if not cid:
             continue
         counts[cid] = counts.get(cid, 0) + int(m.group(2))
-    return {cid: n for cid, n in counts.items() if 1 <= n <= 4}
+    out = {}
+    for cid, n in counts.items():
+        cap = max_copies(cid, cap_restricted=False)
+        if 1 <= n <= cap:
+            out[cid] = n
+    return out
 
 
 def list_is_complete(counts: dict[str, int]) -> bool:
