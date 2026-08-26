@@ -42,7 +42,7 @@ SET_PREFIX = {
     "CGH": "code-geass",
     "OPM": "one-punch-man",
     "RLY": "the-100-girlfriends",
-    "IYS": "inuyasha",
+    "IYS": "iys",
     "KMY": "demon-slayer",
     "HTR": "hunter-x-hunter",
     "AOT": "attack-on-titan",
@@ -173,6 +173,16 @@ def archetypes() -> list[dict]:
 COLOR_ONLY = {"purple", "red", "yellow", "green", "blue", "black"}
 
 
+def canonical_key(key: str, title: str = "") -> str:
+    title = (title or "").strip()
+    m = re.match(r"(?i)iys\s*-\s*(.+)$", title)
+    if m:
+        return uadb.slugify(f"iys-{m.group(1)}")
+    if (key or "").startswith("inuyasha-"):
+        return "iys-" + key.split("-", 1)[1]
+    return key
+
+
 def key_from_counts(counts: dict[str, int], cache: dict, set_hint: str = "") -> str | None:
     prefixes: dict[str, int] = {}
     names: dict[str, int] = {}
@@ -279,7 +289,7 @@ def item_from_counts(
 ) -> dict:
     raw = " ".join(f"{n}x{cid}" for cid, n in sorted(counts.items()))
     return {
-        "key": key,
+        "key": canonical_key(key, title),
         "kind": kind,
         "slug": slug[:70],
         "player": player,

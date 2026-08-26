@@ -1486,13 +1486,14 @@ def load_community(cache: dict, arches: list[dict]) -> list[dict]:
     global _COMMUNITY
     if _COMMUNITY is not None:
         return _COMMUNITY
-    from scrape_community import key_from_counts
+    from scrape_community import canonical_key, key_from_counts
 
     have = {a["key"] for a in arches}
     rows = uadb.load_json("data/community-decks.json", [])
     mash = re.compile(r"(opm|bcv|kj8|htr|csm|slg).{0,8}(opm|bcv|kj8|htr|csm|slg)")
     for row in rows:
-        key = row.get("key") or ""
+        key = canonical_key(row.get("key") or "", row.get("title") or row.get("archetype") or "")
+        row["key"] = key
         label = row.get("archetype") or ""
         messy = key not in have and (
             len(key) > 48 or key.count("-") > 8 or mash.search(key) or len(label) > 48

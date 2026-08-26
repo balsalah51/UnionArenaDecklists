@@ -82,9 +82,18 @@ def test_deck_page_buy_placement() -> None:
     assert "card-buy" in entry
 
 
+def test_iys_key_alias() -> None:
+    import scrape_community
+
+    assert scrape_community.canonical_key("inuyasha-inuyasha", "IYS - Inuyasha") == "iys-inuyasha"
+    assert scrape_community.canonical_key("inuyasha-naraku", "IYS - Kanna") == "iys-kanna"
+    assert scrape_community.SET_PREFIX["IYS"] == "iys"
+
+
 if __name__ == "__main__":
     test_card_search()
     test_mass_entry()
     test_buttons()
     test_deck_page_buy_placement()
+    test_iys_key_alias()
     print("ok")
