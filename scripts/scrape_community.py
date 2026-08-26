@@ -42,7 +42,7 @@ SET_PREFIX = {
     "CGH": "code-geass",
     "OPM": "one-punch-man",
     "RLY": "the-100-girlfriends",
-    "IYS": "inuyasha",
+    "IYS": "iys",
     "KMY": "demon-slayer",
     "HTR": "hunter-x-hunter",
     "AOT": "attack-on-titan",
@@ -173,6 +173,16 @@ def archetypes() -> list[dict]:
 COLOR_ONLY = {"purple", "red", "yellow", "green", "blue", "black"}
 
 
+def canonical_key(key: str, title: str = "") -> str:
+    title = (title or "").strip()
+    m = re.match(r"(?i)iys\s*-\s*(.+)$", title)
+    if m:
+        return uadb.slugify(f"iys-{m.group(1)}")
+    if (key or "").startswith("inuyasha-"):
+        return "iys-" + key.split("-", 1)[1]
+    return key
+
+
 def key_from_counts(counts: dict[str, int], cache: dict, set_hint: str = "") -> str | None:
     prefixes: dict[str, int] = {}
     names: dict[str, int] = {}
@@ -279,7 +289,7 @@ def item_from_counts(
 ) -> dict:
     raw = " ".join(f"{n}x{cid}" for cid, n in sorted(counts.items()))
     return {
-        "key": key,
+        "key": canonical_key(key, title),
         "kind": kind,
         "slug": slug[:70],
         "player": player,
@@ -724,6 +734,19 @@ def discover_blog_pages() -> list[str]:
     return list(dict.fromkeys(extra))
 
 
+def seed_existing(found: list[dict], seen: set[str]) -> None:
+    existing = uadb.load_json("data/community-decks.json", [])
+    for item in existing:
+        counts = item.get("counts") or {}
+        raw = item.get("raw") or " ".join(f"{n}x{cid}" for cid, n in sorted(counts.items()))
+        item["raw"] = raw
+        if not raw or raw in seen:
+            continue
+        seen.add(raw)
+        found.append(item)
+    uadb.log("seeded existing community lists", len(found))
+
+
 def main() -> None:
     cache = uadb.load_json("data/card-cache.json", {})
     extra = uadb.load_json("data/contender-cards.json", {})
@@ -732,6 +755,8 @@ def main() -> None:
     arches = archetypes()
     found: list[dict] = []
     seen: set[str] = set()
+    if "--replace" not in sys.argv:
+        seed_existing(found, seen)
     scrape_official(found, seen, cache, arches)
     more = discover_blog_pages()
     for url in more:
@@ -739,7 +764,8 @@ def main() -> None:
             WEB_PAGES.append(url)
     scrape_web_pages(found, seen, cache, arches)
     scrape_reddit(found, seen, cache, arches)
-    scrape_x(found, seen, cache, arches)
+    if "--skip-x" not in sys.argv:
+        scrape_x(found, seen, cache, arches)
     if "--skip-events" not in sys.argv:
         import scrape_events
 

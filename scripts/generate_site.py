@@ -782,13 +782,11 @@ def render_text_deck(items: list[dict], cache: dict, heading: str = "Text list")
             meta = cache.get(it["id"], {})
             name = uadb.display_name(meta.get("name") or it["name"])
             img = uadb.card_image_url(it["id"], cache)
-            buy = uadb.buy_card_link(uadb.tcgplayer_card_search_url(it["id"], name))
             lines.append(
                 f"""            <li class="text-line" tabindex="0">
               <span class="qty">{html.escape(str(it['count']))}x</span>
               <span class="card-title">{html.escape(name)}</span>
               <span class="muted card-id">{html.escape(it['id'])}</span>
-              {buy}
               <img class="card-pop" src="{html.escape(img)}" alt="{html.escape(name)}" />
             </li>"""
             )
@@ -800,17 +798,13 @@ def render_text_deck(items: list[dict], cache: dict, heading: str = "Text list")
             </ul>
           </div>"""
         )
-    total = sum(it["count"] for it in items if it["group"] != "AP cards")
-    actions = uadb.list_actions(
-        uadb.copy_button(sim_text(items)),
-        uadb.buy_deck_button(uadb.tcgplayer_mass_entry_url(items, cache)),
-    )
+    actions = uadb.list_actions(uadb.copy_button(sim_text(items)))
     return f"""        <section class="text-deck">
           <div class="section-title">
             <h3>{html.escape(heading)}</h3>
             {actions}
           </div>
-          <p class="muted">Hover or tap a name for the picture. Buy opens TCGplayer. Copy pastes <code>NxSET/CODE</code> lines.</p>
+          <p class="muted">Hover or tap a name for the picture. Copy pastes <code>NxSET/CODE</code> lines.</p>
           <div class="text-deck-cols">
 {chr(10).join(cols)}
           </div>
@@ -833,7 +827,7 @@ def render_card_entry(item: dict, meta: dict, cache: dict) -> str:
         bits.append(meta["color"])
     stats = " · ".join(bits)
     text = meta.get("effect") or meta.get("trigger") or ""
-    buy = uadb.buy_card_link(uadb.tcgplayer_card_search_url(cid, name), "Buy on TCGplayer")
+    buy = uadb.buy_card_link(uadb.tcgplayer_card_search_url(cid, name), "TCGplayer")
     return f"""        <article class="card-entry">
           <img src="{html.escape(img)}" alt="{html.escape(name)} {html.escape(cid)}" loading="lazy" />
           <div>
@@ -1027,7 +1021,6 @@ def write_hub(arch: dict, lists: list[dict], items: list[dict], cache: dict, fea
         href = entry.get("href") or f"/{arch['dir']}/{entry['slug']}.html"
         right = entry.get("date") or entry.get("kind") or "View"
         copy_btn = uadb.copy_button(entry.get("sim_text") or "")
-        buy_btn = uadb.buy_deck_button(entry.get("buy_url") or "")
         rows.append(
             f"""            <li class="list-row">
               <a class="item" href="{html.escape(href)}">
@@ -1037,7 +1030,7 @@ def write_hub(arch: dict, lists: list[dict], items: list[dict], cache: dict, fea
                 </div>
                 <div class="link">{html.escape(str(right))} →</div>
               </a>
-              {uadb.list_actions(copy_btn, buy_btn)}
+              {uadb.list_actions(copy_btn)}
             </li>"""
         )
     filters = ""
@@ -1148,7 +1141,6 @@ def write_home(arches: list[dict], recent: list[dict], cache: dict, features: di
                   <span class="hub-sub">{html.escape(color)}</span>
                 </div>
               </a>
-              {uadb.buy_deck_button(arch.get('buy_url') or '', 'Buy 50 on TCGplayer')}
             </div>"""
 
     sections = []
@@ -1172,9 +1164,8 @@ def write_home(arches: list[dict], recent: list[dict], cache: dict, features: di
     rec_items = []
     for row in recent[:100]:
         color = uadb.color_class((row.get("color") or ""))
-        buy = uadb.buy_deck_button(row.get("buy_url") or "", "Buy")
         rec_items.append(
-            f"""            <li class="recent-row">
+            f"""            <li>
               <a class="recent-item {html.escape(color)}" href="{html.escape(row['href'])}">
                 <img class="recent-leader" src="{html.escape(row['img'])}" alt="{html.escape(row['name'])}" />
                 <div class="recent-copy">
@@ -1183,7 +1174,6 @@ def write_home(arches: list[dict], recent: list[dict], cache: dict, features: di
                 </div>
                 <div class="when">{html.escape(row.get('when') or '')}</div>
               </a>
-              {buy}
             </li>"""
         )
     best = best_in_format_card(arches, features, cache)
@@ -1268,7 +1258,7 @@ def write_home(arches: list[dict], recent: list[dict], cache: dict, features: di
             <h3>Recent lists</h3>
             <div class="muted">{len(recent)} lists</div>
           </div>
-          <p class="muted">Newest published lists first. Buy opens that 50 on TCGplayer.</p>
+          <p class="muted">Newest published lists first.</p>
           <ul class="recent-list" aria-label="Recent decklists">
 {chr(10).join(rec_items)}
           </ul>
@@ -1298,16 +1288,13 @@ def write_characters_index(arches: list[dict], features: dict, cache: dict) -> N
             if arch.get("meta_share"):
                 meta_bits.append(f"{arch['meta_share']*100:.1f}% meta")
             tiles.append(
-                f"""          <div class="leader-tile-wrap {html.escape(color)}">
-            <a class="leader-tile {html.escape(color)}" href="/{html.escape(arch['page'])}">
+                f"""          <a class="leader-tile {html.escape(color)}" href="/{html.escape(arch['page'])}">
               <img src="{html.escape(img)}" alt="{html.escape(arch['full'])}" />
               <div>
                 <div class="name">{html.escape(arch['name'])}</div>
                 <div class="meta">{html.escape(" · ".join(b for b in meta_bits if b))}</div>
               </div>
-            </a>
-            {uadb.buy_deck_button(arch.get('buy_url') or '', 'Buy 50 on TCGplayer')}
-          </div>"""
+            </a>"""
             )
         sections.append(
             f"""        <section class="home-ip">
@@ -1499,13 +1486,14 @@ def load_community(cache: dict, arches: list[dict]) -> list[dict]:
     global _COMMUNITY
     if _COMMUNITY is not None:
         return _COMMUNITY
-    from scrape_community import key_from_counts
+    from scrape_community import canonical_key, key_from_counts
 
     have = {a["key"] for a in arches}
     rows = uadb.load_json("data/community-decks.json", [])
     mash = re.compile(r"(opm|bcv|kj8|htr|csm|slg).{0,8}(opm|bcv|kj8|htr|csm|slg)")
     for row in rows:
-        key = row.get("key") or ""
+        key = canonical_key(row.get("key") or "", row.get("title") or row.get("archetype") or "")
+        row["key"] = key
         label = row.get("archetype") or ""
         messy = key not in have and (
             len(key) > 48 or key.count("-") > 8 or mash.search(key) or len(label) > 48
