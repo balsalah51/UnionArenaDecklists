@@ -157,6 +157,19 @@ main.single{grid-template-columns:1fr}
 .home-leaders-intro a:hover{border-bottom-color:#6e3a3a}
 .home-leaders-grid{border-radius:0 0 16px 16px}
 .home-leaders-grid .home-cards{margin-top:0}
+.home-ip{margin:0 0 28px}
+.home-ip:last-child{margin-bottom:0}
+.home-ip-title{
+  margin:0 0 12px;padding-bottom:8px;border-bottom:1px solid rgba(0,0,0,.08);
+  font-size:12px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;
+  color:#8a6f6f
+}
+.home-ip .home-cards,.home-ip .leader-grid{margin-top:0}
+.leader-card-link .caption strong{display:block;font-size:13px;font-weight:800}
+.leader-card-link .caption .hub-sub{
+  display:block;margin-top:2px;font-size:11px;font-weight:700;
+  color:var(--muted);text-transform:capitalize;letter-spacing:.04em
+}
 .home-panel{margin:0}
 .home-panel + .home-panel{margin-top:18px}
 #leaders,#recent{scroll-margin-top:18px}
