@@ -44,12 +44,21 @@ def test_mass_entry() -> None:
 
 def test_buttons() -> None:
     url = "https://www.tcgplayer.com/massentry?productline=Union+Arena&c=4+x"
+    wrapped = uadb.tcgplayer_affiliate_url(url)
+    assert wrapped.startswith("https://partner.tcgplayer.com/c/7670706/1780961/21018?")
+    assert "u=" in wrapped
+    assert "massentry" in wrapped
+    assert uadb.tcgplayer_affiliate_url("") == ""
+    assert uadb.tcgplayer_affiliate_url(wrapped) == wrapped
     html = uadb.buy_deck_button(url)
     assert 'class="buy-tcg buy-deck"' in html
+    assert "partner.tcgplayer.com" in html
+    assert 'rel="noopener sponsored"' in html
     assert 'target="_blank"' in html
     assert uadb.buy_deck_button("") == ""
     card = uadb.buy_card_link("https://www.tcgplayer.com/search/union-arena/product?q=x")
     assert 'class="buy-tcg buy-card"' in card
+    assert "partner.tcgplayer.com" in card
     assert uadb.list_actions("", "") == ""
     assert "list-actions" in uadb.list_actions("a", "b")
 

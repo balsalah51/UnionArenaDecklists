@@ -53,14 +53,6 @@ SERIES_ALIASES = {
 }
 
 AMAZON_SHORT = "As an Amazon Associate I earn from qualifying purchases."
-AMAZON_LONG = (
-    "As an Amazon Associate I earn from qualifying purchases. "
-    "Union Arena Decklists is a participant in the Amazon Services LLC Associates Program, "
-    "an affiliate advertising program designed to provide a means for sites to earn advertising fees "
-    "by advertising and linking to Amazon.com. If you buy through these links, this site may earn a commission, "
-    "at no extra cost to you. Amazon and the Amazon logo are trademarks of Amazon.com, Inc. or its affiliates. "
-    "This site is not Amazon, and Amazon does not sponsor or endorse it."
-)
 SHOP_ITEMS = [
     {
         "group": "Sleeves",
@@ -1006,7 +998,7 @@ def write_list_page(arch: dict, entry: dict, items: list[dict], cache: dict, fea
 {render_deck_stats(items, cache)}
 {render_text_deck(items, cache)}
 {render_pictures(items, cache)}
-        <p class="muted" style="margin-top:22px">{html.escape(kind_note)} Source: <a href="{html.escape(source)}">{html.escape(source)}</a>. Images hosted by Bandai. Buy links open TCGplayer. Not affiliated with Bandai or TCGplayer.</p>"""
+        <p class="muted" style="margin-top:22px">{html.escape(kind_note)} Source: <a href="{html.escape(source)}">{html.escape(source)}</a>. Images hosted by Bandai. Buy links are TCGplayer affiliate links. Fan site, not affiliated with Bandai.</p>"""
     page = uadb.page_chrome(title, f"{arch['full']} decklist - {subtitle}"[:160], color, body)
     dest = uadb.ROOT / arch["dir"] / f"{entry['slug']}.html"
     dest.parent.mkdir(parents=True, exist_ok=True)
@@ -1248,11 +1240,11 @@ def write_home(arches: list[dict], recent: list[dict], cache: dict, features: di
             <h3>Shop</h3>
             <a href="/shop.html">Full shop →</a>
           </div>
-          <p class="muted">Sleeves and dice on Amazon. These are affiliate links.</p>
-          {amazon_note_html()}
+          <p class="muted">Sleeves and dice on Amazon.</p>
           <div class="shop-grid" aria-label="Sleeves and dice on Amazon">
 {chr(10).join(shop_cards_html())}
           </div>
+          {amazon_note_html()}
         </section>
 
         <section class="home-leaders-flow" id="characters">
@@ -1379,10 +1371,11 @@ def write_format(arches: list[dict]) -> None:
     (uadb.ROOT / "format.html").write_text(page)
 
 
-def amazon_note_html(long: bool = False) -> str:
-    text = AMAZON_LONG if long else AMAZON_SHORT
-    extra = "" if long else " Amazon links open Amazon.com."
-    return f'<p class="amazon-note">{html.escape(text + extra)}</p>'
+def amazon_note_html() -> str:
+    return (
+        f'<p class="amazon-note">{html.escape(AMAZON_SHORT)} '
+        f'<a href="/privacy.html">Privacy</a></p>'
+    )
 
 
 def shop_cards_html(items: list[dict] | None = None) -> list[str]:
@@ -1408,8 +1401,7 @@ def write_shop() -> None:
     dice = [it for it in SHOP_ITEMS if it["group"] == "Dice"]
     body = f"""        <div class="crumb"><a href="/">Home</a> / Shop</div>
         <h2>Shop</h2>
-        <p>Sleeves and dice for Union Arena lists. Links go to Amazon.com.</p>
-        {amazon_note_html(long=True)}
+        <p>Sleeves and dice for Union Arena lists.</p>
         <section class="shop-section" style="margin-top:22px">
           <div class="section-title">
             <h3>Sleeves</h3>
@@ -1428,10 +1420,11 @@ def write_shop() -> None:
 {chr(10).join(shop_cards_html(dice))}
           </div>
         </section>
-        <p class="muted" style="margin-top:22px">Prices, stock, and shipping are set by Amazon. This site does not sell these products directly.</p>"""
+        {amazon_note_html()}
+        <p class="muted" style="margin-top:12px">Prices, stock, and shipping are set by Amazon. This site does not sell these products directly.</p>"""
     page = uadb.page_chrome(
         "Shop sleeves and dice | Union Arena Decklists",
-        "Dragon Shield sleeves and dice for Union Arena. Amazon Associate links with a clear commission disclosure.",
+        "Dragon Shield sleeves and dice for Union Arena. Amazon Associate shop links.",
         "color-red",
         body,
         "shop",
@@ -1458,12 +1451,12 @@ def write_privacy() -> None:
           <p>This site may display advertisements served by third-party providers, including Google AdSense. You can opt out of personalized advertising at <a href="https://adssettings.google.com/" target="_blank" rel="noopener">Google's Ads Settings</a>.</p>
         </section>
         <section>
-          <h3>TCGplayer links</h3>
-          <p>Deck and card buy buttons open TCGplayer so you can purchase a 50-card list or a single card. When an affiliate tracking link is configured, those clicks may be routed through TCGplayer's partner program and this site may earn a commission on qualifying purchases. TCGplayer may set its own cookies on that visit. Until an affiliate ID is added, buy links go straight to TCGplayer with no tracking wrapper.</p>
+          <h3>TCGplayer</h3>
+          <p>Buy buttons on this site are TCGplayer affiliate links. If you buy through them, this site may earn a commission, at no extra cost to you.</p>
         </section>
         <section>
-          <h3>Amazon Associate links</h3>
-          <p><strong>As an Amazon Associate I earn from qualifying purchases.</strong> Union Arena Decklists is a participant in the Amazon Services LLC Associates Program, an affiliate advertising program designed to provide a means for sites to earn advertising fees by advertising and linking to Amazon.com. Shop links for sleeves and dice go to Amazon. If you buy through those links, this site may earn a commission, at no extra cost to you. Amazon may set its own cookies on that visit. Amazon and the Amazon logo are trademarks of Amazon.com, Inc. or its affiliates. We are not Amazon, and Amazon does not sponsor this site.</p>
+          <h3>Amazon</h3>
+          <p>As an Amazon Associate I earn from qualifying purchases. Shop links for sleeves and dice go to Amazon. A purchase through those links may earn this site a commission, at no extra cost to you. This site is not Amazon, and Amazon does not sponsor it.</p>
         </section>
         <section>
           <h3>Third-Party Links</h3>

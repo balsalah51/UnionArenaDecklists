@@ -86,6 +86,8 @@
   function withAffiliate(url) {
     var base = String(window.UADB_TCGPLAYER_PARTNER || "").trim();
     if (!base || !url) return url;
+    if (url.indexOf("partner.tcgplayer.com") >= 0) return url;
+    if (!/tcgplayer\.com/i.test(url)) return url;
     var sep = base.indexOf("?") >= 0 ? "&" : "?";
     return base.replace(/[?&]+$/, "") + sep + "u=" + encodeURIComponent(url);
   }
