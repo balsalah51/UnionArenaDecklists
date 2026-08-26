@@ -1224,6 +1224,16 @@ def write_home(arches: list[dict], recent: list[dict], cache: dict, features: di
             <span class="home-big-title">Characters</span>
             <span class="home-big-note">4-energy and up, grouped by title</span>
           </a>
+          <a class="home-big home-big-shop" href="/shop.html">
+            <span class="home-big-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M6 8h12l-1 12H7L6 8z"/>
+                <path d="M9 8V7a3 3 0 0 1 6 0v1"/>
+              </svg>
+            </span>
+            <span class="home-big-title">Shop</span>
+            <span class="home-big-note">Sleeves and dice on Amazon</span>
+          </a>
           <a class="home-big home-big-discord" href="{html.escape(uadb.DISCORD)}" target="_blank" rel="noopener">
             <span class="home-big-icon" aria-hidden="true">
               <svg viewBox="0 0 24 24" fill="currentColor">
@@ -1234,18 +1244,6 @@ def write_home(arches: list[dict], recent: list[dict], cache: dict, features: di
             <span class="home-big-note">Talk lists and the roster</span>
           </a>
         </nav>
-
-        <section class="card home-panel home-shop" id="shop">
-          <div class="section-title">
-            <h3>Shop</h3>
-            <a href="/shop.html">Full shop →</a>
-          </div>
-          <p class="muted">Sleeves and dice on Amazon.</p>
-          <div class="shop-grid" aria-label="Sleeves and dice on Amazon">
-{chr(10).join(shop_cards_html())}
-          </div>
-          {amazon_note_html()}
-        </section>
 
         <section class="home-leaders-flow" id="characters">
           <div class="home-leaders-intro">
