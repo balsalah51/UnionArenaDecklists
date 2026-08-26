@@ -73,7 +73,9 @@ def test_deck_page_buy_placement() -> None:
     cache = {"UE17BT/SLG-1-022": {"name": "Sung Jinwoo", "effect": "Raid", "category": "Character"}}
     text = generate_site.render_text_deck(items, cache)
     assert "buy-card" not in text
-    assert "buy-deck" not in text
+    assert 'class="buy-tcg buy-deck buy-pill"' in text
+    assert ">Buy<" in text
+    assert "partner.tcgplayer.com" in text
     assert "copy-sim" in text
     entry = generate_site.render_card_entry(items[0], cache["UE17BT/SLG-1-022"], cache)
     assert 'class="buy-tcg buy-card"' in entry
