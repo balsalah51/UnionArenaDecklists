@@ -99,7 +99,7 @@
       var wrapped = withAffiliate(dest);
       if (wrapped === dest) return;
       a.setAttribute("href", wrapped);
-      var rel = (a.getAttribute("rel") or "").split(/\s+/).filter(Boolean);
+      var rel = (a.getAttribute("rel") || "").split(/\s+/).filter(Boolean);
       if (rel.indexOf("sponsored") < 0) rel.push("sponsored");
       if (rel.indexOf("noopener") < 0) rel.push("noopener");
       a.setAttribute("rel", rel.join(" "));
@@ -160,7 +160,7 @@
       var tight = hits.length === 1 || (hits[0] && ((hits[0].name || "").toLowerCase() === q || hits[0].norm === q));
       hits = hits.slice(0, tight ? 1 : 8);
       if (!hits.length) {
-        out.innerHTML = "<p class=\"muted char-search-empty\">No character matching “" + escapeHtml(q) + "”.</p>";
+        out.innerHTML = "<p class=\"muted char-search-empty\">No character matching \"" + escapeHtml(q) + "\".</p>";
         return;
       }
       out.innerHTML = hits.map(function (row) {

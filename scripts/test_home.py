@@ -183,6 +183,16 @@ class RaidTests(unittest.TestCase):
         self.assertIn("/decklists/opm-saitama.html", html)
         self.assertIn("Saitama", html)
 
+    def test_site_js_parses(self):
+        import subprocess
+
+        r = subprocess.run(
+            ["node", "--check", str(ROOT / "js/site.js")],
+            capture_output=True,
+            text=True,
+        )
+        self.assertEqual(r.returncode, 0, r.stderr)
+
 
 if __name__ == "__main__":
     unittest.main()
