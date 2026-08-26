@@ -1193,11 +1193,13 @@ def render_text_deck(items: list[dict], cache: dict, heading: str = "Text list")
             meta = cache.get(it["id"], {})
             name = uadb.display_name(meta.get("name") or it["name"])
             img = uadb.card_image_url(it["id"], cache)
+            buy = uadb.buy_deck_button(uadb.tcgplayer_card_search_url(it["id"], name), "Buy")
             lines.append(
                 f"""            <li class="text-line" tabindex="0">
               <span class="qty">{html.escape(str(it['count']))}x</span>
               <span class="card-title">{html.escape(name)}</span>
               <span class="muted card-id">{html.escape(it['id'])}</span>
+              {buy}
               <img class="card-pop" src="{html.escape(img)}" alt="{html.escape(name)}" />
             </li>"""
             )
