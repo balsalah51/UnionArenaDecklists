@@ -6,7 +6,9 @@ from __future__ import annotations
 import html
 import json
 import re
+import sys
 from collections import Counter, defaultdict
+from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
 import uadb
@@ -14,7 +16,10 @@ import uadb
 COLOR_ONLY = {"purple", "red", "yellow", "green", "blue", "black"}
 COLOR_MARK = re.compile(r"【\s*(?:PURPLE|RED|YELLOW|GREEN|BLUE|BLACK)\s*】", re.I)
 MIN_FACE_COST = 4
-MIN_HOME_LISTS = 2
+HOME_RAID_LEADERS = 20
+MAX_HOME_PER_TITLE = 3
+RAID_RE = re.compile(r"\[raid\]", re.I)
+SEARCH_RECENT_DAYS = 21
 SERIES_ALIASES = {
     "100 girlfriends": "100 Girlfriends",
     "attack on titan": "Attack On Titan",
@@ -388,6 +393,189 @@ def card_color(meta: dict) -> str:
 def is_character_card(meta: dict, item: dict | None = None) -> bool:
     cat = (meta.get("category") or (item or {}).get("group") or "").lower()
     return "character" in cat
+
+
+def is_raid_meta(meta: dict) -> bool:
+    blob = f"{meta.get('effect') or ''} {meta.get('trigger') or ''}"
+    return bool(RAID_RE.search(blob))
+
+
+def combo_has_raid_face(arch: dict, cache: dict, features: dict) -> bool:
+    feat = features.get(arch.get("key") or "") or {}
+    meta = feat.get("meta") or {}
+    if is_raid_meta(meta) and (card_cost(meta) or 0) >= MIN_FACE_COST:
+        return True
+    want = norm_name(arch.get("name") or "")
+    color = card_color(meta) or card_color({"color": arch.get("color") or ""})
+    for it in arch.get("cons_items") or []:
+        cid = it.get("id") or ""
+        card = cache.get(cid) or {}
+        if not is_character_card(card, it):
+            continue
+        cost = card_cost(card)
+        if cost is None or cost < MIN_FACE_COST or not is_raid_meta(card):
+            continue
+        name = card_character(card.get("name") or it.get("name") or "")
+        if norm_name(name) != want:
+            continue
+        if color and card_color(card) != color:
+            continue
+        return True
+    return False
+
+
+def current_raid_priority() -> dict[str, float]:
+    """Character-name → current Standard share from TCG Contender."""
+    ov = uadb.load_json("data/contender-overview.json", {})
+    decks = (ov.get("defaultOverview") or {}).get("decks") or []
+    out: dict[str, float] = {}
+    for deck in decks:
+        _, char = split_arch(deck.get("name") or "")
+        nkey = norm_name(char)
+        if not nkey or nkey in COLOR_ONLY:
+            continue
+        recent = float((deck.get("metaShares") or {}).get("recent30d") or 0)
+        share = float(deck.get("metaShare") or 0)
+        out[nkey] = max(out.get(nkey, 0.0), recent, share)
+    return out
+
+
+def pick_home_raid_leaders(
+    combo_arches: list[dict],
+    cache: dict,
+    features: dict,
+    meta_priority: dict[str, float] | None = None,
+) -> list[dict]:
+    """Top 20 current namesake raid leaders, at most three per title."""
+    cutoff = (datetime.now(timezone.utc) - timedelta(days=SEARCH_RECENT_DAYS)).date().isoformat()
+    priority = current_raid_priority() if meta_priority is None else meta_priority
+    best_by_name: dict[str, dict] = {}
+    for arch in combo_arches:
+        nkey = norm_name(arch.get("name") or "")
+        if not nkey or nkey in COLOR_ONLY:
+            continue
+        prev = best_by_name.get(nkey)
+        if prev is None or len(arch.get("lists") or []) > len(prev.get("lists") or []):
+            best_by_name[nkey] = arch
+
+    scored = []
+    for nkey, arch in best_by_name.items():
+        lists = arch.get("lists") or []
+        n = len(lists)
+        if n < 1:
+            continue
+        recent_n = sum(1 for e in lists if (e.get("date") or "") >= cutoff)
+        meta_share = max(float(arch.get("meta_share") or 0), float(priority.get(nkey) or 0))
+        named_deck = nkey in priority or float(arch.get("meta_share") or 0) > 0
+        if not named_deck:
+            continue
+        raid_bonus = 80 if combo_has_raid_face(arch, cache, features) else 0
+        score = meta_share * 10000 + recent_n * 25 + n * 0.5 + raid_bonus
+        if named_deck:
+            score += 200
+        scored.append((score, meta_share, recent_n, n, arch.get("name") or "", arch))
+    scored.sort(key=lambda row: (row[0], row[1], row[2], row[3], row[4]), reverse=True)
+
+    picked: list[dict] = []
+    per_title: dict[str, int] = defaultdict(int)
+    used = set()
+
+    def take(arch: dict) -> None:
+        key = arch.get("key") or ""
+        if key in used:
+            return
+        used.add(key)
+        picked.append(arch)
+        title = arch.get("title") or ""
+        per_title[title] += 1
+
+    for row in scored:
+        arch = row[5]
+        title = arch.get("title") or ""
+        if per_title[title] >= MAX_HOME_PER_TITLE:
+            continue
+        take(arch)
+        if len(picked) >= HOME_RAID_LEADERS:
+            return picked
+    for row in scored:
+        take(row[5])
+        if len(picked) >= HOME_RAID_LEADERS:
+            break
+    return picked
+
+
+def build_character_search(
+    published: list[dict],
+    combo_arches: list[dict],
+    cache: dict,
+    features: dict,
+) -> list[dict]:
+    chars: dict[str, dict] = {}
+    for entry in published:
+        href = entry.get("href") or ""
+        list_row = {
+            "href": href,
+            "title": uadb.no_em(entry.get("title") or ""),
+            "sub": uadb.no_em(entry.get("subtitle") or ""),
+            "date": entry.get("date") or "",
+        }
+        seen = set()
+        for it in entry.get("items") or []:
+            if it.get("group") == "AP cards":
+                continue
+            meta = cache.get(it.get("id") or "") or {}
+            if not is_character_card(meta, it):
+                continue
+            name = card_character(meta.get("name") or it.get("name") or "")
+            nkey = norm_name(name)
+            if not nkey or nkey in COLOR_ONLY or nkey in seen:
+                continue
+            seen.add(nkey)
+            rec = chars.setdefault(
+                nkey,
+                {"name": name, "norm": nkey, "hubs": [], "lists": [], "_hrefs": set()},
+            )
+            if href and href not in rec["_hrefs"]:
+                rec["_hrefs"].add(href)
+                rec["lists"].append(list_row)
+    for arch in combo_arches:
+        nkey = norm_name(arch.get("name") or "")
+        if not nkey or nkey in COLOR_ONLY:
+            continue
+        feat = features.get(arch["key"]) or {}
+        color = ((feat.get("meta") or {}).get("color") or arch.get("color") or "").strip()
+        rec = chars.setdefault(
+            nkey,
+            {"name": arch.get("name") or nkey, "norm": nkey, "hubs": [], "lists": [], "_hrefs": set()},
+        )
+        rec["hubs"].append(
+            {
+                "href": f"/{arch['page']}",
+                "label": arch.get("full") or arch.get("name") or "",
+                "color": color,
+                "n": len(arch.get("lists") or []),
+            }
+        )
+    out = []
+    for rec in chars.values():
+        rec["lists"].sort(key=lambda r: r.get("date") or "", reverse=True)
+        rec["lists"] = rec["lists"][:150]
+        rec["hubs"].sort(key=lambda h: (-int(h.get("n") or 0), h.get("label") or ""))
+        rec.pop("_hrefs", None)
+        if rec["lists"] or rec["hubs"]:
+            out.append(rec)
+    out.sort(key=lambda r: (-len(r["lists"]), r["name"]))
+    return out
+
+
+def char_search_html() -> str:
+    return """        <div class="char-search" data-char-search>
+          <label class="char-search-label">Search a character
+            <input type="search" placeholder="Sung Jinwoo, Denji, Igris…" autocomplete="off" aria-label="Search a character" />
+          </label>
+          <p class="muted char-search-hint">Any character in a public 50. Results are the lists that play them.</p>
+          <div class="char-search-results" data-char-results hidden></div>
+        </div>"""
 
 
 def series_name(title: str) -> str:
@@ -1212,7 +1400,17 @@ def write_home(arches: list[dict], recent: list[dict], cache: dict, features: di
               </svg>
             </span>
             <span class="home-big-title">Characters</span>
-            <span class="home-big-note">4-energy and up, grouped by title</span>
+            <span class="home-big-note">Top 20 raid leaders right now</span>
+          </a>
+          <a class="home-big home-big-shop" href="/shop.html">
+            <span class="home-big-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M6 8h12l-1 12H7L6 8z"/>
+                <path d="M9 8V6a3 3 0 0 1 6 0v2"/>
+              </svg>
+            </span>
+            <span class="home-big-title">Shop</span>
+            <span class="home-big-note">Sleeves and dice on Amazon</span>
           </a>
           <a class="home-big home-big-discord" href="{html.escape(uadb.DISCORD)}" target="_blank" rel="noopener">
             <span class="home-big-icon" aria-hidden="true">
@@ -1225,28 +1423,17 @@ def write_home(arches: list[dict], recent: list[dict], cache: dict, features: di
           </a>
         </nav>
 
-        <section class="card home-panel home-shop" id="shop">
-          <div class="section-title">
-            <h3>Shop</h3>
-            <a href="/shop.html">Full shop →</a>
-          </div>
-          <p class="muted">Sleeves and dice on Amazon.</p>
-          <div class="shop-grid" aria-label="Sleeves and dice on Amazon">
-{chr(10).join(shop_cards_html())}
-          </div>
-          {amazon_note_html()}
-        </section>
-
         <section class="home-leaders-flow" id="characters">
           <div class="home-leaders-intro">
             <p class="home-leaders-kicker">The roster</p>
             <div class="home-leaders-intro-row">
               <div>
-                <h3>Characters</h3>
-                <p>Characters that cost 4 energy or more, grouped by title. Click a picture for that character and color. Every list on the page plays that character.</p>
+                <h3>Raid leaders</h3>
+                <p>The 20 characters current Standard lists are built around. Click a picture for that character and color. Every list on the page plays them.</p>
               </div>
-              <a href="/characters.html">All character pages →</a>
+              <a class="home-leaders-search-link" href="/characters.html">Full roster →</a>
             </div>
+{char_search_html()}
           </div>
           <div class="card home-panel home-leaders-grid">
 {chr(10).join(sections)}
@@ -1305,10 +1492,11 @@ def write_characters_index(arches: list[dict], features: dict, cache: dict) -> N
         </section>"""
         )
     body = f"""        <div class="crumb"><a href="/">Home</a> / Characters</div>
-        <h2>Characters</h2>
-          <p>Standard Union Arena lists grouped by title, then by the 4-energy-or-higher character people actually sleeve. Click a character for that color combo. Every list on the page plays that character.</p>
+        <h2>Raid leaders</h2>
+          <p>The 20 characters current Standard lists are built around. Search any character for every 50 that plays them.</p>
+{char_search_html()}
 {chr(10).join(sections)}"""
-    page = uadb.page_chrome("Union Arena characters", "Every character page on Union Arena Decklists.", "color-red", body, "characters")
+    page = uadb.page_chrome("Union Arena characters", "Top raid leaders and a search for every Union Arena character on a public 50.", "color-red", body, "characters")
     (uadb.ROOT / "characters.html").write_text(page)
 
 
@@ -1562,6 +1750,7 @@ def extra_arches(existing: list[dict]) -> list[dict]:
 
 
 def main() -> None:
+    pages_only = "--pages-only" in sys.argv
     cache = load_cache()
     arches = archetypes_from_contender()
     load_community(cache, arches)
@@ -1601,7 +1790,8 @@ def main() -> None:
                 "href": f"/{arch['dir']}/contender-consensus.html",
                 "items": items,
             }
-            write_list_page(arch, cons_entry, items, cache, feature)
+            if not pages_only:
+                write_list_page(arch, cons_entry, items, cache, feature)
             lists.append(cons_entry)
             published.append(cons_entry)
         for comm in comm_rows:
@@ -1630,11 +1820,13 @@ def main() -> None:
             }
             comm_entry["href"] = f"/{arch['dir']}/{comm_entry['slug']}.html"
             comm_entry["items"] = c_items
-            write_list_page(arch, comm_entry, c_items, cache, c_feat)
+            if not pages_only:
+                write_list_page(arch, comm_entry, c_items, cache, c_feat)
             lists.append(comm_entry)
             published.append(comm_entry)
         lists.sort(key=lambda e: e.get("date") or "0000", reverse=True)
-        write_hub(arch, lists, items, cache, feature)
+        if not pages_only:
+            write_hub(arch, lists, items, cache, feature)
         sitemap.append(arch["page"])
         for entry in lists:
             sitemap.append(f"{arch['dir']}/{entry['slug']}.html")
@@ -1660,7 +1852,8 @@ def main() -> None:
     features.update(combo_features)
     for arch in combo_arches:
         feat = features.get(arch["key"]) or {}
-        write_hub(arch, arch.get("lists") or [], arch.get("cons_items") or [], cache, feat)
+        if not pages_only:
+            write_hub(arch, arch.get("lists") or [], arch.get("cons_items") or [], cache, feat)
         if arch["page"] not in sitemap:
             sitemap.append(arch["page"])
         index[arch["key"]] = [
@@ -1669,7 +1862,10 @@ def main() -> None:
         uadb.log("combo-hub", arch["key"], "lists", len(arch.get("lists") or []), "feature", feat.get("id"))
 
     recent.sort(key=lambda r: r.get("when") or "0000", reverse=True)
-    home_roster = [a for a in combo_arches if len(a.get("lists") or []) >= MIN_HOME_LISTS]
+    home_roster = pick_home_raid_leaders(combo_arches, cache, features)
+    search = build_character_search(published, combo_arches, cache, features)
+    uadb.save_json("data/character-search.json", {"characters": search})
+    uadb.log("home raid leaders", len(home_roster), "search characters", len(search))
     write_home(home_roster, recent, cache, features)
     write_characters_index(home_roster, features, cache)
     write_format(unique_arches([a for a in arches if not a.get("from_color")]))

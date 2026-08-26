@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="/css/site.css?v=ua13" />
+  <link rel="stylesheet" href="/css/site.css?v=ua14" />
 </head>
 <body>
   <div class="wrap">
@@ -59,7 +59,17 @@
               </svg>
             </span>
             <span class="home-big-title">Characters</span>
-            <span class="home-big-note">4-energy and up, grouped by title</span>
+            <span class="home-big-note">Top 20 raid leaders right now</span>
+          </a>
+          <a class="home-big home-big-shop" href="/shop.html">
+            <span class="home-big-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M6 8h12l-1 12H7L6 8z"/>
+                <path d="M9 8V6a3 3 0 0 1 6 0v2"/>
+              </svg>
+            </span>
+            <span class="home-big-title">Shop</span>
+            <span class="home-big-note">Sleeves and dice on Amazon</span>
           </a>
           <a class="home-big home-big-discord" href="https://discord.gg/aY9RfB662" target="_blank" rel="noopener">
             <span class="home-big-icon" aria-hidden="true">
@@ -72,278 +82,34 @@
           </a>
         </nav>
 
-        <section class="card home-panel home-shop" id="shop">
-          <div class="section-title">
-            <h3>Shop</h3>
-            <a href="/shop.html">Full shop →</a>
-          </div>
-          <p class="muted">Sleeves and dice on Amazon.</p>
-          <div class="shop-grid" aria-label="Sleeves and dice on Amazon">
-            <a class="shop-card" href="https://amzn.to/4qFzNrw" target="_blank" rel="nofollow sponsored noopener">
-              <img src="/img/shop/B073G88D1M.jpg" alt="Dragon Shield Matte Jet" />
-              <div class="shop-card-copy">
-                <div class="muted shop-kicker">Sleeves</div>
-                <h3>Dragon Shield Matte Jet</h3>
-                <p class="muted">100 standard-size sleeves</p>
-              </div>
-              <span class="buy-deck">View on Amazon</span>
-            </a>
-            <a class="shop-card" href="https://amzn.to/46s2YVu" target="_blank" rel="nofollow sponsored noopener">
-              <img src="/img/shop/B0DJQRPPLV.jpg" alt="Dragon Shield Matte Dual Red/Gold" />
-              <div class="shop-card-copy">
-                <div class="muted shop-kicker">Sleeves</div>
-                <h3>Dragon Shield Matte Dual Red/Gold</h3>
-                <p class="muted">100 standard-size sleeves</p>
-              </div>
-              <span class="buy-deck">View on Amazon</span>
-            </a>
-            <a class="shop-card" href="https://amzn.to/4wMuTKw" target="_blank" rel="nofollow sponsored noopener">
-              <img src="/img/shop/B0CRRPCT5P.jpg" alt="Dragon Shield Matte Dual Soul" />
-              <div class="shop-card-copy">
-                <div class="muted shop-kicker">Sleeves</div>
-                <h3>Dragon Shield Matte Dual Soul</h3>
-                <p class="muted">100 standard-size sleeves</p>
-              </div>
-              <span class="buy-deck">View on Amazon</span>
-            </a>
-            <a class="shop-card" href="https://amzn.to/46pbKUi" target="_blank" rel="nofollow sponsored noopener">
-              <img src="/img/shop/B0GZKFDSQF.jpg" alt="Power counter dice, 32 pcs" />
-              <div class="shop-card-copy">
-                <div class="muted shop-kicker">Dice</div>
-                <h3>Power counter dice, 32 pcs</h3>
-                <p class="muted">Plus and minus counters for life and damage</p>
-              </div>
-              <span class="buy-deck">View on Amazon</span>
-            </a>
-            <a class="shop-card" href="https://amzn.to/4xEOaiF" target="_blank" rel="nofollow sponsored noopener">
-              <img src="/img/shop/B0D9KW7ZC1.jpg" alt="Premium dice set with tin case" />
-              <div class="shop-card-copy">
-                <div class="muted shop-kicker">Dice</div>
-                <h3>Premium dice set with tin case</h3>
-                <p class="muted">Collectible dice in a tin</p>
-              </div>
-              <span class="buy-deck">View on Amazon</span>
-            </a>
-            <a class="shop-card" href="https://amzn.to/4gQtpdA" target="_blank" rel="nofollow sponsored noopener">
-              <img src="/img/shop/B09NPQL2LT.jpg" alt="16mm D6 dice, blue/black" />
-              <div class="shop-card-copy">
-                <div class="muted shop-kicker">Dice</div>
-                <h3>16mm D6 dice, blue/black</h3>
-                <p class="muted">10 acrylic six-siders</p>
-              </div>
-              <span class="buy-deck">View on Amazon</span>
-            </a>
-          </div>
-          <p class="amazon-note">As an Amazon Associate I earn from qualifying purchases. <a href="/privacy.html">Privacy</a></p>
-        </section>
-
         <section class="home-leaders-flow" id="characters">
           <div class="home-leaders-intro">
             <p class="home-leaders-kicker">The roster</p>
             <div class="home-leaders-intro-row">
               <div>
-                <h3>Characters</h3>
-                <p>Characters that cost 4 energy or more, grouped by title. Click a picture for that character and color. Every list on the page plays that character.</p>
+                <h3>Raid leaders</h3>
+                <p>The 20 characters current Standard lists are built around. Click a picture for that character and color. Every list on the page plays them.</p>
               </div>
-              <a href="/characters.html">All character pages →</a>
+              <a class="home-leaders-search-link" href="/characters.html">Full roster →</a>
             </div>
+        <div class="char-search" data-char-search>
+          <label class="char-search-label">Search a character
+            <input type="search" placeholder="Sung Jinwoo, Denji, Igris…" autocomplete="off" aria-label="Search a character" />
+          </label>
+          <p class="muted char-search-hint">Any character in a public 50. Results are the lists that play them.</p>
+          <div class="char-search-results" data-char-results hidden></div>
+        </div>
           </div>
           <div class="card home-panel home-leaders-grid">
             <section class="home-ip">
-              <h2 class="home-ip-title">100 Girlfriends</h2>
-              <div class="leader-cards home-cards" aria-label="100 Girlfriends characters">
+              <h2 class="home-ip-title">Solo Leveling</h2>
+              <div class="leader-cards home-cards" aria-label="Solo Leveling characters">
             <div class="leader-card">
-              <a class="leader-card-link" href="/decklists/nano-eiai.html">
-                <img src="https://www.unionarena-tcg.com/na/images/cardlist/card/UE21BT_RLY-1-053.png" alt="100 Girlfriends - Nano Eiai character card" />
+              <a class="leader-card-link" href="/decklists/sung-jinwoo.html">
+                <img src="https://www.unionarena-tcg.com/na/images/cardlist/card/UE17BT_SLG-1-022.png" alt="Solo Leveling - Sung Jinwoo character card" />
                 <div class="caption">
-                  <strong>Nano Eiai</strong>
-                  <span class="hub-sub">Green</span>
-                </div>
-              </a>
-            </div>
-            <div class="leader-card">
-              <a class="leader-card-link" href="/decklists/hakari-hanazono.html">
-                <img src="https://www.unionarena-tcg.com/na/images/cardlist/card/UE21BT_RLY-1-025.png" alt="100 Girlfriends - Hakari Hanazono character card" />
-                <div class="caption">
-                  <strong>Hakari Hanazono</strong>
-                  <span class="hub-sub">Yellow</span>
-                </div>
-              </a>
-            </div>
-            <div class="leader-card">
-              <a class="leader-card-link" href="/decklists/kusuri-yakuzen.html">
-                <img src="https://www.unionarena-tcg.com/na/images/cardlist/card/UE21BT_RLY-1-058.png" alt="100 Girlfriends - Kusuri Yakuzen character card" />
-                <div class="caption">
-                  <strong>Kusuri Yakuzen</strong>
-                  <span class="hub-sub">Green</span>
-                </div>
-              </a>
-            </div>
-            <div class="leader-card">
-              <a class="leader-card-link" href="/decklists/karane-inda.html">
-                <img src="https://www.unionarena-tcg.com/na/images/cardlist/card/UE21BT_RLY-1-009.png" alt="100 Girlfriends - Karane Inda character card" />
-                <div class="caption">
-                  <strong>Karane Inda</strong>
-                  <span class="hub-sub">Yellow</span>
-                </div>
-              </a>
-            </div>
-            <div class="leader-card">
-              <a class="leader-card-link" href="/decklists/nano-eiai-yellow.html">
-                <img src="https://www.unionarena-tcg.com/na/images/cardlist/card/UE21BT_RLY-1-012.png" alt="100 Girlfriends - Nano Eiai character card" />
-                <div class="caption">
-                  <strong>Nano Eiai</strong>
-                  <span class="hub-sub">Yellow</span>
-                </div>
-              </a>
-            </div>
-              </div>
-            </section>
-            <section class="home-ip">
-              <h2 class="home-ip-title">Attack On Titan</h2>
-              <div class="leader-cards home-cards" aria-label="Attack On Titan characters">
-            <div class="leader-card">
-              <a class="leader-card-link" href="/decklists/levi.html">
-                <img src="https://www.unionarena-tcg.com/na/images/cardlist/card/UE10BT_AOT-1-011.png" alt="Attack On Titan - Levi character card" />
-                <div class="caption">
-                  <strong>Levi</strong>
-                  <span class="hub-sub">Blue</span>
-                </div>
-              </a>
-            </div>
-            <div class="leader-card">
-              <a class="leader-card-link" href="/decklists/mikasa-ackermann.html">
-                <img src="https://www.unionarena-tcg.com/na/images/cardlist/card/UE10BT_AOT-1-025.png" alt="Attack On Titan - Mikasa Ackermann character card" />
-                <div class="caption">
-                  <strong>Mikasa Ackermann</strong>
-                  <span class="hub-sub">Blue</span>
-                </div>
-              </a>
-            </div>
-              </div>
-            </section>
-            <section class="home-ip">
-              <h2 class="home-ip-title">Black Clover</h2>
-              <div class="leader-cards home-cards" aria-label="Black Clover characters">
-            <div class="leader-card">
-              <a class="leader-card-link" href="/decklists/asta.html">
-                <img src="https://www.unionarena-tcg.com/na/images/cardlist/card/UE08ST_BCV-1-103.png" alt="Black Clover - Asta character card" />
-                <div class="caption">
-                  <strong>Asta</strong>
-                  <span class="hub-sub">Red</span>
-                </div>
-              </a>
-            </div>
-            <div class="leader-card">
-              <a class="leader-card-link" href="/decklists/nacht-faust.html">
-                <img src="https://www.unionarena-tcg.com/na/images/cardlist/card/UE08BT_BCV-1-079.png" alt="Black Clover - Nacht Faust character card" />
-                <div class="caption">
-                  <strong>Nacht Faust</strong>
-                  <span class="hub-sub">Red</span>
-                </div>
-              </a>
-            </div>
-            <div class="leader-card">
-              <a class="leader-card-link" href="/decklists/noelle-silva.html">
-                <img src="https://www.unionarena-tcg.com/na/images/cardlist/card/UE08BT_BCV-1-083.png" alt="Black Clover - Noelle Silva character card" />
-                <div class="caption">
-                  <strong>Noelle Silva</strong>
-                  <span class="hub-sub">Red</span>
-                </div>
-              </a>
-            </div>
-            <div class="leader-card">
-              <a class="leader-card-link" href="/decklists/yami-sukehiro.html">
-                <img src="https://www.unionarena-tcg.com/na/images/cardlist/card/UE08BT_BCV-1-088.png" alt="Black Clover - Yami Sukehiro character card" />
-                <div class="caption">
-                  <strong>Yami Sukehiro</strong>
-                  <span class="hub-sub">Red</span>
-                </div>
-              </a>
-            </div>
-              </div>
-            </section>
-            <section class="home-ip">
-              <h2 class="home-ip-title">Bleach</h2>
-              <div class="leader-cards home-cards" aria-label="Bleach characters">
-            <div class="leader-card">
-              <a class="leader-card-link" href="/decklists/kenpachi-zaraki.html">
-                <img src="https://www.unionarena-tcg.com/na/images/cardlist/card/UE01BT_BLC-1-081.png" alt="Bleach - Kenpachi Zaraki character card" />
-                <div class="caption">
-                  <strong>Kenpachi Zaraki</strong>
-                  <span class="hub-sub">Green</span>
-                </div>
-              </a>
-            </div>
-            <div class="leader-card">
-              <a class="leader-card-link" href="/decklists/shinji-hirako.html">
-                <img src="https://www.unionarena-tcg.com/na/images/cardlist/card/UEX01BT_BLC-2-070.png" alt="Bleach - Shinji Hirako character card" />
-                <div class="caption">
-                  <strong>Shinji Hirako</strong>
-                  <span class="hub-sub">Green</span>
-                </div>
-              </a>
-            </div>
-            <div class="leader-card">
-              <a class="leader-card-link" href="/decklists/toshiro-hitsugaya.html">
-                <img src="https://www.unionarena-tcg.com/na/images/cardlist/card/UE01BT_BLC-1-085.png" alt="Bleach - Toshiro Hitsugaya character card" />
-                <div class="caption">
-                  <strong>Toshiro Hitsugaya</strong>
-                  <span class="hub-sub">Green</span>
-                </div>
-              </a>
-            </div>
-            <div class="leader-card">
-              <a class="leader-card-link" href="/decklists/ichigo-kurosaki.html">
-                <img src="https://www.unionarena-tcg.com/na/images/cardlist/card/UE01BT_BLC-1-041.png" alt="Bleach - Ichigo Kurosaki character card" />
-                <div class="caption">
-                  <strong>Ichigo Kurosaki</strong>
+                  <strong>Sung Jinwoo</strong>
                   <span class="hub-sub">Purple</span>
-                </div>
-              </a>
-            </div>
-            <div class="leader-card">
-              <a class="leader-card-link" href="/decklists/ichigo-kurosaki-blue.html">
-                <img src="https://www.unionarena-tcg.com/na/images/cardlist/card/UEX01BT_BLC-2-019.png" alt="Bleach - Ichigo Kurosaki character card" />
-                <div class="caption">
-                  <strong>Ichigo Kurosaki</strong>
-                  <span class="hub-sub">Blue</span>
-                </div>
-              </a>
-            </div>
-            <div class="leader-card">
-              <a class="leader-card-link" href="/decklists/renji-abarai.html">
-                <img src="https://www.unionarena-tcg.com/na/images/cardlist/card/UE01BT_BLC-1-047.png" alt="Bleach - Renji Abarai character card" />
-                <div class="caption">
-                  <strong>Renji Abarai</strong>
-                  <span class="hub-sub">Purple</span>
-                </div>
-              </a>
-            </div>
-            <div class="leader-card">
-              <a class="leader-card-link" href="/decklists/mayuri-kurotsuchi.html">
-                <img src="https://www.unionarena-tcg.com/na/images/cardlist/card/UEX01BT_BLC-2-038.png" alt="Bleach - Mayuri Kurotsuchi character card" />
-                <div class="caption">
-                  <strong>Mayuri Kurotsuchi</strong>
-                  <span class="hub-sub">Blue</span>
-                </div>
-              </a>
-            </div>
-            <div class="leader-card">
-              <a class="leader-card-link" href="/decklists/bambietta-basterbine.html">
-                <img src="https://www.unionarena-tcg.com/na/images/cardlist/card/UE01BT_BLC-1-014.png" alt="Bleach - Bambietta Basterbine character card" />
-                <div class="caption">
-                  <strong>Bambietta Basterbine</strong>
-                  <span class="hub-sub">Yellow</span>
-                </div>
-              </a>
-            </div>
-            <div class="leader-card">
-              <a class="leader-card-link" href="/decklists/rukia-kuchiki.html">
-                <img src="https://www.unionarena-tcg.com/na/images/cardlist/card/UEX01BT_BLC-2-034.png" alt="Bleach - Rukia Kuchiki character card" />
-                <div class="caption">
-                  <strong>Rukia Kuchiki</strong>
-                  <span class="hub-sub">Blue</span>
                 </div>
               </a>
             </div>
@@ -357,24 +123,6 @@
                 <img src="https://www.unionarena-tcg.com/na/images/cardlist/card/UE22BT_CSM-1-007.png" alt="Chainsaw Man - Denji character card" />
                 <div class="caption">
                   <strong>Denji</strong>
-                  <span class="hub-sub">Purple</span>
-                </div>
-              </a>
-            </div>
-            <div class="leader-card">
-              <a class="leader-card-link" href="/decklists/reze.html">
-                <img src="https://www.unionarena-tcg.com/na/images/cardlist/card/UE22BT_CSM-1-031.png" alt="Chainsaw Man - Reze character card" />
-                <div class="caption">
-                  <strong>Reze</strong>
-                  <span class="hub-sub">Purple</span>
-                </div>
-              </a>
-            </div>
-            <div class="leader-card">
-              <a class="leader-card-link" href="/decklists/bomb-devil.html">
-                <img src="https://www.unionarena-tcg.com/na/images/cardlist/card/UE22BT_CSM-1-017.png" alt="Chainsaw Man - Bomb Devil character card" />
-                <div class="caption">
-                  <strong>Bomb Devil</strong>
                   <span class="hub-sub">Purple</span>
                 </div>
               </a>
@@ -394,785 +142,6 @@
                 <div class="caption">
                   <strong>Power</strong>
                   <span class="hub-sub">Red</span>
-                </div>
-              </a>
-            </div>
-            <div class="leader-card">
-              <a class="leader-card-link" href="/decklists/aki-hayakawa.html">
-                <img src="https://www.unionarena-tcg.com/na/images/cardlist/card/UE22BT_CSM-1-056.png" alt="Chainsaw Man - Aki Hayakawa character card" />
-                <div class="caption">
-                  <strong>Aki Hayakawa</strong>
-                  <span class="hub-sub">Red</span>
-                </div>
-              </a>
-            </div>
-            <div class="leader-card">
-              <a class="leader-card-link" href="/decklists/makima.html">
-                <img src="https://www.unionarena-tcg.com/na/images/cardlist/card/UE22BT_CSM-1-024.png" alt="Chainsaw Man - Makima character card" />
-                <div class="caption">
-                  <strong>Makima</strong>
-                  <span class="hub-sub">Purple</span>
-                </div>
-              </a>
-            </div>
-            <div class="leader-card">
-              <a class="leader-card-link" href="/decklists/himeno.html">
-                <img src="https://www.unionarena-tcg.com/na/images/cardlist/card/UE22BT_CSM-1-066.png" alt="Chainsaw Man - Himeno character card" />
-                <div class="caption">
-                  <strong>Himeno</strong>
-                  <span class="hub-sub">Red</span>
-                </div>
-              </a>
-            </div>
-              </div>
-            </section>
-            <section class="home-ip">
-              <h2 class="home-ip-title">Code Geass</h2>
-              <div class="leader-cards home-cards" aria-label="Code Geass characters">
-            <div class="leader-card">
-              <a class="leader-card-link" href="/decklists/suzaku-kururugi.html">
-                <img src="https://www.unionarena-tcg.com/na/images/cardlist/card/UE04BT_CGH-1-036.png" alt="Code Geass - Suzaku Kururugi character card" />
-                <div class="caption">
-                  <strong>Suzaku Kururugi</strong>
-                  <span class="hub-sub">Green</span>
-                </div>
-              </a>
-            </div>
-            <div class="leader-card">
-              <a class="leader-card-link" href="/decklists/gloucester-cornelia-fighter.html">
-                <img src="https://www.unionarena-tcg.com/na/images/cardlist/card/UE04BT_CGH-1-055.png" alt="Code Geass - Gloucester (Cornelia Fighter) character card" />
-                <div class="caption">
-                  <strong>Gloucester (Cornelia Fighter)</strong>
-                  <span class="hub-sub">Green</span>
-                </div>
-              </a>
-            </div>
-            <div class="leader-card">
-              <a class="leader-card-link" href="/decklists/lancelot.html">
-                <img src="https://www.unionarena-tcg.com/na/images/cardlist/card/UE04BT_CGH-1-059.png" alt="Code Geass - Lancelot character card" />
-                <div class="caption">
-                  <strong>Lancelot</strong>
-                  <span class="hub-sub">Green</span>
-                </div>
-              </a>
-            </div>
-            <div class="leader-card">
-              <a class="leader-card-link" href="/decklists/lancelot-air-cavalry.html">
-                <img src="https://www.unionarena-tcg.com/na/images/cardlist/card/UE04BT_CGH-1-060.png" alt="Code Geass - Lancelot Air Cavalry character card" />
-                <div class="caption">
-                  <strong>Lancelot Air Cavalry</strong>
-                  <span class="hub-sub">Green</span>
-                </div>
-              </a>
-            </div>
-            <div class="leader-card">
-              <a class="leader-card-link" href="/decklists/euphemia-li-britannia.html">
-                <img src="https://www.unionarena-tcg.com/na/images/cardlist/card/UE04BT_CGH-1-047.png" alt="Code Geass - Euphemia li Britannia character card" />
-                <div class="caption">
-                  <strong>Euphemia li Britannia</strong>
-                  <span class="hub-sub">Green</span>
-                </div>
-              </a>
-            </div>
-            <div class="leader-card">
-              <a class="leader-card-link" href="/decklists/gawain.html">
-                <img src="https://www.unionarena-tcg.com/na/images/cardlist/card/UE04BT_CGH-1-022.png" alt="Code Geass - Gawain character card" />
-                <div class="caption">
-                  <strong>Gawain</strong>
-                  <span class="hub-sub">Purple</span>
-                </div>
-              </a>
-            </div>
-            <div class="leader-card">
-              <a class="leader-card-link" href="/decklists/lelouch-lamperouge.html">
-                <img src="https://www.unionarena-tcg.com/na/images/cardlist/card/UEX03BT_CGH-2-042.png" alt="Code Geass - Lelouch Lamperouge character card" />
-                <div class="caption">
-                  <strong>Lelouch Lamperouge</strong>
-                  <span class="hub-sub">Purple</span>
-                </div>
-              </a>
-            </div>
-              </div>
-            </section>
-            <section class="home-ip">
-              <h2 class="home-ip-title">Demon Slayer</h2>
-              <div class="leader-cards home-cards" aria-label="Demon Slayer characters">
-            <div class="leader-card">
-              <a class="leader-card-link" href="/decklists/enmu.html">
-                <img src="https://www.unionarena-tcg.com/na/images/cardlist/card/UE05BT_KMY-1-045.png" alt="Demon Slayer - Enmu character card" />
-                <div class="caption">
-                  <strong>Enmu</strong>
-                  <span class="hub-sub">Purple</span>
-                </div>
-              </a>
-            </div>
-            <div class="leader-card">
-              <a class="leader-card-link" href="/decklists/gyokko.html">
-                <img src="https://www.unionarena-tcg.com/na/images/cardlist/card/UEX05BT_KMY-3-052.png" alt="Demon Slayer - Gyokko character card" />
-                <div class="caption">
-                  <strong>Gyokko</strong>
-                  <span class="hub-sub">Purple</span>
-                </div>
-              </a>
-            </div>
-            <div class="leader-card">
-              <a class="leader-card-link" href="/decklists/muzan-kibutsuji.html">
-                <img src="https://www.unionarena-tcg.com/na/images/cardlist/card/UEX05BT_KMY-3-049.png" alt="Demon Slayer - Muzan Kibutsuji character card" />
-                <div class="caption">
-                  <strong>Muzan Kibutsuji</strong>
-                  <span class="hub-sub">Purple</span>
-                </div>
-              </a>
-            </div>
-              </div>
-            </section>
-            <section class="home-ip">
-              <h2 class="home-ip-title">Evangelion</h2>
-              <div class="leader-cards home-cards" aria-label="Evangelion characters">
-            <div class="leader-card">
-              <a class="leader-card-link" href="/decklists/mari-makinami-illustrious.html">
-                <img src="https://www.unionarena-tcg.com/na/images/cardlist/card/UE15BT_EVA-1-057.png" alt="Evangelion - Mari Makinami Illustrious character card" />
-                <div class="caption">
-                  <strong>Mari Makinami Illustrious</strong>
-                  <span class="hub-sub">Purple</span>
-                </div>
-              </a>
-            </div>
-            <div class="leader-card">
-              <a class="leader-card-link" href="/decklists/asuka-shikinami-langley.html">
-                <img src="https://www.unionarena-tcg.com/na/images/cardlist/card/UE15BT_EVA-1-013.png" alt="Evangelion - Asuka Shikinami Langley character card" />
-                <div class="caption">
-                  <strong>Asuka Shikinami Langley</strong>
-                  <span class="hub-sub">Yellow</span>
-                </div>
-              </a>
-            </div>
-            <div class="leader-card">
-              <a class="leader-card-link" href="/decklists/evangelion-production-model-08.html">
-                <img src="https://www.unionarena-tcg.com/na/images/cardlist/card/UE15BT_EVA-1-042.png" alt="Evangelion - Evangelion Production Model-08 character card" />
-                <div class="caption">
-                  <strong>Evangelion Production Model-08</strong>
-                  <span class="hub-sub">Purple</span>
-                </div>
-              </a>
-            </div>
-            <div class="leader-card">
-              <a class="leader-card-link" href="/decklists/mari-makinami-illustrious-yellow.html">
-                <img src="https://www.unionarena-tcg.com/na/images/cardlist/card/UE15BT_EVA-1-018.png" alt="Evangelion - Mari Makinami Illustrious character card" />
-                <div class="caption">
-                  <strong>Mari Makinami Illustrious</strong>
-                  <span class="hub-sub">Yellow</span>
-                </div>
-              </a>
-            </div>
-            <div class="leader-card">
-              <a class="leader-card-link" href="/decklists/rei-ayanami.html">
-                <img src="https://www.unionarena-tcg.com/na/images/cardlist/card/UE15BT_EVA-1-005.png" alt="Evangelion - Rei Ayanami character card" />
-                <div class="caption">
-                  <strong>Rei Ayanami</strong>
-                  <span class="hub-sub">Yellow</span>
-                </div>
-              </a>
-            </div>
-            <div class="leader-card">
-              <a class="leader-card-link" href="/decklists/shinji-ikari.html">
-                <img src="https://www.unionarena-tcg.com/na/images/cardlist/card/UE15BT_EVA-1-075.png" alt="Evangelion - Shinji Ikari character card" />
-                <div class="caption">
-                  <strong>Shinji Ikari</strong>
-                  <span class="hub-sub">Red</span>
-                </div>
-              </a>
-            </div>
-            <div class="leader-card">
-              <a class="leader-card-link" href="/decklists/evangelion-proto-type-00.html">
-                <img src="https://www.unionarena-tcg.com/na/images/cardlist/card/UE15BT_EVA-1-080.png" alt="Evangelion - Evangelion Proto Type-00 character card" />
-                <div class="caption">
-                  <strong>Evangelion Proto Type-00</strong>
-                  <span class="hub-sub">Red</span>
-                </div>
-              </a>
-            </div>
-            <div class="leader-card">
-              <a class="leader-card-link" href="/decklists/evangelion-test-type-01-pseudo-dms-phase.html">
-                <img src="https://www.unionarena-tcg.com/na/images/cardlist/card/UE15BT_EVA-1-079.png" alt="Evangelion - Evangelion Test Type-01 Pseudo DMS Phase character card" />
-                <div class="caption">
-                  <strong>Evangelion Test Type-01 Pseudo DMS Phase</strong>
-                  <span class="hub-sub">Red</span>
-                </div>
-              </a>
-            </div>
-            <div class="leader-card">
-              <a class="leader-card-link" href="/decklists/shinji-ikari-purple.html">
-                <img src="https://www.unionarena-tcg.com/na/images/cardlist/card/UE15BT_EVA-1-031.png" alt="Evangelion - Shinji Ikari character card" />
-                <div class="caption">
-                  <strong>Shinji Ikari</strong>
-                  <span class="hub-sub">Purple</span>
-                </div>
-              </a>
-            </div>
-            <div class="leader-card">
-              <a class="leader-card-link" href="/decklists/asuka-shikinami-langley-purple.html">
-                <img src="https://www.unionarena-tcg.com/na/images/cardlist/card/UEPR_EVA-1-051.png" alt="Evangelion - Asuka Shikinami Langley character card" />
-                <div class="caption">
-                  <strong>Asuka Shikinami Langley</strong>
-                  <span class="hub-sub">Purple</span>
-                </div>
-              </a>
-            </div>
-            <div class="leader-card">
-              <a class="leader-card-link" href="/decklists/evangelion-production-model-new-02.html">
-                <img src="https://www.unionarena-tcg.com/na/images/cardlist/card/UE15BT_EVA-1-043.png" alt="Evangelion - Evangelion Production Model-New 02 character card" />
-                <div class="caption">
-                  <strong>Evangelion Production Model-New 02</strong>
-                  <span class="hub-sub">Purple</span>
-                </div>
-              </a>
-            </div>
-            <div class="leader-card">
-              <a class="leader-card-link" href="/decklists/evangelion-test-type-01-spear-of-gaius.html">
-                <img src="https://www.unionarena-tcg.com/na/images/cardlist/card/UE15BT_EVA-1-033.png" alt="Evangelion - Evangelion Test Type-01 (Spear of Gaius) character card" />
-                <div class="caption">
-                  <strong>Evangelion Test Type-01 (Spear of Gaius)</strong>
-                  <span class="hub-sub">Purple</span>
-                </div>
-              </a>
-            </div>
-            <div class="leader-card">
-              <a class="leader-card-link" href="/decklists/evangelion-production-model-02.html">
-                <img src="https://www.unionarena-tcg.com/na/images/cardlist/card/UE15BT_EVA-1-041.png" alt="Evangelion - Evangelion Production Model-02&#x27; character card" />
-                <div class="caption">
-                  <strong>Evangelion Production Model-02&#x27;</strong>
-                  <span class="hub-sub">Purple</span>
-                </div>
-              </a>
-            </div>
-            <div class="leader-card">
-              <a class="leader-card-link" href="/decklists/aaa-wunder.html">
-                <img src="https://www.unionarena-tcg.com/na/images/cardlist/card/UE15BT_EVA-1-053.png" alt="Evangelion - AAA Wunder character card" />
-                <div class="caption">
-                  <strong>AAA Wunder</strong>
-                  <span class="hub-sub">Purple</span>
-                </div>
-              </a>
-            </div>
-            <div class="leader-card">
-              <a class="leader-card-link" href="/decklists/evangelion-production-model-02-red.html">
-                <img src="https://www.unionarena-tcg.com/na/images/cardlist/card/UE15BT_EVA-1-081.png" alt="Evangelion - Evangelion Production Model-02 character card" />
-                <div class="caption">
-                  <strong>Evangelion Production Model-02</strong>
-                  <span class="hub-sub">Red</span>
-                </div>
-              </a>
-            </div>
-            <div class="leader-card">
-              <a class="leader-card-link" href="/decklists/asuka-shikinami-langley-red.html">
-                <img src="https://www.unionarena-tcg.com/na/images/cardlist/card/UE15ST_EVA-1-106.png" alt="Evangelion - Asuka Shikinami Langley character card" />
-                <div class="caption">
-                  <strong>Asuka Shikinami Langley</strong>
-                  <span class="hub-sub">Red</span>
-                </div>
-              </a>
-            </div>
-            <div class="leader-card">
-              <a class="leader-card-link" href="/decklists/evangelion-production-model-02-beast-form.html">
-                <img src="https://www.unionarena-tcg.com/na/images/cardlist/card/UE15BT_EVA-1-082.png" alt="Evangelion - Evangelion Production Model-02 (Beast Form) character card" />
-                <div class="caption">
-                  <strong>Evangelion Production Model-02 (Beast Form)</strong>
-                  <span class="hub-sub">Red</span>
-                </div>
-              </a>
-            </div>
-            <div class="leader-card">
-              <a class="leader-card-link" href="/decklists/evangelion-provisional-unit-05.html">
-                <img src="https://www.unionarena-tcg.com/na/images/cardlist/card/UE15BT_EVA-1-077.png" alt="Evangelion - Evangelion Provisional Unit-05 character card" />
-                <div class="caption">
-                  <strong>Evangelion Provisional Unit-05</strong>
-                  <span class="hub-sub">Red</span>
-                </div>
-              </a>
-            </div>
-            <div class="leader-card">
-              <a class="leader-card-link" href="/decklists/evangelion-test-type-01.html">
-                <img src="https://www.unionarena-tcg.com/na/images/cardlist/card/UE15ST_EVA-1-104.png" alt="Evangelion - Evangelion Test Type-01 character card" />
-                <div class="caption">
-                  <strong>Evangelion Test Type-01</strong>
-                  <span class="hub-sub">Red</span>
-                </div>
-              </a>
-            </div>
-            <div class="leader-card">
-              <a class="leader-card-link" href="/decklists/evangelion-13.html">
-                <img src="https://www.unionarena-tcg.com/na/images/cardlist/card/UE15BT_EVA-1-034.png" alt="Evangelion - Evangelion 13 character card" />
-                <div class="caption">
-                  <strong>Evangelion 13</strong>
-                  <span class="hub-sub">Purple</span>
-                </div>
-              </a>
-            </div>
-            <div class="leader-card">
-              <a class="leader-card-link" href="/decklists/evangelion-mark-06.html">
-                <img src="https://www.unionarena-tcg.com/na/images/cardlist/card/UE15BT_EVA-1-035.png" alt="Evangelion - Evangelion Mark.06 character card" />
-                <div class="caption">
-                  <strong>Evangelion Mark.06</strong>
-                  <span class="hub-sub">Purple</span>
-                </div>
-              </a>
-            </div>
-              </div>
-            </section>
-            <section class="home-ip">
-              <h2 class="home-ip-title">Fullmetal Alchemist</h2>
-              <div class="leader-cards home-cards" aria-label="Fullmetal Alchemist characters">
-            <div class="leader-card">
-              <a class="leader-card-link" href="/decklists/roy-mustang.html">
-                <img src="https://www.unionarena-tcg.com/na/images/cardlist/card/UE09BT_FMA-1-055.png" alt="Fullmetal Alchemist - Roy Mustang character card" />
-                <div class="caption">
-                  <strong>Roy Mustang</strong>
-                  <span class="hub-sub">Blue</span>
-                </div>
-              </a>
-            </div>
-            <div class="leader-card">
-              <a class="leader-card-link" href="/decklists/riza-hawkeye.html">
-                <img src="https://www.unionarena-tcg.com/na/images/cardlist/card/UE09BT_FMA-1-051.png" alt="Fullmetal Alchemist - Riza Hawkeye character card" />
-                <div class="caption">
-                  <strong>Riza Hawkeye</strong>
-                  <span class="hub-sub">Blue</span>
-                </div>
-              </a>
-            </div>
-            <div class="leader-card">
-              <a class="leader-card-link" href="/decklists/edward-elric.html">
-                <img src="https://www.unionarena-tcg.com/na/images/cardlist/card/UE09BT_FMA-1-040.png" alt="Fullmetal Alchemist - Edward Elric character card" />
-                <div class="caption">
-                  <strong>Edward Elric</strong>
-                  <span class="hub-sub">Blue</span>
-                </div>
-              </a>
-            </div>
-            <div class="leader-card">
-              <a class="leader-card-link" href="/decklists/alex-louis-armstrong.html">
-                <img src="https://www.unionarena-tcg.com/na/images/cardlist/card/UE09BT_FMA-1-037.png" alt="Fullmetal Alchemist - Alex Louis Armstrong character card" />
-                <div class="caption">
-                  <strong>Alex Louis Armstrong</strong>
-                  <span class="hub-sub">Blue</span>
-                </div>
-              </a>
-            </div>
-            <div class="leader-card">
-              <a class="leader-card-link" href="/decklists/alphonse-elric.html">
-                <img src="https://www.unionarena-tcg.com/na/images/cardlist/card/UE09BT_FMA-1-004.png" alt="Fullmetal Alchemist - Alphonse Elric character card" />
-                <div class="caption">
-                  <strong>Alphonse Elric</strong>
-                  <span class="hub-sub">Yellow</span>
-                </div>
-              </a>
-            </div>
-            <div class="leader-card">
-              <a class="leader-card-link" href="/decklists/edward-elric-yellow.html">
-                <img src="https://www.unionarena-tcg.com/na/images/cardlist/card/UE09BT_FMA-1-012.png" alt="Fullmetal Alchemist - Edward Elric character card" />
-                <div class="caption">
-                  <strong>Edward Elric</strong>
-                  <span class="hub-sub">Yellow</span>
-                </div>
-              </a>
-            </div>
-            <div class="leader-card">
-              <a class="leader-card-link" href="/decklists/envy.html">
-                <img src="https://www.unionarena-tcg.com/na/images/cardlist/card/UE09BT_FMA-1-077.png" alt="Fullmetal Alchemist - Envy character card" />
-                <div class="caption">
-                  <strong>Envy</strong>
-                  <span class="hub-sub">Purple</span>
-                </div>
-              </a>
-            </div>
-            <div class="leader-card">
-              <a class="leader-card-link" href="/decklists/father.html">
-                <img src="https://www.unionarena-tcg.com/na/images/cardlist/card/UE09BT_FMA-1-079.png" alt="Fullmetal Alchemist - Father character card" />
-                <div class="caption">
-                  <strong>Father</strong>
-                  <span class="hub-sub">Purple</span>
-                </div>
-              </a>
-            </div>
-            <div class="leader-card">
-              <a class="leader-card-link" href="/decklists/king-bradley.html">
-                <img src="https://www.unionarena-tcg.com/na/images/cardlist/card/UE09BT_FMA-1-093.png" alt="Fullmetal Alchemist - King Bradley character card" />
-                <div class="caption">
-                  <strong>King Bradley</strong>
-                  <span class="hub-sub">Purple</span>
-                </div>
-              </a>
-            </div>
-            <div class="leader-card">
-              <a class="leader-card-link" href="/decklists/ling-yao.html">
-                <img src="https://www.unionarena-tcg.com/na/images/cardlist/card/UE09BT_FMA-1-026.png" alt="Fullmetal Alchemist - Ling Yao character card" />
-                <div class="caption">
-                  <strong>Ling Yao</strong>
-                  <span class="hub-sub">Yellow</span>
-                </div>
-              </a>
-            </div>
-            <div class="leader-card">
-              <a class="leader-card-link" href="/decklists/lust.html">
-                <img src="https://www.unionarena-tcg.com/na/images/cardlist/card/UE09BT_FMA-1-090.png" alt="Fullmetal Alchemist - Lust character card" />
-                <div class="caption">
-                  <strong>Lust</strong>
-                  <span class="hub-sub">Purple</span>
-                </div>
-              </a>
-            </div>
-              </div>
-            </section>
-            <section class="home-ip">
-              <h2 class="home-ip-title">Hunter x Hunter</h2>
-              <div class="leader-cards home-cards" aria-label="Hunter x Hunter characters">
-            <div class="leader-card">
-              <a class="leader-card-link" href="/decklists/gon-freecss.html">
-                <img src="https://www.unionarena-tcg.com/na/images/cardlist/card/UE02ST_HTR-1-102.png" alt="Hunter x Hunter - Gon Freecss character card" />
-                <div class="caption">
-                  <strong>Gon Freecss</strong>
-                  <span class="hub-sub">Green</span>
-                </div>
-              </a>
-            </div>
-            <div class="leader-card">
-              <a class="leader-card-link" href="/decklists/kurapika.html">
-                <img src="https://www.unionarena-tcg.com/na/images/cardlist/card/UE02BT_HTR-1-074.png" alt="Hunter x Hunter - Kurapika character card" />
-                <div class="caption">
-                  <strong>Kurapika</strong>
-                  <span class="hub-sub">Green</span>
-                </div>
-              </a>
-            </div>
-            <div class="leader-card">
-              <a class="leader-card-link" href="/decklists/leorio.html">
-                <img src="https://www.unionarena-tcg.com/na/images/cardlist/card/UE02BT_HTR-1-092.png" alt="Hunter x Hunter - Leorio character card" />
-                <div class="caption">
-                  <strong>Leorio</strong>
-                  <span class="hub-sub">Green</span>
-                </div>
-              </a>
-            </div>
-              </div>
-            </section>
-            <section class="home-ip">
-              <h2 class="home-ip-title">Inuyasha</h2>
-              <div class="leader-cards home-cards" aria-label="Inuyasha characters">
-            <div class="leader-card">
-              <a class="leader-card-link" href="/decklists/kagura.html">
-                <img src="https://www.unionarena-tcg.com/na/images/cardlist/card/UE23BT_IYS-1-019.png" alt="Inuyasha - Kagura character card" />
-                <div class="caption">
-                  <strong>Kagura</strong>
-                  <span class="hub-sub">Purple</span>
-                </div>
-              </a>
-            </div>
-            <div class="leader-card">
-              <a class="leader-card-link" href="/decklists/kagome-higurashi.html">
-                <img src="https://www.unionarena-tcg.com/na/images/cardlist/card/UE23BT_IYS-1-066.png" alt="Inuyasha - Kagome Higurashi character card" />
-                <div class="caption">
-                  <strong>Kagome Higurashi</strong>
-                  <span class="hub-sub">Red</span>
-                </div>
-              </a>
-            </div>
-            <div class="leader-card">
-              <a class="leader-card-link" href="/decklists/sesshomaru.html">
-                <img src="https://www.unionarena-tcg.com/na/images/cardlist/card/UE23BT_IYS-1-009.png" alt="Inuyasha - Sesshomaru character card" />
-                <div class="caption">
-                  <strong>Sesshomaru</strong>
-                  <span class="hub-sub">Purple</span>
-                </div>
-              </a>
-            </div>
-            <div class="leader-card">
-              <a class="leader-card-link" href="/decklists/inuyasha.html">
-                <img src="https://www.unionarena-tcg.com/na/images/cardlist/card/UE23BT_IYS-1-046.png" alt="Inuyasha character card" />
-                <div class="caption">
-                  <strong>Inuyasha</strong>
-                  <span class="hub-sub">Red</span>
-                </div>
-              </a>
-            </div>
-            <div class="leader-card">
-              <a class="leader-card-link" href="/decklists/koga.html">
-                <img src="https://www.unionarena-tcg.com/na/images/cardlist/card/UE23BT_IYS-1-054.png" alt="Inuyasha - Koga character card" />
-                <div class="caption">
-                  <strong>Koga</strong>
-                  <span class="hub-sub">Red</span>
-                </div>
-              </a>
-            </div>
-            <div class="leader-card">
-              <a class="leader-card-link" href="/decklists/naraku.html">
-                <img src="https://www.unionarena-tcg.com/na/images/cardlist/card/UE23BT_IYS-1-028.png" alt="Inuyasha - Naraku character card" />
-                <div class="caption">
-                  <strong>Naraku</strong>
-                  <span class="hub-sub">Purple</span>
-                </div>
-              </a>
-            </div>
-              </div>
-            </section>
-            <section class="home-ip">
-              <h2 class="home-ip-title">Jujutsu Kaisen</h2>
-              <div class="leader-cards home-cards" aria-label="Jujutsu Kaisen characters">
-            <div class="leader-card">
-              <a class="leader-card-link" href="/decklists/aoi-todo.html">
-                <img src="https://www.unionarena-tcg.com/na/images/cardlist/card/UE03BT_JJK-1-081.png" alt="Jujutsu Kaisen - Aoi Todo character card" />
-                <div class="caption">
-                  <strong>Aoi Todo</strong>
-                  <span class="hub-sub">Purple</span>
-                </div>
-              </a>
-            </div>
-            <div class="leader-card">
-              <a class="leader-card-link" href="/decklists/ultimate-mechamaru-mode-absolute.html">
-                <img src="https://www.unionarena-tcg.com/na/images/cardlist/card/UEX02BT_JJK-3-027.png" alt="Jujutsu Kaisen - Ultimate Mechamaru, Mode: Absolute character card" />
-                <div class="caption">
-                  <strong>Ultimate Mechamaru, Mode: Absolute</strong>
-                  <span class="hub-sub">Purple</span>
-                </div>
-              </a>
-            </div>
-            <div class="leader-card">
-              <a class="leader-card-link" href="/decklists/kasumi-miwa.html">
-                <img src="https://www.unionarena-tcg.com/na/images/cardlist/card/UE03BT_JJK-1-084.png" alt="Jujutsu Kaisen - Kasumi Miwa character card" />
-                <div class="caption">
-                  <strong>Kasumi Miwa</strong>
-                  <span class="hub-sub">Purple</span>
-                </div>
-              </a>
-            </div>
-            <div class="leader-card">
-              <a class="leader-card-link" href="/decklists/jogo.html">
-                <img src="https://www.unionarena-tcg.com/na/images/cardlist/card/UEX02BT_JJK-3-064.png" alt="Jujutsu Kaisen - Jogo character card" />
-                <div class="caption">
-                  <strong>Jogo</strong>
-                  <span class="hub-sub">Red</span>
-                </div>
-              </a>
-            </div>
-            <div class="leader-card">
-              <a class="leader-card-link" href="/decklists/mahito.html">
-                <img src="https://www.unionarena-tcg.com/na/images/cardlist/card/UEX02BT_JJK-3-067.png" alt="Jujutsu Kaisen - Mahito character card" />
-                <div class="caption">
-                  <strong>Mahito</strong>
-                  <span class="hub-sub">Red</span>
-                </div>
-              </a>
-            </div>
-            <div class="leader-card">
-              <a class="leader-card-link" href="/decklists/suguru-geto.html">
-                <img src="https://www.unionarena-tcg.com/na/images/cardlist/card/UEX02BT_JJK-3-039.png" alt="Jujutsu Kaisen - Suguru Geto character card" />
-                <div class="caption">
-                  <strong>Suguru Geto</strong>
-                  <span class="hub-sub">Red</span>
-                </div>
-              </a>
-            </div>
-            <div class="leader-card">
-              <a class="leader-card-link" href="/decklists/sukuna.html">
-                <img src="https://www.unionarena-tcg.com/na/images/cardlist/card/UE03BT_JJK-1-047.png" alt="Jujutsu Kaisen - Sukuna character card" />
-                <div class="caption">
-                  <strong>Sukuna</strong>
-                  <span class="hub-sub">Blue</span>
-                </div>
-              </a>
-            </div>
-            <div class="leader-card">
-              <a class="leader-card-link" href="/decklists/yuji-itadori.html">
-                <img src="https://www.unionarena-tcg.com/na/images/cardlist/card/UEX02BT_JJK-3-013.png" alt="Jujutsu Kaisen - Yuji Itadori character card" />
-                <div class="caption">
-                  <strong>Yuji Itadori</strong>
-                  <span class="hub-sub">Blue</span>
-                </div>
-              </a>
-            </div>
-              </div>
-            </section>
-            <section class="home-ip">
-              <h2 class="home-ip-title">Kagurabachi</h2>
-              <div class="leader-cards home-cards" aria-label="Kagurabachi characters">
-            <div class="leader-card">
-              <a class="leader-card-link" href="/decklists/chihiro-rokuhira.html">
-                <img src="https://www.unionarena-tcg.com/na/images/cardlist/card/UEPR_KGR-1-060.png" alt="Kagurabachi - Chihiro Rokuhira character card" />
-                <div class="caption">
-                  <strong>Chihiro Rokuhira</strong>
-                  <span class="hub-sub">Red</span>
-                </div>
-              </a>
-            </div>
-            <div class="leader-card">
-              <a class="leader-card-link" href="/decklists/hakuri-sazanami.html">
-                <img src="https://www.unionarena-tcg.com/na/images/cardlist/card/UE16BT_KGR-1-047.png" alt="Kagurabachi - Hakuri Sazanami character card" />
-                <div class="caption">
-                  <strong>Hakuri Sazanami</strong>
-                  <span class="hub-sub">Red</span>
-                </div>
-              </a>
-            </div>
-            <div class="leader-card">
-              <a class="leader-card-link" href="/decklists/togo-shiba.html">
-                <img src="https://www.unionarena-tcg.com/na/images/cardlist/card/UE16BT_KGR-1-050.png" alt="Kagurabachi - Togo Shiba character card" />
-                <div class="caption">
-                  <strong>Togo Shiba</strong>
-                  <span class="hub-sub">Red</span>
-                </div>
-              </a>
-            </div>
-            <div class="leader-card">
-              <a class="leader-card-link" href="/decklists/chihiro-rokuhira-purple.html">
-                <img src="https://www.unionarena-tcg.com/na/images/cardlist/card/UE16BT_KGR-1-015.png" alt="Kagurabachi - Chihiro Rokuhira character card" />
-                <div class="caption">
-                  <strong>Chihiro Rokuhira</strong>
-                  <span class="hub-sub">Purple</span>
-                </div>
-              </a>
-            </div>
-            <div class="leader-card">
-              <a class="leader-card-link" href="/decklists/kyora-sazanami.html">
-                <img src="https://www.unionarena-tcg.com/na/images/cardlist/card/UE16BT_KGR-1-001.png" alt="Kagurabachi - Kyora Sazanami character card" />
-                <div class="caption">
-                  <strong>Kyora Sazanami</strong>
-                  <span class="hub-sub">Purple</span>
-                </div>
-              </a>
-            </div>
-              </div>
-            </section>
-            <section class="home-ip">
-              <h2 class="home-ip-title">One Punch Man</h2>
-              <div class="leader-cards home-cards" aria-label="One Punch Man characters">
-            <div class="leader-card">
-              <a class="leader-card-link" href="/decklists/saitama.html">
-                <img src="https://www.unionarena-tcg.com/na/images/cardlist/card/UE06BT_OPM-1-062.png" alt="One Punch Man - Saitama character card" />
-                <div class="caption">
-                  <strong>Saitama</strong>
-                  <span class="hub-sub">Green</span>
-                </div>
-              </a>
-            </div>
-            <div class="leader-card">
-              <a class="leader-card-link" href="/decklists/silverfang.html">
-                <img src="https://www.unionarena-tcg.com/na/images/cardlist/card/UE06BT_OPM-1-049.png" alt="One Punch Man - Silverfang character card" />
-                <div class="caption">
-                  <strong>Silverfang</strong>
-                  <span class="hub-sub">Green</span>
-                </div>
-              </a>
-            </div>
-            <div class="leader-card">
-              <a class="leader-card-link" href="/decklists/terrible-tornado.html">
-                <img src="https://www.unionarena-tcg.com/na/images/cardlist/card/UE06BT_OPM-1-111.png" alt="One Punch Man - Terrible Tornado character card" />
-                <div class="caption">
-                  <strong>Terrible Tornado</strong>
-                  <span class="hub-sub">Green</span>
-                </div>
-              </a>
-            </div>
-            <div class="leader-card">
-              <a class="leader-card-link" href="/decklists/boros.html">
-                <img src="https://www.unionarena-tcg.com/na/images/cardlist/card/UE06BT_OPM-1-082.png" alt="One Punch Man - Boros character card" />
-                <div class="caption">
-                  <strong>Boros</strong>
-                  <span class="hub-sub">Red</span>
-                </div>
-              </a>
-            </div>
-            <div class="leader-card">
-              <a class="leader-card-link" href="/decklists/garou.html">
-                <img src="https://www.unionarena-tcg.com/na/images/cardlist/card/UE06BT_OPM-1-077.png" alt="One Punch Man - Garou character card" />
-                <div class="caption">
-                  <strong>Garou</strong>
-                  <span class="hub-sub">Red</span>
-                </div>
-              </a>
-            </div>
-            <div class="leader-card">
-              <a class="leader-card-link" href="/decklists/hellish-blizzard.html">
-                <img src="https://www.unionarena-tcg.com/na/images/cardlist/card/UE06BT_OPM-1-023.png" alt="One Punch Man - Hellish Blizzard character card" />
-                <div class="caption">
-                  <strong>Hellish Blizzard</strong>
-                  <span class="hub-sub">Yellow</span>
-                </div>
-              </a>
-            </div>
-            <div class="leader-card">
-              <a class="leader-card-link" href="/decklists/terrible-tornado-yellow.html">
-                <img src="https://www.unionarena-tcg.com/na/images/cardlist/card/UE06BT_OPM-1-015.png" alt="One Punch Man - Terrible Tornado character card" />
-                <div class="caption">
-                  <strong>Terrible Tornado</strong>
-                  <span class="hub-sub">Yellow</span>
-                </div>
-              </a>
-            </div>
-              </div>
-            </section>
-            <section class="home-ip">
-              <h2 class="home-ip-title">Rurouni Kenshin</h2>
-              <div class="leader-cards home-cards" aria-label="Rurouni Kenshin characters">
-            <div class="leader-card">
-              <a class="leader-card-link" href="/decklists/kenshin-himura.html">
-                <img src="https://www.unionarena-tcg.com/na/images/cardlist/card/UE11BT_RNK-1-089.png" alt="Rurouni Kenshin - Kenshin Himura character card" />
-                <div class="caption">
-                  <strong>Kenshin Himura</strong>
-                  <span class="hub-sub">Red</span>
-                </div>
-              </a>
-            </div>
-            <div class="leader-card">
-              <a class="leader-card-link" href="/decklists/hajime-saito.html">
-                <img src="https://www.unionarena-tcg.com/na/images/cardlist/card/UE11BT_RNK-1-040.png" alt="Rurouni Kenshin - Hajime Saito character card" />
-                <div class="caption">
-                  <strong>Hajime Saito</strong>
-                  <span class="hub-sub">Purple</span>
-                </div>
-              </a>
-            </div>
-            <div class="leader-card">
-              <a class="leader-card-link" href="/decklists/kenshin-himura-purple.html">
-                <img src="https://www.unionarena-tcg.com/na/images/cardlist/card/UE11BT_RNK-1-048.png" alt="Rurouni Kenshin - Kenshin Himura character card" />
-                <div class="caption">
-                  <strong>Kenshin Himura</strong>
-                  <span class="hub-sub">Purple</span>
-                </div>
-              </a>
-            </div>
-            <div class="leader-card">
-              <a class="leader-card-link" href="/decklists/sanosuke-sagara.html">
-                <img src="https://www.unionarena-tcg.com/na/images/cardlist/card/UE11BT_RNK-1-042.png" alt="Rurouni Kenshin - Sanosuke Sagara character card" />
-                <div class="caption">
-                  <strong>Sanosuke Sagara</strong>
-                  <span class="hub-sub">Purple</span>
-                </div>
-              </a>
-            </div>
-            <div class="leader-card">
-              <a class="leader-card-link" href="/decklists/makoto-shishio.html">
-                <img src="https://www.unionarena-tcg.com/na/images/cardlist/card/UE11BT_RNK-1-044.png" alt="Rurouni Kenshin - Makoto Shishio character card" />
-                <div class="caption">
-                  <strong>Makoto Shishio</strong>
-                  <span class="hub-sub">Purple</span>
-                </div>
-              </a>
-            </div>
-            <div class="leader-card">
-              <a class="leader-card-link" href="/decklists/aoshi-shinomori.html">
-                <img src="https://www.unionarena-tcg.com/na/images/cardlist/card/UE11BT_RNK-1-018.png" alt="Rurouni Kenshin - Aoshi Shinomori character card" />
-                <div class="caption">
-                  <strong>Aoshi Shinomori</strong>
-                  <span class="hub-sub">Blue</span>
-                </div>
-              </a>
-            </div>
-            <div class="leader-card">
-              <a class="leader-card-link" href="/decklists/sojiro-seta.html">
-                <img src="https://www.unionarena-tcg.com/na/images/cardlist/card/UE11BT_RNK-1-059.png" alt="Rurouni Kenshin - Sojiro Seta character card" />
-                <div class="caption">
-                  <strong>Sojiro Seta</strong>
-                  <span class="hub-sub">Purple</span>
                 </div>
               </a>
             </div>
@@ -1200,15 +169,6 @@
               </a>
             </div>
             <div class="leader-card">
-              <a class="leader-card-link" href="/decklists/lu-shaotang.html">
-                <img src="https://www.unionarena-tcg.com/na/images/cardlist/card/UE19BT_SMD-1-030.png" alt="Sakamoto Days - Lu Shaotang character card" />
-                <div class="caption">
-                  <strong>Lu Shaotang</strong>
-                  <span class="hub-sub">Yellow</span>
-                </div>
-              </a>
-            </div>
-            <div class="leader-card">
               <a class="leader-card-link" href="/decklists/heisuke-mashimo.html">
                 <img src="https://www.unionarena-tcg.com/na/images/cardlist/card/UE19BT_SMD-1-008.png" alt="Sakamoto Days - Heisuke Mashimo character card" />
                 <div class="caption">
@@ -1217,238 +177,58 @@
                 </div>
               </a>
             </div>
+              </div>
+            </section>
+            <section class="home-ip">
+              <h2 class="home-ip-title">Evangelion</h2>
+              <div class="leader-cards home-cards" aria-label="Evangelion characters">
             <div class="leader-card">
-              <a class="leader-card-link" href="/decklists/nagumo.html">
-                <img src="https://www.unionarena-tcg.com/na/images/cardlist/card/UE19BT_SMD-1-061.png" alt="Sakamoto Days - Nagumo character card" />
+              <a class="leader-card-link" href="/decklists/evangelion-test-type-01-pseudo-dms-phase.html">
+                <img src="https://www.unionarena-tcg.com/na/images/cardlist/card/UE15BT_EVA-1-079.png" alt="Evangelion - Evangelion Test Type-01 Pseudo DMS Phase character card" />
                 <div class="caption">
-                  <strong>Nagumo</strong>
-                  <span class="hub-sub">Purple</span>
+                  <strong>Evangelion Test Type-01 Pseudo DMS Phase</strong>
+                  <span class="hub-sub">Red</span>
                 </div>
               </a>
             </div>
             <div class="leader-card">
-              <a class="leader-card-link" href="/decklists/nagumo-yellow.html">
-                <img src="https://www.unionarena-tcg.com/na/images/cardlist/card/UE19BT_SMD-1-012.png" alt="Sakamoto Days - Nagumo character card" />
+              <a class="leader-card-link" href="/decklists/rei-ayanami.html">
+                <img src="https://www.unionarena-tcg.com/na/images/cardlist/card/UE15BT_EVA-1-005.png" alt="Evangelion - Rei Ayanami character card" />
                 <div class="caption">
-                  <strong>Nagumo</strong>
+                  <strong>Rei Ayanami</strong>
                   <span class="hub-sub">Yellow</span>
                 </div>
               </a>
             </div>
             <div class="leader-card">
-              <a class="leader-card-link" href="/decklists/shishiba.html">
-                <img src="https://www.unionarena-tcg.com/na/images/cardlist/card/UE19BT_SMD-1-055.png" alt="Sakamoto Days - Shishiba character card" />
+              <a class="leader-card-link" href="/decklists/evangelion-proto-type-00.html">
+                <img src="https://www.unionarena-tcg.com/na/images/cardlist/card/UE15BT_EVA-1-080.png" alt="Evangelion - Evangelion Proto Type-00 character card" />
                 <div class="caption">
-                  <strong>Shishiba</strong>
-                  <span class="hub-sub">Purple</span>
-                </div>
-              </a>
-            </div>
-            <div class="leader-card">
-              <a class="leader-card-link" href="/decklists/osaragi.html">
-                <img src="https://www.unionarena-tcg.com/na/images/cardlist/card/UE19BT_SMD-1-046.png" alt="Sakamoto Days - Osaragi character card" />
-                <div class="caption">
-                  <strong>Osaragi</strong>
-                  <span class="hub-sub">Purple</span>
-                </div>
-              </a>
-            </div>
-            <div class="leader-card">
-              <a class="leader-card-link" href="/decklists/taro-sakamoto-purple.html">
-                <img src="https://www.unionarena-tcg.com/na/images/cardlist/card/UE19BT_SMD-1-051.png" alt="Sakamoto Days - Taro Sakamoto character card" />
-                <div class="caption">
-                  <strong>Taro Sakamoto</strong>
-                  <span class="hub-sub">Purple</span>
-                </div>
-              </a>
-            </div>
-            <div class="leader-card">
-              <a class="leader-card-link" href="/decklists/takamura.html">
-                <img src="https://www.unionarena-tcg.com/na/images/cardlist/card/UE19BT_SMD-1-056.png" alt="Sakamoto Days - Takamura character card" />
-                <div class="caption">
-                  <strong>Takamura</strong>
-                  <span class="hub-sub">Purple</span>
+                  <strong>Evangelion Proto Type-00</strong>
+                  <span class="hub-sub">Red</span>
                 </div>
               </a>
             </div>
               </div>
             </section>
             <section class="home-ip">
-              <h2 class="home-ip-title">Solo Leveling</h2>
-              <div class="leader-cards home-cards" aria-label="Solo Leveling characters">
+              <h2 class="home-ip-title">Rurouni Kenshin</h2>
+              <div class="leader-cards home-cards" aria-label="Rurouni Kenshin characters">
             <div class="leader-card">
-              <a class="leader-card-link" href="/decklists/sung-jinwoo.html">
-                <img src="https://www.unionarena-tcg.com/na/images/cardlist/card/UE17BT_SLG-1-022.png" alt="Solo Leveling - Sung Jinwoo character card" />
+              <a class="leader-card-link" href="/decklists/hajime-saito.html">
+                <img src="https://www.unionarena-tcg.com/na/images/cardlist/card/UE11BT_RNK-1-040.png" alt="Rurouni Kenshin - Hajime Saito character card" />
                 <div class="caption">
-                  <strong>Sung Jinwoo</strong>
+                  <strong>Hajime Saito</strong>
                   <span class="hub-sub">Purple</span>
                 </div>
               </a>
             </div>
             <div class="leader-card">
-              <a class="leader-card-link" href="/decklists/igris.html">
-                <img src="https://www.unionarena-tcg.com/na/images/cardlist/card/UE17BT_SLG-1-028.png" alt="Solo Leveling - Igris character card" />
+              <a class="leader-card-link" href="/decklists/kenshin-himura.html">
+                <img src="https://www.unionarena-tcg.com/na/images/cardlist/card/UE11BT_RNK-1-089.png" alt="Rurouni Kenshin - Kenshin Himura character card" />
                 <div class="caption">
-                  <strong>Igris</strong>
-                  <span class="hub-sub">Purple</span>
-                </div>
-              </a>
-            </div>
-            <div class="leader-card">
-              <a class="leader-card-link" href="/decklists/cha-hae-in.html">
-                <img src="https://www.unionarena-tcg.com/na/images/cardlist/card/UE17BT_SLG-1-011.png" alt="Solo Leveling - Cha Hae-in character card" />
-                <div class="caption">
-                  <strong>Cha Hae-in</strong>
-                  <span class="hub-sub">Purple</span>
-                </div>
-              </a>
-            </div>
-            <div class="leader-card">
-              <a class="leader-card-link" href="/decklists/beru.html">
-                <img src="https://www.unionarena-tcg.com/na/images/cardlist/card/UE17BT_SLG-1-033.png" alt="Solo Leveling - Beru character card" />
-                <div class="caption">
-                  <strong>Beru</strong>
-                  <span class="hub-sub">Purple</span>
-                </div>
-              </a>
-            </div>
-            <div class="leader-card">
-              <a class="leader-card-link" href="/decklists/sung-il-hwan.html">
-                <img src="https://www.unionarena-tcg.com/na/images/cardlist/card/UE17BT_SLG-1-023.png" alt="Solo Leveling - Sung Il-hwan character card" />
-                <div class="caption">
-                  <strong>Sung Il-hwan</strong>
-                  <span class="hub-sub">Purple</span>
-                </div>
-              </a>
-            </div>
-            <div class="leader-card">
-              <a class="leader-card-link" href="/decklists/cha-hae-in-green.html">
-                <img src="https://www.unionarena-tcg.com/na/images/cardlist/card/UE17BT_SLG-1-058.png" alt="Solo Leveling - Cha Hae-in character card" />
-                <div class="caption">
-                  <strong>Cha Hae-in</strong>
-                  <span class="hub-sub">Green</span>
-                </div>
-              </a>
-            </div>
-            <div class="leader-card">
-              <a class="leader-card-link" href="/decklists/choi-jong-in.html">
-                <img src="https://www.unionarena-tcg.com/na/images/cardlist/card/UE17BT_SLG-1-064.png" alt="Solo Leveling - Choi Jong-in character card" />
-                <div class="caption">
-                  <strong>Choi Jong-in</strong>
-                  <span class="hub-sub">Green</span>
-                </div>
-              </a>
-            </div>
-            <div class="leader-card">
-              <a class="leader-card-link" href="/decklists/tawata-kanae.html">
-                <img src="https://www.unionarena-tcg.com/na/images/cardlist/card/UE17BT_SLG-1-067.png" alt="Solo Leveling - Tawata Kanae character card" />
-                <div class="caption">
-                  <strong>Tawata Kanae</strong>
-                  <span class="hub-sub">Green</span>
-                </div>
-              </a>
-            </div>
-            <div class="leader-card">
-              <a class="leader-card-link" href="/decklists/sung-jinwoo-green.html">
-                <img src="https://www.unionarena-tcg.com/na/images/cardlist/card/UE17BT_SLG-1-049.png" alt="Solo Leveling - Sung Jinwoo character card" />
-                <div class="caption">
-                  <strong>Sung Jinwoo</strong>
-                  <span class="hub-sub">Green</span>
-                </div>
-              </a>
-            </div>
-            <div class="leader-card">
-              <a class="leader-card-link" href="/decklists/goto-ryuji.html">
-                <img src="https://www.unionarena-tcg.com/na/images/cardlist/card/UE17BT_SLG-1-073.png" alt="Solo Leveling - Goto Ryuji character card" />
-                <div class="caption">
-                  <strong>Goto Ryuji</strong>
-                  <span class="hub-sub">Green</span>
-                </div>
-              </a>
-            </div>
-              </div>
-            </section>
-            <section class="home-ip">
-              <h2 class="home-ip-title">Sword Art Online</h2>
-              <div class="leader-cards home-cards" aria-label="Sword Art Online characters">
-            <div class="leader-card">
-              <a class="leader-card-link" href="/decklists/asuna.html">
-                <img src="https://www.unionarena-tcg.com/na/images/cardlist/card/UEX06BT_SAO-2-033.png" alt="Sword Art Online - Asuna character card" />
-                <div class="caption">
-                  <strong>Asuna</strong>
-                  <span class="hub-sub">Purple</span>
-                </div>
-              </a>
-            </div>
-            <div class="leader-card">
-              <a class="leader-card-link" href="/decklists/kirito.html">
-                <img src="https://www.unionarena-tcg.com/na/images/cardlist/card/UEX06BT_SAO-2-049.png" alt="Sword Art Online - Kirito character card" />
-                <div class="caption">
-                  <strong>Kirito</strong>
-                  <span class="hub-sub">Purple</span>
-                </div>
-              </a>
-            </div>
-            <div class="leader-card">
-              <a class="leader-card-link" href="/decklists/yuna.html">
-                <img src="https://www.unionarena-tcg.com/na/images/cardlist/card/UEX06BT_SAO-2-031.png" alt="Sword Art Online - Yuna character card" />
-                <div class="caption">
-                  <strong>Yuna</strong>
-                  <span class="hub-sub">Purple</span>
-                </div>
-              </a>
-            </div>
-            <div class="leader-card">
-              <a class="leader-card-link" href="/decklists/asuna-green.html">
-                <img src="https://www.unionarena-tcg.com/na/images/cardlist/card/UE07BT_SAO-1-071.png" alt="Sword Art Online - Asuna character card" />
-                <div class="caption">
-                  <strong>Asuna</strong>
-                  <span class="hub-sub">Green</span>
-                </div>
-              </a>
-            </div>
-            <div class="leader-card">
-              <a class="leader-card-link" href="/decklists/yuuki.html">
-                <img src="https://www.unionarena-tcg.com/na/images/cardlist/card/UE07BT_SAO-1-081.png" alt="Sword Art Online - Yuuki character card" />
-                <div class="caption">
-                  <strong>Yuuki</strong>
-                  <span class="hub-sub">Green</span>
-                </div>
-              </a>
-            </div>
-            <div class="leader-card">
-              <a class="leader-card-link" href="/decklists/asuna-stacia-the-goddess-of-creation.html">
-                <img src="https://www.unionarena-tcg.com/na/images/cardlist/card/UE07BT_SAO-1-022.png" alt="Sword Art Online - Asuna (Stacia, the Goddess of Creation) character card" />
-                <div class="caption">
-                  <strong>Asuna (Stacia, the Goddess of Creation)</strong>
-                  <span class="hub-sub">Yellow</span>
-                </div>
-              </a>
-            </div>
-            <div class="leader-card">
-              <a class="leader-card-link" href="/decklists/leafa-earth-goddess-terraria.html">
-                <img src="https://www.unionarena-tcg.com/na/images/cardlist/card/UE07BT_SAO-1-028.png" alt="Sword Art Online - Leafa (Earth Goddess, Terraria) character card" />
-                <div class="caption">
-                  <strong>Leafa (Earth Goddess, Terraria)</strong>
-                  <span class="hub-sub">Yellow</span>
-                </div>
-              </a>
-            </div>
-            <div class="leader-card">
-              <a class="leader-card-link" href="/decklists/mito.html">
-                <img src="https://www.unionarena-tcg.com/na/images/cardlist/card/UEX06BT_SAO-2-054.png" alt="Sword Art Online - Mito character card" />
-                <div class="caption">
-                  <strong>Mito</strong>
-                  <span class="hub-sub">Purple</span>
-                </div>
-              </a>
-            </div>
-            <div class="leader-card">
-              <a class="leader-card-link" href="/decklists/sinon-sun-goddess-solus.html">
-                <img src="https://www.unionarena-tcg.com/na/images/cardlist/card/UE07BT_SAO-1-025.png" alt="Sword Art Online - Sinon (Sun Goddess, Solus) character card" />
-                <div class="caption">
-                  <strong>Sinon (Sun Goddess, Solus)</strong>
-                  <span class="hub-sub">Yellow</span>
+                  <strong>Kenshin Himura</strong>
+                  <span class="hub-sub">Red</span>
                 </div>
               </a>
             </div>
@@ -1476,15 +256,6 @@
               </a>
             </div>
             <div class="leader-card">
-              <a class="leader-card-link" href="/decklists/rimuru-purple.html">
-                <img src="https://www.unionarena-tcg.com/na/images/cardlist/card/UE20BT_TSK-2-044.png" alt="That Time I Got Reincarnated As A Slime - Rimuru character card" />
-                <div class="caption">
-                  <strong>Rimuru</strong>
-                  <span class="hub-sub">Purple</span>
-                </div>
-              </a>
-            </div>
-            <div class="leader-card">
               <a class="leader-card-link" href="/decklists/milim.html">
                 <img src="https://www.unionarena-tcg.com/na/images/cardlist/card/UE20BT_TSK-2-066.png" alt="That Time I Got Reincarnated As A Slime - Milim character card" />
                 <div class="caption">
@@ -1493,74 +264,16 @@
                 </div>
               </a>
             </div>
+              </div>
+            </section>
+            <section class="home-ip">
+              <h2 class="home-ip-title">Jujutsu Kaisen</h2>
+              <div class="leader-cards home-cards" aria-label="Jujutsu Kaisen characters">
             <div class="leader-card">
-              <a class="leader-card-link" href="/decklists/diablo.html">
-                <img src="https://www.unionarena-tcg.com/na/images/cardlist/card/UE20BT_TSK-2-030.png" alt="That Time I Got Reincarnated As A Slime - Diablo character card" />
+              <a class="leader-card-link" href="/decklists/aoi-todo.html">
+                <img src="https://www.unionarena-tcg.com/na/images/cardlist/card/UE03BT_JJK-1-081.png" alt="Jujutsu Kaisen - Aoi Todo character card" />
                 <div class="caption">
-                  <strong>Diablo</strong>
-                  <span class="hub-sub">Purple</span>
-                </div>
-              </a>
-            </div>
-            <div class="leader-card">
-              <a class="leader-card-link" href="/decklists/shion.html">
-                <img src="https://www.unionarena-tcg.com/na/images/cardlist/card/UE20BT_TSK-2-019.png" alt="That Time I Got Reincarnated As A Slime - Shion character card" />
-                <div class="caption">
-                  <strong>Shion</strong>
-                  <span class="hub-sub">Blue</span>
-                </div>
-              </a>
-            </div>
-            <div class="leader-card">
-              <a class="leader-card-link" href="/decklists/shion-purple.html">
-                <img src="https://www.unionarena-tcg.com/na/images/cardlist/card/UE20BT_TSK-2-053.png" alt="That Time I Got Reincarnated As A Slime - Shion character card" />
-                <div class="caption">
-                  <strong>Shion</strong>
-                  <span class="hub-sub">Purple</span>
-                </div>
-              </a>
-            </div>
-            <div class="leader-card">
-              <a class="leader-card-link" href="/decklists/luminus.html">
-                <img src="https://www.unionarena-tcg.com/na/images/cardlist/card/UE20BT_TSK-2-071.png" alt="That Time I Got Reincarnated As A Slime - Luminus character card" />
-                <div class="caption">
-                  <strong>Luminus</strong>
-                  <span class="hub-sub">Green</span>
-                </div>
-              </a>
-            </div>
-            <div class="leader-card">
-              <a class="leader-card-link" href="/decklists/hinata.html">
-                <img src="https://www.unionarena-tcg.com/na/images/cardlist/card/UE20BT_TSK-2-034.png" alt="That Time I Got Reincarnated As A Slime - Hinata character card" />
-                <div class="caption">
-                  <strong>Hinata</strong>
-                  <span class="hub-sub">Purple</span>
-                </div>
-              </a>
-            </div>
-            <div class="leader-card">
-              <a class="leader-card-link" href="/decklists/luminus-purple.html">
-                <img src="https://www.unionarena-tcg.com/na/images/cardlist/card/UE20BT_TSK-2-048.png" alt="That Time I Got Reincarnated As A Slime - Luminus character card" />
-                <div class="caption">
-                  <strong>Luminus</strong>
-                  <span class="hub-sub">Purple</span>
-                </div>
-              </a>
-            </div>
-            <div class="leader-card">
-              <a class="leader-card-link" href="/decklists/rimuru-green.html">
-                <img src="https://www.unionarena-tcg.com/na/images/cardlist/card/UE20BT_TSK-1-091.png" alt="That Time I Got Reincarnated As A Slime - Rimuru character card" />
-                <div class="caption">
-                  <strong>Rimuru</strong>
-                  <span class="hub-sub">Green</span>
-                </div>
-              </a>
-            </div>
-            <div class="leader-card">
-              <a class="leader-card-link" href="/decklists/veldora.html">
-                <img src="https://www.unionarena-tcg.com/na/images/cardlist/card/UE20BT_TSK-2-025.png" alt="That Time I Got Reincarnated As A Slime - Veldora character card" />
-                <div class="caption">
-                  <strong>Veldora</strong>
+                  <strong>Aoi Todo</strong>
                   <span class="hub-sub">Purple</span>
                 </div>
               </a>
@@ -1568,117 +281,50 @@
               </div>
             </section>
             <section class="home-ip">
-              <h2 class="home-ip-title">Tokyo Ghoul</h2>
-              <div class="leader-cards home-cards" aria-label="Tokyo Ghoul characters">
+              <h2 class="home-ip-title">Kagurabachi</h2>
+              <div class="leader-cards home-cards" aria-label="Kagurabachi characters">
             <div class="leader-card">
-              <a class="leader-card-link" href="/decklists/ken-kaneki.html">
-                <img src="https://www.unionarena-tcg.com/na/images/cardlist/card/UE18BT_TKG-1-042.png" alt="Tokyo Ghoul - Ken Kaneki character card" />
+              <a class="leader-card-link" href="/decklists/hakuri-sazanami.html">
+                <img src="https://www.unionarena-tcg.com/na/images/cardlist/card/UE16BT_KGR-1-047.png" alt="Kagurabachi - Hakuri Sazanami character card" />
                 <div class="caption">
-                  <strong>Ken Kaneki</strong>
-                  <span class="hub-sub">Purple</span>
-                </div>
-              </a>
-            </div>
-            <div class="leader-card">
-              <a class="leader-card-link" href="/decklists/shu-tsukiyama.html">
-                <img src="https://www.unionarena-tcg.com/na/images/cardlist/card/UE18BT_TKG-1-052.png" alt="Tokyo Ghoul - Shu Tsukiyama character card" />
-                <div class="caption">
-                  <strong>Shu Tsukiyama</strong>
-                  <span class="hub-sub">Purple</span>
-                </div>
-              </a>
-            </div>
-            <div class="leader-card">
-              <a class="leader-card-link" href="/decklists/juzo-suzuya.html">
-                <img src="https://www.unionarena-tcg.com/na/images/cardlist/card/UE18BT_TKG-1-089.png" alt="Tokyo Ghoul - Juzo Suzuya character card" />
-                <div class="caption">
-                  <strong>Juzo Suzuya</strong>
+                  <strong>Hakuri Sazanami</strong>
                   <span class="hub-sub">Red</span>
-                </div>
-              </a>
-            </div>
-            <div class="leader-card">
-              <a class="leader-card-link" href="/decklists/kisho-arima.html">
-                <img src="https://www.unionarena-tcg.com/na/images/cardlist/card/UE18BT_TKG-1-084.png" alt="Tokyo Ghoul - Kisho Arima character card" />
-                <div class="caption">
-                  <strong>Kisho Arima</strong>
-                  <span class="hub-sub">Red</span>
-                </div>
-              </a>
-            </div>
-            <div class="leader-card">
-              <a class="leader-card-link" href="/decklists/kotaro-amon.html">
-                <img src="https://www.unionarena-tcg.com/na/images/cardlist/card/UE18BT_TKG-1-083.png" alt="Tokyo Ghoul - Kotaro Amon character card" />
-                <div class="caption">
-                  <strong>Kotaro Amon</strong>
-                  <span class="hub-sub">Red</span>
-                </div>
-              </a>
-            </div>
-            <div class="leader-card">
-              <a class="leader-card-link" href="/decklists/juzo-suzuya-yellow.html">
-                <img src="https://www.unionarena-tcg.com/na/images/cardlist/card/UE18BT_TKG-1-010.png" alt="Tokyo Ghoul - Juzo Suzuya character card" />
-                <div class="caption">
-                  <strong>Juzo Suzuya</strong>
-                  <span class="hub-sub">Yellow</span>
-                </div>
-              </a>
-            </div>
-            <div class="leader-card">
-              <a class="leader-card-link" href="/decklists/kisho-arima-yellow.html">
-                <img src="https://www.unionarena-tcg.com/na/images/cardlist/card/UE18BT_TKG-1-004.png" alt="Tokyo Ghoul - Kisho Arima character card" />
-                <div class="caption">
-                  <strong>Kisho Arima</strong>
-                  <span class="hub-sub">Yellow</span>
-                </div>
-              </a>
-            </div>
-            <div class="leader-card">
-              <a class="leader-card-link" href="/decklists/kuki-urie.html">
-                <img src="https://www.unionarena-tcg.com/na/images/cardlist/card/UE18BT_TKG-1-020.png" alt="Tokyo Ghoul - Kuki Urie character card" />
-                <div class="caption">
-                  <strong>Kuki Urie</strong>
-                  <span class="hub-sub">Yellow</span>
-                </div>
-              </a>
-            </div>
-            <div class="leader-card">
-              <a class="leader-card-link" href="/decklists/ginshi-shirazu.html">
-                <img src="https://www.unionarena-tcg.com/na/images/cardlist/card/UE18BT_TKG-1-022.png" alt="Tokyo Ghoul - Ginshi Shirazu character card" />
-                <div class="caption">
-                  <strong>Ginshi Shirazu</strong>
-                  <span class="hub-sub">Yellow</span>
-                </div>
-              </a>
-            </div>
-            <div class="leader-card">
-              <a class="leader-card-link" href="/decklists/haise-sasaki.html">
-                <img src="https://www.unionarena-tcg.com/na/images/cardlist/card/UE18BT_TKG-1-016.png" alt="Tokyo Ghoul - Haise Sasaki character card" />
-                <div class="caption">
-                  <strong>Haise Sasaki</strong>
-                  <span class="hub-sub">Yellow</span>
                 </div>
               </a>
             </div>
               </div>
             </section>
             <section class="home-ip">
-              <h2 class="home-ip-title">Yu Yu Hakusho</h2>
-              <div class="leader-cards home-cards" aria-label="Yu Yu Hakusho characters">
+              <h2 class="home-ip-title">Bleach</h2>
+              <div class="leader-cards home-cards" aria-label="Bleach characters">
             <div class="leader-card">
-              <a class="leader-card-link" href="/decklists/younger-toguro.html">
-                <img src="https://www.unionarena-tcg.com/na/images/cardlist/card/UE13BT_YYH-1-025.png" alt="Yu Yu Hakusho - Younger Toguro character card" />
+              <a class="leader-card-link" href="/decklists/kenpachi-zaraki.html">
+                <img src="https://www.unionarena-tcg.com/na/images/cardlist/card/UE01BT_BLC-1-081.png" alt="Bleach - Kenpachi Zaraki character card" />
                 <div class="caption">
-                  <strong>Younger Toguro</strong>
-                  <span class="hub-sub">Purple</span>
+                  <strong>Kenpachi Zaraki</strong>
+                  <span class="hub-sub">Green</span>
                 </div>
               </a>
             </div>
             <div class="leader-card">
-              <a class="leader-card-link" href="/decklists/karasu.html">
-                <img src="https://www.unionarena-tcg.com/na/images/cardlist/card/UE13BT_YYH-1-008.png" alt="Yu Yu Hakusho - Karasu character card" />
+              <a class="leader-card-link" href="/decklists/toshiro-hitsugaya.html">
+                <img src="https://www.unionarena-tcg.com/na/images/cardlist/card/UE01BT_BLC-1-085.png" alt="Bleach - Toshiro Hitsugaya character card" />
                 <div class="caption">
-                  <strong>Karasu</strong>
+                  <strong>Toshiro Hitsugaya</strong>
+                  <span class="hub-sub">Green</span>
+                </div>
+              </a>
+            </div>
+              </div>
+            </section>
+            <section class="home-ip">
+              <h2 class="home-ip-title">Sword Art Online</h2>
+              <div class="leader-cards home-cards" aria-label="Sword Art Online characters">
+            <div class="leader-card">
+              <a class="leader-card-link" href="/decklists/yuna.html">
+                <img src="https://www.unionarena-tcg.com/na/images/cardlist/card/UEX06BT_SAO-2-031.png" alt="Sword Art Online - Yuna character card" />
+                <div class="caption">
+                  <strong>Yuna</strong>
                   <span class="hub-sub">Purple</span>
                 </div>
               </a>
@@ -2708,7 +1354,7 @@
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
   </script>
-  <script src="/js/affiliate.js?v=ua3"></script>
-  <script src="/js/site.js?v=ua3"></script>
+  <script src="/js/affiliate.js?v=ua4"></script>
+  <script src="/js/site.js?v=ua4"></script>
 </body>
 </html>
