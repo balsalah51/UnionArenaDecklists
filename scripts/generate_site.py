@@ -58,7 +58,8 @@ AMAZON_LONG = (
     "Union Arena Decklists is a participant in the Amazon Services LLC Associates Program, "
     "an affiliate advertising program designed to provide a means for sites to earn advertising fees "
     "by advertising and linking to Amazon.com. If you buy through these links, this site may earn a commission, "
-    "at no extra cost to you. Amazon and the Amazon logo are trademarks of Amazon.com, Inc. or its affiliates."
+    "at no extra cost to you. Amazon and the Amazon logo are trademarks of Amazon.com, Inc. or its affiliates. "
+    "This site is not Amazon, and Amazon does not sponsor or endorse it."
 )
 SHOP_ITEMS = [
     {
