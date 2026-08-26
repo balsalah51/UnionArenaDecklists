@@ -497,10 +497,10 @@ a.shop-card:hover{border-color:rgba(211,47,47,0.28);box-shadow:var(--shadow)}
 .shop-card .price{font-weight:800;color:var(--accent);font-size:18px}
 .shop-card .swatch-row{display:flex;gap:6px;flex-wrap:wrap}
 .amazon-note{
-  margin:10px 0 0;padding:12px 14px;border-radius:10px;
-  background:#efeae6;border:1px solid rgba(0,0,0,.06);
-  font-size:13px;line-height:1.55;color:#5a4545;font-weight:600
+  margin:14px 0 0;padding:0;border:0;background:transparent;
+  font-size:12px;line-height:1.5;color:var(--muted);font-weight:600
 }
+.amazon-note a{color:var(--accent);font-weight:700;text-decoration:none}
 .footer-amazon{display:block;margin-top:8px;font-size:12px;color:var(--muted)}
 .home-shop .shop-card img{height:132px}
 .shop-mock{

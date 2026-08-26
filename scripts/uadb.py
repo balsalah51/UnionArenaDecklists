@@ -23,8 +23,8 @@ DISCORD = "https://discord.gg/aY9RfB662"
 BRAND = "Union Arena Decklists"
 SUBTITLE = "50-card lists for Standard"
 LOGO = "UA"
-CSS_VER = "ua11"
-JS_VER = "ua2"
+CSS_VER = "ua12"
+JS_VER = "ua3"
 FONT_LINKS = """  <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet" />
@@ -458,21 +458,37 @@ def tcgplayer_mass_entry_url(items: list | None, cache: dict | None = None) -> s
     return f"https://www.tcgplayer.com/massentry?{query}"
 
 
+TCGPLAYER_PARTNER = "https://partner.tcgplayer.com/c/7670706/1780961/21018"
+
+
+def tcgplayer_affiliate_url(url: str) -> str:
+    dest = (url or "").strip()
+    if not dest:
+        return ""
+    if "partner.tcgplayer.com" in dest:
+        return dest
+    if "tcgplayer.com" not in dest.lower():
+        return dest
+    return f"{TCGPLAYER_PARTNER}?u={urllib.parse.quote(dest, safe='')}"
+
+
 def buy_deck_button(url: str, label: str = "Buy on TCGplayer") -> str:
     if not url:
         return ""
+    dest = tcgplayer_affiliate_url(url)
     return (
-        f'<a class="buy-tcg buy-deck" href="{html.escape(url, quote=True)}" '
-        f'target="_blank" rel="noopener">{html.escape(label)}</a>'
+        f'<a class="buy-tcg buy-deck" href="{html.escape(dest, quote=True)}" '
+        f'target="_blank" rel="noopener sponsored">{html.escape(label)}</a>'
     )
 
 
 def buy_card_link(url: str, label: str = "Buy") -> str:
     if not url:
         return ""
+    dest = tcgplayer_affiliate_url(url)
     return (
-        f'<a class="buy-tcg buy-card" href="{html.escape(url, quote=True)}" '
-        f'target="_blank" rel="noopener">{html.escape(label)}</a>'
+        f'<a class="buy-tcg buy-card" href="{html.escape(dest, quote=True)}" '
+        f'target="_blank" rel="noopener sponsored">{html.escape(label)}</a>'
     )
 
 
