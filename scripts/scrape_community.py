@@ -724,6 +724,19 @@ def discover_blog_pages() -> list[str]:
     return list(dict.fromkeys(extra))
 
 
+def seed_existing(found: list[dict], seen: set[str]) -> None:
+    existing = uadb.load_json("data/community-decks.json", [])
+    for item in existing:
+        counts = item.get("counts") or {}
+        raw = item.get("raw") or " ".join(f"{n}x{cid}" for cid, n in sorted(counts.items()))
+        item["raw"] = raw
+        if not raw or raw in seen:
+            continue
+        seen.add(raw)
+        found.append(item)
+    uadb.log("seeded existing community lists", len(found))
+
+
 def main() -> None:
     cache = uadb.load_json("data/card-cache.json", {})
     extra = uadb.load_json("data/contender-cards.json", {})
@@ -732,6 +745,8 @@ def main() -> None:
     arches = archetypes()
     found: list[dict] = []
     seen: set[str] = set()
+    if "--replace" not in sys.argv:
+        seed_existing(found, seen)
     scrape_official(found, seen, cache, arches)
     more = discover_blog_pages()
     for url in more:
@@ -739,7 +754,8 @@ def main() -> None:
             WEB_PAGES.append(url)
     scrape_web_pages(found, seen, cache, arches)
     scrape_reddit(found, seen, cache, arches)
-    scrape_x(found, seen, cache, arches)
+    if "--skip-x" not in sys.argv:
+        scrape_x(found, seen, cache, arches)
     if "--skip-events" not in sys.argv:
         import scrape_events
 

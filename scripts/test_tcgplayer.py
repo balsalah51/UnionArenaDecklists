@@ -59,12 +59,32 @@ def test_buttons() -> None:
     card = uadb.buy_card_link("https://www.tcgplayer.com/search/union-arena/product?q=x")
     assert 'class="buy-tcg buy-card"' in card
     assert "partner.tcgplayer.com" in card
+    assert ">TCGplayer<" in card
     assert uadb.list_actions("", "") == ""
     assert "list-actions" in uadb.list_actions("a", "b")
+
+
+def test_deck_page_buy_placement() -> None:
+    import generate_site
+
+    items = [
+        {"id": "UE17BT/SLG-1-022", "name": "Sung Jinwoo", "count": 4, "group": "Characters"},
+    ]
+    cache = {"UE17BT/SLG-1-022": {"name": "Sung Jinwoo", "effect": "Raid", "category": "Character"}}
+    text = generate_site.render_text_deck(items, cache)
+    assert "buy-card" not in text
+    assert "buy-deck" not in text
+    assert "copy-sim" in text
+    entry = generate_site.render_card_entry(items[0], cache["UE17BT/SLG-1-022"], cache)
+    assert 'class="buy-tcg buy-card"' in entry
+    assert "Buy on TCGplayer" not in entry
+    assert ">TCGplayer<" in entry
+    assert "card-buy" in entry
 
 
 if __name__ == "__main__":
     test_card_search()
     test_mass_entry()
     test_buttons()
+    test_deck_page_buy_placement()
     print("ok")
