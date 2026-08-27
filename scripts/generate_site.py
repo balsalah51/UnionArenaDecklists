@@ -11,6 +11,7 @@ from collections import Counter, defaultdict
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
+import discord_board
 import uadb
 
 COLOR_ONLY = {"purple", "red", "yellow", "green", "blue", "black"}
@@ -1642,14 +1643,14 @@ def write_home(arches: list[dict], recent: list[dict], cache: dict, features: di
             <span class="home-big-title">Shop</span>
             <span class="home-big-note">Sleeves and dice on Amazon</span>
           </a>
-          <a class="home-big home-big-discord" href="{html.escape(uadb.DISCORD)}" target="_blank" rel="noopener">
+          <a class="home-big home-big-discord" href="/discord/welcome.html">
             <span class="home-big-icon" aria-hidden="true">
               <svg viewBox="0 0 24 24" fill="currentColor">
                 <path d="M19.3 5.2A17.4 17.4 0 0 0 14.9 4l-.2.4a15.2 15.2 0 0 1 3.6 1.1c-3.3-1.5-6.6-1.5-9.8 0 .4-.2.9-.4 1.3-.6l-.2-.4A17.3 17.3 0 0 0 4.7 5.2C1.9 9.4 1.1 13.5 1.5 17.5a17.7 17.7 0 0 0 5.4 2.7l.7-1.1a11.5 11.5 0 0 1-2.1-1l.2-.1c1.6.7 3.3 1.2 5.1 1.2s3.5-.4 5.1-1.2l.2.1a11.5 11.5 0 0 1-2.1 1l.7 1.1a17.7 17.7 0 0 0 5.4-2.7c.5-4.6-.7-8.7-3.8-12.3ZM8.8 14.8c-1 0-1.9-.9-1.9-2s.8-2 1.9-2 1.9.9 1.9 2-.8 2-1.9 2Zm6.4 0c-1 0-1.9-.9-1.9-2s.8-2 1.9-2 1.9.9 1.9 2-.8 2-1.9 2Z"/>
               </svg>
             </span>
             <span class="home-big-title">Discord</span>
-            <span class="home-big-note">Talk lists and the roster</span>
+            <span class="home-big-note">Welcome, roles, and title threads</span>
           </a>
         </nav>
 
@@ -1997,6 +1998,7 @@ def main() -> None:
     published = []
     sitemap = ["", "characters.html", "format.html", "shop.html", "privacy.html"]
     index = {}
+    board_decks = []
     for arch in arches:
         items = flatten_contender(arch, cache)
         comm_rows = community_for(arch["key"])
@@ -2079,6 +2081,7 @@ def main() -> None:
         index[arch["key"]] = [
             {"slug": e["slug"], "kind": e["kind"], "title": e["title"], "date": e.get("date")} for e in lists
         ]
+        board_decks.append(discord_board.deck_record(arch, items, cache, feature, lists))
         uadb.log("hub", arch["key"], "lists", len(lists), "feature", feature.get("id"))
 
     combo_arches, combo_features = build_character_color_hubs(published, cache, arches)
@@ -2106,10 +2109,12 @@ def main() -> None:
     write_format(unique_arches([a for a in arches if not a.get("from_color")]))
     write_shop()
     write_privacy()
+    board = discord_board.build_board(board_decks)
+    sitemap.extend(discord_board.write_pages(board))
     write_sitemap(sitemap)
     write_404()
     uadb.save_json("data/site-index.json", index)
-    uadb.log("wrote site", "pages", len(sitemap))
+    uadb.log("wrote site", "pages", len(sitemap), "discord themes", board.get("theme_count"))
 
 
 if __name__ == "__main__":
