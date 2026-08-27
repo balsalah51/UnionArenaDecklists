@@ -55,7 +55,7 @@ The site ships Discord-style rooms plus a bot that mirrors them on the live serv
 
 - Welcome, announcements, and title roles: [unionarenadecklists.com/discord/welcome.html](https://unionarenadecklists.com/discord/welcome.html)
 - One discussion channel per anime or manga title (Yu Yu Hakusho, Solo Leveling, Evangelion, …)
-- Roles use those same title names
+- Roles use those same title names; `#roles` has a menu to pick flair (color next to your name)
 - Each title channel posts the current consensus 50s from this site (`/discord/board.json`)
 
 Invite: [discord.gg/aY9RfB662](https://discord.gg/aY9RfB662)
@@ -77,7 +77,7 @@ python3 scripts/discord_bot.py --dump --theme yyh
 python3 scripts/discord_bot.py --dump --theme "solo leveling"
 ```
 
-`/setup` creates `#welcome`, `#announcements`, `#roles`, title roles, and one channel per anime or manga (`#solo-leveling`, `#yu-yu-hakusho`, …). Each channel gets that title’s consensus 50s.
+`/setup` creates `#welcome`, `#announcements`, `#roles`, title roles with a flair picker, and one channel per anime or manga (`#solo-leveling`, `#yu-yu-hakusho`, …). Each channel gets that title’s consensus 50s.
 
 ## Notes
 

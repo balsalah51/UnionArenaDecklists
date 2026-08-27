@@ -35,6 +35,96 @@ WELCOME_CHANNEL = "welcome"
 ANNOUNCE_CHANNEL = "announcements"
 ROLES_CHANNEL = "roles"
 GENERAL_CHANNEL = "general"
+ROLE_SELECT_ID = "ua-title-role-select"
+
+
+def _title_role_options(roles: list) -> list:
+    import discord
+
+    options = []
+    for role in roles[:25]:
+        if role is None:
+            continue
+        options.append(
+            discord.SelectOption(
+                label=(role.name or "Title")[:100],
+                value=str(role.id),
+                description="Flair next to your name",
+            )
+        )
+    if not options:
+        options.append(discord.SelectOption(label="Title flair", value="0"))
+    return options
+
+
+def make_title_role_view(roles: list | None = None):
+    import discord
+
+    class TitleRoleSelect(discord.ui.Select):
+        def __init__(self, role_list: list):
+            opts = _title_role_options(role_list)
+            super().__init__(
+                custom_id=ROLE_SELECT_ID,
+                placeholder="Pick your title flair",
+                min_values=0,
+                max_values=min(25, len(opts)),
+                options=opts,
+            )
+
+        async def callback(self, interaction: discord.Interaction):
+            await apply_title_flair(interaction)
+
+    class TitleRoleView(discord.ui.View):
+        def __init__(self, role_list: list | None = None):
+            super().__init__(timeout=None)
+            self.add_item(TitleRoleSelect(role_list or []))
+
+    return TitleRoleView(roles or [])
+
+
+async def apply_title_flair(interaction) -> None:
+    import discord
+
+    guild = interaction.guild
+    if guild is None:
+        await interaction.response.send_message("Use this in the server.", ephemeral=True)
+        return
+    member = interaction.user
+    if not isinstance(member, discord.Member):
+        member = await guild.fetch_member(interaction.user.id)
+    try:
+        live = discord_board.fetch_board(prefer="live")
+    except Exception:
+        live = discord_board.fetch_board(prefer="local")
+    names = {(row.get("name") or "")[:100] for row in discord_board.title_roles(live)}
+    names.discard("")
+    title_roles = [role for role in guild.roles if role.name in names]
+    raw = []
+    if interaction.data:
+        raw = interaction.data.get("values") or []
+    wanted = {int(v) for v in raw if str(v).isdigit() and str(v) != "0"}
+    add = []
+    remove = []
+    for role in title_roles:
+        has = role in member.roles
+        want = role.id in wanted
+        if want and not has:
+            add.append(role)
+        elif has and not want:
+            remove.append(role)
+    try:
+        if add:
+            await member.add_roles(*add, reason="UA Arena title flair")
+        if remove:
+            await member.remove_roles(*remove, reason="UA Arena title flair")
+    except discord.Forbidden:
+        await interaction.response.send_message(
+            "I cannot assign those roles. Server Settings → Roles: drag the bot role **above** Solo Leveling, Yu Yu Hakusho, and the other title roles.",
+            ephemeral=True,
+        )
+        return
+    picked = [role.name for role in title_roles if role.id in wanted] or ["none"]
+    await interaction.response.send_message("Title flair: " + ", ".join(picked), ephemeral=True)
 
 
 def parse_args(argv: list[str] | None = None) -> argparse.Namespace:
@@ -162,10 +252,11 @@ async def upsert_embed(channel, deck: dict, board: dict, marked: dict | None = N
     return sent
 
 
-async def sync_title_roles(guild, board: dict) -> None:
+async def sync_title_roles(guild, board: dict) -> list:
     import discord
 
     existing = {role.name: role for role in guild.roles}
+    out = []
     for row in discord_board.title_roles(board):
         name = (row.get("name") or "")[:100]
         if not name:
@@ -174,22 +265,39 @@ async def sync_title_roles(guild, board: dict) -> None:
         color = discord.Color(discord_board.COLOR_INT.get(color_name, 0x5865F2))
         current = existing.get(name)
         if current is None:
-            created = await guild.create_role(
+            current = await guild.create_role(
                 name=name,
                 colour=color,
                 mentionable=True,
-                reason="UA Arena title role",
+                hoist=False,
+                reason="UA Arena title flair",
             )
-            existing[name] = created
+            existing[name] = current
             await asyncio.sleep(0.15)
-            continue
-        kwargs = {}
-        if not current.mentionable:
-            kwargs["mentionable"] = True
-        if current.colour.value != color.value and current.is_assignable():
-            kwargs["colour"] = color
-        if kwargs and current.is_assignable():
-            await current.edit(**kwargs, reason="UA Arena title role")
+        else:
+            kwargs = {}
+            if not current.mentionable:
+                kwargs["mentionable"] = True
+            if current.hoist:
+                kwargs["hoist"] = False
+            if current.colour.value != color.value and current.is_assignable():
+                kwargs["colour"] = color
+            if kwargs and current.is_assignable():
+                await current.edit(**kwargs, reason="UA Arena title flair")
+        out.append(current)
+    return out
+
+
+async def post_role_picker(channel, guild, board: dict, view) -> None:
+    body = discord_board.format_roles_text(board)
+    if "ua-roles" not in body:
+        body = f"{body}\n\n`ua-roles`"
+    marked = await load_marked_messages(channel)
+    existing = marked.get("ua-roles")
+    if existing:
+        await existing.edit(content=body, view=view)
+        return
+    await channel.send(content=body, view=view)
 
 
 async def setup_guild(guild, board: dict, theme_query: str = "") -> None:
@@ -200,10 +308,11 @@ async def setup_guild(guild, board: dict, theme_query: str = "") -> None:
     roles = await get_or_create_text(guild, ROLES_CHANNEL, info, "One role per anime or manga title")
     await get_or_create_text(guild, GENERAL_CHANNEL, info, "Table talk")
 
+    role_objs = await sync_title_roles(guild, board)
     await upsert_text(welcome, "ua-welcome", discord_board.format_welcome_text(board))
     await upsert_text(announce, "ua-announcements", discord_board.format_announcements_text(board))
-    await upsert_text(roles, "ua-roles", discord_board.format_roles_text(board))
-    await sync_title_roles(guild, board)
+    picker = make_title_role_view(role_objs)
+    await post_role_picker(roles, guild, board, picker)
 
     themes = board.get("themes") or []
     if theme_query:
@@ -271,7 +380,7 @@ def run_bot(args: argparse.Namespace, board: dict) -> None:
             interaction,
             current_board(),
             theme,
-            "Done. Check #welcome, #roles, and the title channels under Deck Discussion.",
+            "Done. Check #roles and pick your title flair from the menu. Title channels are under Deck Discussion.",
         )
 
     @tree.command(name="refresh", description="Pull latest consensus 50s from the website")
@@ -315,6 +424,7 @@ def run_bot(args: argparse.Namespace, board: dict) -> None:
     @client.event
     async def on_ready():
         uadb.log("discord bot", client.user)
+        client.add_view(make_title_role_view())
         if guild_id:
             guild = discord.Object(id=int(guild_id))
             tree.copy_global_to(guild=guild)
@@ -334,7 +444,7 @@ def run_bot(args: argparse.Namespace, board: dict) -> None:
         if channel is None:
             return
         await channel.send(
-            f"Welcome {member.mention}. Read #announcements, grab a title role in #roles, then hop that title channel."
+            f"Welcome {member.mention}. Read #announcements, pick title flair in #roles, then hop that title channel."
         )
 
     client.run(token)

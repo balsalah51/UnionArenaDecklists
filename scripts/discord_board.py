@@ -451,8 +451,9 @@ def format_announcements_text(board: dict) -> str:
 
 def format_roles_text(board: dict) -> str:
     lines = [
-        "**Title roles**",
-        "Pick the anime or manga you sleeve. One role per IP, same names as the title channels.",
+        "**Title roles / flair**",
+        "Use the menu under this message to pick the anime or manga you sleeve.",
+        "That role is your flair: the color next to your name. You can pick more than one.",
         "",
     ]
     for role in title_roles(board):

@@ -154,6 +154,9 @@ def test_consensus_messages() -> None:
     assert "#announcements" in welcome
     assert "Yu Yu Hakusho" in welcome
     assert "#roles" in welcome
+    roles_text = discord_board.format_roles_text(board)
+    assert "flair" in roles_text.lower()
+    assert "menu" in roles_text.lower()
     dump = discord_board.dump_theme(board, "yyh")
     assert "Yu Yu Hakusho" in dump
     assert "Sung Jinwoo" not in dump
