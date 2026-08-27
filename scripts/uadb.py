@@ -344,9 +344,24 @@ def page_title(primary: str, brand: str | None = None) -> str:
     titled = f"{primary} | {brand}"
     if len(titled) <= 70:
         return titled
-    budget = max(24, 70 - len(brand) - 3)
+    for use_brand in (brand, "UA Decklists"):
+        titled = f"{primary} | {use_brand}"
+        if len(titled) <= 70:
+            return titled
+    use_brand = "UA Decklists"
+    budget = max(24, 70 - len(use_brand) - 3)
+    if len(primary) <= budget:
+        return f"{primary} | {use_brand}"
+    head_budget = max(12, budget // 2)
+    tail_budget = max(10, budget - head_budget - 1)
+    head = primary[:head_budget].rsplit(" ", 1)[0].rstrip(" ·|-")
+    tail = primary[-tail_budget:].split(" ", 1)[-1].strip(" ·|-")
+    if head and tail and head != tail:
+        short = f"{head}…{tail}"
+        if len(short) <= budget:
+            return f"{short} | {use_brand}"
     short = primary[:budget].rsplit(" ", 1)[0].rstrip(" ·|-") or primary[:budget]
-    return f"{short} | {brand}"
+    return f"{short} | {use_brand}"
 
 
 def crumb_html(parts: list[tuple[str | None, str]]) -> str:

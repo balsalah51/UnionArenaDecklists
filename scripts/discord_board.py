@@ -682,7 +682,15 @@ def write_welcome(board: dict, dest: Path) -> None:
         path="discord/welcome.html",
     )
     (dest / "welcome.html").write_text(page)
-    (dest / "index.html").write_text(page)
+    index = discord_chrome(
+        "UA Arena Discord",
+        "UA Arena Discord: rules, title roles, and one Union Arena thread per anime or manga.",
+        board,
+        "welcome",
+        body,
+        path="discord/index.html",
+    )
+    (dest / "index.html").write_text(index)
 
 
 def write_announcements(board: dict, dest: Path) -> None:
@@ -848,7 +856,19 @@ def write_thread_redirect(theme: dict, deck: dict, dest: Path) -> None:
         f"{deck.get('full') or deck.get('name') or 'Deck'} consensus list in the {theme.get('name') or 'title'} UA Arena Discord thread."
     )
     canonical = f"discord/{theme.get('slug') or 'welcome'}.html"
-    title = uadb.page_title(f"{deck.get('name') or 'Deck'} · {theme.get('name') or 'title'} Discord")
+    key = deck.get("key") or ""
+    name = deck.get("name") or "Deck"
+    tail = key.rsplit("-", 1)[-1].lower()
+    if tail in {"purple", "red", "yellow", "green", "blue", "black"} and tail not in name.lower():
+        name = f"{name} {tail}"
+    elif key and uadb.slugify(name) not in key:
+        rest = key
+        theme_slug = theme.get("slug") or ""
+        if theme_slug and rest.startswith(f"{theme_slug}-"):
+            rest = rest[len(theme_slug) + 1 :]
+        if rest:
+            name = rest.replace("-", " ")
+    title = uadb.page_title(f"{name} · {theme.get('name') or 'title'} Discord")
     page = f"""<!doctype html>
 <html lang="en">
 <head>

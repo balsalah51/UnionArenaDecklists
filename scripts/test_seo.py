@@ -16,6 +16,7 @@ import generate_site  # noqa: E402
 import uadb  # noqa: E402
 from generate_site import (  # noqa: E402
     build_title_catalog,
+    hub_doc_title,
     list_doc_title,
     related_character_hubs,
     series_href,
@@ -34,6 +35,84 @@ class SeoChromeTests(unittest.TestCase):
         self.assertIn("Standard", home)
         self.assertIn("|", uadb.page_title("Solo Leveling - Sung Jinwoo decklist"))
         self.assertLessEqual(len(uadb.page_title("Solo Leveling - Sung Jinwoo decklist")), 70)
+        long_list = uadb.page_title(
+            "Evangelion Test Type-01 Pseudo DMS Phase event list 5th (2026-08-16) 1471425"
+        )
+        self.assertLessEqual(len(long_list), 70)
+        self.assertIn("1471425", long_list)
+
+    def test_hub_titles_disambiguate_color_and_short_slugs(self):
+        series_hub = hub_doc_title(
+            {
+                "name": "Taro Sakamoto",
+                "title": "Sakamoto Days",
+                "key": "sakamoto-days-taro-sakamoto",
+            }
+        )
+        short_hub = hub_doc_title(
+            {
+                "name": "Taro Sakamoto",
+                "title": "Sakamoto Days",
+                "key": "taro-sakamoto",
+            }
+        )
+        color_hub = hub_doc_title(
+            {
+                "name": "Taro Sakamoto",
+                "title": "Sakamoto Days",
+                "key": "sakamoto-days-yellow",
+                "from_color": True,
+            }
+        )
+        mismatched = hub_doc_title(
+            {
+                "name": "Roy Mustang",
+                "title": "Fullmetal Alchemist",
+                "key": "fullmetal-alchemist-olivier-mira-armstrong",
+            }
+        )
+        self.assertNotEqual(series_hub, short_hub)
+        self.assertNotEqual(series_hub, color_hub)
+        self.assertIn("Yellow", color_hub)
+        self.assertIn("Olivier", mismatched)
+        self.assertNotIn("Roy", mismatched)
+        asuka_purple = hub_doc_title(
+            {
+                "name": "Asuka Shikinami Langley",
+                "title": "Evangelion",
+                "key": "asuka-shikinami-langley-purple",
+            }
+        )
+        eva_purple = hub_doc_title(
+            {
+                "name": "Rei Ayanami",
+                "title": "Evangelion",
+                "key": "evangelion-red",
+                "from_color": True,
+            }
+        )
+        self.assertIn("Asuka", asuka_purple)
+        self.assertIn("purple", asuka_purple.lower())
+        self.assertNotEqual(asuka_purple, eva_purple)
+        unit_a = list_doc_title(
+            {
+                "name": "Evangelion Production Model-02",
+                "title": "Evangelion",
+                "key": "evangelion-evangelion-production-model-02",
+            },
+            {"kind": "contender", "date": "2026-08-23", "slug": "contender-consensus"},
+        )
+        unit_b = list_doc_title(
+            {
+                "name": "Evangelion Production Model-08",
+                "title": "Evangelion",
+                "key": "evangelion-evangelion-production-model-08",
+            },
+            {"kind": "contender", "date": "2026-08-23", "slug": "contender-consensus"},
+        )
+        self.assertNotEqual(unit_a, unit_b)
+        self.assertIn("02", unit_a)
+        self.assertIn("08", unit_b)
 
     def test_seo_head_has_description_canonical_and_og(self):
         head = uadb.seo_head(
@@ -107,6 +186,32 @@ class SeriesLinkTests(unittest.TestCase):
         self.assertNotIn("Youko Kurama", names)
         self.assertNotIn("Purple", names)
 
+    def test_catalog_keeps_the_hub_with_lists(self):
+        thin = {
+            "key": "solo-leveling-sung-jinwoo",
+            "name": "Sung Jinwoo",
+            "title": "Solo Leveling",
+            "page": "decklists/solo-leveling-sung-jinwoo.html",
+            "lists": [{"slug": "a"}],
+            "from_color": False,
+            "from_combo": False,
+        }
+        rich = {
+            "key": "sung-jinwoo",
+            "name": "Sung Jinwoo",
+            "title": "Solo Leveling",
+            "page": "decklists/sung-jinwoo.html",
+            "lists": [{"slug": "b"}, {"slug": "c"}, {"slug": "d"}],
+            "from_color": False,
+            "from_combo": True,
+        }
+        catalog = build_title_catalog([thin, rich])
+        chars = catalog[0]["characters"]
+        sung = [h for h in chars if h["name"] == "Sung Jinwoo"]
+        self.assertEqual(len(sung), 1)
+        self.assertEqual(sung[0]["key"], "sung-jinwoo")
+        self.assertEqual(len(sung[0]["lists"]), 3)
+
     def test_list_titles_include_kind_and_date(self):
         arch = {"name": "Sung Jinwoo", "full": "Solo Leveling - Sung Jinwoo"}
         title = list_doc_title(
@@ -130,6 +235,28 @@ class SeriesLinkTests(unittest.TestCase):
             },
         )
         self.assertIn("1st", placed)
+        self.assertIn("1471350", placed)
+        a = list_doc_title(
+            arch,
+            {
+                "title": "Rurouni Kenshin - Kenshin Himura",
+                "kind": "official",
+                "date": "2025-12-25",
+                "slug": "official-1st-place-rurouni-kenshin-kenshin-himura-6ukbcj",
+                "subtitle": "1st Place",
+            },
+        )
+        b = list_doc_title(
+            arch,
+            {
+                "title": "Rurouni Kenshin - Kenshin Himura",
+                "kind": "official",
+                "date": "2025-12-25",
+                "slug": "official-1st-place-rurouni-kenshin-kenshin-himura-5pwvqn",
+                "subtitle": "1st Place",
+            },
+        )
+        self.assertNotEqual(a, b)
 
     def test_hub_and_list_markup_link_series(self):
         arch = {

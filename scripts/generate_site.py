@@ -1274,11 +1274,61 @@ def list_kind_label(kind: str) -> str:
     }.get(kind or "", "decklist")
 
 
+def series_key_for(title: str) -> str:
+    slug = series_slug(title) if title else ""
+    return "" if slug in {"", "title"} else slug
+
+
+def is_series_color_hub(arch: dict) -> bool:
+    key = arch.get("key") or ""
+    tail = key.rsplit("-", 1)[-1].lower()
+    if tail not in COLOR_ONLY:
+        return False
+    if arch.get("from_color"):
+        return True
+    series = pretty_anime(arch.get("title") or "") or (arch.get("title") or "").strip()
+    series_key = series_key_for(series)
+    return key in {tail, f"{series_key}-{tail}"} if series_key else key == tail
+
+
+def display_name_for_title(arch: dict) -> str:
+    name = uadb.no_em(arch.get("name") or arch.get("full") or "Deck")
+    series = pretty_anime(arch.get("title") or "") or (arch.get("title") or "").strip()
+    key = arch.get("key") or ""
+    name_slug = uadb.slugify(name)
+    if name_slug and key and name_slug not in key:
+        rest = key
+        series_key = series_key_for(series)
+        if series_key and rest.startswith(f"{series_key}-"):
+            rest = rest[len(series_key) + 1 :]
+        tail = rest.rsplit("-", 1)[-1].lower()
+        if tail in COLOR_ONLY and "-" in rest:
+            rest = rest[: -(len(tail) + 1)]
+        if rest and rest not in COLOR_ONLY:
+            name = rest.replace("-", " ").title()
+    if series:
+        low = name.lower()
+        slow = series.lower()
+        if low.startswith(slow):
+            name = name[len(series) :].strip(" -")
+    name = re.sub(r"^(evangelion\s+)+", "", name, flags=re.I).strip()
+    return name or uadb.no_em(arch.get("name") or "Deck")
+
+
 def list_doc_title(arch: dict, entry: dict) -> str:
-    name = uadb.no_em(arch.get("name") or entry.get("title") or "Decklist")
+    series = pretty_anime(arch.get("title") or "") or (arch.get("title") or "").strip()
+    key = arch.get("key") or ""
+    tail = key.rsplit("-", 1)[-1].lower()
+    if is_series_color_hub(arch) and tail in COLOR_ONLY:
+        name = f"{series} {tail.title()}".strip() if series else tail.title()
+    else:
+        name = display_name_for_title(arch)
+        if tail in COLOR_ONLY:
+            name = f"{name} {tail}"
     kind = list_kind_label(entry.get("kind") or "")
     date = entry.get("date") or ""
-    blob = f"{entry.get('slug') or ''} {entry.get('subtitle') or ''}"
+    slug = entry.get("slug") or ""
+    blob = f"{slug} {entry.get('subtitle') or ''}"
     place = ""
     m = re.search(r"(?i)\b(\d+(?:st|nd|rd|th)|winner|top\s*\d+)\b", blob)
     if m:
@@ -1288,17 +1338,30 @@ def list_doc_title(arch: dict, entry: dict) -> str:
         primary = f"{primary} {place}"
     if date:
         primary = f"{primary} ({date})"
+    token = slug.rsplit("-", 1)[-1]
+    if token and (token.isdigit() or (len(token) >= 5 and token.isalnum() and not token.isalpha())):
+        primary = f"{primary} {token}"
     return uadb.page_title(primary)
 
 
 def hub_doc_title(arch: dict) -> str:
-    name = uadb.no_em(arch.get("name") or arch.get("full") or "Deck")
+    name = display_name_for_title(arch)
+    series = pretty_anime(arch.get("title") or "") or (arch.get("title") or "").strip()
     key = arch.get("key") or ""
-    color = (arch.get("color") or "").split(";")[0].split("/")[0].strip()
     tail = key.rsplit("-", 1)[-1].lower()
-    if color and tail == color.lower() and tail in COLOR_ONLY:
-        name = f"{name} {color}"
-    return uadb.page_title(f"{name} decklist")
+    if is_series_color_hub(arch) and tail in COLOR_ONLY:
+        color_label = tail.title()
+        primary = f"{series} {color_label} decks".strip() if series else f"{color_label} decks"
+        return uadb.page_title(primary)
+    color_bit = f" {tail}" if tail in COLOR_ONLY else ""
+    orig_slug = uadb.slugify(uadb.no_em(arch.get("name") or ""))
+    if key == orig_slug and series:
+        primary = f"{name} ({series}) decks"
+    elif series and series.lower() not in name.lower():
+        primary = f"{series} {name}{color_bit} decklist"
+    else:
+        primary = f"{name}{color_bit} decklist"
+    return uadb.page_title(primary)
 
 
 def list_doc_description(arch: dict, entry: dict) -> str:
@@ -1322,8 +1385,8 @@ def title_norm(arch: dict) -> str:
 def hub_sort_key(arch: dict) -> tuple:
     return (
         1 if arch.get("from_color") else 0,
-        1 if arch.get("from_combo") else 0,
         -len(arch.get("lists") or []),
+        1 if arch.get("from_combo") else 0,
         -float(arch.get("meta_share") or 0),
         (arch.get("name") or "").lower(),
     )
@@ -2697,6 +2760,7 @@ def main() -> None:
             lists.append(comm_entry)
             published.append(comm_entry)
         lists.sort(key=lambda e: e.get("date") or "0000", reverse=True)
+        arch["lists"] = lists
         hub_jobs.append((arch, lists, items, feature, True))
         sitemap.append(arch["page"])
         for entry in lists:
