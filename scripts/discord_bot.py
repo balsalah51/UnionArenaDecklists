@@ -2,7 +2,7 @@
 """UA Arena Discord bot.
 
 Creates welcome, announcements, title roles, and one discussion
-thread per anime or manga title. Consensus 50s are pulled from
+channel per anime or manga title. Consensus 50s are pulled from
 unionarenadecklists.com/discord/board.json (or a local board.json).
 
   pip install -r requirements-bot.txt
@@ -35,7 +35,126 @@ WELCOME_CHANNEL = "welcome"
 ANNOUNCE_CHANNEL = "announcements"
 ROLES_CHANNEL = "roles"
 GENERAL_CHANNEL = "general"
-TITLE_CHANNEL = "title-threads"
+ROLE_SELECT_ID = "ua-title-role-select"
+
+
+def _title_role_options(roles: list) -> list:
+    import discord
+
+    options = []
+    for role in roles[:25]:
+        if role is None:
+            continue
+        label = discord_board.strip_flair_name(role.name or "Title")[:100]
+        slug = uadb.slugify(label)
+        slug = discord_board.THEME_ALIASES.get(label.lower()) or discord_board.THEME_ALIASES.get(slug) or slug
+        emoji = discord_board.title_emoji(slug)
+        try:
+            options.append(
+                discord.SelectOption(
+                    label=label,
+                    value=str(role.id),
+                    description="Anime title flair",
+                    emoji=emoji,
+                )
+            )
+        except Exception:
+            options.append(discord.SelectOption(label=f"{emoji} {label}"[:100], value=str(role.id)))
+    if not options:
+        options.append(discord.SelectOption(label="Title flair", value="0", emoji="🎴"))
+    return options
+
+
+def make_title_role_view(roles: list | None = None):
+    import discord
+
+    class TitleRoleSelect(discord.ui.Select):
+        def __init__(self, role_list: list):
+            opts = _title_role_options(role_list)
+            super().__init__(
+                custom_id=ROLE_SELECT_ID,
+                placeholder="Pick your title flair",
+                min_values=0,
+                max_values=min(25, len(opts)),
+                options=opts,
+            )
+
+        async def callback(self, interaction: discord.Interaction):
+            await apply_title_flair(interaction)
+
+    class TitleRoleView(discord.ui.View):
+        def __init__(self, role_list: list | None = None):
+            super().__init__(timeout=None)
+            self.add_item(TitleRoleSelect(role_list or []))
+
+    return TitleRoleView(roles or [])
+
+
+async def apply_title_flair(interaction) -> None:
+    import discord
+
+    guild = interaction.guild
+    if guild is None:
+        await interaction.response.send_message("Use this in the server.", ephemeral=True)
+        return
+    member = interaction.user
+    if not isinstance(member, discord.Member):
+        member = await guild.fetch_member(interaction.user.id)
+    try:
+        live = discord_board.fetch_board(prefer="live")
+    except Exception:
+        live = discord_board.fetch_board(prefer="local")
+    names = set()
+    for row in discord_board.title_roles(live):
+        name = (row.get("name") or "")[:100]
+        if name:
+            names.add(name)
+            names.add(row.get("flair") or discord_board.flair_role_name(name, row.get("slug") or ""))
+    names.discard("")
+    title_roles = [role for role in guild.roles if role.name in names or discord_board.strip_flair_name(role.name) in names]
+    raw = []
+    if interaction.data:
+        raw = interaction.data.get("values") or []
+    wanted = {int(v) for v in raw if str(v).isdigit() and str(v) != "0"}
+    add = []
+    remove = []
+    for role in title_roles:
+        has = role in member.roles
+        want = role.id in wanted
+        if want and not has:
+            add.append(role)
+        elif has and not want:
+            remove.append(role)
+    try:
+        if add:
+            await member.add_roles(*add, reason="UA Arena title flair")
+        if remove:
+            await member.remove_roles(*remove, reason="UA Arena title flair")
+    except discord.Forbidden:
+        await interaction.response.send_message(
+            "I cannot assign those roles. Server Settings → Roles: drag the bot role **above** Solo Leveling, Yu Yu Hakusho, and the other title roles.",
+            ephemeral=True,
+        )
+        return
+    picked = [role.name for role in title_roles if role.id in wanted] or ["none"]
+    await interaction.response.send_message("Title flair: " + ", ".join(picked), ephemeral=True)
+
+
+def read_secret_file(*names: str) -> str:
+    for name in names:
+        path = uadb.ROOT / name
+        if not path.is_file():
+            continue
+        text = path.read_text(encoding="utf-8-sig").strip()
+        for line in text.splitlines():
+            line = line.strip()
+            if not line or line.startswith("#"):
+                continue
+            key = line.lower().split("=", 1)[0].strip()
+            if "=" in line and key in {"discord_token", "token", "guild", "discord_guild_id"}:
+                return line.split("=", 1)[1].strip().strip('"').strip("'")
+            return line
+    return ""
 
 
 def parse_args(argv: list[str] | None = None) -> argparse.Namespace:
@@ -104,21 +223,39 @@ async def get_or_create_text(guild, name: str, category, topic: str = ""):
     return await guild.create_text_channel(want, category=category, topic=topic or None)
 
 
-async def find_marked_message(channel, marker: str):
-    async for message in channel.history(limit=200):
-        if message.author != channel.guild.me:
-            continue
-        if marker in (message.content or ""):
-            return message
-        for embed in message.embeds:
-            footer = (embed.footer.text or "") if embed.footer else ""
-            if marker in footer:
-                return message
-    return None
+def _markers_in_text(blob: str) -> list[str]:
+    found = []
+    for part in (blob or "").replace("`", " ").split():
+        if part.startswith("ua-"):
+            found.append(part)
+    return found
 
 
-async def upsert_text(channel, marker: str, content: str):
-    existing = await find_marked_message(channel, marker)
+def _markers_in_message(message) -> list[str]:
+    found = _markers_in_text(message.content or "")
+    for embed in message.embeds:
+        footer = (embed.footer.text or "") if embed.footer else ""
+        found.extend(_markers_in_text(footer))
+        found.extend(_markers_in_text(embed.description or ""))
+    return found
+
+
+async def load_marked_messages(channel) -> dict:
+    found = {}
+    try:
+        async for message in channel.history(limit=100):
+            if message.author != channel.guild.me:
+                continue
+            for marker in _markers_in_message(message):
+                found[marker] = message
+    except Exception as exc:
+        uadb.log("history skip", getattr(channel, "name", channel), exc)
+    return found
+
+
+async def upsert_text(channel, marker: str, content: str, marked: dict | None = None):
+    cache = marked if marked is not None else await load_marked_messages(channel)
+    existing = cache.get(marker)
     body = content if marker in content else f"{content}\n\n`{marker}`"
     if len(body) > discord_board.MESSAGE_LIMIT:
         body = body[: discord_board.MESSAGE_LIMIT - 20] + "\n…"
@@ -126,50 +263,76 @@ async def upsert_text(channel, marker: str, content: str):
         if existing.content != body:
             await existing.edit(content=body)
         return existing
-    return await channel.send(content=body)
+    sent = await channel.send(content=body)
+    cache[marker] = sent
+    return sent
 
 
-async def upsert_embed(channel, deck: dict, board: dict):
-    import discord
-
+async def upsert_embed(channel, deck: dict, board: dict, marked: dict | None = None):
+    cache = marked if marked is not None else await load_marked_messages(channel)
     marker = marker_of(deck)
     payload = discord_board.format_consensus_embed(deck, board.get("site"))
     embed = embed_from_payload(payload)
-    existing = await find_marked_message(channel, marker)
+    existing = cache.get(marker)
     if existing:
         await existing.edit(content=None, embed=embed)
         return existing
-    return await channel.send(embed=embed)
+    sent = await channel.send(embed=embed)
+    cache[marker] = sent
+    return sent
 
 
-async def sync_title_roles(guild, board: dict) -> None:
+async def sync_title_roles(guild, board: dict) -> list:
     import discord
 
     existing = {role.name: role for role in guild.roles}
+    by_plain = {discord_board.strip_flair_name(role.name): role for role in guild.roles}
+    out = []
     for row in discord_board.title_roles(board):
         name = (row.get("name") or "")[:100]
         if not name:
             continue
+        want = (row.get("flair") or discord_board.flair_role_name(name, row.get("slug") or ""))[:100]
         color_name = (row.get("color") or "").split(";")[0].split("/")[0].strip().lower()
         color = discord.Color(discord_board.COLOR_INT.get(color_name, 0x5865F2))
-        current = existing.get(name)
+        current = existing.get(want) or existing.get(name) or by_plain.get(name)
         if current is None:
-            created = await guild.create_role(
-                name=name,
+            current = await guild.create_role(
+                name=want,
                 colour=color,
                 mentionable=True,
-                reason="UA Arena title role",
+                hoist=False,
+                reason="UA Arena title flair",
             )
-            existing[name] = created
-            await asyncio.sleep(0.3)
-            continue
-        kwargs = {}
-        if not current.mentionable:
-            kwargs["mentionable"] = True
-        if current.colour.value != color.value and current.is_assignable():
-            kwargs["colour"] = color
-        if kwargs and current.is_assignable():
-            await current.edit(**kwargs, reason="UA Arena title role")
+            existing[want] = current
+            by_plain[name] = current
+            await asyncio.sleep(0.15)
+        else:
+            kwargs = {}
+            if current.name != want and current.is_assignable():
+                kwargs["name"] = want
+            if not current.mentionable:
+                kwargs["mentionable"] = True
+            if current.hoist:
+                kwargs["hoist"] = False
+            if current.colour.value != color.value and current.is_assignable():
+                kwargs["colour"] = color
+            if kwargs and current.is_assignable():
+                await current.edit(**kwargs, reason="UA Arena title flair")
+        out.append(current)
+    return out
+
+
+async def post_role_picker(channel, guild, board: dict, view) -> None:
+    body = discord_board.format_roles_text(board)
+    if "ua-roles" not in body:
+        body = f"{body}\n\n`ua-roles`"
+    marked = await load_marked_messages(channel)
+    existing = marked.get("ua-roles")
+    if existing:
+        await existing.edit(content=body, view=view)
+        return
+    await channel.send(content=body, view=view)
 
 
 async def setup_guild(guild, board: dict, theme_query: str = "") -> None:
@@ -179,51 +342,38 @@ async def setup_guild(guild, board: dict, theme_query: str = "") -> None:
     announce = await get_or_create_text(guild, ANNOUNCE_CHANNEL, info, "Format notes and consensus updates")
     roles = await get_or_create_text(guild, ROLES_CHANNEL, info, "One role per anime or manga title")
     await get_or_create_text(guild, GENERAL_CHANNEL, info, "Table talk")
-    titles = await get_or_create_text(
-        guild, TITLE_CHANNEL, decks_cat, "One thread per anime or manga title"
-    )
 
+    role_objs = await sync_title_roles(guild, board)
     await upsert_text(welcome, "ua-welcome", discord_board.format_welcome_text(board))
     await upsert_text(announce, "ua-announcements", discord_board.format_announcements_text(board))
-    await upsert_text(roles, "ua-roles", discord_board.format_roles_text(board))
-    await sync_title_roles(guild, board)
+    picker = make_title_role_view(role_objs)
+    await post_role_picker(roles, guild, board, picker)
 
     themes = board.get("themes") or []
     if theme_query:
         matched = discord_board.resolve_theme(theme_query, themes)
         themes = [matched] if matched else []
         if not themes:
-            raise SystemExit(f"No theme matched {theme_query!r}")
+            raise ValueError(f"No title matched {theme_query!r}")
 
-    index_lines = ["**Title threads**", "One thread per anime or manga. Consensus 50s from the website.", ""]
-    for theme in board.get("themes") or []:
-        index_lines.append(f"• **{theme.get('name')}** — {int(theme.get('deck_count') or 0)} lists")
-    await upsert_text(titles, "ua-title-index", "\n".join(index_lines))
-
-    for theme in themes:
+    total = len(themes)
+    for i, theme in enumerate(themes, start=1):
+        name = theme.get("name") or theme.get("slug") or "title"
+        slug = theme.get("slug") or channel_name(name)
+        uadb.log("setup channel", f"{i}/{total}", f"#{slug}")
+        channel = await get_or_create_text(
+            guild,
+            slug,
+            decks_cat,
+            f"{discord_board.title_emoji(slug)} {name} lists and talk",
+        )
         intro = discord_board.format_theme_intro(theme, board)
-        seed = await upsert_text(titles, f"ua-theme:{theme['slug']}", intro)
-        thread = seed.thread
-        want_name = (theme.get("name") or theme.get("slug") or "title")[:100]
-        if thread is None:
-            try:
-                thread = await seed.create_thread(name=want_name, auto_archive_duration=10080)
-            except Exception:
-                thread = None
-        elif thread.name != want_name:
-            try:
-                await thread.edit(name=want_name)
-            except Exception:
-                pass
-        if thread is not None:
-            if getattr(thread, "archived", False):
-                try:
-                    await thread.edit(archived=False)
-                except Exception:
-                    pass
-            for deck in theme.get("decks") or []:
-                await upsert_embed(thread, deck, board)
-                await asyncio.sleep(0.4)
+        marks = await load_marked_messages(channel)
+        await upsert_text(channel, f"ua-theme:{slug}", intro, marks)
+        for deck in theme.get("decks") or []:
+            await upsert_embed(channel, deck, board, marks)
+            await asyncio.sleep(0.12)
+        await asyncio.sleep(0.15)
 
 
 def run_bot(args: argparse.Namespace, board: dict) -> None:
@@ -233,10 +383,10 @@ def run_bot(args: argparse.Namespace, board: dict) -> None:
     except ImportError as exc:
         raise SystemExit("Install Discord.py first: pip install -r requirements-bot.txt") from exc
 
-    token = args.token or os.environ.get("DISCORD_TOKEN") or ""
+    token = args.token or os.environ.get("DISCORD_TOKEN") or read_secret_file("TOKEN.txt", "token.txt")
     if not token:
-        raise SystemExit("Set DISCORD_TOKEN or pass --token")
-    guild_id = args.guild or os.environ.get("DISCORD_GUILD_ID") or ""
+        raise SystemExit("Put your bot token in TOKEN.txt (same folder as START.bat), or set DISCORD_TOKEN")
+    guild_id = args.guild or os.environ.get("DISCORD_GUILD_ID") or read_secret_file("GUILD.txt", "guild.txt")
 
     intents = discord.Intents.default()
     intents.guilds = True
@@ -248,21 +398,40 @@ def run_bot(args: argparse.Namespace, board: dict) -> None:
     def current_board() -> dict:
         return load_board(args)
 
-    @tree.command(name="setup", description="Create welcome, roles, and one thread per anime title")
+    async def _run_setup(interaction: discord.Interaction, live: dict, theme: str, done: str) -> None:
+        await interaction.response.defer(ephemeral=True)
+        await interaction.followup.send(
+            "Setup started. It creates a channel per anime title, so give it a few minutes. "
+            "Watch the left sidebar under **Deck Discussion** for #solo-leveling, #yu-yu-hakusho, and the rest.",
+            ephemeral=True,
+        )
+        try:
+            await setup_guild(interaction.guild, live, theme)
+        except Exception as exc:
+            uadb.log("setup failed", exc)
+            await interaction.followup.send(f"Setup hit an error: {exc}", ephemeral=True)
+            return
+        await interaction.followup.send(done, ephemeral=True)
+
+    @tree.command(name="setup", description="Create welcome, roles, and one channel per anime title")
     @app_commands.default_permissions(manage_guild=True)
     async def setup_cmd(interaction: discord.Interaction, theme: str = ""):
-        await interaction.response.defer(ephemeral=True)
-        live = current_board()
-        await setup_guild(interaction.guild, live, theme)
-        await interaction.followup.send("UA Arena rooms are up. Title threads and roles posted.", ephemeral=True)
+        await _run_setup(
+            interaction,
+            current_board(),
+            theme,
+            "Done. Check #roles and pick your title flair from the menu. Title channels are under Deck Discussion.",
+        )
 
     @tree.command(name="refresh", description="Pull latest consensus 50s from the website")
     @app_commands.default_permissions(manage_guild=True)
     async def refresh_cmd(interaction: discord.Interaction, theme: str = ""):
-        await interaction.response.defer(ephemeral=True)
-        live = discord_board.fetch_board(prefer="live")
-        await setup_guild(interaction.guild, live, theme)
-        await interaction.followup.send("Pulled consensus lists from the website.", ephemeral=True)
+        await _run_setup(
+            interaction,
+            discord_board.fetch_board(prefer="live"),
+            theme,
+            "Pulled consensus lists from the website.",
+        )
 
     @tree.command(name="consensus", description="Post the consensus 50s for a title (yyh, solo leveling, ...)")
     async def consensus_cmd(interaction: discord.Interaction, theme: str):
@@ -277,11 +446,11 @@ def run_bot(args: argparse.Namespace, board: dict) -> None:
             payload = discord_board.format_consensus_embed(deck, live.get("site"))
             await interaction.followup.send(embed=embed_from_payload(payload))
 
-    @tree.command(name="themes", description="List anime and manga title threads")
+    @tree.command(name="themes", description="List anime and manga title channels")
     async def themes_cmd(interaction: discord.Interaction):
         live = current_board()
         lines = [
-            f"{t['name']} — {t['deck_count']} lists (#{t['slug']})"
+            f"{discord_board.flair_role_name(t.get('name') or '', t.get('slug') or '')} — {t['deck_count']} lists (#{t['slug']})"
             for t in live.get("themes") or []
         ]
         text = "\n".join(lines) or "No titles on the board yet."
@@ -295,10 +464,18 @@ def run_bot(args: argparse.Namespace, board: dict) -> None:
     @client.event
     async def on_ready():
         uadb.log("discord bot", client.user)
+        client.add_view(make_title_role_view())
+        # Guild sync replaces stale /setup so Discord does not say "outdated".
+        targets = list(client.guilds)
         if guild_id:
-            guild = discord.Object(id=int(guild_id))
-            tree.copy_global_to(guild=guild)
-            await tree.sync(guild=guild)
+            gid = int(guild_id)
+            if not any(g.id == gid for g in targets):
+                targets.append(discord.Object(id=gid))
+        if targets:
+            for guild in targets:
+                tree.copy_global_to(guild=guild)
+                await tree.sync(guild=guild)
+                uadb.log("synced commands", getattr(guild, "name", guild.id))
         else:
             await tree.sync()
         if os.environ.get("DISCORD_AUTO_SETUP") == "1":
@@ -314,7 +491,7 @@ def run_bot(args: argparse.Namespace, board: dict) -> None:
         if channel is None:
             return
         await channel.send(
-            f"Welcome {member.mention}. Read #announcements, grab a title role in #roles, then hop that title thread."
+            f"Welcome {member.mention}. Read #announcements, pick title flair in #roles, then hop that title channel."
         )
 
     client.run(token)

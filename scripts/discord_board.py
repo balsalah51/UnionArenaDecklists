@@ -68,6 +68,31 @@ THEME_ALIASES = {
     "100girlfriends": "the-100-girlfriends",
 }
 
+TITLE_EMOJI = {
+    "evangelion": "🤖",
+    "chainsaw-man": "🪚",
+    "solo-leveling": "🗡️",
+    "sakamoto-days": "🔫",
+    "rurouni-kenshin": "⚔️",
+    "that-time-i-got-reincarnated-as-a-slime": "💧",
+    "bleach": "☠️",
+    "jujutsu-kaisen": "👁️",
+    "tokyo-ghoul": "🎭",
+    "kagurabachi": "🩸",
+    "sword-art-online": "🌀",
+    "code-geass": "♟️",
+    "the-100-girlfriends": "💖",
+    "attack-on-titan": "🪶",
+    "black-clover": "🍀",
+    "demon-slayer": "🔥",
+    "fullmetal-alchemist": "⚗️",
+    "hunter-x-hunter": "🎣",
+    "inuyasha": "🐾",
+    "one-punch-man": "👊",
+    "yu-yu-hakusho": "👻",
+}
+DEFAULT_TITLE_EMOJI = "🎴"
+
 COLOR_ONLY = {"purple", "red", "yellow", "green", "blue", "black"}
 COLOR_INT = {
     "red": 0xD32F2F,
@@ -235,9 +260,9 @@ def build_announcements(decks: list[dict], updated: str = "") -> list[dict]:
             "title": "Share a 50",
             "date": stamp,
             "body": (
-                "Paste `NxSET/CODE` lines in the matching anime or manga thread. "
+                "Paste `NxSET/CODE` lines in the matching anime or manga channel. "
                 "Copy on any list page dumps that format. "
-                "One thread per title: Solo Leveling, Yu Yu Hakusho, Evangelion, and the rest."
+                "One channel per title: Solo Leveling, Yu Yu Hakusho, Evangelion, and the rest."
             ),
         },
     ]
@@ -296,24 +321,62 @@ def list_count_label(n) -> str:
     return "1 list" if n == 1 else f"{n} lists"
 
 
+def title_emoji(slug: str) -> str:
+    return TITLE_EMOJI.get((slug or "").strip().lower(), DEFAULT_TITLE_EMOJI)
+
+
+def flair_role_name(name: str, slug: str = "") -> str:
+    base = (name or slug or "Title").strip()[:80]
+    return f"{title_emoji(slug)} {base}"
+
+
+def strip_flair_name(name: str) -> str:
+    raw = (name or "").strip()
+    marks = sorted(set(TITLE_EMOJI.values()) | {DEFAULT_TITLE_EMOJI}, key=len, reverse=True)
+    for emoji in marks:
+        variants = (emoji, emoji + "\uFE0F", emoji.replace("\uFE0F", ""))
+        for mark in variants:
+            if mark and raw.startswith(mark):
+                return raw[len(mark) :].strip()
+    return raw
+
+
+def deck_title_emoji(deck: dict) -> str:
+    slug = theme_slug(deck.get("title") or deck.get("full") or deck.get("key") or "")
+    return title_emoji(slug)
+
+
 def title_roles_from(themes: list[dict]) -> list[dict]:
     roles = []
     for theme in themes:
+        slug = theme.get("slug") or ""
+        name = theme.get("name") or slug or "Title"
         roles.append(
             {
-                "name": theme.get("name") or theme.get("slug") or "Title",
-                "slug": theme.get("slug") or "",
+                "name": name,
+                "slug": slug,
+                "emoji": title_emoji(slug),
+                "flair": flair_role_name(name, slug),
                 "color": theme.get("color") or "",
                 "color_class": uadb.color_class(theme.get("color") or ""),
                 "deck_count": int(theme.get("deck_count") or 0),
-                "href": f"/discord/{theme.get('slug') or 'title'}.html",
+                "href": f"/discord/{slug or 'title'}.html",
             }
         )
     return roles
 
 
 def title_roles(board: dict) -> list[dict]:
-    return list(board.get("roles") or title_roles_from(board.get("themes") or []))
+    rows = list(board.get("roles") or title_roles_from(board.get("themes") or []))
+    out = []
+    for row in rows:
+        item = dict(row)
+        slug = item.get("slug") or ""
+        name = item.get("name") or slug or "Title"
+        item["emoji"] = item.get("emoji") or title_emoji(slug)
+        item["flair"] = item.get("flair") or flair_role_name(name, slug)
+        out.append(item)
+    return out
 
 
 def list_kind_label(kind: str) -> str:
@@ -329,7 +392,9 @@ def list_kind_label(kind: str) -> str:
 
 
 def consensus_header(deck: dict) -> str:
-    bits = [deck.get("full") or deck.get("name") or "Deck"]
+    title = deck.get("full") or deck.get("name") or "Deck"
+    emoji = deck_title_emoji(deck)
+    bits = [f"{emoji} {title}" if emoji else title]
     bits.append(list_kind_label(deck.get("consensus_kind") or ""))
     if deck.get("consensus_date"):
         bits.append(deck["consensus_date"])
@@ -411,8 +476,10 @@ def format_consensus_embed(deck: dict, site: str | None = None) -> dict:
             desc += f"\n{extra}"
     description_parts.append(desc)
     description = "\n".join(description_parts)[:EMBED_DESC]
+    title = deck.get("full") or deck.get("name") or "Deck"
+    emoji = deck_title_emoji(deck)
     return {
-        "title": deck.get("full") or deck.get("name") or "Deck",
+        "title": f"{emoji} {title}" if emoji else title,
         "url": url,
         "description": description,
         "color": COLOR_INT.get(color_name, 0x5865F2),
@@ -423,16 +490,19 @@ def format_consensus_embed(deck: dict, site: str | None = None) -> dict:
 
 
 def format_welcome_text(board: dict) -> str:
-    themes = ", ".join((t.get("name") or t.get("slug") or "") for t in board.get("themes") or [])
+    themes = ", ".join(
+        flair_role_name(t.get("name") or t.get("slug") or "", t.get("slug") or "")
+        for t in board.get("themes") or []
+    )
     return (
         f"**Welcome to UA Arena**\n"
         f"Union Arena Standard lists, title talk, and 50-card cores.\n\n"
         f"**Start here**\n"
         f"• Read #announcements for format notes and restricted cards\n"
-        f"• Grab a title role in #roles (Solo Leveling, Yu Yu Hakusho, …)\n"
-        f"• Open that title’s thread and talk the 50\n"
+        f"• Grab a title flair in #roles (🗡️ Solo Leveling, 👻 Yu Yu Hakusho, …)\n"
+        f"• Open that title’s channel and talk the 50\n"
         f"• Consensus lists are pulled from {uadb.SITE}\n\n"
-        f"**Title threads**\n{themes}\n\n"
+        f"**Title channels**\n{themes}\n\n"
         f"Be decent. No spoiler dumps without tags. Keep lists in `NxSET/CODE`.\n"
         f"Invite: {board.get('discord_invite') or uadb.DISCORD}"
     )
@@ -451,24 +521,30 @@ def format_announcements_text(board: dict) -> str:
 
 def format_roles_text(board: dict) -> str:
     lines = [
-        "**Title roles**",
-        "Pick the anime or manga you sleeve. One role per IP, same names as the title threads.",
+        "**Title roles / flair**",
+        "Use the menu under this message to pick the anime or manga you sleeve.",
+        "That role is your flair: emoji + color next to your name. You can pick more than one.",
         "",
     ]
     for role in title_roles(board):
-        lines.append(f"• **{role['name']}** — {list_count_label(role['deck_count'])} · #{role['slug']}")
+        emoji = role.get("emoji") or title_emoji(role.get("slug") or "")
+        lines.append(
+            f"• {emoji} **{role['name']}** — {list_count_label(role['deck_count'])} · #{role['slug']}"
+        )
     return "\n".join(lines).strip()
 
 
 def format_theme_intro(theme: dict, board: dict | None = None) -> str:
     site = (board or {}).get("site") or uadb.SITE
+    slug = theme.get("slug") or ""
+    name = theme.get("name") or slug or "Title"
     names = ", ".join(d.get("name") or d.get("key") or "" for d in (theme.get("decks") or []))
     return (
-        f"**{theme.get('name') or theme.get('slug')}** title thread\n"
+        f"**{flair_role_name(name, slug)}** channel\n"
         f"{int(theme.get('deck_count') or 0)} public 50s in this IP. "
-        f"Role: {theme.get('name')}. Lists from {site}.\n"
+        f"Flair: {flair_role_name(name, slug)}. Lists from {site}.\n"
         f"{names}\n"
-        f"`ua-theme:{theme.get('slug') or ''}`"
+        f"`ua-theme:{slug}`"
     )
 
 
@@ -481,7 +557,7 @@ def dump_theme(board: dict, query: str | None = None) -> str:
         themes = [theme]
     blocks = []
     for theme in themes:
-        blocks.append(f"# {theme['name']}  ({theme['slug']})")
+        blocks.append(f"# {flair_role_name(theme.get('name') or '', theme.get('slug') or '')}  ({theme['slug']})")
         for deck in theme.get("decks") or []:
             blocks.append(format_consensus_text(deck, board.get("site")))
             blocks.append("")
@@ -536,7 +612,7 @@ def render_sidebar(board: dict, current: str) -> str:
         theme_links.append(
             f'<a class="discord-channel discord-thread-link{active}" href="/discord/{html.escape(theme["slug"])}.html" '
             f'data-channel="{html.escape(extra)}" data-filterable>'
-            f'<span class="discord-thread-icon" aria-hidden="true">#</span>'
+            f'<span class="discord-thread-icon" aria-hidden="true">{title_emoji(theme.get("slug") or "")}</span>'
             f'{html.escape(theme.get("name") or theme["slug"])}</a>'
         )
     return f"""        <aside class="discord-sidebar" aria-label="Server channels">
@@ -630,11 +706,12 @@ def write_welcome(board: dict, dest: Path) -> None:
     for theme in board.get("themes") or []:
         theme_pills.append(
             f'<a class="discord-pill" href="/discord/{html.escape(theme["slug"])}.html">'
-            f'{html.escape(theme.get("name") or theme["slug"])} <span>{theme["deck_count"]}</span></a>'
+            f'{title_emoji(theme.get("slug") or "")} {html.escape(theme.get("name") or theme["slug"])} '
+            f'<span>{theme["deck_count"]}</span></a>'
         )
     roles = "".join(
         f'<li><a class="discord-role {html.escape(role["color_class"])}" href="{html.escape(role["href"])}">'
-        f'{html.escape(role["name"])}</a></li>'
+        f'{html.escape(role.get("flair") or role["name"])}</a></li>'
         for role in title_roles(board)
     )
     body = f"""        <div class="discord-head">
@@ -721,19 +798,19 @@ def write_roles(board: dict, dest: Path) -> None:
     for role in title_roles(board):
         items.append(
             f'<li><a class="discord-role-row" href="{html.escape(role["href"])}">'
-            f'<span class="discord-role {html.escape(role["color_class"])}">{html.escape(role["name"])}</span>'
-            f'<span class="discord-role-note">{html.escape(list_count_label(role["deck_count"]))} · thread</span></a></li>'
+            f'<span class="discord-role {html.escape(role["color_class"])}">{html.escape(role.get("flair") or role["name"])}</span>'
+            f'<span class="discord-role-note">{html.escape(list_count_label(role["deck_count"]))} · channel</span></a></li>'
         )
     body = f"""        <div class="discord-head">
           <div class="discord-head-hash">#</div>
           <div>
             <h2>roles</h2>
-            <p>One role per anime or manga title. Same names as the threads.</p>
+            <p>One role per anime or manga title. Emoji + color flair next to your name.</p>
           </div>
         </div>
         <div class="discord-feed">
 {_message("UA Arena Bot", updated, f"""              <p><strong>Title roles</strong></p>
-              <p>Grab the IP you sleeve. The live server uses these same names so people can ping Solo Leveling, Yu Yu Hakusho, Evangelion, and the rest.</p>
+              <p>Grab the IP you sleeve. The live server uses emoji + color flair so people can ping 🗡️ Solo Leveling, 👻 Yu Yu Hakusho, 🤖 Evangelion, and the rest.</p>
               <ul class="discord-role-list">{"".join(items)}</ul>""", "is-pin")}
         </div>"""
     page = discord_chrome(
@@ -785,8 +862,8 @@ def write_theme(board: dict, theme: dict, dest: Path) -> None:
         _message(
             "UA Arena Bot",
             html.escape(board.get("updated") or ""),
-            f"""              <p><strong>{html.escape(theme.get("name") or theme.get("slug") or "Title")} thread</strong></p>
-              <p>One thread for this anime or manga. Role: <span class="discord-role {html.escape(uadb.color_class(theme.get("color") or ""))}">{html.escape(theme.get("name") or "")}</span>. Consensus 50s pulled from the website.</p>
+            f"""              <p><strong>{html.escape(flair_role_name(theme.get("name") or theme.get("slug") or "Title", theme.get("slug") or ""))} channel</strong></p>
+              <p>One channel for this anime or manga. Flair: <span class="discord-role {html.escape(uadb.color_class(theme.get("color") or ""))}">{html.escape(flair_role_name(theme.get("name") or "", theme.get("slug") or ""))}</span>. Consensus 50s pulled from the website.</p>
               <p class="discord-jump">{' · '.join(jumps)}</p>""",
             "is-pin",
         )
@@ -796,7 +873,7 @@ def write_theme(board: dict, theme: dict, dest: Path) -> None:
     body = f"""        <div class="discord-head">
           <div class="discord-head-hash">#</div>
           <div>
-            <h2>{html.escape(theme.get("name") or theme.get("slug") or "")}</h2>
+            <h2>{html.escape(flair_role_name(theme.get("name") or theme.get("slug") or "", theme.get("slug") or ""))}</h2>
             <p>{html.escape(list_count_label(theme.get("deck_count")))} in this title{f" · aliases {aliases}" if aliases else ""}</p>
           </div>
         </div>
@@ -859,6 +936,8 @@ def write_pages(board: dict, dest: Path | None = None) -> list[str]:
     dest = dest or (uadb.ROOT / "discord")
     dest.mkdir(parents=True, exist_ok=True)
     (dest / "threads").mkdir(parents=True, exist_ok=True)
+    board = dict(board)
+    board["roles"] = title_roles(board)
     (dest / "board.json").write_text(json.dumps(board, indent=2, ensure_ascii=False) + "\n")
     write_welcome(board, dest)
     write_announcements(board, dest)

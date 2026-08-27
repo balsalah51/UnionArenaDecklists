@@ -11662,7 +11662,9 @@
       "color": "Yellow",
       "color_class": "color-yellow",
       "deck_count": 12,
-      "href": "/discord/evangelion.html"
+      "href": "/discord/evangelion.html",
+      "emoji": "🤖",
+      "flair": "🤖 Evangelion"
     },
     {
       "name": "Chainsaw Man",
@@ -11670,7 +11672,9 @@
       "color": "Purple",
       "color_class": "color-purple",
       "deck_count": 7,
-      "href": "/discord/chainsaw-man.html"
+      "href": "/discord/chainsaw-man.html",
+      "emoji": "🪚",
+      "flair": "🪚 Chainsaw Man"
     },
     {
       "name": "Solo Leveling",
@@ -11678,7 +11682,9 @@
       "color": "Purple",
       "color_class": "color-purple",
       "deck_count": 4,
-      "href": "/discord/solo-leveling.html"
+      "href": "/discord/solo-leveling.html",
+      "emoji": "🗡️",
+      "flair": "🗡️ Solo Leveling"
     },
     {
       "name": "Sakamoto Days",
@@ -11686,7 +11692,9 @@
       "color": "Yellow",
       "color_class": "color-yellow",
       "deck_count": 8,
-      "href": "/discord/sakamoto-days.html"
+      "href": "/discord/sakamoto-days.html",
+      "emoji": "🔫",
+      "flair": "🔫 Sakamoto Days"
     },
     {
       "name": "Rurouni Kenshin",
@@ -11694,7 +11702,9 @@
       "color": "Red",
       "color_class": "color-red",
       "deck_count": 6,
-      "href": "/discord/rurouni-kenshin.html"
+      "href": "/discord/rurouni-kenshin.html",
+      "emoji": "⚔️",
+      "flair": "⚔️ Rurouni Kenshin"
     },
     {
       "name": "That Time I Got Reincarnated As A Slime",
@@ -11702,7 +11712,9 @@
       "color": "Green",
       "color_class": "color-green",
       "deck_count": 4,
-      "href": "/discord/that-time-i-got-reincarnated-as-a-slime.html"
+      "href": "/discord/that-time-i-got-reincarnated-as-a-slime.html",
+      "emoji": "💧",
+      "flair": "💧 That Time I Got Reincarnated As A Slime"
     },
     {
       "name": "Bleach",
@@ -11710,7 +11722,9 @@
       "color": "Green",
       "color_class": "color-green",
       "deck_count": 3,
-      "href": "/discord/bleach.html"
+      "href": "/discord/bleach.html",
+      "emoji": "☠️",
+      "flair": "☠️ Bleach"
     },
     {
       "name": "Jujutsu Kaisen",
@@ -11718,7 +11732,9 @@
       "color": "Purple",
       "color_class": "color-purple",
       "deck_count": 2,
-      "href": "/discord/jujutsu-kaisen.html"
+      "href": "/discord/jujutsu-kaisen.html",
+      "emoji": "👁️",
+      "flair": "👁️ Jujutsu Kaisen"
     },
     {
       "name": "Tokyo Ghoul",
@@ -11726,7 +11742,9 @@
       "color": "Red",
       "color_class": "color-red",
       "deck_count": 3,
-      "href": "/discord/tokyo-ghoul.html"
+      "href": "/discord/tokyo-ghoul.html",
+      "emoji": "🎭",
+      "flair": "🎭 Tokyo Ghoul"
     },
     {
       "name": "Kagurabachi",
@@ -11734,7 +11752,9 @@
       "color": "Red",
       "color_class": "color-red",
       "deck_count": 3,
-      "href": "/discord/kagurabachi.html"
+      "href": "/discord/kagurabachi.html",
+      "emoji": "🩸",
+      "flair": "🩸 Kagurabachi"
     },
     {
       "name": "Sword Art Online",
@@ -11742,7 +11762,9 @@
       "color": "Purple",
       "color_class": "color-purple",
       "deck_count": 1,
-      "href": "/discord/sword-art-online.html"
+      "href": "/discord/sword-art-online.html",
+      "emoji": "🌀",
+      "flair": "🌀 Sword Art Online"
     },
     {
       "name": "Code Geass",
@@ -11750,7 +11772,9 @@
       "color": "Red",
       "color_class": "color-red",
       "deck_count": 1,
-      "href": "/discord/code-geass.html"
+      "href": "/discord/code-geass.html",
+      "emoji": "♟️",
+      "flair": "♟️ Code Geass"
     },
     {
       "name": "The 100 Girlfriends",
@@ -11758,7 +11782,9 @@
       "color": "Green",
       "color_class": "color-green",
       "deck_count": 1,
-      "href": "/discord/the-100-girlfriends.html"
+      "href": "/discord/the-100-girlfriends.html",
+      "emoji": "💖",
+      "flair": "💖 The 100 Girlfriends"
     },
     {
       "name": "Attack On Titan",
@@ -11766,7 +11792,9 @@
       "color": "Blue",
       "color_class": "color-blue",
       "deck_count": 4,
-      "href": "/discord/attack-on-titan.html"
+      "href": "/discord/attack-on-titan.html",
+      "emoji": "🪶",
+      "flair": "🪶 Attack On Titan"
     },
     {
       "name": "Black Clover",
@@ -11774,7 +11802,9 @@
       "color": "Purple",
       "color_class": "color-purple",
       "deck_count": 2,
-      "href": "/discord/black-clover.html"
+      "href": "/discord/black-clover.html",
+      "emoji": "🍀",
+      "flair": "🍀 Black Clover"
     },
     {
       "name": "Demon Slayer",
@@ -11782,7 +11812,9 @@
       "color": "Blue",
       "color_class": "color-blue",
       "deck_count": 2,
-      "href": "/discord/demon-slayer.html"
+      "href": "/discord/demon-slayer.html",
+      "emoji": "🔥",
+      "flair": "🔥 Demon Slayer"
     },
     {
       "name": "Fullmetal Alchemist",
@@ -11790,7 +11822,9 @@
       "color": "Yellow",
       "color_class": "color-yellow",
       "deck_count": 4,
-      "href": "/discord/fullmetal-alchemist.html"
+      "href": "/discord/fullmetal-alchemist.html",
+      "emoji": "⚗️",
+      "flair": "⚗️ Fullmetal Alchemist"
     },
     {
       "name": "Hunter x Hunter",
@@ -11798,7 +11832,9 @@
       "color": "Green",
       "color_class": "color-green",
       "deck_count": 3,
-      "href": "/discord/hunter-x-hunter.html"
+      "href": "/discord/hunter-x-hunter.html",
+      "emoji": "🎣",
+      "flair": "🎣 Hunter x Hunter"
     },
     {
       "name": "Inuyasha",
@@ -11806,7 +11842,9 @@
       "color": "Red",
       "color_class": "color-red",
       "deck_count": 8,
-      "href": "/discord/inuyasha.html"
+      "href": "/discord/inuyasha.html",
+      "emoji": "🐾",
+      "flair": "🐾 Inuyasha"
     },
     {
       "name": "One Punch Man",
@@ -11814,7 +11852,9 @@
       "color": "Green",
       "color_class": "color-green",
       "deck_count": 1,
-      "href": "/discord/one-punch-man.html"
+      "href": "/discord/one-punch-man.html",
+      "emoji": "👊",
+      "flair": "👊 One Punch Man"
     },
     {
       "name": "Yu Yu Hakusho",
@@ -11822,7 +11862,9 @@
       "color": "Purple",
       "color_class": "color-purple",
       "deck_count": 4,
-      "href": "/discord/yu-yu-hakusho.html"
+      "href": "/discord/yu-yu-hakusho.html",
+      "emoji": "👻",
+      "flair": "👻 Yu Yu Hakusho"
     }
   ]
 }
