@@ -45,15 +45,23 @@ def _title_role_options(roles: list) -> list:
     for role in roles[:25]:
         if role is None:
             continue
-        options.append(
-            discord.SelectOption(
-                label=(role.name or "Title")[:100],
-                value=str(role.id),
-                description="Flair next to your name",
+        label = discord_board.strip_flair_name(role.name or "Title")[:100]
+        slug = uadb.slugify(label)
+        slug = discord_board.THEME_ALIASES.get(label.lower()) or discord_board.THEME_ALIASES.get(slug) or slug
+        emoji = discord_board.title_emoji(slug)
+        try:
+            options.append(
+                discord.SelectOption(
+                    label=label,
+                    value=str(role.id),
+                    description="Anime title flair",
+                    emoji=emoji,
+                )
             )
-        )
+        except Exception:
+            options.append(discord.SelectOption(label=f"{emoji} {label}"[:100], value=str(role.id)))
     if not options:
-        options.append(discord.SelectOption(label="Title flair", value="0"))
+        options.append(discord.SelectOption(label="Title flair", value="0", emoji="🎴"))
     return options
 
 
@@ -96,9 +104,14 @@ async def apply_title_flair(interaction) -> None:
         live = discord_board.fetch_board(prefer="live")
     except Exception:
         live = discord_board.fetch_board(prefer="local")
-    names = {(row.get("name") or "")[:100] for row in discord_board.title_roles(live)}
+    names = set()
+    for row in discord_board.title_roles(live):
+        name = (row.get("name") or "")[:100]
+        if name:
+            names.add(name)
+            names.add(row.get("flair") or discord_board.flair_role_name(name, row.get("slug") or ""))
     names.discard("")
-    title_roles = [role for role in guild.roles if role.name in names]
+    title_roles = [role for role in guild.roles if role.name in names or discord_board.strip_flair_name(role.name) in names]
     raw = []
     if interaction.data:
         raw = interaction.data.get("values") or []
@@ -273,26 +286,31 @@ async def sync_title_roles(guild, board: dict) -> list:
     import discord
 
     existing = {role.name: role for role in guild.roles}
+    by_plain = {discord_board.strip_flair_name(role.name): role for role in guild.roles}
     out = []
     for row in discord_board.title_roles(board):
         name = (row.get("name") or "")[:100]
         if not name:
             continue
+        want = (row.get("flair") or discord_board.flair_role_name(name, row.get("slug") or ""))[:100]
         color_name = (row.get("color") or "").split(";")[0].split("/")[0].strip().lower()
         color = discord.Color(discord_board.COLOR_INT.get(color_name, 0x5865F2))
-        current = existing.get(name)
+        current = existing.get(want) or existing.get(name) or by_plain.get(name)
         if current is None:
             current = await guild.create_role(
-                name=name,
+                name=want,
                 colour=color,
                 mentionable=True,
                 hoist=False,
                 reason="UA Arena title flair",
             )
-            existing[name] = current
+            existing[want] = current
+            by_plain[name] = current
             await asyncio.sleep(0.15)
         else:
             kwargs = {}
+            if current.name != want and current.is_assignable():
+                kwargs["name"] = want
             if not current.mentionable:
                 kwargs["mentionable"] = True
             if current.hoist:
@@ -343,7 +361,12 @@ async def setup_guild(guild, board: dict, theme_query: str = "") -> None:
         name = theme.get("name") or theme.get("slug") or "title"
         slug = theme.get("slug") or channel_name(name)
         uadb.log("setup channel", f"{i}/{total}", f"#{slug}")
-        channel = await get_or_create_text(guild, slug, decks_cat, f"{name} lists and talk")
+        channel = await get_or_create_text(
+            guild,
+            slug,
+            decks_cat,
+            f"{discord_board.title_emoji(slug)} {name} lists and talk",
+        )
         intro = discord_board.format_theme_intro(theme, board)
         marks = await load_marked_messages(channel)
         await upsert_text(channel, f"ua-theme:{slug}", intro, marks)
@@ -427,7 +450,7 @@ def run_bot(args: argparse.Namespace, board: dict) -> None:
     async def themes_cmd(interaction: discord.Interaction):
         live = current_board()
         lines = [
-            f"{t['name']} — {t['deck_count']} lists (#{t['slug']})"
+            f"{discord_board.flair_role_name(t.get('name') or '', t.get('slug') or '')} — {t['deck_count']} lists (#{t['slug']})"
             for t in live.get("themes") or []
         ]
         text = "\n".join(lines) or "No titles on the board yet."

@@ -152,16 +152,26 @@ def test_consensus_messages() -> None:
     assert embed["fields"]
     welcome = discord_board.format_welcome_text(board)
     assert "#announcements" in welcome
-    assert "Yu Yu Hakusho" in welcome
+    assert "👻 Yu Yu Hakusho" in welcome
     assert "#roles" in welcome
     roles_text = discord_board.format_roles_text(board)
     assert "flair" in roles_text.lower()
     assert "menu" in roles_text.lower()
+    assert "👻 **Yu Yu Hakusho**" in roles_text
+    assert "🪚 **Chainsaw Man**" in roles_text
     dump = discord_board.dump_theme(board, "yyh")
-    assert "Yu Yu Hakusho" in dump
+    assert "👻 Yu Yu Hakusho" in dump
     assert "Sung Jinwoo" not in dump
     roles = {r["name"] for r in discord_board.title_roles(board)}
     assert roles == {"Solo Leveling", "Yu Yu Hakusho", "Chainsaw Man"}
+    yyh_role = next(r for r in discord_board.title_roles(board) if r["slug"] == "yu-yu-hakusho")
+    assert yyh_role["emoji"] == "👻"
+    assert yyh_role["flair"] == "👻 Yu Yu Hakusho"
+    assert discord_board.title_emoji("yu-yu-hakusho") == "👻"
+    assert discord_board.title_emoji("solo-leveling") == "🗡️"
+    assert discord_board.title_emoji("kagurabachi") == "🩸"
+    assert discord_board.strip_flair_name("👻 Yu Yu Hakusho") == "Yu Yu Hakusho"
+    assert discord_board.strip_flair_name("Yu Yu Hakusho") == "Yu Yu Hakusho"
 
 
 def test_pages_and_fetch(tmp_path: Path | None = None) -> None:
@@ -181,17 +191,18 @@ def test_pages_and_fetch(tmp_path: Path | None = None) -> None:
     theme = (dest / "yu-yu-hakusho.html").read_text()
     assert "Youko Kurama" in theme
     assert "UE08BT/YYH-1-001" in theme
-    assert "Yu Yu Hakusho thread" in theme
+    assert "👻 Yu Yu Hakusho channel" in theme
     assert "aliases" in theme and "yyh" in theme
     roles_page = (dest / "roles.html").read_text()
-    assert "Solo Leveling" in roles_page
-    assert "Yu Yu Hakusho" in roles_page
+    assert "🗡️ Solo Leveling" in roles_page
+    assert "👻 Yu Yu Hakusho" in roles_page
     assert "one role per anime" in roles_page.lower() or "One role per anime" in roles_page
     thread = (dest / "threads" / "yu-yu-hakusho-youko-kurama.html").read_text()
     assert "yu-yu-hakusho.html#yu-yu-hakusho-youko-kurama" in thread
     data = json.loads((dest / "board.json").read_text())
     assert data["themes"]
     assert {r["name"] for r in data["roles"]} == {"Solo Leveling", "Yu Yu Hakusho", "Chainsaw Man"}
+    assert {r["flair"] for r in data["roles"]} == {"🗡️ Solo Leveling", "👻 Yu Yu Hakusho", "🪚 Chainsaw Man"}
     loaded = discord_board.fetch_board(str(dest / "board.json"))
     assert loaded["deck_count"] == 3
     assert "discord/welcome.html" in paths
