@@ -442,10 +442,17 @@ def run_bot(args: argparse.Namespace, board: dict) -> None:
     async def on_ready():
         uadb.log("discord bot", client.user)
         client.add_view(make_title_role_view())
+        # Guild sync replaces stale /setup so Discord does not say "outdated".
+        targets = list(client.guilds)
         if guild_id:
-            guild = discord.Object(id=int(guild_id))
-            tree.copy_global_to(guild=guild)
-            await tree.sync(guild=guild)
+            gid = int(guild_id)
+            if not any(g.id == gid for g in targets):
+                targets.append(discord.Object(id=gid))
+        if targets:
+            for guild in targets:
+                tree.copy_global_to(guild=guild)
+                await tree.sync(guild=guild)
+                uadb.log("synced commands", getattr(guild, "name", guild.id))
         else:
             await tree.sync()
         if os.environ.get("DISCORD_AUTO_SETUP") == "1":
