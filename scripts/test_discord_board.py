@@ -195,6 +195,10 @@ def test_pages_and_fetch(tmp_path: Path | None = None) -> None:
     assert 'data-filterable' in (dest / "welcome.html").read_text()
     assert "yyh" in (dest / "welcome.html").read_text()
     assert discord_bot.channel_name("Solo Leveling") == "solo-leveling"
+    assert discord_bot._markers_in_text("hello `ua-welcome`") == ["ua-welcome"]
+    assert discord_bot._markers_in_text("ua-deck:yu-yu-hakusho-youko-kurama") == [
+        "ua-deck:yu-yu-hakusho-youko-kurama"
+    ]
 
 
 def test_deck_record() -> None:

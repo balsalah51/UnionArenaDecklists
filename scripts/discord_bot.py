@@ -104,21 +104,39 @@ async def get_or_create_text(guild, name: str, category, topic: str = ""):
     return await guild.create_text_channel(want, category=category, topic=topic or None)
 
 
-async def find_marked_message(channel, marker: str):
-    async for message in channel.history(limit=200):
-        if message.author != channel.guild.me:
-            continue
-        if marker in (message.content or ""):
-            return message
-        for embed in message.embeds:
-            footer = (embed.footer.text or "") if embed.footer else ""
-            if marker in footer:
-                return message
-    return None
+def _markers_in_text(blob: str) -> list[str]:
+    found = []
+    for part in (blob or "").replace("`", " ").split():
+        if part.startswith("ua-"):
+            found.append(part)
+    return found
 
 
-async def upsert_text(channel, marker: str, content: str):
-    existing = await find_marked_message(channel, marker)
+def _markers_in_message(message) -> list[str]:
+    found = _markers_in_text(message.content or "")
+    for embed in message.embeds:
+        footer = (embed.footer.text or "") if embed.footer else ""
+        found.extend(_markers_in_text(footer))
+        found.extend(_markers_in_text(embed.description or ""))
+    return found
+
+
+async def load_marked_messages(channel) -> dict:
+    found = {}
+    try:
+        async for message in channel.history(limit=100):
+            if message.author != channel.guild.me:
+                continue
+            for marker in _markers_in_message(message):
+                found[marker] = message
+    except Exception as exc:
+        uadb.log("history skip", getattr(channel, "name", channel), exc)
+    return found
+
+
+async def upsert_text(channel, marker: str, content: str, marked: dict | None = None):
+    cache = marked if marked is not None else await load_marked_messages(channel)
+    existing = cache.get(marker)
     body = content if marker in content else f"{content}\n\n`{marker}`"
     if len(body) > discord_board.MESSAGE_LIMIT:
         body = body[: discord_board.MESSAGE_LIMIT - 20] + "\n…"
@@ -126,20 +144,23 @@ async def upsert_text(channel, marker: str, content: str):
         if existing.content != body:
             await existing.edit(content=body)
         return existing
-    return await channel.send(content=body)
+    sent = await channel.send(content=body)
+    cache[marker] = sent
+    return sent
 
 
-async def upsert_embed(channel, deck: dict, board: dict):
-    import discord
-
+async def upsert_embed(channel, deck: dict, board: dict, marked: dict | None = None):
+    cache = marked if marked is not None else await load_marked_messages(channel)
     marker = marker_of(deck)
     payload = discord_board.format_consensus_embed(deck, board.get("site"))
     embed = embed_from_payload(payload)
-    existing = await find_marked_message(channel, marker)
+    existing = cache.get(marker)
     if existing:
         await existing.edit(content=None, embed=embed)
         return existing
-    return await channel.send(embed=embed)
+    sent = await channel.send(embed=embed)
+    cache[marker] = sent
+    return sent
 
 
 async def sync_title_roles(guild, board: dict) -> None:
@@ -161,7 +182,7 @@ async def sync_title_roles(guild, board: dict) -> None:
                 reason="UA Arena title role",
             )
             existing[name] = created
-            await asyncio.sleep(0.3)
+            await asyncio.sleep(0.15)
             continue
         kwargs = {}
         if not current.mentionable:
@@ -193,37 +214,44 @@ async def setup_guild(guild, board: dict, theme_query: str = "") -> None:
         matched = discord_board.resolve_theme(theme_query, themes)
         themes = [matched] if matched else []
         if not themes:
-            raise SystemExit(f"No theme matched {theme_query!r}")
+            raise ValueError(f"No title matched {theme_query!r}")
 
     index_lines = ["**Title threads**", "One thread per anime or manga. Consensus 50s from the website.", ""]
     for theme in board.get("themes") or []:
         index_lines.append(f"• **{theme.get('name')}** — {int(theme.get('deck_count') or 0)} lists")
-    await upsert_text(titles, "ua-title-index", "\n".join(index_lines))
+    title_marks = await load_marked_messages(titles)
+    await upsert_text(titles, "ua-title-index", "\n".join(index_lines), title_marks)
 
-    for theme in themes:
+    total = len(themes)
+    for i, theme in enumerate(themes, start=1):
+        name = theme.get("name") or theme.get("slug") or "title"
+        uadb.log("setup title", f"{i}/{total}", name)
         intro = discord_board.format_theme_intro(theme, board)
-        seed = await upsert_text(titles, f"ua-theme:{theme['slug']}", intro)
+        seed = await upsert_text(titles, f"ua-theme:{theme['slug']}", intro, title_marks)
         thread = seed.thread
-        want_name = (theme.get("name") or theme.get("slug") or "title")[:100]
+        want_name = name[:100]
         if thread is None:
             try:
                 thread = await seed.create_thread(name=want_name, auto_archive_duration=10080)
-            except Exception:
+            except Exception as exc:
+                uadb.log("thread skip", name, exc)
                 thread = None
         elif thread.name != want_name:
             try:
                 await thread.edit(name=want_name)
             except Exception:
                 pass
-        if thread is not None:
-            if getattr(thread, "archived", False):
-                try:
-                    await thread.edit(archived=False)
-                except Exception:
-                    pass
-            for deck in theme.get("decks") or []:
-                await upsert_embed(thread, deck, board)
-                await asyncio.sleep(0.4)
+        if thread is None:
+            continue
+        if getattr(thread, "archived", False):
+            try:
+                await thread.edit(archived=False)
+            except Exception:
+                pass
+        thread_marks = await load_marked_messages(thread)
+        for deck in theme.get("decks") or []:
+            await upsert_embed(thread, deck, board, thread_marks)
+            await asyncio.sleep(0.12)
 
 
 def run_bot(args: argparse.Namespace, board: dict) -> None:
@@ -248,21 +276,40 @@ def run_bot(args: argparse.Namespace, board: dict) -> None:
     def current_board() -> dict:
         return load_board(args)
 
+    async def _run_setup(interaction: discord.Interaction, live: dict, theme: str, done: str) -> None:
+        await interaction.response.defer(ephemeral=True)
+        await interaction.followup.send(
+            "Setup started. It posts every title thread, so give it a few minutes. "
+            "Watch the left sidebar for **Information** and **Deck Discussion**.",
+            ephemeral=True,
+        )
+        try:
+            await setup_guild(interaction.guild, live, theme)
+        except Exception as exc:
+            uadb.log("setup failed", exc)
+            await interaction.followup.send(f"Setup hit an error: {exc}", ephemeral=True)
+            return
+        await interaction.followup.send(done, ephemeral=True)
+
     @tree.command(name="setup", description="Create welcome, roles, and one thread per anime title")
     @app_commands.default_permissions(manage_guild=True)
     async def setup_cmd(interaction: discord.Interaction, theme: str = ""):
-        await interaction.response.defer(ephemeral=True)
-        live = current_board()
-        await setup_guild(interaction.guild, live, theme)
-        await interaction.followup.send("UA Arena rooms are up. Title threads and roles posted.", ephemeral=True)
+        await _run_setup(
+            interaction,
+            current_board(),
+            theme,
+            "Done. Check #welcome, #roles, and #title-threads.",
+        )
 
     @tree.command(name="refresh", description="Pull latest consensus 50s from the website")
     @app_commands.default_permissions(manage_guild=True)
     async def refresh_cmd(interaction: discord.Interaction, theme: str = ""):
-        await interaction.response.defer(ephemeral=True)
-        live = discord_board.fetch_board(prefer="live")
-        await setup_guild(interaction.guild, live, theme)
-        await interaction.followup.send("Pulled consensus lists from the website.", ephemeral=True)
+        await _run_setup(
+            interaction,
+            discord_board.fetch_board(prefer="live"),
+            theme,
+            "Pulled consensus lists from the website.",
+        )
 
     @tree.command(name="consensus", description="Post the consensus 50s for a title (yyh, solo leveling, ...)")
     async def consensus_cmd(interaction: discord.Interaction, theme: str):
