@@ -113,6 +113,14 @@ SHOP_ITEMS = [
         "kind": "sleeves",
     },
     {
+        "group": "Sleeves",
+        "name": "Dragon Shield Matte Midnight Blue",
+        "note": "100 standard-size sleeves",
+        "href": "https://amzn.to/4hSoJoD",
+        "asin": "B0BX21VDRV",
+        "kind": "sleeves",
+    },
+    {
         "group": "Dice",
         "name": "Power counter dice, 32 pcs",
         "note": "Plus and minus counters for life and damage",
