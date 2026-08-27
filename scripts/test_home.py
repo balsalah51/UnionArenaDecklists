@@ -381,7 +381,39 @@ class RaidTests(unittest.TestCase):
         self.assertIn("buy-tcg", html)
         self.assertIn("partner.tcgplayer.com", html)
         self.assertIn("recent-row", html)
-        self.assertIn(">TCGplayer<", html)
+        self.assertIn("Sleeves, playmats, and more", html)
+        self.assertNotIn("Sleeves and dice on Amazon", html)
+
+    def test_shop_catalog_has_pictures(self):
+        hrefs = [it["href"] for it in generate_site.SHOP_ITEMS]
+        asins = [it["asin"] for it in generate_site.SHOP_ITEMS]
+        self.assertEqual(len(hrefs), len(set(hrefs)))
+        self.assertEqual(len(asins), len(set(asins)))
+        for short in (
+            "https://amzn.to/4hSoJoD",
+            "https://amzn.to/4wNVOFR",
+            "https://amzn.to/4ixZmZn",
+            "https://amzn.to/3SSyuZM",
+            "https://amzn.to/4hWBnD9",
+            "https://amzn.to/4ypjUbx",
+            "https://amzn.to/4xuKTlW",
+            "https://amzn.to/3SSyyJ0",
+            "https://amzn.to/4gVNBuw",
+            "https://amzn.to/4zVuIzE",
+            "https://amzn.to/4cc2lD5",
+        ):
+            self.assertIn(short, hrefs)
+        groups = {it["group"] for it in generate_site.SHOP_ITEMS}
+        self.assertGreaterEqual(sum(1 for it in generate_site.SHOP_ITEMS if it["group"] == "Playmats"), 2)
+        self.assertIn("Deck boxes", groups)
+        for it in generate_site.SHOP_ITEMS:
+            pic = ROOT / "img" / "shop" / f"{it['asin']}.jpg"
+            self.assertTrue(pic.is_file(), it["asin"])
+            self.assertGreater(pic.stat().st_size, 2000, it["asin"])
+        html = "".join(generate_site.shop_cards_html())
+        self.assertIn("/img/shop/B0CX94HCFR.jpg", html)
+        self.assertIn("Custom TCG playmat", html)
+        self.assertIn("nofollow sponsored", html)
 
     def test_card_pop_is_large(self):
         css = (ROOT / "css" / "site.css").read_text(encoding="utf-8")
