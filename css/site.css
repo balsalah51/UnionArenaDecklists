@@ -23,7 +23,7 @@ header{display:flex;align-items:center;justify-content:space-between;gap:18px}
   font-weight:400;font-size:16px;letter-spacing:.04em;box-shadow:var(--shadow)
 }
 .brand-copy{display:flex;flex-direction:column;gap:2px;min-width:0}
-.brand h1{margin:0;display:flex;flex-direction:column;gap:1px;line-height:1.05}
+.brand .brand-lockup,.brand h1{margin:0;display:flex;flex-direction:column;gap:1px;line-height:1.05}
 .brand-kicker{
   font-family:Nunito,ui-sans-serif,sans-serif;
   font-size:11px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;
@@ -41,7 +41,7 @@ main{margin-top:22px;display:grid;grid-template-columns:1fr 340px;gap:22px;align
 main.single{grid-template-columns:1fr}
 .card{background:var(--surface);border-radius:var(--radius);box-shadow:var(--shadow);padding:22px;min-width:0;max-width:100%}
 .hero{padding:28px;border-radius:10px;background:linear-gradient(180deg,rgba(211,47,47,0.03),transparent);border:1px solid rgba(0,0,0,0.03);min-width:0}
-.hero h2{color:var(--accent);margin:0;font-size:28px;font-weight:800;letter-spacing:-.02em}
+.hero h1,.hero h2{color:var(--accent);margin:0;font-size:28px;font-weight:800;letter-spacing:-.02em}
 .hero p{color:var(--muted);margin-top:10px;line-height:1.5}
 .home-actions{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-top:16px}
 .home-actions .discord{display:inline-block;padding:10px 18px;width:auto}
@@ -101,7 +101,7 @@ main.single{grid-template-columns:1fr}
   background:#3a3030;
   color:#f3eee9
 }
-.home-splash-bar h2{
+.home-splash-bar h1,.home-splash-bar h2{
   margin:0;font-family:Bungee,sans-serif;font-weight:400;font-size:clamp(16px,2.3vw,22px);
   letter-spacing:.04em;color:#f3eee9;text-shadow:none
 }
@@ -187,7 +187,8 @@ main.single{grid-template-columns:1fr}
 .char-hit-lists a{color:inherit;text-decoration:none;display:block}
 .char-hit-lists a:hover .who{color:var(--accent)}
 .char-hit-lists .who{font-weight:800;font-size:14px}
-.char-search-empty{margin:0;font-size:14px}
+.char-hit-name a{color:inherit;text-decoration:none}
+.char-hit-name a:hover{color:var(--accent)}
 .home-leaders-grid{border-radius:0 0 16px 16px}
 .home-leaders-grid .home-cards{margin-top:0}
 .home-ip{margin:0 0 28px}
@@ -197,6 +198,8 @@ main.single{grid-template-columns:1fr}
   font-size:12px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;
   color:#8a6f6f
 }
+.home-ip-title a{color:inherit;text-decoration:none}
+.home-ip-title a:hover{color:var(--accent)}
 .home-ip .home-cards,.home-ip .leader-grid{margin-top:0}
 .leader-card-link .caption strong{display:block;font-size:13px;font-weight:800}
 .leader-card-link .caption .hub-sub{
@@ -252,6 +255,22 @@ footer{margin-top:22px;color:var(--muted);font-size:13px;text-align:center}
 footer a{color:var(--accent);font-weight:700;text-decoration:none}
 .crumb{display:flex;flex-wrap:wrap;gap:8px;align-items:center;font-size:13px;color:var(--muted);margin-bottom:14px}
 .crumb a{color:var(--accent);font-weight:700;text-decoration:none}
+.related-block{margin-top:22px}
+.related-grid,.series-grid{
+  list-style:none;margin:12px 0 0;padding:0;
+  display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:10px
+}
+.related-grid a,.series-grid a{
+  display:block;padding:12px 14px;border-radius:10px;text-decoration:none;color:inherit;
+  border:1px solid rgba(0,0,0,.06);background:#fff;font-weight:800
+}
+.related-grid a:hover,.series-grid a:hover{border-color:color-mix(in srgb, var(--accent) 40%, white);color:var(--accent)}
+.related-grid .muted,.series-grid .muted{display:block;margin-top:4px;font-weight:700;font-size:12px}
+.sibling-lists{list-style:none;margin:10px 0 0;padding:0;display:flex;flex-direction:column;gap:6px}
+.sibling-lists a{color:var(--accent);font-weight:800;text-decoration:none}
+.sibling-lists a:hover{text-decoration:underline}
+.hub-more{display:flex;flex-wrap:wrap;gap:10px;margin-top:12px}
+.hub-more a{color:var(--accent);font-weight:800;text-decoration:none}
 .text-leader-list{list-style:decimal;padding:0 0 0 22px;margin:12px 0 0;display:flex;flex-direction:column;gap:6px}
 .text-leader-list li{display:flex;align-items:baseline;justify-content:space-between;gap:12px;padding:8px 0;border-bottom:1px solid rgba(0,0,0,0.06)}
 .text-leader-list a{color:var(--accent);font-weight:800;text-decoration:none}
@@ -286,6 +305,8 @@ footer a{color:var(--accent);font-weight:700;text-decoration:none}
 .leader-hero .buy-deck{margin:12px 0 0}
 .stat-row{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0 4px}
 .pill{font-size:12px;font-weight:700;padding:5px 9px;border-radius:999px;background:var(--accent-bleed);color:var(--text)}
+a.pill{text-decoration:none}
+a.pill:hover{color:var(--accent)}
 .effect{margin-top:12px;line-height:1.55;font-size:15px}
 .card-grid{display:flex;flex-direction:column;gap:14px;margin-top:12px;width:100%;min-width:0}
 .card-entry{
@@ -499,7 +520,7 @@ footer a{color:var(--accent);font-weight:700;text-decoration:none}
   .home-splash-feature{width:min(112px,30%);right:10px;bottom:10px}
   .home-splash-feature:hover{transform:rotate(3deg) scale(1.03)}
   .home-splash-bar{padding:10px 14px 12px;padding-right:min(140px,38%)}
-  .home-splash-bar h2{font-size:16px}
+  .home-splash-bar h1,.home-splash-bar h2{font-size:16px}
   .home-flow{margin:16px 0 10px}
   .home-flow p{white-space:normal;text-align:center}
   .home-leaders-intro-row{flex-direction:column;align-items:flex-start}
