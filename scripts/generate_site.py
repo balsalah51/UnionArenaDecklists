@@ -1251,7 +1251,9 @@ def pretty_anime(name: str) -> str:
 
 def series_slug(title: str) -> str:
     pretty = pretty_anime(title) or (title or "")
-    return discord_board.theme_slug(pretty)
+    slug = discord_board.theme_slug(pretty)
+    compact = re.sub(r"[^a-z0-9]+", "", slug)
+    return discord_board.THEME_ALIASES.get(compact) or discord_board.THEME_ALIASES.get(slug) or slug
 
 
 def series_href(title: str) -> str:

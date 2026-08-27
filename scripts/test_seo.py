@@ -68,7 +68,7 @@ class SeoChromeTests(unittest.TestCase):
 class SeriesLinkTests(unittest.TestCase):
     def test_series_href_and_related_hubs(self):
         self.assertEqual(series_href("Solo Leveling"), "/series/solo-leveling.html")
-        self.assertEqual(series_href("YYH"), "/series/yu-yu-hakusho.html")
+        self.assertEqual(series_href("100 Girlfriends"), "/series/the-100-girlfriends.html")
         hubs = [
             {
                 "key": "yyh-kurama",
