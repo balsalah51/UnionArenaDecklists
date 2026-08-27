@@ -127,6 +127,23 @@ async def apply_title_flair(interaction) -> None:
     await interaction.response.send_message("Title flair: " + ", ".join(picked), ephemeral=True)
 
 
+def read_secret_file(*names: str) -> str:
+    for name in names:
+        path = uadb.ROOT / name
+        if not path.is_file():
+            continue
+        text = path.read_text(encoding="utf-8-sig").strip()
+        for line in text.splitlines():
+            line = line.strip()
+            if not line or line.startswith("#"):
+                continue
+            key = line.lower().split("=", 1)[0].strip()
+            if "=" in line and key in {"discord_token", "token", "guild", "discord_guild_id"}:
+                return line.split("=", 1)[1].strip().strip('"').strip("'")
+            return line
+    return ""
+
+
 def parse_args(argv: list[str] | None = None) -> argparse.Namespace:
     parser = argparse.ArgumentParser(description="UA Arena Discord bot")
     parser.add_argument("--dump", action="store_true", help="Print consensus text and exit")
@@ -343,10 +360,10 @@ def run_bot(args: argparse.Namespace, board: dict) -> None:
     except ImportError as exc:
         raise SystemExit("Install Discord.py first: pip install -r requirements-bot.txt") from exc
 
-    token = args.token or os.environ.get("DISCORD_TOKEN") or ""
+    token = args.token or os.environ.get("DISCORD_TOKEN") or read_secret_file("TOKEN.txt", "token.txt")
     if not token:
-        raise SystemExit("Set DISCORD_TOKEN or pass --token")
-    guild_id = args.guild or os.environ.get("DISCORD_GUILD_ID") or ""
+        raise SystemExit("Put your bot token in TOKEN.txt (same folder as START.bat), or set DISCORD_TOKEN")
+    guild_id = args.guild or os.environ.get("DISCORD_GUILD_ID") or read_secret_file("GUILD.txt", "guild.txt")
 
     intents = discord.Intents.default()
     intents.guilds = True
