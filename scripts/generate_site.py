@@ -1110,7 +1110,7 @@ def unique_arches(arches: list[dict]) -> list[dict]:
     seen = set()
     picked = []
     for arch in ordered:
-        ident = (norm_name(arch.get("title") or ""), norm_name(arch.get("name") or ""))
+        ident = (series_slug(arch.get("title") or ""), norm_name(arch.get("name") or ""))
         if ident in seen:
             continue
         seen.add(ident)
@@ -1396,16 +1396,15 @@ def build_title_catalog(hubs: list[dict]) -> list[dict]:
     grouped: dict[str, dict] = {}
     order: list[str] = []
     for arch in hubs:
-        title = pretty_anime(arch.get("title") or "") or arch.get("title") or ""
-        key = norm_name(title)
-        if not key:
+        raw_title = arch.get("title") or ""
+        title = pretty_anime(raw_title) or raw_title
+        slug = series_slug(title or raw_title)
+        if not slug or slug == "title" or slug in COLOR_ONLY:
             continue
-        slug = series_slug(title)
-        if not discord_board.is_real_theme(title, slug) or slug in COLOR_ONLY:
+        if not discord_board.is_real_theme(title or raw_title, slug):
             continue
-        rec = grouped.get(key)
+        rec = grouped.get(slug)
         if rec is None:
-            slug = series_slug(title)
             rec = {
                 "name": title,
                 "slug": slug,
@@ -1415,8 +1414,10 @@ def build_title_catalog(hubs: list[dict]) -> list[dict]:
                 "hubs": [],
                 "list_count": 0,
             }
-            grouped[key] = rec
-            order.append(key)
+            grouped[slug] = rec
+            order.append(slug)
+        elif title and (len(title) < len(rec["name"]) or rec["name"].lower().startswith("the ") and not title.lower().startswith("the ")):
+            rec["name"] = title
         rec["hubs"].append(arch)
         rec["list_count"] += len(arch.get("lists") or [])
     series = []
@@ -1431,6 +1432,11 @@ def build_title_catalog(hubs: list[dict]) -> list[dict]:
 
 
 def catalog_for_arch(arch: dict, catalog: list[dict]) -> dict | None:
+    slug = series_slug(arch.get("title") or "")
+    if slug and slug != "title":
+        for rec in catalog:
+            if rec.get("slug") == slug:
+                return rec
     key = title_norm(arch)
     if not key:
         return None

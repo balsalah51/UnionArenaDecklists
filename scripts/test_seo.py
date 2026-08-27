@@ -186,6 +186,31 @@ class SeriesLinkTests(unittest.TestCase):
         self.assertNotIn("Youko Kurama", names)
         self.assertNotIn("Purple", names)
 
+    def test_catalog_collapses_100_girlfriends_aliases(self):
+        hubs = [
+            {
+                "key": "nano-eiai",
+                "name": "Nano Eiai",
+                "title": "100 Girlfriends",
+                "page": "decklists/nano-eiai.html",
+                "lists": [{"slug": "a"}, {"slug": "b"}],
+                "from_color": False,
+            },
+            {
+                "key": "shizuka",
+                "name": "Shizuka Yoshimoto",
+                "title": "The 100 Girlfriends",
+                "page": "decklists/the-100-girlfriends-shizuka-yoshimoto.html",
+                "lists": [{"slug": "c"}],
+                "from_color": False,
+            },
+        ]
+        catalog = build_title_catalog(hubs)
+        self.assertEqual(len(catalog), 1)
+        self.assertEqual(catalog[0]["slug"], "the-100-girlfriends")
+        self.assertEqual(catalog[0]["name"], "100 Girlfriends")
+        self.assertEqual(catalog[0]["hub_count"], 2)
+
     def test_catalog_keeps_the_hub_with_lists(self):
         thin = {
             "key": "solo-leveling-sung-jinwoo",
