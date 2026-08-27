@@ -2,7 +2,7 @@
 """UA Arena Discord bot.
 
 Creates welcome, announcements, title roles, and one discussion
-thread per anime or manga title. Consensus 50s are pulled from
+channel per anime or manga title. Consensus 50s are pulled from
 unionarenadecklists.com/discord/board.json (or a local board.json).
 
   pip install -r requirements-bot.txt
@@ -35,7 +35,6 @@ WELCOME_CHANNEL = "welcome"
 ANNOUNCE_CHANNEL = "announcements"
 ROLES_CHANNEL = "roles"
 GENERAL_CHANNEL = "general"
-TITLE_CHANNEL = "title-threads"
 
 
 def parse_args(argv: list[str] | None = None) -> argparse.Namespace:
@@ -200,9 +199,6 @@ async def setup_guild(guild, board: dict, theme_query: str = "") -> None:
     announce = await get_or_create_text(guild, ANNOUNCE_CHANNEL, info, "Format notes and consensus updates")
     roles = await get_or_create_text(guild, ROLES_CHANNEL, info, "One role per anime or manga title")
     await get_or_create_text(guild, GENERAL_CHANNEL, info, "Table talk")
-    titles = await get_or_create_text(
-        guild, TITLE_CHANNEL, decks_cat, "One thread per anime or manga title"
-    )
 
     await upsert_text(welcome, "ua-welcome", discord_board.format_welcome_text(board))
     await upsert_text(announce, "ua-announcements", discord_board.format_announcements_text(board))
@@ -216,42 +212,19 @@ async def setup_guild(guild, board: dict, theme_query: str = "") -> None:
         if not themes:
             raise ValueError(f"No title matched {theme_query!r}")
 
-    index_lines = ["**Title threads**", "One thread per anime or manga. Consensus 50s from the website.", ""]
-    for theme in board.get("themes") or []:
-        index_lines.append(f"• **{theme.get('name')}** — {int(theme.get('deck_count') or 0)} lists")
-    title_marks = await load_marked_messages(titles)
-    await upsert_text(titles, "ua-title-index", "\n".join(index_lines), title_marks)
-
     total = len(themes)
     for i, theme in enumerate(themes, start=1):
         name = theme.get("name") or theme.get("slug") or "title"
-        uadb.log("setup title", f"{i}/{total}", name)
+        slug = theme.get("slug") or channel_name(name)
+        uadb.log("setup channel", f"{i}/{total}", f"#{slug}")
+        channel = await get_or_create_text(guild, slug, decks_cat, f"{name} lists and talk")
         intro = discord_board.format_theme_intro(theme, board)
-        seed = await upsert_text(titles, f"ua-theme:{theme['slug']}", intro, title_marks)
-        thread = seed.thread
-        want_name = name[:100]
-        if thread is None:
-            try:
-                thread = await seed.create_thread(name=want_name, auto_archive_duration=10080)
-            except Exception as exc:
-                uadb.log("thread skip", name, exc)
-                thread = None
-        elif thread.name != want_name:
-            try:
-                await thread.edit(name=want_name)
-            except Exception:
-                pass
-        if thread is None:
-            continue
-        if getattr(thread, "archived", False):
-            try:
-                await thread.edit(archived=False)
-            except Exception:
-                pass
-        thread_marks = await load_marked_messages(thread)
+        marks = await load_marked_messages(channel)
+        await upsert_text(channel, f"ua-theme:{slug}", intro, marks)
         for deck in theme.get("decks") or []:
-            await upsert_embed(thread, deck, board, thread_marks)
+            await upsert_embed(channel, deck, board, marks)
             await asyncio.sleep(0.12)
+        await asyncio.sleep(0.15)
 
 
 def run_bot(args: argparse.Namespace, board: dict) -> None:
@@ -279,8 +252,8 @@ def run_bot(args: argparse.Namespace, board: dict) -> None:
     async def _run_setup(interaction: discord.Interaction, live: dict, theme: str, done: str) -> None:
         await interaction.response.defer(ephemeral=True)
         await interaction.followup.send(
-            "Setup started. It posts every title thread, so give it a few minutes. "
-            "Watch the left sidebar for **Information** and **Deck Discussion**.",
+            "Setup started. It creates a channel per anime title, so give it a few minutes. "
+            "Watch the left sidebar under **Deck Discussion** for #solo-leveling, #yu-yu-hakusho, and the rest.",
             ephemeral=True,
         )
         try:
@@ -291,14 +264,14 @@ def run_bot(args: argparse.Namespace, board: dict) -> None:
             return
         await interaction.followup.send(done, ephemeral=True)
 
-    @tree.command(name="setup", description="Create welcome, roles, and one thread per anime title")
+    @tree.command(name="setup", description="Create welcome, roles, and one channel per anime title")
     @app_commands.default_permissions(manage_guild=True)
     async def setup_cmd(interaction: discord.Interaction, theme: str = ""):
         await _run_setup(
             interaction,
             current_board(),
             theme,
-            "Done. Check #welcome, #roles, and #title-threads.",
+            "Done. Check #welcome, #roles, and the title channels under Deck Discussion.",
         )
 
     @tree.command(name="refresh", description="Pull latest consensus 50s from the website")
@@ -324,7 +297,7 @@ def run_bot(args: argparse.Namespace, board: dict) -> None:
             payload = discord_board.format_consensus_embed(deck, live.get("site"))
             await interaction.followup.send(embed=embed_from_payload(payload))
 
-    @tree.command(name="themes", description="List anime and manga title threads")
+    @tree.command(name="themes", description="List anime and manga title channels")
     async def themes_cmd(interaction: discord.Interaction):
         live = current_board()
         lines = [
@@ -361,7 +334,7 @@ def run_bot(args: argparse.Namespace, board: dict) -> None:
         if channel is None:
             return
         await channel.send(
-            f"Welcome {member.mention}. Read #announcements, grab a title role in #roles, then hop that title thread."
+            f"Welcome {member.mention}. Read #announcements, grab a title role in #roles, then hop that title channel."
         )
 
     client.run(token)

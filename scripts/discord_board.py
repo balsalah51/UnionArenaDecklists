@@ -235,9 +235,9 @@ def build_announcements(decks: list[dict], updated: str = "") -> list[dict]:
             "title": "Share a 50",
             "date": stamp,
             "body": (
-                "Paste `NxSET/CODE` lines in the matching anime or manga thread. "
+                "Paste `NxSET/CODE` lines in the matching anime or manga channel. "
                 "Copy on any list page dumps that format. "
-                "One thread per title: Solo Leveling, Yu Yu Hakusho, Evangelion, and the rest."
+                "One channel per title: Solo Leveling, Yu Yu Hakusho, Evangelion, and the rest."
             ),
         },
     ]
@@ -430,9 +430,9 @@ def format_welcome_text(board: dict) -> str:
         f"**Start here**\n"
         f"• Read #announcements for format notes and restricted cards\n"
         f"• Grab a title role in #roles (Solo Leveling, Yu Yu Hakusho, …)\n"
-        f"• Open that title’s thread and talk the 50\n"
+        f"• Open that title’s channel and talk the 50\n"
         f"• Consensus lists are pulled from {uadb.SITE}\n\n"
-        f"**Title threads**\n{themes}\n\n"
+        f"**Title channels**\n{themes}\n\n"
         f"Be decent. No spoiler dumps without tags. Keep lists in `NxSET/CODE`.\n"
         f"Invite: {board.get('discord_invite') or uadb.DISCORD}"
     )
@@ -452,7 +452,7 @@ def format_announcements_text(board: dict) -> str:
 def format_roles_text(board: dict) -> str:
     lines = [
         "**Title roles**",
-        "Pick the anime or manga you sleeve. One role per IP, same names as the title threads.",
+        "Pick the anime or manga you sleeve. One role per IP, same names as the title channels.",
         "",
     ]
     for role in title_roles(board):
@@ -464,7 +464,7 @@ def format_theme_intro(theme: dict, board: dict | None = None) -> str:
     site = (board or {}).get("site") or uadb.SITE
     names = ", ".join(d.get("name") or d.get("key") or "" for d in (theme.get("decks") or []))
     return (
-        f"**{theme.get('name') or theme.get('slug')}** title thread\n"
+        f"**{theme.get('name') or theme.get('slug')}** channel\n"
         f"{int(theme.get('deck_count') or 0)} public 50s in this IP. "
         f"Role: {theme.get('name')}. Lists from {site}.\n"
         f"{names}\n"
