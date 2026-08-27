@@ -87,6 +87,13 @@ SERIES_ALIASES = {
 }
 
 AMAZON_SHORT = "As an Amazon Associate I earn from qualifying purchases."
+SHOP_GROUP_META = [
+    ("Sleeves", "packs", "Card sleeves on Amazon"),
+    ("Dice", "sets", "Dice on Amazon"),
+    ("Playmats", "mats", "Playmats on Amazon"),
+    ("Deck boxes", "boxes", "Deck boxes on Amazon"),
+    ("Desk", "items", "Desk extras on Amazon"),
+]
 SHOP_ITEMS = [
     {
         "group": "Sleeves",
@@ -113,6 +120,38 @@ SHOP_ITEMS = [
         "kind": "sleeves",
     },
     {
+        "group": "Sleeves",
+        "name": "Dragon Shield Matte Midnight Blue",
+        "note": "100 standard-size sleeves",
+        "href": "https://amzn.to/4hSoJoD",
+        "asin": "B0BX21VDRV",
+        "kind": "sleeves",
+    },
+    {
+        "group": "Sleeves",
+        "name": "Dragon Shield Matte Dual Cobalt/Silver",
+        "note": "100 standard-size sleeves",
+        "href": "https://amzn.to/4wNVOFR",
+        "asin": "B0D7QRNNZZ",
+        "kind": "sleeves",
+    },
+    {
+        "group": "Sleeves",
+        "name": "Hard plastic toploaders, 200 ct",
+        "note": "3x4 card protectors",
+        "href": "https://amzn.to/4ixZmZn",
+        "asin": "B0DRZNHLSB",
+        "kind": "sleeves",
+    },
+    {
+        "group": "Sleeves",
+        "name": "Dragon Shield Matte Amethyst",
+        "note": "100 standard-size sleeves",
+        "href": "https://amzn.to/3SSyuZM",
+        "asin": "B0F1FWPV6B",
+        "kind": "sleeves",
+    },
+    {
         "group": "Dice",
         "name": "Power counter dice, 32 pcs",
         "note": "Plus and minus counters for life and damage",
@@ -135,6 +174,62 @@ SHOP_ITEMS = [
         "href": "https://amzn.to/4gQtpdA",
         "asin": "B09NPQL2LT",
         "kind": "dice",
+    },
+    {
+        "group": "Playmats",
+        "name": "Custom TCG playmat",
+        "note": "Personalized zones, non-slip, with bag",
+        "href": "https://amzn.to/4hWBnD9",
+        "asin": "B0CX94HCFR",
+        "kind": "playmat",
+    },
+    {
+        "group": "Playmats",
+        "name": "One Piece TCG playmat (Skeleton)",
+        "note": "14x24 in with dice and bag",
+        "href": "https://amzn.to/4ypjUbx",
+        "asin": "B0FH1ZM5MX",
+        "kind": "playmat",
+    },
+    {
+        "group": "Deck boxes",
+        "name": "Wanted poster commander box",
+        "note": "100 double-sleeved, commander window",
+        "href": "https://amzn.to/4xuKTlW",
+        "asin": "B0G41JDRM7",
+        "kind": "box",
+    },
+    {
+        "group": "Deck boxes",
+        "name": "4-pack magnetic deck boxes",
+        "note": "100+ double-sleeved with dividers",
+        "href": "https://amzn.to/3SSyyJ0",
+        "asin": "B0G4976LFL",
+        "kind": "box",
+    },
+    {
+        "group": "Deck boxes",
+        "name": "Commander box with dice tray",
+        "note": "Magnetic case, 100+ double-sleeved",
+        "href": "https://amzn.to/4gVNBuw",
+        "asin": "B0G493DTD1",
+        "kind": "box",
+    },
+    {
+        "group": "Deck boxes",
+        "name": "UAONO commander deck box",
+        "note": "Commander display, 100 double-sleeved",
+        "href": "https://amzn.to/4zVuIzE",
+        "asin": "B0CSYX7PPK",
+        "kind": "box",
+    },
+    {
+        "group": "Desk",
+        "name": "Koonie USB desk fan",
+        "note": "Quiet 3-speed, USB-C, folding",
+        "href": "https://amzn.to/4cc2lD5",
+        "asin": "B0C27NGKCV",
+        "kind": "desk",
     },
 ]
 
@@ -1641,7 +1736,7 @@ def write_home(arches: list[dict], recent: list[dict], cache: dict, features: di
               </svg>
             </span>
             <span class="home-big-title">Shop</span>
-            <span class="home-big-note">Sleeves and dice on Amazon</span>
+            <span class="home-big-note">Sleeves, playmats, and more</span>
           </a>
           <a class="home-big home-big-discord" href="/discord/welcome.html">
             <span class="home-big-icon" aria-hidden="true">
@@ -1806,34 +1901,31 @@ def shop_cards_html(items: list[dict] | None = None) -> list[str]:
 
 
 def write_shop() -> None:
-    sleeves = [it for it in SHOP_ITEMS if it["group"] == "Sleeves"]
-    dice = [it for it in SHOP_ITEMS if it["group"] == "Dice"]
+    sections = []
+    for group, unit, aria in SHOP_GROUP_META:
+        rows = [it for it in SHOP_ITEMS if it["group"] == group]
+        if not rows:
+            continue
+        sections.append(
+            f"""        <section class="shop-section" style="margin-top:22px">
+          <div class="section-title">
+            <h3>{html.escape(group)}</h3>
+            <div class="muted">{len(rows)} {html.escape(unit)}</div>
+          </div>
+          <div class="shop-grid" aria-label="{html.escape(aria)}">
+{chr(10).join(shop_cards_html(rows))}
+          </div>
+        </section>"""
+        )
     body = f"""        <div class="crumb"><a href="/">Home</a> / Shop</div>
         <h2>Shop</h2>
-        <p>Sleeves and dice for Union Arena lists.</p>
-        <section class="shop-section" style="margin-top:22px">
-          <div class="section-title">
-            <h3>Sleeves</h3>
-            <div class="muted">{len(sleeves)} packs</div>
-          </div>
-          <div class="shop-grid" aria-label="Card sleeves on Amazon">
-{chr(10).join(shop_cards_html(sleeves))}
-          </div>
-        </section>
-        <section class="shop-section" style="margin-top:22px">
-          <div class="section-title">
-            <h3>Dice</h3>
-            <div class="muted">{len(dice)} sets</div>
-          </div>
-          <div class="shop-grid" aria-label="Dice on Amazon">
-{chr(10).join(shop_cards_html(dice))}
-          </div>
-        </section>
+        <p>Sleeves, playmats, deck boxes, and extras for Union Arena lists.</p>
+{chr(10).join(sections)}
         {amazon_note_html()}
         <p class="muted" style="margin-top:12px">Prices, stock, and shipping are set by Amazon. This site does not sell these products directly.</p>"""
     page = uadb.page_chrome(
-        "Shop sleeves and dice | Union Arena Decklists",
-        "Dragon Shield sleeves and dice for Union Arena. Amazon Associate shop links.",
+        "Shop sleeves, playmats, and more | Union Arena Decklists",
+        "Dragon Shield sleeves, playmats, deck boxes, and extras for Union Arena. Amazon Associate shop links.",
         "color-red",
         body,
         "shop",
@@ -1865,7 +1957,7 @@ def write_privacy() -> None:
         </section>
         <section>
           <h3>Amazon</h3>
-          <p>As an Amazon Associate I earn from qualifying purchases. Shop links for sleeves and dice go to Amazon. A purchase through those links may earn this site a commission, at no extra cost to you. This site is not Amazon, and Amazon does not sponsor it.</p>
+          <p>As an Amazon Associate I earn from qualifying purchases. Shop links for sleeves, playmats, and other supplies go to Amazon. A purchase through those links may earn this site a commission, at no extra cost to you. This site is not Amazon, and Amazon does not sponsor it.</p>
         </section>
         <section>
           <h3>Third-Party Links</h3>
