@@ -13,8 +13,8 @@ import uadb
 GAME = "unionarena"
 PAGE_SIZE = 20
 MAX_PAGES = 12
-MAX_TOURNAMENTS = 90
-MAX_LISTS = 420
+MAX_TOURNAMENTS = 120
+MAX_LISTS = 800
 MIN_PLAYERS = 6
 
 
@@ -27,7 +27,7 @@ def counts_from_cards(cards: list[dict]) -> dict[str, int]:
         n = int(card.get("quantity") or 0)
         if not cid or n < 1:
             continue
-        counts[cid] = min(4, counts.get(cid, 0) + n)
+        counts[cid] = min(uadb.max_copies(cid, cap_restricted=False), counts.get(cid, 0) + n)
     return counts
 
 
@@ -135,11 +135,15 @@ def scrape_events(found: list[dict], seen: set[str], cache: dict, arches: list[d
                 if not uadb.list_is_complete(counts):
                     continue
                 archetype = row.get("archetype") or (payload.get("decklist") or {}).get("archetype") or ""
-                key = guess_key(archetype + " " + event, counts, cache, arches)
+                key = ""
+                if archetype.count(" - ") == 1 and len(archetype) <= 72:
+                    title, name = [part.strip() for part in archetype.split(" - ", 1)]
+                    if title and name and name.lower() not in {"purple", "red", "yellow", "green", "blue", "black"}:
+                        key = uadb.slugify(archetype)
+                if not key:
+                    key = guess_key(archetype + " " + event, counts, cache, arches)
                 if not key:
                     key = key_from_counts(counts, cache)
-                if not key and archetype.count(" - ") == 1 and len(archetype) <= 60:
-                    key = uadb.slugify(archetype)
                 if not key:
                     continue
                 place = uadb.ordinal(row.get("placement")) or "Event"
@@ -157,7 +161,7 @@ def scrape_events(found: list[dict], seen: set[str], cache: dict, arches: list[d
                     date=date,
                 )
                 item["archetype"] = archetype
-                record(found, item, seen)
-                added += 1
+                if record(found, item, seen):
+                    added += 1
         time.sleep(0.06)
     uadb.log("events lists added", added)

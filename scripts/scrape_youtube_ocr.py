@@ -27,7 +27,7 @@ FFMPEG = shutil.which("ffmpeg") or "ffmpeg"
 TESSERACT = shutil.which("tesseract") or "tesseract"
 
 LOOSE_ID = re.compile(
-    r"((?:UEX|UE)\s*\d{2}\s*(?:BT|ST|PR))\W{0,8}([A-Z]{2,6})\W{0,6}(\d)\W{0,6}(\d{3})",
+    r"((?:UEX|UE)\s*\d{2}\s*(?:BT|ST|PR))\W{0,8}([A-Z]{2,6}\d?)\W{0,6}(\d)\W{0,6}(\d{3})",
     re.I,
 )
 QTY_NEAR = re.compile(r"(\d)\s*[xX×*]?\s*$")

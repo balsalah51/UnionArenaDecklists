@@ -5814,7 +5814,7 @@
             "name": "Mjollmile",
             "role": "engine",
             "copies": 4,
-            "cardType": "Character"
+            "cardType": "Unknown"
           },
           {
             "name": "Rimuru (041)",
@@ -9887,7 +9887,7 @@
       },
       {
         "name": "Mjollmile",
-        "type": "Character",
+        "type": "Unknown",
         "copies": 4,
         "cardType": "main",
         "versatility": 45,
@@ -9895,8 +9895,7 @@
         "synergy_value": 65,
         "meta_relevance": 60,
         "replaceability": 50,
-        "consistency_impact": 55,
-        "color": "Purple"
+        "consistency_impact": 55
       },
       {
         "name": "Rimuru (041)",

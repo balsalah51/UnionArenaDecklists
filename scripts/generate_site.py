@@ -42,6 +42,7 @@ SERIES_ALIASES = {
     "jujutsu kaisen": "Jujutsu Kaisen",
     "kagurabachi": "Kagurabachi",
     "kaiju no 8": "Kaiju No. 8",
+    "kj8": "Kaiju No. 8",
     "my hero academia": "My Hero Academia",
     "my hero acadamia": "My Hero Academia",
     "nikke": "Nikke",

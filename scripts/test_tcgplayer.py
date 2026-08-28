@@ -99,6 +99,15 @@ def test_iys_key_alias() -> None:
     assert scrape_community.canonical_key("inuyasha-inuyasha", "IYS - Inuyasha") == "iys-inuyasha"
     assert scrape_community.canonical_key("inuyasha-naraku", "IYS - Kanna") == "iys-kanna"
     assert scrape_community.SET_PREFIX["IYS"] == "iys"
+    assert scrape_community.SET_PREFIX["KJ8"] == "kaiju-no-8"
+
+
+def test_kj8_card_ids() -> None:
+    assert uadb.normalize_cid("UE12BT/KJ8-1-001") == "UE12BT/KJ8-1-001"
+    assert uadb.normalize_cid("UE12BT/KJ8-1-003-ALT1") == "UE12BT/KJ8-1-003"
+    parsed = uadb.parse_counts("4xUE12BT/KJ8-1-001 3xUE12BT/KJ8-1-002")
+    assert parsed["UE12BT/KJ8-1-001"] == 4
+    assert parsed["UE12BT/KJ8-1-002"] == 3
 
 
 if __name__ == "__main__":
@@ -108,4 +117,5 @@ if __name__ == "__main__":
     test_deck_page_buy_placement()
     test_median_price_lookup()
     test_iys_key_alias()
+    test_kj8_card_ids()
     print("ok")

@@ -52,6 +52,7 @@ SET_PREFIX = {
     "NIK": "nikke",
     "MHA": "my-hero-academia",
     "REZ": "re-zero",
+    "KJ8": "kaiju-no-8",
 }
 WEB_PAGES = [
     "https://www.josephwriteranderson.com/blog/6-top-union-arena-decks-from-the-virginia-regionals-analyzed-by-deck-sensei",
@@ -76,6 +77,8 @@ X_SEARCHES = [
     "union arena UE17BT deck",
     "union arena UE19BT decklist",
     "union arena UE22BT deck",
+    "union arena UE23BT decklist",
+    "union arena inuyasha decklist",
     "\"union arena\" \"4xUE\" deck",
 ]
 REDDIT_URLS = [
@@ -266,13 +269,15 @@ def guess_key(text: str, counts: dict[str, int], cache: dict, arches: list[dict]
     return named_hit
 
 
-def record(found: list[dict], item: dict, seen: set[str]) -> None:
+def record(found: list[dict], item: dict, seen: set[str]) -> bool:
     raw = item.get("raw") or ""
-    if not raw or raw in seen:
-        return
-    seen.add(raw)
+    ident = item.get("slug") or raw
+    if not ident or ident in seen:
+        return False
+    seen.add(ident)
     found.append(item)
     uadb.log("found", item.get("kind"), item.get("key"), item.get("slug"), "cards", item.get("cards"))
+    return True
 
 
 def item_from_counts(
@@ -480,6 +485,7 @@ def youtube_queries(arches: list[dict]) -> list[str]:
         "Union Arena 4xUE19BT",
         "Union Arena 4xUE15BT",
         "Union Arena 4xUE22BT",
+        "Union Arena 4xUE23BT",
         "Union Arena 4xUE11BT Saito",
         "EVERY TOP 16 DECK LIST Union Arena",
         "EVERY TOP 32 DECK LIST Union Arena",
@@ -734,15 +740,69 @@ def discover_blog_pages() -> list[str]:
     return list(dict.fromkeys(extra))
 
 
+def collapse_by_slug(rows: list[dict]) -> list[dict]:
+    best: dict[str, dict] = {}
+    order: list[str] = []
+    for row in rows:
+        ident = row.get("slug") or row.get("raw") or ""
+        if not ident:
+            continue
+        prev = best.get(ident)
+        if prev is None:
+            order.append(ident)
+            best[ident] = row
+            continue
+        if int(row.get("cards") or 0) > int(prev.get("cards") or 0):
+            best[ident] = row
+    collapsed = [best[key] for key in order]
+    color_only = {"purple", "red", "yellow", "green", "blue", "black"}
+    mash = re.compile(r"(opm|bcv|kj8|htr|csm|slg).{0,8}(opm|bcv|kj8|htr|csm|slg)")
+
+    def score(row: dict) -> tuple:
+        key = row.get("key") or ""
+        return (
+            int(row.get("cards") or 0),
+            0 if mash.search(key) else 1,
+            0 if key.rsplit("-", 1)[-1] in color_only else 1,
+            -key.count("-"),
+            -len(key),
+        )
+
+    by_id: dict[str, dict] = {}
+    out: list[dict] = []
+    used: set[str] = set()
+    for row in collapsed:
+        slug = row.get("slug") or ""
+        m = re.search(r"-(\d{6,})$", slug) if row.get("kind") == "event" else None
+        if m:
+            did = m.group(1)
+            prev = by_id.get(did)
+            if prev is None or score(row) > score(prev):
+                by_id[did] = row
+    for row in collapsed:
+        slug = row.get("slug") or ""
+        m = re.search(r"-(\d{6,})$", slug) if row.get("kind") == "event" else None
+        if not m:
+            out.append(row)
+            continue
+        did = m.group(1)
+        if did in used:
+            continue
+        used.add(did)
+        out.append(by_id[did])
+    return out
+
+
 def seed_existing(found: list[dict], seen: set[str]) -> None:
-    existing = uadb.load_json("data/community-decks.json", [])
+    existing = collapse_by_slug(uadb.load_json("data/community-decks.json", []))
     for item in existing:
         counts = item.get("counts") or {}
         raw = item.get("raw") or " ".join(f"{n}x{cid}" for cid, n in sorted(counts.items()))
         item["raw"] = raw
-        if not raw or raw in seen:
+        ident = item.get("slug") or raw
+        if not ident or ident in seen:
             continue
-        seen.add(raw)
+        seen.add(ident)
         found.append(item)
     uadb.log("seeded existing community lists", len(found))
 
@@ -777,11 +837,9 @@ def main() -> None:
             import scrape_youtube_ocr
 
             scrape_youtube_ocr.scrape_ocr(found, seen, cache, arches, video_ids)
-    stored = []
-    for item in found:
-        row = dict(item)
-        row["counts"] = item.get("counts") or {}
-        stored.append(row)
+    stored = collapse_by_slug(found)
+    for item in stored:
+        item["counts"] = item.get("counts") or {}
     uadb.save_json("data/community-decks.json", stored)
     uadb.log("community lists", len(stored))
 

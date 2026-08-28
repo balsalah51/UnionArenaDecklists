@@ -2235,7 +2235,7 @@
           "skillCeiling": 63
         },
         "representativeCardName": "Heisuke Mashimo (008)",
-        "representativeImageUrl": "/cdn/cards/unionarena/127280/993800_thumb_0.webp",
+        "representativeImageUrl": "/cdn/cards/unionarena/127280/232225_thumb_0.webp",
         "colorIdentity": [
           "Yellow"
         ],
@@ -2534,7 +2534,7 @@
           "skillCeiling": 53
         },
         "representativeCardName": "Kenshin Himura (085)",
-        "representativeImageUrl": "/cdn/cards/unionarena/125130/230075.webp",
+        "representativeImageUrl": "/cdn/cards/unionarena/125873/230818.webp",
         "colorIdentity": [
           "Red"
         ],
@@ -2649,7 +2649,7 @@
           "skillCeiling": 60
         },
         "representativeCardName": "Uta (037)",
-        "representativeImageUrl": "/cdn/cards/unionarena/482660/888356_thumb_0.webp",
+        "representativeImageUrl": "/cdn/cards/unionarena/482660/890699_thumb_0.webp",
         "colorIdentity": [
           "Purple"
         ],
@@ -3018,7 +3018,7 @@
           "skillCeiling": 58
         },
         "representativeCardName": "Kenshin Himura (085)",
-        "representativeImageUrl": "/cdn/cards/unionarena/125130/230075.webp",
+        "representativeImageUrl": "/cdn/cards/unionarena/125873/230818.webp",
         "colorIdentity": [
           "Red"
         ],
@@ -3429,7 +3429,7 @@
       "sinceBanlistDate": "2026-02-14",
       "sinceBanlistSource": "firstTournament",
       "totalSampleSize": 2017,
-      "recent30dSampleSize": 484,
+      "recent30dSampleSize": 478,
       "sinceBanlistSampleSize": 2017,
       "hhi": 188.74432994108597,
       "top3Share": 0.16436745826127752

@@ -66,6 +66,8 @@ THEME_ALIASES = {
     "kagura": "kagurabachi",
     "100gf": "the-100-girlfriends",
     "100girlfriends": "the-100-girlfriends",
+    "kj8": "kaiju-no-8",
+    "kaiju": "kaiju-no-8",
 }
 
 COLOR_ONLY = {"purple", "red", "yellow", "green", "blue", "black"}
