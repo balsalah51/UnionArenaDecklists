@@ -8,7 +8,7 @@ import json
 import re
 import sys
 from collections import Counter, defaultdict
-from datetime import datetime, timedelta, timezone
+from datetime import date, datetime, timedelta, timezone
 from pathlib import Path
 
 import discord_board
@@ -856,6 +856,7 @@ def build_series_search(
         rec["lists"] = rec["lists"][:150]
         rec["hubs"].sort(key=lambda h: (-int(h.get("n") or 0), h.get("label") or ""))
         rec["aliases"] = series_alias_list(rec["name"])
+        rec["href"] = series_href(rec["name"])
         rec.pop("_hrefs", None)
         if rec["lists"] or rec["hubs"]:
             out.append(rec)
@@ -1109,7 +1110,7 @@ def unique_arches(arches: list[dict]) -> list[dict]:
     seen = set()
     picked = []
     for arch in ordered:
-        ident = (norm_name(arch.get("title") or ""), norm_name(arch.get("name") or ""))
+        ident = (series_slug(arch.get("title") or ""), norm_name(arch.get("name") or ""))
         if ident in seen:
             continue
         seen.add(ident)
@@ -1246,6 +1247,276 @@ def build_character_color_hubs(
 
 def pretty_anime(name: str) -> str:
     return uadb.pretty_anime(name)
+
+
+def series_slug(title: str) -> str:
+    pretty = pretty_anime(title) or (title or "")
+    slug = discord_board.theme_slug(pretty)
+    compact = re.sub(r"[^a-z0-9]+", "", slug)
+    return discord_board.THEME_ALIASES.get(compact) or discord_board.THEME_ALIASES.get(slug) or slug
+
+
+def series_href(title: str) -> str:
+    slug = series_slug(title)
+    return f"/series/{slug}.html" if slug and slug != "title" else "/series.html"
+
+
+def list_kind_label(kind: str) -> str:
+    return {
+        "contender": "consensus 50",
+        "official": "official placing",
+        "event": "event list",
+        "youtube": "YouTube list",
+        "web": "community list",
+        "tournament": "tournament list",
+        "twitter": "X list",
+        "reddit": "Reddit list",
+    }.get(kind or "", "decklist")
+
+
+def series_key_for(title: str) -> str:
+    slug = series_slug(title) if title else ""
+    return "" if slug in {"", "title"} else slug
+
+
+def is_series_color_hub(arch: dict) -> bool:
+    key = arch.get("key") or ""
+    tail = key.rsplit("-", 1)[-1].lower()
+    if tail not in COLOR_ONLY:
+        return False
+    if arch.get("from_color"):
+        return True
+    series = pretty_anime(arch.get("title") or "") or (arch.get("title") or "").strip()
+    series_key = series_key_for(series)
+    return key in {tail, f"{series_key}-{tail}"} if series_key else key == tail
+
+
+def display_name_for_title(arch: dict) -> str:
+    name = uadb.no_em(arch.get("name") or arch.get("full") or "Deck")
+    series = pretty_anime(arch.get("title") or "") or (arch.get("title") or "").strip()
+    key = arch.get("key") or ""
+    name_slug = uadb.slugify(name)
+    if name_slug and key and name_slug not in key:
+        rest = key
+        series_key = series_key_for(series)
+        if series_key and rest.startswith(f"{series_key}-"):
+            rest = rest[len(series_key) + 1 :]
+        tail = rest.rsplit("-", 1)[-1].lower()
+        if tail in COLOR_ONLY and "-" in rest:
+            rest = rest[: -(len(tail) + 1)]
+        if rest and rest not in COLOR_ONLY:
+            name = rest.replace("-", " ").title()
+    if series:
+        low = name.lower()
+        slow = series.lower()
+        if low.startswith(slow):
+            name = name[len(series) :].strip(" -")
+    name = re.sub(r"^(evangelion\s+)+", "", name, flags=re.I).strip()
+    return name or uadb.no_em(arch.get("name") or "Deck")
+
+
+def list_doc_title(arch: dict, entry: dict) -> str:
+    series = pretty_anime(arch.get("title") or "") or (arch.get("title") or "").strip()
+    key = arch.get("key") or ""
+    tail = key.rsplit("-", 1)[-1].lower()
+    if is_series_color_hub(arch) and tail in COLOR_ONLY:
+        name = f"{series} {tail.title()}".strip() if series else tail.title()
+    else:
+        name = display_name_for_title(arch)
+        if tail in COLOR_ONLY:
+            name = f"{name} {tail}"
+    kind = list_kind_label(entry.get("kind") or "")
+    date = entry.get("date") or ""
+    slug = entry.get("slug") or ""
+    blob = f"{slug} {entry.get('subtitle') or ''}"
+    place = ""
+    m = re.search(r"(?i)\b(\d+(?:st|nd|rd|th)|winner|top\s*\d+)\b", blob)
+    if m:
+        place = m.group(1)
+    primary = f"{name} {kind}".strip()
+    if place:
+        primary = f"{primary} {place}"
+    if date:
+        primary = f"{primary} ({date})"
+    token = slug.rsplit("-", 1)[-1]
+    if token and (token.isdigit() or (len(token) >= 5 and token.isalnum() and not token.isalpha())):
+        primary = f"{primary} {token}"
+    return uadb.page_title(primary)
+
+
+def hub_doc_title(arch: dict) -> str:
+    name = display_name_for_title(arch)
+    series = pretty_anime(arch.get("title") or "") or (arch.get("title") or "").strip()
+    key = arch.get("key") or ""
+    tail = key.rsplit("-", 1)[-1].lower()
+    if is_series_color_hub(arch) and tail in COLOR_ONLY:
+        color_label = tail.title()
+        primary = f"{series} {color_label} decks".strip() if series else f"{color_label} decks"
+        return uadb.page_title(primary)
+    color_bit = f" {tail}" if tail in COLOR_ONLY else ""
+    orig_slug = uadb.slugify(uadb.no_em(arch.get("name") or ""))
+    if key == orig_slug and series:
+        primary = f"{name} ({series}) decks"
+    elif series and series.lower() not in name.lower():
+        primary = f"{series} {name}{color_bit} decklist"
+    else:
+        primary = f"{name}{color_bit} decklist"
+    return uadb.page_title(primary)
+
+
+def list_doc_description(arch: dict, entry: dict) -> str:
+    full = arch.get("full") or arch.get("name") or "Union Arena"
+    sub = uadb.no_em(entry.get("subtitle") or "")
+    kind = list_kind_label(entry.get("kind") or "")
+    date = entry.get("date") or ""
+    bits = [f"{full} {kind}"]
+    if date:
+        bits.append(date)
+    if sub:
+        bits.append(sub)
+    bits.append("50-card Standard list with card pictures and TCGplayer links.")
+    return uadb.clip_meta(" · ".join(bits))
+
+
+def title_norm(arch: dict) -> str:
+    return norm_name(pretty_anime(arch.get("title") or "") or arch.get("title") or "")
+
+
+def hub_sort_key(arch: dict) -> tuple:
+    return (
+        1 if arch.get("from_color") else 0,
+        -len(arch.get("lists") or []),
+        1 if arch.get("from_combo") else 0,
+        -float(arch.get("meta_share") or 0),
+        (arch.get("name") or "").lower(),
+    )
+
+
+def build_title_catalog(hubs: list[dict]) -> list[dict]:
+    grouped: dict[str, dict] = {}
+    order: list[str] = []
+    for arch in hubs:
+        raw_title = arch.get("title") or ""
+        title = pretty_anime(raw_title) or raw_title
+        slug = series_slug(title or raw_title)
+        if not slug or slug == "title" or slug in COLOR_ONLY:
+            continue
+        if not discord_board.is_real_theme(title or raw_title, slug):
+            continue
+        rec = grouped.get(slug)
+        if rec is None:
+            rec = {
+                "name": title,
+                "slug": slug,
+                "page": f"series/{slug}.html",
+                "href": f"/series/{slug}.html",
+                "discord": f"/discord/{slug}.html",
+                "hubs": [],
+                "list_count": 0,
+            }
+            grouped[slug] = rec
+            order.append(slug)
+        elif title and (len(title) < len(rec["name"]) or rec["name"].lower().startswith("the ") and not title.lower().startswith("the ")):
+            rec["name"] = title
+        rec["hubs"].append(arch)
+        rec["list_count"] += len(arch.get("lists") or [])
+    series = []
+    for key in order:
+        rec = grouped[key]
+        rec["hubs"].sort(key=hub_sort_key)
+        rec["characters"] = unique_arches(rec["hubs"])
+        rec["hub_count"] = len(rec["characters"])
+        series.append(rec)
+    series.sort(key=lambda s: (-s["list_count"], s["name"]))
+    return series
+
+
+def catalog_for_arch(arch: dict, catalog: list[dict]) -> dict | None:
+    slug = series_slug(arch.get("title") or "")
+    if slug and slug != "title":
+        for rec in catalog:
+            if rec.get("slug") == slug:
+                return rec
+    key = title_norm(arch)
+    if not key:
+        return None
+    for rec in catalog:
+        if norm_name(rec.get("name") or "") == key:
+            return rec
+    return None
+
+
+def related_character_hubs(arch: dict, catalog: list[dict], limit: int = 8) -> list[dict]:
+    rec = catalog_for_arch(arch, catalog)
+    if not rec:
+        return []
+    mine = norm_name(arch.get("name") or "")
+    seen = {mine, arch.get("key")}
+    out = []
+    for other in rec.get("characters") or rec.get("hubs") or []:
+        if other.get("from_color"):
+            continue
+        ident = norm_name(other.get("name") or "")
+        if other.get("key") == arch.get("key") or ident in seen:
+            continue
+        seen.add(ident)
+        out.append(other)
+        if len(out) >= limit:
+            break
+    return out
+
+
+def related_series(catalog: list[dict], current: dict | None, limit: int = 8) -> list[dict]:
+    others = [s for s in catalog if not current or s.get("slug") != current.get("slug")]
+    return others[:limit]
+
+
+def render_related_hubs(heading: str, note: str, hubs: list[dict]) -> str:
+    if not hubs:
+        return ""
+    items = []
+    for arch in hubs:
+        n = len(arch.get("lists") or [])
+        note_line = f"{n} list" + ("" if n == 1 else "s")
+        if arch.get("color"):
+            note_line = f"{arch['color']} · {note_line}"
+        items.append(
+            f'<li><a href="/{html.escape(arch["page"])}">{html.escape(arch.get("name") or arch["page"])}'
+            f'<span class="muted">{html.escape(note_line)}</span></a></li>'
+        )
+    return f"""        <section class="related-block" aria-label="{html.escape(heading)}">
+          <div class="section-title">
+            <h3>{html.escape(heading)}</h3>
+            <div class="muted">{html.escape(note)}</div>
+          </div>
+          <ul class="related-grid">
+{chr(10).join(items)}
+          </ul>
+        </section>"""
+
+
+def render_sibling_lists(arch: dict, entry: dict, lists: list[dict]) -> str:
+    others = [row for row in lists if (row.get("slug") or "") != (entry.get("slug") or "")]
+    if not others:
+        return ""
+    items = []
+    for row in others[:12]:
+        href = row.get("href") or f"/{arch['dir']}/{row['slug']}.html"
+        label = uadb.no_em(row.get("title") or row.get("slug") or "List")
+        meta = " · ".join(bit for bit in (list_kind_label(row.get("kind") or ""), row.get("date") or "") if bit)
+        items.append(
+            f'<li><a href="{html.escape(href)}">{html.escape(label)}</a>'
+            f'{f" <span class=\"muted\">{html.escape(meta)}</span>" if meta else ""}</li>'
+        )
+    return f"""        <section class="related-block">
+          <div class="section-title">
+            <h3>More {html.escape(arch.get("name") or "character")} lists</h3>
+            <div class="muted">{len(others)} other public 50s</div>
+          </div>
+          <ul class="sibling-lists">
+{chr(10).join(items)}
+          </ul>
+        </section>"""
 
 
 def list_heading(arch: dict, character: str | None = None) -> str:
@@ -1456,7 +1727,15 @@ def take_text(arch: dict) -> str:
     return ". ".join(bits) + "."
 
 
-def write_list_page(arch: dict, entry: dict, items: list[dict], cache: dict, feature: dict) -> None:
+def write_list_page(
+    arch: dict,
+    entry: dict,
+    items: list[dict],
+    cache: dict,
+    feature: dict,
+    siblings: list[dict] | None = None,
+    catalog: list[dict] | None = None,
+) -> None:
     color = uadb.color_class((feature.get("meta") or {}).get("color"))
     title = uadb.no_em(entry.get("title") or arch["name"])
     subtitle = uadb.no_em(entry.get("subtitle") or "")
@@ -1494,37 +1773,82 @@ def write_list_page(arch: dict, entry: dict, items: list[dict], cache: dict, fea
         uadb.tcgplayer_mass_entry_url(items, cache),
         "Buy this list on TCGplayer",
     )
-    body = f"""        <div class="crumb"><a href="/">Home</a> / <a href="/characters.html">Characters</a> / <a href="/{html.escape(arch['page'])}">{html.escape(arch['full'])}</a> / Decklist</div>
-        <h2>{html.escape(title)}</h2>
+    series = catalog_for_arch(arch, catalog or [])
+    series_link = series["href"] if series else (series_href(arch["title"]) if arch.get("title") else "")
+    crumbs = [("/", "Home"), ("/characters.html", "Characters")]
+    if series:
+        crumbs.append((series["href"], series["name"]))
+    crumbs.append((f"/{arch['page']}", arch["full"]))
+    crumbs.append((None, "Decklist"))
+    crumb_ld = [(href or f"/{arch['dir']}/{entry['slug']}.html", label) for href, label in crumbs[:-1]]
+    crumb_ld.append((f"/{arch['dir']}/{entry['slug']}.html", title))
+    related = render_related_hubs(
+        f"More {series['name']} decks" if series else "Related decks",
+        "Other character pages in this title",
+        related_character_hubs(arch, catalog or []),
+    )
+    siblings_html = render_sibling_lists(arch, entry, siblings or [])
+    more_links = [
+        f'<a href="/{html.escape(arch["page"])}">{html.escape(arch["full"])} hub</a>',
+        '<a href="/format.html">Standard format</a>',
+        '<a href="/shop.html">Shop supplies</a>',
+    ]
+    if series_link:
+        more_links.insert(0, f'<a href="{html.escape(series_link)}">{html.escape((series or {}).get("name") or arch.get("title") or "Title")} decks</a>')
+    if series:
+        more_links.append(f'<a href="{html.escape(series["discord"])}">{html.escape(series["name"])} Discord</a>')
+    img = uadb.card_image_url(feature.get("id") or "", cache) if feature.get("id") else (entry.get("img") or "")
+    body = f"""        {uadb.crumb_html(crumbs)}
+        <h1>{html.escape(title)}</h1>
         <p>{html.escape(subtitle)}</p>
 {flag}
         {f'<p class="deck-buy">{buy}</p>' if buy else ''}
 {render_deck_stats(items, cache)}
 {render_text_deck(items, cache)}
 {render_pictures(items, cache)}
+{siblings_html}
+{related}
+        <p class="hub-more">{' · '.join(more_links)}</p>
         <p class="muted" style="margin-top:22px">{html.escape(kind_note)} Source: <a href="{html.escape(source)}">{html.escape(source)}</a>. Images hosted by Bandai. Buy links are TCGplayer affiliate links. Fan site, not affiliated with Bandai.</p>"""
-    page = uadb.page_chrome(title, f"{arch['full']} decklist - {subtitle}"[:160], color, body)
+    page = uadb.page_chrome(
+        list_doc_title(arch, entry),
+        list_doc_description(arch, entry),
+        color,
+        body,
+        path=f"{arch['dir']}/{entry['slug']}.html",
+        image=img,
+        json_ld=[uadb.website_ld(), uadb.breadcrumb_ld(crumb_ld)],
+    )
     dest = uadb.ROOT / arch["dir"] / f"{entry['slug']}.html"
     dest.parent.mkdir(parents=True, exist_ok=True)
     dest.write_text(page)
 
 
-def write_hub(arch: dict, lists: list[dict], items: list[dict], cache: dict, feature: dict) -> None:
+def write_hub(
+    arch: dict,
+    lists: list[dict],
+    items: list[dict],
+    cache: dict,
+    feature: dict,
+    catalog: list[dict] | None = None,
+) -> None:
     color = uadb.color_class((feature.get("meta") or {}).get("color"))
     img = uadb.card_image_url(feature.get("id") or "", cache) if feature.get("id") else ""
     meta = feature.get("meta") or {}
     pills = []
+    series = catalog_for_arch(arch, catalog or [])
     if arch.get("title"):
-        pills.append(arch["title"])
+        href = series["href"] if series else series_href(arch["title"])
+        pills.append(f'<a class="pill" href="{html.escape(href)}">{html.escape(arch["title"])}</a>')
     if meta.get("color"):
-        pills.append(meta["color"])
+        pills.append(f'<span class="pill">{html.escape(str(meta["color"]))}</span>')
     if feature.get("id"):
-        pills.append(feature["id"])
+        pills.append(f'<span class="pill">{html.escape(feature["id"])}</span>')
     if arch.get("tier"):
-        pills.append(f"Tier {arch['tier']}")
+        pills.append(f'<span class="pill">Tier {html.escape(str(arch["tier"]))}</span>')
     if arch.get("style"):
-        pills.append(arch["style"])
-    pill_html = "".join(f'<span class="pill">{html.escape(p)}</span>' for p in pills)
+        pills.append(f'<span class="pill">{html.escape(arch["style"])}</span>')
+    pill_html = "".join(pills)
     effect = meta.get("effect") or meta.get("trigger") or ""
     rows = []
     for entry in lists:
@@ -1549,11 +1873,35 @@ def write_hub(arch: dict, lists: list[dict], items: list[dict], cache: dict, fea
             <input type="search" data-filter="q" placeholder="Filter list" aria-label="Filter lists" />
           </div>
 """
-    body = f"""        <div class="crumb"><a href="/">Home</a> / <a href="/characters.html">Characters</a> / {html.escape(arch['full'])}</div>
+    crumbs = [("/", "Home"), ("/characters.html", "Characters")]
+    if series:
+        crumbs.append((series["href"], series["name"]))
+    crumbs.append((None, arch["full"]))
+    crumb_ld = [("/", "Home"), ("/characters.html", "Characters")]
+    if series:
+        crumb_ld.append((series["href"], series["name"]))
+    crumb_ld.append((f"/{arch['page']}", arch["full"]))
+    related = render_related_hubs(
+        f"More {series['name']} decks" if series else "Related decks",
+        "Other characters in this anime or manga",
+        related_character_hubs(arch, catalog or []),
+    )
+    more_links = ['<a href="/format.html">Standard format</a>', '<a href="/shop.html">Shop supplies</a>']
+    if series:
+        more_links.insert(0, f'<a href="{html.escape(series["href"])}">All {html.escape(series["name"])} decks</a>')
+        more_links.append(f'<a href="{html.escape(series["discord"])}">{html.escape(series["name"])} on Discord</a>')
+    n_lists = len(lists)
+    desc = uadb.clip_meta(
+        f"{arch['full']} Union Arena decklists: {n_lists} public 50-card Standard list"
+        f"{'' if n_lists == 1 else 's'}"
+        + (f" for {arch['title']}" if arch.get("title") else "")
+        + ". Consensus core, card pictures, and related character decks."
+    )
+    body = f"""        {uadb.crumb_html(crumbs)}
         <div class="leader-hero">
-          {f'<img src="{html.escape(img)}" alt="{html.escape(arch["full"])} character" />' if img else ''}
+          {f'<img src="{html.escape(img)}" alt="{html.escape(arch["full"])} Union Arena character card" />' if img else ''}
           <div>
-            <h2>{html.escape(arch['full'])}</h2>
+            <h1>{html.escape(arch['full'])}</h1>
             <p>{html.escape(take_text(arch))}</p>
             <div class="stat-row">
               {pill_html}
@@ -1564,7 +1912,7 @@ def write_hub(arch: dict, lists: list[dict], items: list[dict], cache: dict, fea
         </div>
         <section class="leader-analysis" style="margin-top:22px">
           <div class="section-title">
-            <h3>How it plays</h3>
+            <h2>How it plays</h2>
             <div class="muted">From public tournament lists</div>
           </div>
           <p class="leader-take">{html.escape(take_text(arch))}</p>
@@ -1572,15 +1920,26 @@ def write_hub(arch: dict, lists: list[dict], items: list[dict], cache: dict, fea
 {render_text_deck(items, cache, arch.get("sample_label") or "Consensus list")}
         <section class="deck-index" style="margin-top:22px">
           <div class="section-title">
-            <h3>Decklists</h3>
+            <h2>Decklists</h2>
             <div class="muted">{len(lists)} lists</div>
           </div>
           <p class="muted">{html.escape(arch.get("combo_blurb") or "Newest public lists first. Each row opens a separate 50-card list.")}</p>
 {filters}          <ul class="list" aria-label="Decklists">
 {chr(10).join(rows)}
           </ul>
-        </section>"""
-    page = uadb.page_chrome(f"{arch['full']} decklist", f"{arch['full']} Union Arena lists and consensus 50.", color, body, "characters")
+        </section>
+{related}
+        <p class="hub-more">{' · '.join(more_links)}</p>"""
+    page = uadb.page_chrome(
+        hub_doc_title(arch),
+        desc,
+        color,
+        body,
+        "characters",
+        path=arch["page"],
+        image=img,
+        json_ld=[uadb.website_ld(), uadb.breadcrumb_ld(crumb_ld)],
+    )
     dest = uadb.ROOT / arch["page"]
     dest.parent.mkdir(parents=True, exist_ok=True)
     dest.write_text(page)
@@ -1646,7 +2005,7 @@ def write_home(arches: list[dict], recent: list[dict], cache: dict, features: di
         buy = uadb.buy_deck_button(arch.get("buy_url") or "", "TCGplayer")
         return f"""            <div class="leader-card">
               <a class="leader-card-link" href="/{html.escape(arch['page'])}">
-                <img src="{html.escape(img)}" alt="{html.escape(arch['full'])} character card" />
+                <img src="{html.escape(img)}" alt="{html.escape(arch['full'])} Union Arena character card" />
                 <div class="caption">
                   <strong>{html.escape(arch['name'])}</strong>
                   <span class="hub-sub">{html.escape(color)}</span>
@@ -1667,7 +2026,7 @@ def write_home(arches: list[dict], recent: list[dict], cache: dict, features: di
         tiles = [tile_html(arch) for arch in grouped[title]]
         sections.append(
             f"""            <section class="home-ip">
-              <h2 class="home-ip-title">{html.escape(title)}</h2>
+              <h2 class="home-ip-title"><a href="{html.escape(series_href(title))}">{html.escape(title)}</a></h2>
               <div class="leader-cards home-cards" aria-label="{html.escape(title)} characters">
 {chr(10).join(tiles)}
               </div>
@@ -1680,7 +2039,7 @@ def write_home(arches: list[dict], recent: list[dict], cache: dict, features: di
         rec_items.append(
             f"""            <li class="recent-row">
               <a class="recent-item {html.escape(color)}" href="{html.escape(row['href'])}">
-                <img class="recent-leader" src="{html.escape(row['img'])}" alt="{html.escape(row['name'])}" />
+                <img class="recent-leader" src="{html.escape(row['img'])}" alt="{html.escape(row['name'])} Union Arena decklist" />
                 <div class="recent-copy">
                   <div class="who">{html.escape(row['who'])}</div>
                   <div class="muted meta">{html.escape(row['meta'])}</div>
@@ -1703,7 +2062,7 @@ def write_home(arches: list[dict], recent: list[dict], cache: dict, features: di
           <img class="home-splash-bg" src="/img/uadb-hero.png" alt="Union Arena Trading Card Game" />
 {splash_card}
           <div class="home-splash-bar">
-            <h2>{html.escape(uadb.BRAND)}</h2>
+            <h1>{html.escape(uadb.BRAND)}</h1>
             <p>Jump a section, or keep scrolling into the characters.</p>
           </div>
         </section>
@@ -1754,10 +2113,11 @@ def write_home(arches: list[dict], recent: list[dict], cache: dict, features: di
             <p class="home-leaders-kicker">The roster</p>
             <div class="home-leaders-intro-row">
               <div>
-                <h3>Raiders</h3>
+                <h2>Raiders</h2>
                 <p>The 20 characters current Standard lists are built around. Click a picture for that character and color. Every list on the page plays them.</p>
               </div>
               <a class="home-leaders-search-link" href="/characters.html">Full roster →</a>
+              <a class="home-leaders-search-link" href="/series.html">Browse titles →</a>
             </div>
 {char_search_html()}
           </div>
@@ -1768,7 +2128,7 @@ def write_home(arches: list[dict], recent: list[dict], cache: dict, features: di
 
         <section class="card home-panel" id="recent">
           <div class="section-title">
-            <h3>Recent lists</h3>
+            <h2>Recent lists</h2>
             <div class="muted">{len(recent)} lists</div>
           </div>
           <p class="muted">Newest published lists first.</p>
@@ -1780,10 +2140,32 @@ def write_home(arches: list[dict], recent: list[dict], cache: dict, features: di
     (uadb.ROOT / "index.html").write_text(uadb.home_chrome(body))
 
 
-def write_characters_index(arches: list[dict], features: dict, cache: dict) -> None:
+def write_characters_index(
+    raiders: list[dict],
+    features: dict,
+    cache: dict,
+    catalog: list[dict] | None = None,
+) -> None:
+    catalog = catalog or []
+    series_items = []
+    for rec in catalog:
+        series_items.append(
+            f'<li><a href="{html.escape(rec["href"])}">{html.escape(rec["name"])}'
+            f'<span class="muted">{rec["hub_count"]} characters · {rec["list_count"]} lists</span></a></li>'
+        )
+    series_block = ""
+    if series_items:
+        series_block = f"""        <section class="related-block">
+          <div class="section-title">
+            <h2>Browse by title</h2>
+            <div class="muted">{len(catalog)} anime and manga</div>
+          </div>
+          <p class="muted">Each title page lists every character hub and links the Discord thread.</p>
+          <ul class="series-grid">{"".join(series_items)}</ul>
+        </section>"""
     grouped: dict[str, list[dict]] = defaultdict(list)
     order = []
-    for arch in arches:
+    for arch in raiders:
         title = arch.get("title") or "Other"
         if title not in grouped:
             order.append(title)
@@ -1803,7 +2185,7 @@ def write_characters_index(arches: list[dict], features: dict, cache: dict) -> N
             tiles.append(
                 f"""          <div class="leader-tile-wrap">
             <a class="leader-tile {html.escape(color)}" href="/{html.escape(arch['page'])}">
-              <img src="{html.escape(img)}" alt="{html.escape(arch['full'])}" />
+              <img src="{html.escape(img)}" alt="{html.escape(arch['full'])} Union Arena character card" />
               <div>
                 <div class="name">{html.escape(arch['name'])}</div>
                 <div class="meta">{html.escape(" · ".join(b for b in meta_bits if b))}</div>
@@ -1814,19 +2196,213 @@ def write_characters_index(arches: list[dict], features: dict, cache: dict) -> N
             )
         sections.append(
             f"""        <section class="home-ip">
-          <h2 class="home-ip-title">{html.escape(title)}</h2>
+          <h2 class="home-ip-title"><a href="{html.escape(series_href(title))}">{html.escape(title)}</a></h2>
           <div class="leader-grid">
 {chr(10).join(tiles)}
           </div>
         </section>"""
         )
-    body = f"""        <div class="crumb"><a href="/">Home</a> / Characters</div>
-        <h2>Raiders</h2>
-          <p>The 20 characters current Standard lists are built around. Search a character or title for every 50 that plays them.</p>
+    roster = []
+    for rec in catalog:
+        chars = []
+        for arch in rec.get("characters") or []:
+            n = len(arch.get("lists") or [])
+            chars.append(
+                f'<li><a href="/{html.escape(arch["page"])}">{html.escape(arch.get("name") or arch["page"])}'
+                f'<span class="muted">{n} list{"" if n == 1 else "s"}</span></a></li>'
+            )
+        if chars:
+            roster.append(
+                f"""        <section class="related-block">
+          <h2 class="home-ip-title"><a href="{html.escape(rec["href"])}">{html.escape(rec["name"])}</a></h2>
+          <ul class="related-grid">{"".join(chars)}</ul>
+        </section>"""
+            )
+    crumbs = [("/", "Home"), (None, "Characters")]
+    body = f"""        {uadb.crumb_html(crumbs)}
+        <h1>Union Arena characters</h1>
+          <p>Search a character or title, jump a series page, or browse the current Raiders. The full roster below lists every public hub so crawlers and players can reach the 50s.</p>
 {char_search_html()}
-{chr(10).join(sections)}"""
-    page = uadb.page_chrome("Union Arena characters", "Top Raiders and a search for every Union Arena character or title on a public 50.", "color-red", body, "characters")
+{series_block}
+        <section>
+          <h2>Raiders</h2>
+          <p>The 20 characters current Standard lists are built around.</p>
+{chr(10).join(sections)}
+        </section>
+        <section>
+          <h2>Full roster by title</h2>
+          <p class="muted">Every character hub on the site, grouped by anime or manga.</p>
+{chr(10).join(roster)}
+        </section>"""
+    page = uadb.page_chrome(
+        uadb.page_title("Union Arena characters and title decklists"),
+        "Every Union Arena character hub and 50-card Standard list, grouped by anime and manga title. Search Raiders or browse a series.",
+        "color-red",
+        body,
+        "characters",
+        path="characters.html",
+        json_ld=[
+            uadb.website_ld(),
+            uadb.breadcrumb_ld([("/", "Home"), ("/characters.html", "Characters")]),
+        ],
+    )
     (uadb.ROOT / "characters.html").write_text(page)
+
+
+def write_series_index(catalog: list[dict]) -> None:
+    items = []
+    for rec in catalog:
+        items.append(
+            f'<li><a href="{html.escape(rec["href"])}">{html.escape(rec["name"])}'
+            f'<span class="muted">{rec["hub_count"]} characters · {rec["list_count"]} lists</span></a></li>'
+        )
+    others = [
+        '<a href="/characters.html">Characters</a>',
+        '<a href="/format.html">Standard format</a>',
+        '<a href="/discord/welcome.html">Discord</a>',
+        '<a href="/shop.html">Shop</a>',
+    ]
+    body = f"""        {uadb.crumb_html([("/", "Home"), (None, "Titles")])}
+        <h1>Union Arena titles</h1>
+        <p>Every anime and manga IP with a public 50-card Standard list on this site. Open a title for character hubs, consensus lists, and the Discord thread.</p>
+        <ul class="series-grid">{"".join(items)}</ul>
+        <p class="hub-more">{' · '.join(others)}</p>"""
+    page = uadb.page_chrome(
+        uadb.page_title("Union Arena titles and anime decklists"),
+        "Browse Union Arena TCG decks by anime and manga title: Solo Leveling, Yu Yu Hakusho, Evangelion, Chainsaw Man, and the rest of Standard.",
+        "color-red",
+        body,
+        "characters",
+        path="series.html",
+        json_ld=[
+            uadb.website_ld(),
+            uadb.breadcrumb_ld([("/", "Home"), ("/series.html", "Titles")]),
+            {
+                "@context": "https://schema.org",
+                "@type": "ItemList",
+                "name": "Union Arena titles",
+                "itemListElement": [
+                    {
+                        "@type": "ListItem",
+                        "position": i,
+                        "url": uadb.absolute_url(rec["href"]),
+                        "name": rec["name"],
+                    }
+                    for i, rec in enumerate(catalog, start=1)
+                ],
+            },
+        ],
+    )
+    (uadb.ROOT / "series.html").write_text(page)
+
+
+def write_series_pages(catalog: list[dict], features: dict, cache: dict) -> list[str]:
+    dest = uadb.ROOT / "series"
+    dest.mkdir(parents=True, exist_ok=True)
+    keep = set()
+    paths = ["series.html"]
+    write_series_index(catalog)
+    for rec in catalog:
+        keep.add(f"{rec['slug']}.html")
+        paths.append(rec["page"])
+        write_series_page(rec, catalog, features, cache)
+    for path in dest.iterdir():
+        if path.is_file() and path.name not in keep:
+            path.unlink()
+    return paths
+
+
+def write_series_page(rec: dict, catalog: list[dict], features: dict, cache: dict) -> None:
+    name = rec["name"]
+    hubs = [h for h in (rec.get("characters") or rec.get("hubs") or []) if not h.get("from_color")]
+    tiles = []
+    for arch in hubs:
+        f = features.get(arch["key"]) or {}
+        img = uadb.card_image_url(f.get("id") or "", cache) if f.get("id") else ""
+        color = uadb.color_class((f.get("meta") or {}).get("color"))
+        n = len(arch.get("lists") or [])
+        img_html = (
+            f'<img src="{html.escape(img)}" alt="{html.escape(arch.get("full") or arch.get("name") or name)} Union Arena character card" />'
+            if img
+            else ""
+        )
+        tiles.append(
+            f"""          <div class="leader-tile-wrap">
+            <a class="leader-tile {html.escape(color)}" href="/{html.escape(arch["page"])}">
+              {img_html}
+              <div>
+                <div class="name">{html.escape(arch.get("name") or arch["page"])}</div>
+                <div class="meta">{n} list{"" if n == 1 else "s"}</div>
+              </div>
+            </a>
+          </div>"""
+        )
+    other_series = related_series(catalog, rec)
+    other_html = ""
+    if other_series:
+        items = [
+            f'<li><a href="{html.escape(s["href"])}">{html.escape(s["name"])}'
+            f'<span class="muted">{s["hub_count"]} characters</span></a></li>'
+            for s in other_series
+        ]
+        other_html = f"""        <section class="related-block">
+          <div class="section-title">
+            <h2>Other titles</h2>
+            <div class="muted">More Union Arena IPs</div>
+          </div>
+          <ul class="series-grid">{"".join(items)}</ul>
+        </section>"""
+    crumbs = [("/", "Home"), ("/series.html", "Titles"), (None, name)]
+    desc = uadb.clip_meta(
+        f"{name} Union Arena decks: {rec['hub_count']} character hubs and {rec['list_count']} public 50-card Standard lists, plus the Discord title thread."
+    )
+    img = ""
+    if hubs:
+        feat = features.get(hubs[0]["key"]) or {}
+        if feat.get("id"):
+            img = uadb.card_image_url(feat["id"], cache)
+    more_links = [
+        f'<a href="{html.escape(rec["discord"])}">{html.escape(name)} Discord thread</a>',
+        '<a href="/characters.html">All characters</a>',
+        '<a href="/format.html">Standard format</a>',
+        '<a href="/shop.html">Shop supplies</a>',
+    ]
+    body = f"""        {uadb.crumb_html(crumbs)}
+        <h1>{html.escape(name)} Union Arena decks</h1>
+        <p>{html.escape(name)} character pages and public 50-card Standard lists. English events are single-title, so these hubs stay in this IP.</p>
+        <div class="leader-grid">
+{chr(10).join(tiles)}
+        </div>
+{other_html}
+        <p class="hub-more">{' · '.join(more_links)}</p>"""
+    page = uadb.page_chrome(
+        uadb.page_title(f"{name} Union Arena decks"),
+        desc,
+        "color-red",
+        body,
+        "characters",
+        path=rec["page"],
+        image=img,
+        json_ld=[
+            uadb.website_ld(),
+            uadb.breadcrumb_ld([("/", "Home"), ("/series.html", "Titles"), (rec["href"], name)]),
+            {
+                "@context": "https://schema.org",
+                "@type": "ItemList",
+                "name": f"{name} Union Arena decks",
+                "itemListElement": [
+                    {
+                        "@type": "ListItem",
+                        "position": i,
+                        "url": uadb.absolute_url(f"/{arch['page']}"),
+                        "name": arch.get("full") or arch.get("name") or name,
+                    }
+                    for i, arch in enumerate(hubs, start=1)
+                ],
+            },
+        ],
+    )
+    (uadb.ROOT / rec["page"]).write_text(page)
 
 
 def write_format(arches: list[dict]) -> None:
@@ -1839,9 +2415,9 @@ def write_format(arches: list[dict]) -> None:
               <p>{html.escape(pretty_blurb((arch.get('strengths') or ['Public Standard list.'])[0]))}</p>
             </li>"""
         )
-    body = f"""        <div class="crumb"><a href="/">Home</a> / Format</div>
-        <h2>Standard format</h2>
-        <p>Lists on this site are 50-card constructed Union Arena decks. English events are single-title Standard. A deck is usually one IP (Solo Leveling, Sakamoto Days, Evangelion, Chainsaw Man) plus up to 4 copies of each card number.</p>
+    body = f"""        {uadb.crumb_html([("/", "Home"), (None, "Format")])}
+        <h1>Standard format</h1>
+        <p>Lists on this site are 50-card constructed Union Arena decks. English events are single-title Standard. A deck is usually one IP (<a href="/series/solo-leveling.html">Solo Leveling</a>, <a href="/series/sakamoto-days.html">Sakamoto Days</a>, <a href="/series/evangelion.html">Evangelion</a>, <a href="/series/chainsaw-man.html">Chainsaw Man</a>) plus up to 4 copies of each card number. Browse every title on the <a href="/series.html">titles index</a>.</p>
 
         <section class="meta-take" id="meta" style="margin-top:22px">
           <div class="section-title">
@@ -1870,8 +2446,20 @@ def write_format(arches: list[dict]) -> None:
           </div>
           <p>Exactly 50 cards in the main deck. AP cards sit next to the list, not inside the 50. Most sanctioned events are single-title. Confirm the event before mixing IPs.</p>
           <p class="muted">Official events: <a href="https://www.unionarena-tcg.com/na/events/">Bandai events hub</a>.</p>
-        </section>"""
-    page = uadb.page_chrome("Union Arena format and restricted cards | Union Arena Decklists", "Standard constructed rules for Union Arena: 50-card lists, restricted Evangelion cards, current-format characters.", "color-red", body, "format")
+        </section>
+        <p class="hub-more"><a href="/characters.html">Characters</a> · <a href="/series.html">Titles</a> · <a href="/shop.html">Shop</a></p>"""
+    page = uadb.page_chrome(
+        "Union Arena format and restricted cards | Union Arena Decklists",
+        "Standard constructed rules for Union Arena: 50-card lists, restricted Evangelion cards, current-format characters.",
+        "color-red",
+        body,
+        "format",
+        path="format.html",
+        json_ld=[
+            uadb.website_ld(),
+            uadb.breadcrumb_ld([("/", "Home"), ("/format.html", "Format")]),
+        ],
+    )
     (uadb.ROOT / "format.html").write_text(page)
 
 
@@ -1917,9 +2505,9 @@ def write_shop() -> None:
           </div>
         </section>"""
         )
-    body = f"""        <div class="crumb"><a href="/">Home</a> / Shop</div>
-        <h2>Shop</h2>
-        <p>Sleeves, playmats, deck boxes, and extras for Union Arena lists.</p>
+    body = f"""        {uadb.crumb_html([("/", "Home"), (None, "Shop")])}
+        <h1>Shop</h1>
+        <p>Sleeves, playmats, deck boxes, and extras for Union Arena lists. Pair these with a <a href="/characters.html">character deck</a> or the <a href="/series.html">title pages</a>.</p>
 {chr(10).join(sections)}
         {amazon_note_html()}
         <p class="muted" style="margin-top:12px">Prices, stock, and shipping are set by Amazon. This site does not sell these products directly.</p>"""
@@ -1929,13 +2517,18 @@ def write_shop() -> None:
         "color-red",
         body,
         "shop",
+        path="shop.html",
+        json_ld=[
+            uadb.website_ld(),
+            uadb.breadcrumb_ld([("/", "Home"), ("/shop.html", "Shop")]),
+        ],
     )
     (uadb.ROOT / "shop.html").write_text(page)
 
 
 def write_privacy() -> None:
-    body = f"""        <div class="crumb"><a href="/">Home</a> / Privacy Policy</div>
-        <h2>Privacy Policy</h2>
+    body = f"""        {uadb.crumb_html([("/", "Home"), (None, "Privacy Policy")])}
+        <h1>Privacy Policy</h1>
         <p class="muted">Last updated: August 26, 2026</p>
         <p>Union Arena Decklists ("we," "us," or "this site") respects your privacy. This Privacy Policy explains what information we collect when you visit unionarenadecklists.com, how we use it, and the choices you have.</p>
         <section>
@@ -1967,27 +2560,49 @@ def write_privacy() -> None:
           <h3>Contact</h3>
           <p>Questions about this policy can go through the Discord linked in the header.</p>
         </section>"""
-    page = uadb.page_chrome("Privacy Policy | Union Arena Decklists", "Privacy Policy for Union Arena Decklists.", "color-red", body)
+    page = uadb.page_chrome(
+        "Privacy Policy | Union Arena Decklists",
+        "Privacy Policy for Union Arena Decklists: cookies, Amazon Associate links, and TCGplayer affiliates.",
+        "color-red",
+        body,
+        path="privacy.html",
+        json_ld=[uadb.website_ld(), uadb.breadcrumb_ld([("/", "Home"), ("/privacy.html", "Privacy")])],
+    )
     # privacy uses policy class
     page = page.replace('<div class="card hero">', '<div class="card hero policy">')
     (uadb.ROOT / "privacy.html").write_text(page)
 
 
 def write_404() -> None:
-    body = """        <div class="crumb"><a href="/">Home</a> / Missing page</div>
-        <h2>That page is not here</h2>
-        <p>Try the <a href="/">home splash</a>, <a href="/characters.html">character pages</a>, <a href="/shop.html">shop</a>, or <a href="/#recent">recent lists</a>.</p>"""
-    page = uadb.page_chrome("Page not found | Union Arena Decklists", "That Union Arena Decklists page is missing.", "color-red", body)
+    body = """        <nav class="crumb" aria-label="Breadcrumb"><a href="/">Home</a> / Missing page</nav>
+        <h1>That page is not here</h1>
+        <p>Try the <a href="/">home splash</a>, <a href="/characters.html">character pages</a>, <a href="/series.html">title pages</a>, <a href="/shop.html">shop</a>, or <a href="/#recent">recent lists</a>.</p>"""
+    page = uadb.page_chrome(
+        "Page not found | Union Arena Decklists",
+        "That Union Arena Decklists page is missing.",
+        "color-red",
+        body,
+        path="404.html",
+        robots="noindex, follow",
+    )
     (uadb.ROOT / "404.html").write_text(page)
 
 
-def write_sitemap(paths: list[str]) -> None:
-    urls = "\n".join(
-        f"  <url><loc>{uadb.SITE}/{p.lstrip('/')}</loc></url>" for p in paths
-    )
+def write_sitemap(paths: list[str], lastmod: str = "") -> None:
+    stamp = lastmod or date.today().isoformat()
+    skip = re.compile(r"(^discord/board\.json$|^discord/threads/|^discord/?$)")
+    seen: set[str] = set()
+    rows = []
+    for raw in paths:
+        p = (raw or "").lstrip("/")
+        if p in seen or skip.search(p):
+            continue
+        seen.add(p)
+        loc = uadb.SITE + "/" if not p else f"{uadb.SITE}/{p}"
+        rows.append(f"  <url><loc>{loc}</loc><lastmod>{stamp}</lastmod></url>")
     xml = f"""<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-{urls}
+{chr(10).join(rows)}
 </urlset>
 """
     (uadb.ROOT / "sitemap.xml").write_text(xml)
@@ -2088,9 +2703,10 @@ def main() -> None:
     features = {}
     recent = []
     published = []
-    sitemap = ["", "characters.html", "format.html", "shop.html", "privacy.html"]
+    sitemap = ["", "characters.html", "series.html", "format.html", "shop.html", "privacy.html"]
     index = {}
     board_decks = []
+    hub_jobs = []
     for arch in arches:
         items = flatten_contender(arch, cache)
         comm_rows = community_for(arch["key"])
@@ -2117,8 +2733,7 @@ def main() -> None:
                 "href": f"/{arch['dir']}/contender-consensus.html",
                 "items": items,
             }
-            if not pages_only:
-                write_list_page(arch, cons_entry, items, cache, feature)
+            cons_entry["_feat"] = feature
             lists.append(cons_entry)
             published.append(cons_entry)
         for comm in comm_rows:
@@ -2147,13 +2762,12 @@ def main() -> None:
             }
             comm_entry["href"] = f"/{arch['dir']}/{comm_entry['slug']}.html"
             comm_entry["items"] = c_items
-            if not pages_only:
-                write_list_page(arch, comm_entry, c_items, cache, c_feat)
+            comm_entry["_feat"] = c_feat
             lists.append(comm_entry)
             published.append(comm_entry)
         lists.sort(key=lambda e: e.get("date") or "0000", reverse=True)
-        if not pages_only:
-            write_hub(arch, lists, items, cache, feature)
+        arch["lists"] = lists
+        hub_jobs.append((arch, lists, items, feature, True))
         sitemap.append(arch["page"])
         for entry in lists:
             sitemap.append(f"{arch['dir']}/{entry['slug']}.html")
@@ -2180,14 +2794,29 @@ def main() -> None:
     features.update(combo_features)
     for arch in combo_arches:
         feat = features.get(arch["key"]) or {}
-        if not pages_only:
-            write_hub(arch, arch.get("lists") or [], arch.get("cons_items") or [], cache, feat)
+        hub_jobs.append((arch, arch.get("lists") or [], arch.get("cons_items") or [], feat, False))
         if arch["page"] not in sitemap:
             sitemap.append(arch["page"])
         index[arch["key"]] = [
             {"slug": e["slug"], "kind": e["kind"], "title": e["title"], "date": e.get("date")} for e in (arch.get("lists") or [])
         ]
         uadb.log("combo-hub", arch["key"], "lists", len(arch.get("lists") or []), "feature", feat.get("id"))
+
+    catalog = build_title_catalog([job[0] for job in hub_jobs])
+    if not pages_only:
+        for arch, lists, items, feature, write_lists in hub_jobs:
+            if write_lists:
+                for entry in lists:
+                    write_list_page(
+                        arch,
+                        entry,
+                        entry.get("items") or items,
+                        cache,
+                        entry.get("_feat") or feature,
+                        siblings=lists,
+                        catalog=catalog,
+                    )
+            write_hub(arch, lists, items, cache, feature, catalog=catalog)
 
     recent.sort(key=lambda r: r.get("when") or "0000", reverse=True)
     prices = uadb.load_tcgplayer_prices()
@@ -2197,13 +2826,15 @@ def main() -> None:
     uadb.save_json("data/character-search.json", {"characters": search, "series": series})
     uadb.log("home raid leaders", len(home_roster), "search characters", len(search), "titles", len(series))
     write_home(home_roster, recent, cache, features)
-    write_characters_index(home_roster, features, cache)
+    write_characters_index(home_roster, features, cache, catalog)
+    sitemap.extend(write_series_pages(catalog, features, cache))
     write_format(unique_arches([a for a in arches if not a.get("from_color")]))
     write_shop()
     write_privacy()
     board = discord_board.build_board(board_decks)
     sitemap.extend(discord_board.write_pages(board))
-    write_sitemap(sitemap)
+    lastmod = (recent[0].get("when") if recent else "") or date.today().isoformat()
+    write_sitemap(sitemap, lastmod=lastmod[:10] if lastmod else "")
     write_404()
     uadb.save_json("data/site-index.json", index)
     uadb.log("wrote site", "pages", len(sitemap), "discord themes", board.get("theme_count"))

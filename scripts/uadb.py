@@ -25,8 +25,8 @@ DISCORD = "https://discord.gg/aY9RfB662"
 BRAND = "Union Arena Decklists"
 SUBTITLE = "50-card lists for Standard"
 LOGO = "UA"
-CSS_VER = "ua18"
-JS_VER = "ua6"
+CSS_VER = "ua20"
+JS_VER = "ua7"
 TCGPLAYER_CATEGORY_ID = 81
 TCGPLAYER_PRICES_FILE = "data/tcgplayer-prices.json"
 FONT_LINKS = """  <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -297,7 +297,7 @@ def nav_html(current: str = "") -> str:
         [
             '      <nav aria-label="Primary">',
             item("/#recent", "Recent lists", "recent"),
-            item("/#characters", "Characters", "characters"),
+            item("/characters.html", "Characters", "characters"),
             item("/format.html", "Format", "format"),
             item("/shop.html", "Shop", "shop"),
             item("/discord/welcome.html", "Discord", "discord"),
@@ -308,22 +308,174 @@ def nav_html(current: str = "") -> str:
 
 def brand_heading() -> str:
     return (
-        "<h1>"
+        '<p class="brand-lockup">'
         '<span class="brand-kicker">Union Arena</span>'
         '<span class="brand-name">Decklists</span>'
-        "</h1>"
+        "</p>"
     )
 
 
-def page_chrome(title: str, description: str, color: str, body: str, current: str = "") -> str:
+def absolute_url(path: str) -> str:
+    raw = (path or "").strip()
+    if raw.startswith("http://") or raw.startswith("https://"):
+        return raw
+    if not raw or raw == "/":
+        return f"{SITE}/"
+    return f"{SITE}/{raw.lstrip('/')}"
+
+
+def clip_meta(text: str, limit: int = 160) -> str:
+    clean = re.sub(r"\s+", " ", (text or "").strip())
+    if len(clean) <= limit:
+        return clean
+    cut = clean[: limit - 1].rsplit(" ", 1)[0].rstrip(" ,.;:|-")
+    return (cut or clean[: limit - 1]) + "…"
+
+
+def page_title(primary: str, brand: str | None = None) -> str:
+    brand = brand or BRAND
+    primary = re.sub(r"\s+", " ", (primary or "").strip())
+    if not primary:
+        return f"{brand} | Standard TCG 50-card lists"
+    if primary.lower() == brand.lower():
+        return f"{brand} | Standard TCG 50-card lists"
+    if brand.lower() in primary.lower():
+        return primary[:70]
+    titled = f"{primary} | {brand}"
+    if len(titled) <= 70:
+        return titled
+    for use_brand in (brand, "UA Decklists"):
+        titled = f"{primary} | {use_brand}"
+        if len(titled) <= 70:
+            return titled
+    use_brand = "UA Decklists"
+    budget = max(24, 70 - len(use_brand) - 3)
+    if len(primary) <= budget:
+        return f"{primary} | {use_brand}"
+    head_budget = max(12, budget // 2)
+    tail_budget = max(10, budget - head_budget - 1)
+    head = primary[:head_budget].rsplit(" ", 1)[0].rstrip(" ·|-")
+    tail = primary[-tail_budget:].split(" ", 1)[-1].strip(" ·|-")
+    if head and tail and head != tail:
+        short = f"{head}…{tail}"
+        if len(short) <= budget:
+            return f"{short} | {use_brand}"
+    short = primary[:budget].rsplit(" ", 1)[0].rstrip(" ·|-") or primary[:budget]
+    return f"{short} | {use_brand}"
+
+
+def crumb_html(parts: list[tuple[str | None, str]]) -> str:
+    bits = []
+    for href, label in parts:
+        if href:
+            bits.append(f'<a href="{html.escape(href)}">{html.escape(label)}</a>')
+        else:
+            bits.append(html.escape(label))
+    return f'<nav class="crumb" aria-label="Breadcrumb">{" / ".join(bits)}</nav>'
+
+
+def breadcrumb_ld(parts: list[tuple[str, str]]) -> dict:
+    items = []
+    for i, (href, label) in enumerate(parts, start=1):
+        entry: dict = {"@type": "ListItem", "position": i, "name": label}
+        if href:
+            entry["item"] = absolute_url(href)
+        items.append(entry)
+    return {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": items}
+
+
+def website_ld() -> dict:
+    return {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": BRAND,
+        "url": f"{SITE}/",
+        "description": "50-card Union Arena TCG decklists for Standard, grouped by anime and manga title.",
+    }
+
+
+def json_ld_script(blocks: list[dict] | None) -> str:
+    if not blocks:
+        return ""
+    chunks = []
+    for block in blocks:
+        payload = json.dumps(block, ensure_ascii=False, separators=(",", ":"))
+        payload = payload.replace("<", "\\u003c")
+        chunks.append(f'  <script type="application/ld+json">{payload}</script>')
+    return "\n".join(chunks) + "\n"
+
+
+def seo_head(
+    title: str,
+    description: str,
+    path: str,
+    *,
+    image: str = "",
+    page_type: str = "website",
+    json_ld: list[dict] | None = None,
+    extra: str = "",
+    robots: str = "",
+) -> str:
+    desc = clip_meta(description)
+    url = absolute_url(path)
+    img = image or f"{SITE}/img/uadb-hero.png"
+    if img.startswith("/"):
+        img = absolute_url(img)
+    robots_tag = f'  <meta name="robots" content="{html.escape(robots)}" />\n' if robots else ""
+    extra_html = extra if extra.endswith("\n") or not extra else extra + "\n"
+    return (
+        f"  <title>{html.escape(title)}</title>\n"
+        f'  <meta name="description" content="{html.escape(desc)}" />\n'
+        f"{robots_tag}"
+        f'  <link rel="canonical" href="{html.escape(url)}" />\n'
+        f'  <meta property="og:site_name" content="{html.escape(BRAND)}" />\n'
+        f'  <meta property="og:title" content="{html.escape(title)}" />\n'
+        f'  <meta property="og:description" content="{html.escape(desc)}" />\n'
+        f'  <meta property="og:url" content="{html.escape(url)}" />\n'
+        f'  <meta property="og:type" content="{html.escape(page_type)}" />\n'
+        f'  <meta property="og:image" content="{html.escape(img)}" />\n'
+        f'  <meta property="og:locale" content="en_US" />\n'
+        f'  <meta name="twitter:card" content="summary_large_image" />\n'
+        f'  <meta name="twitter:title" content="{html.escape(title)}" />\n'
+        f'  <meta name="twitter:description" content="{html.escape(desc)}" />\n'
+        f'  <meta name="twitter:image" content="{html.escape(img)}" />\n'
+        f"{json_ld_script(json_ld)}"
+        f"{extra_html}"
+    )
+
+
+def footer_links() -> str:
+    return (
+        f'      © <span id="year"></span> {html.escape(BRAND)}. Fan site, not affiliated with Bandai.\n'
+        '      <a href="/characters.html">Characters</a> · '
+        '<a href="/series.html">Titles</a> · '
+        '<a href="/#recent">Recent lists</a> · '
+        '<a href="/format.html">Format</a> · '
+        '<a href="/shop.html">Shop</a> · '
+        '<a href="/discord/welcome.html">Discord</a> · '
+        '<a href="/privacy.html">Privacy</a>\n'
+        '      <span class="footer-amazon">As an Amazon Associate I earn from qualifying purchases.</span>'
+    )
+
+
+def page_chrome(
+    title: str,
+    description: str,
+    color: str,
+    body: str,
+    current: str = "",
+    *,
+    path: str = "",
+    image: str = "",
+    json_ld: list[dict] | None = None,
+    robots: str = "",
+) -> str:
     return f"""<!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>{html.escape(title)}</title>
-  <meta name="description" content="{html.escape(description)}" />
-{FONT_LINKS}  <link rel="stylesheet" href="/css/site.css?v={CSS_VER}" />
+{seo_head(title, description, path, image=image, json_ld=json_ld, robots=robots)}{FONT_LINKS}  <link rel="stylesheet" href="/css/site.css?v={CSS_VER}" />
 </head>
 <body class="{html.escape(color)}">
   <div class="wrap">
@@ -344,9 +496,7 @@ def page_chrome(title: str, description: str, color: str, body: str, current: st
       </div>
     </main>
     <footer>
-      © <span id="year"></span> {html.escape(BRAND)}. Fan site, not affiliated with Bandai.
-      <a href="/characters.html">Characters</a> · <a href="/#recent">Recent lists</a> · <a href="/format.html">Format</a> · <a href="/shop.html">Shop</a> · <a href="/discord/welcome.html">Discord</a> · <a href="/privacy.html">Privacy</a>
-      <span class="footer-amazon">As an Amazon Associate I earn from qualifying purchases.</span>
+{footer_links()}
     </footer>
   </div>
   <script>
@@ -360,15 +510,24 @@ def page_chrome(title: str, description: str, color: str, body: str, current: st
 """
 
 
-def home_chrome(body: str) -> str:
+def home_chrome(
+    body: str,
+    *,
+    title: str | None = None,
+    description: str | None = None,
+    image: str = "",
+    json_ld: list[dict] | None = None,
+) -> str:
+    page_t = title or page_title(BRAND)
+    page_d = description or (
+        "Union Arena TCG decklists for Standard: 50-card lists, character hubs, and consensus cores by anime and manga title."
+    )
     return f"""<!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>{html.escape(BRAND)}</title>
-  <meta name="description" content="Union Arena TCG decklists. Character pictures and recent 50-card lists for Standard." />
-{FONT_LINKS}  <link rel="stylesheet" href="/css/site.css?v={CSS_VER}" />
+{seo_head(page_t, page_d, "/", image=image, json_ld=json_ld or [website_ld()])}{FONT_LINKS}  <link rel="stylesheet" href="/css/site.css?v={CSS_VER}" />
 </head>
 <body>
   <div class="wrap">
@@ -387,9 +546,7 @@ def home_chrome(body: str) -> str:
 {body}
     </main>
     <footer>
-      © <span id="year"></span> {html.escape(BRAND)}. Fan site, not affiliated with Bandai.
-      <a href="/characters.html">Characters</a> · <a href="/#recent">Recent lists</a> · <a href="/format.html">Format</a> · <a href="/shop.html">Shop</a> · <a href="/discord/welcome.html">Discord</a> · <a href="/privacy.html">Privacy</a>
-      <span class="footer-amazon">As an Amazon Associate I earn from qualifying purchases.</span>
+{footer_links()}
     </footer>
   </div>
   <script>

@@ -560,16 +560,18 @@ def render_sidebar(board: dict, current: str) -> str:
         </aside>"""
 
 
-def discord_chrome(title: str, description: str, board: dict, current: str, body: str) -> str:
-    invite = html.escape(board.get("discord_invite") or uadb.DISCORD)
+def discord_chrome(title: str, description: str, board: dict, current: str, body: str, path: str = "") -> str:
+    rel = path or "discord/welcome.html"
+    crumbs = [("/", "Home"), ("/discord/welcome.html", "Discord")]
+    if rel.rstrip("/") not in {"discord", "discord/welcome.html"}:
+        crumbs.append((f"/{rel.lstrip('/')}", title.split("|")[0].strip()))
+    ld = [uadb.website_ld(), uadb.breadcrumb_ld(crumbs)]
     return f"""<!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>{html.escape(title)}</title>
-  <meta name="description" content="{html.escape(description)}" />
-{uadb.FONT_LINKS}  <link rel="stylesheet" href="/css/site.css?v={uadb.CSS_VER}" />
+{uadb.seo_head(title, description, rel, json_ld=ld)}{uadb.FONT_LINKS}  <link rel="stylesheet" href="/css/site.css?v={uadb.CSS_VER}" />
 </head>
 <body class="discord-app">
   <div class="wrap discord-wrap">
@@ -590,8 +592,7 @@ def discord_chrome(title: str, description: str, board: dict, current: str, body
       </div>
     </div>
     <footer>
-      © <span id="year"></span> {html.escape(uadb.BRAND)}. Fan site, not affiliated with Bandai.
-      <a href="/discord/welcome.html">Discord</a> · <a href="{invite}">Join the server</a> · <a href="/privacy.html">Privacy</a>
+{uadb.footer_links()}
     </footer>
   </div>
   <script>
@@ -678,9 +679,18 @@ def write_welcome(board: dict, dest: Path) -> None:
         board,
         "welcome",
         body,
+        path="discord/welcome.html",
     )
     (dest / "welcome.html").write_text(page)
-    (dest / "index.html").write_text(page)
+    index = discord_chrome(
+        "UA Arena Discord",
+        "UA Arena Discord: rules, title roles, and one Union Arena thread per anime or manga.",
+        board,
+        "welcome",
+        body,
+        path="discord/index.html",
+    )
+    (dest / "index.html").write_text(index)
 
 
 def write_announcements(board: dict, dest: Path) -> None:
@@ -711,6 +721,7 @@ def write_announcements(board: dict, dest: Path) -> None:
         board,
         "announcements",
         body,
+        path="discord/announcements.html",
     )
     (dest / "announcements.html").write_text(page)
 
@@ -742,6 +753,7 @@ def write_roles(board: dict, dest: Path) -> None:
         board,
         "roles",
         body,
+        path="discord/roles.html",
     )
     (dest / "roles.html").write_text(page)
 
@@ -787,6 +799,7 @@ def write_theme(board: dict, theme: dict, dest: Path) -> None:
             html.escape(board.get("updated") or ""),
             f"""              <p><strong>{html.escape(theme.get("name") or theme.get("slug") or "Title")} thread</strong></p>
               <p>One thread for this anime or manga. Role: <span class="discord-role {html.escape(uadb.color_class(theme.get("color") or ""))}">{html.escape(theme.get("name") or "")}</span>. Consensus 50s pulled from the website.</p>
+              <p><a href="/series/{html.escape(theme.get("slug") or "")}.html">All {html.escape(theme.get("name") or "title")} decks on the site</a> · <a href="/characters.html">Characters</a> · <a href="/format.html">Format</a></p>
               <p class="discord-jump">{' · '.join(jumps)}</p>""",
             "is-pin",
         )
@@ -804,11 +817,12 @@ def write_theme(board: dict, theme: dict, dest: Path) -> None:
 {chr(10).join(messages)}
         </div>"""
     page = discord_chrome(
-        f"{theme.get('name') or theme.get('slug')} thread | UA Arena Discord",
+        uadb.page_title(f"{theme.get('name') or theme.get('slug')} Discord"),
         f"{theme.get('name')} Union Arena title thread with consensus 50-card lists for this anime or manga.",
         board,
         f"theme:{theme.get('slug')}",
         body,
+        path=f"discord/{theme.get('slug') or 'title'}.html",
     )
     (dest / f"{theme['slug']}.html").write_text(page)
 
@@ -837,16 +851,34 @@ def _card_rows(deck: dict) -> str:
 def write_thread_redirect(theme: dict, deck: dict, dest: Path) -> None:
     target = f"/discord/{theme.get('slug') or 'welcome'}.html#{deck.get('key') or ''}"
     name = html.escape(theme.get("name") or theme.get("slug") or "title")
+    deck_name = html.escape(deck.get("full") or deck.get("name") or "Deck")
+    desc = uadb.clip_meta(
+        f"{deck.get('full') or deck.get('name') or 'Deck'} consensus list in the {theme.get('name') or 'title'} UA Arena Discord thread."
+    )
+    canonical = f"discord/{theme.get('slug') or 'welcome'}.html"
+    key = deck.get("key") or ""
+    name = deck.get("name") or "Deck"
+    tail = key.rsplit("-", 1)[-1].lower()
+    if tail in {"purple", "red", "yellow", "green", "blue", "black"} and tail not in name.lower():
+        name = f"{name} {tail}"
+    elif key and uadb.slugify(name) not in key:
+        rest = key
+        theme_slug = theme.get("slug") or ""
+        if theme_slug and rest.startswith(f"{theme_slug}-"):
+            rest = rest[len(theme_slug) + 1 :]
+        if rest:
+            name = rest.replace("-", " ")
+    title = uadb.page_title(f"{name} · {theme.get('name') or 'title'} Discord")
     page = f"""<!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
   <meta http-equiv="refresh" content="0;url={html.escape(target)}" />
-  <link rel="canonical" href="/discord/{html.escape(theme.get('slug') or '')}.html" />
-  <title>{name} thread</title>
+{uadb.seo_head(title, desc, canonical, robots="noindex, follow")}
 </head>
 <body>
-  <p>This list lives in the <a href="{html.escape(target)}">{name} thread</a>.</p>
+  <p>{deck_name} lives in the <a href="{html.escape(target)}">{name} thread</a>.</p>
 </body>
 </html>
 """

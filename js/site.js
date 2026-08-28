@@ -199,8 +199,10 @@
           ? "<p class=\"muted char-search-empty\">" + (all.length - shown.length) + " more lists.</p>"
           : "";
         var kind = row.kind === "series" ? "Title" : "Character";
+        var heading = escapeHtml(row.name);
+        if (row.href) heading = "<a href=\"" + escapeHtml(row.href) + "\">" + heading + "</a>";
         return "<article class=\"char-hit\">" +
-          "<h4 class=\"char-hit-name\">" + escapeHtml(row.name) + " · " + kind + " · " + all.length + (all.length === 1 ? " list" : " lists") + "</h4>" +
+          "<h4 class=\"char-hit-name\">" + heading + " · " + kind + " · " + all.length + (all.length === 1 ? " list" : " lists") + "</h4>" +
           (hubs ? "<div class=\"char-hit-hubs\">" + hubs + "</div>" : "") +
           (lists ? "<ul class=\"char-hit-lists\">" + lists + "</ul>" : "") +
           more +
