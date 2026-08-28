@@ -574,6 +574,7 @@ def discord_chrome(title: str, description: str, board: dict, current: str, body
 {uadb.seo_head(title, description, rel, json_ld=ld)}{uadb.FONT_LINKS}  <link rel="stylesheet" href="/css/site.css?v={uadb.CSS_VER}" />
 </head>
 <body class="discord-app">
+  {uadb.skip_link()}
   <div class="wrap discord-wrap">
     <header>
       <a class="brand" href="/">
@@ -587,7 +588,7 @@ def discord_chrome(title: str, description: str, board: dict, current: str, body
     </header>
     <div class="discord-shell">
 {render_sidebar(board, current)}
-      <div class="discord-main">
+      <div class="discord-main" id="main">
 {body}
       </div>
     </div>

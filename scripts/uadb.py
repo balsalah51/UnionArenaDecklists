@@ -25,13 +25,28 @@ DISCORD = "https://discord.gg/aY9RfB662"
 BRAND = "Union Arena Decklists"
 SUBTITLE = "50-card lists for Standard"
 LOGO = "UA"
-CSS_VER = "ua20"
-JS_VER = "ua7"
+CSS_VER = "ua21"
+JS_VER = "ua8"
 TCGPLAYER_CATEGORY_ID = 81
 TCGPLAYER_PRICES_FILE = "data/tcgplayer-prices.json"
-FONT_LINKS = """  <link rel="preconnect" href="https://fonts.googleapis.com" />
+HERO_IMAGE = f"{SITE}/img/uadb-hero.png"
+HERO_WIDTH = 1200
+HERO_HEIGHT = 630
+ICON_192 = f"{SITE}/img/icon-192.png"
+SEARCH_PATH = "/characters.html"
+DEFAULT_ROBOTS = "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
+SITE_DESCRIPTION = "50-card Union Arena TCG decklists for Standard, grouped by anime and manga title."
+FONT_LINKS = f"""  <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preconnect" href="https://www.unionarena-tcg.com" crossorigin />
+  <link rel="dns-prefetch" href="https://www.unionarena-tcg.com" />
   <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <link rel="icon" href="/favicon.ico" sizes="48x48" />
+  <link rel="apple-touch-icon" href="/img/apple-touch-icon.png" />
+  <link rel="manifest" href="/site.webmanifest" />
+  <meta name="theme-color" content="#7a2e2e" />
+  <link rel="alternate" type="application/rss+xml" title="{BRAND}" href="/feed.xml" />
 """
 MIN_CARDS = 40
 TARGET = 50
@@ -384,14 +399,139 @@ def breadcrumb_ld(parts: list[tuple[str, str]]) -> dict:
     return {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": items}
 
 
+def organization_ld() -> dict:
+    return {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "@id": f"{SITE}/#organization",
+        "name": BRAND,
+        "alternateName": ["UAD", "UA Decklists"],
+        "url": f"{SITE}/",
+        "logo": {
+            "@type": "ImageObject",
+            "url": ICON_192,
+            "width": 192,
+            "height": 192,
+        },
+        "sameAs": [DISCORD],
+        "description": SITE_DESCRIPTION,
+    }
+
+
 def website_ld() -> dict:
     return {
         "@context": "https://schema.org",
         "@type": "WebSite",
+        "@id": f"{SITE}/#website",
         "name": BRAND,
+        "alternateName": ["UAD", "UA Decklists"],
         "url": f"{SITE}/",
-        "description": "50-card Union Arena TCG decklists for Standard, grouped by anime and manga title.",
+        "inLanguage": "en-US",
+        "description": SITE_DESCRIPTION,
+        "publisher": {"@id": f"{SITE}/#organization"},
+        "potentialAction": {
+            "@type": "SearchAction",
+            "target": {
+                "@type": "EntryPoint",
+                "urlTemplate": f"{SITE}{SEARCH_PATH}?q={{search_term_string}}",
+            },
+            "query-input": "required name=search_term_string",
+        },
     }
+
+
+def item_list_ld(name: str, rows: list[tuple[str, str]], *, url: str = "") -> dict:
+    block: dict = {
+        "@context": "https://schema.org",
+        "@type": "ItemList",
+        "name": name,
+        "numberOfItems": len(rows),
+        "itemListElement": [
+            {
+                "@type": "ListItem",
+                "position": i,
+                "url": absolute_url(href),
+                "name": label,
+            }
+            for i, (href, label) in enumerate(rows, start=1)
+        ],
+    }
+    if url:
+        block["url"] = absolute_url(url)
+    return block
+
+
+def faq_ld(pairs: list[tuple[str, str]]) -> dict:
+    return {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": question,
+                "acceptedAnswer": {"@type": "Answer", "text": answer},
+            }
+            for question, answer in pairs
+        ],
+    }
+
+
+def webpage_ld(
+    path: str,
+    title: str,
+    description: str,
+    *,
+    page_type: str = "WebPage",
+    date_modified: str = "",
+    date_published: str = "",
+    image: str = "",
+) -> dict:
+    block: dict = {
+        "@context": "https://schema.org",
+        "@type": page_type,
+        "name": title,
+        "url": absolute_url(path),
+        "description": clip_meta(description),
+        "inLanguage": "en-US",
+        "isPartOf": {"@id": f"{SITE}/#website"},
+        "publisher": {"@id": f"{SITE}/#organization"},
+    }
+    if date_published:
+        block["datePublished"] = date_published
+    if date_modified or date_published:
+        block["dateModified"] = date_modified or date_published
+    if image:
+        block["image"] = absolute_url(image) if image.startswith("/") else image
+    return block
+
+
+def decklist_ld(
+    path: str,
+    title: str,
+    description: str,
+    *,
+    date: str = "",
+    image: str = "",
+    series: str = "",
+    character: str = "",
+) -> dict:
+    about = [{"@type": "Thing", "name": "Union Arena"}]
+    if series:
+        about.append({"@type": "Thing", "name": series})
+    if character and character != series:
+        about.append({"@type": "Thing", "name": character})
+    block = webpage_ld(
+        path,
+        title,
+        description,
+        page_type="CreativeWork",
+        date_published=date,
+        date_modified=date,
+        image=image,
+    )
+    block["genre"] = "Trading Card Game decklist"
+    block["about"] = about
+    return block
 
 
 def json_ld_script(blocks: list[dict] | None) -> str:
@@ -405,23 +545,49 @@ def json_ld_script(blocks: list[dict] | None) -> str:
     return "\n".join(chunks) + "\n"
 
 
+def site_graph(blocks: list[dict] | None) -> list[dict]:
+    out = list(blocks or [])
+    if not any(block.get("@type") == "Organization" for block in out):
+        out.insert(0, organization_ld())
+    if not any(block.get("@type") == "WebSite" for block in out):
+        idx = 1 if out and out[0].get("@type") == "Organization" else 0
+        out.insert(idx, website_ld())
+    return out
+
+
 def seo_head(
     title: str,
     description: str,
     path: str,
     *,
     image: str = "",
+    image_alt: str = "",
     page_type: str = "website",
     json_ld: list[dict] | None = None,
     extra: str = "",
     robots: str = "",
+    published: str = "",
+    modified: str = "",
 ) -> str:
     desc = clip_meta(description)
     url = absolute_url(path)
-    img = image or f"{SITE}/img/uadb-hero.png"
+    img = image or HERO_IMAGE
     if img.startswith("/"):
         img = absolute_url(img)
-    robots_tag = f'  <meta name="robots" content="{html.escape(robots)}" />\n' if robots else ""
+    alt = image_alt or title
+    robots_val = robots or DEFAULT_ROBOTS
+    robots_tag = f'  <meta name="robots" content="{html.escape(robots_val)}" />\n'
+    dates = ""
+    if published:
+        dates += f'  <meta property="article:published_time" content="{html.escape(published)}" />\n'
+    if modified or published:
+        dates += f'  <meta property="article:modified_time" content="{html.escape(modified or published)}" />\n'
+    og_size = ""
+    if img.rstrip("/") == HERO_IMAGE.rstrip("/") or img.endswith("/img/uadb-hero.png"):
+        og_size = (
+            f'  <meta property="og:image:width" content="{HERO_WIDTH}" />\n'
+            f'  <meta property="og:image:height" content="{HERO_HEIGHT}" />\n'
+        )
     extra_html = extra if extra.endswith("\n") or not extra else extra + "\n"
     return (
         f"  <title>{html.escape(title)}</title>\n"
@@ -434,14 +600,22 @@ def seo_head(
         f'  <meta property="og:url" content="{html.escape(url)}" />\n'
         f'  <meta property="og:type" content="{html.escape(page_type)}" />\n'
         f'  <meta property="og:image" content="{html.escape(img)}" />\n'
+        f"{og_size}"
+        f'  <meta property="og:image:alt" content="{html.escape(alt)}" />\n'
         f'  <meta property="og:locale" content="en_US" />\n'
         f'  <meta name="twitter:card" content="summary_large_image" />\n'
         f'  <meta name="twitter:title" content="{html.escape(title)}" />\n'
         f'  <meta name="twitter:description" content="{html.escape(desc)}" />\n'
         f'  <meta name="twitter:image" content="{html.escape(img)}" />\n'
-        f"{json_ld_script(json_ld)}"
+        f'  <meta name="twitter:image:alt" content="{html.escape(alt)}" />\n'
+        f"{dates}"
+        f"{json_ld_script(site_graph(json_ld))}"
         f"{extra_html}"
     )
+
+
+def skip_link() -> str:
+    return '<a class="skip-link" href="#main">Skip to content</a>'
 
 
 def footer_links() -> str:
@@ -453,6 +627,7 @@ def footer_links() -> str:
         '<a href="/format.html">Format</a> · '
         '<a href="/shop.html">Shop</a> · '
         '<a href="/discord/welcome.html">Discord</a> · '
+        '<a href="/feed.xml">RSS</a> · '
         '<a href="/privacy.html">Privacy</a>\n'
         '      <span class="footer-amazon">As an Amazon Associate I earn from qualifying purchases.</span>'
     )
@@ -467,17 +642,21 @@ def page_chrome(
     *,
     path: str = "",
     image: str = "",
+    image_alt: str = "",
     json_ld: list[dict] | None = None,
     robots: str = "",
+    published: str = "",
+    modified: str = "",
 ) -> str:
     return f"""<!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-{seo_head(title, description, path, image=image, json_ld=json_ld, robots=robots)}{FONT_LINKS}  <link rel="stylesheet" href="/css/site.css?v={CSS_VER}" />
+{seo_head(title, description, path, image=image, image_alt=image_alt, json_ld=json_ld, robots=robots, published=published, modified=modified)}{FONT_LINKS}  <link rel="stylesheet" href="/css/site.css?v={CSS_VER}" />
 </head>
 <body class="{html.escape(color)}">
+  {skip_link()}
   <div class="wrap">
     <header>
       <a class="brand" href="/">
@@ -490,7 +669,7 @@ def page_chrome(
 {nav_html(current)}
     </header>
 
-    <main class="single">
+    <main class="single" id="main">
       <div class="card hero">
 {body}
       </div>
@@ -516,20 +695,23 @@ def home_chrome(
     title: str | None = None,
     description: str | None = None,
     image: str = "",
+    image_alt: str = "",
     json_ld: list[dict] | None = None,
 ) -> str:
     page_t = title or page_title(BRAND)
     page_d = description or (
         "Union Arena TCG decklists for Standard: 50-card lists, character hubs, and consensus cores by anime and manga title."
     )
+    ld = json_ld or [organization_ld(), website_ld()]
     return f"""<!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-{seo_head(page_t, page_d, "/", image=image, json_ld=json_ld or [website_ld()])}{FONT_LINKS}  <link rel="stylesheet" href="/css/site.css?v={CSS_VER}" />
+{seo_head(page_t, page_d, "/", image=image, image_alt=image_alt or page_t, json_ld=ld)}{FONT_LINKS}  <link rel="stylesheet" href="/css/site.css?v={CSS_VER}" />
 </head>
 <body>
+  {skip_link()}
   <div class="wrap">
     <header>
       <a class="brand" href="/">
@@ -542,7 +724,7 @@ def home_chrome(
 {nav_html()}
     </header>
 
-    <main class="single home" role="main">
+    <main class="single home" id="main" role="main">
 {body}
     </main>
     <footer>

@@ -1,5 +1,11 @@
 User-agent: *
 Allow: /
+Allow: /css/
+Allow: /js/
+Allow: /img/
+Allow: /data/character-search.json
+Allow: /feed.xml
+Allow: /sitemap.xml
 Disallow: /data/
 Disallow: /scripts/
 Disallow: /discord/board.json

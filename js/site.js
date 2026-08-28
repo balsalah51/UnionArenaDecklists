@@ -219,13 +219,34 @@
       var input = box.querySelector("input[type=search]");
       if (!input) return;
       var timer = null;
+      var onCharacters = /characters\.html$/i.test(location.pathname);
+      function syncUrl(q) {
+        if (!onCharacters || !window.history || !history.replaceState) return;
+        var next = q ? (location.pathname + "?q=" + encodeURIComponent(q)) : location.pathname;
+        if (location.pathname + location.search !== next) history.replaceState(null, "", next);
+      }
       function go() {
         load(function () { render(box, input.value); });
       }
+      var params = new URLSearchParams(window.location.search);
+      var initial = params.get("q");
+      if (initial) {
+        input.value = initial;
+        load(function () { render(box, initial); });
+      }
+      box.addEventListener("submit", function (e) {
+        e.preventDefault();
+        var q = (input.value || "").trim();
+        syncUrl(q);
+        go();
+      });
       input.addEventListener("focus", go);
       input.addEventListener("input", function () {
         clearTimeout(timer);
-        timer = setTimeout(go, 80);
+        timer = setTimeout(function () {
+          syncUrl((input.value || "").trim());
+          go();
+        }, 80);
       });
     });
   }
