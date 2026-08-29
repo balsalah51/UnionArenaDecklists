@@ -25,14 +25,16 @@ DISCORD = "https://discord.gg/aY9RfB662"
 BRAND = "Union Arena Decklists"
 SUBTITLE = "50-card lists for Standard"
 LOGO = "UA"
-CSS_VER = "ua21"
+CSS_VER = "ua22"
 JS_VER = "ua8"
 TCGPLAYER_CATEGORY_ID = 81
 TCGPLAYER_PRICES_FILE = "data/tcgplayer-prices.json"
 HERO_IMAGE = f"{SITE}/img/uadb-hero.png"
 HERO_WIDTH = 1200
 HERO_HEIGHT = 630
+ICON_48 = f"{SITE}/img/icon-48.png"
 ICON_192 = f"{SITE}/img/icon-192.png"
+ICON_512 = f"{SITE}/img/icon-512.png"
 SEARCH_PATH = "/characters.html"
 DEFAULT_ROBOTS = "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
 SITE_DESCRIPTION = "50-card Union Arena TCG decklists for Standard, grouped by anime and manga title."
@@ -41,9 +43,11 @@ FONT_LINKS = f"""  <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://www.unionarena-tcg.com" crossorigin />
   <link rel="dns-prefetch" href="https://www.unionarena-tcg.com" />
   <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet" />
-  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <link rel="icon" href="/img/icon-48.png" type="image/png" sizes="48x48" />
+  <link rel="icon" href="/img/icon-192.png" type="image/png" sizes="192x192" />
   <link rel="icon" href="/favicon.ico" sizes="48x48" />
-  <link rel="apple-touch-icon" href="/img/apple-touch-icon.png" />
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" sizes="any" />
+  <link rel="apple-touch-icon" href="/img/apple-touch-icon.png" sizes="180x180" />
   <link rel="manifest" href="/site.webmanifest" />
   <meta name="theme-color" content="#7a2e2e" />
   <link rel="alternate" type="application/rss+xml" title="{BRAND}" href="/feed.xml" />
@@ -333,6 +337,13 @@ def brand_heading() -> str:
     )
 
 
+def logo_html() -> str:
+    return (
+        f'<img class="logo" src="/img/icon-192.png" width="56" height="56" '
+        f'alt="{html.escape(BRAND)}" />'
+    )
+
+
 def absolute_url(path: str) -> str:
     raw = (path or "").strip()
     if raw.startswith("http://") or raw.startswith("https://"):
@@ -412,10 +423,12 @@ def organization_ld() -> dict:
         "url": f"{SITE}/",
         "logo": {
             "@type": "ImageObject",
-            "url": ICON_192,
-            "width": 192,
-            "height": 192,
+            "url": ICON_512,
+            "contentUrl": ICON_512,
+            "width": 512,
+            "height": 512,
         },
+        "image": ICON_512,
         "sameAs": [DISCORD],
         "description": SITE_DESCRIPTION,
     }
@@ -663,7 +676,7 @@ def page_chrome(
   <div class="wrap">
     <header>
       <a class="brand" href="/">
-        <div class="logo">{LOGO}</div>
+        {logo_html()}
         <div class="brand-copy">
           {brand_heading()}
           <div class="subtitle">{html.escape(SUBTITLE)}</div>
@@ -718,7 +731,7 @@ def home_chrome(
   <div class="wrap">
     <header>
       <a class="brand" href="/">
-        <div class="logo">{LOGO}</div>
+        {logo_html()}
         <div class="brand-copy">
           {brand_heading()}
           <div class="subtitle">{html.escape(SUBTITLE)}</div>

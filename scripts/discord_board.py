@@ -580,7 +580,7 @@ def discord_chrome(title: str, description: str, board: dict, current: str, body
   <div class="wrap discord-wrap">
     <header>
       <a class="brand" href="/">
-        <div class="logo">{uadb.LOGO}</div>
+        {uadb.logo_html()}
         <div class="brand-copy">
           {uadb.brand_heading()}
           <div class="subtitle">{html.escape(uadb.SUBTITLE)}</div>

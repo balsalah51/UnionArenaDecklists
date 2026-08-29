@@ -133,8 +133,11 @@ class SeoChromeTests(unittest.TestCase):
         self.assertIn("max-image-preview:large", head)
         self.assertIn('property="og:image:alt"', head)
         self.assertIn('rel="icon"', uadb.FONT_LINKS)
+        self.assertIn("/img/icon-48.png", uadb.FONT_LINKS)
+        self.assertLess(uadb.FONT_LINKS.find("/img/icon-48.png"), uadb.FONT_LINKS.find("/favicon.svg"))
         self.assertIn("/favicon.svg", uadb.FONT_LINKS)
         self.assertIn("/feed.xml", uadb.FONT_LINKS)
+        self.assertIn('src="/img/icon-192.png"', uadb.logo_html())
 
     def test_website_search_action_and_organization(self):
         site = uadb.website_ld()
@@ -143,7 +146,9 @@ class SeoChromeTests(unittest.TestCase):
         self.assertEqual(action["@type"], "SearchAction")
         self.assertIn("{search_term_string}", action["target"]["urlTemplate"])
         self.assertIn("/characters.html?q=", action["target"]["urlTemplate"])
-        self.assertEqual(org["logo"]["url"], "https://unionarenadecklists.com/img/icon-192.png")
+        self.assertEqual(org["logo"]["url"], "https://unionarenadecklists.com/img/icon-512.png")
+        self.assertEqual(org["logo"]["width"], 512)
+        self.assertEqual(org["image"], "https://unionarenadecklists.com/img/icon-512.png")
         self.assertIn(uadb.DISCORD, org["sameAs"])
         graph = uadb.site_graph([site])
         types = [block["@type"] for block in graph]
@@ -152,6 +157,23 @@ class SeoChromeTests(unittest.TestCase):
         faq = uadb.faq_ld([("How many cards are in a Union Arena deck?", "Exactly 50 cards.")])
         self.assertEqual(faq["@type"], "FAQPage")
         self.assertEqual(faq["mainEntity"][0]["name"], "How many cards are in a Union Arena deck?")
+
+    def test_google_favicon_files_exist(self):
+        root = Path(__file__).resolve().parents[1]
+        for rel in (
+            "favicon.ico",
+            "favicon.svg",
+            "site.webmanifest",
+            "img/icon-48.png",
+            "img/icon-96.png",
+            "img/icon-192.png",
+            "img/icon-512.png",
+            "img/apple-touch-icon.png",
+        ):
+            self.assertTrue((root / rel).is_file(), rel)
+        robots = (root / "robots.txt").read_text(encoding="utf-8")
+        self.assertIn("Allow: /favicon.ico", robots)
+        self.assertIn("Allow: /img/", robots)
 
     def test_page_chrome_never_uses_home_or_untitled(self):
         html = uadb.page_chrome(
@@ -402,7 +424,10 @@ class SeriesLinkTests(unittest.TestCase):
                     ["", "decklists/sung-jinwoo.html"],
                     lastmod="2026-08-28",
                     images={
-                        "": ("/img/uadb-hero.png", "Union Arena Decklists"),
+                        "": [
+                            ("/img/uadb-hero.png", "Union Arena Decklists"),
+                            ("/img/icon-512.png", "Union Arena Decklists logo"),
+                        ],
                         "decklists/sung-jinwoo.html": (
                             "https://www.unionarena-tcg.com/na/images/cardlist/card/UE17BT_SLG-1-022.png",
                             "Sung Jinwoo",
@@ -424,6 +449,7 @@ class SeriesLinkTests(unittest.TestCase):
             feed = (root / "feed.xml").read_text(encoding="utf-8")
         self.assertIn("image:loc", xml)
         self.assertIn("uadb-hero.png", xml)
+        self.assertIn("icon-512.png", xml)
         self.assertIn("UE17BT_SLG-1-022.png", xml)
         self.assertIn("<rss", feed)
         self.assertIn("Sung Jinwoo", feed)

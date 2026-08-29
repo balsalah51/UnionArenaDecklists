@@ -110,7 +110,7 @@ FORMAT_FAQ = [
         "Union Arena Decklists publishes public 50-card Standard lists by character and title, including consensus cores, official top-placing lists, and recent tournament 50s.",
     ),
 ]
-_SITEMAP_IMAGES: dict[str, tuple[str, str]] = {}
+_SITEMAP_IMAGES: dict[str, list[tuple[str, str]] | tuple[str, str]] = {}
 SHOP_GROUP_META = [
     ("Sleeves", "packs", "Card sleeves on Amazon"),
     ("Dice", "sets", "Dice on Amazon"),
@@ -1496,11 +1496,36 @@ def related_series(catalog: list[dict], current: dict | None, limit: int = 8) ->
     return others[:limit]
 
 
+def _sitemap_image_rows(img) -> list[tuple[str, str]]:
+    if not img:
+        return []
+    if isinstance(img, str):
+        return [(img, "")]
+    if isinstance(img, (list, tuple)):
+        if img and isinstance(img[0], (list, tuple)):
+            out: list[tuple[str, str]] = []
+            for item in img:
+                out.extend(_sitemap_image_rows(item))
+            return out
+        url = str(img[0]) if img else ""
+        title = str(img[1]) if len(img) > 1 else ""
+        return [(url, title)] if url else []
+    return [(str(img), "")]
+
+
 def remember_image(path: str, image: str, title: str = "") -> None:
     key = (path or "").lstrip("/")
     if not image:
         return
-    _SITEMAP_IMAGES[key] = (image, title)
+    entry = (image, title)
+    existing = _SITEMAP_IMAGES.get(key)
+    if not existing:
+        _SITEMAP_IMAGES[key] = [entry]
+        return
+    rows = list(existing) if isinstance(existing, list) and existing and isinstance(existing[0], tuple) else [existing]
+    if entry not in rows:
+        rows.append(entry)
+    _SITEMAP_IMAGES[key] = rows
 
 
 def render_related_hubs(heading: str, note: str, hubs: list[dict]) -> str:
@@ -2221,6 +2246,7 @@ def write_home(arches: list[dict], recent: list[dict], cache: dict, features: di
         if row.get("href")
     ]
     remember_image("", "/img/uadb-hero.png", uadb.BRAND)
+    remember_image("", "/img/icon-512.png", f"{uadb.BRAND} logo")
     (uadb.ROOT / "index.html").write_text(
         uadb.home_chrome(
             body,
@@ -2709,19 +2735,16 @@ def write_sitemap(paths: list[str], lastmod: str = "", images: dict | None = Non
         loc = uadb.SITE + "/" if not p else f"{uadb.SITE}/{p}"
         extra = ""
         img = images.get(p) or images.get(raw) or (images.get("") if not p else None)
-        if img:
-            if isinstance(img, (tuple, list)):
-                img_url = img[0] if img else ""
-                img_title = img[1] if len(img) > 1 else ""
-            else:
-                img_url, img_title = str(img), ""
-            if img_url:
-                img_url = uadb.absolute_url(img_url) if img_url.startswith("/") else img_url
-                title_xml = f"<image:title>{html.escape(img_title)}</image:title>" if img_title else ""
-                extra = (
-                    f"<image:image><image:loc>{html.escape(img_url)}</image:loc>"
-                    f"{title_xml}</image:image>"
-                )
+        bits = []
+        for img_url, img_title in _sitemap_image_rows(img):
+            if img_url.startswith("/"):
+                img_url = uadb.absolute_url(img_url)
+            title_xml = f"<image:title>{html.escape(img_title)}</image:title>" if img_title else ""
+            bits.append(
+                f"<image:image><image:loc>{html.escape(img_url)}</image:loc>"
+                f"{title_xml}</image:image>"
+            )
+        extra = "".join(bits)
         rows.append(f"  <url><loc>{loc}</loc><lastmod>{stamp}</lastmod>{extra}</url>")
     xml = f"""<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">

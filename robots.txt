@@ -1,5 +1,8 @@
 User-agent: *
 Allow: /
+Allow: /favicon.ico
+Allow: /favicon.svg
+Allow: /site.webmanifest
 Allow: /css/
 Allow: /js/
 Allow: /img/
