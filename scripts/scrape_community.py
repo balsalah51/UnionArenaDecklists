@@ -80,13 +80,20 @@ X_SEARCHES = [
     "union arena UE23BT decklist",
     "union arena inuyasha decklist",
     "\"union arena\" \"4xUE\" deck",
+    "union arena sung jinwoo 4xUE",
+    "union arena sakamoto decklist 4x",
+    "union arena kaiju decklist",
 ]
 REDDIT_URLS = [
-    "https://old.reddit.com/r/Union_Arena_TCG/new.json?limit=100",
-    "https://old.reddit.com/r/UnionArena/new.json?limit=100",
-    "https://old.reddit.com/search.json?q=union+arena+decklist+UE&sort=new&t=year&limit=100",
-    "https://www.reddit.com/r/Union_Arena_TCG/new.json?limit=100",
-    "https://www.reddit.com/search.json?q=union+arena+decklist+UE&sort=new&t=year&limit=100",
+    "https://old.reddit.com/r/Union_Arena_TCG/new.json?limit=100&raw_json=1",
+    "https://old.reddit.com/r/Union_Arena_TCG/hot.json?limit=100&raw_json=1",
+    "https://old.reddit.com/r/Union_Arena_TCG/top.json?t=year&limit=100&raw_json=1",
+    "https://old.reddit.com/r/UnionArena/new.json?limit=100&raw_json=1",
+    "https://old.reddit.com/search.json?q=union+arena+decklist+UE&sort=new&t=year&limit=100&raw_json=1",
+    "https://old.reddit.com/search.json?q=union+arena+50+card+list&sort=new&t=year&limit=100&raw_json=1",
+    "https://www.reddit.com/r/Union_Arena_TCG/new.json?limit=100&raw_json=1",
+    "https://www.reddit.com/search.json?q=union+arena+decklist+UE&sort=new&t=year&limit=100&raw_json=1",
+    "https://api.pullpush.io/reddit/search/submission/?subreddit=Union_Arena_TCG&size=100",
 ]
 
 
@@ -272,7 +279,16 @@ def guess_key(text: str, counts: dict[str, int], cache: dict, arches: list[dict]
 def record(found: list[dict], item: dict, seen: set[str]) -> bool:
     raw = item.get("raw") or ""
     ident = item.get("slug") or raw
-    if not ident or ident in seen:
+    if not ident:
+        return False
+    if ident in seen:
+        for i, row in enumerate(found):
+            if (row.get("slug") or row.get("raw")) == ident:
+                if int(item.get("cards") or 0) > int(row.get("cards") or 0):
+                    found[i] = item
+                    uadb.log("upgraded", item.get("kind"), item.get("key"), ident, "cards", item.get("cards"))
+                    return True
+                return False
         return False
     seen.add(ident)
     found.append(item)
@@ -633,20 +649,38 @@ def ingest_text(found: list[dict], seen: set[str], cache: dict, arches: list[dic
     )
 
 
+def reddit_posts(data) -> list[dict]:
+    posts: list[dict] = []
+    if isinstance(data, dict):
+        children = ((data.get("data") or {}).get("children"))
+        if isinstance(children, list):
+            for child in children:
+                row = child.get("data") if isinstance(child, dict) else None
+                if isinstance(row, dict) and row.get("title"):
+                    posts.append(row)
+        raw = data.get("data")
+        if isinstance(raw, list):
+            posts.extend(row for row in raw if isinstance(row, dict) and row.get("title"))
+        if data.get("title") and data.get("selftext") is not None:
+            posts.append(data)
+    elif isinstance(data, list):
+        for row in data:
+            posts.extend(reddit_posts(row))
+    return posts
+
+
 def scrape_reddit(found: list[dict], seen: set[str], cache: dict, arches: list[dict]) -> None:
     headers = {"User-Agent": uadb.BROWSER_UA}
     for url in REDDIT_URLS:
         status, body = uadb.fetch(url, timeout=22, browser=True, extra_headers=headers)
-        uadb.log("reddit", status, url.split("reddit.com")[-1][:60], "len", len(body))
-        if status != 200 or not body.startswith("{"):
+        uadb.log("reddit", status, url.split(".com")[-1][:60], "len", len(body))
+        if status != 200 or not body.lstrip().startswith(("{", "[")):
             continue
         try:
             data = json.loads(body)
         except json.JSONDecodeError:
             continue
-        children = ((data.get("data") or {}).get("children")) or []
-        for child in children:
-            post = child.get("data") or {}
+        for post in reddit_posts(data):
             title = post.get("title") or "Reddit list"
             selftext = post.get("selftext") or ""
             permalink = post.get("permalink") or ""
@@ -654,7 +688,7 @@ def scrape_reddit(found: list[dict], seen: set[str], cache: dict, arches: list[d
             date = ""
             if created:
                 try:
-                    date = datetime.utcfromtimestamp(float(created)).date().isoformat()
+                    date = datetime.fromtimestamp(float(created)).date().isoformat()
                 except Exception:
                     date = ""
             source = f"https://www.reddit.com{permalink}" if permalink else url
@@ -826,6 +860,17 @@ def main() -> None:
     scrape_reddit(found, seen, cache, arches)
     if "--skip-x" not in sys.argv:
         scrape_x(found, seen, cache, arches)
+    if "--skip-images" not in sys.argv:
+        import scrape_image_lists
+
+        scrape_image_lists.scrape_images(
+            found,
+            seen,
+            cache,
+            arches,
+            include_other="--skip-other-images" not in sys.argv,
+            include_x="--skip-x" not in sys.argv,
+        )
     if "--skip-events" not in sys.argv:
         import scrape_events
 
