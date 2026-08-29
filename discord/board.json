@@ -1,5 +1,5 @@
 {
-  "updated": "2026-08-28",
+  "updated": "2026-08-29",
   "site": "https://unionarenadecklists.com",
   "discord_invite": "https://discord.gg/aY9RfB662",
   "welcome": {
@@ -10,7 +10,7 @@
     {
       "id": "format-pulse",
       "title": "Format pulse",
-      "date": "2026-08-28",
+      "date": "2026-08-29",
       "body": "English events are single-title Standard: 50 cards, usually one IP. Names showing up most on public lists right now: Solo Leveling - Sung Jinwoo, Evangelion - Rei Ayanami, Evangelion - Evangelion Test Type-01 Pseudo DMS Phase, Rurouni Kenshin - Kaoru Kamiya."
     },
     {
@@ -22,13 +22,13 @@
     {
       "id": "how-lists-land",
       "title": "How lists land here",
-      "date": "2026-08-28",
+      "date": "2026-08-29",
       "body": "Consensus 50s come from TCG Contender Standard snapshots. Official top-placing recipes and public YouTube lists sit next to them. The board refreshes with the weekly site ingest."
     },
     {
       "id": "share-a-50",
       "title": "Share a 50",
-      "date": "2026-08-28",
+      "date": "2026-08-29",
       "body": "Paste `NxSET/CODE` lines in the matching anime or manga thread. Copy on any list page dumps that format. One thread per title: Solo Leveling, Yu Yu Hakusho, Evangelion, and the rest."
     }
   ],
@@ -145,7 +145,7 @@
           ],
           "sim_text": "4xUE15BT/EVA-1-012\n4xUE15BT/EVA-1-013\n4xUE15BT/EVA-1-014\n4xUE15BT/EVA-1-017\n4xUE15BT/EVA-1-018\n4xUE15BT/EVA-1-006\n4xUE15BT/EVA-1-008\n4xUEPR/EVA-1-003\n4xUE15BT/EVA-1-005\n4xUE15ST/EVA-1-110\n2xUE15BT/EVA-1-004\n4xUE15BT/EVA-1-023\n4xUE15BT/EVA-1-020",
           "cards": 50,
-          "list_count": 27,
+          "list_count": 28,
           "recent_lists": [
             {
               "slug": "event-2nd-evangelion-rei-ayanami-1336102",
@@ -1216,7 +1216,7 @@
           ],
           "sim_text": "4xUE15ST/EVA-1-110\n4xUE15BT/EVA-1-012\n4xUE15BT/EVA-1-013\n4xUE15BT/EVA-1-014\n4xUE15BT/EVA-1-017\n4xUE15BT/EVA-1-018\n4xUE15BT/EVA-1-006\n4xUE15BT/EVA-1-008\n4xUE15BT/EVA-1-005\n2xUE15BT/EVA-1-004\n4xUE15BT/EVA-1-023\n4xUE15ST/EVA-1-111\n4xUE15BT/EVA-1-020",
           "cards": 50,
-          "list_count": 9,
+          "list_count": 10,
           "recent_lists": [
             {
               "slug": "contender-consensus",
@@ -5003,7 +5003,7 @@
           ],
           "sim_text": "4xUEPR/SLG-1-018\n4xUE17BT/SLG-1-022\n3xUE17BT/SLG-1-015\n3xUE17BT/SLG-1-019\n2xUE17BT/SLG-1-017\n2xUE17BT/SLG-1-021\n4xUE17BT/SLG-1-035\n4xUE17BT/SLG-1-039\n4xUE17BT/SLG-1-030\n4xUE17BT/SLG-1-032\n4xUE17BT/SLG-1-031\n3xUE17BT/SLG-1-038\n3xUE17BT/SLG-1-028\n3xUE17BT/SLG-1-027\n3xUE17BT/SLG-1-029",
           "cards": 50,
-          "list_count": 60,
+          "list_count": 61,
           "recent_lists": [
             {
               "slug": "event-1st-solo-leveling-sung-jinwoo-1336101",
@@ -8360,7 +8360,7 @@
           ],
           "sim_text": "2xUE19BT/SMD-1-041\n3xUE19BT/SMD-1-060\n2xUE19BT/SMD-1-063\n4xUE19BT/SMD-1-065\n4xUE19BT/SMD-1-066\n4xUE19BT/SMD-1-067\n4xUE19BT/SMD-1-068\n4xUE19BT/SMD-1-069\n4xUE19BT/SMD-1-070\n4xUE19BT/SMD-1-071\n2xUE19BT/SMD-1-072\n2xUE19BT/SMD-1-073\n4xUE19BT/SMD-1-075\n4xUE19BT/SMD-1-078\n3xUE19BT/SMD-1-080",
           "cards": 50,
-          "list_count": 3,
+          "list_count": 4,
           "recent_lists": [
             {
               "slug": "event-3rd-sakamoto-days-natsuki-seba-1471466",
@@ -8382,6 +8382,13 @@
               "title": "Sakamoto Days - Natsuki Seba",
               "date": "2026-07-20",
               "href": "decklists/sakamoto-days-natsuki-seba/event-7th-sakamoto-days-natsuki-seba-1388066.html"
+            },
+            {
+              "slug": "reddit-pic-decklist-opinions-1tqxwkx",
+              "kind": "reddit",
+              "title": "Sakamoto Days - Natsuki Seba",
+              "date": "2026-05-29",
+              "href": "decklists/sakamoto-days-natsuki-seba/reddit-pic-decklist-opinions-1tqxwkx.html"
             }
           ]
         },
@@ -19805,7 +19812,7 @@
           ],
           "sim_text": "4xUEX06BT/SAO-2-035\n4xUEX06BT/SAO-2-036\n4xUEPR/SAO-2-038\n4xUEX06BT/SAO-2-028\n4xUEX06BT/SAO-2-029\n4xUEPR/SAO-2-030\n4xUEX06BT/SAO-2-032\n3xUEX06BT/SAO-2-033\n1xUEX06BT/SAO-2-031\n4xUEX06BT/SAO-2-057\n4xUEX06BT/SAO-2-060\n4xUEX06BT/SAO-2-061\n3xUEX06BT/SAO-2-055\n3xUEX06BT/SAO-2-062",
           "cards": 50,
-          "list_count": 17,
+          "list_count": 18,
           "recent_lists": [
             {
               "slug": "event-8th-sword-art-online-yuna-1336108",

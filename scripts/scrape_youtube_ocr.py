@@ -30,7 +30,13 @@ LOOSE_ID = re.compile(
     r"((?:UEX|UE)\s*\d{2}\s*(?:BT|ST|PR))\W{0,8}([A-Z]{2,6}\d?)\W{0,6}(\d)\W{0,6}(\d{3})",
     re.I,
 )
-QTY_NEAR = re.compile(r"(\d)\s*[xX×*]?\s*$")
+SHORT_ID = re.compile(r"\b([A-Z]{2,4}\d?-\d-\d{3})\b", re.I)
+QTY_NEAR = re.compile(r"(\d{1,2})\s*[xX×*]?\s*$")
+OCR_FIXES = (
+    (re.compile(r"(?i)\bUE[Il](\d{2}BT)"), r"UE\1"),
+    (re.compile(r"(?i)\b(UE\d{2}BT)\s+([A-Z]{2,4}\d?-\d-)"), r"\1/\2"),
+    (re.compile(r"(?i)\b(UE\d{2}BT)[_|\\]+"), r"\1/"),
+)
 PUB = re.compile(r'"publishDate"\s*:\s*"(\d{4}-\d{2}-\d{2})"')
 UPLOAD = re.compile(r'"uploadDate"\s*:\s*"(\d{4}-\d{2}-\d{2})"')
 TITLE_META = re.compile(r'<meta name="title" content="([^"]+)"')
@@ -50,7 +56,11 @@ DECK_WORDS = (
 
 
 def ocr_available() -> bool:
-    return bool(shutil.which("tesseract") and shutil.which("ffmpeg"))
+    return bool(shutil.which("tesseract"))
+
+
+def ffmpeg_available() -> bool:
+    return bool(shutil.which("ffmpeg"))
 
 
 def watch_date(html: str) -> str:
@@ -76,11 +86,11 @@ def compact_index(cache: dict) -> dict[str, str]:
 
 
 def qty_before(text: str, start: int) -> int:
-    window = text[max(0, start - 14) : start]
+    window = text[max(0, start - 18) : start]
     m = QTY_NEAR.search(window.replace("\n", " "))
-    if m and 1 <= int(m.group(1)) <= 4:
+    if m and 1 <= int(m.group(1)) <= 12:
         return int(m.group(1))
-    return 4
+    return 0
 
 
 def add_count(counts: dict[str, int], cid: str, n: int, cache: dict) -> None:
@@ -94,9 +104,26 @@ def add_count(counts: dict[str, int], cid: str, n: int, cache: dict) -> None:
     counts[cid] = max(counts.get(cid, 0), n)
 
 
+def clean_ocr_text(text: str) -> str:
+    blob = text or ""
+    for pat, repl in OCR_FIXES:
+        blob = pat.sub(repl, blob)
+    return blob
+
+
+def resolve_short(number: str, cache: dict, prefixes: list[str]) -> str | None:
+    number = (number or "").upper()
+    for pref in prefixes:
+        cid = f"{pref}/{number}"
+        if cid in cache:
+            return cid
+    hits = [cid for cid in cache if cid.endswith("/" + number) and not cid.endswith(("_p1", "_p2"))]
+    return hits[0] if len(hits) == 1 else None
+
+
 def counts_from_ocr(text: str, cache: dict, idx: dict[str, str]) -> dict[str, int]:
     counts: dict[str, int] = {}
-    blob = text or ""
+    blob = clean_ocr_text(text or "")
     for m in uadb.QTY_BEFORE_RE.finditer(blob):
         cid = uadb.normalize_cid(m.group(2))
         if cid:
@@ -108,10 +135,26 @@ def counts_from_ocr(text: str, cache: dict, idx: dict[str, str]) -> dict[str, in
     for m in LOOSE_ID.finditer(blob):
         setn = re.sub(r"\s+", "", m.group(1).upper())
         cid = f"{setn}/{m.group(2).upper()}-{m.group(3)}-{m.group(4)}"
-        add_count(counts, cid, qty_before(blob, m.start()), cache)
+        add_count(counts, cid, qty_before(blob, m.start()) or 4, cache)
         compact = re.sub(r"[^A-Z0-9]", "", cid)
         if compact in idx:
-            add_count(counts, idx[compact], qty_before(blob, m.start()), cache)
+            add_count(counts, idx[compact], qty_before(blob, m.start()) or 4, cache)
+    prefixes = []
+    for cid in counts:
+        pref = cid.split("/", 1)[0]
+        if pref not in prefixes:
+            prefixes.append(pref)
+    if not prefixes:
+        prefixes = ["UE23BT", "UE22BT", "UE21BT", "UE19BT", "UE17BT", "UE15BT", "UE13BT", "UE11BT", "UE09BT"]
+    for m in SHORT_ID.finditer(blob):
+        cid = resolve_short(m.group(1), cache, prefixes)
+        if not cid:
+            continue
+        n = qty_before(blob, m.start())
+        if n:
+            add_count(counts, cid, n, cache)
+        elif cid not in counts:
+            add_count(counts, cid, 4, cache)
     if len(counts) >= 6:
         alnum = re.sub(r"[^A-Z0-9]", "", blob.upper())
         for compact, cid in idx.items():
@@ -120,7 +163,7 @@ def counts_from_ocr(text: str, cache: dict, idx: dict[str, str]) -> dict[str, in
     return counts
 
 
-def preprocess(path: Path) -> Path | None:
+def preprocess(path: Path, invert: bool = False) -> Path | None:
     try:
         from PIL import Image, ImageEnhance, ImageOps
     except ImportError:
@@ -130,36 +173,49 @@ def preprocess(path: Path) -> Path | None:
         im = im.resize((im.width * 2, im.height * 2), Image.Resampling.LANCZOS)
         im = ImageOps.autocontrast(im)
         im = ImageEnhance.Contrast(im).enhance(1.7)
-        out = path.with_name(path.stem + "_prep.png")
+        if invert:
+            im = ImageOps.invert(im)
+        suffix = "_inv.png" if invert else "_prep.png"
+        out = path.with_name(path.stem + suffix)
         im.save(out)
         return out
     except OSError:
         return None
 
 
-def tesseract(path: Path) -> str:
+def tesseract(path: Path, psm: int = 6, whitelist: bool = False) -> str:
+    cmd = [TESSERACT, str(path), "stdout", "-l", "eng", "--psm", str(psm)]
+    if whitelist:
+        cmd += ["-c", "tessedit_char_whitelist=0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZxX/- "]
     try:
-        r = subprocess.run(
-            [TESSERACT, str(path), "stdout", "-l", "eng", "--psm", "6"],
-            capture_output=True,
-            timeout=25,
-            check=False,
-        )
+        r = subprocess.run(cmd, capture_output=True, timeout=25, check=False)
         return (r.stdout or b"").decode("utf-8", "replace")
     except (OSError, subprocess.TimeoutExpired):
         return ""
 
 
-def ocr_image(path: Path, cache: dict, idx: dict[str, str]) -> dict[str, int]:
-    merged = counts_from_ocr(tesseract(path), cache, idx)
-    if len(merged) >= 8:
+def merge_counts(dst: dict[str, int], src: dict[str, int]) -> None:
+    for cid, n in src.items():
+        dst[cid] = max(dst.get(cid, 0), n)
+
+
+def ocr_image(path: Path, cache: dict, idx: dict[str, str], quick: bool = False) -> dict[str, int]:
+    merged: dict[str, int] = {}
+    merge_counts(merged, counts_from_ocr(tesseract(path, psm=6), cache, idx))
+    if len(merged) >= 10 and sum(merged.values()) >= uadb.MIN_CARDS:
         return merged
-    prep = preprocess(path)
-    if not prep:
+    merge_counts(merged, counts_from_ocr(tesseract(path, psm=6, whitelist=True), cache, idx))
+    if quick or (len(merged) >= 10 and sum(merged.values()) >= uadb.MIN_CARDS):
         return merged
-    part = counts_from_ocr(tesseract(prep), cache, idx)
-    for cid, n in part.items():
-        merged[cid] = max(merged.get(cid, 0), n)
+    variants = [preprocess(path), preprocess(path, invert=True)]
+    for prep in variants:
+        if not prep:
+            continue
+        for psm in (6, 4, 11):
+            merge_counts(merged, counts_from_ocr(tesseract(prep, psm=psm), cache, idx))
+            merge_counts(merged, counts_from_ocr(tesseract(prep, psm=psm, whitelist=True), cache, idx))
+            if len(merged) >= 12 and sum(merged.values()) >= uadb.MIN_CARDS:
+                return merged
     return merged
 
 
@@ -265,7 +321,7 @@ def scrape_ocr(found: list[dict], seen: set[str], cache: dict, arches: list[dict
     from scrape_community import guess_key, item_from_counts, record
 
     if not ocr_available():
-        uadb.log("youtube ocr skipped: tesseract or ffmpeg missing")
+        uadb.log("youtube ocr skipped: tesseract missing")
         return
     idx = compact_index(cache)
     picks: list[tuple[str, str]] = []
@@ -297,14 +353,14 @@ def scrape_ocr(found: list[dict], seen: set[str], cache: dict, arches: list[dict
             title = title or watch_title(page)
             merged: dict[str, int] = {}
             for image in stills(vid, tmp):
-                for cid, n in ocr_image(image, cache, idx).items():
+                for cid, n in ocr_image(image, cache, idx, quick=True).items():
                     merged[cid] = max(merged.get(cid, 0), n)
-            if not complete_enough(merged) and downloads < 18:
+            if not complete_enough(merged) and downloads < 18 and ffmpeg_available():
                 clip = tmp / f"{vid}.mp4"
                 if download_clip(vid, clip):
                     downloads += 1
                     for frame in frames_from_video(clip, tmp / f"{vid}_frames"):
-                        for cid, n in ocr_image(frame, cache, idx).items():
+                        for cid, n in ocr_image(frame, cache, idx, quick=True).items():
                             merged[cid] = max(merged.get(cid, 0), n)
                     try:
                         clip.unlink()

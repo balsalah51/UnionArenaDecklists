@@ -1296,6 +1296,7 @@ def list_kind_label(kind: str) -> str:
         "tournament": "tournament list",
         "twitter": "X list",
         "reddit": "Reddit list",
+        "image": "photo list",
     }.get(kind or "", "decklist")
 
 
@@ -1805,6 +1806,7 @@ def write_list_page(
         "event": "Public tournament list (TCG Contender / ExBurst and other event pages).",
         "twitter": "List posted on X.",
         "reddit": "List posted on Reddit.",
+        "image": "50-card list read from a public deck photo.",
     }.get(entry.get("kind"), "Community Union Arena list.")
     source = entry.get("source_url") or "https://tcgcontender.com/unionarena/meta"
     over = [
