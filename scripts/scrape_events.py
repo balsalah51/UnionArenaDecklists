@@ -12,10 +12,11 @@ import uadb
 
 GAME = "unionarena"
 PAGE_SIZE = 20
-MAX_PAGES = 12
-MAX_TOURNAMENTS = 120
-MAX_LISTS = 800
+MAX_PAGES = 40
+MAX_TOURNAMENTS = 500
+MAX_LISTS = 3000
 MIN_PLAYERS = 6
+EVENT_ID_RE = re.compile(r"-(\d{6,})$")
 
 
 def counts_from_cards(cards: list[dict]) -> dict[str, int]:
@@ -64,22 +65,35 @@ def pick_tournaments(rows: list[dict]) -> list[dict]:
     return picked
 
 
+def fetch_json(url: str, attempts: int = 4) -> dict:
+    for attempt in range(attempts):
+        status, body = uadb.fetch(url, timeout=22, browser=True)
+        if status == 200 and body.startswith("{"):
+            try:
+                return json.loads(body).get("data") or {}
+            except json.JSONDecodeError:
+                pass
+        time.sleep(0.45 * (attempt + 1))
+    return {}
+
+
 def tournament_detail(tid: int) -> dict:
-    status, body = uadb.fetch(f"https://tcgcontender.com/api/tournaments/{GAME}/{tid}", timeout=22, browser=True)
-    if status != 200 or not body.startswith("{"):
-        return {}
-    return json.loads(body).get("data") or {}
+    return fetch_json(f"https://tcgcontender.com/api/tournaments/{GAME}/{tid}")
 
 
 def fetch_decklist(tid: int, did: int) -> dict:
-    status, body = uadb.fetch(
-        f"https://tcgcontender.com/api/tournaments/{GAME}/{tid}/decklists/{did}",
-        timeout=20,
-        browser=True,
-    )
-    if status != 200 or not body.startswith("{"):
-        return {}
-    return json.loads(body).get("data") or {}
+    return fetch_json(f"https://tcgcontender.com/api/tournaments/{GAME}/{tid}/decklists/{did}")
+
+
+def known_event_ids(found: list[dict]) -> set[int]:
+    ids: set[int] = set()
+    for row in found:
+        if row.get("kind") != "event":
+            continue
+        m = EVENT_ID_RE.search(row.get("slug") or "")
+        if m:
+            ids.add(int(m.group(1)))
+    return ids
 
 
 def player_from_name(deck_name: str) -> str:
@@ -93,8 +107,10 @@ def scrape_events(found: list[dict], seen: set[str], cache: dict, arches: list[d
     from scrape_community import guess_key, item_from_counts, key_from_counts, record
 
     tours = pick_tournaments(tournament_pages())
-    uadb.log("events picked", len(tours))
+    have = known_event_ids(found)
+    uadb.log("events picked", len(tours), "already stored", len(have))
     added = 0
+    skipped = 0
     for tour in tours:
         if added >= MAX_LISTS:
             break
@@ -114,7 +130,11 @@ def scrape_events(found: list[dict], seen: set[str], cache: dict, arches: list[d
             cards = int(row.get("totalCards") or 0)
             if not did or cards and cards < uadb.MIN_CARDS:
                 continue
-            jobs.append((int(did), row))
+            did = int(did)
+            if did in have:
+                skipped += 1
+                continue
+            jobs.append((did, row))
         if not jobs:
             continue
 
@@ -163,5 +183,6 @@ def scrape_events(found: list[dict], seen: set[str], cache: dict, arches: list[d
                 item["archetype"] = archetype
                 if record(found, item, seen):
                     added += 1
+                    have.add(did)
         time.sleep(0.06)
-    uadb.log("events lists added", added)
+    uadb.log("events lists added", added, "already stored skipped", skipped)
