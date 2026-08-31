@@ -578,6 +578,7 @@ def discord_chrome(title: str, description: str, board: dict, current: str, body
 <body class="discord-app">
   {uadb.skip_link()}
   <div class="wrap discord-wrap">
+{uadb.events_bar_html()}
     <header>
       <a class="brand" href="/">
         {uadb.logo_html()}

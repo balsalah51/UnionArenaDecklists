@@ -12,6 +12,7 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "scripts"))
 
 import generate_site  # noqa: E402
+import uadb  # noqa: E402
 from generate_site import (  # noqa: E402
     build_character_search,
     combo_has_raid_face,
@@ -369,6 +370,9 @@ class RaidTests(unittest.TestCase):
             html = (root / "index.html").read_text(encoding="utf-8")
         self.assertIn('href="/shop.html"', html)
         self.assertIn("home-big-shop", html)
+        self.assertIn("events-bar", html)
+        self.assertIn(uadb.BANDAI_REGIONALS, html)
+        self.assertIn(">Events<", html)
         self.assertNotIn("home-shop-grid", html)
         self.assertNotIn('id="shop"', html)
         self.assertIn("char-search", html)

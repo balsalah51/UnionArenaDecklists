@@ -2566,7 +2566,7 @@ def write_format(arches: list[dict]) -> None:
             <div class="muted">50 cards</div>
           </div>
           <p>Exactly 50 cards in the main deck. AP cards sit next to the list, not inside the 50. Most sanctioned events are single-title. Confirm the event before mixing IPs.</p>
-          <p class="muted">Official events: <a href="https://www.unionarena-tcg.com/na/events/">Bandai events hub</a>.</p>
+          <p class="muted">Official events: <a href="https://www.unionarena-tcg.com/na/events/championship/2026-27/">Championship 26–27 regionals</a> · <a href="https://www.unionarena-tcg.com/na/events/">Bandai events hub</a>.</p>
         </section>
         <section class="faq" id="faq">
           <div class="section-title">
