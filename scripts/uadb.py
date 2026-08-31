@@ -38,6 +38,7 @@ ICON_512 = f"{SITE}/img/icon-512.png"
 SEARCH_PATH = "/characters.html"
 DEFAULT_ROBOTS = "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
 SITE_DESCRIPTION = "50-card Union Arena TCG decklists for Standard, grouped by anime and manga title."
+ADSENSE_CLIENT = "ca-pub-1074015774205047"
 FONT_LINKS = f"""  <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="preconnect" href="https://www.unionarena-tcg.com" crossorigin />
@@ -51,6 +52,7 @@ FONT_LINKS = f"""  <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="manifest" href="/site.webmanifest" />
   <meta name="theme-color" content="#7a2e2e" />
   <link rel="alternate" type="application/rss+xml" title="{BRAND}" href="/feed.xml" />
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client={ADSENSE_CLIENT}" crossorigin="anonymous"></script>
 """
 MIN_CARDS = 40
 TARGET = 50
