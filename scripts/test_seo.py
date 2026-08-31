@@ -137,6 +137,12 @@ class SeoChromeTests(unittest.TestCase):
         self.assertLess(uadb.FONT_LINKS.find("/img/icon-48.png"), uadb.FONT_LINKS.find("/favicon.svg"))
         self.assertIn("/favicon.svg", uadb.FONT_LINKS)
         self.assertIn("/feed.xml", uadb.FONT_LINKS)
+        self.assertIn("adsbygoogle.js", uadb.FONT_LINKS)
+        self.assertIn(uadb.ADSENSE_CLIENT, uadb.FONT_LINKS)
+        chrome = uadb.page_chrome("Title", "Desc", "red", "body")
+        self.assertIn("ca-pub-1074015774205047", chrome)
+        ads_txt = (ROOT / "ads.txt").read_text()
+        self.assertIn("google.com, pub-1074015774205047, DIRECT", ads_txt)
         self.assertIn('src="/img/icon-192.png"', uadb.logo_html())
 
     def test_website_search_action_and_organization(self):
