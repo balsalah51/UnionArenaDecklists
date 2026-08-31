@@ -22,10 +22,12 @@ BROWSER_UA = (
     "(KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36"
 )
 DISCORD = "https://discord.gg/aY9RfB662"
+BANDAI_EVENTS = "https://www.unionarena-tcg.com/na/events/"
+BANDAI_REGIONALS = "https://www.unionarena-tcg.com/na/events/championship/2026-27/"
 BRAND = "Union Arena Decklists"
 SUBTITLE = "50-card lists for Standard"
 LOGO = "UA"
-CSS_VER = "ua22"
+CSS_VER = "ua23"
 JS_VER = "ua8"
 TCGPLAYER_CATEGORY_ID = 81
 TCGPLAYER_PRICES_FILE = "data/tcgplayer-prices.json"
@@ -321,6 +323,7 @@ def nav_html(current: str = "") -> str:
             item("/#recent", "Recent lists", "recent"),
             item("/characters.html", "Characters", "characters"),
             item("/format.html", "Format", "format"),
+            item(BANDAI_EVENTS, "Events", "events"),
             item("/shop.html", "Shop", "shop"),
             item("/discord/welcome.html", "Discord", "discord"),
             "      </nav>",
@@ -634,6 +637,16 @@ def skip_link() -> str:
     return '<a class="skip-link" href="#main">Skip to content</a>'
 
 
+def events_bar_html() -> str:
+    return (
+        '    <p class="events-bar">'
+        f'<a href="{html.escape(BANDAI_REGIONALS)}" target="_blank" rel="noopener">Bandai events</a>'
+        '<span class="events-bar-note">Championship 26–27 regionals, finals, and store tournaments</span>'
+        f'<a class="events-bar-all" href="{html.escape(BANDAI_EVENTS)}" target="_blank" rel="noopener">All events</a>'
+        "</p>"
+    )
+
+
 def footer_links() -> str:
     return (
         f'      © <span id="year"></span> {html.escape(BRAND)}. Fan site, not affiliated with Bandai.\n'
@@ -641,6 +654,7 @@ def footer_links() -> str:
         '<a href="/series.html">Titles</a> · '
         '<a href="/#recent">Recent lists</a> · '
         '<a href="/format.html">Format</a> · '
+        f'<a href="{html.escape(BANDAI_EVENTS)}" target="_blank" rel="noopener">Events</a> · '
         '<a href="/shop.html">Shop</a> · '
         '<a href="/discord/welcome.html">Discord</a> · '
         '<a href="/feed.xml">RSS</a> · '
@@ -674,6 +688,7 @@ def page_chrome(
 <body class="{html.escape(color)}">
   {skip_link()}
   <div class="wrap">
+{events_bar_html()}
     <header>
       <a class="brand" href="/">
         {logo_html()}
@@ -729,6 +744,7 @@ def home_chrome(
 <body>
   {skip_link()}
   <div class="wrap">
+{events_bar_html()}
     <header>
       <a class="brand" href="/">
         {logo_html()}

@@ -187,6 +187,10 @@ class SeoChromeTests(unittest.TestCase):
         self.assertNotIn("<title>Untitled</title>", html)
         self.assertIn('name="description"', html)
         self.assertIn("<h1>Youko Kurama</h1>", html)
+        self.assertIn(uadb.BANDAI_EVENTS, html)
+        self.assertIn(uadb.BANDAI_REGIONALS, html)
+        self.assertIn(">Events<", uadb.nav_html())
+        self.assertIn("events-bar", html)
         self.assertIn('alt=', uadb.page_chrome("A", "B", "color-red", '<img src="/x.png" alt="Youko Kurama card" />', path="x.html"))
 
 
