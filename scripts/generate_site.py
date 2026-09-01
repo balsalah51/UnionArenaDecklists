@@ -2753,7 +2753,7 @@ def write_sitemap(paths: list[str], lastmod: str = "", images: dict | None = Non
 {chr(10).join(rows)}
 </urlset>
 """
-    (uadb.ROOT / "sitemap.xml").write_text(xml)
+    (uadb.ROOT / "sitemap.xml").write_text(uadb.no_em(xml))
 
 
 def write_feed(recent: list[dict], lastmod: str = "") -> None:
@@ -2794,7 +2794,7 @@ def write_feed(recent: list[dict], lastmod: str = "") -> None:
   </channel>
 </rss>
 """
-    (uadb.ROOT / "feed.xml").write_text(xml)
+    (uadb.ROOT / "feed.xml").write_text(uadb.no_em(xml))
 
 
 _COMMUNITY: list[dict] | None = None

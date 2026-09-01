@@ -458,7 +458,7 @@ def format_roles_text(board: dict) -> str:
         "",
     ]
     for role in title_roles(board):
-        lines.append(f"• **{role['name']}** — {list_count_label(role['deck_count'])} · #{role['slug']}")
+        lines.append(f"• **{role['name']}** - {list_count_label(role['deck_count'])} · #{role['slug']}")
     return "\n".join(lines).strip()
 
 
@@ -568,7 +568,7 @@ def discord_chrome(title: str, description: str, board: dict, current: str, body
     if rel.rstrip("/") not in {"discord", "discord/welcome.html"}:
         crumbs.append((f"/{rel.lstrip('/')}", title.split("|")[0].strip()))
     ld = [uadb.website_ld(), uadb.breadcrumb_ld(crumbs)]
-    return f"""<!doctype html>
+    return uadb.no_em(f"""<!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
@@ -605,7 +605,7 @@ def discord_chrome(title: str, description: str, board: dict, current: str, body
   <script src="/js/discord.js?v={uadb.JS_VER}"></script>
 </body>
 </html>
-"""
+""")
 
 
 def _bot_chip() -> str:
@@ -665,9 +665,9 @@ def write_welcome(board: dict, dest: Path) -> None:
               </ol>""", "is-pin")}
 {_message("UA Arena Bot", updated, f"""              <p><strong>Channel map</strong></p>
               <ul class="discord-map">
-                <li><a href="/discord/welcome.html">#welcome</a> — you are here</li>
-                <li><a href="/discord/announcements.html">#announcements</a> — format, restricted cards, refresh notes</li>
-                <li><a href="/discord/roles.html">#roles</a> — one role per anime or manga title</li>
+                <li><a href="/discord/welcome.html">#welcome</a> - you are here</li>
+                <li><a href="/discord/announcements.html">#announcements</a> - format, restricted cards, refresh notes</li>
+                <li><a href="/discord/roles.html">#roles</a> - one role per anime or manga title</li>
                 <li>Title threads such as <a href="/discord/solo-leveling.html">Solo Leveling</a> and <a href="/discord/yu-yu-hakusho.html">Yu Yu Hakusho</a></li>
               </ul>
               <div class="discord-pills">{"".join(theme_pills)}</div>""")}

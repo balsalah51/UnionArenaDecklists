@@ -145,6 +145,15 @@ class SeoChromeTests(unittest.TestCase):
         self.assertIn("google.com, pub-1074015774205047, DIRECT", ads_txt)
         self.assertIn('src="/img/icon-192.png"', uadb.logo_html())
 
+    def test_pages_have_no_em_dashes(self):
+        self.assertEqual(uadb.no_em("A — B"), "A - B")
+        self.assertEqual(uadb.display_name("Pi... 3.141592—"), "Pi... 3.141592 -")
+        html = uadb.page_chrome("Title — Meta", "Desc — more", "red", "Hello — world")
+        self.assertNotIn("\u2014", html)
+        self.assertNotIn("&mdash;", html)
+        self.assertIn("Hello - world", html)
+        self.assertIn("Title - Meta", html)
+
     def test_website_search_action_and_organization(self):
         site = uadb.website_ld()
         org = uadb.organization_ld()
