@@ -2306,7 +2306,7 @@
     "trigger": "[Active] Choose one character on your field and switch it to active. It gains 3000 BP until the end of the turn.",
     "types": "Integrity Knights",
     "title": "Sword Art Online",
-    "image": "https://tcgcontender.com/cdn/cards/unionarena/127281/232226.webp",
+    "image": "https://tcgcontender.com/cdn/cards/unionarena/123799/228744.webp",
     "source": "https://tcgcontender.com/unionarena/cards/alice-synthesis-thirty"
   },
   "UEPR/SAO-1-010": {
@@ -2717,7 +2717,7 @@
   },
   "UEPR/AOT-1-050": {
     "id": "UEPR/AOT-1-050",
-    "name": "Annie Leonhart (050)",
+    "name": "Annie Leonhart (Judge Pack)",
     "category": "Character",
     "color": "Green",
     "cost": "0",
@@ -2727,7 +2727,7 @@
     "types": "104th Cadet Corps / Marleyan Warrior / Inheritor of the Titan",
     "title": "Attack on Titan",
     "image": "https://tcgcontender.com/cdn/cards/unionarena/125000/229945.webp",
-    "source": "https://tcgcontender.com/unionarena/cards/annie-leonhart-050"
+    "source": "https://tcgcontender.com/unionarena/cards/annie-leonhart-judge-pack"
   },
   "UEPR/AOT-1-051": {
     "id": "UEPR/AOT-1-051",
@@ -2899,7 +2899,7 @@
   },
   "UE12BT/KJ8-1-015": {
     "id": "UE12BT/KJ8-1-015",
-    "name": "Aoi Kaguragi (015)",
+    "name": "Aoi Kaguragi (015) (U*)",
     "category": "Character",
     "color": "Yellow",
     "cost": "3",
@@ -2909,7 +2909,7 @@
     "types": "",
     "title": "Kaiju No. 8",
     "image": "https://tcgcontender.com/cdn/cards/unionarena/124654/229599.webp",
-    "source": "https://tcgcontender.com/unionarena/cards/aoi-kaguragi-015"
+    "source": "https://tcgcontender.com/unionarena/cards/aoi-kaguragi-015-u"
   },
   "UEPR/KJ8-1-056": {
     "id": "UEPR/KJ8-1-056",
@@ -3053,7 +3053,7 @@
   },
   "UE11BT/RNK-1-014": {
     "id": "UE11BT/RNK-1-014",
-    "name": "Aoshi Shinomori (014) (Box Topper Foil)",
+    "name": "Aoshi Shinomori (014)",
     "category": "Character",
     "color": "Blue",
     "cost": "0",
@@ -3063,7 +3063,7 @@
     "types": "Oniwaban Group",
     "title": "Rurouni Kenshin",
     "image": "https://tcgcontender.com/cdn/cards/unionarena/125015/229960.webp",
-    "source": "https://tcgcontender.com/unionarena/cards/aoshi-shinomori-014-box-topper-foil"
+    "source": "https://tcgcontender.com/unionarena/cards/aoshi-shinomori-014"
   },
   "UEPR/RNK-1-014": {
     "id": "UEPR/RNK-1-014",
@@ -3109,7 +3109,7 @@
   },
   "UE11BT/RNK-1-017": {
     "id": "UE11BT/RNK-1-017",
-    "name": "Aoshi Shinomori (017) (R*)",
+    "name": "Aoshi Shinomori (017)",
     "category": "Character",
     "color": "Blue",
     "cost": "4",
@@ -3119,7 +3119,7 @@
     "types": "Oniwaban Group",
     "title": "Rurouni Kenshin",
     "image": "https://tcgcontender.com/cdn/cards/unionarena/124356/229301.webp",
-    "source": "https://tcgcontender.com/unionarena/cards/aoshi-shinomori-017-r"
+    "source": "https://tcgcontender.com/unionarena/cards/aoshi-shinomori-017"
   },
   "UE11BT/RNK-1-018": {
     "id": "UE11BT/RNK-1-018",
@@ -3594,7 +3594,7 @@
     "trigger": "[Get] Add this card to your hand.",
     "types": "Black Bulls",
     "title": "Black Clover",
-    "image": "https://tcgcontender.com/cdn/cards/unionarena/126958/231903.webp",
+    "image": "https://tcgcontender.com/cdn/cards/unionarena/125773/230718.webp",
     "source": "https://tcgcontender.com/unionarena/cards/asta-073"
   },
   "UE08BT/BCV-1-073": {
@@ -3739,7 +3739,7 @@
   },
   "UE15BT/EVA-1-048": {
     "id": "UE15BT/EVA-1-048",
-    "name": "Asuka Shikinami Langley (048)",
+    "name": "Asuka Shikinami Langley (048) (Box Topper Foil)",
     "category": "Character",
     "color": "Purple",
     "cost": "0",
@@ -3749,7 +3749,7 @@
     "types": "WILLE",
     "title": "EVANGELION",
     "image": "https://tcgcontender.com/cdn/cards/unionarena/123575/228520.webp",
-    "source": "https://tcgcontender.com/unionarena/cards/asuka-shikinami-langley-048"
+    "source": "https://tcgcontender.com/unionarena/cards/asuka-shikinami-langley-048-box-topper-foil"
   },
   "UE15BT/EVA-1-049": {
     "id": "UE15BT/EVA-1-049",
@@ -3935,7 +3935,7 @@
   },
   "UE07BT/SAO-1-036": {
     "id": "UE07BT/SAO-1-036",
-    "name": "Asuna (036)",
+    "name": "Asuna (036) (U*)",
     "category": "Character",
     "color": "Blue",
     "cost": "2",
@@ -3945,7 +3945,7 @@
     "types": "Aincrad",
     "title": "Sword Art Online",
     "image": "https://tcgcontender.com/cdn/cards/unionarena/124675/229620.webp",
-    "source": "https://tcgcontender.com/unionarena/cards/asuna-036"
+    "source": "https://tcgcontender.com/unionarena/cards/asuna-036-u"
   },
   "UE07BT/SAO-1-037": {
     "id": "UE07BT/SAO-1-037",
@@ -4271,7 +4271,7 @@
   },
   "UE06BT/OPM-1-038": {
     "id": "UE06BT/OPM-1-038",
-    "name": "Atomic Samurai",
+    "name": "Atomic Samurai (R*)",
     "category": "Character",
     "color": "Green",
     "cost": "4",
@@ -4281,7 +4281,7 @@
     "types": "Hero",
     "title": "One Punch Man",
     "image": "https://tcgcontender.com/cdn/cards/unionarena/125629/230574.webp",
-    "source": "https://tcgcontender.com/unionarena/cards/atomic-samurai"
+    "source": "https://tcgcontender.com/unionarena/cards/atomic-samurai-r"
   },
   "UEPR/YYH-1-101": {
     "id": "UEPR/YYH-1-101",
@@ -4481,7 +4481,7 @@
   },
   "UEX01BT/BLC-2-006": {
     "id": "UEX01BT/BLC-2-006",
-    "name": "Bambietta Basterbine",
+    "name": "Bambietta Basterbine (R*)",
     "category": "Character",
     "color": "Yellow",
     "cost": "4",
@@ -4491,11 +4491,11 @@
     "types": "Stern Ritters / Zombie",
     "title": "BLEACH",
     "image": "https://tcgcontender.com/cdn/cards/unionarena/123898/228843.webp",
-    "source": "https://tcgcontender.com/unionarena/cards/bambietta-basterbine"
+    "source": "https://tcgcontender.com/unionarena/cards/bambietta-basterbine-r"
   },
   "UE01BT/BLC-1-012": {
     "id": "UE01BT/BLC-1-012",
-    "name": "Bambietta Basterbine (012)",
+    "name": "Bambietta Basterbine (012) (Box Topper Foil)",
     "category": "Character",
     "color": "Yellow",
     "cost": "0",
@@ -4505,7 +4505,7 @@
     "types": "Stern Ritters",
     "title": "BLEACH",
     "image": "https://tcgcontender.com/cdn/cards/unionarena/124385/229330.webp",
-    "source": "https://tcgcontender.com/unionarena/cards/bambietta-basterbine-012"
+    "source": "https://tcgcontender.com/unionarena/cards/bambietta-basterbine-012-box-topper-foil"
   },
   "UE01BT/BLC-1-013": {
     "id": "UE01BT/BLC-1-013",
@@ -5041,7 +5041,7 @@
   },
   "UE17BT/SLG-1-033": {
     "id": "UE17BT/SLG-1-033",
-    "name": "Beru",
+    "name": "Beru (R*)",
     "category": "Character",
     "color": "Purple",
     "cost": "5",
@@ -5050,8 +5050,8 @@
     "trigger": "",
     "types": "Shadow Army",
     "title": "SOLO LEVELING",
-    "image": "https://tcgcontender.com/cdn/cards/unionarena/415832/887798.webp",
-    "source": "https://tcgcontender.com/unionarena/cards/beru"
+    "image": "https://tcgcontender.com/cdn/cards/unionarena/415832/788377.webp",
+    "source": "https://tcgcontender.com/unionarena/cards/beru-r"
   },
   "UEPR/RNK-1-021": {
     "id": "UEPR/RNK-1-021",
@@ -6091,7 +6091,7 @@
   },
   "UEPR/CGH-2-066": {
     "id": "UEPR/CGH-2-066",
-    "name": "C.C. (066)",
+    "name": "C.C. (066) (Winner)",
     "category": "Character",
     "color": "Red",
     "cost": "4",
@@ -6101,7 +6101,7 @@
     "types": "Ashford Academy",
     "title": "CODE GEASS",
     "image": "https://tcgcontender.com/cdn/cards/unionarena/123730/228675.webp",
-    "source": "https://tcgcontender.com/unionarena/cards/c-c-066"
+    "source": "https://tcgcontender.com/unionarena/cards/c-c-066-winner"
   },
   "UE04BT/CGH-1-075": {
     "id": "UE04BT/CGH-1-075",
@@ -6861,7 +6861,7 @@
   },
   "UE16BT/KGR-1-057": {
     "id": "UE16BT/KGR-1-057",
-    "name": "Chihiro Rokuhira (057)",
+    "name": "Chihiro Rokuhira (057) (U*)",
     "category": "Character",
     "color": "Red",
     "cost": "2",
@@ -6871,7 +6871,7 @@
     "types": "",
     "title": "KAGURABACHI",
     "image": "https://tcgcontender.com/cdn/cards/unionarena/126851/231796.webp",
-    "source": "https://tcgcontender.com/unionarena/cards/chihiro-rokuhira-057"
+    "source": "https://tcgcontender.com/unionarena/cards/chihiro-rokuhira-057-u"
   },
   "UE16BT/KGR-1-058": {
     "id": "UE16BT/KGR-1-058",
@@ -7379,7 +7379,7 @@
   },
   "UE10ST/AOT-1-113": {
     "id": "UE10ST/AOT-1-113",
-    "name": "Colossal Titan",
+    "name": "Colossal Titan (R*)",
     "category": "Character",
     "color": "Green",
     "cost": "6",
@@ -7389,7 +7389,7 @@
     "types": "Inheritor of the Titan",
     "title": "Attack on Titan",
     "image": "https://tcgcontender.com/cdn/cards/unionarena/125254/230199.webp",
-    "source": "https://tcgcontender.com/unionarena/cards/colossal-titan"
+    "source": "https://tcgcontender.com/unionarena/cards/colossal-titan-r"
   },
   "UEPR/KMY-1-100": {
     "id": "UEPR/KMY-1-100",
@@ -7477,7 +7477,7 @@
   },
   "UE04BT/CGH-1-038": {
     "id": "UE04BT/CGH-1-038",
-    "name": "Cornelia li Britannia (038)",
+    "name": "Cornelia li Britannia (038) (Box Topper Foil)",
     "category": "Character",
     "color": "Green",
     "cost": "0",
@@ -7486,8 +7486,8 @@
     "trigger": "[Get] Add this card to your hand.",
     "types": "Holy Britannian Empire",
     "title": "CODE GEASS",
-    "image": "https://tcgcontender.com/cdn/cards/unionarena/126986/231931.webp",
-    "source": "https://tcgcontender.com/unionarena/cards/cornelia-li-britannia-038"
+    "image": "https://tcgcontender.com/cdn/cards/unionarena/124203/229148.webp",
+    "source": "https://tcgcontender.com/unionarena/cards/cornelia-li-britannia-038-box-topper-foil"
   },
   "UE04BT/CGH-1-039": {
     "id": "UE04BT/CGH-1-039",
@@ -8303,7 +8303,7 @@
   },
   "UE20BT/TSK-1-005": {
     "id": "UE20BT/TSK-1-005",
-    "name": "Diablo (005)",
+    "name": "Diablo (005) (R*)",
     "category": "Character",
     "color": "Yellow",
     "cost": "4",
@@ -8313,7 +8313,7 @@
     "types": "",
     "title": "That Time I Got Reincarnated as a Slime",
     "image": "https://tcgcontender.com/cdn/cards/unionarena/546322/1090122.webp",
-    "source": "https://tcgcontender.com/unionarena/cards/diablo-005"
+    "source": "https://tcgcontender.com/unionarena/cards/diablo-005-r"
   },
   "UE20BT/TSK-1-006": {
     "id": "UE20BT/TSK-1-006",
@@ -9549,7 +9549,7 @@
   },
   "UE10ST/AOT-1-111": {
     "id": "UE10ST/AOT-1-111",
-    "name": "Erwin Smith",
+    "name": "Erwin Smith (R*)",
     "category": "Character",
     "color": "Blue",
     "cost": "3",
@@ -9559,11 +9559,11 @@
     "types": "",
     "title": "Attack on Titan",
     "image": "https://tcgcontender.com/cdn/cards/unionarena/124006/228951.webp",
-    "source": "https://tcgcontender.com/unionarena/cards/erwin-smith"
+    "source": "https://tcgcontender.com/unionarena/cards/erwin-smith-r"
   },
   "UE10BT/AOT-1-001": {
     "id": "UE10BT/AOT-1-001",
-    "name": "Erwin Smith (001)",
+    "name": "Erwin Smith (001) (U*)",
     "category": "Character",
     "color": "Blue",
     "cost": "0",
@@ -9573,7 +9573,7 @@
     "types": "",
     "title": "Attack on Titan",
     "image": "https://tcgcontender.com/cdn/cards/unionarena/124727/229672.webp",
-    "source": "https://tcgcontender.com/unionarena/cards/erwin-smith-001"
+    "source": "https://tcgcontender.com/unionarena/cards/erwin-smith-001-u"
   },
   "UE10BT/AOT-1-002": {
     "id": "UE10BT/AOT-1-002",
@@ -10109,7 +10109,7 @@
   },
   "UE09ST/FMA-1-112": {
     "id": "UE09ST/FMA-1-112",
-    "name": "Father (R*)",
+    "name": "Father",
     "category": "Character",
     "color": "Purple",
     "cost": "4",
@@ -10119,7 +10119,7 @@
     "types": "Homunculus",
     "title": "FULLMETAL ALCHEMIST",
     "image": "https://tcgcontender.com/cdn/cards/unionarena/124531/229476.webp",
-    "source": "https://tcgcontender.com/unionarena/cards/father-r"
+    "source": "https://tcgcontender.com/unionarena/cards/father"
   },
   "UEPR/YYH-1-098": {
     "id": "UEPR/YYH-1-098",
@@ -11103,7 +11103,7 @@
   },
   "UE06BT/OPM-1-006": {
     "id": "UE06BT/OPM-1-006",
-    "name": "Genos (006)",
+    "name": "Genos (006) (R*)",
     "category": "Character",
     "color": "Yellow",
     "cost": "2",
@@ -11113,7 +11113,7 @@
     "types": "Hero",
     "title": "One Punch Man",
     "image": "https://tcgcontender.com/cdn/cards/unionarena/124681/229626.webp",
-    "source": "https://tcgcontender.com/unionarena/cards/genos-006"
+    "source": "https://tcgcontender.com/unionarena/cards/genos-006-r"
   },
   "UE06BT/OPM-1-007": {
     "id": "UE06BT/OPM-1-007",
@@ -11252,7 +11252,7 @@
     "trigger": "[Get] Add this card to your hand.",
     "types": "The Bomber",
     "title": "HUNTER X HUNTER",
-    "image": "https://tcgcontender.com/cdn/cards/unionarena/125858/230803.webp",
+    "image": "https://tcgcontender.com/cdn/cards/unionarena/125634/230579.webp",
     "source": "https://tcgcontender.com/unionarena/cards/genthru-020"
   },
   "UE02BT/HTR-1-020": {
@@ -11677,7 +11677,7 @@
   },
   "UE05BT/KMY-1-025": {
     "id": "UE05BT/KMY-1-025",
-    "name": "Giyu Tomioka (025) (R*)",
+    "name": "Giyu Tomioka (025)",
     "category": "Character",
     "color": "Yellow",
     "cost": "5",
@@ -11687,7 +11687,7 @@
     "types": "Hashira",
     "title": "Demon Slayer",
     "image": "https://tcgcontender.com/cdn/cards/unionarena/124909/229854.webp",
-    "source": "https://tcgcontender.com/unionarena/cards/giyu-tomioka-025-r"
+    "source": "https://tcgcontender.com/unionarena/cards/giyu-tomioka-025"
   },
   "UE04BT/CGH-1-055": {
     "id": "UE04BT/CGH-1-055",
@@ -11915,7 +11915,7 @@
   },
   "UE02BT/HTR-P-001": {
     "id": "UE02BT/HTR-P-001",
-    "name": "Gon Freecss (001)",
+    "name": "Gon Freecss (001) (R*)",
     "category": "Character",
     "color": "Blue",
     "cost": "1",
@@ -11925,7 +11925,7 @@
     "types": "",
     "title": "HUNTER X HUNTER",
     "image": "https://tcgcontender.com/cdn/cards/unionarena/125282/230227.webp",
-    "source": "https://tcgcontender.com/unionarena/cards/gon-freecss-001"
+    "source": "https://tcgcontender.com/unionarena/cards/gon-freecss-001-r"
   },
   "UEPR/HTR-1-005": {
     "id": "UEPR/HTR-1-005",
@@ -11937,13 +11937,13 @@
     "bp": "1500",
     "trigger": "[Draw] Draw a card.",
     "types": "",
-    "title": "HUNTER X HUNTER",
+    "title": "Hunter x Hunter",
     "image": "https://tcgcontender.com/cdn/cards/unionarena/124721/229666.webp",
     "source": "https://tcgcontender.com/unionarena/cards/gon-freecss-005"
   },
   "UE02BT/HTR-1-006": {
     "id": "UE02BT/HTR-1-006",
-    "name": "Gon Freecss (006)",
+    "name": "Gon Freecss (006) (R*)",
     "category": "Character",
     "color": "Blue",
     "cost": "3",
@@ -11953,7 +11953,7 @@
     "types": "",
     "title": "HUNTER X HUNTER",
     "image": "https://tcgcontender.com/cdn/cards/unionarena/125046/229991.webp",
-    "source": "https://tcgcontender.com/unionarena/cards/gon-freecss-006"
+    "source": "https://tcgcontender.com/unionarena/cards/gon-freecss-006-r"
   },
   "UE02BT/HTR-1-007": {
     "id": "UE02BT/HTR-1-007",
@@ -11985,7 +11985,7 @@
   },
   "UEX04BT/HTR-2-015": {
     "id": "UEX04BT/HTR-2-015",
-    "name": "Gon Freecss (015)",
+    "name": "Gon Freecss (015) (R*)",
     "category": "Character",
     "color": "Yellow",
     "cost": "2",
@@ -11995,7 +11995,7 @@
     "types": "Razor Attack Team",
     "title": "HUNTER X HUNTER",
     "image": "https://tcgcontender.com/cdn/cards/unionarena/124790/229735.webp",
-    "source": "https://tcgcontender.com/unionarena/cards/gon-freecss-015"
+    "source": "https://tcgcontender.com/unionarena/cards/gon-freecss-015-r"
   },
   "UEX04BT/HTR-2-016": {
     "id": "UEX04BT/HTR-2-016",
@@ -12041,7 +12041,7 @@
   },
   "UE02BT/HTR-1-075": {
     "id": "UE02BT/HTR-1-075",
-    "name": "Gon Freecss (075)",
+    "name": "Gon Freecss (075) (Box Topper Foil)",
     "category": "Character",
     "color": "Green",
     "cost": "0",
@@ -12050,8 +12050,8 @@
     "trigger": "[Get] Add this card to your hand.",
     "types": "",
     "title": "HUNTER X HUNTER",
-    "image": "https://tcgcontender.com/cdn/cards/unionarena/124812/229757.webp",
-    "source": "https://tcgcontender.com/unionarena/cards/gon-freecss-075"
+    "image": "https://tcgcontender.com/cdn/cards/unionarena/124748/229693.webp",
+    "source": "https://tcgcontender.com/unionarena/cards/gon-freecss-075-box-topper-foil"
   },
   "UE02BT/HTR-1-076": {
     "id": "UE02BT/HTR-1-076",
@@ -12811,7 +12811,7 @@
   },
   "UE18ST/TKG-1-111": {
     "id": "UE18ST/TKG-1-111",
-    "name": "Haise Sasaki",
+    "name": "Haise Sasaki (R*)",
     "category": "Character",
     "color": "Yellow",
     "cost": "4",
@@ -12821,7 +12821,7 @@
     "types": "CCG/Mado Squad",
     "title": "Tokyo Ghoul",
     "image": "https://tcgcontender.com/cdn/cards/unionarena/482672/888368.webp",
-    "source": "https://tcgcontender.com/unionarena/cards/haise-sasaki"
+    "source": "https://tcgcontender.com/unionarena/cards/haise-sasaki-r"
   },
   "UE18BT/TKG-1-013": {
     "id": "UE18BT/TKG-1-013",
@@ -12867,7 +12867,7 @@
   },
   "UE18BT/TKG-1-015": {
     "id": "UE18BT/TKG-1-015",
-    "name": "Haise Sasaki (015)",
+    "name": "Haise Sasaki (015) (R*)",
     "category": "Character",
     "color": "Yellow",
     "cost": "1",
@@ -12877,7 +12877,7 @@
     "types": "CCG/Mado Squad",
     "title": "Tokyo Ghoul",
     "image": "https://tcgcontender.com/cdn/cards/unionarena/482648/888344.webp",
-    "source": "https://tcgcontender.com/unionarena/cards/haise-sasaki-015"
+    "source": "https://tcgcontender.com/unionarena/cards/haise-sasaki-015-r"
   },
   "UE18BT/TKG-1-016": {
     "id": "UE18BT/TKG-1-016",
@@ -13049,7 +13049,7 @@
   },
   "UE11ST/RNK-1-113": {
     "id": "UE11ST/RNK-1-113",
-    "name": "Hajime Saito (113)",
+    "name": "Hajime Saito (113) (R*)",
     "category": "Character",
     "color": "Purple",
     "cost": "4",
@@ -13059,7 +13059,7 @@
     "types": "",
     "title": "Rurouni Kenshin",
     "image": "https://tcgcontender.com/cdn/cards/unionarena/125247/230192.webp",
-    "source": "https://tcgcontender.com/unionarena/cards/hajime-saito-113"
+    "source": "https://tcgcontender.com/unionarena/cards/hajime-saito-113-r"
   },
   "UE21BT/RLY-1-019": {
     "id": "UE21BT/RLY-1-019",
@@ -13889,7 +13889,7 @@
   },
   "UE19BT/SMD-1-007": {
     "id": "UE19BT/SMD-1-007",
-    "name": "Heisuke Mashimo (007) (R*)",
+    "name": "Heisuke Mashimo (007)",
     "category": "Character",
     "color": "Yellow",
     "cost": "4",
@@ -13899,7 +13899,7 @@
     "types": "",
     "title": "Sakamoto Days",
     "image": "https://tcgcontender.com/cdn/cards/unionarena/538174/990211.webp",
-    "source": "https://tcgcontender.com/unionarena/cards/heisuke-mashimo-007-r"
+    "source": "https://tcgcontender.com/unionarena/cards/heisuke-mashimo-007"
   },
   "UE19BT/SMD-1-008": {
     "id": "UE19BT/SMD-1-008",
@@ -14071,7 +14071,7 @@
   },
   "UE08ST/BCV-1-111": {
     "id": "UE08ST/BCV-1-111",
-    "name": "Henry Legolant",
+    "name": "Henry Legolant (R*)",
     "category": "Character",
     "color": "Purple",
     "cost": "2",
@@ -14081,7 +14081,7 @@
     "types": "Black Bulls",
     "title": "Black Clover",
     "image": "https://tcgcontender.com/cdn/cards/unionarena/124851/229796.webp",
-    "source": "https://tcgcontender.com/unionarena/cards/henry-legolant"
+    "source": "https://tcgcontender.com/unionarena/cards/henry-legolant-r"
   },
   "UE11BT/RNK-1-051": {
     "id": "UE11BT/RNK-1-051",
@@ -14267,7 +14267,7 @@
   },
   "UE13BT/YYH-1-082": {
     "id": "UE13BT/YYH-1-082",
-    "name": "Hiei (082)",
+    "name": "Hiei (082) (R*)",
     "category": "Character",
     "color": "Red",
     "cost": "4",
@@ -14277,7 +14277,7 @@
     "types": "",
     "title": "Yu Yu Hakusho",
     "image": "https://tcgcontender.com/cdn/cards/unionarena/124465/229410.webp",
-    "source": "https://tcgcontender.com/unionarena/cards/hiei-082"
+    "source": "https://tcgcontender.com/unionarena/cards/hiei-082-r"
   },
   "UE13BT/YYH-1-083": {
     "id": "UE13BT/YYH-1-083",
@@ -14687,7 +14687,7 @@
   },
   "UEPR/HTR-2-024": {
     "id": "UEPR/HTR-2-024",
-    "name": "Hisoka (024)",
+    "name": "Hisoka (024) (Winner)",
     "category": "Character",
     "color": "Yellow",
     "cost": "6",
@@ -14697,7 +14697,7 @@
     "types": "Razor Attack Team",
     "title": "HUNTER X HUNTER",
     "image": "https://tcgcontender.com/cdn/cards/unionarena/124165/229110.webp",
-    "source": "https://tcgcontender.com/unionarena/cards/hisoka-024"
+    "source": "https://tcgcontender.com/unionarena/cards/hisoka-024-winner"
   },
   "UE02BT/HTR-1-042": {
     "id": "UE02BT/HTR-1-042",
@@ -16045,17 +16045,17 @@
   },
   "UE19BT/SMD-1-064": {
     "id": "UE19BT/SMD-1-064",
-    "name": "Intruder Elimination System",
-    "category": "Character",
-    "color": "Purple",
-    "cost": "2",
-    "ap": "1",
-    "bp": "2000",
+    "name": "Intruder Elimination System - Release Event",
+    "category": "Unknown",
+    "color": "",
+    "cost": null,
+    "ap": null,
+    "bp": null,
     "trigger": "",
-    "types": "LABO",
-    "title": "Sakamoto Days",
+    "types": "",
+    "title": "",
     "image": "https://tcgcontender.com/cdn/cards/unionarena/538251/990288.webp",
-    "source": "https://tcgcontender.com/unionarena/cards/intruder-elimination-system"
+    "source": "https://tcgcontender.com/unionarena/cards/intruder-elimination-system-release-event"
   },
   "UE23BT/IYS-1-042": {
     "id": "UE23BT/IYS-1-042",
@@ -17235,7 +17235,7 @@
   },
   "UE18BT/TKG-1-087": {
     "id": "UE18BT/TKG-1-087",
-    "name": "Juzo Suzuya (087)",
+    "name": "Juzo Suzuya (087) (C*)",
     "category": "Character",
     "color": "Red",
     "cost": "0",
@@ -17245,7 +17245,7 @@
     "types": "CCG",
     "title": "Tokyo Ghoul",
     "image": "https://tcgcontender.com/cdn/cards/unionarena/482633/888329.webp",
-    "source": "https://tcgcontender.com/unionarena/cards/juzo-suzuya-087"
+    "source": "https://tcgcontender.com/unionarena/cards/juzo-suzuya-087-c"
   },
   "UE18BT/TKG-1-088": {
     "id": "UE18BT/TKG-1-088",
@@ -18579,7 +18579,7 @@
   },
   "UE13BT/YYH-1-040": {
     "id": "UE13BT/YYH-1-040",
-    "name": "Kazuma Kuwabara (040)",
+    "name": "Kazuma Kuwabara (040) (Box Topper Foil)",
     "category": "Character",
     "color": "Green",
     "cost": "0",
@@ -18589,7 +18589,7 @@
     "types": "",
     "title": "Yu Yu Hakusho",
     "image": "https://tcgcontender.com/cdn/cards/unionarena/124820/229765.webp",
-    "source": "https://tcgcontender.com/unionarena/cards/kazuma-kuwabara-040"
+    "source": "https://tcgcontender.com/unionarena/cards/kazuma-kuwabara-040-box-topper-foil"
   },
   "UEPR/YYH-1-041": {
     "id": "UEPR/YYH-1-041",
@@ -18901,7 +18901,7 @@
   },
   "UE18ST/TKG-1-112": {
     "id": "UE18ST/TKG-1-112",
-    "name": "Ken Kaneki (112)",
+    "name": "Ken Kaneki (112) (R*)",
     "category": "Character",
     "color": "Red",
     "cost": "3",
@@ -18911,7 +18911,7 @@
     "types": "",
     "title": "Tokyo Ghoul",
     "image": "https://tcgcontender.com/cdn/cards/unionarena/482646/1312658.webp",
-    "source": "https://tcgcontender.com/unionarena/cards/ken-kaneki-112"
+    "source": "https://tcgcontender.com/unionarena/cards/ken-kaneki-112-r"
   },
   "UEPR/TKG-1-039": {
     "id": "UEPR/TKG-1-039",
@@ -19349,7 +19349,7 @@
   },
   "UE03BT/JJK-1-051": {
     "id": "UE03BT/JJK-1-051",
-    "name": "Kento Nanami (051)",
+    "name": "Kento Nanami (051) (Box Topper Foil)",
     "category": "Character",
     "color": "Blue",
     "cost": "0",
@@ -19358,8 +19358,8 @@
     "trigger": "[Get] Add this card to your hand.",
     "types": "",
     "title": "Jujutsu Kaisen",
-    "image": "https://tcgcontender.com/cdn/cards/unionarena/126667/231612.webp",
-    "source": "https://tcgcontender.com/unionarena/cards/kento-nanami-051"
+    "image": "https://tcgcontender.com/cdn/cards/unionarena/124245/229190.webp",
+    "source": "https://tcgcontender.com/unionarena/cards/kento-nanami-051-box-topper-foil"
   },
   "UE03BT/JJK-1-052": {
     "id": "UE03BT/JJK-1-052",
@@ -19517,7 +19517,7 @@
   },
   "UEPR/KJ8-1-018": {
     "id": "UEPR/KJ8-1-018",
-    "name": "Kikoru Shinomiya (018)",
+    "name": "Kikoru Shinomiya (018) (Gold)",
     "category": "Character",
     "color": "Yellow",
     "cost": "2",
@@ -19527,7 +19527,7 @@
     "types": "",
     "title": "Kaiju No. 8",
     "image": "https://tcgcontender.com/cdn/cards/unionarena/124781/229726.webp",
-    "source": "https://tcgcontender.com/unionarena/cards/kikoru-shinomiya-018"
+    "source": "https://tcgcontender.com/unionarena/cards/kikoru-shinomiya-018-gold"
   },
   "UE12BT/KJ8-1-019": {
     "id": "UE12BT/KJ8-1-019",
@@ -19825,7 +19825,7 @@
   },
   "UEX04BT/HTR-2-059": {
     "id": "UEX04BT/HTR-2-059",
-    "name": "Killua Zoldyck (059)",
+    "name": "Killua Zoldyck (059) (R*)",
     "category": "Character",
     "color": "Purple",
     "cost": "3",
@@ -19835,7 +19835,7 @@
     "types": "Zoldyck Family",
     "title": "HUNTER X HUNTER",
     "image": "https://tcgcontender.com/cdn/cards/unionarena/124453/229398.webp",
-    "source": "https://tcgcontender.com/unionarena/cards/killua-zoldyck-059"
+    "source": "https://tcgcontender.com/unionarena/cards/killua-zoldyck-059-r"
   },
   "UEPR/HTR-2-071": {
     "id": "UEPR/HTR-2-071",
@@ -20301,7 +20301,7 @@
   },
   "UEPR/SAO-1-040": {
     "id": "UEPR/SAO-1-040",
-    "name": "Kirito (040) (Judge Pack)",
+    "name": "Kirito (040)",
     "category": "Character",
     "color": "Blue",
     "cost": "1",
@@ -20310,8 +20310,8 @@
     "trigger": "",
     "types": "Aincrad",
     "title": "Sword Art Online",
-    "image": "https://tcgcontender.com/cdn/cards/unionarena/126145/231090.webp",
-    "source": "https://tcgcontender.com/unionarena/cards/kirito-040-judge-pack"
+    "image": "https://tcgcontender.com/cdn/cards/unionarena/124040/228985.webp",
+    "source": "https://tcgcontender.com/unionarena/cards/kirito-040"
   },
   "UEPR/SAO-1-041": {
     "id": "UEPR/SAO-1-041",
@@ -20399,7 +20399,7 @@
   },
   "UE07BT/SAO-1-053": {
     "id": "UE07BT/SAO-1-053",
-    "name": "Kirito (053)",
+    "name": "Kirito (053) (R*)",
     "category": "Character",
     "color": "Blue",
     "cost": "4",
@@ -20409,7 +20409,7 @@
     "types": "ALO",
     "title": "Sword Art Online",
     "image": "https://tcgcontender.com/cdn/cards/unionarena/124804/229749.webp",
-    "source": "https://tcgcontender.com/unionarena/cards/kirito-053"
+    "source": "https://tcgcontender.com/unionarena/cards/kirito-053-r"
   },
   "UEPR/SAO-2-064": {
     "id": "UEPR/SAO-2-064",
@@ -21729,7 +21729,7 @@
   },
   "UE21BT/RLY-1-015": {
     "id": "UE21BT/RLY-1-015",
-    "name": "Kusuri Yakuzen (015) (R*)",
+    "name": "Kusuri Yakuzen (015)",
     "category": "Character",
     "color": "Yellow",
     "cost": "1",
@@ -21739,11 +21739,11 @@
     "types": "",
     "title": "The 100 Girlfriends Who Really, Really, Really, Really, REALLY Love You",
     "image": "https://tcgcontender.com/cdn/cards/unionarena/587235/1089906.webp",
-    "source": "https://tcgcontender.com/unionarena/cards/kusuri-yakuzen-015-r"
+    "source": "https://tcgcontender.com/unionarena/cards/kusuri-yakuzen-015"
   },
   "UE21BT/RLY-1-054": {
     "id": "UE21BT/RLY-1-054",
-    "name": "Kusuri Yakuzen (054) (Box Topper Foil)",
+    "name": "Kusuri Yakuzen (054)",
     "category": "Character",
     "color": "Green",
     "cost": "0",
@@ -21753,7 +21753,7 @@
     "types": "",
     "title": "The 100 Girlfriends Who Really, Really, Really, Really, REALLY Love You",
     "image": "https://tcgcontender.com/cdn/cards/unionarena/587246/1089917.webp",
-    "source": "https://tcgcontender.com/unionarena/cards/kusuri-yakuzen-054-box-topper-foil"
+    "source": "https://tcgcontender.com/unionarena/cards/kusuri-yakuzen-054"
   },
   "UE21BT/RLY-1-055": {
     "id": "UE21BT/RLY-1-055",
@@ -22541,7 +22541,7 @@
   },
   "UE04BT/CGH-1-017": {
     "id": "UE04BT/CGH-1-017",
-    "name": "Lelouch Lamperouge (017) (SR*)",
+    "name": "Lelouch Lamperouge (017)",
     "category": "Character",
     "color": "Purple",
     "cost": "4",
@@ -22551,7 +22551,7 @@
     "types": "Order of the Black Knights",
     "title": "CODE GEASS",
     "image": "https://tcgcontender.com/cdn/cards/unionarena/124582/229527.webp",
-    "source": "https://tcgcontender.com/unionarena/cards/lelouch-lamperouge-017-sr"
+    "source": "https://tcgcontender.com/unionarena/cards/lelouch-lamperouge-017"
   },
   "UEPR/CGH-2-041": {
     "id": "UEPR/CGH-2-041",
@@ -22835,7 +22835,7 @@
   },
   "UE10BT/AOT-1-007": {
     "id": "UE10BT/AOT-1-007",
-    "name": "Levi (007)",
+    "name": "Levi (007) (C*)",
     "category": "Character",
     "color": "Blue",
     "cost": "0",
@@ -22845,7 +22845,7 @@
     "types": "Levi Squad",
     "title": "Attack on Titan",
     "image": "https://tcgcontender.com/cdn/cards/unionarena/124801/229746.webp",
-    "source": "https://tcgcontender.com/unionarena/cards/levi-007"
+    "source": "https://tcgcontender.com/unionarena/cards/levi-007-c"
   },
   "UEPR/AOT-1-008": {
     "id": "UEPR/AOT-1-008",
@@ -23115,7 +23115,7 @@
   },
   "UE07BT/SAO-1-009": {
     "id": "UE07BT/SAO-1-009",
-    "name": "Lisbeth (009)",
+    "name": "Lisbeth (009) (R*)",
     "category": "Character",
     "color": "Yellow",
     "cost": "3",
@@ -23125,7 +23125,7 @@
     "types": "ALO",
     "title": "Sword Art Online",
     "image": "https://tcgcontender.com/cdn/cards/unionarena/124259/229204.webp",
-    "source": "https://tcgcontender.com/unionarena/cards/lisbeth-009"
+    "source": "https://tcgcontender.com/unionarena/cards/lisbeth-009-r"
   },
   "UEX06BT/SAO-2-020": {
     "id": "UEX06BT/SAO-2-020",
@@ -23199,7 +23199,7 @@
   },
   "UE07BT/SAO-1-083": {
     "id": "UE07BT/SAO-1-083",
-    "name": "Lisbeth (083) (R*)",
+    "name": "Lisbeth (083)",
     "category": "Character",
     "color": "Green",
     "cost": "3",
@@ -23209,7 +23209,7 @@
     "types": "ALO",
     "title": "Sword Art Online",
     "image": "https://tcgcontender.com/cdn/cards/unionarena/125022/229967.webp",
-    "source": "https://tcgcontender.com/unionarena/cards/lisbeth-083-r"
+    "source": "https://tcgcontender.com/unionarena/cards/lisbeth-083"
   },
   "UE07ST/SAO-1-107": {
     "id": "UE07ST/SAO-1-107",
@@ -24571,7 +24571,7 @@
   },
   "UE14BT/NIK-1-008": {
     "id": "UE14BT/NIK-1-008",
-    "name": "Marian (008)",
+    "name": "Marian (008) (U*)",
     "category": "Character",
     "color": "Yellow",
     "cost": "3",
@@ -24581,7 +24581,7 @@
     "types": "Elysion / Counters",
     "title": "GODDESS OF VICTORY: NIKKE",
     "image": "https://tcgcontender.com/cdn/cards/unionarena/123985/228930.webp",
-    "source": "https://tcgcontender.com/unionarena/cards/marian-008"
+    "source": "https://tcgcontender.com/unionarena/cards/marian-008-u"
   },
   "UE14BT/NIK-1-104": {
     "id": "UE14BT/NIK-1-104",
@@ -25341,7 +25341,7 @@
   },
   "UE06BT/OPM-1-042": {
     "id": "UE06BT/OPM-1-042",
-    "name": "Metal Bat (042)",
+    "name": "Metal Bat (042) (Box Topper Foil)",
     "category": "Character",
     "color": "Green",
     "cost": "0",
@@ -25351,7 +25351,7 @@
     "types": "Hero",
     "title": "One Punch Man",
     "image": "https://tcgcontender.com/cdn/cards/unionarena/125419/230364.webp",
-    "source": "https://tcgcontender.com/unionarena/cards/metal-bat-042"
+    "source": "https://tcgcontender.com/unionarena/cards/metal-bat-042-box-topper-foil"
   },
   "UEPR/OPM-1-043": {
     "id": "UEPR/OPM-1-043",
@@ -25565,7 +25565,7 @@
   },
   "UEPR/AOT-1-087": {
     "id": "UEPR/AOT-1-087",
-    "name": "Mikasa Ackermann (Judge Pack)",
+    "name": "Mikasa Ackermann (087)",
     "category": "Character",
     "color": "Red",
     "cost": "2",
@@ -25574,8 +25574,8 @@
     "trigger": "",
     "types": "104th Cadet Corps / Levi Squad",
     "title": "Attack on Titan",
-    "image": "https://tcgcontender.com/cdn/cards/unionarena/124771/229716.webp",
-    "source": "https://tcgcontender.com/unionarena/cards/mikasa-ackermann-judge-pack"
+    "image": "https://tcgcontender.com/cdn/cards/unionarena/125541/230486.webp",
+    "source": "https://tcgcontender.com/unionarena/cards/mikasa-ackermann-087"
   },
   "UEPR/AOT-1-023": {
     "id": "UEPR/AOT-1-023",
@@ -25929,7 +25929,7 @@
   },
   "UEPR/KJ8-1-002": {
     "id": "UEPR/KJ8-1-002",
-    "name": "Mina Ashiro (002) (Judge Pack)",
+    "name": "Mina Ashiro (002)",
     "category": "Character",
     "color": "Yellow",
     "cost": "1",
@@ -25938,8 +25938,8 @@
     "trigger": "",
     "types": "",
     "title": "Kaiju No. 8",
-    "image": "https://tcgcontender.com/cdn/cards/unionarena/124921/229866.webp",
-    "source": "https://tcgcontender.com/unionarena/cards/mina-ashiro-002-judge-pack"
+    "image": "https://tcgcontender.com/cdn/cards/unionarena/124269/229214.webp",
+    "source": "https://tcgcontender.com/unionarena/cards/mina-ashiro-002"
   },
   "UE12BT/KJ8-1-003": {
     "id": "UE12BT/KJ8-1-003",
@@ -26111,7 +26111,7 @@
   },
   "UE23BT/IYS-1-070": {
     "id": "UE23BT/IYS-1-070",
-    "name": "Miroku (070) (R*)",
+    "name": "Miroku (070)",
     "category": "Character",
     "color": "Red",
     "cost": "3",
@@ -26120,8 +26120,8 @@
     "trigger": "[Color] Choose one character with 2500 or less BP on your opponent's front line and sideline it.",
     "types": "",
     "title": "INUYASHA",
-    "image": "https://tcgcontender.com/cdn/cards/unionarena/797182/1606103.webp",
-    "source": "https://tcgcontender.com/unionarena/cards/miroku-070-r"
+    "image": "https://tcgcontender.com/cdn/cards/unionarena/797182/1452035.webp",
+    "source": "https://tcgcontender.com/unionarena/cards/miroku-070"
   },
   "UE23BT/IYS-1-071": {
     "id": "UE23BT/IYS-1-071",
@@ -26475,7 +26475,7 @@
   },
   "UE05BT/KMY-1-020": {
     "id": "UE05BT/KMY-1-020",
-    "name": "Mitsuri Kanroji (020) (SR*)",
+    "name": "Mitsuri Kanroji (020)",
     "category": "Character",
     "color": "Yellow",
     "cost": "4",
@@ -26485,7 +26485,7 @@
     "types": "Hashira",
     "title": "Demon Slayer",
     "image": "https://tcgcontender.com/cdn/cards/unionarena/123996/228941.webp",
-    "source": "https://tcgcontender.com/unionarena/cards/mitsuri-kanroji-020-sr"
+    "source": "https://tcgcontender.com/unionarena/cards/mitsuri-kanroji-020"
   },
   "UEPR/KMY-3-030": {
     "id": "UEPR/KMY-3-030",
@@ -27371,7 +27371,7 @@
   },
   "UEPR/SMD-1-058": {
     "id": "UEPR/SMD-1-058",
-    "name": "Nagumo (058)",
+    "name": "Nagumo (058) (Gold)",
     "category": "Character",
     "color": "Purple",
     "cost": "2",
@@ -27381,7 +27381,7 @@
     "types": "The Order",
     "title": "Sakamoto Days",
     "image": "https://tcgcontender.com/cdn/cards/unionarena/538260/990297.webp",
-    "source": "https://tcgcontender.com/unionarena/cards/nagumo-058"
+    "source": "https://tcgcontender.com/unionarena/cards/nagumo-058-gold"
   },
   "UE19BT/SMD-1-059": {
     "id": "UE19BT/SMD-1-059",
@@ -27399,7 +27399,7 @@
   },
   "UE19BT/SMD-1-060": {
     "id": "UE19BT/SMD-1-060",
-    "name": "Nagumo (060)",
+    "name": "Nagumo (060) (R*)",
     "category": "Character",
     "color": "Purple",
     "cost": "1",
@@ -27409,7 +27409,7 @@
     "types": "The Order",
     "title": "Sakamoto Days",
     "image": "https://tcgcontender.com/cdn/cards/unionarena/127189/232134.webp",
-    "source": "https://tcgcontender.com/unionarena/cards/nagumo-060"
+    "source": "https://tcgcontender.com/unionarena/cards/nagumo-060-r"
   },
   "UE19BT/SMD-1-061": {
     "id": "UE19BT/SMD-1-061",
@@ -27800,7 +27800,7 @@
     "trigger": "",
     "types": "Thirteen Court Guard Squads",
     "title": "BLEACH",
-    "image": "https://tcgcontender.com/cdn/cards/unionarena/126148/231093.webp",
+    "image": "https://tcgcontender.com/cdn/cards/unionarena/125502/230447.webp",
     "source": "https://tcgcontender.com/unionarena/cards/nemu-kurotsuchi"
   },
   "UEX01BT/BLC-2-035": {
@@ -28603,7 +28603,7 @@
   },
   "UEPR/BCV-1-080": {
     "id": "UEPR/BCV-1-080",
-    "name": "Noelle Silva (Gold)",
+    "name": "Noelle Silva",
     "category": "Character",
     "color": "Red",
     "cost": "0",
@@ -28612,8 +28612,8 @@
     "trigger": "[Draw] Draw a card.",
     "types": "Black Bulls",
     "title": "Black Clover",
-    "image": "https://tcgcontender.com/cdn/cards/unionarena/124185/229130.webp",
-    "source": "https://tcgcontender.com/unionarena/cards/noelle-silva-gold"
+    "image": "https://tcgcontender.com/cdn/cards/unionarena/124973/229918.webp",
+    "source": "https://tcgcontender.com/unionarena/cards/noelle-silva"
   },
   "UE14BT/NIK-1-073": {
     "id": "UE14BT/NIK-1-073",
@@ -29079,7 +29079,7 @@
   },
   "UE09BT/FMA-1-060": {
     "id": "UE09BT/FMA-1-060",
-    "name": "Olivier Mira Armstrong (060)",
+    "name": "Olivier Mira Armstrong (060) (SR*)",
     "category": "Character",
     "color": "Blue",
     "cost": "6",
@@ -29089,7 +29089,7 @@
     "types": "Briggs",
     "title": "FULLMETAL ALCHEMIST",
     "image": "https://tcgcontender.com/cdn/cards/unionarena/123955/228900.webp",
-    "source": "https://tcgcontender.com/unionarena/cards/olivier-mira-armstrong-060"
+    "source": "https://tcgcontender.com/unionarena/cards/olivier-mira-armstrong-060-sr"
   },
   "UE10BT/AOT-1-099": {
     "id": "UE10BT/AOT-1-099",
@@ -29275,7 +29275,7 @@
   },
   "UEPR/BLC-1-036": {
     "id": "UEPR/BLC-1-036",
-    "name": "Orihime Inoue (Gold)",
+    "name": "Orihime Inoue",
     "category": "Character",
     "color": "Purple",
     "cost": "2",
@@ -29284,8 +29284,8 @@
     "trigger": "[Active] Choose one character on your field and switch it to active. It gains 3000 BP until the end of the turn.",
     "types": "",
     "title": "BLEACH",
-    "image": "https://tcgcontender.com/cdn/cards/unionarena/123719/228664.webp",
-    "source": "https://tcgcontender.com/unionarena/cards/orihime-inoue-gold"
+    "image": "https://tcgcontender.com/cdn/cards/unionarena/126472/231417.webp",
+    "source": "https://tcgcontender.com/unionarena/cards/orihime-inoue"
   },
   "UEPR/AOT-1-005": {
     "id": "UEPR/AOT-1-005",
@@ -29499,7 +29499,7 @@
   },
   "UE03BT/JJK-1-017": {
     "id": "UE03BT/JJK-1-017",
-    "name": "Panda (017) (R*)",
+    "name": "Panda (017)",
     "category": "Character",
     "color": "Yellow",
     "cost": "4",
@@ -29509,7 +29509,7 @@
     "types": "",
     "title": "Jujutsu Kaisen",
     "image": "https://tcgcontender.com/cdn/cards/unionarena/124277/229222.webp",
-    "source": "https://tcgcontender.com/unionarena/cards/panda-017-r"
+    "source": "https://tcgcontender.com/unionarena/cards/panda-017"
   },
   "UEPR/JJK-1-055": {
     "id": "UEPR/JJK-1-055",
@@ -30172,14 +30172,14 @@
   "UE19BT/SMD-1-037": {
     "id": "UE19BT/SMD-1-037",
     "name": "Psychic Ability",
-    "category": "Unknown",
-    "color": "",
-    "cost": null,
-    "ap": null,
+    "category": "Event",
+    "color": "Yellow",
+    "cost": "3",
+    "ap": "1",
     "bp": null,
-    "trigger": "",
+    "trigger": "[Draw] Draw a card.",
     "types": "",
-    "title": "",
+    "title": "Sakamoto Days",
     "image": "https://tcgcontender.com/cdn/cards/unionarena/538227/990264.webp",
     "source": "https://tcgcontender.com/unionarena/cards/psychic-ability"
   },
@@ -30675,7 +30675,7 @@
   },
   "UE20BT/TSK-1-047": {
     "id": "UE20BT/TSK-1-047",
-    "name": "Ranga (047)",
+    "name": "Ranga (047) (R*)",
     "category": "Character",
     "color": "Blue",
     "cost": "3",
@@ -30684,8 +30684,8 @@
     "trigger": "",
     "types": "",
     "title": "That Time I Got Reincarnated as a Slime",
-    "image": "https://tcgcontender.com/cdn/cards/unionarena/546289/1090149.webp",
-    "source": "https://tcgcontender.com/unionarena/cards/ranga-047"
+    "image": "https://tcgcontender.com/cdn/cards/unionarena/546289/999127.webp",
+    "source": "https://tcgcontender.com/unionarena/cards/ranga-047-r"
   },
   "UE20BT/TSK-1-073": {
     "id": "UE20BT/TSK-1-073",
@@ -31333,7 +31333,7 @@
   },
   "UE10BT/AOT-1-058": {
     "id": "UE10BT/AOT-1-058",
-    "name": "Reiner Braun (058)",
+    "name": "Reiner Braun (058) (Box Topper Foil)",
     "category": "Character",
     "color": "Green",
     "cost": "0",
@@ -31343,7 +31343,7 @@
     "types": "104th Cadet Corps / Marleyan Warrior / Inheritor of the Titan",
     "title": "Attack on Titan",
     "image": "https://tcgcontender.com/cdn/cards/unionarena/125315/230260.webp",
-    "source": "https://tcgcontender.com/unionarena/cards/reiner-braun-058"
+    "source": "https://tcgcontender.com/unionarena/cards/reiner-braun-058-box-topper-foil"
   },
   "UEPR/AOT-1-059": {
     "id": "UEPR/AOT-1-059",
@@ -32733,7 +32733,7 @@
   },
   "UE09BT/FMA-1-051": {
     "id": "UE09BT/FMA-1-051",
-    "name": "Riza Hawkeye (051)",
+    "name": "Riza Hawkeye (051) (SR**)",
     "category": "Character",
     "color": "Blue",
     "cost": "4",
@@ -32743,7 +32743,7 @@
     "types": "",
     "title": "FULLMETAL ALCHEMIST",
     "image": "https://tcgcontender.com/cdn/cards/unionarena/123716/228661.webp",
-    "source": "https://tcgcontender.com/unionarena/cards/riza-hawkeye-051"
+    "source": "https://tcgcontender.com/unionarena/cards/riza-hawkeye-051-sr"
   },
   "UEPR/FMA-1-048": {
     "id": "UEPR/FMA-1-048",
@@ -33700,14 +33700,14 @@
   "UE19BT/SMD-1-035": {
     "id": "UE19BT/SMD-1-035",
     "name": "Sakamoto's",
-    "category": "Site",
-    "color": "Yellow",
-    "cost": "3",
-    "ap": "1",
+    "category": "Unknown",
+    "color": "",
+    "cost": null,
+    "ap": null,
     "bp": null,
-    "trigger": "[Get] Add this card to your hand.",
-    "types": "Sakamoto's",
-    "title": "Sakamoto Days",
+    "trigger": "",
+    "types": "",
+    "title": "",
     "image": "https://tcgcontender.com/cdn/cards/unionarena/538226/990263.webp",
     "source": "https://tcgcontender.com/unionarena/cards/sakamoto-s"
   },
@@ -33783,7 +33783,7 @@
   },
   "UE05BT/KMY-2-006": {
     "id": "UE05BT/KMY-2-006",
-    "name": "Sanemi Shinazugawa (006) (R*)",
+    "name": "Sanemi Shinazugawa (006)",
     "category": "Character",
     "color": "Yellow",
     "cost": "3",
@@ -33793,7 +33793,7 @@
     "types": "Hashira",
     "title": "Demon Slayer",
     "image": "https://tcgcontender.com/cdn/cards/unionarena/125013/229958.webp",
-    "source": "https://tcgcontender.com/unionarena/cards/sanemi-shinazugawa-006-r"
+    "source": "https://tcgcontender.com/unionarena/cards/sanemi-shinazugawa-006"
   },
   "UE05BT/KMY-1-022": {
     "id": "UE05BT/KMY-1-022",
@@ -33867,7 +33867,7 @@
   },
   "UE23BT/IYS-1-058": {
     "id": "UE23BT/IYS-1-058",
-    "name": "Sango (058) (R*)",
+    "name": "Sango (058)",
     "category": "Character",
     "color": "Red",
     "cost": "3",
@@ -33876,8 +33876,8 @@
     "trigger": "[Draw] Draw a card.",
     "types": "",
     "title": "INUYASHA",
-    "image": "https://tcgcontender.com/cdn/cards/unionarena/797199/1452052.webp",
-    "source": "https://tcgcontender.com/unionarena/cards/sango-058-r"
+    "image": "https://tcgcontender.com/cdn/cards/unionarena/797199/1654334.webp",
+    "source": "https://tcgcontender.com/unionarena/cards/sango-058"
   },
   "UE23BT/IYS-1-059": {
     "id": "UE23BT/IYS-1-059",
@@ -33923,7 +33923,7 @@
   },
   "UE11BT/RNK-1-073": {
     "id": "UE11BT/RNK-1-073",
-    "name": "Sanosuke Sagara (073)",
+    "name": "Sanosuke Sagara (073) (C*)",
     "category": "Character",
     "color": "Red",
     "cost": "0",
@@ -33933,11 +33933,11 @@
     "types": "",
     "title": "Rurouni Kenshin",
     "image": "https://tcgcontender.com/cdn/cards/unionarena/125307/230252.webp",
-    "source": "https://tcgcontender.com/unionarena/cards/sanosuke-sagara-073"
+    "source": "https://tcgcontender.com/unionarena/cards/sanosuke-sagara-073-c"
   },
   "UE11BT/RNK-1-074": {
     "id": "UE11BT/RNK-1-074",
-    "name": "Sanosuke Sagara (074)",
+    "name": "Sanosuke Sagara (074) (Box Topper Foil)",
     "category": "Character",
     "color": "Red",
     "cost": "1",
@@ -33947,7 +33947,7 @@
     "types": "",
     "title": "Rurouni Kenshin",
     "image": "https://tcgcontender.com/cdn/cards/unionarena/125843/230788.webp",
-    "source": "https://tcgcontender.com/unionarena/cards/sanosuke-sagara-074"
+    "source": "https://tcgcontender.com/unionarena/cards/sanosuke-sagara-074-box-topper-foil"
   },
   "UE11BT/RNK-1-075": {
     "id": "UE11BT/RNK-1-075",
@@ -33979,7 +33979,7 @@
   },
   "UE11BT/RNK-1-076": {
     "id": "UE11BT/RNK-1-076",
-    "name": "Sanosuke Sagara (076) (R*)",
+    "name": "Sanosuke Sagara (076)",
     "category": "Character",
     "color": "Red",
     "cost": "3",
@@ -33989,7 +33989,7 @@
     "types": "",
     "title": "Rurouni Kenshin",
     "image": "https://tcgcontender.com/cdn/cards/unionarena/124507/229452.webp",
-    "source": "https://tcgcontender.com/unionarena/cards/sanosuke-sagara-076-r"
+    "source": "https://tcgcontender.com/unionarena/cards/sanosuke-sagara-076"
   },
   "UE11BT/RNK-1-077": {
     "id": "UE11BT/RNK-1-077",
@@ -34105,7 +34105,7 @@
   },
   "UE10BT/AOT-1-082": {
     "id": "UE10BT/AOT-1-082",
-    "name": "Sasha Braus (082)",
+    "name": "Sasha Braus (082) (R*)",
     "category": "Character",
     "color": "Red",
     "cost": "2",
@@ -34115,7 +34115,7 @@
     "types": "104th Cadet Corps / Levi Squad",
     "title": "Attack on Titan",
     "image": "https://tcgcontender.com/cdn/cards/unionarena/124789/229734.webp",
-    "source": "https://tcgcontender.com/unionarena/cards/sasha-braus-082"
+    "source": "https://tcgcontender.com/unionarena/cards/sasha-braus-082-r"
   },
   "UEPR/JJK-1-009": {
     "id": "UEPR/JJK-1-009",
@@ -34749,7 +34749,7 @@
   },
   "UEX01BT/BLC-2-057": {
     "id": "UEX01BT/BLC-2-057",
-    "name": "Senjumaru Shutara (057)",
+    "name": "Senjumaru Shutara (057) (R*)",
     "category": "Character",
     "color": "Purple",
     "cost": "4",
@@ -34759,11 +34759,11 @@
     "types": "Squad Zero",
     "title": "BLEACH",
     "image": "https://tcgcontender.com/cdn/cards/unionarena/124825/229770.webp",
-    "source": "https://tcgcontender.com/unionarena/cards/senjumaru-shutara-057"
+    "source": "https://tcgcontender.com/unionarena/cards/senjumaru-shutara-057-r"
   },
   "UEX01BT/BLC-2-056": {
     "id": "UEX01BT/BLC-2-056",
-    "name": "Senjumaru Shutara (Box Topper Foil)",
+    "name": "Senjumaru Shutara (056)",
     "category": "Character",
     "color": "Purple",
     "cost": "0",
@@ -34773,7 +34773,7 @@
     "types": "Squad Zero",
     "title": "BLEACH",
     "image": "https://tcgcontender.com/cdn/cards/unionarena/124808/229753.webp",
-    "source": "https://tcgcontender.com/unionarena/cards/senjumaru-shutara-box-topper-foil"
+    "source": "https://tcgcontender.com/unionarena/cards/senjumaru-shutara-056"
   },
   "UEPR/KMY-1-081": {
     "id": "UEPR/KMY-1-081",
@@ -35184,14 +35184,14 @@
   "UE19BT/SMD-1-015": {
     "id": "UE19BT/SMD-1-015",
     "name": "Shin Asakura (015)",
-    "category": "Character",
-    "color": "Yellow",
-    "cost": "3",
-    "ap": "1",
-    "bp": "3000",
-    "trigger": "[Draw] Draw a card.",
-    "types": "Sakamoto's",
-    "title": "Sakamoto Days",
+    "category": "Unknown",
+    "color": "",
+    "cost": null,
+    "ap": null,
+    "bp": null,
+    "trigger": "",
+    "types": "",
+    "title": "",
     "image": "https://tcgcontender.com/cdn/cards/unionarena/538190/990227.webp",
     "source": "https://tcgcontender.com/unionarena/cards/shin-asakura-015"
   },
@@ -35211,7 +35211,7 @@
   },
   "UE19BT/SMD-1-016": {
     "id": "UE19BT/SMD-1-016",
-    "name": "Shin Asakura (016) (R*)",
+    "name": "Shin Asakura (016)",
     "category": "Character",
     "color": "Yellow",
     "cost": "2",
@@ -35221,7 +35221,7 @@
     "types": "Sakamoto's",
     "title": "Sakamoto Days",
     "image": "https://tcgcontender.com/cdn/cards/unionarena/538225/990262.webp",
-    "source": "https://tcgcontender.com/unionarena/cards/shin-asakura-016-r"
+    "source": "https://tcgcontender.com/unionarena/cards/shin-asakura-016"
   },
   "UE19BT/SMD-1-017": {
     "id": "UE19BT/SMD-1-017",
@@ -35519,7 +35519,7 @@
   },
   "UE05BT/KMY-1-021": {
     "id": "UE05BT/KMY-1-021",
-    "name": "Shinobu Kocho (021)",
+    "name": "Shinobu Kocho (021) (R*)",
     "category": "Character",
     "color": "Yellow",
     "cost": "3",
@@ -35529,7 +35529,7 @@
     "types": "Hashira",
     "title": "Demon Slayer",
     "image": "https://tcgcontender.com/cdn/cards/unionarena/124637/229582.webp",
-    "source": "https://tcgcontender.com/unionarena/cards/shinobu-kocho-021"
+    "source": "https://tcgcontender.com/unionarena/cards/shinobu-kocho-021-r"
   },
   "UEPR/RNK-1-002": {
     "id": "UEPR/RNK-1-002",
@@ -35953,7 +35953,7 @@
   },
   "UE20BT/TSK-2-015": {
     "id": "UE20BT/TSK-2-015",
-    "name": "Shizu (015)",
+    "name": "Shizu (015) (U*)",
     "category": "Character",
     "color": "Blue",
     "cost": "4",
@@ -35963,7 +35963,7 @@
     "types": "",
     "title": "That Time I Got Reincarnated as a Slime",
     "image": "https://tcgcontender.com/cdn/cards/unionarena/546219/1345521.webp",
-    "source": "https://tcgcontender.com/unionarena/cards/shizu-015"
+    "source": "https://tcgcontender.com/unionarena/cards/shizu-015-u"
   },
   "UE20BT/TSK-1-041": {
     "id": "UE20BT/TSK-1-041",
@@ -36065,7 +36065,7 @@
   },
   "UE21BT/RLY-1-018": {
     "id": "UE21BT/RLY-1-018",
-    "name": "Shizuka Yoshimoto (018) (R*)",
+    "name": "Shizuka Yoshimoto (018)",
     "category": "Character",
     "color": "Yellow",
     "cost": "3",
@@ -36075,7 +36075,7 @@
     "types": "",
     "title": "The 100 Girlfriends Who Really, Really, Really, Really, REALLY Love You",
     "image": "https://tcgcontender.com/cdn/cards/unionarena/587236/1089907.webp",
-    "source": "https://tcgcontender.com/unionarena/cards/shizuka-yoshimoto-018-r"
+    "source": "https://tcgcontender.com/unionarena/cards/shizuka-yoshimoto-018"
   },
   "UE21BT/RLY-1-061": {
     "id": "UE21BT/RLY-1-061",
@@ -36485,7 +36485,7 @@
   },
   "UE20BT/TSK-2-020": {
     "id": "UE20BT/TSK-2-020",
-    "name": "Shuna (020)",
+    "name": "Shuna (020) (U*)",
     "category": "Character",
     "color": "Blue",
     "cost": "3",
@@ -36494,8 +36494,8 @@
     "trigger": "[Draw] Draw a card.",
     "types": "Kijin",
     "title": "That Time I Got Reincarnated as a Slime",
-    "image": "https://tcgcontender.com/cdn/cards/unionarena/546319/1090128.webp",
-    "source": "https://tcgcontender.com/unionarena/cards/shuna-020"
+    "image": "https://tcgcontender.com/cdn/cards/unionarena/546319/999157.webp",
+    "source": "https://tcgcontender.com/unionarena/cards/shuna-020-u"
   },
   "UE20BT/TSK-1-057": {
     "id": "UE20BT/TSK-1-057",
@@ -36555,7 +36555,7 @@
   },
   "UE01BT/BLC-1-074": {
     "id": "UE01BT/BLC-1-074",
-    "name": "Shunsui Kyoraku (074) (R*)",
+    "name": "Shunsui Kyoraku (074)",
     "category": "Character",
     "color": "Green",
     "cost": "3",
@@ -36565,7 +36565,7 @@
     "types": "Thirteen Court Guard Squads",
     "title": "BLEACH",
     "image": "https://tcgcontender.com/cdn/cards/unionarena/124891/229836.webp",
-    "source": "https://tcgcontender.com/unionarena/cards/shunsui-kyoraku-074-r"
+    "source": "https://tcgcontender.com/unionarena/cards/shunsui-kyoraku-074"
   },
   "UEPR/CGH-1-058": {
     "id": "UEPR/CGH-1-058",
@@ -37171,7 +37171,7 @@
   },
   "UE14BT/NIK-1-111": {
     "id": "UE14BT/NIK-1-111",
-    "name": "Snow White (111) (R*)",
+    "name": "Snow White (111)",
     "category": "Character",
     "color": "Purple",
     "cost": "0",
@@ -37181,7 +37181,7 @@
     "types": "Pilgrim / Pioneer",
     "title": "GODDESS OF VICTORY: NIKKE",
     "image": "https://tcgcontender.com/cdn/cards/unionarena/124353/229298.webp",
-    "source": "https://tcgcontender.com/unionarena/cards/snow-white-111-r"
+    "source": "https://tcgcontender.com/unionarena/cards/snow-white-111"
   },
   "UEPR/TKG-1-097": {
     "id": "UEPR/TKG-1-097",
@@ -37577,7 +37577,7 @@
   },
   "UE12BT/KJ8-1-066": {
     "id": "UE12BT/KJ8-1-066",
-    "name": "Soshiro Hoshina (066) (Box Topper Foil)",
+    "name": "Soshiro Hoshina (066)",
     "category": "Character",
     "color": "Green",
     "cost": "0",
@@ -37587,7 +37587,7 @@
     "types": "",
     "title": "Kaiju No. 8",
     "image": "https://tcgcontender.com/cdn/cards/unionarena/125136/230081.webp",
-    "source": "https://tcgcontender.com/unionarena/cards/soshiro-hoshina-066-box-topper-foil"
+    "source": "https://tcgcontender.com/unionarena/cards/soshiro-hoshina-066"
   },
   "UEPR/KJ8-1-067": {
     "id": "UEPR/KJ8-1-067",
@@ -38277,7 +38277,7 @@
   },
   "UE06BT/OPM-1-034": {
     "id": "UE06BT/OPM-1-034",
-    "name": "Suiryu",
+    "name": "Suiryu (C*)",
     "category": "Character",
     "color": "Green",
     "cost": "0",
@@ -38287,7 +38287,7 @@
     "types": "",
     "title": "One Punch Man",
     "image": "https://tcgcontender.com/cdn/cards/unionarena/124831/229776.webp",
-    "source": "https://tcgcontender.com/unionarena/cards/suiryu"
+    "source": "https://tcgcontender.com/unionarena/cards/suiryu-c"
   },
   "UEPR/JJK-2-007": {
     "id": "UEPR/JJK-2-007",
@@ -39355,7 +39355,7 @@
   },
   "UEPR/KMY-1-006": {
     "id": "UEPR/KMY-1-006",
-    "name": "Tanjiro Kamado (006) (Gold)",
+    "name": "Tanjiro Kamado (006)",
     "category": "Character",
     "color": "Yellow",
     "cost": "3",
@@ -39365,7 +39365,7 @@
     "types": "",
     "title": "Demon Slayer",
     "image": "https://tcgcontender.com/cdn/cards/unionarena/124002/228947.webp",
-    "source": "https://tcgcontender.com/unionarena/cards/tanjiro-kamado-006-gold"
+    "source": "https://tcgcontender.com/unionarena/cards/tanjiro-kamado-006"
   },
   "UE05BT/KMY-1-007": {
     "id": "UE05BT/KMY-1-007",
@@ -39691,7 +39691,7 @@
   },
   "UEPR/SMD-1-026": {
     "id": "UEPR/SMD-1-026",
-    "name": "Taro Sakamoto (026) (UR)",
+    "name": "Taro Sakamoto (026) (UR) (Winner)",
     "category": "Character",
     "color": "Yellow",
     "cost": "4",
@@ -39701,7 +39701,7 @@
     "types": "Sakamoto's",
     "title": "Sakamoto Days",
     "image": "https://tcgcontender.com/cdn/cards/unionarena/543871/996213.webp",
-    "source": "https://tcgcontender.com/unionarena/cards/taro-sakamoto-026-ur"
+    "source": "https://tcgcontender.com/unionarena/cards/taro-sakamoto-026-ur-winner"
   },
   "UE19BT/SMD-1-047": {
     "id": "UE19BT/SMD-1-047",
@@ -40237,7 +40237,7 @@
   },
   "UEPR/OPM-1-051": {
     "id": "UEPR/OPM-1-051",
-    "name": "Terrible Tornado (Release Event Participation)",
+    "name": "Terrible Tornado (Release Event Winner)",
     "category": "Character",
     "color": "Green",
     "cost": "4",
@@ -40247,7 +40247,7 @@
     "types": "Hero",
     "title": "One Punch Man",
     "image": "https://tcgcontender.com/cdn/cards/unionarena/124280/229225.webp",
-    "source": "https://tcgcontender.com/unionarena/cards/terrible-tornado-release-event-participation"
+    "source": "https://tcgcontender.com/unionarena/cards/terrible-tornado-release-event-winner"
   },
   "UE02BT/HTR-1-061": {
     "id": "UE02BT/HTR-1-061",
@@ -40783,7 +40783,7 @@
   },
   "UEPR/CGH-2-019": {
     "id": "UEPR/CGH-2-019",
-    "name": "Tianzi",
+    "name": "Tianzi (019)",
     "category": "Character",
     "color": "Blue",
     "cost": "2",
@@ -40791,9 +40791,9 @@
     "bp": "2500",
     "trigger": "",
     "types": "Chinese Federation",
-    "title": "Code Geass",
+    "title": "CODE GEASS",
     "image": "https://tcgcontender.com/cdn/cards/unionarena/124311/229256.webp",
-    "source": "https://tcgcontender.com/unionarena/cards/tianzi"
+    "source": "https://tcgcontender.com/unionarena/cards/tianzi-019"
   },
   "UEPR/CGH-2-018": {
     "id": "UEPR/CGH-2-018",
@@ -41035,7 +41035,7 @@
   },
   "UE16BT/KGR-1-049": {
     "id": "UE16BT/KGR-1-049",
-    "name": "Togo Shiba (049)",
+    "name": "Togo Shiba (049) (R*)",
     "category": "Character",
     "color": "Red",
     "cost": "3",
@@ -41045,7 +41045,7 @@
     "types": "",
     "title": "KAGURABACHI",
     "image": "https://tcgcontender.com/cdn/cards/unionarena/126242/231187.webp",
-    "source": "https://tcgcontender.com/unionarena/cards/togo-shiba-049"
+    "source": "https://tcgcontender.com/unionarena/cards/togo-shiba-049-r"
   },
   "UE16BT/KGR-1-050": {
     "id": "UE16BT/KGR-1-050",
@@ -41217,7 +41217,7 @@
   },
   "UE18BT/TKG-1-024": {
     "id": "UE18BT/TKG-1-024",
-    "name": "Toru Mutsuki (024)",
+    "name": "Toru Mutsuki (024) (R*)",
     "category": "Character",
     "color": "Yellow",
     "cost": "3",
@@ -41227,7 +41227,7 @@
     "types": "CCG/Mado Squad/Qs",
     "title": "Tokyo Ghoul",
     "image": "https://tcgcontender.com/cdn/cards/unionarena/482691/999240.webp",
-    "source": "https://tcgcontender.com/unionarena/cards/toru-mutsuki-024"
+    "source": "https://tcgcontender.com/unionarena/cards/toru-mutsuki-024-r"
   },
   "UE01NC/BLC-3-009": {
     "id": "UE01NC/BLC-3-009",
@@ -41343,7 +41343,7 @@
   },
   "UE05BT/KMY-1-029": {
     "id": "UE05BT/KMY-1-029",
-    "name": "Total Concentration Breathing (029)",
+    "name": "Total Concentration Breathing (029) (U*)",
     "category": "Event",
     "color": "Yellow",
     "cost": "3",
@@ -41353,7 +41353,7 @@
     "types": "",
     "title": "Demon Slayer",
     "image": "https://tcgcontender.com/cdn/cards/unionarena/126374/231319.webp",
-    "source": "https://tcgcontender.com/unionarena/cards/total-concentration-breathing-029"
+    "source": "https://tcgcontender.com/unionarena/cards/total-concentration-breathing-029-u"
   },
   "UEPR/KMY-1-099": {
     "id": "UEPR/KMY-1-099",
@@ -42015,7 +42015,7 @@
   },
   "UEX01BT/BLC-2-002": {
     "id": "UEX01BT/BLC-2-002",
-    "name": "Uryu Ishida",
+    "name": "Uryu Ishida (R*)",
     "category": "Character",
     "color": "Yellow",
     "cost": "3",
@@ -42025,7 +42025,7 @@
     "types": "Stern Ritters",
     "title": "BLEACH",
     "image": "https://tcgcontender.com/cdn/cards/unionarena/124004/228949.webp",
-    "source": "https://tcgcontender.com/unionarena/cards/uryu-ishida"
+    "source": "https://tcgcontender.com/unionarena/cards/uryu-ishida-r"
   },
   "UE11BT/RNK-1-050": {
     "id": "UE11BT/RNK-1-050",
@@ -42113,7 +42113,7 @@
   },
   "UE02BT/HTR-1-034": {
     "id": "UE02BT/HTR-1-034",
-    "name": "Uvogin (034) (R*)",
+    "name": "Uvogin (034)",
     "category": "Character",
     "color": "Purple",
     "cost": "4",
@@ -42123,7 +42123,7 @@
     "types": "Phantom Troupe",
     "title": "HUNTER X HUNTER",
     "image": "https://tcgcontender.com/cdn/cards/unionarena/125880/230825.webp",
-    "source": "https://tcgcontender.com/unionarena/cards/uvogin-034-r"
+    "source": "https://tcgcontender.com/unionarena/cards/uvogin-034"
   },
   "UE04BT/CGH-1-063": {
     "id": "UE04BT/CGH-1-063",
@@ -42393,7 +42393,7 @@
   },
   "UEX03BT/CGH-2-064": {
     "id": "UEX03BT/CGH-2-064",
-    "name": "Villetta Nu",
+    "name": "Villetta Nu (R*)",
     "category": "Character",
     "color": "Red",
     "cost": "3",
@@ -42403,7 +42403,7 @@
     "types": "Ashford Academy",
     "title": "CODE GEASS",
     "image": "https://tcgcontender.com/cdn/cards/unionarena/125104/230049.webp",
-    "source": "https://tcgcontender.com/unionarena/cards/villetta-nu"
+    "source": "https://tcgcontender.com/unionarena/cards/villetta-nu-r"
   },
   "UEX03BT/CGH-2-026": {
     "id": "UEX03BT/CGH-2-026",
@@ -42463,7 +42463,7 @@
   },
   "UE14BT/NIK-1-015": {
     "id": "UE14BT/NIK-1-015",
-    "name": "Viper (015) (R*)",
+    "name": "Viper (015)",
     "category": "Character",
     "color": "Yellow",
     "cost": "3",
@@ -42473,7 +42473,7 @@
     "types": "Tetra Line / Exotic",
     "title": "GODDESS OF VICTORY: NIKKE",
     "image": "https://tcgcontender.com/cdn/cards/unionarena/124057/229002.webp",
-    "source": "https://tcgcontender.com/unionarena/cards/viper-015-r"
+    "source": "https://tcgcontender.com/unionarena/cards/viper-015"
   },
   "UE14BT/NIK-1-066": {
     "id": "UE14BT/NIK-1-066",
@@ -42855,9 +42855,9 @@
   },
   "UE17BT/SLG-1-004": {
     "id": "UE17BT/SLG-1-004",
-    "name": "Woo Jinchul",
+    "name": "Woo Jinchul (R*)",
     "category": "Character",
-    "color": "Purple",
+    "color": "",
     "cost": "3",
     "ap": "1",
     "bp": "3500",
@@ -42865,7 +42865,7 @@
     "types": "",
     "title": "SOLO LEVELING",
     "image": "https://tcgcontender.com/cdn/cards/unionarena/415840/788385.webp",
-    "source": "https://tcgcontender.com/unionarena/cards/woo-jinchul"
+    "source": "https://tcgcontender.com/unionarena/cards/woo-jinchul-r"
   },
   "UE07BT/SAO-1-062": {
     "id": "UE07BT/SAO-1-062",
@@ -44353,7 +44353,7 @@
   },
   "UE14BT/NIK-1-025": {
     "id": "UE14BT/NIK-1-025",
-    "name": "Yuni (025)",
+    "name": "Yuni (025) (Box Topper Foil)",
     "category": "Character",
     "color": "Yellow",
     "cost": "0",
@@ -44362,8 +44362,8 @@
     "trigger": "[Get] Add this card to your hand.",
     "types": "Missilis / Wardress",
     "title": "GODDESS OF VICTORY: NIKKE",
-    "image": "https://tcgcontender.com/cdn/cards/unionarena/127117/232062.webp",
-    "source": "https://tcgcontender.com/unionarena/cards/yuni-025"
+    "image": "https://tcgcontender.com/cdn/cards/unionarena/125140/230085.webp",
+    "source": "https://tcgcontender.com/unionarena/cards/yuni-025-box-topper-foil"
   },
   "UEPR/NIK-1-026": {
     "id": "UEPR/NIK-1-026",
@@ -44381,7 +44381,7 @@
   },
   "UE14BT/NIK-1-027": {
     "id": "UE14BT/NIK-1-027",
-    "name": "Yuni (027)",
+    "name": "Yuni (027) (R*)",
     "category": "Character",
     "color": "Yellow",
     "cost": "4",
@@ -44391,7 +44391,7 @@
     "types": "Missilis / Wardress",
     "title": "GODDESS OF VICTORY: NIKKE",
     "image": "https://tcgcontender.com/cdn/cards/unionarena/123995/228940.webp",
-    "source": "https://tcgcontender.com/unionarena/cards/yuni-027"
+    "source": "https://tcgcontender.com/unionarena/cards/yuni-027-r"
   },
   "UE08BT/BCV-1-055": {
     "id": "UE08BT/BCV-1-055",
@@ -44521,7 +44521,7 @@
   },
   "UEPR/BCV-1-056": {
     "id": "UEPR/BCV-1-056",
-    "name": "Yuno (Release Event Participation)",
+    "name": "Yuno (Release Event Winner)",
     "category": "Character",
     "color": "Green",
     "cost": "2",
@@ -44531,7 +44531,7 @@
     "types": "Golden Dawn",
     "title": "Black Clover",
     "image": "https://tcgcontender.com/cdn/cards/unionarena/123553/228498.webp",
-    "source": "https://tcgcontender.com/unionarena/cards/yuno-release-event-participation"
+    "source": "https://tcgcontender.com/unionarena/cards/yuno-release-event-winner"
   },
   "UE16BT/KGR-1-030": {
     "id": "UE16BT/KGR-1-030",
@@ -45316,5 +45316,2329 @@
     "title": "",
     "image": "https://tcgcontender.com/cdn/cards/unionarena/127335/232280.webp",
     "source": "https://tcgcontender.com/unionarena/cards/s-n-dt"
+  },
+  "UEPR/HTR-1-001": {
+    "id": "UEPR/HTR-1-001",
+    "name": "Abengane",
+    "category": "Character",
+    "color": "Blue",
+    "cost": "4",
+    "ap": "1",
+    "bp": "3500",
+    "trigger": "",
+    "types": "",
+    "title": "HUNTER X HUNTER",
+    "image": "https://tcgcontender.com/cdn/cards/unionarena/126821/231766.webp",
+    "source": "https://tcgcontender.com/unionarena/cards/abengane"
+  },
+  "UE07ST/SAO-1-102": {
+    "id": "UE07ST/SAO-1-102",
+    "name": "Agil",
+    "category": "Character",
+    "color": "Blue",
+    "cost": "3",
+    "ap": "1",
+    "bp": "3000",
+    "trigger": "[Active] Choose one character on your field and switch it to active. It gains 3000 BP until the end of the turn.",
+    "types": "Aincrad",
+    "title": "Sword Art Online",
+    "image": "https://tcgcontender.com/cdn/cards/unionarena/125105/230050.webp",
+    "source": "https://tcgcontender.com/unionarena/cards/agil"
+  },
+  "UEPR/RNK-1-094": {
+    "id": "UEPR/RNK-1-094",
+    "name": "Akabeko",
+    "category": "Site",
+    "color": "Red",
+    "cost": "1",
+    "ap": "1",
+    "bp": null,
+    "trigger": "[Get] Add this card to your hand.",
+    "types": "",
+    "title": "Rurouni Kenshin",
+    "image": "https://tcgcontender.com/cdn/cards/unionarena/126178/231123.webp",
+    "source": "https://tcgcontender.com/unionarena/cards/akabeko"
+  },
+  "UEPR/CGH-1-064": {
+    "id": "UEPR/CGH-1-064",
+    "name": "All Hail Britannia",
+    "category": "Event",
+    "color": "Green",
+    "cost": "3",
+    "ap": "1",
+    "bp": null,
+    "trigger": "[Get] Add this card to your hand.",
+    "types": "",
+    "title": "CODE GEASS",
+    "image": "https://tcgcontender.com/cdn/cards/unionarena/125187/230132.webp",
+    "source": "https://tcgcontender.com/unionarena/cards/all-hail-britannia"
+  },
+  "UE10BT/AOT-1-050": {
+    "id": "UE10BT/AOT-1-050",
+    "name": "Annie Leonhart (050)",
+    "category": "Character",
+    "color": "Green",
+    "cost": "0",
+    "ap": "1",
+    "bp": "1500",
+    "trigger": "[Draw] Draw a card.",
+    "types": "104th Cadet Corps / Marleyan Warrior / Inheritor of the Titan",
+    "title": "Attack on Titan",
+    "image": "https://tcgcontender.com/cdn/cards/unionarena/905498/1606498.webp",
+    "source": "https://tcgcontender.com/unionarena/cards/annie-leonhart-050"
+  },
+  "UEPR/CGH-2-054": {
+    "id": "UEPR/CGH-2-054",
+    "name": "Anya Alstreim (054)",
+    "category": "Character",
+    "color": "Green",
+    "cost": "2",
+    "ap": "1",
+    "bp": "3000",
+    "trigger": "[Active] Choose one character on your field and switch it to active. It gains 3000 BP until the end of the turn.",
+    "types": "Holy Britannian Empire / Knights of the Round",
+    "title": "CODE GEASS",
+    "image": "https://tcgcontender.com/cdn/cards/unionarena/124963/229908.webp",
+    "source": "https://tcgcontender.com/unionarena/cards/anya-alstreim-054"
+  },
+  "UEX03BT/CGH-2-063": {
+    "id": "UEX03BT/CGH-2-063",
+    "name": "Anya Alstreim (063) (U*)",
+    "category": "Character",
+    "color": "Red",
+    "cost": "4",
+    "ap": "1",
+    "bp": "3500",
+    "trigger": "[Active] Choose one character on your field and switch it to active. It gains 3000 BP until the end of the turn.",
+    "types": "Ashford Academy",
+    "title": "CODE GEASS",
+    "image": "https://tcgcontender.com/cdn/cards/unionarena/906166/1654473.webp",
+    "source": "https://tcgcontender.com/unionarena/cards/anya-alstreim-063-u"
+  },
+  "UEPR/KJ8-1-015": {
+    "id": "UEPR/KJ8-1-015",
+    "name": "Aoi Kaguragi (015)",
+    "category": "Character",
+    "color": "Yellow",
+    "cost": "3",
+    "ap": "1",
+    "bp": "3500",
+    "trigger": "[Active] Choose one character on your field and switch it to active. It gains 3000 BP until the end of the turn.",
+    "types": "",
+    "title": "Kaiju No. 8",
+    "image": "https://tcgcontender.com/cdn/cards/unionarena/906217/1607217.webp",
+    "source": "https://tcgcontender.com/unionarena/cards/aoi-kaguragi-015"
+  },
+  "UEPR/RNK-1-015": {
+    "id": "UEPR/RNK-1-015",
+    "name": "Aoshi Shinomori (015)",
+    "category": "Character",
+    "color": "Blue",
+    "cost": "1",
+    "ap": "1",
+    "bp": "2000",
+    "trigger": "",
+    "types": "Oniwaban Group",
+    "title": "Rurouni Kenshin",
+    "image": "https://tcgcontender.com/cdn/cards/unionarena/124731/229676.webp",
+    "source": "https://tcgcontender.com/unionarena/cards/aoshi-shinomori-015"
+  },
+  "UE10BT/AOT-1-076": {
+    "id": "UE10BT/AOT-1-076",
+    "name": "Armin Arlelt (076) (U*)",
+    "category": "Character",
+    "color": "Red",
+    "cost": "1",
+    "ap": "1",
+    "bp": "2000",
+    "trigger": "[Draw] Draw a card.",
+    "types": "104th Cadet Corps / Levi Squad",
+    "title": "Attack on Titan",
+    "image": "https://tcgcontender.com/cdn/cards/unionarena/905758/1606758.webp",
+    "source": "https://tcgcontender.com/unionarena/cards/armin-arlelt-076-u"
+  },
+  "UEPR/CGH-1-068": {
+    "id": "UEPR/CGH-1-068",
+    "name": "Arthur",
+    "category": "Character",
+    "color": "Red",
+    "cost": "0",
+    "ap": "1",
+    "bp": "2000",
+    "trigger": "",
+    "types": "Ashford Academy",
+    "title": "CODE GEASS",
+    "image": "https://tcgcontender.com/cdn/cards/unionarena/125986/230931.webp",
+    "source": "https://tcgcontender.com/unionarena/cards/arthur"
+  },
+  "UEPR/EVA-1-048": {
+    "id": "UEPR/EVA-1-048",
+    "name": "Asuka Shikinami Langley (048)",
+    "category": "Character",
+    "color": "Purple",
+    "cost": "0",
+    "ap": "1",
+    "bp": "1500",
+    "trigger": "[Get] Add this card to your hand.",
+    "types": "WILLE",
+    "title": "EVANGELION",
+    "image": "https://tcgcontender.com/cdn/cards/unionarena/125607/230552.webp",
+    "source": "https://tcgcontender.com/unionarena/cards/asuka-shikinami-langley-048"
+  },
+  "UEPR/EVA-1-049": {
+    "id": "UEPR/EVA-1-049",
+    "name": "Asuka Shikinami Langley (049)",
+    "category": "Character",
+    "color": "Purple",
+    "cost": "1",
+    "ap": "1",
+    "bp": "2000",
+    "trigger": "[Draw] Draw a card.",
+    "types": "WILLE",
+    "title": "EVANGELION",
+    "image": "https://tcgcontender.com/cdn/cards/unionarena/123617/228562.webp",
+    "source": "https://tcgcontender.com/unionarena/cards/asuka-shikinami-langley-049"
+  },
+  "UE07ST/SAO-1-036": {
+    "id": "UE07ST/SAO-1-036",
+    "name": "Asuna (036)",
+    "category": "Character",
+    "color": "Blue",
+    "cost": "2",
+    "ap": "1",
+    "bp": "3000",
+    "trigger": "",
+    "types": "Aincrad",
+    "title": "Sword Art Online",
+    "image": "https://tcgcontender.com/cdn/cards/unionarena/906179/1607179.webp",
+    "source": "https://tcgcontender.com/unionarena/cards/asuna-036"
+  },
+  "BLC-1-012": {
+    "id": "BLC-1-012",
+    "name": "Bambietta Basterbine",
+    "category": "Character",
+    "color": "Yellow",
+    "cost": null,
+    "ap": "1",
+    "bp": "1500",
+    "trigger": "Add this card to your hand.",
+    "types": "Stern Ritters",
+    "title": "",
+    "image": "https://tcgcontender.com/cdn/cards/unionarena/127345/232290.webp",
+    "source": "https://tcgcontender.com/unionarena/cards/bambietta-basterbine"
+  },
+  "UEPR/BLC-1-012": {
+    "id": "UEPR/BLC-1-012",
+    "name": "Bambietta Basterbine (012)",
+    "category": "Character",
+    "color": "Yellow",
+    "cost": "0",
+    "ap": "1",
+    "bp": "1500",
+    "trigger": "[Get] Add this card to your hand.",
+    "types": "Stern Ritters",
+    "title": "BLEACH",
+    "image": "https://tcgcontender.com/cdn/cards/unionarena/125596/230541.webp",
+    "source": "https://tcgcontender.com/unionarena/cards/bambietta-basterbine-012"
+  },
+  "UEPR/HTR-1-025": {
+    "id": "UEPR/HTR-1-025",
+    "name": "Bara",
+    "category": "Character",
+    "color": "Blue",
+    "cost": "3",
+    "ap": "1",
+    "bp": "3000",
+    "trigger": "[Draw] Draw a card.",
+    "types": "The Bomber",
+    "title": "HUNTER X HUNTER",
+    "image": "https://tcgcontender.com/cdn/cards/unionarena/126002/230947.webp",
+    "source": "https://tcgcontender.com/unionarena/cards/bara"
+  },
+  "UEPR/BLC-2-003": {
+    "id": "UEPR/BLC-2-003",
+    "name": "Bazz-B (Judge Pack)",
+    "category": "Character",
+    "color": "Yellow",
+    "cost": "2",
+    "ap": "1",
+    "bp": "3000",
+    "trigger": "[Active] Choose one character on your field and switch it to active. It gains 3000 BP until the end of the turn.",
+    "types": "Stern Ritters",
+    "title": "Bleach",
+    "image": "https://tcgcontender.com/cdn/cards/unionarena/125915/230860.webp",
+    "source": "https://tcgcontender.com/unionarena/cards/bazz-b-judge-pack"
+  },
+  "UEPR/YYH-1-001": {
+    "id": "UEPR/YYH-1-001",
+    "name": "Beautiful Suzuki (001)",
+    "category": "Character",
+    "color": "Purple",
+    "cost": "2",
+    "ap": "1",
+    "bp": "3000",
+    "trigger": "",
+    "types": "",
+    "title": "Yu Yu Hakusho",
+    "image": "https://tcgcontender.com/cdn/cards/unionarena/125100/230045.webp",
+    "source": "https://tcgcontender.com/unionarena/cards/beautiful-suzuki-001"
+  },
+  "UEX04BT/HTR-2-049": {
+    "id": "UEX04BT/HTR-2-049",
+    "name": "Blue Planet (U*)",
+    "category": "Site",
+    "color": "Blue",
+    "cost": "2",
+    "ap": "1",
+    "bp": null,
+    "trigger": "[Draw] Draw a card.",
+    "types": "Specified Slot",
+    "title": "HUNTER X HUNTER",
+    "image": "https://tcgcontender.com/cdn/cards/unionarena/905927/1606927.webp",
+    "source": "https://tcgcontender.com/unionarena/cards/blue-planet-u"
+  },
+  "UEPR/YYH-1-057": {
+    "id": "UEPR/YYH-1-057",
+    "name": "Botan (057)",
+    "category": "Character",
+    "color": "Green",
+    "cost": "2",
+    "ap": "1",
+    "bp": "2500",
+    "trigger": "",
+    "types": "",
+    "title": "Yu Yu Hakusho",
+    "image": "https://tcgcontender.com/cdn/cards/unionarena/125804/230749.webp",
+    "source": "https://tcgcontender.com/unionarena/cards/botan-057"
+  },
+  "UEX03BT/CGH-2-066": {
+    "id": "UEX03BT/CGH-2-066",
+    "name": "C.C. (066)",
+    "category": "Character",
+    "color": "Red",
+    "cost": "4",
+    "ap": "1",
+    "bp": "4000",
+    "trigger": "[Raid] Add this card to your hand, or if you have the required energy, perform Raid with it.",
+    "types": "Ashford Academy",
+    "title": "CODE GEASS",
+    "image": "https://tcgcontender.com/cdn/cards/unionarena/905295/1606295.webp",
+    "source": "https://tcgcontender.com/unionarena/cards/c-c-066"
+  },
+  "BLC-1-097": {
+    "id": "BLC-1-097",
+    "name": "Captain's Coat",
+    "category": "Event",
+    "color": "Green",
+    "cost": "3",
+    "ap": "1",
+    "bp": null,
+    "trigger": "Choose one character on your field and switch it to active. It gains 3000 BP until the end of the turn.",
+    "types": "",
+    "title": "",
+    "image": "https://tcgcontender.com/cdn/cards/unionarena/127451/232396.webp",
+    "source": "https://tcgcontender.com/unionarena/cards/captain-s-coat"
+  },
+  "UEPR/KGR-1-057": {
+    "id": "UEPR/KGR-1-057",
+    "name": "Chihiro Rokuhira (057)",
+    "category": "Character",
+    "color": "Red",
+    "cost": "2",
+    "ap": "1",
+    "bp": "3000",
+    "trigger": "",
+    "types": "",
+    "title": "KAGURABACHI",
+    "image": "https://tcgcontender.com/cdn/cards/unionarena/415731/788276.webp",
+    "source": "https://tcgcontender.com/unionarena/cards/chihiro-rokuhira-057"
+  },
+  "UEPR/RNK-1-054": {
+    "id": "UEPR/RNK-1-054",
+    "name": "Cho Sawagejo (054)",
+    "category": "Character",
+    "color": "Purple",
+    "cost": "4",
+    "ap": "1",
+    "bp": "4000",
+    "trigger": "[Get] Add this card to your hand.",
+    "types": "Ten Swords",
+    "title": "Rurouni Kenshin",
+    "image": "https://tcgcontender.com/cdn/cards/unionarena/126530/231475.webp",
+    "source": "https://tcgcontender.com/unionarena/cards/cho-sawagejo-054"
+  },
+  "UEPR/CGH-1-037": {
+    "id": "UEPR/CGH-1-037",
+    "name": "Clovis la Britannia",
+    "category": "Character",
+    "color": "Green",
+    "cost": "2",
+    "ap": "1",
+    "bp": "2500",
+    "trigger": "",
+    "types": "Holy Britannian Empire",
+    "title": "CODE GEASS",
+    "image": "https://tcgcontender.com/cdn/cards/unionarena/126128/231073.webp",
+    "source": "https://tcgcontender.com/unionarena/cards/clovis-la-britannia"
+  },
+  "UEPR/CGH-1-038": {
+    "id": "UEPR/CGH-1-038",
+    "name": "Cornelia li Britannia (038)",
+    "category": "Character",
+    "color": "Green",
+    "cost": "0",
+    "ap": "1",
+    "bp": "1500",
+    "trigger": "[Get] Add this card to your hand.",
+    "types": "Holy Britannian Empire",
+    "title": "CODE GEASS",
+    "image": "https://tcgcontender.com/cdn/cards/unionarena/126986/231931.webp",
+    "source": "https://tcgcontender.com/unionarena/cards/cornelia-li-britannia-038"
+  },
+  "UEPR/JJK-3-065": {
+    "id": "UEPR/JJK-3-065",
+    "name": "Dagon (065)",
+    "category": "Character",
+    "color": "Red",
+    "cost": "0",
+    "ap": "1",
+    "bp": "2000",
+    "trigger": "",
+    "types": "Cursed Spirit",
+    "title": "Jujutsu Kaisen",
+    "image": "https://tcgcontender.com/cdn/cards/unionarena/124328/229273.webp",
+    "source": "https://tcgcontender.com/unionarena/cards/dagon-065"
+  },
+  "UEPR/TKG-1-064": {
+    "id": "UEPR/TKG-1-064",
+    "name": "Disgusting? You Wound Me...",
+    "category": "Event",
+    "color": "Purple",
+    "cost": "2",
+    "ap": "1",
+    "bp": null,
+    "trigger": "[Color] Play one purple character card with 2 or less required energy and 1 AP cost from your sideline set to active onto your front line.",
+    "types": "",
+    "title": "Tokyo Ghoul",
+    "image": "https://tcgcontender.com/cdn/cards/unionarena/482690/888386.webp",
+    "source": "https://tcgcontender.com/unionarena/cards/disgusting-you-wound-me"
+  },
+  "UEPR/JJK-1-025": {
+    "id": "UEPR/JJK-1-025",
+    "name": "Divine Dog: Totality",
+    "category": "Character",
+    "color": "Yellow",
+    "cost": "3",
+    "ap": "1",
+    "bp": "3500",
+    "trigger": "[Active] Choose one character on your field and switch it to active. It gains 3000 BP until the end of the turn.",
+    "types": "Shikigami",
+    "title": "Jujutsu Kaisen",
+    "image": "https://tcgcontender.com/cdn/cards/unionarena/124713/229658.webp",
+    "source": "https://tcgcontender.com/unionarena/cards/divine-dog-totality"
+  },
+  "UEPR/HTR-2-030": {
+    "id": "UEPR/HTR-2-030",
+    "name": "Dodgeball Court",
+    "category": "Site",
+    "color": "Yellow",
+    "cost": "2",
+    "ap": "1",
+    "bp": null,
+    "trigger": "[Get] Add this card to your hand.",
+    "types": "",
+    "title": "HUNTER X HUNTER",
+    "image": "https://tcgcontender.com/cdn/cards/unionarena/125526/230471.webp",
+    "source": "https://tcgcontender.com/unionarena/cards/dodgeball-court"
+  },
+  "UEPR/SAO-2-034": {
+    "id": "UEPR/SAO-2-034",
+    "name": "Eiji",
+    "category": "Character",
+    "color": "Purple",
+    "cost": "2",
+    "ap": "1",
+    "bp": "3000",
+    "trigger": "[Active] Choose one character on your field and switch it to active. It gains 3000 BP until the end of the turn.",
+    "types": "SAO Survivor",
+    "title": "Sword Art Online",
+    "image": "https://tcgcontender.com/cdn/cards/unionarena/124785/229730.webp",
+    "source": "https://tcgcontender.com/unionarena/cards/eiji"
+  },
+  "UEPR/JJK-1-095": {
+    "id": "UEPR/JJK-1-095",
+    "name": "Ember Insects",
+    "category": "Event",
+    "color": "Purple",
+    "cost": "4",
+    "ap": "1",
+    "bp": null,
+    "trigger": "[Draw] Draw a card.",
+    "types": "",
+    "title": "Jujutsu Kaisen",
+    "image": "https://tcgcontender.com/cdn/cards/unionarena/125406/230351.webp",
+    "source": "https://tcgcontender.com/unionarena/cards/ember-insects"
+  },
+  "UEPR/AOT-1-092": {
+    "id": "UEPR/AOT-1-092",
+    "name": "Eren Jaeger (092)",
+    "category": "Character",
+    "color": "Red",
+    "cost": "4",
+    "ap": "1",
+    "bp": "4000",
+    "trigger": "[Raid] Add this card to your hand, or if you have the required energy, perform Raid with it.",
+    "types": "104th Cadet Corps / Levi Squad / Inheritor of the Titan",
+    "title": "Attack on Titan",
+    "image": "https://tcgcontender.com/cdn/cards/unionarena/124220/229165.webp",
+    "source": "https://tcgcontender.com/unionarena/cards/eren-jaeger-092"
+  },
+  "UEPR/AOT-1-071": {
+    "id": "UEPR/AOT-1-071",
+    "name": "Eren Kruger",
+    "category": "Character",
+    "color": "Red",
+    "cost": "0",
+    "ap": "1",
+    "bp": "2000",
+    "trigger": "",
+    "types": "Inheritor of the Titan",
+    "title": "Attack on Titan",
+    "image": "https://tcgcontender.com/cdn/cards/unionarena/125242/230187.webp",
+    "source": "https://tcgcontender.com/unionarena/cards/eren-kruger"
+  },
+  "UEPR/AOT-1-001": {
+    "id": "UEPR/AOT-1-001",
+    "name": "Erwin Smith (001)",
+    "category": "Character",
+    "color": "Blue",
+    "cost": "0",
+    "ap": "1",
+    "bp": "2000",
+    "trigger": "[Active] Choose one character on your field and switch it to active. It gains 3000 BP until the end of the turn.",
+    "types": "",
+    "title": "Attack on Titan",
+    "image": "https://tcgcontender.com/cdn/cards/unionarena/125984/230929.webp",
+    "source": "https://tcgcontender.com/unionarena/cards/erwin-smith-001"
+  },
+  "UEPR/SAO-1-016": {
+    "id": "UEPR/SAO-1-016",
+    "name": "Fanatio Synthesis Two",
+    "category": "Character",
+    "color": "Yellow",
+    "cost": "3",
+    "ap": "1",
+    "bp": "3000",
+    "trigger": "[Draw] Draw a card.",
+    "types": "Integrity Knights",
+    "title": "Sword Art Online",
+    "image": "https://tcgcontender.com/cdn/cards/unionarena/124307/229252.webp",
+    "source": "https://tcgcontender.com/unionarena/cards/fanatio-synthesis-two"
+  },
+  "UEPR/KJ8-1-076": {
+    "id": "UEPR/KJ8-1-076",
+    "name": "Fire Training Exercise",
+    "category": "Event",
+    "color": "Green",
+    "cost": "4",
+    "ap": "1",
+    "bp": null,
+    "trigger": "[Draw] Draw a card.",
+    "types": "",
+    "title": "Kaiju No. 8",
+    "image": "https://tcgcontender.com/cdn/cards/unionarena/124899/229844.webp",
+    "source": "https://tcgcontender.com/unionarena/cards/fire-training-exercise"
+  },
+  "UEPR/CGH-1-093": {
+    "id": "UEPR/CGH-1-093",
+    "name": "Ganymede",
+    "category": "Character",
+    "color": "Red",
+    "cost": "3",
+    "ap": "1",
+    "bp": "3000",
+    "trigger": "[Get] Add this card to your hand.",
+    "types": "Ashford Academy / KMF",
+    "title": "CODE GEASS",
+    "image": "https://tcgcontender.com/cdn/cards/unionarena/125251/230196.webp",
+    "source": "https://tcgcontender.com/unionarena/cards/ganymede"
+  },
+  "UEPR/KGR-1-009": {
+    "id": "UEPR/KGR-1-009",
+    "name": "Genichi Sojo (009)",
+    "category": "Character",
+    "color": "Purple",
+    "cost": "1",
+    "ap": "1",
+    "bp": "1500",
+    "trigger": "[Active] Choose one character on your field and switch it to active. It gains 3000 BP until the end of the turn.",
+    "types": "",
+    "title": "KAGURABACHI",
+    "image": "https://tcgcontender.com/cdn/cards/unionarena/127291/232236.webp",
+    "source": "https://tcgcontender.com/unionarena/cards/genichi-sojo-009"
+  },
+  "UE13BT/YYH-1-045": {
+    "id": "UE13BT/YYH-1-045",
+    "name": "Genkai (045) (U*)",
+    "category": "Character",
+    "color": "Green",
+    "cost": "3",
+    "ap": "2",
+    "bp": "3000",
+    "trigger": "[Draw] Draw a card.",
+    "types": "",
+    "title": "Yu Yu Hakusho",
+    "image": "https://tcgcontender.com/cdn/cards/unionarena/906143/1654463.webp",
+    "source": "https://tcgcontender.com/unionarena/cards/genkai-045-u"
+  },
+  "UE06BT/OPM-1-005": {
+    "id": "UE06BT/OPM-1-005",
+    "name": "Genos (005) (Box Topper Foil)",
+    "category": "Character",
+    "color": "Yellow",
+    "cost": "0",
+    "ap": "1",
+    "bp": "1500",
+    "trigger": "[Get] Add this card to your hand.",
+    "types": "Hero",
+    "title": "One Punch Man",
+    "image": "https://tcgcontender.com/cdn/cards/unionarena/125604/230549.webp",
+    "source": "https://tcgcontender.com/unionarena/cards/genos-005-box-topper-foil"
+  },
+  "UEPR/CGH-2-057": {
+    "id": "UEPR/CGH-2-057",
+    "name": "Gino Weinberg (057)",
+    "category": "Character",
+    "color": "Green",
+    "cost": "1",
+    "ap": "1",
+    "bp": "2000",
+    "trigger": "",
+    "types": "Holy Britannian Empire / Knights of the Round",
+    "title": "CODE GEASS",
+    "image": "https://tcgcontender.com/cdn/cards/unionarena/125153/230098.webp",
+    "source": "https://tcgcontender.com/unionarena/cards/gino-weinberg-057"
+  },
+  "UEX04BT/HTR-2-075": {
+    "id": "UEX04BT/HTR-2-075",
+    "name": "Gon Freecss (075)",
+    "category": "Character",
+    "color": "Blue",
+    "cost": "2",
+    "ap": "1",
+    "bp": "2500",
+    "trigger": "[Color] Choose one character with 3500 or less BP on your opponent's front line and return it to their hand.",
+    "types": "",
+    "title": "HUNTER X HUNTER",
+    "image": "https://tcgcontender.com/cdn/cards/unionarena/124812/229757.webp",
+    "source": "https://tcgcontender.com/unionarena/cards/gon-freecss-075"
+  },
+  "UEPR/HTR-2-012": {
+    "id": "UEPR/HTR-2-012",
+    "name": "Goreinu (012)",
+    "category": "Character",
+    "color": "Yellow",
+    "cost": "1",
+    "ap": "1",
+    "bp": "2000",
+    "trigger": "",
+    "types": "Razor Attack Team",
+    "title": "HUNTER X HUNTER",
+    "image": "https://tcgcontender.com/cdn/cards/unionarena/126169/231114.webp",
+    "source": "https://tcgcontender.com/unionarena/cards/goreinu-012"
+  },
+  "UE09BT/FMA-1-082": {
+    "id": "UE09BT/FMA-1-082",
+    "name": "Greed (082) (U*)",
+    "category": "Character",
+    "color": "Purple",
+    "cost": "4",
+    "ap": "1",
+    "bp": "4000",
+    "trigger": "[Active] Choose one character on your field and switch it to active. It gains 3000 BP until the end of the turn.",
+    "types": "Homunculus",
+    "title": "FULLMETAL ALCHEMIST",
+    "image": "https://tcgcontender.com/cdn/cards/unionarena/905760/1606760.webp",
+    "source": "https://tcgcontender.com/unionarena/cards/greed-082-u"
+  },
+  "UEPR/KMY-3-051": {
+    "id": "UEPR/KMY-3-051",
+    "name": "Gyokko (051)",
+    "category": "Character",
+    "color": "Purple",
+    "cost": "0",
+    "ap": "1",
+    "bp": "1500",
+    "trigger": "[Draw] Draw a card.",
+    "types": "Upper Rank Demon",
+    "title": "Demon Slayer",
+    "image": "https://tcgcontender.com/cdn/cards/unionarena/124257/229202.webp",
+    "source": "https://tcgcontender.com/unionarena/cards/gyokko-051"
+  },
+  "UEPR/KMY-1-053": {
+    "id": "UEPR/KMY-1-053",
+    "name": "Gyutaro (053)",
+    "category": "Character",
+    "color": "Purple",
+    "cost": "0",
+    "ap": "1",
+    "bp": "2000",
+    "trigger": "",
+    "types": "Upper Rank Demon",
+    "title": "Demon Slayer",
+    "image": "https://tcgcontender.com/cdn/cards/unionarena/124299/229244.webp",
+    "source": "https://tcgcontender.com/unionarena/cards/gyutaro-053"
+  },
+  "UEPR/HTR-1-087": {
+    "id": "UEPR/HTR-1-087",
+    "name": "Hanzo",
+    "category": "Character",
+    "color": "Green",
+    "cost": "5",
+    "ap": "1",
+    "bp": "4000",
+    "trigger": "",
+    "types": "",
+    "title": "HUNTER X HUNTER",
+    "image": "https://tcgcontender.com/cdn/cards/unionarena/125800/230745.webp",
+    "source": "https://tcgcontender.com/unionarena/cards/hanzo"
+  },
+  "UE12BT/KJ8-1-008": {
+    "id": "UE12BT/KJ8-1-008",
+    "name": "Haruichi Izumo (008) (U*)",
+    "category": "Character",
+    "color": "Yellow",
+    "cost": "3",
+    "ap": "1",
+    "bp": "3500",
+    "trigger": "[Draw] Draw a card.",
+    "types": "",
+    "title": "Kaiju No. 8",
+    "image": "https://tcgcontender.com/cdn/cards/unionarena/905658/1654455.webp",
+    "source": "https://tcgcontender.com/unionarena/cards/haruichi-izumo-008-u"
+  },
+  "UEPR/BCV-1-086": {
+    "id": "UEPR/BCV-1-086",
+    "name": "Henry Legolant",
+    "category": "Character",
+    "color": "Red",
+    "cost": "3",
+    "ap": "1",
+    "bp": "3000",
+    "trigger": "",
+    "types": "Black Bulls",
+    "title": "Black Clover",
+    "image": "https://tcgcontender.com/cdn/cards/unionarena/125861/230806.webp",
+    "source": "https://tcgcontender.com/unionarena/cards/henry-legolant"
+  },
+  "UEPR/RNK-1-051": {
+    "id": "UEPR/RNK-1-051",
+    "name": "Henya Kariwa",
+    "category": "Character",
+    "color": "Purple",
+    "cost": "3",
+    "ap": "1",
+    "bp": "3000",
+    "trigger": "",
+    "types": "Ten Swords",
+    "title": "Rurouni Kenshin",
+    "image": "https://tcgcontender.com/cdn/cards/unionarena/125874/230819.webp",
+    "source": "https://tcgcontender.com/unionarena/cards/henya-kariwa"
+  },
+  "UEPR/OPM-1-063": {
+    "id": "UEPR/OPM-1-063",
+    "name": "Hero Association",
+    "category": "Site",
+    "color": "Green",
+    "cost": "1",
+    "ap": "1",
+    "bp": null,
+    "trigger": "[Draw] Draw a card.",
+    "types": "",
+    "title": "One Punch Man",
+    "image": "https://tcgcontender.com/cdn/cards/unionarena/125555/230500.webp",
+    "source": "https://tcgcontender.com/unionarena/cards/hero-association"
+  },
+  "UEX04BT/HTR-2-024": {
+    "id": "UEX04BT/HTR-2-024",
+    "name": "Hisoka (024)",
+    "category": "Character",
+    "color": "Yellow",
+    "cost": "6",
+    "ap": "1",
+    "bp": "4500",
+    "trigger": "[Active] Choose one character on your field and switch it to active. It gains 3000 BP until the end of the turn.",
+    "types": "Razor Attack Team",
+    "title": "HUNTER X HUNTER",
+    "image": "https://tcgcontender.com/cdn/cards/unionarena/905259/1606259.webp",
+    "source": "https://tcgcontender.com/unionarena/cards/hisoka-024"
+  },
+  "UEPR/YYH-1-064": {
+    "id": "UEPR/YYH-1-064",
+    "name": "I Didn't Die For Nothing!",
+    "category": "Event",
+    "color": "Green",
+    "cost": "3",
+    "ap": "1",
+    "bp": null,
+    "trigger": "[Final] If you have 0 life, place the top card of your deck into your life area.",
+    "types": "",
+    "title": "Yu Yu Hakusho",
+    "image": "https://tcgcontender.com/cdn/cards/unionarena/123893/228838.webp",
+    "source": "https://tcgcontender.com/unionarena/cards/i-didn-t-die-for-nothing"
+  },
+  "UEPR/EVA-1-067": {
+    "id": "UEPR/EVA-1-067",
+    "name": "I'm Aware of the Risks",
+    "category": "Event",
+    "color": "Purple",
+    "cost": "3",
+    "ap": "1",
+    "bp": null,
+    "trigger": "[Final] If you have 0 life, place the top card of your deck into your life area.",
+    "types": "",
+    "title": "EVANGELION",
+    "image": "https://tcgcontender.com/cdn/cards/unionarena/123560/228505.webp",
+    "source": "https://tcgcontender.com/unionarena/cards/i-m-aware-of-the-risks"
+  },
+  "UEX04BT/HTR-2-055": {
+    "id": "UEX04BT/HTR-2-055",
+    "name": "Illumi (055) (U*)",
+    "category": "Character",
+    "color": "Purple",
+    "cost": "4",
+    "ap": "1",
+    "bp": "4000",
+    "trigger": "[Color] Play one purple character card with 2 or less required energy and 1 AP cost from your sideline set to active onto your front line.",
+    "types": "Zoldyck Family",
+    "title": "HUNTER X HUNTER",
+    "image": "https://tcgcontender.com/cdn/cards/unionarena/905553/1654433.webp",
+    "source": "https://tcgcontender.com/unionarena/cards/illumi-055-u"
+  },
+  "UEPR/BLC-1-075": {
+    "id": "UEPR/BLC-1-075",
+    "name": "Izuru Kira",
+    "category": "Character",
+    "color": "Green",
+    "cost": "2",
+    "ap": "1",
+    "bp": "2500",
+    "trigger": "",
+    "types": "Thirteen Court Guard Squads",
+    "title": "BLEACH",
+    "image": "https://tcgcontender.com/cdn/cards/unionarena/125399/230344.webp",
+    "source": "https://tcgcontender.com/unionarena/cards/izuru-kira"
+  },
+  "UEPR/AOT-1-018": {
+    "id": "UEPR/AOT-1-018",
+    "name": "Jean Kirschtein (018)",
+    "category": "Character",
+    "color": "Blue",
+    "cost": "3",
+    "ap": "1",
+    "bp": "3500",
+    "trigger": "[Active] Choose one character on your field and switch it to active. It gains 3000 BP until the end of the turn.",
+    "types": "104th Cadet Corps / Levi Squad",
+    "title": "Attack on Titan",
+    "image": "https://tcgcontender.com/cdn/cards/unionarena/125499/230444.webp",
+    "source": "https://tcgcontender.com/unionarena/cards/jean-kirschtein-018"
+  },
+  "UE10BT/AOT-1-084": {
+    "id": "UE10BT/AOT-1-084",
+    "name": "Jean Kirschtein (084) (U*)",
+    "category": "Character",
+    "color": "Red",
+    "cost": "2",
+    "ap": "1",
+    "bp": "2000",
+    "trigger": "[Active] Choose one character on your field and switch it to active. It gains 3000 BP until the end of the turn.",
+    "types": "104th Cadet Corps / Levi Squad",
+    "title": "Attack on Titan",
+    "image": "https://tcgcontender.com/cdn/cards/unionarena/905956/1654407.webp",
+    "source": "https://tcgcontender.com/unionarena/cards/jean-kirschtein-084-u"
+  },
+  "UEPR/NIK-1-035": {
+    "id": "UEPR/NIK-1-035",
+    "name": "Johan",
+    "category": "Character",
+    "color": "Purple",
+    "cost": "1",
+    "ap": "1",
+    "bp": "2000",
+    "trigger": "",
+    "types": "Inherit",
+    "title": "GODDESS OF VICTORY: NIKKE",
+    "image": "https://tcgcontender.com/cdn/cards/unionarena/123933/228878.webp",
+    "source": "https://tcgcontender.com/unionarena/cards/johan"
+  },
+  "UEPR/TKG-1-087": {
+    "id": "UEPR/TKG-1-087",
+    "name": "Juzo Suzuya (087)",
+    "category": "Character",
+    "color": "Red",
+    "cost": "0",
+    "ap": "1",
+    "bp": "2000",
+    "trigger": "[Active] Choose one character on your field and switch it to active. It gains 3000 BP until the end of the turn.",
+    "types": "CCG",
+    "title": "Tokyo Ghoul",
+    "image": "https://tcgcontender.com/cdn/cards/unionarena/485842/892418.webp",
+    "source": "https://tcgcontender.com/unionarena/cards/juzo-suzuya-087"
+  },
+  "UEPR/KJ8-1-024": {
+    "id": "UEPR/KJ8-1-024",
+    "name": "Kafka Hibino (024)",
+    "category": "Character",
+    "color": "Yellow",
+    "cost": "3",
+    "ap": "1",
+    "bp": "3000",
+    "trigger": "",
+    "types": "",
+    "title": "Kaiju No. 8",
+    "image": "https://tcgcontender.com/cdn/cards/unionarena/124805/229750.webp",
+    "source": "https://tcgcontender.com/unionarena/cards/kafka-hibino-024"
+  },
+  "UEPR/RNK-1-028": {
+    "id": "UEPR/RNK-1-028",
+    "name": "Kaiten Kenbu",
+    "category": "Event",
+    "color": "Blue",
+    "cost": "4",
+    "ap": "1",
+    "bp": null,
+    "trigger": "[Special] Choose one character on your opponent's front line and sideline it.",
+    "types": "",
+    "title": "Rurouni Kenshin",
+    "image": "https://tcgcontender.com/cdn/cards/unionarena/125514/230459.webp",
+    "source": "https://tcgcontender.com/unionarena/cards/kaiten-kenbu"
+  },
+  "UEPR/RNK-1-029": {
+    "id": "UEPR/RNK-1-029",
+    "name": "Kaiten Kenbu: Six Successions",
+    "category": "Event",
+    "color": "Blue",
+    "cost": "4",
+    "ap": "1",
+    "bp": null,
+    "trigger": "[Special] Choose one character on your opponent's front line and sideline it.",
+    "types": "",
+    "title": "Rurouni Kenshin",
+    "image": "https://tcgcontender.com/cdn/cards/unionarena/124597/229542.webp",
+    "source": "https://tcgcontender.com/unionarena/cards/kaiten-kenbu-six-successions"
+  },
+  "UEPR/HTR-2-063": {
+    "id": "UEPR/HTR-2-063",
+    "name": "Kastro",
+    "category": "Character",
+    "color": "Green",
+    "cost": "4",
+    "ap": "1",
+    "bp": "3500",
+    "trigger": "[Draw] Draw a card.",
+    "types": "",
+    "title": "HUNTER X HUNTER",
+    "image": "https://tcgcontender.com/cdn/cards/unionarena/125807/230752.webp",
+    "source": "https://tcgcontender.com/unionarena/cards/kastro"
+  },
+  "UEPR/KMY-1-004": {
+    "id": "UEPR/KMY-1-004",
+    "name": "Kasugai Crow",
+    "category": "Character",
+    "color": "Yellow",
+    "cost": "0",
+    "ap": "1",
+    "bp": "1000",
+    "trigger": "",
+    "types": "",
+    "title": "Demon Slayer",
+    "image": "https://tcgcontender.com/cdn/cards/unionarena/124989/229934.webp",
+    "source": "https://tcgcontender.com/unionarena/cards/kasugai-crow"
+  },
+  "UEPR/YYH-1-040": {
+    "id": "UEPR/YYH-1-040",
+    "name": "Kazuma Kuwabara (040)",
+    "category": "Character",
+    "color": "Green",
+    "cost": "0",
+    "ap": "1",
+    "bp": "1500",
+    "trigger": "[Get] Add this card to your hand.",
+    "types": "",
+    "title": "Yu Yu Hakusho",
+    "image": "https://tcgcontender.com/cdn/cards/unionarena/126097/231042.webp",
+    "source": "https://tcgcontender.com/unionarena/cards/kazuma-kuwabara-040"
+  },
+  "UE13BT/YYH-1-041": {
+    "id": "UE13BT/YYH-1-041",
+    "name": "Kazuma Kuwabara (041) (Box Topper Foil)",
+    "category": "Character",
+    "color": "Green",
+    "cost": "1",
+    "ap": "1",
+    "bp": "2000",
+    "trigger": "[Active] Choose one character on your field and switch it to active. It gains 3000 BP until the end of the turn.",
+    "types": "",
+    "title": "Yu Yu Hakusho",
+    "image": "https://tcgcontender.com/cdn/cards/unionarena/905766/1606766.webp",
+    "source": "https://tcgcontender.com/unionarena/cards/kazuma-kuwabara-041-box-topper-foil"
+  },
+  "UE11BT/RNK-1-085": {
+    "id": "UE11BT/RNK-1-085",
+    "name": "Kenshin Himura (085) (Box Topper Foil)",
+    "category": "Character",
+    "color": "Red",
+    "cost": "0",
+    "ap": "1",
+    "bp": "2000",
+    "trigger": "[Get] Add this card to your hand.",
+    "types": "",
+    "title": "Rurouni Kenshin",
+    "image": "https://tcgcontender.com/cdn/cards/unionarena/905741/1606741.webp",
+    "source": "https://tcgcontender.com/unionarena/cards/kenshin-himura-085-box-topper-foil"
+  },
+  "UEPR/JJK-1-051": {
+    "id": "UEPR/JJK-1-051",
+    "name": "Kento Nanami (051)",
+    "category": "Character",
+    "color": "Blue",
+    "cost": "0",
+    "ap": "1",
+    "bp": "1500",
+    "trigger": "[Get] Add this card to your hand.",
+    "types": "",
+    "title": "Jujutsu Kaisen",
+    "image": "https://tcgcontender.com/cdn/cards/unionarena/126667/231612.webp",
+    "source": "https://tcgcontender.com/unionarena/cards/kento-nanami-051"
+  },
+  "UE12BT/KJ8-1-018": {
+    "id": "UE12BT/KJ8-1-018",
+    "name": "Kikoru Shinomiya (018)",
+    "category": "Character",
+    "color": "Yellow",
+    "cost": "2",
+    "ap": "1",
+    "bp": "3000",
+    "trigger": "[Draw] Draw a card.",
+    "types": "",
+    "title": "Kaiju No. 8",
+    "image": "https://tcgcontender.com/cdn/cards/unionarena/905378/1606378.webp",
+    "source": "https://tcgcontender.com/unionarena/cards/kikoru-shinomiya-018"
+  },
+  "UE06BT/OPM-1-039": {
+    "id": "UE06BT/OPM-1-039",
+    "name": "King (039) (Box Topper Foil)",
+    "category": "Character",
+    "color": "Green",
+    "cost": "0",
+    "ap": "1",
+    "bp": "1000",
+    "trigger": "[Get] Add this card to your hand.",
+    "types": "Hero",
+    "title": "One Punch Man",
+    "image": "https://tcgcontender.com/cdn/cards/unionarena/905550/1606550.webp",
+    "source": "https://tcgcontender.com/unionarena/cards/king-039-box-topper-foil"
+  },
+  "UEX06BT/SAO-2-048": {
+    "id": "UEX06BT/SAO-2-048",
+    "name": "Kirito (048) (U*)",
+    "category": "Character",
+    "color": "Purple",
+    "cost": "2",
+    "ap": "1",
+    "bp": "2500",
+    "trigger": "",
+    "types": "Progressive",
+    "title": "Sword Art Online",
+    "image": "https://tcgcontender.com/cdn/cards/unionarena/905757/1654445.webp",
+    "source": "https://tcgcontender.com/unionarena/cards/kirito-048-u"
+  },
+  "UEPR/SAO-1-042": {
+    "id": "UEPR/SAO-1-042",
+    "name": "Klein (042)",
+    "category": "Character",
+    "color": "Blue",
+    "cost": "2",
+    "ap": "1",
+    "bp": "2000",
+    "trigger": "[Active] Choose one character on your field and switch it to active. It gains 3000 BP until the end of the turn.",
+    "types": "Aincrad",
+    "title": "Sword Art Online",
+    "image": "https://tcgcontender.com/cdn/cards/unionarena/125453/230398.webp",
+    "source": "https://tcgcontender.com/unionarena/cards/klein-042"
+  },
+  "UEPR/IYS-1-024": {
+    "id": "UEPR/IYS-1-024",
+    "name": "Kohaku (024)",
+    "category": "Character",
+    "color": "Purple",
+    "cost": "1",
+    "ap": "1",
+    "bp": "2000",
+    "trigger": "",
+    "types": "Naraku&#039;s Faction",
+    "title": "INUYASHA",
+    "image": "https://tcgcontender.com/cdn/cards/unionarena/797241/1452094.webp",
+    "source": "https://tcgcontender.com/unionarena/cards/kohaku-024"
+  },
+  "UEPR/TKG-1-019": {
+    "id": "UEPR/TKG-1-019",
+    "name": "Kuki Urie (019)",
+    "category": "Character",
+    "color": "Yellow",
+    "cost": "2",
+    "ap": "1",
+    "bp": "3000",
+    "trigger": "[Draw] Draw a card.",
+    "types": "CCG/Mado Squad/Qs",
+    "title": "Tokyo Ghoul",
+    "image": "https://tcgcontender.com/cdn/cards/unionarena/482716/888412.webp",
+    "source": "https://tcgcontender.com/unionarena/cards/kuki-urie-019"
+  },
+  "UE13BT/YYH-1-009": {
+    "id": "UE13BT/YYH-1-009",
+    "name": "Kuromomotaro (Box Topper Foil)",
+    "category": "Character",
+    "color": "Purple",
+    "cost": "1",
+    "ap": "1",
+    "bp": "2500",
+    "trigger": "",
+    "types": "",
+    "title": "Yu Yu Hakusho",
+    "image": "https://tcgcontender.com/cdn/cards/unionarena/905988/1606988.webp",
+    "source": "https://tcgcontender.com/unionarena/cards/kuromomotaro-box-topper-foil"
+  },
+  "UEPR/KMY-1-027": {
+    "id": "UEPR/KMY-1-027",
+    "name": "Kyojuro Rengoku (027)",
+    "category": "Character",
+    "color": "Yellow",
+    "cost": "4",
+    "ap": "1",
+    "bp": "4000",
+    "trigger": "[Active] Choose one character on your field and switch it to active. It gains 3000 BP until the end of the turn.",
+    "types": "Hashira",
+    "title": "Demon Slayer",
+    "image": "https://tcgcontender.com/cdn/cards/unionarena/124691/229636.webp",
+    "source": "https://tcgcontender.com/unionarena/cards/kyojuro-rengoku-027"
+  },
+  "UEPR/CGH-2-070": {
+    "id": "UEPR/CGH-2-070",
+    "name": "Lelouch Lamperouge (070)",
+    "category": "Character",
+    "color": "Red",
+    "cost": "2",
+    "ap": "1",
+    "bp": "2500",
+    "trigger": "",
+    "types": "Ashford Academy",
+    "title": "CODE GEASS",
+    "image": "https://tcgcontender.com/cdn/cards/unionarena/125834/230779.webp",
+    "source": "https://tcgcontender.com/unionarena/cards/lelouch-lamperouge-070"
+  },
+  "UEPR/AOT-1-007": {
+    "id": "UEPR/AOT-1-007",
+    "name": "Levi (007)",
+    "category": "Character",
+    "color": "Blue",
+    "cost": "0",
+    "ap": "1",
+    "bp": "1500",
+    "trigger": "[Get] Add this card to your hand.",
+    "types": "Levi Squad",
+    "title": "Attack on Titan",
+    "image": "https://tcgcontender.com/cdn/cards/unionarena/126316/231261.webp",
+    "source": "https://tcgcontender.com/unionarena/cards/levi-007"
+  },
+  "UEPR/BCV-1-072": {
+    "id": "UEPR/BCV-1-072",
+    "name": "Liebe",
+    "category": "Character",
+    "color": "Red",
+    "cost": "2",
+    "ap": "1",
+    "bp": "3000",
+    "trigger": "[Color] Choose one character with 2500 or less BP on your opponent's front line and sideline it.",
+    "types": "Devil",
+    "title": "Black Clover",
+    "image": "https://tcgcontender.com/cdn/cards/unionarena/124719/229664.webp",
+    "source": "https://tcgcontender.com/unionarena/cards/liebe"
+  },
+  "UEPR/EVA-1-058": {
+    "id": "UEPR/EVA-1-058",
+    "name": "Lilith",
+    "category": "Site",
+    "color": "Purple",
+    "cost": "2",
+    "ap": "1",
+    "bp": null,
+    "trigger": "[Get] Add this card to your hand.",
+    "types": "",
+    "title": "EVANGELION",
+    "image": "https://tcgcontender.com/cdn/cards/unionarena/123832/228777.webp",
+    "source": "https://tcgcontender.com/unionarena/cards/lilith"
+  },
+  "UEPR/SAO-2-039": {
+    "id": "UEPR/SAO-2-039",
+    "name": "Lisbeth (039)",
+    "category": "Character",
+    "color": "Purple",
+    "cost": "1",
+    "ap": "1",
+    "bp": "2000",
+    "trigger": "[Draw] Draw a card.",
+    "types": "SAO Survivor",
+    "title": "Sword Art Online",
+    "image": "https://tcgcontender.com/cdn/cards/unionarena/123997/228942.webp",
+    "source": "https://tcgcontender.com/unionarena/cards/lisbeth-039"
+  },
+  "UEPR/BCV-1-069": {
+    "id": "UEPR/BCV-1-069",
+    "name": "Loropechika (069)",
+    "category": "Character",
+    "color": "Red",
+    "cost": "0",
+    "ap": "1",
+    "bp": "1500",
+    "trigger": "[Draw] Draw a card.",
+    "types": "",
+    "title": "Black Clover",
+    "image": "https://tcgcontender.com/cdn/cards/unionarena/125824/230769.webp",
+    "source": "https://tcgcontender.com/unionarena/cards/loropechika-069"
+  },
+  "UEPR/JJK-3-017": {
+    "id": "UEPR/JJK-3-017",
+    "name": "Maki Zen'in",
+    "category": "Character",
+    "color": "Blue",
+    "cost": "3",
+    "ap": "1",
+    "bp": "3000",
+    "trigger": "",
+    "types": "",
+    "title": "Jujutsu Kaisen",
+    "image": "https://tcgcontender.com/cdn/cards/unionarena/124787/229732.webp",
+    "source": "https://tcgcontender.com/unionarena/cards/maki-zen-in"
+  },
+  "UEPR/JJK-1-061": {
+    "id": "UEPR/JJK-1-061",
+    "name": "Malevolent Shrine",
+    "category": "Site",
+    "color": "Blue",
+    "cost": "4",
+    "ap": "1",
+    "bp": null,
+    "trigger": "[Get] Add this card to your hand.",
+    "types": "",
+    "title": "Jujutsu Kaisen",
+    "image": "https://tcgcontender.com/cdn/cards/unionarena/123836/228781.webp",
+    "source": "https://tcgcontender.com/unionarena/cards/malevolent-shrine"
+  },
+  "UEPR/EVA-1-015": {
+    "id": "UEPR/EVA-1-015",
+    "name": "Mari Makinami Illustrious (015)",
+    "category": "Character",
+    "color": "Yellow",
+    "cost": "3",
+    "ap": "1",
+    "bp": "3000",
+    "trigger": "",
+    "types": "",
+    "title": "EVANGELION",
+    "image": "https://tcgcontender.com/cdn/cards/unionarena/125273/230218.webp",
+    "source": "https://tcgcontender.com/unionarena/cards/mari-makinami-illustrious-015"
+  },
+  "UEPR/EVA-1-056": {
+    "id": "UEPR/EVA-1-056",
+    "name": "Mari Makinami Illustrious (056)",
+    "category": "Character",
+    "color": "Purple",
+    "cost": "3",
+    "ap": "1",
+    "bp": "3000",
+    "trigger": "[Color] Play one purple character card with 2 or less required energy and 1 AP cost from your sideline set to active onto your front line.",
+    "types": "WILLE",
+    "title": "EVANGELION",
+    "image": "https://tcgcontender.com/cdn/cards/unionarena/123510/228455.webp",
+    "source": "https://tcgcontender.com/unionarena/cards/mari-makinami-illustrious-056"
+  },
+  "UEPR/EVA-1-090": {
+    "id": "UEPR/EVA-1-090",
+    "name": "Mari Makinami Illustrious (090)",
+    "category": "Character",
+    "color": "Green",
+    "cost": "0",
+    "ap": "1",
+    "bp": "2000",
+    "trigger": "",
+    "types": "",
+    "title": "EVANGELION",
+    "image": "https://tcgcontender.com/cdn/cards/unionarena/123703/228648.webp",
+    "source": "https://tcgcontender.com/unionarena/cards/mari-makinami-illustrious-090"
+  },
+  "UEPR/NIK-1-008": {
+    "id": "UEPR/NIK-1-008",
+    "name": "Marian (008)",
+    "category": "Character",
+    "color": "Yellow",
+    "cost": "3",
+    "ap": "1",
+    "bp": "3000",
+    "trigger": "",
+    "types": "Elysion / Counters",
+    "title": "GODDESS OF VICTORY: NIKKE",
+    "image": "https://tcgcontender.com/cdn/cards/unionarena/906256/1607256.webp",
+    "source": "https://tcgcontender.com/unionarena/cards/marian-008"
+  },
+  "UEPR/JJK-1-057": {
+    "id": "UEPR/JJK-1-057",
+    "name": "Megumi Fushiguro (057)",
+    "category": "Character",
+    "color": "Blue",
+    "cost": "4",
+    "ap": "1",
+    "bp": "3500",
+    "trigger": "",
+    "types": "",
+    "title": "Jujutsu Kaisen",
+    "image": "https://tcgcontender.com/cdn/cards/unionarena/124946/229891.webp",
+    "source": "https://tcgcontender.com/unionarena/cards/megumi-fushiguro-057"
+  },
+  "UEPR/OPM-1-042": {
+    "id": "UEPR/OPM-1-042",
+    "name": "Metal Bat (042)",
+    "category": "Character",
+    "color": "Green",
+    "cost": "0",
+    "ap": "1",
+    "bp": "1500",
+    "trigger": "[Get] Add this card to your hand.",
+    "types": "Hero",
+    "title": "One Punch Man",
+    "image": "https://tcgcontender.com/cdn/cards/unionarena/126480/231425.webp",
+    "source": "https://tcgcontender.com/unionarena/cards/metal-bat-042"
+  },
+  "UEPR/EVA-1-047": {
+    "id": "UEPR/EVA-1-047",
+    "name": "Midori Kitakami",
+    "category": "Character",
+    "color": "Purple",
+    "cost": "3",
+    "ap": "1",
+    "bp": "3000",
+    "trigger": "",
+    "types": "WILLE",
+    "title": "EVANGELION",
+    "image": "https://tcgcontender.com/cdn/cards/unionarena/125008/229953.webp",
+    "source": "https://tcgcontender.com/unionarena/cards/midori-kitakami"
+  },
+  "UEPR/RNK-1-022": {
+    "id": "UEPR/RNK-1-022",
+    "name": "Misao Makimachi (022)",
+    "category": "Character",
+    "color": "Blue",
+    "cost": "0",
+    "ap": "1",
+    "bp": "1500",
+    "trigger": "[Draw] Draw a card.",
+    "types": "Oniwaban Group",
+    "title": "Rurouni Kenshin",
+    "image": "https://tcgcontender.com/cdn/cards/unionarena/124974/229919.webp",
+    "source": "https://tcgcontender.com/unionarena/cards/misao-makimachi-022"
+  },
+  "UEPR/EVA-1-045": {
+    "id": "UEPR/EVA-1-045",
+    "name": "Misato Katsuragi (045)",
+    "category": "Character",
+    "color": "Purple",
+    "cost": "1",
+    "ap": "1",
+    "bp": "1500",
+    "trigger": "[Draw] Draw a card.",
+    "types": "WILLE",
+    "title": "EVANGELION",
+    "image": "https://tcgcontender.com/cdn/cards/unionarena/123541/228486.webp",
+    "source": "https://tcgcontender.com/unionarena/cards/misato-katsuragi-045"
+  },
+  "UEX05BT/KMY-3-009": {
+    "id": "UEX05BT/KMY-3-009",
+    "name": "Muichiro Tokito (U*)",
+    "category": "Character",
+    "color": "Yellow",
+    "cost": "3",
+    "ap": "1",
+    "bp": "3500",
+    "trigger": "[Active] Choose one character on your field and switch it to active. It gains 3000 BP until the end of the turn.",
+    "types": "Hashira",
+    "title": "Demon Slayer",
+    "image": "https://tcgcontender.com/cdn/cards/unionarena/905521/1606521.webp",
+    "source": "https://tcgcontender.com/unionarena/cards/muichiro-tokito-u"
+  },
+  "UEPR/BLC-1-010": {
+    "id": "UEPR/BLC-1-010",
+    "name": "NaNaNa Najahkoop",
+    "category": "Character",
+    "color": "Yellow",
+    "cost": "2",
+    "ap": "1",
+    "bp": "2500",
+    "trigger": "",
+    "types": "Stern Ritters",
+    "title": "BLEACH",
+    "image": "https://tcgcontender.com/cdn/cards/unionarena/125264/230209.webp",
+    "source": "https://tcgcontender.com/unionarena/cards/nanana-najahkoop"
+  },
+  "UE19BT/SMD-1-058": {
+    "id": "UE19BT/SMD-1-058",
+    "name": "Nagumo (058)",
+    "category": "Character",
+    "color": "Purple",
+    "cost": "2",
+    "ap": "1",
+    "bp": "3000",
+    "trigger": "[Color] Play one purple character card with 2 or less required energy and 1 AP cost from your sideline set to active onto your front line.",
+    "types": "The Order",
+    "title": "Sakamoto Days",
+    "image": "https://tcgcontender.com/cdn/cards/unionarena/905360/1606360.webp",
+    "source": "https://tcgcontender.com/unionarena/cards/nagumo-058"
+  },
+  "UEPR/KMY-3-041": {
+    "id": "UEPR/KMY-3-041",
+    "name": "Nichirin Sword (Tanjiro Kamado)",
+    "category": "Site",
+    "color": "Blue",
+    "cost": "2",
+    "ap": "1",
+    "bp": null,
+    "trigger": "[Get] Add this card to your hand.",
+    "types": "Nichirin Sword",
+    "title": "Demon Slayer",
+    "image": "https://tcgcontender.com/cdn/cards/unionarena/124243/229188.webp",
+    "source": "https://tcgcontender.com/unionarena/cards/nichirin-sword-tanjiro-kamado"
+  },
+  "UEPR/NIK-1-045": {
+    "id": "UEPR/NIK-1-045",
+    "name": "Noah (045)",
+    "category": "Character",
+    "color": "Purple",
+    "cost": "2",
+    "ap": "1",
+    "bp": "3000",
+    "trigger": "",
+    "types": "Pilgrim / Inherit",
+    "title": "GODDESS OF VICTORY: NIKKE",
+    "image": "https://tcgcontender.com/cdn/cards/unionarena/124478/229423.webp",
+    "source": "https://tcgcontender.com/unionarena/cards/noah-045"
+  },
+  "UEPR/JJK-1-097": {
+    "id": "UEPR/JJK-1-097",
+    "name": "Non-Existent Memories",
+    "category": "Event",
+    "color": "Purple",
+    "cost": "2",
+    "ap": "1",
+    "bp": null,
+    "trigger": "[Active] Choose one character on your field and switch it to active. It gains 3000 BP until the end of the turn.",
+    "types": "",
+    "title": "Jujutsu Kaisen",
+    "image": "https://tcgcontender.com/cdn/cards/unionarena/125489/230434.webp",
+    "source": "https://tcgcontender.com/unionarena/cards/non-existent-memories"
+  },
+  "UEPR/JJK-1-077": {
+    "id": "UEPR/JJK-1-077",
+    "name": "Noritoshi Kamo",
+    "category": "Character",
+    "color": "Purple",
+    "cost": "3",
+    "ap": "1",
+    "bp": "3000",
+    "trigger": "",
+    "types": "Kyoto Jujutsu High",
+    "title": "Jujutsu Kaisen",
+    "image": "https://tcgcontender.com/cdn/cards/unionarena/124705/229650.webp",
+    "source": "https://tcgcontender.com/unionarena/cards/noritoshi-kamo"
+  },
+  "UEPR/KJ8-1-037": {
+    "id": "UEPR/KJ8-1-037",
+    "name": "Now It's Time For Me to Shoot My Foe",
+    "category": "Event",
+    "color": "Yellow",
+    "cost": "4",
+    "ap": "1",
+    "bp": null,
+    "trigger": "[Active] Choose one character on your field and switch it to active. It gains 3000 BP until the end of the turn.",
+    "types": "",
+    "title": "Kaiju No. 8",
+    "image": "https://tcgcontender.com/cdn/cards/unionarena/125498/230443.webp",
+    "source": "https://tcgcontender.com/unionarena/cards/now-it-s-time-for-me-to-shoot-my-foe"
+  },
+  "UEPR/FMA-1-018": {
+    "id": "UEPR/FMA-1-018",
+    "name": "Old Man Fu",
+    "category": "Character",
+    "color": "Yellow",
+    "cost": "3",
+    "ap": "1",
+    "bp": "3000",
+    "trigger": "[Active] Choose one character on your field and switch it to active. It gains 3000 BP until the end of the turn.",
+    "types": "Xing",
+    "title": "FULLMETAL ALCHEMIST",
+    "image": "https://tcgcontender.com/cdn/cards/unionarena/124483/229428.webp",
+    "source": "https://tcgcontender.com/unionarena/cards/old-man-fu"
+  },
+  "UEPR/YYH-1-005": {
+    "id": "UEPR/YYH-1-005",
+    "name": "Onji",
+    "category": "Character",
+    "color": "Purple",
+    "cost": "0",
+    "ap": "1",
+    "bp": "1500",
+    "trigger": "[Get] Add this card to your hand.",
+    "types": "",
+    "title": "Yu Yu Hakusho",
+    "image": "https://tcgcontender.com/cdn/cards/unionarena/125197/230142.webp",
+    "source": "https://tcgcontender.com/unionarena/cards/onji"
+  },
+  "UEPR/RNK-1-067": {
+    "id": "UEPR/RNK-1-067",
+    "name": "Phantom of the Bakumatsu",
+    "category": "Event",
+    "color": "Purple",
+    "cost": "2",
+    "ap": "1",
+    "bp": null,
+    "trigger": "[Draw] Draw a card.",
+    "types": "",
+    "title": "Rurouni Kenshin",
+    "image": "https://tcgcontender.com/cdn/cards/unionarena/125467/230412.webp",
+    "source": "https://tcgcontender.com/unionarena/cards/phantom-of-the-bakumatsu"
+  },
+  "UEPR/CGH-1-095": {
+    "id": "UEPR/CGH-1-095",
+    "name": "President's Orders",
+    "category": "Event",
+    "color": "Red",
+    "cost": "3",
+    "ap": "1",
+    "bp": null,
+    "trigger": "[Final] If you have 0 life, place the top card of your deck into your life area.",
+    "types": "",
+    "title": "CODE GEASS",
+    "image": "https://tcgcontender.com/cdn/cards/unionarena/124231/229176.webp",
+    "source": "https://tcgcontender.com/unionarena/cards/president-s-orders"
+  },
+  "UEPR/FMA-1-085": {
+    "id": "UEPR/FMA-1-085",
+    "name": "Pride (085)",
+    "category": "Character",
+    "color": "Purple",
+    "cost": "1",
+    "ap": "1",
+    "bp": "1500",
+    "trigger": "",
+    "types": "Homunculus",
+    "title": "FULLMETAL ALCHEMIST",
+    "image": "https://tcgcontender.com/cdn/cards/unionarena/125466/230411.webp",
+    "source": "https://tcgcontender.com/unionarena/cards/pride-085"
+  },
+  "UEPR/KMY-1-064": {
+    "id": "UEPR/KMY-1-064",
+    "name": "Purge",
+    "category": "Event",
+    "color": "Purple",
+    "cost": "2",
+    "ap": "1",
+    "bp": null,
+    "trigger": "[Draw] Draw a card.",
+    "types": "",
+    "title": "Demon Slayer",
+    "image": "https://tcgcontender.com/cdn/cards/unionarena/124143/229088.webp",
+    "source": "https://tcgcontender.com/unionarena/cards/purge"
+  },
+  "UEPR/JJK-3-010": {
+    "id": "UEPR/JJK-3-010",
+    "name": "Rainbow Dragon",
+    "category": "Character",
+    "color": "Yellow",
+    "cost": "2",
+    "ap": "1",
+    "bp": "3000",
+    "trigger": "[Active] Choose one character on your field and switch it to active. It gains 3000 BP until the end of the turn.",
+    "types": "Cursed Spirit",
+    "title": "Jujutsu Kaisen",
+    "image": "https://tcgcontender.com/cdn/cards/unionarena/124420/229365.webp",
+    "source": "https://tcgcontender.com/unionarena/cards/rainbow-dragon"
+  },
+  "UEPR/NIK-1-105": {
+    "id": "UEPR/NIK-1-105",
+    "name": "Rapi (105)",
+    "category": "Character",
+    "color": "Yellow",
+    "cost": "2",
+    "ap": "1",
+    "bp": "2000",
+    "trigger": "",
+    "types": "Elysion / Counters",
+    "title": "GODDESS OF VICTORY: NIKKE",
+    "image": "https://tcgcontender.com/cdn/cards/unionarena/124736/229681.webp",
+    "source": "https://tcgcontender.com/unionarena/cards/rapi-105"
+  },
+  "UE15BT/EVA-1-003": {
+    "id": "UE15BT/EVA-1-003",
+    "name": "Rei Ayanami (003) (U*)",
+    "category": "Character",
+    "color": "Yellow",
+    "cost": "1",
+    "ap": "1",
+    "bp": "2000",
+    "trigger": "[Draw] Draw a card.",
+    "types": "",
+    "title": "EVANGELION",
+    "image": "https://tcgcontender.com/cdn/cards/unionarena/905434/1654360.webp",
+    "source": "https://tcgcontender.com/unionarena/cards/rei-ayanami-003-u"
+  },
+  "UEPR/EVA-1-026": {
+    "id": "UEPR/EVA-1-026",
+    "name": "Rei Ayanami (Tentative Name) (026)",
+    "category": "Character",
+    "color": "Purple",
+    "cost": "2",
+    "ap": "1",
+    "bp": "3000",
+    "trigger": "",
+    "types": "",
+    "title": "EVANGELION",
+    "image": "https://tcgcontender.com/cdn/cards/unionarena/123752/228697.webp",
+    "source": "https://tcgcontender.com/unionarena/cards/rei-ayanami-tentative-name-026"
+  },
+  "UEPR/AOT-1-058": {
+    "id": "UEPR/AOT-1-058",
+    "name": "Reiner Braun (058)",
+    "category": "Character",
+    "color": "Green",
+    "cost": "0",
+    "ap": "1",
+    "bp": "1500",
+    "trigger": "[Get] Add this card to your hand.",
+    "types": "104th Cadet Corps / Marleyan Warrior / Inheritor of the Titan",
+    "title": "Attack on Titan",
+    "image": "https://tcgcontender.com/cdn/cards/unionarena/126284/231229.webp",
+    "source": "https://tcgcontender.com/unionarena/cards/reiner-braun-058"
+  },
+  "UEPR/TKG-1-058": {
+    "id": "UEPR/TKG-1-058",
+    "name": "Renji Yomo (058)",
+    "category": "Character",
+    "color": "Purple",
+    "cost": "4",
+    "ap": "1",
+    "bp": "4000",
+    "trigger": "[Active] Choose one character on your field and switch it to active. It gains 3000 BP until the end of the turn.",
+    "types": "",
+    "title": "Tokyo Ghoul",
+    "image": "https://tcgcontender.com/cdn/cards/unionarena/482682/888378.webp",
+    "source": "https://tcgcontender.com/unionarena/cards/renji-yomo-058"
+  },
+  "UEX06BT/SAO-2-008": {
+    "id": "UEX06BT/SAO-2-008",
+    "name": "Renri Synthesis Twenty-Seven (U*)",
+    "category": "Character",
+    "color": "Yellow",
+    "cost": "0",
+    "ap": "1",
+    "bp": "1500",
+    "trigger": "[Active] Choose one character on your field and switch it to active. It gains 3000 BP until the end of the turn.",
+    "types": "Integrity Knights",
+    "title": "Sword Art Online",
+    "image": "https://tcgcontender.com/cdn/cards/unionarena/905688/1654426.webp",
+    "source": "https://tcgcontender.com/unionarena/cards/renri-synthesis-twenty-seven-u"
+  },
+  "UEPR/JJK-3-001": {
+    "id": "UEPR/JJK-3-001",
+    "name": "Riko Amanai",
+    "category": "Character",
+    "color": "Yellow",
+    "cost": "3",
+    "ap": "1",
+    "bp": "500",
+    "trigger": "",
+    "types": "",
+    "title": "Jujutsu Kaisen",
+    "image": "https://tcgcontender.com/cdn/cards/unionarena/124014/228959.webp",
+    "source": "https://tcgcontender.com/unionarena/cards/riko-amanai"
+  },
+  "UEPR/KMY-1-022": {
+    "id": "UEPR/KMY-1-022",
+    "name": "Sanemi Shinazugawa (022)",
+    "category": "Character",
+    "color": "Yellow",
+    "cost": "4",
+    "ap": "1",
+    "bp": "2000",
+    "trigger": "",
+    "types": "Hashira",
+    "title": "Demon Slayer",
+    "image": "https://tcgcontender.com/cdn/cards/unionarena/124939/229884.webp",
+    "source": "https://tcgcontender.com/unionarena/cards/sanemi-shinazugawa-022"
+  },
+  "UEPR/RNK-1-073": {
+    "id": "UEPR/RNK-1-073",
+    "name": "Sanosuke Sagara (073)",
+    "category": "Character",
+    "color": "Red",
+    "cost": "0",
+    "ap": "1",
+    "bp": "1500",
+    "trigger": "[Get] Add this card to your hand.",
+    "types": "",
+    "title": "Rurouni Kenshin",
+    "image": "https://tcgcontender.com/cdn/cards/unionarena/126430/231375.webp",
+    "source": "https://tcgcontender.com/unionarena/cards/sanosuke-sagara-073"
+  },
+  "UEPR/RNK-1-074": {
+    "id": "UEPR/RNK-1-074",
+    "name": "Sanosuke Sagara (074)",
+    "category": "Character",
+    "color": "Red",
+    "cost": "1",
+    "ap": "1",
+    "bp": "2500",
+    "trigger": "[Active] Choose one character on your field and switch it to active. It gains 3000 BP until the end of the turn.",
+    "types": "",
+    "title": "Rurouni Kenshin",
+    "image": "https://tcgcontender.com/cdn/cards/unionarena/126149/231094.webp",
+    "source": "https://tcgcontender.com/unionarena/cards/sanosuke-sagara-074"
+  },
+  "UEX02BT/JJK-3-051": {
+    "id": "UEX02BT/JJK-3-051",
+    "name": "Satoru Gojo (051) (U*)",
+    "category": "Character",
+    "color": "Red",
+    "cost": "4",
+    "ap": "2",
+    "bp": "5000",
+    "trigger": "[Draw] Draw a card.",
+    "types": "Jujutsu Sorcerer",
+    "title": "Jujutsu Kaisen",
+    "image": "https://tcgcontender.com/cdn/cards/unionarena/905631/1606631.webp",
+    "source": "https://tcgcontender.com/unionarena/cards/satoru-gojo-051-u"
+  },
+  "UEPR/CGH-1-096": {
+    "id": "UEPR/CGH-1-096",
+    "name": "School Festival",
+    "category": "Event",
+    "color": "Red",
+    "cost": "2",
+    "ap": "1",
+    "bp": null,
+    "trigger": "",
+    "types": "",
+    "title": "CODE GEASS",
+    "image": "https://tcgcontender.com/cdn/cards/unionarena/125813/230758.webp",
+    "source": "https://tcgcontender.com/unionarena/cards/school-festival"
+  },
+  "UEPR/FMA-1-084": {
+    "id": "UEPR/FMA-1-084",
+    "name": "Selim Bradley",
+    "category": "Character",
+    "color": "Purple",
+    "cost": "0",
+    "ap": "1",
+    "bp": "2000",
+    "trigger": "[Active] Choose one character on your field and switch it to active. It gains 3000 BP until the end of the turn.",
+    "types": "Homunculus",
+    "title": "FULLMETAL ALCHEMIST",
+    "image": "https://tcgcontender.com/cdn/cards/unionarena/125433/230378.webp",
+    "source": "https://tcgcontender.com/unionarena/cards/selim-bradley"
+  },
+  "UEPR/IYS-1-006": {
+    "id": "UEPR/IYS-1-006",
+    "name": "Sesshomaru (006)",
+    "category": "Character",
+    "color": "Purple",
+    "cost": "3",
+    "ap": "1",
+    "bp": "3000",
+    "trigger": "",
+    "types": "",
+    "title": "INUYASHA",
+    "image": "https://tcgcontender.com/cdn/cards/unionarena/937851/1654328.webp",
+    "source": "https://tcgcontender.com/unionarena/cards/sesshomaru-006"
+  },
+  "UEPR/EVA-1-028": {
+    "id": "UEPR/EVA-1-028",
+    "name": "Shinji Ikari (028)",
+    "category": "Character",
+    "color": "Purple",
+    "cost": "0",
+    "ap": "1",
+    "bp": "1500",
+    "trigger": "[Active] Choose one character on your field and switch it to active. It gains 3000 BP until the end of the turn.",
+    "types": "",
+    "title": "EVANGELION",
+    "image": "https://tcgcontender.com/cdn/cards/unionarena/123582/228527.webp",
+    "source": "https://tcgcontender.com/unionarena/cards/shinji-ikari-028"
+  },
+  "UEPR/EVA-1-029": {
+    "id": "UEPR/EVA-1-029",
+    "name": "Shinji Ikari (029)",
+    "category": "Character",
+    "color": "Purple",
+    "cost": "2",
+    "ap": "1",
+    "bp": "2500",
+    "trigger": "",
+    "types": "",
+    "title": "EVANGELION",
+    "image": "https://tcgcontender.com/cdn/cards/unionarena/123546/228491.webp",
+    "source": "https://tcgcontender.com/unionarena/cards/shinji-ikari-029"
+  },
+  "UEPR/KMY-3-066": {
+    "id": "UEPR/KMY-3-066",
+    "name": "Shinjuro Rengoku",
+    "category": "Character",
+    "color": "Red",
+    "cost": "3",
+    "ap": "1",
+    "bp": "3000",
+    "trigger": "",
+    "types": "",
+    "title": "Demon Slayer",
+    "image": "https://tcgcontender.com/cdn/cards/unionarena/124640/229585.webp",
+    "source": "https://tcgcontender.com/unionarena/cards/shinjuro-rengoku"
+  },
+  "UEX03BT/CGH-2-069": {
+    "id": "UEX03BT/CGH-2-069",
+    "name": "Shirley Fenette (U*)",
+    "category": "Character",
+    "color": "Red",
+    "cost": "1",
+    "ap": "1",
+    "bp": "1500",
+    "trigger": "",
+    "types": "Ashford Academy",
+    "title": "CODE GEASS",
+    "image": "https://tcgcontender.com/cdn/cards/unionarena/905929/1606929.webp",
+    "source": "https://tcgcontender.com/unionarena/cards/shirley-fenette-u"
+  },
+  "UEPR/TSK-2-015": {
+    "id": "UEPR/TSK-2-015",
+    "name": "Shizu (015)",
+    "category": "Unknown",
+    "color": "",
+    "cost": null,
+    "ap": null,
+    "bp": null,
+    "trigger": "",
+    "types": "",
+    "title": "",
+    "image": "https://tcgcontender.com/cdn/cards/unionarena/587223/1089894.webp",
+    "source": "https://tcgcontender.com/unionarena/cards/shizu-015"
+  },
+  "UEPR/JJK-1-035": {
+    "id": "UEPR/JJK-1-035",
+    "name": "Shoko Ieiri",
+    "category": "Character",
+    "color": "Blue",
+    "cost": "3",
+    "ap": "1",
+    "bp": "3000",
+    "trigger": "",
+    "types": "",
+    "title": "Jujutsu Kaisen",
+    "image": "https://tcgcontender.com/cdn/cards/unionarena/123681/228626.webp",
+    "source": "https://tcgcontender.com/unionarena/cards/shoko-ieiri"
+  },
+  "UEPR/TSK-2-020": {
+    "id": "UEPR/TSK-2-020",
+    "name": "Shuna (020)",
+    "category": "Unknown",
+    "color": "",
+    "cost": null,
+    "ap": null,
+    "bp": null,
+    "trigger": "",
+    "types": "",
+    "title": "",
+    "image": "https://tcgcontender.com/cdn/cards/unionarena/587212/1089883.webp",
+    "source": "https://tcgcontender.com/unionarena/cards/shuna-020"
+  },
+  "UEPR/SAO-2-017": {
+    "id": "UEPR/SAO-2-017",
+    "name": "Silica (017)",
+    "category": "Character",
+    "color": "Blue",
+    "cost": "1",
+    "ap": "1",
+    "bp": "1500",
+    "trigger": "[Active] Choose one character on your field and switch it to active. It gains 3000 BP until the end of the turn.",
+    "types": "Aincrad",
+    "title": "Sword Art Online",
+    "image": "https://tcgcontender.com/cdn/cards/unionarena/124525/229470.webp",
+    "source": "https://tcgcontender.com/unionarena/cards/silica-017"
+  },
+  "UE14BT/NIK-1-081": {
+    "id": "UE14BT/NIK-1-081",
+    "name": "Soda (U*)",
+    "category": "Character",
+    "color": "Green",
+    "cost": "2",
+    "ap": "1",
+    "bp": "2500",
+    "trigger": "",
+    "types": "Tetra Line / Maid For You",
+    "title": "GODDESS OF VICTORY: NIKKE",
+    "image": "https://tcgcontender.com/cdn/cards/unionarena/905534/1654389.webp",
+    "source": "https://tcgcontender.com/unionarena/cards/soda-u"
+  },
+  "UEPR/FMA-1-065": {
+    "id": "UEPR/FMA-1-065",
+    "name": "State Alchemists",
+    "category": "Event",
+    "color": "Blue",
+    "cost": "3",
+    "ap": "1",
+    "bp": null,
+    "trigger": "[Final] If you have 0 life, place the top card of your deck into your life area.",
+    "types": "",
+    "title": "FULLMETAL ALCHEMIST",
+    "image": "https://tcgcontender.com/cdn/cards/unionarena/123778/228723.webp",
+    "source": "https://tcgcontender.com/unionarena/cards/state-alchemists"
+  },
+  "HTR-1-024": {
+    "id": "HTR-1-024",
+    "name": "Sub",
+    "category": "Character",
+    "color": "Blue",
+    "cost": "1",
+    "ap": "1",
+    "bp": "2000",
+    "trigger": "",
+    "types": "The Bomber",
+    "title": "",
+    "image": "https://tcgcontender.com/cdn/cards/unionarena/126078/231023.webp",
+    "source": "https://tcgcontender.com/unionarena/cards/sub"
+  },
+  "UEPR/JJK-3-025": {
+    "id": "UEPR/JJK-3-025",
+    "name": "Suguru Geto (025)",
+    "category": "Character",
+    "color": "Purple",
+    "cost": "3",
+    "ap": "1",
+    "bp": "2500",
+    "trigger": "",
+    "types": "",
+    "title": "Jujutsu Kaisen",
+    "image": "https://tcgcontender.com/cdn/cards/unionarena/124823/229768.webp",
+    "source": "https://tcgcontender.com/unionarena/cards/suguru-geto-025"
+  },
+  "UEPR/JJK-3-038": {
+    "id": "UEPR/JJK-3-038",
+    "name": "Suguru Geto (038)",
+    "category": "Character",
+    "color": "Red",
+    "cost": "2",
+    "ap": "1",
+    "bp": "2500",
+    "trigger": "[Active] Choose one character on your field and switch it to active. It gains 3000 BP until the end of the turn.",
+    "types": "",
+    "title": "Jujutsu Kaisen",
+    "image": "https://tcgcontender.com/cdn/cards/unionarena/124635/229580.webp",
+    "source": "https://tcgcontender.com/unionarena/cards/suguru-geto-038"
+  },
+  "UEPR/OPM-1-034": {
+    "id": "UEPR/OPM-1-034",
+    "name": "Suiryu",
+    "category": "Character",
+    "color": "Green",
+    "cost": "0",
+    "ap": "1",
+    "bp": "2000",
+    "trigger": "[Draw] Draw a card.",
+    "types": "",
+    "title": "One Punch Man",
+    "image": "https://tcgcontender.com/cdn/cards/unionarena/126582/231527.webp",
+    "source": "https://tcgcontender.com/unionarena/cards/suiryu"
+  },
+  "UEPR/EVA-1-097": {
+    "id": "UEPR/EVA-1-097",
+    "name": "Talking to People Feels Good, Doesn't It?",
+    "category": "Event",
+    "color": "Red",
+    "cost": "3",
+    "ap": "1",
+    "bp": null,
+    "trigger": "[Final] If you have 0 life, place the top card of your deck into your life area.",
+    "types": "",
+    "title": "EVANGELION",
+    "image": "https://tcgcontender.com/cdn/cards/unionarena/123636/228581.webp",
+    "source": "https://tcgcontender.com/unionarena/cards/talking-to-people-feels-good-doesn-t-it"
+  },
+  "UEPR/KGR-1-024": {
+    "id": "UEPR/KGR-1-024",
+    "name": "Tamaki Sazanami",
+    "category": "Character",
+    "color": "Purple",
+    "cost": "0",
+    "ap": "1",
+    "bp": "500",
+    "trigger": "[Draw] Draw a card.",
+    "types": "Tou",
+    "title": "KAGURABACHI",
+    "image": "https://tcgcontender.com/cdn/cards/unionarena/127223/232168.webp",
+    "source": "https://tcgcontender.com/unionarena/cards/tamaki-sazanami"
+  },
+  "UEPR/KMY-3-015": {
+    "id": "UEPR/KMY-3-015",
+    "name": "Tanjiro Kamado (015)",
+    "category": "Character",
+    "color": "Blue",
+    "cost": "1",
+    "ap": "1",
+    "bp": "2500",
+    "trigger": "",
+    "types": "",
+    "title": "Demon Slayer",
+    "image": "https://tcgcontender.com/cdn/cards/unionarena/124683/229628.webp",
+    "source": "https://tcgcontender.com/unionarena/cards/tanjiro-kamado-015"
+  },
+  "UEPR/OPM-1-086": {
+    "id": "UEPR/OPM-1-086",
+    "name": "Tempest Wind",
+    "category": "Character",
+    "color": "Red",
+    "cost": "1",
+    "ap": "1",
+    "bp": "1500",
+    "trigger": "",
+    "types": "Monster Association",
+    "title": "One Punch Man",
+    "image": "https://tcgcontender.com/cdn/cards/unionarena/126037/230982.webp",
+    "source": "https://tcgcontender.com/unionarena/cards/tempest-wind"
+  },
+  "UEPR/OPM-1-012": {
+    "id": "UEPR/OPM-1-012",
+    "name": "Terrible Tornado (012)",
+    "category": "Character",
+    "color": "Yellow",
+    "cost": "0",
+    "ap": "1",
+    "bp": "2000",
+    "trigger": "",
+    "types": "Hero",
+    "title": "One Punch Man",
+    "image": "https://tcgcontender.com/cdn/cards/unionarena/125224/230169.webp",
+    "source": "https://tcgcontender.com/unionarena/cards/terrible-tornado-012"
+  },
+  "UEPR/KMY-1-029": {
+    "id": "UEPR/KMY-1-029",
+    "name": "Total Concentration Breathing (029)",
+    "category": "Event",
+    "color": "Yellow",
+    "cost": "3",
+    "ap": "1",
+    "bp": null,
+    "trigger": "[Final] If you have 0 life, place the top card of your deck into your life area.",
+    "types": "",
+    "title": "Demon Slayer",
+    "image": "https://tcgcontender.com/cdn/cards/unionarena/906257/1607257.webp",
+    "source": "https://tcgcontender.com/unionarena/cards/total-concentration-breathing-029"
+  },
+  "UEPR/KMY-3-057": {
+    "id": "UEPR/KMY-3-057",
+    "name": "Urogi",
+    "category": "Character",
+    "color": "Purple",
+    "cost": "1",
+    "ap": "1",
+    "bp": "2000",
+    "trigger": "[Draw] Draw a card.",
+    "types": "Upper Rank Demon / Hantengu's Duplicate",
+    "title": "Demon Slayer",
+    "image": "https://tcgcontender.com/cdn/cards/unionarena/125259/230204.webp",
+    "source": "https://tcgcontender.com/unionarena/cards/urogi"
+  },
+  "UE01BT/BLC-1-034": {
+    "id": "UE01BT/BLC-1-034",
+    "name": "Uryu Ishida",
+    "category": "Character",
+    "color": "Purple",
+    "cost": "0",
+    "ap": "1",
+    "bp": "1500",
+    "trigger": "[Draw] Draw a card.",
+    "types": "",
+    "title": "BLEACH",
+    "image": "https://tcgcontender.com/cdn/cards/unionarena/124509/229454.webp",
+    "source": "https://tcgcontender.com/unionarena/cards/uryu-ishida"
+  },
+  "UEPR/RNK-1-050": {
+    "id": "UEPR/RNK-1-050",
+    "name": "Usui Uonuma",
+    "category": "Character",
+    "color": "Purple",
+    "cost": "4",
+    "ap": "1",
+    "bp": "4000",
+    "trigger": "[Draw] Draw a card.",
+    "types": "Ten Swords",
+    "title": "Rurouni Kenshin",
+    "image": "https://tcgcontender.com/cdn/cards/unionarena/125776/230721.webp",
+    "source": "https://tcgcontender.com/unionarena/cards/usui-uonuma"
+  },
+  "UEPR/BCV-1-018": {
+    "id": "UEPR/BCV-1-018",
+    "name": "Vanica Zogratis (018)",
+    "category": "Character",
+    "color": "Purple",
+    "cost": "2",
+    "ap": "1",
+    "bp": "2500",
+    "trigger": "",
+    "types": "Dark Triad",
+    "title": "Black Clover",
+    "image": "https://tcgcontender.com/cdn/cards/unionarena/125675/230620.webp",
+    "source": "https://tcgcontender.com/unionarena/cards/vanica-zogratis-018"
+  },
+  "UEPR/CGH-1-049": {
+    "id": "UEPR/CGH-1-049",
+    "name": "Villetta Nu",
+    "category": "Character",
+    "color": "Green",
+    "cost": "3",
+    "ap": "1",
+    "bp": "3000",
+    "trigger": "",
+    "types": "Holy Britannian Empire / Pureblood Faction",
+    "title": "CODE GEASS",
+    "image": "https://tcgcontender.com/cdn/cards/unionarena/126176/231121.webp",
+    "source": "https://tcgcontender.com/unionarena/cards/villetta-nu"
+  },
+  "UE14BT/NIK-1-014": {
+    "id": "UE14BT/NIK-1-014",
+    "name": "Viper (014) (U*)",
+    "category": "Character",
+    "color": "Yellow",
+    "cost": "3",
+    "ap": "1",
+    "bp": "3000",
+    "trigger": "[Color] Choose one character on your opponent's front line and switch it to resting. It will remain set to resting the next time it would be switched to active.",
+    "types": "Tetra Line / Exotic",
+    "title": "GODDESS OF VICTORY: NIKKE",
+    "image": "https://tcgcontender.com/cdn/cards/unionarena/905636/1654481.webp",
+    "source": "https://tcgcontender.com/unionarena/cards/viper-014-u"
+  },
+  "UE06BT/OPM-1-056": {
+    "id": "UE06BT/OPM-1-056",
+    "name": "Watchdog Man (U*)",
+    "category": "Character",
+    "color": "Green",
+    "cost": "3",
+    "ap": "1",
+    "bp": "4000",
+    "trigger": "[Active] Choose one character on your field and switch it to active. It gains 3000 BP until the end of the turn.",
+    "types": "Hero",
+    "title": "One Punch Man",
+    "image": "https://tcgcontender.com/cdn/cards/unionarena/906040/1654449.webp",
+    "source": "https://tcgcontender.com/unionarena/cards/watchdog-man-u"
+  },
+  "UEPR/HTR-1-100": {
+    "id": "UEPR/HTR-1-100",
+    "name": "Water Divination",
+    "category": "Event",
+    "color": "Green",
+    "cost": "3",
+    "ap": "1",
+    "bp": null,
+    "trigger": "[Draw] Draw a card.",
+    "types": "",
+    "title": "HUNTER X HUNTER",
+    "image": "https://tcgcontender.com/cdn/cards/unionarena/125768/230713.webp",
+    "source": "https://tcgcontender.com/unionarena/cards/water-divination"
+  },
+  "UEPR/CGH-2-033": {
+    "id": "UEPR/CGH-2-033",
+    "name": "When Shen Hu Wins Glory",
+    "category": "Event",
+    "color": "Blue",
+    "cost": "3",
+    "ap": "2",
+    "bp": null,
+    "trigger": "[Active] Choose one character on your field and switch it to active. It gains 3000 BP until the end of the turn.",
+    "types": "",
+    "title": "CODE GEASS",
+    "image": "https://tcgcontender.com/cdn/cards/unionarena/125365/230310.webp",
+    "source": "https://tcgcontender.com/unionarena/cards/when-shen-hu-wins-glory"
+  },
+  "UEPR/OPM-1-099": {
+    "id": "UEPR/OPM-1-099",
+    "name": "Wind Blade Leg",
+    "category": "Event",
+    "color": "Red",
+    "cost": "4",
+    "ap": "1",
+    "bp": null,
+    "trigger": "[Special] Choose one character on your opponent's front line and sideline it.",
+    "types": "",
+    "title": "One Punch Man",
+    "image": "https://tcgcontender.com/cdn/cards/unionarena/125373/230318.webp",
+    "source": "https://tcgcontender.com/unionarena/cards/wind-blade-leg"
+  },
+  "UE10BT/AOT-1-013": {
+    "id": "UE10BT/AOT-1-013",
+    "name": "Ymir (013) (U*)",
+    "category": "Character",
+    "color": "Blue",
+    "cost": "2",
+    "ap": "1",
+    "bp": "3000",
+    "trigger": "[Active] Choose one character on your field and switch it to active. It gains 3000 BP until the end of the turn.",
+    "types": "104th Cadet Corps / Inheritor of the Titan",
+    "title": "Attack on Titan",
+    "image": "https://tcgcontender.com/cdn/cards/unionarena/905390/1654417.webp",
+    "source": "https://tcgcontender.com/unionarena/cards/ymir-013-u"
+  },
+  "UEPR/TKG-1-057": {
+    "id": "UEPR/TKG-1-057",
+    "name": "Yoshimura",
+    "category": "Character",
+    "color": "Purple",
+    "cost": "2",
+    "ap": "1",
+    "bp": "2500",
+    "trigger": "",
+    "types": "",
+    "title": "Tokyo Ghoul",
+    "image": "https://tcgcontender.com/cdn/cards/unionarena/482676/888372.webp",
+    "source": "https://tcgcontender.com/unionarena/cards/yoshimura"
+  },
+  "UEPR/YYH-1-024": {
+    "id": "UEPR/YYH-1-024",
+    "name": "Younger Toguro (024)",
+    "category": "Character",
+    "color": "Purple",
+    "cost": "4",
+    "ap": "1",
+    "bp": "4000",
+    "trigger": "",
+    "types": "",
+    "title": "Yu Yu Hakusho",
+    "image": "https://tcgcontender.com/cdn/cards/unionarena/124630/229575.webp",
+    "source": "https://tcgcontender.com/unionarena/cards/younger-toguro-024"
+  },
+  "UEPR/EVA-1-061": {
+    "id": "UEPR/EVA-1-061",
+    "name": "Your Wish Is My Command, Your Highness!",
+    "category": "Event",
+    "color": "Purple",
+    "cost": "4",
+    "ap": "1",
+    "bp": null,
+    "trigger": "[Special] Choose one character on your opponent's front line and sideline it.",
+    "types": "",
+    "title": "EVANGELION",
+    "image": "https://tcgcontender.com/cdn/cards/unionarena/123551/228496.webp",
+    "source": "https://tcgcontender.com/unionarena/cards/your-wish-is-my-command-your-highness"
+  },
+  "UEPR/JJK-3-022": {
+    "id": "UEPR/JJK-3-022",
+    "name": "Yu Haibara (022)",
+    "category": "Character",
+    "color": "Blue",
+    "cost": "0",
+    "ap": "1",
+    "bp": "500",
+    "trigger": "",
+    "types": "",
+    "title": "Jujutsu Kaisen",
+    "image": "https://tcgcontender.com/cdn/cards/unionarena/124504/229449.webp",
+    "source": "https://tcgcontender.com/unionarena/cards/yu-haibara-022"
+  },
+  "UEPR/YYH-1-088": {
+    "id": "UEPR/YYH-1-088",
+    "name": "Yukina (088)",
+    "category": "Character",
+    "color": "Red",
+    "cost": "0",
+    "ap": "1",
+    "bp": "1500",
+    "trigger": "[Draw] Draw a card.",
+    "types": "",
+    "title": "Yu Yu Hakusho",
+    "image": "https://tcgcontender.com/cdn/cards/unionarena/123896/228841.webp",
+    "source": "https://tcgcontender.com/unionarena/cards/yukina-088"
+  },
+  "UEPR/SAO-2-029": {
+    "id": "UEPR/SAO-2-029",
+    "name": "Yuna (029)",
+    "category": "Character",
+    "color": "Purple",
+    "cost": "1",
+    "ap": "1",
+    "bp": "1500",
+    "trigger": "[Draw] Draw a card.",
+    "types": "",
+    "title": "Sword Art Online",
+    "image": "https://tcgcontender.com/cdn/cards/unionarena/123594/228539.webp",
+    "source": "https://tcgcontender.com/unionarena/cards/yuna-029"
+  },
+  "UEPR/NIK-1-025": {
+    "id": "UEPR/NIK-1-025",
+    "name": "Yuni (025)",
+    "category": "Character",
+    "color": "Yellow",
+    "cost": "0",
+    "ap": "1",
+    "bp": "1500",
+    "trigger": "[Get] Add this card to your hand.",
+    "types": "Missilis / Wardress",
+    "title": "GODDESS OF VICTORY: NIKKE",
+    "image": "https://tcgcontender.com/cdn/cards/unionarena/127117/232062.webp",
+    "source": "https://tcgcontender.com/unionarena/cards/yuni-025"
+  },
+  "UEPR/CGH-1-009": {
+    "id": "UEPR/CGH-1-009",
+    "name": "Zero",
+    "category": "Character",
+    "color": "Purple",
+    "cost": "0",
+    "ap": "1",
+    "bp": "1500",
+    "trigger": "[Get] Add this card to your hand.",
+    "types": "Order of the Black Knights",
+    "title": "CODE GEASS",
+    "image": "https://tcgcontender.com/cdn/cards/unionarena/124337/229282.webp",
+    "source": "https://tcgcontender.com/unionarena/cards/zero"
+  },
+  "UEPR/BCV-1-008": {
+    "id": "UEPR/BCV-1-008",
+    "name": "Zora Ideale",
+    "category": "Character",
+    "color": "Purple",
+    "cost": "3",
+    "ap": "1",
+    "bp": "3500",
+    "trigger": "",
+    "types": "Black Bulls",
+    "title": "Black Clover",
+    "image": "https://tcgcontender.com/cdn/cards/unionarena/124887/229832.webp",
+    "source": "https://tcgcontender.com/unionarena/cards/zora-ideale"
+  },
+  "UEPR/SAO-2-060": {
+    "id": "UEPR/SAO-2-060",
+    "name": "smile for you",
+    "category": "Event",
+    "color": "Purple",
+    "cost": "4",
+    "ap": "1",
+    "bp": null,
+    "trigger": "[Special] Choose one character on your opponent's front line and sideline it.",
+    "types": "Song",
+    "title": "Sword Art Online",
+    "image": "https://tcgcontender.com/cdn/cards/unionarena/123561/228506.webp",
+    "source": "https://tcgcontender.com/unionarena/cards/smile-for-you"
   }
 }
