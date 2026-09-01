@@ -149,6 +149,8 @@ class SeoChromeTests(unittest.TestCase):
         self.assertNotIn(">UA<", favicon)
         self.assertIn("<polygon", favicon)
         self.assertTrue((ROOT / "img" / "logo.svg").is_file())
+        self.assertNotIn("50-card lists for Standard", chrome)
+        self.assertNotIn('class="subtitle"', chrome)
 
     def test_pages_have_no_em_dashes(self):
         self.assertEqual(uadb.no_em("A — B"), "A - B")

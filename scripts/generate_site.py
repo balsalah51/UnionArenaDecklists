@@ -2169,7 +2169,6 @@ def write_home(arches: list[dict], recent: list[dict], cache: dict, features: di
           <div class="home-splash-brand">
             <img class="home-splash-mark" src="/img/logo.svg" width="72" height="72" alt="" />
             <div class="home-splash-copy">
-              <p class="home-splash-kicker">Standard format</p>
               <h1>{html.escape(uadb.BRAND)}</h1>
             </div>
           </div>

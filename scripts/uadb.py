@@ -23,7 +23,6 @@ BROWSER_UA = (
 )
 DISCORD = "https://discord.gg/aY9RfB662"
 BRAND = "Union Arena Decklists"
-SUBTITLE = "50-card lists for Standard"
 CSS_VER = "ua23"
 JS_VER = "ua8"
 TCGPLAYER_CATEGORY_ID = 81
@@ -680,7 +679,6 @@ def page_chrome(
         {logo_html()}
         <div class="brand-copy">
           {brand_heading()}
-          <div class="subtitle">{html.escape(SUBTITLE)}</div>
         </div>
       </a>
 {nav_html(current)}
@@ -735,7 +733,6 @@ def home_chrome(
         {logo_html()}
         <div class="brand-copy">
           {brand_heading()}
-          <div class="subtitle">{html.escape(SUBTITLE)}</div>
         </div>
       </a>
 {nav_html()}
