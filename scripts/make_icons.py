@@ -79,7 +79,7 @@ def main() -> None:
         """{
   "name": "Union Arena Decklists",
   "short_name": "UAD",
-  "description": "50-card Union Arena TCG decklists for Standard, grouped by anime and manga title.",
+  "description": "Union Arena Standard metagame: tier list, top decks, and 50-card lists by anime and manga title.",
   "start_url": "/",
   "scope": "/",
   "display": "browser",

@@ -23,9 +23,10 @@ BROWSER_UA = (
 )
 DISCORD = "https://discord.gg/aY9RfB662"
 BRAND = "Union Arena Decklists"
-SUBTITLE = "50-card lists for Standard"
+HOME_TITLE = f"{BRAND} | Metagame Tier List & Top Decks"
+SUBTITLE = "Top decks for Standard"
 LOGO = "UA"
-CSS_VER = "ua22"
+CSS_VER = "ua23"
 JS_VER = "ua8"
 TCGPLAYER_CATEGORY_ID = 81
 TCGPLAYER_PRICES_FILE = "data/tcgplayer-prices.json"
@@ -37,7 +38,9 @@ ICON_192 = f"{SITE}/img/icon-192.png"
 ICON_512 = f"{SITE}/img/icon-512.png"
 SEARCH_PATH = "/characters.html"
 DEFAULT_ROBOTS = "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
-SITE_DESCRIPTION = "50-card Union Arena TCG decklists for Standard, grouped by anime and manga title."
+SITE_DESCRIPTION = (
+    "Union Arena Standard metagame: tier list, top decks, and 50-card lists by anime and manga title."
+)
 ADSENSE_CLIENT = "ca-pub-1074015774205047"
 FONT_LINKS = f"""  <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -322,6 +325,7 @@ def nav_html(current: str = "") -> str:
             '      <nav aria-label="Primary">',
             item("/#recent", "Recent lists", "recent"),
             item("/characters.html", "Characters", "characters"),
+            item("/tier-list.html", "Tiers", "tiers"),
             item("/format.html", "Format", "format"),
             item("/shop.html", "Shop", "shop"),
             item("/discord/welcome.html", "Discord", "discord"),
@@ -367,9 +371,9 @@ def page_title(primary: str, brand: str | None = None) -> str:
     brand = brand or BRAND
     primary = re.sub(r"\s+", " ", (primary or "").strip())
     if not primary:
-        return f"{brand} | Standard TCG 50-card lists"
+        return HOME_TITLE
     if primary.lower() == brand.lower():
-        return f"{brand} | Standard TCG 50-card lists"
+        return HOME_TITLE
     if brand.lower() in primary.lower():
         return primary[:70]
     titled = f"{primary} | {brand}"
@@ -642,6 +646,7 @@ def footer_links() -> str:
         '      <a href="/characters.html">Characters</a> · '
         '<a href="/series.html">Titles</a> · '
         '<a href="/#recent">Recent lists</a> · '
+        '<a href="/tier-list.html">Tier list</a> · '
         '<a href="/format.html">Format</a> · '
         '<a href="/shop.html">Shop</a> · '
         '<a href="/discord/welcome.html">Discord</a> · '
@@ -716,10 +721,8 @@ def home_chrome(
     image_alt: str = "",
     json_ld: list[dict] | None = None,
 ) -> str:
-    page_t = title or page_title(BRAND)
-    page_d = description or (
-        "Union Arena TCG decklists for Standard: 50-card lists, character hubs, and consensus cores by anime and manga title."
-    )
+    page_t = title or HOME_TITLE
+    page_d = description or SITE_DESCRIPTION
     ld = json_ld or [organization_ld(), website_ld()]
     return no_em(f"""<!doctype html>
 <html lang="en">

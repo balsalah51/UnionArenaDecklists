@@ -1,6 +1,6 @@
 # Union Arena Decklists
 
-Static GitHub Pages site for **Union Arena** TCG 50-card lists.
+Static GitHub Pages site for **Union Arena** TCG top decks, a Standard tier list, and 50-card lists.
 
 Live domain: [unionarenadecklists.com](https://unionarenadecklists.com)
 
@@ -9,6 +9,7 @@ GitHub Pages must serve this branch (or merge to `main`). The old `Index.html` s
 ## What it is
 
 - Home splash, character grid, and recent lists (newest published first)
+- Standard metagame tier list of current top decks
 - One page per current-format character / title
 - Consensus 50-card lists plus official top-placing lists and public YouTube lists
 - Copy button pastes `NxSET/CODE` lines

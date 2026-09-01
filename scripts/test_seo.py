@@ -22,6 +22,7 @@ from generate_site import (  # noqa: E402
     series_href,
     write_feed,
     write_format,
+    write_tier_list,
     write_hub,
     write_list_page,
     write_sitemap,
@@ -33,8 +34,11 @@ class SeoChromeTests(unittest.TestCase):
         self.assertNotEqual(uadb.page_title("Home"), "Home")
         self.assertNotEqual(uadb.page_title(""), "Untitled")
         home = uadb.page_title(uadb.BRAND)
+        self.assertEqual(home, uadb.HOME_TITLE)
         self.assertIn("Union Arena", home)
-        self.assertIn("Standard", home)
+        self.assertIn("Tier List", home)
+        self.assertIn("Top Decks", home)
+        self.assertLessEqual(len(home), 70)
         self.assertIn("|", uadb.page_title("Solo Leveling - Sung Jinwoo decklist"))
         self.assertLessEqual(len(uadb.page_title("Solo Leveling - Sung Jinwoo decklist")), 70)
         long_list = uadb.page_title(
@@ -490,6 +494,51 @@ class SeriesLinkTests(unittest.TestCase):
         self.assertIn("How many cards are in a Union Arena deck?", html)
         self.assertIn("Exactly 50 cards", html)
         self.assertIn('id="faq"', html)
+        self.assertIn("/tier-list.html", html)
+        self.assertIn("Union Arena tier list", html)
+
+    def test_tier_list_page_groups_top_decks(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            with patch.object(generate_site.uadb, "ROOT", root), patch.object(uadb, "ROOT", root):
+                write_tier_list(
+                    [
+                        {
+                            "page": "decklists/sung-jinwoo.html",
+                            "key": "solo-leveling-sung-jinwoo",
+                            "name": "Sung Jinwoo",
+                            "full": "Solo Leveling - Sung Jinwoo",
+                            "title": "Solo Leveling",
+                            "style": "Midrange",
+                            "tier": "1",
+                            "meta_share": 0.082,
+                            "updated": "2026-08-28",
+                        },
+                        {
+                            "page": "decklists/csm-denji.html",
+                            "key": "csm-denji",
+                            "name": "Denji",
+                            "full": "CSM - Denji",
+                            "title": "CSM",
+                            "style": "Aggro",
+                            "tier": "2",
+                            "meta_share": 0.024,
+                        },
+                    ]
+                )
+            html = (root / "tier-list.html").read_text(encoding="utf-8")
+        self.assertIn("Union Arena Standard tier list", html)
+        self.assertIn("Sung Jinwoo", html)
+        self.assertIn("Denji", html)
+        self.assertIn('id="tier-1"', html)
+        self.assertIn('id="tier-2"', html)
+        self.assertIn("8.2%", html)
+        self.assertIn("/decklists/sung-jinwoo.html", html)
+        self.assertIn("/tier-list.html", uadb.nav_html())
+        self.assertIn("Tiers", uadb.nav_html("tiers"))
+        chrome = uadb.home_chrome("body")
+        self.assertIn("Metagame Tier List", chrome)
+        self.assertIn(uadb.SITE_DESCRIPTION, chrome)
 
 
 if __name__ == "__main__":
