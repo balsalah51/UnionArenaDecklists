@@ -107,7 +107,11 @@ FORMAT_FAQ = [
     ),
     (
         "Where can I find Union Arena decklists?",
-        "Union Arena Decklists publishes public 50-card Standard lists by character and title, including consensus cores, official top-placing lists, and recent tournament 50s.",
+        "Union Arena Decklists publishes the Standard tier list, top decks, and public 50-card lists by character and title, including consensus cores, official top-placing lists, and recent tournament 50s.",
+    ),
+    (
+        "Where is the Union Arena tier list?",
+        "The Standard metagame tier list is on this site. It groups current top decks from public tournament 50s, with a 50-card list behind each name.",
     ),
 ]
 _SITEMAP_IMAGES: dict[str, list[tuple[str, str]] | tuple[str, str]] = {}
@@ -1765,6 +1769,40 @@ def pretty_blurb(s: str) -> str:
     return uadb.no_em((s or "").replace("_", " "))
 
 
+TIER_BLURBS = {
+    1: "The lists winning events right now",
+    2: "Proven decks that still convert",
+    3: "Playable if you know the matchups",
+    4: "Fringe or title specialists",
+    5: "Off-meta and experimental",
+    99: "Not ranked on this snapshot",
+}
+
+
+def tier_number(arch: dict) -> int:
+    raw = str(arch.get("tier") or "").strip()
+    return int(raw) if raw.isdigit() and int(raw) > 0 else 99
+
+
+def share_pct(share) -> str:
+    try:
+        pct = float(share or 0) * 100
+    except (TypeError, ValueError):
+        return "-"
+    if pct <= 0:
+        return "-"
+    return f"{pct:.1f}%"
+
+
+def group_tiers(arches: list[dict]) -> list[tuple[int, list[dict]]]:
+    bags: dict[int, list[dict]] = defaultdict(list)
+    for arch in arches:
+        bags[tier_number(arch)].append(arch)
+    for rows in bags.values():
+        rows.sort(key=lambda a: (-float(a.get("meta_share") or 0), a.get("full") or ""))
+    return sorted(bags.items(), key=lambda kv: kv[0])
+
+
 def take_text(arch: dict) -> str:
     if arch.get("combo_blurb"):
         return arch["combo_blurb"]
@@ -1964,7 +2002,11 @@ def write_hub(
         "Other characters in this anime or manga",
         related_character_hubs(arch, catalog or []),
     )
-    more_links = ['<a href="/format.html">Standard format</a>', '<a href="/shop.html">Shop supplies</a>']
+    more_links = [
+        '<a href="/tier-list.html">Tier list</a>',
+        '<a href="/format.html">Standard format</a>',
+        '<a href="/shop.html">Shop supplies</a>',
+    ]
     if series:
         more_links.insert(0, f'<a href="{html.escape(series["href"])}">All {html.escape(series["name"])} decks</a>')
         more_links.append(f'<a href="{html.escape(series["discord"])}">{html.escape(series["name"])} on Discord</a>')
@@ -2168,7 +2210,7 @@ def write_home(arches: list[dict], recent: list[dict], cache: dict, features: di
 {splash_card}
           <div class="home-splash-bar">
             <h1>{html.escape(uadb.BRAND)}</h1>
-            <p>50-card Union Arena TCG lists for Standard. Jump a section, or keep scrolling into the character hubs.</p>
+            <p>Union Arena Standard metagame: top decks, a live tier list, and 50-card lists by title.</p>
           </div>
         </section>
 
@@ -2191,6 +2233,15 @@ def write_home(arches: list[dict], recent: list[dict], cache: dict, features: di
             </span>
             <span class="home-big-title">Characters</span>
             <span class="home-big-note">Top 20 Raiders right now</span>
+          </a>
+          <a class="home-big home-big-tiers" href="/tier-list.html">
+            <span class="home-big-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M4 19h16M7 15h10M9 11h6M11 7h2"/>
+              </svg>
+            </span>
+            <span class="home-big-title">Tier List</span>
+            <span class="home-big-note">Standard metagame top decks</span>
           </a>
           <a class="home-big home-big-shop" href="/shop.html">
             <span class="home-big-icon" aria-hidden="true">
@@ -2385,6 +2436,7 @@ def write_series_index(catalog: list[dict]) -> None:
         )
     others = [
         '<a href="/characters.html">Characters</a>',
+        '<a href="/tier-list.html">Tier list</a>',
         '<a href="/format.html">Standard format</a>',
         '<a href="/discord/welcome.html">Discord</a>',
         '<a href="/shop.html">Shop</a>',
@@ -2482,6 +2534,7 @@ def write_series_page(rec: dict, catalog: list[dict], features: dict, cache: dic
     more_links = [
         f'<a href="{html.escape(rec["discord"])}">{html.escape(name)} Discord thread</a>',
         '<a href="/characters.html">All characters</a>',
+        '<a href="/tier-list.html">Tier list</a>',
         '<a href="/format.html">Standard format</a>',
         '<a href="/shop.html">Shop supplies</a>',
     ]
@@ -2538,14 +2591,14 @@ def write_format(arches: list[dict]) -> None:
         )
     body = f"""        {uadb.crumb_html([("/", "Home"), (None, "Format")])}
         <h1>Standard format</h1>
-        <p>Lists on this site are 50-card constructed Union Arena decks. English events are single-title Standard. A deck is usually one IP (<a href="/series/solo-leveling.html">Solo Leveling</a>, <a href="/series/sakamoto-days.html">Sakamoto Days</a>, <a href="/series/evangelion.html">Evangelion</a>, <a href="/series/chainsaw-man.html">Chainsaw Man</a>) plus up to 4 copies of each card number. Browse every title on the <a href="/series.html">titles index</a>.</p>
+        <p>Lists on this site are 50-card constructed Union Arena decks. English events are single-title Standard. A deck is usually one IP (<a href="/series/solo-leveling.html">Solo Leveling</a>, <a href="/series/sakamoto-days.html">Sakamoto Days</a>, <a href="/series/evangelion.html">Evangelion</a>, <a href="/series/chainsaw-man.html">Chainsaw Man</a>) plus up to 4 copies of each card number. The current <a href="/tier-list.html">Standard tier list</a> ranks the top decks. Browse every title on the <a href="/series.html">titles index</a>.</p>
 
         <section class="meta-take" id="meta" style="margin-top:22px">
           <div class="section-title">
             <h3>Current metagame</h3>
-            <div class="muted">From lists on this site</div>
+            <div class="muted"><a href="/tier-list.html">Full tier list</a></div>
           </div>
-          <p>The snapshot follows public Union Arena tournaments. Sung Jinwoo, Hajime Saito, Shin Asakura, and Rei Ayanami are the names that keep showing up. Everything else is a step down or a title specialist.</p>
+          <p>The snapshot follows public Union Arena tournaments. Sung Jinwoo, Hajime Saito, Shin Asakura, and Rei Ayanami are the names that keep showing up. Everything else is a step down or a title specialist. See the <a href="/tier-list.html">tier list</a> for every ranked deck.</p>
           <ul class="meta-blurbs">
 {chr(10).join(blurbs)}
           </ul>
@@ -2581,7 +2634,7 @@ def write_format(arches: list[dict]) -> None:
     for q, a in FORMAT_FAQ
 )}
         </section>
-        <p class="hub-more"><a href="/characters.html">Characters</a> · <a href="/series.html">Titles</a> · <a href="/shop.html">Shop</a></p>"""
+        <p class="hub-more"><a href="/tier-list.html">Tier list</a> · <a href="/characters.html">Characters</a> · <a href="/series.html">Titles</a> · <a href="/shop.html">Shop</a></p>"""
     page = uadb.page_chrome(
         "Union Arena format and restricted cards | Union Arena Decklists",
         "Standard constructed rules for Union Arena: 50-card lists, restricted Evangelion cards, current-format characters.",
@@ -2596,6 +2649,89 @@ def write_format(arches: list[dict]) -> None:
         ],
     )
     (uadb.ROOT / "format.html").write_text(page)
+
+
+def write_tier_list(arches: list[dict], cache: dict | None = None, features: dict | None = None) -> None:
+    cache = cache or {}
+    features = features or {}
+    arches = [arch for arch in arches if 1 <= tier_number(arch) <= 5]
+    jump = []
+    bands = []
+    list_items = []
+    for tier, rows in group_tiers(arches):
+        if not rows:
+            continue
+        ranked = tier < 99
+        label = f"Tier {tier}" if ranked else "Unranked"
+        slug = f"tier-{tier}" if ranked else "tier-unranked"
+        blurb = TIER_BLURBS.get(tier, "")
+        jump.append(f'<a href="#{html.escape(slug)}">{html.escape(label)}</a>')
+        cards = []
+        for arch in rows:
+            feat = features.get(arch.get("key") or "") or {}
+            img = uadb.card_image_url(feat.get("id") or "", cache) if feat.get("id") else ""
+            color = uadb.color_class((feat.get("meta") or {}).get("color") or arch.get("color") or "")
+            share = share_pct(arch.get("meta_share"))
+            meta_bits = [bit for bit in (arch.get("title") or "", arch.get("style") or "") if bit]
+            img_html = ""
+            if img:
+                img_html = (
+                    f'<img src="{html.escape(img)}" alt="'
+                    f'{html.escape(arch.get("full") or arch.get("name") or "Deck")} Union Arena card" '
+                    'loading="lazy" decoding="async" />'
+                )
+            cards.append(
+                f"""              <li>
+                <a class="tier-row {html.escape(color)}" href="/{html.escape(arch["page"])}">
+                  {img_html}
+                  <div class="tier-copy">
+                    <div class="name">{html.escape(arch.get("name") or arch.get("full") or "Deck")}</div>
+                    <div class="meta">{html.escape(" · ".join(meta_bits))}</div>
+                  </div>
+                  <div class="tier-share">{html.escape(share)}</div>
+                </a>
+              </li>"""
+            )
+            list_items.append((f"/{arch['page']}", arch.get("full") or arch.get("name") or "Deck"))
+        note = f"{len(rows)} {'deck' if len(rows) == 1 else 'decks'}"
+        if blurb:
+            note += f" · {blurb}"
+        bands.append(
+            f"""        <section class="tier-band" id="{html.escape(slug)}">
+          <div class="section-title">
+            <h2>{html.escape(label)}</h2>
+            <div class="muted">{html.escape(note)}</div>
+          </div>
+          <ol class="tier-rows">
+{chr(10).join(cards)}
+          </ol>
+        </section>"""
+        )
+    updated = next((arch.get("updated") for arch in arches if arch.get("updated")), "")
+    stamp = f" Snapshot {updated}." if updated else ""
+    desc = "Current Union Arena Standard tier list and top decks from public tournament 50s."
+    title = "Union Arena Standard tier list | Union Arena Decklists"
+    body = f"""        {uadb.crumb_html([("/", "Home"), (None, "Tier list")])}
+        <h1>Union Arena Standard tier list</h1>
+        <p>Top decks in English Standard right now. Tiers follow the public TCG Contender snapshot.{html.escape(stamp)} Open a name for that character's 50-card lists. Format rules live on the <a href="/format.html">format page</a>.</p>
+        <nav class="tier-jump" aria-label="Jump to a tier">{"".join(jump)}</nav>
+{chr(10).join(bands)}
+        <p class="hub-more"><a href="/format.html">Format rules</a> · <a href="/characters.html">Characters</a> · <a href="/series.html">Titles</a></p>"""
+    page = uadb.page_chrome(
+        title,
+        desc,
+        "color-red",
+        body,
+        "tiers",
+        path="tier-list.html",
+        json_ld=[
+            uadb.website_ld(),
+            uadb.breadcrumb_ld([("/", "Home"), ("/tier-list.html", "Tier list")]),
+            uadb.webpage_ld("tier-list.html", title, desc, page_type="CollectionPage"),
+            uadb.item_list_ld("Union Arena Standard tier list", list_items, url="/tier-list.html"),
+        ],
+    )
+    (uadb.ROOT / "tier-list.html").write_text(page)
 
 
 def amazon_note_html() -> str:
@@ -2711,7 +2847,7 @@ def write_privacy() -> None:
 def write_404() -> None:
     body = """        <nav class="crumb" aria-label="Breadcrumb"><a href="/">Home</a> / Missing page</nav>
         <h1>That page is not here</h1>
-        <p>Try the <a href="/">home splash</a>, <a href="/characters.html">character pages</a>, <a href="/series.html">title pages</a>, <a href="/shop.html">shop</a>, or <a href="/#recent">recent lists</a>.</p>"""
+        <p>Try the <a href="/">home splash</a>, <a href="/tier-list.html">tier list</a>, <a href="/characters.html">character pages</a>, <a href="/series.html">title pages</a>, <a href="/shop.html">shop</a>, or <a href="/#recent">recent lists</a>.</p>"""
     page = uadb.page_chrome(
         "Page not found | Union Arena Decklists",
         "That Union Arena Decklists page is missing.",
@@ -2894,7 +3030,7 @@ def main() -> None:
     published = []
     global _SITEMAP_IMAGES
     _SITEMAP_IMAGES = {}
-    sitemap = ["", "characters.html", "series.html", "format.html", "shop.html", "privacy.html", "feed.xml"]
+    sitemap = ["", "characters.html", "series.html", "tier-list.html", "format.html", "shop.html", "privacy.html", "feed.xml"]
     index = {}
     board_decks = []
     hub_jobs = []
@@ -3020,6 +3156,7 @@ def main() -> None:
     write_characters_index(home_roster, features, cache, catalog)
     sitemap.extend(write_series_pages(catalog, features, cache))
     write_format(unique_arches([a for a in arches if not a.get("from_color")]))
+    write_tier_list(unique_arches([a for a in arches if not a.get("from_color")]), cache, features)
     write_shop()
     write_privacy()
     board = discord_board.build_board(board_decks)
