@@ -197,7 +197,7 @@ async def setup_guild(guild, board: dict, theme_query: str = "") -> None:
 
     index_lines = ["**Title threads**", "One thread per anime or manga. Consensus 50s from the website.", ""]
     for theme in board.get("themes") or []:
-        index_lines.append(f"• **{theme.get('name')}** — {int(theme.get('deck_count') or 0)} lists")
+        index_lines.append(f"• **{theme.get('name')}** - {int(theme.get('deck_count') or 0)} lists")
     await upsert_text(titles, "ua-title-index", "\n".join(index_lines))
 
     for theme in themes:
@@ -281,7 +281,7 @@ def run_bot(args: argparse.Namespace, board: dict) -> None:
     async def themes_cmd(interaction: discord.Interaction):
         live = current_board()
         lines = [
-            f"{t['name']} — {t['deck_count']} lists (#{t['slug']})"
+            f"{t['name']} - {t['deck_count']} lists (#{t['slug']})"
             for t in live.get("themes") or []
         ]
         text = "\n".join(lines) or "No titles on the board yet."

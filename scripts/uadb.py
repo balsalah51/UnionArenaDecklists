@@ -294,7 +294,7 @@ def color_class(color: str | None) -> str:
 
 
 def display_name(name: str) -> str:
-    return " ".join((name or "").split())
+    return " ".join(no_em(name or "").split())
 
 
 def ordinal(n) -> str | None:
@@ -666,7 +666,7 @@ def page_chrome(
     published: str = "",
     modified: str = "",
 ) -> str:
-    return f"""<!doctype html>
+    return no_em(f"""<!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
@@ -704,7 +704,7 @@ def page_chrome(
   <script src="/js/site.js?v={JS_VER}"></script>
 </body>
 </html>
-"""
+""")
 
 
 def home_chrome(
@@ -721,7 +721,7 @@ def home_chrome(
         "Union Arena TCG decklists for Standard: 50-card lists, character hubs, and consensus cores by anime and manga title."
     )
     ld = json_ld or [organization_ld(), website_ld()]
-    return f"""<!doctype html>
+    return no_em(f"""<!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
@@ -756,7 +756,7 @@ def home_chrome(
   <script src="/js/site.js?v={JS_VER}"></script>
 </body>
 </html>
-"""
+""")
 
 
 def copy_button(sim_text: str) -> str:
@@ -1072,4 +1072,6 @@ def list_is_complete(counts: dict[str, int]) -> bool:
 
 
 def no_em(s: str) -> str:
-    return (s or "").replace("\u2014", " - ").replace("\u2013", "-").replace("\u2015", "-")
+    text = s or ""
+    text = re.sub(r"\s*\u2014\s*", " - ", text)
+    return text.replace("\u2013", "-").replace("\u2015", "-")

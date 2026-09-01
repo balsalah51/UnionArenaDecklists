@@ -166,6 +166,7 @@ def test_pages_and_fetch(tmp_path: Path | None = None) -> None:
     dest = Path(tmp_path) if tmp_path else Path(tempfile.mkdtemp())
     paths = discord_board.write_pages(board, dest)
     welcome = (dest / "welcome.html").read_text()
+    assert "\u2014" not in welcome
     assert "Welcome to UA Arena" in welcome or "Welcome to the list hall" in welcome
     assert "announcements" in welcome
     assert "Solo Leveling" in welcome
@@ -181,6 +182,7 @@ def test_pages_and_fetch(tmp_path: Path | None = None) -> None:
     assert "Yu Yu Hakusho thread" in theme
     assert "aliases" in theme and "yyh" in theme
     roles_page = (dest / "roles.html").read_text()
+    assert "\u2014" not in roles_page
     assert "Solo Leveling" in roles_page
     assert "Yu Yu Hakusho" in roles_page
     assert "one role per anime" in roles_page.lower() or "One role per anime" in roles_page
