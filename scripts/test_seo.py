@@ -143,7 +143,12 @@ class SeoChromeTests(unittest.TestCase):
         self.assertIn("ca-pub-1074015774205047", chrome)
         ads_txt = (ROOT / "ads.txt").read_text()
         self.assertIn("google.com, pub-1074015774205047, DIRECT", ads_txt)
-        self.assertIn('src="/img/icon-192.png"', uadb.logo_html())
+        self.assertIn('src="/img/logo.svg"', uadb.logo_html())
+        favicon = (ROOT / "favicon.svg").read_text(encoding="utf-8")
+        self.assertNotIn(">UA</text>", favicon)
+        self.assertNotIn(">UA<", favicon)
+        self.assertIn("<polygon", favicon)
+        self.assertTrue((ROOT / "img" / "logo.svg").is_file())
 
     def test_pages_have_no_em_dashes(self):
         self.assertEqual(uadb.no_em("A — B"), "A - B")
@@ -184,6 +189,7 @@ class SeoChromeTests(unittest.TestCase):
             "img/icon-192.png",
             "img/icon-512.png",
             "img/apple-touch-icon.png",
+            "img/logo.svg",
         ):
             self.assertTrue((root / rel).is_file(), rel)
         robots = (root / "robots.txt").read_text(encoding="utf-8")

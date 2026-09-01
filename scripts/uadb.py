@@ -24,8 +24,7 @@ BROWSER_UA = (
 DISCORD = "https://discord.gg/aY9RfB662"
 BRAND = "Union Arena Decklists"
 SUBTITLE = "50-card lists for Standard"
-LOGO = "UA"
-CSS_VER = "ua22"
+CSS_VER = "ua23"
 JS_VER = "ua8"
 TCGPLAYER_CATEGORY_ID = 81
 TCGPLAYER_PRICES_FILE = "data/tcgplayer-prices.json"
@@ -341,7 +340,7 @@ def brand_heading() -> str:
 
 def logo_html() -> str:
     return (
-        f'<img class="logo" src="/img/icon-192.png" width="56" height="56" '
+        f'<img class="logo" src="/img/logo.svg" width="56" height="56" '
         f'alt="{html.escape(BRAND)}" />'
     )
 

@@ -2165,9 +2165,16 @@ def write_home(arches: list[dict], recent: list[dict], cache: dict, features: di
           </a>"""
     body = f"""        <section class="home-splash" aria-label="{html.escape(uadb.BRAND)}">
           <img class="home-splash-bg" src="/img/uadb-hero.png" alt="Union Arena Trading Card Game" fetchpriority="high" decoding="async" width="1200" height="630" />
+          <div class="home-splash-veil" aria-hidden="true"></div>
+          <div class="home-splash-brand">
+            <img class="home-splash-mark" src="/img/logo.svg" width="72" height="72" alt="" />
+            <div class="home-splash-copy">
+              <p class="home-splash-kicker">Standard format</p>
+              <h1>{html.escape(uadb.BRAND)}</h1>
+            </div>
+          </div>
 {splash_card}
           <div class="home-splash-bar">
-            <h1>{html.escape(uadb.BRAND)}</h1>
             <p>50-card Union Arena TCG lists for Standard. Jump a section, or keep scrolling into the character hubs.</p>
           </div>
         </section>
