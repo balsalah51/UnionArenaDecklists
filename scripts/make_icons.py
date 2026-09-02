@@ -5,7 +5,7 @@ from __future__ import annotations
 
 from pathlib import Path
 
-from PIL import Image, ImageDraw
+from PIL import Image, ImageDraw, ImageFilter, ImageFont
 
 ROOT = Path(__file__).resolve().parents[1]
 BG = (122, 46, 46, 255)  # #7a2e2e
@@ -99,6 +99,52 @@ def write_svg(path: Path) -> None:
     path.write_text(mark_svg(), encoding="utf-8")
 
 
+def _draw_spaced(draw: ImageDraw.ImageDraw, text: str, xy: tuple[float, float], font: ImageFont.FreeTypeFont, fill, tracking: int) -> int:
+    x, y = xy
+    for i, ch in enumerate(text):
+        draw.text((x, y), ch, font=font, fill=fill)
+        advance = draw.textlength(ch, font=font)
+        x += advance + (tracking if i < len(text) - 1 else 0)
+    return int(x)
+
+
+def make_og_image() -> Image.Image:
+    """1200x630 brand card: the same top-left mark, sized for Google and social previews."""
+    width, height = 1200, 630
+    cream = (244, 239, 234, 255)
+    kicker = (232, 208, 196, 255)
+    im = Image.new("RGBA", (width, height), BG)
+    mark = make_mark(288)
+    kicker_font = ImageFont.truetype("/usr/share/fonts/truetype/macos/Inter-SemiBold.ttf", 22)
+    name_font = ImageFont.truetype("/usr/share/fonts/truetype/macos/Inter-Bold.ttf", 64)
+    probe = ImageDraw.Draw(im)
+    kicker_w = 0
+    kicker_text = "UNION ARENA"
+    for i, ch in enumerate(kicker_text):
+        kicker_w += probe.textlength(ch, font=kicker_font)
+        if i < len(kicker_text) - 1:
+            kicker_w += 6
+    name_text = "Decklists"
+    name_w = probe.textlength(name_text, font=name_font)
+    text_w = max(kicker_w, name_w)
+    gap = 36
+    group_w = mark.width + gap + int(text_w)
+    left = (width - group_w) // 2
+    top = (height - mark.height) // 2
+    shadow = Image.new("RGBA", (mark.width + 40, mark.height + 40), (0, 0, 0, 0))
+    sd = ImageDraw.Draw(shadow)
+    sd.rounded_rectangle((8, 12, mark.width + 28, mark.height + 32), radius=28, fill=(0, 0, 0, 90))
+    shadow = shadow.filter(ImageFilter.GaussianBlur(10))
+    im.alpha_composite(shadow, (left - 20, top - 16))
+    im.alpha_composite(mark, (left, top))
+    text_x = left + mark.width + gap
+    text_y = top + (mark.height - 98) // 2
+    draw = ImageDraw.Draw(im)
+    _draw_spaced(draw, kicker_text, (text_x, text_y), kicker_font, kicker, 6)
+    draw.text((text_x, text_y + 34), name_text, font=name_font, fill=cream)
+    return im.convert("RGB")
+
+
 def main() -> None:
     img_dir = ROOT / "img"
     img_dir.mkdir(exist_ok=True)
@@ -119,6 +165,8 @@ def main() -> None:
     )
     write_svg(ROOT / "favicon.svg")
     write_svg(img_dir / "logo.svg")
+    og = img_dir / "og-logo.png"
+    make_og_image().save(og, "PNG", optimize=True)
     (ROOT / "site.webmanifest").write_text(
         """{
   "name": "Union Arena Decklists",
@@ -156,7 +204,13 @@ def main() -> None:
 """,
         encoding="utf-8",
     )
-    print("wrote", ", ".join(p.name for p in [ROOT / "favicon.ico", ROOT / "favicon.svg", *sizes.values(), img_dir / "logo.svg"]))
+    print(
+        "wrote",
+        ", ".join(
+            p.name
+            for p in [ROOT / "favicon.ico", ROOT / "favicon.svg", *sizes.values(), img_dir / "logo.svg", og]
+        )
+    )
 
 
 if __name__ == "__main__":

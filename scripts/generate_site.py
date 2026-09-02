@@ -2254,7 +2254,7 @@ def write_home(arches: list[dict], recent: list[dict], cache: dict, features: di
         for row in recent[:20]
         if row.get("href")
     ]
-    remember_image("", "/img/uadb-hero.png", uadb.BRAND)
+    remember_image("", "/img/og-logo.png", uadb.BRAND)
     remember_image("", "/img/icon-512.png", f"{uadb.BRAND} logo")
     (uadb.ROOT / "index.html").write_text(
         uadb.home_chrome(
