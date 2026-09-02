@@ -141,6 +141,11 @@ class SeoChromeTests(unittest.TestCase):
         self.assertIn(uadb.ADSENSE_CLIENT, uadb.FONT_LINKS)
         chrome = uadb.page_chrome("Title", "Desc", "red", "body")
         self.assertIn("ca-pub-1074015774205047", chrome)
+        self.assertIn("/img/og-logo.png", chrome)
+        self.assertNotIn("/img/uadb-hero.png", chrome)
+        home = uadb.home_chrome("body")
+        self.assertIn("/img/og-logo.png", home)
+        self.assertNotIn("/img/uadb-hero.png", home)
         ads_txt = (ROOT / "ads.txt").read_text()
         self.assertIn("google.com, pub-1074015774205047, DIRECT", ads_txt)
         self.assertIn('src="/img/logo.svg"', uadb.logo_html())
@@ -190,6 +195,7 @@ class SeoChromeTests(unittest.TestCase):
             "img/icon-512.png",
             "img/apple-touch-icon.png",
             "img/logo.svg",
+            "img/og-logo.png",
         ):
             self.assertTrue((root / rel).is_file(), rel)
         robots = (root / "robots.txt").read_text(encoding="utf-8")
@@ -446,7 +452,7 @@ class SeriesLinkTests(unittest.TestCase):
                     lastmod="2026-08-28",
                     images={
                         "": [
-                            ("/img/uadb-hero.png", "Union Arena Decklists"),
+                            ("/img/og-logo.png", "Union Arena Decklists"),
                             ("/img/icon-512.png", "Union Arena Decklists logo"),
                         ],
                         "decklists/sung-jinwoo.html": (
@@ -469,7 +475,7 @@ class SeriesLinkTests(unittest.TestCase):
             xml = (root / "sitemap.xml").read_text(encoding="utf-8")
             feed = (root / "feed.xml").read_text(encoding="utf-8")
         self.assertIn("image:loc", xml)
-        self.assertIn("uadb-hero.png", xml)
+        self.assertIn("og-logo.png", xml)
         self.assertIn("icon-512.png", xml)
         self.assertIn("UE17BT_SLG-1-022.png", xml)
         self.assertIn("<rss", feed)

@@ -31,6 +31,9 @@ TCGPLAYER_PRICES_FILE = "data/tcgplayer-prices.json"
 HERO_IMAGE = f"{SITE}/img/uadb-hero.png"
 HERO_WIDTH = 1200
 HERO_HEIGHT = 630
+OG_IMAGE = f"{SITE}/img/og-logo.png"
+OG_WIDTH = 1200
+OG_HEIGHT = 630
 ICON_48 = f"{SITE}/img/icon-48.png"
 ICON_192 = f"{SITE}/img/icon-192.png"
 ICON_512 = f"{SITE}/img/icon-512.png"
@@ -588,7 +591,7 @@ def seo_head(
 ) -> str:
     desc = clip_meta(description)
     url = absolute_url(path)
-    img = image or HERO_IMAGE
+    img = image or OG_IMAGE
     if img.startswith("/"):
         img = absolute_url(img)
     alt = image_alt or title
@@ -600,10 +603,16 @@ def seo_head(
     if modified or published:
         dates += f'  <meta property="article:modified_time" content="{html.escape(modified or published)}" />\n'
     og_size = ""
-    if img.rstrip("/") == HERO_IMAGE.rstrip("/") or img.endswith("/img/uadb-hero.png"):
+    if (
+        img.rstrip("/") == OG_IMAGE.rstrip("/")
+        or img.endswith("/img/og-logo.png")
+        or img.rstrip("/") == HERO_IMAGE.rstrip("/")
+        or img.endswith("/img/uadb-hero.png")
+    ):
         og_size = (
-            f'  <meta property="og:image:width" content="{HERO_WIDTH}" />\n'
-            f'  <meta property="og:image:height" content="{HERO_HEIGHT}" />\n'
+            f'  <meta property="og:image:width" content="{OG_WIDTH}" />\n'
+            f'  <meta property="og:image:height" content="{OG_HEIGHT}" />\n'
+            f'  <meta property="og:image:type" content="image/png" />\n'
         )
     extra_html = extra if extra.endswith("\n") or not extra else extra + "\n"
     return (
@@ -720,12 +729,14 @@ def home_chrome(
         "Union Arena TCG decklists for Standard: 50-card lists, character hubs, and consensus cores by anime and manga title."
     )
     ld = json_ld or [organization_ld(), website_ld()]
+    brand_image = image or OG_IMAGE
+    brand_alt = image_alt or BRAND
     return no_em(f"""<!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-{seo_head(page_t, page_d, "/", image=image, image_alt=image_alt or page_t, json_ld=ld)}{FONT_LINKS}  <link rel="stylesheet" href="/css/site.css?v={CSS_VER}" />
+{seo_head(page_t, page_d, "/", image=brand_image, image_alt=brand_alt, json_ld=ld)}{FONT_LINKS}  <link rel="stylesheet" href="/css/site.css?v={CSS_VER}" />
 </head>
 <body>
   {skip_link()}
