@@ -110,6 +110,15 @@ def test_kj8_card_ids() -> None:
     assert parsed["UE12BT/KJ8-1-002"] == 3
 
 
+def test_promo_card_ids() -> None:
+    assert uadb.normalize_cid("UE20BT/TSK-P-003") == "UE20BT/TSK-P-003"
+    assert uadb.normalize_cid("UE20BT/TSK-P-006-ALT1") == "UE20BT/TSK-P-006"
+    assert uadb.normalize_cid("UE02BT/HTR-P-001") == "UE02BT/HTR-P-001"
+    parsed = uadb.parse_counts("4xUE20BT/TSK-P-003 2xUE02BT/HTR-P-003")
+    assert parsed["UE20BT/TSK-P-003"] == 4
+    assert parsed["UE02BT/HTR-P-003"] == 2
+
+
 if __name__ == "__main__":
     test_card_search()
     test_mass_entry()
@@ -118,4 +127,5 @@ if __name__ == "__main__":
     test_median_price_lookup()
     test_iys_key_alias()
     test_kj8_card_ids()
+    test_promo_card_ids()
     print("ok")
