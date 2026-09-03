@@ -7,6 +7,7 @@ import json
 import re
 import time
 from concurrent.futures import ThreadPoolExecutor, as_completed
+from datetime import date, timedelta
 
 import uadb
 
@@ -16,6 +17,7 @@ MAX_PAGES = 40
 MAX_TOURNAMENTS = 500
 MAX_LISTS = 3000
 MIN_PLAYERS = 6
+RECENT_DAYS = 14
 EVENT_ID_RE = re.compile(r"-(\d{6,})$")
 
 
@@ -52,13 +54,20 @@ def tournament_pages() -> list[dict]:
 
 
 def pick_tournaments(rows: list[dict]) -> list[dict]:
+    recent_cut = (date.today() - timedelta(days=RECENT_DAYS)).isoformat()
     picked = []
     for row in rows:
         if int(row.get("decklistCount") or 0) < 1:
             continue
         event = (row.get("eventType") or "").lower()
         players = int(row.get("playerCount") or 0)
-        if event == "regional" or players >= MIN_PLAYERS or int(row.get("decklistCount") or 0) >= 4:
+        when = (row.get("date") or "")[:10]
+        if (
+            event == "regional"
+            or players >= MIN_PLAYERS
+            or int(row.get("decklistCount") or 0) >= 4
+            or when >= recent_cut
+        ):
             picked.append(row)
         if len(picked) >= MAX_TOURNAMENTS:
             break
@@ -86,14 +95,34 @@ def fetch_decklist(tid: int, did: int) -> dict:
 
 
 def known_event_ids(found: list[dict]) -> set[int]:
-    ids: set[int] = set()
+    return set(known_event_lists(found))
+
+
+def known_event_lists(found: list[dict]) -> dict[int, dict]:
+    """Map Contender decklist id to the stored community row."""
+    out: dict[int, dict] = {}
     for row in found:
         if row.get("kind") != "event":
             continue
         m = EVENT_ID_RE.search(row.get("slug") or "")
         if m:
-            ids.add(int(m.group(1)))
-    return ids
+            out[int(m.group(1))] = row
+    return out
+
+
+def stored_card_count(row: dict | None) -> int:
+    if not row:
+        return 0
+    return int(row.get("cards") or sum((row.get("counts") or {}).values()) or 0)
+
+
+def should_refresh(stored: dict | None, live_cards: int) -> bool:
+    have = stored_card_count(stored)
+    if stored is None:
+        return True
+    if have < 50:
+        return True
+    return bool(live_cards) and have < live_cards
 
 
 def player_from_name(deck_name: str) -> str:
@@ -107,10 +136,11 @@ def scrape_events(found: list[dict], seen: set[str], cache: dict, arches: list[d
     from scrape_community import guess_key, item_from_counts, key_from_counts, record
 
     tours = pick_tournaments(tournament_pages())
-    have = known_event_ids(found)
+    have = known_event_lists(found)
     uadb.log("events picked", len(tours), "already stored", len(have))
     added = 0
     skipped = 0
+    refreshed = 0
     for tour in tours:
         if added >= MAX_LISTS:
             break
@@ -131,32 +161,36 @@ def scrape_events(found: list[dict], seen: set[str], cache: dict, arches: list[d
             if not did or cards and cards < uadb.MIN_CARDS:
                 continue
             did = int(did)
-            if did in have:
+            stored = have.get(did)
+            if not should_refresh(stored, cards):
                 skipped += 1
                 continue
-            jobs.append((did, row))
+            jobs.append((did, row, stored))
         if not jobs:
             continue
 
-        def one(pair):
-            did, row = pair
+        def one(job):
+            did, row, stored = job
             time.sleep(0.04)
             payload = fetch_decklist(tid, did)
-            return did, row, payload
+            return did, row, stored, payload
 
         with ThreadPoolExecutor(max_workers=4) as pool:
             futs = [pool.submit(one, job) for job in jobs]
             for fut in as_completed(futs):
                 if added >= MAX_LISTS:
                     break
-                did, row, payload = fut.result()
+                did, row, stored, payload = fut.result()
                 cards = (payload.get("cards") or []) if payload else []
                 counts = counts_from_cards(cards)
                 if not uadb.list_is_complete(counts):
                     continue
+                if stored and sum(counts.values()) <= stored_card_count(stored):
+                    skipped += 1
+                    continue
                 archetype = row.get("archetype") or (payload.get("decklist") or {}).get("archetype") or ""
-                key = ""
-                if archetype.count(" - ") == 1 and len(archetype) <= 72:
+                key = (stored or {}).get("key") or ""
+                if not key and archetype.count(" - ") == 1 and len(archetype) <= 72:
                     title, name = [part.strip() for part in archetype.split(" - ", 1)]
                     if title and name and name.lower() not in {"purple", "red", "yellow", "green", "blue", "black"}:
                         key = uadb.slugify(archetype)
@@ -167,22 +201,25 @@ def scrape_events(found: list[dict], seen: set[str], cache: dict, arches: list[d
                 if not key:
                     continue
                 place = uadb.ordinal(row.get("placement")) or "Event"
-                player = player_from_name(row.get("deckName") or "")
-                slug = uadb.slugify(f"event-{place}-{key}-{did}")
+                player = player_from_name(row.get("deckName") or "") or (stored or {}).get("player") or place
+                slug = (stored or {}).get("slug") or uadb.slugify(f"event-{place}-{key}-{did}")
                 item = item_from_counts(
                     counts,
                     key=key,
                     kind="event",
-                    player=player or place,
-                    title=archetype or place,
+                    player=player,
+                    title=archetype or (stored or {}).get("title") or place,
                     subtitle=f"{place} · {event}",
                     source_url=source,
                     slug=slug,
-                    date=date,
+                    date=date or (stored or {}).get("date") or "",
                 )
-                item["archetype"] = archetype
+                item["archetype"] = archetype or (stored or {}).get("archetype") or item.get("archetype")
                 if record(found, item, seen):
-                    added += 1
-                    have.add(did)
+                    have[did] = item
+                    if stored:
+                        refreshed += 1
+                    else:
+                        added += 1
         time.sleep(0.06)
-    uadb.log("events lists added", added, "already stored skipped", skipped)
+    uadb.log("events lists added", added, "refreshed", refreshed, "already stored skipped", skipped)

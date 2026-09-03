@@ -85743,6 +85743,25 @@
       ]
     },
     {
+      "name": "Milim (P-003)",
+      "norm": "milim p 003",
+      "hubs": [],
+      "lists": [
+        {
+          "href": "/decklists/that-time-i-got-reincarnated-as-a-slime-milim/event-3rd-that-time-i-got-reincarnated-as-a-slime-milim-1336103.html",
+          "title": "That Time I Got Reincarnated As A Slime - Milim",
+          "sub": "sacaradi24 · 3rd · UA Weekly \"Locals\" 21",
+          "date": "2026-08-30"
+        },
+        {
+          "href": "/decklists/that-time-i-got-reincarnated-as-a-slime-milim/contender-consensus.html",
+          "title": "That Time I Got Reincarnated As A Slime - Milim",
+          "sub": "TCG Contender Standard snapshot · 2026-08-28",
+          "date": "2026-08-28"
+        }
+      ]
+    },
+    {
       "name": "Mordred",
       "norm": "mordred",
       "hubs": [],
@@ -88257,15 +88276,22 @@
       ]
     },
     {
-      "name": "Milim (P-003)",
-      "norm": "milim p 003",
-      "hubs": [],
+      "name": "Milim (P-006)",
+      "norm": "milim p 006",
+      "hubs": [
+        {
+          "href": "/decklists/milim-p-006.html",
+          "label": "That Time I Got Reincarnated As A Slime - Milim (P-006)",
+          "color": "Green",
+          "n": 1
+        }
+      ],
       "lists": [
         {
-          "href": "/decklists/that-time-i-got-reincarnated-as-a-slime-milim/contender-consensus.html",
+          "href": "/decklists/that-time-i-got-reincarnated-as-a-slime-milim/event-3rd-that-time-i-got-reincarnated-as-a-slime-milim-1336103.html",
           "title": "That Time I Got Reincarnated As A Slime - Milim",
-          "sub": "TCG Contender Standard snapshot · 2026-08-28",
-          "date": "2026-08-28"
+          "sub": "sacaradi24 · 3rd · UA Weekly \"Locals\" 21",
+          "date": "2026-08-30"
         }
       ]
     },
@@ -97574,6 +97600,12 @@
           "label": "That Time I Got Reincarnated As A Slime - Shizu (U*)",
           "color": "Blue",
           "n": 2
+        },
+        {
+          "href": "/decklists/milim-p-006.html",
+          "label": "That Time I Got Reincarnated As A Slime - Milim (P-006)",
+          "color": "Green",
+          "n": 1
         },
         {
           "href": "/decklists/shion-p-005.html",

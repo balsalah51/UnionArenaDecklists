@@ -77,10 +77,10 @@ STAMP_RE = re.compile(
     re.I,
 )
 LINE_RE = re.compile(
-    r"(?i)(\d+)\s*[x×*]\s*((?:UE|UA|ST|PR|UEX)[A-Z0-9]{0,8}[/_\-]+[A-Z]{2,4}\d?-\d-\d{3})"
+    r"(?i)(\d+)\s*[x×*]\s*((?:UE|UA|ST|PR|UEX)[A-Z0-9]{0,8}[/_\-]+[A-Z]{2,4}\d?-(?:\d|P)-\d{3})"
 )
 CID_TOKEN_RE = re.compile(
-    r"(?i)\b((?:UE|UA|ST|PR|UEX)[A-Z0-9]{2,8})[/_\-]+([A-Z]{2,4}\d?-\d-\d{3})(?:-ALT\d+)?"
+    r"(?i)\b((?:UE|UA|ST|PR|UEX)[A-Z0-9]{2,8})[/_\-]+([A-Z]{2,4}\d?-(?:\d|P)-\d{3})(?:-ALT\d+)?"
 )
 ANIME_PRETTY = {
     "csm": "Chainsaw Man",
@@ -113,10 +113,10 @@ ANIME_PRETTY = {
     "kaiju no. 8": "Kaiju No. 8",
 }
 QTY_BEFORE_RE = re.compile(
-    r"(?i)(\d{1,2})\s*[x×*]\s*((?:UE|UA|ST|PR|UEX)[A-Z0-9]{2,8}[/_\-]+[A-Z]{2,4}\d?-\d-\d{3})"
+    r"(?i)(\d{1,2})\s*[x×*]\s*((?:UE|UA|ST|PR|UEX)[A-Z0-9]{2,8}[/_\-]+[A-Z]{2,4}\d?-(?:\d|P)-\d{3})"
 )
 QTY_AFTER_RE = re.compile(
-    r"(?i)((?:UE|UA|ST|PR|UEX)[A-Z0-9]{2,8}[/_\-]+[A-Z]{2,4}\d?-\d-\d{3})\s*[x×*]\s*(\d{1,2})"
+    r"(?i)((?:UE|UA|ST|PR|UEX)[A-Z0-9]{2,8}[/_\-]+[A-Z]{2,4}\d?-(?:\d|P)-\d{3})\s*[x×*]\s*(\d{1,2})"
 )
 POPUP_JS = r"""
     (function(){
