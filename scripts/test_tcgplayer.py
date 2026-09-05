@@ -3,6 +3,8 @@
 
 from __future__ import annotations
 
+import urllib.parse
+
 import uadb
 
 
@@ -33,13 +35,20 @@ def test_mass_entry() -> None:
         "UE17BT/SLG-1-038": {"name": "Igris"},
     }
     url = uadb.tcgplayer_mass_entry_url(items, cache)
+    decoded = urllib.parse.unquote_plus(url)
     assert url.startswith("https://www.tcgplayer.com/massentry?")
     assert "productline=Union+Arena" in url or "productline=Union%20Arena" in url
-    assert "4+Sung+Jinwoo+UE17BT+SLG-1-022" in url or "4%20Sung%20Jinwoo%20UE17BT%20SLG-1-022" in url
-    assert "Igris" in url
-    assert "AP" not in url
-    assert "UNRESOLVED" not in url
+    assert "4 Sung Jinwoo [UE17BT] UE17BT/SLG-1-022" in decoded
+    assert "4 Igris [UE17BT] UE17BT/SLG-1-038" in decoded
+    assert "SLG-1-022" in decoded and "UE17BT/SLG-1-022" in decoded
+    assert "AP" not in decoded
+    assert "UNRESOLVED" not in decoded
     assert uadb.tcgplayer_mass_entry_url([], {}) == ""
+    nameless = uadb.tcgplayer_mass_entry_url(
+        [{"id": "UE20BT/TSK-P-003", "name": "", "count": 2, "group": "Characters"}],
+        {},
+    )
+    assert "2 UE20BT/TSK-P-003" in urllib.parse.unquote_plus(nameless)
 
 
 def test_buttons() -> None:
