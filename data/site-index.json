@@ -1,7 +1,31 @@
 {
   "solo-leveling-sung-jinwoo": [
     {
+      "slug": "event-2nd-solo-leveling-sung-jinwoo-1507958",
+      "kind": "event",
+      "title": "Solo Leveling - Sung Jinwoo",
+      "date": "2026-08-31"
+    },
+    {
+      "slug": "event-13th-solo-leveling-sung-jinwoo-1507968",
+      "kind": "event",
+      "title": "Solo Leveling - Sung Jinwoo",
+      "date": "2026-08-31"
+    },
+    {
+      "slug": "event-4th-solo-leveling-sung-jinwoo-1507949",
+      "kind": "event",
+      "title": "Solo Leveling - Sung Jinwoo",
+      "date": "2026-08-31"
+    },
+    {
       "slug": "event-1st-solo-leveling-sung-jinwoo-1336101",
+      "kind": "event",
+      "title": "Solo Leveling - Sung Jinwoo",
+      "date": "2026-08-30"
+    },
+    {
+      "slug": "event-4th-solo-leveling-sung-jinwoo-1507987",
       "kind": "event",
       "title": "Solo Leveling - Sung Jinwoo",
       "date": "2026-08-30"
@@ -957,7 +981,31 @@
   ],
   "evangelion-evangelion-test-type-01-pseudo-dms-phase": [
     {
+      "slug": "event-9th-evangelion-evangelion-test-type-01-pseudo-dms-phase-1507927",
+      "kind": "event",
+      "title": "Evangelion - Evangelion Test Type-01 Pseudo DMS Phase",
+      "date": "2026-09-02"
+    },
+    {
+      "slug": "event-8th-evangelion-evangelion-test-type-01-pseudo-dms-phase-1507963",
+      "kind": "event",
+      "title": "Evangelion - Evangelion Test Type-01 Pseudo DMS Phase",
+      "date": "2026-08-31"
+    },
+    {
+      "slug": "event-1st-evangelion-evangelion-test-type-01-pseudo-dms-phase-1507946",
+      "kind": "event",
+      "title": "Evangelion - Evangelion Test Type-01 Pseudo DMS Phase",
+      "date": "2026-08-31"
+    },
+    {
       "slug": "event-5th-evangelion-evangelion-test-type-01-pseudo-dms-phase-1336105",
+      "kind": "event",
+      "title": "Evangelion - Evangelion Test Type-01 Pseudo DMS Phase",
+      "date": "2026-08-30"
+    },
+    {
+      "slug": "event-1st-evangelion-evangelion-test-type-01-pseudo-dms-phase-1507984",
       "kind": "event",
       "title": "Evangelion - Evangelion Test Type-01 Pseudo DMS Phase",
       "date": "2026-08-30"
@@ -1199,6 +1247,12 @@
   ],
   "rurouni-kenshin-kaoru-kamiya": [
     {
+      "slug": "event-12th-rurouni-kenshin-kaoru-kamiya-1507967",
+      "kind": "event",
+      "title": "Rurouni Kenshin - Kaoru Kamiya",
+      "date": "2026-08-31"
+    },
+    {
       "slug": "contender-consensus",
       "kind": "contender",
       "title": "Rurouni Kenshin - Kaoru Kamiya",
@@ -1409,6 +1463,12 @@
       "kind": "event",
       "title": "Evangelion - Rei Ayanami",
       "date": "2026-08-30"
+    },
+    {
+      "slug": "event-3rd-evangelion-rei-ayanami-1507994",
+      "kind": "event",
+      "title": "Evangelion - Rei Ayanami",
+      "date": "2026-08-29"
     },
     {
       "slug": "contender-consensus",
@@ -2453,6 +2513,24 @@
   ],
   "csm-chainsaw-man": [
     {
+      "slug": "event-3rd-csm-chainsaw-man-1507952",
+      "kind": "event",
+      "title": "Chainsaw Man",
+      "date": "2026-08-31"
+    },
+    {
+      "slug": "event-19th-csm-chainsaw-man-1507974",
+      "kind": "event",
+      "title": "Chainsaw Man",
+      "date": "2026-08-31"
+    },
+    {
+      "slug": "event-22nd-csm-chainsaw-man-1507977",
+      "kind": "event",
+      "title": "Chainsaw Man",
+      "date": "2026-08-31"
+    },
+    {
       "slug": "contender-consensus",
       "kind": "contender",
       "title": "Chainsaw Man",
@@ -2568,6 +2646,12 @@
     }
   ],
   "sakamoto-days-shin-asakura": [
+    {
+      "slug": "event-1st-sakamoto-days-shin-asakura-1507931",
+      "kind": "event",
+      "title": "Sakamoto Days - Shin Asakura",
+      "date": "2026-09-01"
+    },
     {
       "slug": "contender-consensus",
       "kind": "contender",
@@ -2733,6 +2817,12 @@
       "date": "2026-08-30"
     },
     {
+      "slug": "event-6th-sakamoto-days-heisuke-mashimo-1507989",
+      "kind": "event",
+      "title": "Sakamoto Days - Heisuke Mashimo",
+      "date": "2026-08-30"
+    },
+    {
       "slug": "contender-consensus",
       "kind": "contender",
       "title": "Sakamoto Days - Heisuke Mashimo",
@@ -2878,6 +2968,12 @@
     }
   ],
   "rurouni-kenshin-hajime-saito": [
+    {
+      "slug": "event-2nd-rurouni-kenshin-hajime-saito-1507923",
+      "kind": "event",
+      "title": "Rurouni Kenshin - Hajime Saito",
+      "date": "2026-09-02"
+    },
     {
       "slug": "contender-consensus",
       "kind": "contender",
@@ -3241,6 +3337,12 @@
   ],
   "jujutsu-kaisen-aoi-todo": [
     {
+      "slug": "event-10th-jujutsu-kaisen-aoi-todo-1507965",
+      "kind": "event",
+      "title": "Jujutsu Kaisen - Aoi Todo",
+      "date": "2026-08-31"
+    },
+    {
       "slug": "event-4th-jujutsu-kaisen-aoi-todo-1336104",
       "kind": "event",
       "title": "Jujutsu Kaisen - Aoi Todo",
@@ -3513,6 +3615,12 @@
   ],
   "evangelion-evangelion-proto-type-00": [
     {
+      "slug": "event-15th-evangelion-evangelion-proto-type-00-1507970",
+      "kind": "event",
+      "title": "Evangelion - Evangelion Proto Type-00",
+      "date": "2026-08-31"
+    },
+    {
       "slug": "contender-consensus",
       "kind": "contender",
       "title": "Evangelion - Evangelion Proto Type-00",
@@ -3722,6 +3830,12 @@
     }
   ],
   "sakamoto-days-taro-sakamoto": [
+    {
+      "slug": "event-11th-sakamoto-days-taro-sakamoto-1507966",
+      "kind": "event",
+      "title": "Sakamoto Days - Taro Sakamoto",
+      "date": "2026-08-31"
+    },
     {
       "slug": "contender-consensus",
       "kind": "contender",
@@ -4067,6 +4181,18 @@
   ],
   "that-time-i-got-reincarnated-as-a-slime-rimuru": [
     {
+      "slug": "event-9th-that-time-i-got-reincarnated-as-a-slime-rimuru-1507919",
+      "kind": "event",
+      "title": "That Time I Got Reincarnated As A Slime - Rimuru",
+      "date": "2026-09-02"
+    },
+    {
+      "slug": "event-6th-that-time-i-got-reincarnated-as-a-slime-rimuru-1507943",
+      "kind": "event",
+      "title": "That Time I Got Reincarnated As A Slime - Rimuru",
+      "date": "2026-09-01"
+    },
+    {
       "slug": "contender-consensus",
       "kind": "contender",
       "title": "That Time I Got Reincarnated As A Slime - Rimuru",
@@ -4329,6 +4455,12 @@
   ],
   "that-time-i-got-reincarnated-as-a-slime-milim": [
     {
+      "slug": "event-8th-that-time-i-got-reincarnated-as-a-slime-milim-1507945",
+      "kind": "event",
+      "title": "That Time I Got Reincarnated As A Slime - Milim",
+      "date": "2026-09-01"
+    },
+    {
       "slug": "event-3rd-that-time-i-got-reincarnated-as-a-slime-milim-1336103",
       "kind": "event",
       "title": "That Time I Got Reincarnated As A Slime - Milim",
@@ -4501,6 +4633,24 @@
   ],
   "iys-inuyasha": [
     {
+      "slug": "event-8th-iys-inuyasha-1507926",
+      "kind": "event",
+      "title": "Inuyasha",
+      "date": "2026-09-02"
+    },
+    {
+      "slug": "event-2nd-iys-inuyasha-1507951",
+      "kind": "event",
+      "title": "Inuyasha",
+      "date": "2026-08-31"
+    },
+    {
+      "slug": "event-9th-iys-inuyasha-1507964",
+      "kind": "event",
+      "title": "Inuyasha",
+      "date": "2026-08-31"
+    },
+    {
       "slug": "contender-consensus",
       "kind": "contender",
       "title": "Inuyasha",
@@ -4532,6 +4682,18 @@
     }
   ],
   "kaiju-no-8-reno-ichikawa": [
+    {
+      "slug": "event-2nd-kaiju-no-8-reno-ichikawa-1507932",
+      "kind": "event",
+      "title": "Kaiju No. 8 - Reno Ichikawa",
+      "date": "2026-09-01"
+    },
+    {
+      "slug": "event-10th-kaiju-no-8-reno-ichikawa-1507935",
+      "kind": "event",
+      "title": "Kaiju No. 8 - Reno Ichikawa",
+      "date": "2026-09-01"
+    },
     {
       "slug": "contender-consensus",
       "kind": "contender",
@@ -5037,6 +5199,12 @@
   ],
   "evangelion-evangelion-production-model-08": [
     {
+      "slug": "event-1st-evangelion-evangelion-production-model-08-1507938",
+      "kind": "event",
+      "title": "Evangelion - Evangelion Production Model-08",
+      "date": "2026-09-01"
+    },
+    {
       "slug": "event-7th-evangelion-evangelion-production-model-08-1336107",
       "kind": "event",
       "title": "Evangelion - Evangelion Production Model-08",
@@ -5190,6 +5358,12 @@
     }
   ],
   "csm-power": [
+    {
+      "slug": "event-7th-csm-csm-1507917",
+      "kind": "event",
+      "title": "Chainsaw Man - Power",
+      "date": "2026-09-02"
+    },
     {
       "slug": "contender-consensus",
       "kind": "contender",
@@ -5621,6 +5795,12 @@
   ],
   "csm-aki-hayakawa": [
     {
+      "slug": "event-1st-csm-aki-hayakawa-1507920",
+      "kind": "event",
+      "title": "Chainsaw Man - Aki Hayakawa",
+      "date": "2026-09-02"
+    },
+    {
       "slug": "contender-consensus",
       "kind": "contender",
       "title": "Chainsaw Man - Aki Hayakawa",
@@ -5670,6 +5850,12 @@
     }
   ],
   "rurouni-kenshin-kenshin-himura": [
+    {
+      "slug": "event-21st-rurouni-kenshin-kenshin-himura-1507976",
+      "kind": "event",
+      "title": "Rurouni Kenshin - Kenshin Himura",
+      "date": "2026-08-31"
+    },
     {
       "slug": "contender-consensus",
       "kind": "contender",
@@ -6205,6 +6391,18 @@
   ],
   "tokyo-ghoul-kotaro-amon": [
     {
+      "slug": "event-1st-tokyo-ghoul-kotaro-amon-1507950",
+      "kind": "event",
+      "title": "Tokyo Ghoul - Kotaro Amon",
+      "date": "2026-08-31"
+    },
+    {
+      "slug": "event-5th-tokyo-ghoul-kotaro-amon-1507954",
+      "kind": "event",
+      "title": "Tokyo Ghoul - Kotaro Amon",
+      "date": "2026-08-31"
+    },
+    {
       "slug": "contender-consensus",
       "kind": "contender",
       "title": "Tokyo Ghoul - Kotaro Amon",
@@ -6446,6 +6644,12 @@
     }
   ],
   "bleach-kenpachi-zaraki": [
+    {
+      "slug": "event-18th-bleach-kenpachi-zaraki-1507973",
+      "kind": "event",
+      "title": "Bleach - Kenpachi Zaraki",
+      "date": "2026-08-31"
+    },
     {
       "slug": "contender-consensus",
       "kind": "contender",
@@ -6863,6 +7067,12 @@
   ],
   "that-time-i-got-reincarnated-as-a-slime-soei": [
     {
+      "slug": "event-13th-that-time-i-got-reincarnated-as-a-slime-soei-1507929",
+      "kind": "event",
+      "title": "That Time I Got Reincarnated As A Slime - Soei",
+      "date": "2026-09-02"
+    },
+    {
       "slug": "contender-consensus",
       "kind": "contender",
       "title": "That Time I Got Reincarnated As A Slime - Soei",
@@ -6930,6 +7140,12 @@
     }
   ],
   "evangelion-evangelion-production-model-new-02": [
+    {
+      "slug": "event-17th-evangelion-evangelion-production-model-new-02-1507972",
+      "kind": "event",
+      "title": "Evangelion - Evangelion Production Model-New 02",
+      "date": "2026-08-31"
+    },
     {
       "slug": "contender-consensus",
       "kind": "contender",
@@ -7899,6 +8115,12 @@
   ],
   "bleach-toshiro-hitsugaya": [
     {
+      "slug": "event-1st-bleach-toshiro-hitsugaya-1508000",
+      "kind": "event",
+      "title": "Bleach - Toshiro Hitsugaya",
+      "date": "2026-08-29"
+    },
+    {
       "slug": "contender-consensus",
       "kind": "contender",
       "title": "Bleach - Toshiro Hitsugaya",
@@ -7930,6 +8152,12 @@
     }
   ],
   "solo-leveling-han-song-yi": [
+    {
+      "slug": "event-16th-solo-leveling-han-song-yi-1507971",
+      "kind": "event",
+      "title": "Solo Leveling - Han Song-yi",
+      "date": "2026-08-31"
+    },
     {
       "slug": "contender-consensus",
       "kind": "contender",
@@ -8031,6 +8259,12 @@
   ],
   "evangelion-evangelion-13": [
     {
+      "slug": "event-14th-evangelion-evangelion-13-1507930",
+      "kind": "event",
+      "title": "Evangelion - Evangelion 13",
+      "date": "2026-09-02"
+    },
+    {
       "slug": "contender-consensus",
       "kind": "contender",
       "title": "Evangelion - Evangelion 13",
@@ -8068,6 +8302,12 @@
     }
   ],
   "kagurabachi-chihiro-rokuhira": [
+    {
+      "slug": "event-4th-kagurabachi-chihiro-rokuhira-1507960",
+      "kind": "event",
+      "title": "Kagurabachi - Chihiro Rokuhira",
+      "date": "2026-08-31"
+    },
     {
       "slug": "contender-consensus",
       "kind": "contender",
@@ -8843,6 +9083,14 @@
       "date": "2026-06-17"
     }
   ],
+  "attack-on-titan-eren-jaeger-attack-titan": [
+    {
+      "slug": "event-3rd-attack-on-titan-eren-jaeger-attack-titan-1508002",
+      "kind": "event",
+      "title": "Attack On Titan - Eren Jaeger (Attack Titan)",
+      "date": "2026-08-29"
+    }
+  ],
   "attack-on-titan-erwin-smith": [
     {
       "slug": "event-5th-attack-on-titan-erwin-smith-1446172",
@@ -9125,6 +9373,12 @@
   ],
   "black-clover-noelle-silva": [
     {
+      "slug": "event-7th-black-clover-noelle-silva-1507956",
+      "kind": "event",
+      "title": "Black Clover - Noelle Silva",
+      "date": "2026-08-31"
+    },
+    {
       "slug": "event-1st-black-clover-noelle-silva-1336200",
       "kind": "event",
       "title": "Black Clover - Noelle Silva",
@@ -9307,6 +9561,12 @@
   ],
   "bleach-kenny": [
     {
+      "slug": "event-11th-bleach-kenny-1507928",
+      "kind": "event",
+      "title": "Bleach - Kenpachi Zaraki",
+      "date": "2026-09-02"
+    },
+    {
       "slug": "event-8th-bleach-kenny-1496637",
       "kind": "event",
       "title": "Bleach - Kenpachi Zaraki",
@@ -9401,6 +9661,14 @@
       "kind": "event",
       "title": "Bleach - Ichigo Kurosaki",
       "date": "2026-08-18"
+    }
+  ],
+  "bleach-the-boys-home-girl": [
+    {
+      "slug": "event-8th-bleach-the-boys-home-girl-1507934",
+      "kind": "event",
+      "title": "Bleach - Ichigo Kurosaki",
+      "date": "2026-09-01"
     }
   ],
   "bleach-yachiru-unohana": [
@@ -9513,6 +9781,14 @@
       "date": "2026-08-20"
     }
   ],
+  "csm-maki-gal": [
+    {
+      "slug": "event-13th-csm-maki-gal-1507921",
+      "kind": "event",
+      "title": "Chainsaw Man - Makima",
+      "date": "2026-09-02"
+    }
+  ],
   "csm-red-denji-gwizzly-style": [
     {
       "slug": "event-4th-csm-red-denji-gwizzly-style-1435525",
@@ -9522,6 +9798,18 @@
     }
   ],
   "csm-reze": [
+    {
+      "slug": "event-5th-csm-reze-1507925",
+      "kind": "event",
+      "title": "Chainsaw Man - Reze",
+      "date": "2026-09-02"
+    },
+    {
+      "slug": "event-14th-csm-reze-1507937",
+      "kind": "event",
+      "title": "Chainsaw Man - Reze",
+      "date": "2026-09-01"
+    },
     {
       "slug": "event-14th-csm-reze-1489224",
       "kind": "event",
@@ -9719,6 +10007,14 @@
       "kind": "event",
       "title": "Demon Slayer - Shinobu Kocho",
       "date": "2026-07-05"
+    }
+  ],
+  "demon-slayer-tanjiro-hybrid": [
+    {
+      "slug": "event-13th-demon-slayer-tanjiro-hybrid-1507983",
+      "kind": "event",
+      "title": "Demon Slayer - Muichiro Tokito",
+      "date": "2026-08-30"
     }
   ],
   "demon-slayer-tanjiro-nezuko": [
@@ -10521,6 +10817,14 @@
       "date": "2026-08-30"
     }
   ],
+  "iys-inuyasha-sit-down": [
+    {
+      "slug": "event-2nd-iys-inuyasha-sit-down-1507978",
+      "kind": "event",
+      "title": "Inuyasha",
+      "date": "2026-08-30"
+    }
+  ],
   "iys-kagura": [
     {
       "slug": "event-4th-iys-kagura-1496627",
@@ -10542,6 +10846,12 @@
     }
   ],
   "iys-kanna": [
+    {
+      "slug": "event-13th-iys-kanna-1507936",
+      "kind": "event",
+      "title": "Inuyasha - Kanna",
+      "date": "2026-09-01"
+    },
     {
       "slug": "event-4th-inuyasha-naraku-1489207",
       "kind": "event",
@@ -10571,6 +10881,12 @@
   ],
   "iys-naraku": [
     {
+      "slug": "event-8th-iys-naraku-1507918",
+      "kind": "event",
+      "title": "Inuyasha - Naraku",
+      "date": "2026-09-02"
+    },
+    {
       "slug": "event-1st-iys-naraku-1496652",
       "kind": "event",
       "title": "Inuyasha - Naraku",
@@ -10581,6 +10897,14 @@
       "kind": "event",
       "title": "Inuyasha - Naraku",
       "date": "2026-08-22"
+    }
+  ],
+  "iys-naraku-the-immortal": [
+    {
+      "slug": "event-8th-iys-naraku-the-immortal-1507981",
+      "kind": "event",
+      "title": "Inuyasha - Naraku",
+      "date": "2026-08-30"
     }
   ],
   "iys-rin": [
@@ -10597,7 +10921,27 @@
       "date": "2026-08-15"
     }
   ],
+  "iys-sesshomaru-deck": [
+    {
+      "slug": "event-11th-iys-sesshomaru-deck-1507982",
+      "kind": "event",
+      "title": "Inuyasha - Sesshomaru",
+      "date": "2026-08-30"
+    }
+  ],
   "iys-sango": [
+    {
+      "slug": "event-1st-iys-sango-1507922",
+      "kind": "event",
+      "title": "Inuyasha - Sango",
+      "date": "2026-09-02"
+    },
+    {
+      "slug": "event-2nd-iys-sango-1507947",
+      "kind": "event",
+      "title": "Inuyasha - Sango",
+      "date": "2026-08-31"
+    },
     {
       "slug": "event-3rd-iys-sango-1496644",
       "kind": "event",
@@ -10621,6 +10965,26 @@
       "kind": "event",
       "title": "Inuyasha - Sango",
       "date": "2026-08-17"
+    }
+  ],
+  "iys-shippo": [
+    {
+      "slug": "event-2nd-iys-shippo-1507939",
+      "kind": "event",
+      "title": "Inuyasha - Shippo",
+      "date": "2026-09-01"
+    },
+    {
+      "slug": "event-6th-iys-shippo-1507955",
+      "kind": "event",
+      "title": "Inuyasha - Shippo",
+      "date": "2026-08-31"
+    },
+    {
+      "slug": "event-5th-iys-shippo-1507988",
+      "kind": "event",
+      "title": "Inuyasha - Shippo",
+      "date": "2026-08-30"
     }
   ],
   "black-clover-vanica-zogratis": [
@@ -11007,6 +11371,12 @@
   ],
   "kagurabachi-iori-samura": [
     {
+      "slug": "event-3rd-kagurabachi-iori-samura-1507948",
+      "kind": "event",
+      "title": "Kagurabachi - Iori Samura",
+      "date": "2026-08-31"
+    },
+    {
       "slug": "event-2nd-kagurabachi-iori-samura-1388155",
       "kind": "event",
       "title": "Kagurabachi - Iori Samura",
@@ -11233,6 +11603,18 @@
   ],
   "soshiro-hoshina": [
     {
+      "slug": "event-2nd-kaiju-no-8-reno-ichikawa-1507932",
+      "kind": "event",
+      "title": "Kaiju No. 8 - Reno Ichikawa",
+      "date": "2026-09-01"
+    },
+    {
+      "slug": "event-10th-kaiju-no-8-reno-ichikawa-1507935",
+      "kind": "event",
+      "title": "Kaiju No. 8 - Reno Ichikawa",
+      "date": "2026-09-01"
+    },
+    {
       "slug": "contender-consensus",
       "kind": "contender",
       "title": "Kaiju No. 8 - Reno Ichikawa",
@@ -11400,6 +11782,18 @@
     }
   ],
   "mina-ashiro": [
+    {
+      "slug": "event-2nd-kaiju-no-8-reno-ichikawa-1507932",
+      "kind": "event",
+      "title": "Kaiju No. 8 - Reno Ichikawa",
+      "date": "2026-09-01"
+    },
+    {
+      "slug": "event-10th-kaiju-no-8-reno-ichikawa-1507935",
+      "kind": "event",
+      "title": "Kaiju No. 8 - Reno Ichikawa",
+      "date": "2026-09-01"
+    },
     {
       "slug": "event-5th-kaiju-no-8-reno-ichikawa-1489208",
       "kind": "event",
@@ -11815,6 +12209,12 @@
   ],
   "one-punch-man-king": [
     {
+      "slug": "event-4th-one-punch-man-king-1507941",
+      "kind": "event",
+      "title": "One Punch Man - King",
+      "date": "2026-09-01"
+    },
+    {
       "slug": "event-4th-one-punch-man-king-1479636",
       "kind": "event",
       "title": "One Punch Man - King",
@@ -11855,6 +12255,12 @@
   ],
   "one-punch-man-saitama": [
     {
+      "slug": "event-5th-one-punch-man-saitama-1507942",
+      "kind": "event",
+      "title": "One Punch Man - Saitama",
+      "date": "2026-09-01"
+    },
+    {
       "slug": "event-1st-one-punch-man-saitama-1452891",
       "kind": "event",
       "title": "One Punch Man - Saitama",
@@ -11876,6 +12282,12 @@
     }
   ],
   "one-punch-man-terrible-tornado": [
+    {
+      "slug": "event-7th-one-punch-man-terrible-tornado-1508003",
+      "kind": "event",
+      "title": "One Punch Man - Terrible Tornado",
+      "date": "2026-08-29"
+    },
     {
       "slug": "event-1st-one-punch-man-terrible-tornado-1471464",
       "kind": "event",
@@ -12207,6 +12619,12 @@
   ],
   "sakamoto-days-natsuki-seba": [
     {
+      "slug": "event-4th-sakamoto-days-natsuki-seba-1507924",
+      "kind": "event",
+      "title": "Sakamoto Days - Natsuki Seba",
+      "date": "2026-09-02"
+    },
+    {
       "slug": "event-3rd-sakamoto-days-natsuki-seba-1471466",
       "kind": "event",
       "title": "Sakamoto Days - Natsuki Seba",
@@ -12403,6 +12821,12 @@
   ],
   "solo-leveling-esil": [
     {
+      "slug": "event-3rd-solo-leveling-esil-1507959",
+      "kind": "event",
+      "title": "Solo Leveling - Esil",
+      "date": "2026-08-31"
+    },
+    {
       "slug": "event-2nd-solo-leveling-esil-1479648",
       "kind": "event",
       "title": "Solo Leveling - Esil",
@@ -12499,6 +12923,14 @@
       "kind": "event",
       "title": "Solo Leveling - Choi Jong-in",
       "date": "2026-07-27"
+    }
+  ],
+  "solo-leveling-shadow-army": [
+    {
+      "slug": "event-1st-solo-leveling-shadow-army-1507915",
+      "kind": "event",
+      "title": "Solo Leveling - Shadow Soldiers",
+      "date": "2026-09-02"
     }
   ],
   "solo-leveling-speed-dancer": [
@@ -12621,6 +13053,14 @@
       "kind": "event",
       "title": "Sword Art Online - Sinon",
       "date": "2026-03-12"
+    }
+  ],
+  "sword-art-online-goddesses": [
+    {
+      "slug": "event-7th-sword-art-online-goddesses-1507980",
+      "kind": "event",
+      "title": "Sword Art Online - Asuna (Stacia, the Goddess of Creation)",
+      "date": "2026-08-30"
     }
   ],
   "sword-art-online-green-kirito": [
@@ -12911,6 +13351,14 @@
       "date": "2026-07-20"
     }
   ],
+  "the-100-girlfriends-green-100-gf": [
+    {
+      "slug": "event-3rd-the-100-girlfriends-green-100-gf-1507979",
+      "kind": "event",
+      "title": "The 100 Girlfriends - Nano Eiai",
+      "date": "2026-08-30"
+    }
+  ],
   "the-100-girlfriends-hahari-hanazono": [
     {
       "slug": "event-19th-the-100-girlfriends-hahari-hanazono-1417913",
@@ -12995,6 +13443,14 @@
       "date": "2026-07-13"
     }
   ],
+  "the-100-girlfriends-shizuka-nano-hybrid": [
+    {
+      "slug": "event-4th-the-100-girlfriends-shizuka-nano-hybrid-1507933",
+      "kind": "event",
+      "title": "The 100 Girlfriends - Nano Eiai",
+      "date": "2026-09-01"
+    }
+  ],
   "tokyo-ghoul-akira-mado": [
     {
       "slug": "event-6th-tokyo-ghoul-akira-mado-1345743",
@@ -13071,6 +13527,12 @@
   ],
   "tokyo-ghoul-ken-kaneki": [
     {
+      "slug": "event-4th-tokyo-ghoul-ken-kaneki-1507953",
+      "kind": "event",
+      "title": "Tokyo Ghoul - Ken Kaneki",
+      "date": "2026-08-31"
+    },
+    {
       "slug": "event-6th-tokyo-ghoul-ken-kaneki-1435534",
       "kind": "event",
       "title": "Tokyo Ghoul - Ken Kaneki",
@@ -13114,6 +13576,12 @@
     }
   ],
   "tokyo-ghoul-kisho-arima": [
+    {
+      "slug": "event-3rd-tokyo-ghoul-kisho-arima-1507940",
+      "kind": "event",
+      "title": "Tokyo Ghoul - Kisho Arima",
+      "date": "2026-09-01"
+    },
     {
       "slug": "event-2nd-tokyo-ghoul-kisho-arima-1388119",
       "kind": "event",
@@ -13297,6 +13765,12 @@
   ],
   "yu-yu-hakusho-hiei": [
     {
+      "slug": "event-2nd-yu-yu-hakusho-hiei-1508001",
+      "kind": "event",
+      "title": "Yu Yu Hakusho - Hiei",
+      "date": "2026-08-29"
+    },
+    {
       "slug": "event-8th-yu-yu-hakusho-hiei-1336206",
       "kind": "event",
       "title": "Yu Yu Hakusho - Hiei",
@@ -13363,6 +13837,14 @@
       "kind": "event",
       "title": "Yu Yu Hakusho - Karasu",
       "date": "2026-04-09"
+    }
+  ],
+  "yu-yu-hakusho-salt-n-pepa": [
+    {
+      "slug": "event-5th-yu-yu-hakusho-salt-n-pepa-1507916",
+      "kind": "event",
+      "title": "Yu Yu Hakusho - Jin",
+      "date": "2026-09-02"
     }
   ],
   "yu-yu-hakusho-spirit-detective-green-copy": [
@@ -13447,6 +13929,18 @@
   ],
   "nano-eiai": [
     {
+      "slug": "event-4th-the-100-girlfriends-shizuka-nano-hybrid-1507933",
+      "kind": "event",
+      "title": "The 100 Girlfriends - Nano Eiai",
+      "date": "2026-09-01"
+    },
+    {
+      "slug": "event-3rd-the-100-girlfriends-green-100-gf-1507979",
+      "kind": "event",
+      "title": "The 100 Girlfriends - Nano Eiai",
+      "date": "2026-08-30"
+    },
+    {
       "slug": "contender-consensus",
       "kind": "contender",
       "title": "The 100 Girlfriends - Shizuka Yoshimoto",
@@ -13520,6 +14014,12 @@
     }
   ],
   "kusuri-yakuzen": [
+    {
+      "slug": "event-3rd-the-100-girlfriends-green-100-gf-1507979",
+      "kind": "event",
+      "title": "The 100 Girlfriends - Nano Eiai",
+      "date": "2026-08-30"
+    },
     {
       "slug": "event-2nd-the-100-girlfriends-kusuri-yakuzen-1452842",
       "kind": "event",
@@ -13827,6 +14327,84 @@
       "date": "2026-02-26"
     }
   ],
+  "armin-arlelt": [
+    {
+      "slug": "event-3rd-attack-on-titan-eren-jaeger-attack-titan-1508002",
+      "kind": "event",
+      "title": "Attack On Titan - Eren Jaeger (Attack Titan)",
+      "date": "2026-08-29"
+    },
+    {
+      "slug": "event-6th-attack-on-titan-armin-arlelt-1213812",
+      "kind": "event",
+      "title": "Attack On Titan - Armin Arlelt",
+      "date": "2026-06-17"
+    },
+    {
+      "slug": "event-3rd-attack-on-titan-eren-jaeger-968655",
+      "kind": "event",
+      "title": "Attack On Titan - Eren Jaeger",
+      "date": "2026-04-20"
+    },
+    {
+      "slug": "event-2nd-attack-on-titan-eren-jaeger-832885",
+      "kind": "event",
+      "title": "Attack On Titan - Eren Jaeger",
+      "date": "2026-03-23"
+    }
+  ],
+  "eren-jaeger-attack-titan": [
+    {
+      "slug": "event-3rd-attack-on-titan-eren-jaeger-attack-titan-1508002",
+      "kind": "event",
+      "title": "Attack On Titan - Eren Jaeger (Attack Titan)",
+      "date": "2026-08-29"
+    },
+    {
+      "slug": "event-6th-attack-on-titan-armin-arlelt-1213812",
+      "kind": "event",
+      "title": "Attack On Titan - Armin Arlelt",
+      "date": "2026-06-17"
+    },
+    {
+      "slug": "event-3rd-attack-on-titan-eren-jaeger-968655",
+      "kind": "event",
+      "title": "Attack On Titan - Eren Jaeger",
+      "date": "2026-04-20"
+    },
+    {
+      "slug": "event-2nd-attack-on-titan-eren-jaeger-832885",
+      "kind": "event",
+      "title": "Attack On Titan - Eren Jaeger",
+      "date": "2026-03-23"
+    }
+  ],
+  "mikasa-ackermann-red": [
+    {
+      "slug": "event-3rd-attack-on-titan-eren-jaeger-attack-titan-1508002",
+      "kind": "event",
+      "title": "Attack On Titan - Eren Jaeger (Attack Titan)",
+      "date": "2026-08-29"
+    },
+    {
+      "slug": "event-6th-attack-on-titan-armin-arlelt-1213812",
+      "kind": "event",
+      "title": "Attack On Titan - Armin Arlelt",
+      "date": "2026-06-17"
+    },
+    {
+      "slug": "event-3rd-attack-on-titan-eren-jaeger-968655",
+      "kind": "event",
+      "title": "Attack On Titan - Eren Jaeger",
+      "date": "2026-04-20"
+    },
+    {
+      "slug": "event-2nd-attack-on-titan-eren-jaeger-832885",
+      "kind": "event",
+      "title": "Attack On Titan - Eren Jaeger",
+      "date": "2026-03-23"
+    }
+  ],
   "reiner-braun-armored-titan": [
     {
       "slug": "event-7th-attack-on-titan-annie-leonhart-female-titan-1496636",
@@ -13853,26 +14431,6 @@
       "date": "2026-06-30"
     }
   ],
-  "armin-arlelt": [
-    {
-      "slug": "event-6th-attack-on-titan-armin-arlelt-1213812",
-      "kind": "event",
-      "title": "Attack On Titan - Armin Arlelt",
-      "date": "2026-06-17"
-    },
-    {
-      "slug": "event-3rd-attack-on-titan-eren-jaeger-968655",
-      "kind": "event",
-      "title": "Attack On Titan - Eren Jaeger",
-      "date": "2026-04-20"
-    },
-    {
-      "slug": "event-2nd-attack-on-titan-eren-jaeger-832885",
-      "kind": "event",
-      "title": "Attack On Titan - Eren Jaeger",
-      "date": "2026-03-23"
-    }
-  ],
   "bertholdt-hoover-colossal-titan": [
     {
       "slug": "event-7th-attack-on-titan-annie-leonhart-female-titan-1496636",
@@ -13891,46 +14449,6 @@
       "kind": "event",
       "title": "Attack On Titan - Bertholdt Hoover",
       "date": "2026-06-30"
-    }
-  ],
-  "eren-jaeger-attack-titan": [
-    {
-      "slug": "event-6th-attack-on-titan-armin-arlelt-1213812",
-      "kind": "event",
-      "title": "Attack On Titan - Armin Arlelt",
-      "date": "2026-06-17"
-    },
-    {
-      "slug": "event-3rd-attack-on-titan-eren-jaeger-968655",
-      "kind": "event",
-      "title": "Attack On Titan - Eren Jaeger",
-      "date": "2026-04-20"
-    },
-    {
-      "slug": "event-2nd-attack-on-titan-eren-jaeger-832885",
-      "kind": "event",
-      "title": "Attack On Titan - Eren Jaeger",
-      "date": "2026-03-23"
-    }
-  ],
-  "mikasa-ackermann-red": [
-    {
-      "slug": "event-6th-attack-on-titan-armin-arlelt-1213812",
-      "kind": "event",
-      "title": "Attack On Titan - Armin Arlelt",
-      "date": "2026-06-17"
-    },
-    {
-      "slug": "event-3rd-attack-on-titan-eren-jaeger-968655",
-      "kind": "event",
-      "title": "Attack On Titan - Eren Jaeger",
-      "date": "2026-04-20"
-    },
-    {
-      "slug": "event-2nd-attack-on-titan-eren-jaeger-832885",
-      "kind": "event",
-      "title": "Attack On Titan - Eren Jaeger",
-      "date": "2026-03-23"
     }
   ],
   "rod-reiss-titan": [
@@ -13993,6 +14511,128 @@
       "kind": "event",
       "title": "Attack On Titan - Bertholdt Hoover",
       "date": "2026-06-30"
+    }
+  ],
+  "noelle-silva": [
+    {
+      "slug": "event-7th-black-clover-noelle-silva-1507956",
+      "kind": "event",
+      "title": "Black Clover - Noelle Silva",
+      "date": "2026-08-31"
+    },
+    {
+      "slug": "event-8th-black-clover-nacht-faust-1452859",
+      "kind": "event",
+      "title": "Black Clover - Nacht Faust",
+      "date": "2026-08-06"
+    },
+    {
+      "slug": "event-2nd-black-clover-i-don-t-know-if-you-know-anything-about-my-magi",
+      "kind": "event",
+      "title": "Black Clover - Asta",
+      "date": "2026-08-06"
+    },
+    {
+      "slug": "event-1st-black-clover-asta-1402135",
+      "kind": "event",
+      "title": "Black Clover - Asta",
+      "date": "2026-07-22"
+    },
+    {
+      "slug": "event-13th-bcv-cgh-yyh-noelle-silva-1374533",
+      "kind": "event",
+      "title": "BCV,CGH,YYH - Noelle Silva",
+      "date": "2026-07-16"
+    },
+    {
+      "slug": "event-2nd-black-clover-mimosa-vermillion-1345817",
+      "kind": "event",
+      "title": "Black Clover - Mimosa Vermillion",
+      "date": "2026-07-09"
+    },
+    {
+      "slug": "event-5th-black-clover-red-asta-1336144",
+      "kind": "event",
+      "title": "Black Clover - Asta",
+      "date": "2026-07-07"
+    },
+    {
+      "slug": "event-1st-black-clover-noelle-silva-1336200",
+      "kind": "event",
+      "title": "Black Clover - Noelle Silva",
+      "date": "2026-07-03"
+    },
+    {
+      "slug": "event-12th-rnk-bcv-kenshin-himura-1213843",
+      "kind": "event",
+      "title": "RNK,BCV - Kenshin Himura",
+      "date": "2026-06-14"
+    },
+    {
+      "slug": "event-14th-black-clover-noelle-silva-1019682",
+      "kind": "event",
+      "title": "Black Clover - Noelle Silva",
+      "date": "2026-05-01"
+    },
+    {
+      "slug": "event-6th-black-clover-asta-832849",
+      "kind": "event",
+      "title": "Black Clover - Asta",
+      "date": "2026-03-28"
+    },
+    {
+      "slug": "event-8th-black-clover-asta-832868",
+      "kind": "event",
+      "title": "Black Clover - Asta",
+      "date": "2026-03-27"
+    },
+    {
+      "slug": "event-1st-black-clover-asta-815920",
+      "kind": "event",
+      "title": "Black Clover - Asta",
+      "date": "2026-03-14"
+    },
+    {
+      "slug": "event-6th-black-clover-asta-62172",
+      "kind": "event",
+      "title": "Black Clover - Asta",
+      "date": "2026-03-03"
+    },
+    {
+      "slug": "event-3rd-black-clover-red-purple-62193",
+      "kind": "event",
+      "title": "Black Clover - Dante Zogratis",
+      "date": "2026-03-02"
+    },
+    {
+      "slug": "event-5th-black-clover-purple-red-61801",
+      "kind": "event",
+      "title": "Black Clover - Dante Zogratis",
+      "date": "2026-03-01"
+    },
+    {
+      "slug": "event-8th-black-clover-red-st-asta-61839",
+      "kind": "event",
+      "title": "Black Clover - Asta",
+      "date": "2026-02-26"
+    },
+    {
+      "slug": "event-5th-black-clover-purple-zenon-zogratis-61836",
+      "kind": "event",
+      "title": "Black Clover - Dante Zogratis",
+      "date": "2026-02-26"
+    },
+    {
+      "slug": "event-2nd-black-clover-red-purple-61828",
+      "kind": "event",
+      "title": "Black Clover - Dante Zogratis",
+      "date": "2026-02-26"
+    },
+    {
+      "slug": "event-1st-black-clover-purple-zenon-zogratis-61863",
+      "kind": "event",
+      "title": "Black Clover - Dante Zogratis",
+      "date": "2026-02-21"
     }
   ],
   "dante-zogratis": [
@@ -14091,122 +14731,6 @@
       "kind": "event",
       "title": "Black Clover - Dante Zogratis",
       "date": "2026-03-01"
-    },
-    {
-      "slug": "event-5th-black-clover-purple-zenon-zogratis-61836",
-      "kind": "event",
-      "title": "Black Clover - Dante Zogratis",
-      "date": "2026-02-26"
-    },
-    {
-      "slug": "event-2nd-black-clover-red-purple-61828",
-      "kind": "event",
-      "title": "Black Clover - Dante Zogratis",
-      "date": "2026-02-26"
-    },
-    {
-      "slug": "event-1st-black-clover-purple-zenon-zogratis-61863",
-      "kind": "event",
-      "title": "Black Clover - Dante Zogratis",
-      "date": "2026-02-21"
-    }
-  ],
-  "noelle-silva": [
-    {
-      "slug": "event-8th-black-clover-nacht-faust-1452859",
-      "kind": "event",
-      "title": "Black Clover - Nacht Faust",
-      "date": "2026-08-06"
-    },
-    {
-      "slug": "event-2nd-black-clover-i-don-t-know-if-you-know-anything-about-my-magi",
-      "kind": "event",
-      "title": "Black Clover - Asta",
-      "date": "2026-08-06"
-    },
-    {
-      "slug": "event-1st-black-clover-asta-1402135",
-      "kind": "event",
-      "title": "Black Clover - Asta",
-      "date": "2026-07-22"
-    },
-    {
-      "slug": "event-13th-bcv-cgh-yyh-noelle-silva-1374533",
-      "kind": "event",
-      "title": "BCV,CGH,YYH - Noelle Silva",
-      "date": "2026-07-16"
-    },
-    {
-      "slug": "event-2nd-black-clover-mimosa-vermillion-1345817",
-      "kind": "event",
-      "title": "Black Clover - Mimosa Vermillion",
-      "date": "2026-07-09"
-    },
-    {
-      "slug": "event-5th-black-clover-red-asta-1336144",
-      "kind": "event",
-      "title": "Black Clover - Asta",
-      "date": "2026-07-07"
-    },
-    {
-      "slug": "event-1st-black-clover-noelle-silva-1336200",
-      "kind": "event",
-      "title": "Black Clover - Noelle Silva",
-      "date": "2026-07-03"
-    },
-    {
-      "slug": "event-12th-rnk-bcv-kenshin-himura-1213843",
-      "kind": "event",
-      "title": "RNK,BCV - Kenshin Himura",
-      "date": "2026-06-14"
-    },
-    {
-      "slug": "event-14th-black-clover-noelle-silva-1019682",
-      "kind": "event",
-      "title": "Black Clover - Noelle Silva",
-      "date": "2026-05-01"
-    },
-    {
-      "slug": "event-6th-black-clover-asta-832849",
-      "kind": "event",
-      "title": "Black Clover - Asta",
-      "date": "2026-03-28"
-    },
-    {
-      "slug": "event-8th-black-clover-asta-832868",
-      "kind": "event",
-      "title": "Black Clover - Asta",
-      "date": "2026-03-27"
-    },
-    {
-      "slug": "event-1st-black-clover-asta-815920",
-      "kind": "event",
-      "title": "Black Clover - Asta",
-      "date": "2026-03-14"
-    },
-    {
-      "slug": "event-6th-black-clover-asta-62172",
-      "kind": "event",
-      "title": "Black Clover - Asta",
-      "date": "2026-03-03"
-    },
-    {
-      "slug": "event-3rd-black-clover-red-purple-62193",
-      "kind": "event",
-      "title": "Black Clover - Dante Zogratis",
-      "date": "2026-03-02"
-    },
-    {
-      "slug": "event-5th-black-clover-purple-red-61801",
-      "kind": "event",
-      "title": "Black Clover - Dante Zogratis",
-      "date": "2026-03-01"
-    },
-    {
-      "slug": "event-8th-black-clover-red-st-asta-61839",
-      "kind": "event",
-      "title": "Black Clover - Asta",
-      "date": "2026-02-26"
     },
     {
       "slug": "event-5th-black-clover-purple-zenon-zogratis-61836",
@@ -14501,6 +15025,44 @@
       "date": "2026-02-26"
     }
   ],
+  "mimosa-vermillion": [
+    {
+      "slug": "event-7th-black-clover-noelle-silva-1507956",
+      "kind": "event",
+      "title": "Black Clover - Noelle Silva",
+      "date": "2026-08-31"
+    },
+    {
+      "slug": "event-13th-bcv-cgh-yyh-noelle-silva-1374533",
+      "kind": "event",
+      "title": "BCV,CGH,YYH - Noelle Silva",
+      "date": "2026-07-16"
+    },
+    {
+      "slug": "event-2nd-black-clover-mimosa-vermillion-1345817",
+      "kind": "event",
+      "title": "Black Clover - Mimosa Vermillion",
+      "date": "2026-07-09"
+    },
+    {
+      "slug": "event-1st-black-clover-noelle-silva-1336200",
+      "kind": "event",
+      "title": "Black Clover - Noelle Silva",
+      "date": "2026-07-03"
+    },
+    {
+      "slug": "event-12th-rnk-bcv-kenshin-himura-1213843",
+      "kind": "event",
+      "title": "RNK,BCV - Kenshin Himura",
+      "date": "2026-06-14"
+    },
+    {
+      "slug": "event-14th-black-clover-noelle-silva-1019682",
+      "kind": "event",
+      "title": "Black Clover - Noelle Silva",
+      "date": "2026-05-01"
+    }
+  ],
   "charlotte-roselei": [
     {
       "slug": "event-8th-black-clover-mereoleona-vermillion-1496624",
@@ -14531,38 +15093,6 @@
       "kind": "event",
       "title": "Black Clover - Mereoleona Vermillion",
       "date": "2026-04-29"
-    }
-  ],
-  "mimosa-vermillion": [
-    {
-      "slug": "event-13th-bcv-cgh-yyh-noelle-silva-1374533",
-      "kind": "event",
-      "title": "BCV,CGH,YYH - Noelle Silva",
-      "date": "2026-07-16"
-    },
-    {
-      "slug": "event-2nd-black-clover-mimosa-vermillion-1345817",
-      "kind": "event",
-      "title": "Black Clover - Mimosa Vermillion",
-      "date": "2026-07-09"
-    },
-    {
-      "slug": "event-1st-black-clover-noelle-silva-1336200",
-      "kind": "event",
-      "title": "Black Clover - Noelle Silva",
-      "date": "2026-07-03"
-    },
-    {
-      "slug": "event-12th-rnk-bcv-kenshin-himura-1213843",
-      "kind": "event",
-      "title": "RNK,BCV - Kenshin Himura",
-      "date": "2026-06-14"
-    },
-    {
-      "slug": "event-14th-black-clover-noelle-silva-1019682",
-      "kind": "event",
-      "title": "Black Clover - Noelle Silva",
-      "date": "2026-05-01"
     }
   ],
   "yami-sukehiro": [
@@ -14663,6 +15193,12 @@
   ],
   "loropechika": [
     {
+      "slug": "event-7th-black-clover-noelle-silva-1507956",
+      "kind": "event",
+      "title": "Black Clover - Noelle Silva",
+      "date": "2026-08-31"
+    },
+    {
       "slug": "event-2nd-black-clover-mimosa-vermillion-1345817",
       "kind": "event",
       "title": "Black Clover - Mimosa Vermillion",
@@ -14752,6 +15288,18 @@
     }
   ],
   "kenpachi-zaraki": [
+    {
+      "slug": "event-11th-bleach-kenny-1507928",
+      "kind": "event",
+      "title": "Bleach - Kenpachi Zaraki",
+      "date": "2026-09-02"
+    },
+    {
+      "slug": "event-18th-bleach-kenpachi-zaraki-1507973",
+      "kind": "event",
+      "title": "Bleach - Kenpachi Zaraki",
+      "date": "2026-08-31"
+    },
     {
       "slug": "contender-consensus",
       "kind": "contender",
@@ -15007,6 +15555,18 @@
   ],
   "shinji-hirako": [
     {
+      "slug": "event-11th-bleach-kenny-1507928",
+      "kind": "event",
+      "title": "Bleach - Kenpachi Zaraki",
+      "date": "2026-09-02"
+    },
+    {
+      "slug": "event-18th-bleach-kenpachi-zaraki-1507973",
+      "kind": "event",
+      "title": "Bleach - Kenpachi Zaraki",
+      "date": "2026-08-31"
+    },
+    {
       "slug": "contender-consensus",
       "kind": "contender",
       "title": "Bleach - Kenpachi Zaraki",
@@ -15261,6 +15821,18 @@
   ],
   "toshiro-hitsugaya": [
     {
+      "slug": "event-11th-bleach-kenny-1507928",
+      "kind": "event",
+      "title": "Bleach - Kenpachi Zaraki",
+      "date": "2026-09-02"
+    },
+    {
+      "slug": "event-18th-bleach-kenpachi-zaraki-1507973",
+      "kind": "event",
+      "title": "Bleach - Kenpachi Zaraki",
+      "date": "2026-08-31"
+    },
+    {
       "slug": "contender-consensus",
       "kind": "contender",
       "title": "Bleach - Kenpachi Zaraki",
@@ -15509,6 +16081,12 @@
   ],
   "ichigo-kurosaki": [
     {
+      "slug": "event-8th-bleach-the-boys-home-girl-1507934",
+      "kind": "event",
+      "title": "Bleach - Ichigo Kurosaki",
+      "date": "2026-09-01"
+    },
+    {
       "slug": "contender-consensus",
       "kind": "contender",
       "title": "Bleach - Ichigo Kurosaki",
@@ -15627,6 +16205,86 @@
       "kind": "official",
       "title": "Bleach - Ichigo Kurosaki",
       "date": "2025-12-25"
+    }
+  ],
+  "bambietta-basterbine": [
+    {
+      "slug": "event-1st-bleach-toshiro-hitsugaya-1508000",
+      "kind": "event",
+      "title": "Bleach - Toshiro Hitsugaya",
+      "date": "2026-08-29"
+    },
+    {
+      "slug": "event-6th-bleach-toshiro-hitsugaya-1471405",
+      "kind": "event",
+      "title": "Bleach - Toshiro Hitsugaya",
+      "date": "2026-08-14"
+    },
+    {
+      "slug": "event-2nd-bleach-ichigo-kurosaki-1452884",
+      "kind": "event",
+      "title": "Bleach - Bambietta Basterbine",
+      "date": "2026-08-04"
+    },
+    {
+      "slug": "event-3rd-bleach-giselle-gewelle-1417898",
+      "kind": "event",
+      "title": "Bleach - Giselle Gewelle",
+      "date": "2026-07-27"
+    },
+    {
+      "slug": "event-1st-bleach-bambietta-basterbine-1402109",
+      "kind": "event",
+      "title": "Bleach - Bambietta Basterbine",
+      "date": "2026-07-23"
+    },
+    {
+      "slug": "event-6th-bleach-giselle-gewelle-1374558",
+      "kind": "event",
+      "title": "Bleach - Giselle Gewelle",
+      "date": "2026-07-15"
+    },
+    {
+      "slug": "event-5th-bleach-bambies-1345723",
+      "kind": "event",
+      "title": "Bleach - Bambietta Basterbine",
+      "date": "2026-07-14"
+    },
+    {
+      "slug": "event-4th-bleach-bambietta-basterbine-1213818",
+      "kind": "event",
+      "title": "Bleach - Bambietta Basterbine",
+      "date": "2026-06-15"
+    },
+    {
+      "slug": "event-17th-jjk-kj8-blc-nobara-kugisaki-1213848",
+      "kind": "event",
+      "title": "JJK,KJ8,BLC - Nobara Kugisaki",
+      "date": "2026-06-14"
+    },
+    {
+      "slug": "event-7th-bleach-yellow-bambietta-1166749",
+      "kind": "event",
+      "title": "Bleach - Bambietta Basterbine",
+      "date": "2026-05-30"
+    },
+    {
+      "slug": "event-11th-bleach-yellow-green-1001877",
+      "kind": "event",
+      "title": "Bleach - Bambietta Basterbine",
+      "date": "2026-04-29"
+    },
+    {
+      "slug": "event-2nd-bleach-yellow-green-968654",
+      "kind": "event",
+      "title": "Bleach - Bambietta Basterbine",
+      "date": "2026-04-20"
+    },
+    {
+      "slug": "event-4th-bleach-yellow-green-951201",
+      "kind": "event",
+      "title": "Bleach - Bambietta Basterbine",
+      "date": "2026-04-13"
     }
   ],
   "ichigo-kurosaki-blue": [
@@ -15789,81 +16447,13 @@
       "date": "2026-03-21"
     }
   ],
-  "bambietta-basterbine": [
-    {
-      "slug": "event-6th-bleach-toshiro-hitsugaya-1471405",
-      "kind": "event",
-      "title": "Bleach - Toshiro Hitsugaya",
-      "date": "2026-08-14"
-    },
-    {
-      "slug": "event-2nd-bleach-ichigo-kurosaki-1452884",
-      "kind": "event",
-      "title": "Bleach - Bambietta Basterbine",
-      "date": "2026-08-04"
-    },
-    {
-      "slug": "event-3rd-bleach-giselle-gewelle-1417898",
-      "kind": "event",
-      "title": "Bleach - Giselle Gewelle",
-      "date": "2026-07-27"
-    },
-    {
-      "slug": "event-1st-bleach-bambietta-basterbine-1402109",
-      "kind": "event",
-      "title": "Bleach - Bambietta Basterbine",
-      "date": "2026-07-23"
-    },
-    {
-      "slug": "event-6th-bleach-giselle-gewelle-1374558",
-      "kind": "event",
-      "title": "Bleach - Giselle Gewelle",
-      "date": "2026-07-15"
-    },
-    {
-      "slug": "event-5th-bleach-bambies-1345723",
-      "kind": "event",
-      "title": "Bleach - Bambietta Basterbine",
-      "date": "2026-07-14"
-    },
-    {
-      "slug": "event-4th-bleach-bambietta-basterbine-1213818",
-      "kind": "event",
-      "title": "Bleach - Bambietta Basterbine",
-      "date": "2026-06-15"
-    },
-    {
-      "slug": "event-17th-jjk-kj8-blc-nobara-kugisaki-1213848",
-      "kind": "event",
-      "title": "JJK,KJ8,BLC - Nobara Kugisaki",
-      "date": "2026-06-14"
-    },
-    {
-      "slug": "event-7th-bleach-yellow-bambietta-1166749",
-      "kind": "event",
-      "title": "Bleach - Bambietta Basterbine",
-      "date": "2026-05-30"
-    },
-    {
-      "slug": "event-11th-bleach-yellow-green-1001877",
-      "kind": "event",
-      "title": "Bleach - Bambietta Basterbine",
-      "date": "2026-04-29"
-    },
-    {
-      "slug": "event-2nd-bleach-yellow-green-968654",
-      "kind": "event",
-      "title": "Bleach - Bambietta Basterbine",
-      "date": "2026-04-20"
-    },
-    {
-      "slug": "event-4th-bleach-yellow-green-951201",
-      "kind": "event",
-      "title": "Bleach - Bambietta Basterbine",
-      "date": "2026-04-13"
-    }
-  ],
   "renji-abarai": [
+    {
+      "slug": "event-8th-bleach-the-boys-home-girl-1507934",
+      "kind": "event",
+      "title": "Bleach - Ichigo Kurosaki",
+      "date": "2026-09-01"
+    },
     {
       "slug": "event-10th-bleach-renji-abarai-1489209",
       "kind": "event",
@@ -15932,6 +16522,12 @@
     }
   ],
   "giselle-gewelle": [
+    {
+      "slug": "event-1st-bleach-toshiro-hitsugaya-1508000",
+      "kind": "event",
+      "title": "Bleach - Toshiro Hitsugaya",
+      "date": "2026-08-29"
+    },
     {
       "slug": "event-6th-bleach-toshiro-hitsugaya-1471405",
       "kind": "event",
@@ -16327,6 +16923,26 @@
       "date": "2026-03-14"
     }
   ],
+  "quilge-opie": [
+    {
+      "slug": "event-1st-bleach-toshiro-hitsugaya-1508000",
+      "kind": "event",
+      "title": "Bleach - Toshiro Hitsugaya",
+      "date": "2026-08-29"
+    },
+    {
+      "slug": "event-2nd-bleach-ichigo-kurosaki-1452884",
+      "kind": "event",
+      "title": "Bleach - Bambietta Basterbine",
+      "date": "2026-08-04"
+    },
+    {
+      "slug": "event-7th-bleach-yellow-bambietta-1166749",
+      "kind": "event",
+      "title": "Bleach - Bambietta Basterbine",
+      "date": "2026-05-30"
+    }
+  ],
   "soi-fon": [
     {
       "slug": "event-2nd-bleach-renji-abarai-1388085",
@@ -16381,20 +16997,6 @@
       "date": "2026-03-14"
     }
   ],
-  "quilge-opie": [
-    {
-      "slug": "event-2nd-bleach-ichigo-kurosaki-1452884",
-      "kind": "event",
-      "title": "Bleach - Bambietta Basterbine",
-      "date": "2026-08-04"
-    },
-    {
-      "slug": "event-7th-bleach-yellow-bambietta-1166749",
-      "kind": "event",
-      "title": "Bleach - Bambietta Basterbine",
-      "date": "2026-05-30"
-    }
-  ],
   "shigekuni-genryusai-yamamoto": [
     {
       "slug": "event-12th-bleach-yachiru-unohana-1345733",
@@ -16424,6 +17026,24 @@
     }
   ],
   "denji": [
+    {
+      "slug": "event-5th-csm-reze-1507925",
+      "kind": "event",
+      "title": "Chainsaw Man - Reze",
+      "date": "2026-09-02"
+    },
+    {
+      "slug": "event-13th-csm-maki-gal-1507921",
+      "kind": "event",
+      "title": "Chainsaw Man - Makima",
+      "date": "2026-09-02"
+    },
+    {
+      "slug": "event-14th-csm-reze-1507937",
+      "kind": "event",
+      "title": "Chainsaw Man - Reze",
+      "date": "2026-09-01"
+    },
     {
       "slug": "contender-consensus",
       "kind": "contender",
@@ -16739,6 +17359,36 @@
   ],
   "chainsaw-man": [
     {
+      "slug": "event-7th-csm-csm-1507917",
+      "kind": "event",
+      "title": "Chainsaw Man - Power",
+      "date": "2026-09-02"
+    },
+    {
+      "slug": "event-1st-csm-aki-hayakawa-1507920",
+      "kind": "event",
+      "title": "Chainsaw Man - Aki Hayakawa",
+      "date": "2026-09-02"
+    },
+    {
+      "slug": "event-3rd-csm-chainsaw-man-1507952",
+      "kind": "event",
+      "title": "Chainsaw Man",
+      "date": "2026-08-31"
+    },
+    {
+      "slug": "event-22nd-csm-chainsaw-man-1507977",
+      "kind": "event",
+      "title": "Chainsaw Man",
+      "date": "2026-08-31"
+    },
+    {
+      "slug": "event-19th-csm-chainsaw-man-1507974",
+      "kind": "event",
+      "title": "Chainsaw Man",
+      "date": "2026-08-31"
+    },
+    {
       "slug": "contender-consensus",
       "kind": "contender",
       "title": "Chainsaw Man",
@@ -16962,6 +17612,36 @@
     }
   ],
   "power": [
+    {
+      "slug": "event-7th-csm-csm-1507917",
+      "kind": "event",
+      "title": "Chainsaw Man - Power",
+      "date": "2026-09-02"
+    },
+    {
+      "slug": "event-1st-csm-aki-hayakawa-1507920",
+      "kind": "event",
+      "title": "Chainsaw Man - Aki Hayakawa",
+      "date": "2026-09-02"
+    },
+    {
+      "slug": "event-3rd-csm-chainsaw-man-1507952",
+      "kind": "event",
+      "title": "Chainsaw Man",
+      "date": "2026-08-31"
+    },
+    {
+      "slug": "event-22nd-csm-chainsaw-man-1507977",
+      "kind": "event",
+      "title": "Chainsaw Man",
+      "date": "2026-08-31"
+    },
+    {
+      "slug": "event-19th-csm-chainsaw-man-1507974",
+      "kind": "event",
+      "title": "Chainsaw Man",
+      "date": "2026-08-31"
+    },
     {
       "slug": "contender-consensus",
       "kind": "contender",
@@ -17187,6 +17867,18 @@
   ],
   "reze": [
     {
+      "slug": "event-5th-csm-reze-1507925",
+      "kind": "event",
+      "title": "Chainsaw Man - Reze",
+      "date": "2026-09-02"
+    },
+    {
+      "slug": "event-14th-csm-reze-1507937",
+      "kind": "event",
+      "title": "Chainsaw Man - Reze",
+      "date": "2026-09-01"
+    },
+    {
       "slug": "contender-consensus",
       "kind": "contender",
       "title": "Chainsaw Man - Denji",
@@ -17393,6 +18085,18 @@
   ],
   "bomb-devil": [
     {
+      "slug": "event-5th-csm-reze-1507925",
+      "kind": "event",
+      "title": "Chainsaw Man - Reze",
+      "date": "2026-09-02"
+    },
+    {
+      "slug": "event-14th-csm-reze-1507937",
+      "kind": "event",
+      "title": "Chainsaw Man - Reze",
+      "date": "2026-09-01"
+    },
+    {
       "slug": "contender-consensus",
       "kind": "contender",
       "title": "Chainsaw Man - Denji",
@@ -17587,6 +18291,30 @@
   ],
   "aki-hayakawa": [
     {
+      "slug": "event-1st-csm-aki-hayakawa-1507920",
+      "kind": "event",
+      "title": "Chainsaw Man - Aki Hayakawa",
+      "date": "2026-09-02"
+    },
+    {
+      "slug": "event-3rd-csm-chainsaw-man-1507952",
+      "kind": "event",
+      "title": "Chainsaw Man",
+      "date": "2026-08-31"
+    },
+    {
+      "slug": "event-22nd-csm-chainsaw-man-1507977",
+      "kind": "event",
+      "title": "Chainsaw Man",
+      "date": "2026-08-31"
+    },
+    {
+      "slug": "event-19th-csm-chainsaw-man-1507974",
+      "kind": "event",
+      "title": "Chainsaw Man",
+      "date": "2026-08-31"
+    },
+    {
       "slug": "contender-consensus",
       "kind": "contender",
       "title": "Chainsaw Man - Aki Hayakawa",
@@ -17738,6 +18466,18 @@
     }
   ],
   "makima": [
+    {
+      "slug": "event-5th-csm-reze-1507925",
+      "kind": "event",
+      "title": "Chainsaw Man - Reze",
+      "date": "2026-09-02"
+    },
+    {
+      "slug": "event-13th-csm-maki-gal-1507921",
+      "kind": "event",
+      "title": "Chainsaw Man - Makima",
+      "date": "2026-09-02"
+    },
     {
       "slug": "contender-consensus",
       "kind": "contender",
@@ -18959,6 +19699,46 @@
       "date": "2026-04-16"
     }
   ],
+  "muichiro-tokito": [
+    {
+      "slug": "event-13th-demon-slayer-tanjiro-hybrid-1507983",
+      "kind": "event",
+      "title": "Demon Slayer - Muichiro Tokito",
+      "date": "2026-08-30"
+    },
+    {
+      "slug": "event-3rd-demon-slayer-muichiro-tokito-1452885",
+      "kind": "event",
+      "title": "Demon Slayer - Muichiro Tokito",
+      "date": "2026-08-04"
+    },
+    {
+      "slug": "event-6th-demon-slayer-muichiro-tokito-1336114",
+      "kind": "event",
+      "title": "Demon Slayer - Muichiro Tokito",
+      "date": "2026-07-10"
+    }
+  ],
+  "tanjiro-kamado-blue": [
+    {
+      "slug": "event-13th-demon-slayer-tanjiro-hybrid-1507983",
+      "kind": "event",
+      "title": "Demon Slayer - Muichiro Tokito",
+      "date": "2026-08-30"
+    },
+    {
+      "slug": "event-6th-demon-slayer-muichiro-tokito-1336114",
+      "kind": "event",
+      "title": "Demon Slayer - Muichiro Tokito",
+      "date": "2026-07-10"
+    },
+    {
+      "slug": "event-7th-demon-slayer-tanjiro-nezuko-1077408",
+      "kind": "event",
+      "title": "Demon Slayer - Tanjiro Kamado",
+      "date": "2026-05-09"
+    }
+  ],
   "akaza": [
     {
       "slug": "event-12th-demon-slayer-muzan-kibutsuji-1489222",
@@ -19015,34 +19795,6 @@
       "date": "2026-07-05"
     }
   ],
-  "muichiro-tokito": [
-    {
-      "slug": "event-3rd-demon-slayer-muichiro-tokito-1452885",
-      "kind": "event",
-      "title": "Demon Slayer - Muichiro Tokito",
-      "date": "2026-08-04"
-    },
-    {
-      "slug": "event-6th-demon-slayer-muichiro-tokito-1336114",
-      "kind": "event",
-      "title": "Demon Slayer - Muichiro Tokito",
-      "date": "2026-07-10"
-    }
-  ],
-  "tanjiro-kamado-blue": [
-    {
-      "slug": "event-6th-demon-slayer-muichiro-tokito-1336114",
-      "kind": "event",
-      "title": "Demon Slayer - Muichiro Tokito",
-      "date": "2026-07-10"
-    },
-    {
-      "slug": "event-7th-demon-slayer-tanjiro-nezuko-1077408",
-      "kind": "event",
-      "title": "Demon Slayer - Tanjiro Kamado",
-      "date": "2026-05-09"
-    }
-  ],
   "gyutaro": [
     {
       "slug": "event-6th-tokyo-ghoul-uta-832866",
@@ -19081,6 +19833,12 @@
       "kind": "event",
       "title": "Evangelion - Rei Ayanami",
       "date": "2026-08-30"
+    },
+    {
+      "slug": "event-3rd-evangelion-rei-ayanami-1507994",
+      "kind": "event",
+      "title": "Evangelion - Rei Ayanami",
+      "date": "2026-08-29"
     },
     {
       "slug": "contender-consensus",
@@ -19919,6 +20677,12 @@
       "date": "2026-08-30"
     },
     {
+      "slug": "event-3rd-evangelion-rei-ayanami-1507994",
+      "kind": "event",
+      "title": "Evangelion - Rei Ayanami",
+      "date": "2026-08-29"
+    },
+    {
       "slug": "contender-consensus",
       "kind": "contender",
       "title": "Evangelion - Rei Ayanami",
@@ -20749,6 +21513,18 @@
   ],
   "mari-makinami-illustrious-purple": [
     {
+      "slug": "event-1st-evangelion-evangelion-production-model-08-1507938",
+      "kind": "event",
+      "title": "Evangelion - Evangelion Production Model-08",
+      "date": "2026-09-01"
+    },
+    {
+      "slug": "event-17th-evangelion-evangelion-production-model-new-02-1507972",
+      "kind": "event",
+      "title": "Evangelion - Evangelion Production Model-New 02",
+      "date": "2026-08-31"
+    },
+    {
       "slug": "event-7th-evangelion-evangelion-production-model-08-1336107",
       "kind": "event",
       "title": "Evangelion - Evangelion Production Model-08",
@@ -21573,6 +22349,12 @@
       "date": "2026-08-30"
     },
     {
+      "slug": "event-3rd-evangelion-rei-ayanami-1507994",
+      "kind": "event",
+      "title": "Evangelion - Rei Ayanami",
+      "date": "2026-08-29"
+    },
+    {
       "slug": "contender-consensus",
       "kind": "contender",
       "title": "Evangelion - Rei Ayanami",
@@ -22379,6 +23161,24 @@
   ],
   "shinji-ikari": [
     {
+      "slug": "event-14th-evangelion-evangelion-13-1507930",
+      "kind": "event",
+      "title": "Evangelion - Evangelion 13",
+      "date": "2026-09-02"
+    },
+    {
+      "slug": "event-1st-evangelion-evangelion-production-model-08-1507938",
+      "kind": "event",
+      "title": "Evangelion - Evangelion Production Model-08",
+      "date": "2026-09-01"
+    },
+    {
+      "slug": "event-17th-evangelion-evangelion-production-model-new-02-1507972",
+      "kind": "event",
+      "title": "Evangelion - Evangelion Production Model-New 02",
+      "date": "2026-08-31"
+    },
+    {
       "slug": "event-3rd-evangelion-kaworu-nagisa-1496613",
       "kind": "event",
       "title": "Evangelion - Kaworu Nagisa",
@@ -23137,7 +23937,37 @@
   ],
   "shinji-ikari-red": [
     {
+      "slug": "event-9th-evangelion-evangelion-test-type-01-pseudo-dms-phase-1507927",
+      "kind": "event",
+      "title": "Evangelion - Evangelion Test Type-01 Pseudo DMS Phase",
+      "date": "2026-09-02"
+    },
+    {
+      "slug": "event-8th-evangelion-evangelion-test-type-01-pseudo-dms-phase-1507963",
+      "kind": "event",
+      "title": "Evangelion - Evangelion Test Type-01 Pseudo DMS Phase",
+      "date": "2026-08-31"
+    },
+    {
+      "slug": "event-1st-evangelion-evangelion-test-type-01-pseudo-dms-phase-1507946",
+      "kind": "event",
+      "title": "Evangelion - Evangelion Test Type-01 Pseudo DMS Phase",
+      "date": "2026-08-31"
+    },
+    {
+      "slug": "event-15th-evangelion-evangelion-proto-type-00-1507970",
+      "kind": "event",
+      "title": "Evangelion - Evangelion Proto Type-00",
+      "date": "2026-08-31"
+    },
+    {
       "slug": "event-5th-evangelion-evangelion-test-type-01-pseudo-dms-phase-1336105",
+      "kind": "event",
+      "title": "Evangelion - Evangelion Test Type-01 Pseudo DMS Phase",
+      "date": "2026-08-30"
+    },
+    {
+      "slug": "event-1st-evangelion-evangelion-test-type-01-pseudo-dms-phase-1507984",
       "kind": "event",
       "title": "Evangelion - Evangelion Test Type-01 Pseudo DMS Phase",
       "date": "2026-08-30"
@@ -23835,7 +24665,37 @@
   ],
   "evangelion-proto-type-00": [
     {
+      "slug": "event-9th-evangelion-evangelion-test-type-01-pseudo-dms-phase-1507927",
+      "kind": "event",
+      "title": "Evangelion - Evangelion Test Type-01 Pseudo DMS Phase",
+      "date": "2026-09-02"
+    },
+    {
+      "slug": "event-8th-evangelion-evangelion-test-type-01-pseudo-dms-phase-1507963",
+      "kind": "event",
+      "title": "Evangelion - Evangelion Test Type-01 Pseudo DMS Phase",
+      "date": "2026-08-31"
+    },
+    {
+      "slug": "event-1st-evangelion-evangelion-test-type-01-pseudo-dms-phase-1507946",
+      "kind": "event",
+      "title": "Evangelion - Evangelion Test Type-01 Pseudo DMS Phase",
+      "date": "2026-08-31"
+    },
+    {
+      "slug": "event-15th-evangelion-evangelion-proto-type-00-1507970",
+      "kind": "event",
+      "title": "Evangelion - Evangelion Proto Type-00",
+      "date": "2026-08-31"
+    },
+    {
       "slug": "event-5th-evangelion-evangelion-test-type-01-pseudo-dms-phase-1336105",
+      "kind": "event",
+      "title": "Evangelion - Evangelion Test Type-01 Pseudo DMS Phase",
+      "date": "2026-08-30"
+    },
+    {
+      "slug": "event-1st-evangelion-evangelion-test-type-01-pseudo-dms-phase-1507984",
       "kind": "event",
       "title": "Evangelion - Evangelion Test Type-01 Pseudo DMS Phase",
       "date": "2026-08-30"
@@ -24527,7 +25387,37 @@
   ],
   "evangelion-test-type-01-pseudo-dms-phase": [
     {
+      "slug": "event-9th-evangelion-evangelion-test-type-01-pseudo-dms-phase-1507927",
+      "kind": "event",
+      "title": "Evangelion - Evangelion Test Type-01 Pseudo DMS Phase",
+      "date": "2026-09-02"
+    },
+    {
+      "slug": "event-8th-evangelion-evangelion-test-type-01-pseudo-dms-phase-1507963",
+      "kind": "event",
+      "title": "Evangelion - Evangelion Test Type-01 Pseudo DMS Phase",
+      "date": "2026-08-31"
+    },
+    {
+      "slug": "event-1st-evangelion-evangelion-test-type-01-pseudo-dms-phase-1507946",
+      "kind": "event",
+      "title": "Evangelion - Evangelion Test Type-01 Pseudo DMS Phase",
+      "date": "2026-08-31"
+    },
+    {
+      "slug": "event-15th-evangelion-evangelion-proto-type-00-1507970",
+      "kind": "event",
+      "title": "Evangelion - Evangelion Proto Type-00",
+      "date": "2026-08-31"
+    },
+    {
       "slug": "event-5th-evangelion-evangelion-test-type-01-pseudo-dms-phase-1336105",
+      "kind": "event",
+      "title": "Evangelion - Evangelion Test Type-01 Pseudo DMS Phase",
+      "date": "2026-08-30"
+    },
+    {
+      "slug": "event-1st-evangelion-evangelion-test-type-01-pseudo-dms-phase-1507984",
       "kind": "event",
       "title": "Evangelion - Evangelion Test Type-01 Pseudo DMS Phase",
       "date": "2026-08-30"
@@ -25219,6 +26109,18 @@
   ],
   "evangelion-test-type-01-spear-of-gaius": [
     {
+      "slug": "event-1st-evangelion-evangelion-production-model-08-1507938",
+      "kind": "event",
+      "title": "Evangelion - Evangelion Production Model-08",
+      "date": "2026-09-01"
+    },
+    {
+      "slug": "event-17th-evangelion-evangelion-production-model-new-02-1507972",
+      "kind": "event",
+      "title": "Evangelion - Evangelion Production Model-New 02",
+      "date": "2026-08-31"
+    },
+    {
       "slug": "contender-consensus",
       "kind": "contender",
       "title": "Evangelion - Evangelion Production Model-08",
@@ -25893,6 +26795,12 @@
   ],
   "aaa-wunder": [
     {
+      "slug": "event-1st-evangelion-evangelion-production-model-08-1507938",
+      "kind": "event",
+      "title": "Evangelion - Evangelion Production Model-08",
+      "date": "2026-09-01"
+    },
+    {
       "slug": "contender-consensus",
       "kind": "contender",
       "title": "Evangelion - Evangelion Test Type-01 (Spear of Gaius)",
@@ -26495,6 +27403,18 @@
   ],
   "evangelion-production-model-08": [
     {
+      "slug": "event-1st-evangelion-evangelion-production-model-08-1507938",
+      "kind": "event",
+      "title": "Evangelion - Evangelion Production Model-08",
+      "date": "2026-09-01"
+    },
+    {
+      "slug": "event-17th-evangelion-evangelion-production-model-new-02-1507972",
+      "kind": "event",
+      "title": "Evangelion - Evangelion Production Model-New 02",
+      "date": "2026-08-31"
+    },
+    {
       "slug": "event-7th-evangelion-evangelion-production-model-08-1336107",
       "kind": "event",
       "title": "Evangelion - Evangelion Production Model-08",
@@ -27013,6 +27933,12 @@
   ],
   "asuka-shikinami-langley-purple": [
     {
+      "slug": "event-17th-evangelion-evangelion-production-model-new-02-1507972",
+      "kind": "event",
+      "title": "Evangelion - Evangelion Production Model-New 02",
+      "date": "2026-08-31"
+    },
+    {
       "slug": "event-7th-evangelion-evangelion-production-model-08-1336107",
       "kind": "event",
       "title": "Evangelion - Evangelion Production Model-08",
@@ -27279,6 +28205,12 @@
   ],
   "evangelion-production-model-new-02": [
     {
+      "slug": "event-17th-evangelion-evangelion-production-model-new-02-1507972",
+      "kind": "event",
+      "title": "Evangelion - Evangelion Production Model-New 02",
+      "date": "2026-08-31"
+    },
+    {
       "slug": "event-7th-evangelion-evangelion-production-model-08-1336107",
       "kind": "event",
       "title": "Evangelion - Evangelion Production Model-08",
@@ -27515,6 +28447,12 @@
   ],
   "evangelion-production-model-02": [
     {
+      "slug": "event-17th-evangelion-evangelion-production-model-new-02-1507972",
+      "kind": "event",
+      "title": "Evangelion - Evangelion Production Model-New 02",
+      "date": "2026-08-31"
+    },
+    {
       "slug": "event-7th-evangelion-evangelion-production-model-08-1336107",
       "kind": "event",
       "title": "Evangelion - Evangelion Production Model-08",
@@ -27738,6 +28676,12 @@
     }
   ],
   "evangelion-13": [
+    {
+      "slug": "event-14th-evangelion-evangelion-13-1507930",
+      "kind": "event",
+      "title": "Evangelion - Evangelion 13",
+      "date": "2026-09-02"
+    },
     {
       "slug": "event-3rd-evangelion-kaworu-nagisa-1496613",
       "kind": "event",
@@ -28205,6 +29149,12 @@
   ],
   "evangelion-test-type-01": [
     {
+      "slug": "event-8th-evangelion-evangelion-test-type-01-pseudo-dms-phase-1507963",
+      "kind": "event",
+      "title": "Evangelion - Evangelion Test Type-01 Pseudo DMS Phase",
+      "date": "2026-08-31"
+    },
+    {
       "slug": "event-7th-evangelion-evangelion-proto-type-00-1471329",
       "kind": "event",
       "title": "Evangelion - Evangelion Proto Type-00",
@@ -28267,6 +29217,12 @@
   ],
   "evangelion-mark-06": [
     {
+      "slug": "event-14th-evangelion-evangelion-13-1507930",
+      "kind": "event",
+      "title": "Evangelion - Evangelion 13",
+      "date": "2026-09-02"
+    },
+    {
       "slug": "event-3rd-evangelion-kaworu-nagisa-1496613",
       "kind": "event",
       "title": "Evangelion - Kaworu Nagisa",
@@ -28322,6 +29278,12 @@
     }
   ],
   "evangelion-mark-09": [
+    {
+      "slug": "event-14th-evangelion-evangelion-13-1507930",
+      "kind": "event",
+      "title": "Evangelion - Evangelion 13",
+      "date": "2026-09-02"
+    },
     {
       "slug": "event-3rd-evangelion-kaworu-nagisa-1496613",
       "kind": "event",
@@ -29781,6 +30743,30 @@
   ],
   "kagura": [
     {
+      "slug": "event-8th-iys-naraku-1507918",
+      "kind": "event",
+      "title": "Inuyasha - Naraku",
+      "date": "2026-09-02"
+    },
+    {
+      "slug": "event-13th-iys-kanna-1507936",
+      "kind": "event",
+      "title": "Inuyasha - Kanna",
+      "date": "2026-09-01"
+    },
+    {
+      "slug": "event-8th-iys-naraku-the-immortal-1507981",
+      "kind": "event",
+      "title": "Inuyasha - Naraku",
+      "date": "2026-08-30"
+    },
+    {
+      "slug": "event-11th-iys-sesshomaru-deck-1507982",
+      "kind": "event",
+      "title": "Inuyasha - Sesshomaru",
+      "date": "2026-08-30"
+    },
+    {
       "slug": "event-4th-iys-kagura-1496627",
       "kind": "event",
       "title": "Inuyasha - Kagura",
@@ -29873,7 +30859,43 @@
   ],
   "kagome-higurashi": [
     {
+      "slug": "event-8th-iys-inuyasha-1507926",
+      "kind": "event",
+      "title": "Inuyasha",
+      "date": "2026-09-02"
+    },
+    {
+      "slug": "event-9th-iys-inuyasha-1507964",
+      "kind": "event",
+      "title": "Inuyasha",
+      "date": "2026-08-31"
+    },
+    {
+      "slug": "event-6th-iys-shippo-1507955",
+      "kind": "event",
+      "title": "Inuyasha - Shippo",
+      "date": "2026-08-31"
+    },
+    {
+      "slug": "event-2nd-iys-sango-1507947",
+      "kind": "event",
+      "title": "Inuyasha - Sango",
+      "date": "2026-08-31"
+    },
+    {
+      "slug": "event-2nd-iys-inuyasha-1507951",
+      "kind": "event",
+      "title": "Inuyasha",
+      "date": "2026-08-31"
+    },
+    {
       "slug": "event-5th-iys-inuyasha-deck-1496610",
+      "kind": "event",
+      "title": "Inuyasha",
+      "date": "2026-08-30"
+    },
+    {
+      "slug": "event-2nd-iys-inuyasha-sit-down-1507978",
       "kind": "event",
       "title": "Inuyasha",
       "date": "2026-08-30"
@@ -29947,7 +30969,37 @@
   ],
   "inuyasha": [
     {
+      "slug": "event-8th-iys-inuyasha-1507926",
+      "kind": "event",
+      "title": "Inuyasha",
+      "date": "2026-09-02"
+    },
+    {
+      "slug": "event-9th-iys-inuyasha-1507964",
+      "kind": "event",
+      "title": "Inuyasha",
+      "date": "2026-08-31"
+    },
+    {
+      "slug": "event-6th-iys-shippo-1507955",
+      "kind": "event",
+      "title": "Inuyasha - Shippo",
+      "date": "2026-08-31"
+    },
+    {
+      "slug": "event-2nd-iys-inuyasha-1507951",
+      "kind": "event",
+      "title": "Inuyasha",
+      "date": "2026-08-31"
+    },
+    {
       "slug": "event-5th-iys-inuyasha-deck-1496610",
+      "kind": "event",
+      "title": "Inuyasha",
+      "date": "2026-08-30"
+    },
+    {
+      "slug": "event-2nd-iys-inuyasha-sit-down-1507978",
       "kind": "event",
       "title": "Inuyasha",
       "date": "2026-08-30"
@@ -29995,7 +31047,131 @@
       "date": "2026-08-16"
     }
   ],
+  "naraku": [
+    {
+      "slug": "event-8th-iys-naraku-1507918",
+      "kind": "event",
+      "title": "Inuyasha - Naraku",
+      "date": "2026-09-02"
+    },
+    {
+      "slug": "event-13th-iys-kanna-1507936",
+      "kind": "event",
+      "title": "Inuyasha - Kanna",
+      "date": "2026-09-01"
+    },
+    {
+      "slug": "event-8th-iys-naraku-the-immortal-1507981",
+      "kind": "event",
+      "title": "Inuyasha - Naraku",
+      "date": "2026-08-30"
+    },
+    {
+      "slug": "event-4th-iys-kagura-1496627",
+      "kind": "event",
+      "title": "Inuyasha - Kagura",
+      "date": "2026-08-27"
+    },
+    {
+      "slug": "event-4th-inuyasha-naraku-1489207",
+      "kind": "event",
+      "title": "Inuyasha - Kanna",
+      "date": "2026-08-25"
+    },
+    {
+      "slug": "event-4th-iys-kagura-1496651",
+      "kind": "event",
+      "title": "Inuyasha - Kagura",
+      "date": "2026-08-24"
+    },
+    {
+      "slug": "event-1st-iys-naraku-1496652",
+      "kind": "event",
+      "title": "Inuyasha - Naraku",
+      "date": "2026-08-24"
+    },
+    {
+      "slug": "event-7th-inuyasha-kagura-1489250",
+      "kind": "event",
+      "title": "Inuyasha - Naraku",
+      "date": "2026-08-22"
+    },
+    {
+      "slug": "event-8th-iys-kanna-1479625",
+      "kind": "event",
+      "title": "Inuyasha - Kanna",
+      "date": "2026-08-18"
+    },
+    {
+      "slug": "event-5th-iys-kagura-1479637",
+      "kind": "event",
+      "title": "Inuyasha - Kagura",
+      "date": "2026-08-18"
+    }
+  ],
+  "koga": [
+    {
+      "slug": "event-8th-iys-inuyasha-1507926",
+      "kind": "event",
+      "title": "Inuyasha",
+      "date": "2026-09-02"
+    },
+    {
+      "slug": "event-9th-iys-inuyasha-1507964",
+      "kind": "event",
+      "title": "Inuyasha",
+      "date": "2026-08-31"
+    },
+    {
+      "slug": "event-2nd-iys-inuyasha-1507951",
+      "kind": "event",
+      "title": "Inuyasha",
+      "date": "2026-08-31"
+    },
+    {
+      "slug": "event-2nd-iys-inuyasha-sit-down-1507978",
+      "kind": "event",
+      "title": "Inuyasha",
+      "date": "2026-08-30"
+    },
+    {
+      "slug": "event-9th-iys-kikyo-1471331",
+      "kind": "event",
+      "title": "Inuyasha - Kikyo",
+      "date": "2026-08-17"
+    },
+    {
+      "slug": "event-3rd-iys-inuyasha-1479641",
+      "kind": "event",
+      "title": "Inuyasha",
+      "date": "2026-08-17"
+    },
+    {
+      "slug": "event-1st-iys-kikyo-1479644",
+      "kind": "event",
+      "title": "Inuyasha - Kikyo",
+      "date": "2026-08-17"
+    },
+    {
+      "slug": "event-19th-iys-inuyasha-1471341",
+      "kind": "event",
+      "title": "Inuyasha",
+      "date": "2026-08-17"
+    },
+    {
+      "slug": "event-28th-iys-inuyasha-1471375",
+      "kind": "event",
+      "title": "Inuyasha",
+      "date": "2026-08-16"
+    }
+  ],
   "sesshomaru": [
+    {
+      "slug": "event-11th-iys-sesshomaru-deck-1507982",
+      "kind": "event",
+      "title": "Inuyasha - Sesshomaru",
+      "date": "2026-08-30"
+    },
     {
       "slug": "contender-consensus",
       "kind": "contender",
@@ -30045,83 +31221,31 @@
       "date": "2026-08-15"
     }
   ],
-  "naraku": [
-    {
-      "slug": "event-4th-iys-kagura-1496627",
-      "kind": "event",
-      "title": "Inuyasha - Kagura",
-      "date": "2026-08-27"
-    },
-    {
-      "slug": "event-4th-inuyasha-naraku-1489207",
-      "kind": "event",
-      "title": "Inuyasha - Kanna",
-      "date": "2026-08-25"
-    },
-    {
-      "slug": "event-4th-iys-kagura-1496651",
-      "kind": "event",
-      "title": "Inuyasha - Kagura",
-      "date": "2026-08-24"
-    },
-    {
-      "slug": "event-1st-iys-naraku-1496652",
-      "kind": "event",
-      "title": "Inuyasha - Naraku",
-      "date": "2026-08-24"
-    },
-    {
-      "slug": "event-7th-inuyasha-kagura-1489250",
-      "kind": "event",
-      "title": "Inuyasha - Naraku",
-      "date": "2026-08-22"
-    },
-    {
-      "slug": "event-8th-iys-kanna-1479625",
-      "kind": "event",
-      "title": "Inuyasha - Kanna",
-      "date": "2026-08-18"
-    },
-    {
-      "slug": "event-5th-iys-kagura-1479637",
-      "kind": "event",
-      "title": "Inuyasha - Kagura",
-      "date": "2026-08-18"
-    }
-  ],
-  "koga": [
-    {
-      "slug": "event-9th-iys-kikyo-1471331",
-      "kind": "event",
-      "title": "Inuyasha - Kikyo",
-      "date": "2026-08-17"
-    },
-    {
-      "slug": "event-3rd-iys-inuyasha-1479641",
-      "kind": "event",
-      "title": "Inuyasha",
-      "date": "2026-08-17"
-    },
-    {
-      "slug": "event-1st-iys-kikyo-1479644",
-      "kind": "event",
-      "title": "Inuyasha - Kikyo",
-      "date": "2026-08-17"
-    },
-    {
-      "slug": "event-19th-iys-inuyasha-1471341",
-      "kind": "event",
-      "title": "Inuyasha",
-      "date": "2026-08-17"
-    },
-    {
-      "slug": "event-28th-iys-inuyasha-1471375",
-      "kind": "event",
-      "title": "Inuyasha",
-      "date": "2026-08-16"
-    }
-  ],
   "miroku": [
+    {
+      "slug": "event-1st-iys-sango-1507922",
+      "kind": "event",
+      "title": "Inuyasha - Sango",
+      "date": "2026-09-02"
+    },
+    {
+      "slug": "event-2nd-iys-shippo-1507939",
+      "kind": "event",
+      "title": "Inuyasha - Shippo",
+      "date": "2026-09-01"
+    },
+    {
+      "slug": "event-2nd-iys-sango-1507947",
+      "kind": "event",
+      "title": "Inuyasha - Sango",
+      "date": "2026-08-31"
+    },
+    {
+      "slug": "event-5th-iys-shippo-1507988",
+      "kind": "event",
+      "title": "Inuyasha - Shippo",
+      "date": "2026-08-30"
+    },
     {
       "slug": "event-3rd-iys-sango-1496644",
       "kind": "event",
@@ -30149,6 +31273,30 @@
   ],
   "sango": [
     {
+      "slug": "event-1st-iys-sango-1507922",
+      "kind": "event",
+      "title": "Inuyasha - Sango",
+      "date": "2026-09-02"
+    },
+    {
+      "slug": "event-2nd-iys-shippo-1507939",
+      "kind": "event",
+      "title": "Inuyasha - Shippo",
+      "date": "2026-09-01"
+    },
+    {
+      "slug": "event-2nd-iys-sango-1507947",
+      "kind": "event",
+      "title": "Inuyasha - Sango",
+      "date": "2026-08-31"
+    },
+    {
+      "slug": "event-5th-iys-shippo-1507988",
+      "kind": "event",
+      "title": "Inuyasha - Shippo",
+      "date": "2026-08-30"
+    },
+    {
       "slug": "event-3rd-iys-sango-1496644",
       "kind": "event",
       "title": "Inuyasha - Sango",
@@ -30174,6 +31322,12 @@
     }
   ],
   "aoi-todo": [
+    {
+      "slug": "event-10th-jujutsu-kaisen-aoi-todo-1507965",
+      "kind": "event",
+      "title": "Jujutsu Kaisen - Aoi Todo",
+      "date": "2026-08-31"
+    },
     {
       "slug": "event-4th-jujutsu-kaisen-aoi-todo-1336104",
       "kind": "event",
@@ -30459,6 +31613,12 @@
   ],
   "ultimate-mechamaru-mode-absolute": [
     {
+      "slug": "event-10th-jujutsu-kaisen-aoi-todo-1507965",
+      "kind": "event",
+      "title": "Jujutsu Kaisen - Aoi Todo",
+      "date": "2026-08-31"
+    },
+    {
       "slug": "event-4th-jujutsu-kaisen-aoi-todo-1336104",
       "kind": "event",
       "title": "Jujutsu Kaisen - Aoi Todo",
@@ -30724,6 +31884,12 @@
     }
   ],
   "kasumi-miwa": [
+    {
+      "slug": "event-10th-jujutsu-kaisen-aoi-todo-1507965",
+      "kind": "event",
+      "title": "Jujutsu Kaisen - Aoi Todo",
+      "date": "2026-08-31"
+    },
     {
       "slug": "event-4th-jujutsu-kaisen-aoi-todo-1336104",
       "kind": "event",
@@ -31482,6 +32648,18 @@
     }
   ],
   "chihiro-rokuhira": [
+    {
+      "slug": "event-4th-kagurabachi-chihiro-rokuhira-1507960",
+      "kind": "event",
+      "title": "Kagurabachi - Chihiro Rokuhira",
+      "date": "2026-08-31"
+    },
+    {
+      "slug": "event-3rd-kagurabachi-iori-samura-1507948",
+      "kind": "event",
+      "title": "Kagurabachi - Iori Samura",
+      "date": "2026-08-31"
+    },
     {
       "slug": "event-6th-kagurabachi-hakuri-sazanami-1336106",
       "kind": "event",
@@ -33133,6 +34311,18 @@
   ],
   "chihiro-rokuhira-purple": [
     {
+      "slug": "event-4th-kagurabachi-chihiro-rokuhira-1507960",
+      "kind": "event",
+      "title": "Kagurabachi - Chihiro Rokuhira",
+      "date": "2026-08-31"
+    },
+    {
+      "slug": "event-3rd-kagurabachi-iori-samura-1507948",
+      "kind": "event",
+      "title": "Kagurabachi - Iori Samura",
+      "date": "2026-08-31"
+    },
+    {
       "slug": "event-5th-kagurabachi-kyora-sazanami-1435497",
       "kind": "event",
       "title": "Kagurabachi - Kyora Sazanami",
@@ -33363,6 +34553,18 @@
   ],
   "yoji-uruha": [
     {
+      "slug": "event-4th-kagurabachi-chihiro-rokuhira-1507960",
+      "kind": "event",
+      "title": "Kagurabachi - Chihiro Rokuhira",
+      "date": "2026-08-31"
+    },
+    {
+      "slug": "event-3rd-kagurabachi-iori-samura-1507948",
+      "kind": "event",
+      "title": "Kagurabachi - Iori Samura",
+      "date": "2026-08-31"
+    },
+    {
       "slug": "event-3rd-kagurabachi-p-chihiro-iori-1402142",
       "kind": "event",
       "title": "Kagurabachi - Iori Samura",
@@ -33575,6 +34777,18 @@
   ],
   "seichi-samura": [
     {
+      "slug": "event-4th-kagurabachi-chihiro-rokuhira-1507960",
+      "kind": "event",
+      "title": "Kagurabachi - Chihiro Rokuhira",
+      "date": "2026-08-31"
+    },
+    {
+      "slug": "event-3rd-kagurabachi-iori-samura-1507948",
+      "kind": "event",
+      "title": "Kagurabachi - Iori Samura",
+      "date": "2026-08-31"
+    },
+    {
       "slug": "event-3rd-kagurabachi-p-chihiro-iori-1402142",
       "kind": "event",
       "title": "Kagurabachi - Iori Samura",
@@ -33780,6 +34994,18 @@
     }
   ],
   "iori-samura": [
+    {
+      "slug": "event-4th-kagurabachi-chihiro-rokuhira-1507960",
+      "kind": "event",
+      "title": "Kagurabachi - Chihiro Rokuhira",
+      "date": "2026-08-31"
+    },
+    {
+      "slug": "event-3rd-kagurabachi-iori-samura-1507948",
+      "kind": "event",
+      "title": "Kagurabachi - Iori Samura",
+      "date": "2026-08-31"
+    },
     {
       "slug": "event-3rd-kagurabachi-p-chihiro-iori-1402142",
       "kind": "event",
@@ -34611,6 +35837,18 @@
   ],
   "hellish-blizzard": [
     {
+      "slug": "event-5th-one-punch-man-saitama-1507942",
+      "kind": "event",
+      "title": "One Punch Man - Saitama",
+      "date": "2026-09-01"
+    },
+    {
+      "slug": "event-7th-one-punch-man-terrible-tornado-1508003",
+      "kind": "event",
+      "title": "One Punch Man - Terrible Tornado",
+      "date": "2026-08-29"
+    },
+    {
       "slug": "reddit-pic-my-list-for-esper-sisters-this-deck-so-fun-1vylfqi",
       "kind": "reddit",
       "title": "Terrible Tornado",
@@ -34703,6 +35941,12 @@
   ],
   "saitama": [
     {
+      "slug": "event-5th-one-punch-man-saitama-1507942",
+      "kind": "event",
+      "title": "One Punch Man - Saitama",
+      "date": "2026-09-01"
+    },
+    {
       "slug": "reddit-pic-my-list-for-esper-sisters-this-deck-so-fun-1vylfqi",
       "kind": "reddit",
       "title": "Terrible Tornado",
@@ -34783,6 +36027,12 @@
   ],
   "silverfang": [
     {
+      "slug": "event-4th-one-punch-man-king-1507941",
+      "kind": "event",
+      "title": "One Punch Man - King",
+      "date": "2026-09-01"
+    },
+    {
       "slug": "contender-consensus",
       "kind": "contender",
       "title": "One Punch Man - King",
@@ -34851,6 +36101,12 @@
   ],
   "saitama-green": [
     {
+      "slug": "event-4th-one-punch-man-king-1507941",
+      "kind": "event",
+      "title": "One Punch Man - King",
+      "date": "2026-09-01"
+    },
+    {
       "slug": "contender-consensus",
       "kind": "contender",
       "title": "One Punch Man - King",
@@ -34913,6 +36169,12 @@
   ],
   "terrible-tornado": [
     {
+      "slug": "event-4th-one-punch-man-king-1507941",
+      "kind": "event",
+      "title": "One Punch Man - King",
+      "date": "2026-09-01"
+    },
+    {
       "slug": "contender-consensus",
       "kind": "contender",
       "title": "One Punch Man - King",
@@ -34974,6 +36236,18 @@
     }
   ],
   "terrible-tornado-yellow": [
+    {
+      "slug": "event-5th-one-punch-man-saitama-1507942",
+      "kind": "event",
+      "title": "One Punch Man - Saitama",
+      "date": "2026-09-01"
+    },
+    {
+      "slug": "event-7th-one-punch-man-terrible-tornado-1508003",
+      "kind": "event",
+      "title": "One Punch Man - Terrible Tornado",
+      "date": "2026-08-29"
+    },
     {
       "slug": "reddit-pic-my-list-for-esper-sisters-this-deck-so-fun-1vylfqi",
       "kind": "reddit",
@@ -35260,6 +36534,18 @@
     }
   ],
   "kenshin-himura": [
+    {
+      "slug": "event-21st-rurouni-kenshin-kenshin-himura-1507976",
+      "kind": "event",
+      "title": "Rurouni Kenshin - Kenshin Himura",
+      "date": "2026-08-31"
+    },
+    {
+      "slug": "event-12th-rurouni-kenshin-kaoru-kamiya-1507967",
+      "kind": "event",
+      "title": "Rurouni Kenshin - Kaoru Kamiya",
+      "date": "2026-08-31"
+    },
     {
       "slug": "contender-consensus",
       "kind": "contender",
@@ -35887,6 +37173,12 @@
   ],
   "hajime-saito": [
     {
+      "slug": "event-2nd-rurouni-kenshin-hajime-saito-1507923",
+      "kind": "event",
+      "title": "Rurouni Kenshin - Hajime Saito",
+      "date": "2026-09-02"
+    },
+    {
       "slug": "contender-consensus",
       "kind": "contender",
       "title": "Rurouni Kenshin - Hajime Saito",
@@ -36284,6 +37576,12 @@
     }
   ],
   "kenshin-himura-purple": [
+    {
+      "slug": "event-2nd-rurouni-kenshin-hajime-saito-1507923",
+      "kind": "event",
+      "title": "Rurouni Kenshin - Hajime Saito",
+      "date": "2026-09-02"
+    },
     {
       "slug": "contender-consensus",
       "kind": "contender",
@@ -37183,6 +38481,24 @@
   ],
   "shin-asakura": [
     {
+      "slug": "event-1st-sakamoto-days-shin-asakura-1507931",
+      "kind": "event",
+      "title": "Sakamoto Days - Shin Asakura",
+      "date": "2026-09-01"
+    },
+    {
+      "slug": "event-11th-sakamoto-days-taro-sakamoto-1507966",
+      "kind": "event",
+      "title": "Sakamoto Days - Taro Sakamoto",
+      "date": "2026-08-31"
+    },
+    {
+      "slug": "event-6th-sakamoto-days-heisuke-mashimo-1507989",
+      "kind": "event",
+      "title": "Sakamoto Days - Heisuke Mashimo",
+      "date": "2026-08-30"
+    },
+    {
       "slug": "event-1st-sakamoto-days-heisuke-mashimo-1496609",
       "kind": "event",
       "title": "Sakamoto Days - Heisuke Mashimo",
@@ -37929,6 +39245,24 @@
   ],
   "taro-sakamoto": [
     {
+      "slug": "event-1st-sakamoto-days-shin-asakura-1507931",
+      "kind": "event",
+      "title": "Sakamoto Days - Shin Asakura",
+      "date": "2026-09-01"
+    },
+    {
+      "slug": "event-11th-sakamoto-days-taro-sakamoto-1507966",
+      "kind": "event",
+      "title": "Sakamoto Days - Taro Sakamoto",
+      "date": "2026-08-31"
+    },
+    {
+      "slug": "event-6th-sakamoto-days-heisuke-mashimo-1507989",
+      "kind": "event",
+      "title": "Sakamoto Days - Heisuke Mashimo",
+      "date": "2026-08-30"
+    },
+    {
       "slug": "event-1st-sakamoto-days-heisuke-mashimo-1496609",
       "kind": "event",
       "title": "Sakamoto Days - Heisuke Mashimo",
@@ -38633,6 +39967,18 @@
   ],
   "lu-shaotang": [
     {
+      "slug": "event-1st-sakamoto-days-shin-asakura-1507931",
+      "kind": "event",
+      "title": "Sakamoto Days - Shin Asakura",
+      "date": "2026-09-01"
+    },
+    {
+      "slug": "event-11th-sakamoto-days-taro-sakamoto-1507966",
+      "kind": "event",
+      "title": "Sakamoto Days - Taro Sakamoto",
+      "date": "2026-08-31"
+    },
+    {
       "slug": "event-1st-sakamoto-days-heisuke-mashimo-1496609",
       "kind": "event",
       "title": "Sakamoto Days - Heisuke Mashimo",
@@ -39277,6 +40623,18 @@
   ],
   "heisuke-mashimo": [
     {
+      "slug": "event-1st-sakamoto-days-shin-asakura-1507931",
+      "kind": "event",
+      "title": "Sakamoto Days - Shin Asakura",
+      "date": "2026-09-01"
+    },
+    {
+      "slug": "event-6th-sakamoto-days-heisuke-mashimo-1507989",
+      "kind": "event",
+      "title": "Sakamoto Days - Heisuke Mashimo",
+      "date": "2026-08-30"
+    },
+    {
       "slug": "event-1st-sakamoto-days-heisuke-mashimo-1496609",
       "kind": "event",
       "title": "Sakamoto Days - Heisuke Mashimo",
@@ -39812,6 +41170,12 @@
     }
   ],
   "shishiba": [
+    {
+      "slug": "event-4th-sakamoto-days-natsuki-seba-1507924",
+      "kind": "event",
+      "title": "Sakamoto Days - Natsuki Seba",
+      "date": "2026-09-02"
+    },
     {
       "slug": "contender-consensus",
       "kind": "contender",
@@ -41283,6 +42647,12 @@
   ],
   "invisibility-suit": [
     {
+      "slug": "event-4th-sakamoto-days-natsuki-seba-1507924",
+      "kind": "event",
+      "title": "Sakamoto Days - Natsuki Seba",
+      "date": "2026-09-02"
+    },
+    {
       "slug": "event-3rd-sakamoto-days-natsuki-seba-1471466",
       "kind": "event",
       "title": "Sakamoto Days - Natsuki Seba",
@@ -41344,6 +42714,12 @@
     }
   ],
   "natsuki-seba": [
+    {
+      "slug": "event-4th-sakamoto-days-natsuki-seba-1507924",
+      "kind": "event",
+      "title": "Sakamoto Days - Natsuki Seba",
+      "date": "2026-09-02"
+    },
     {
       "slug": "event-3rd-sakamoto-days-natsuki-seba-1471466",
       "kind": "event",
@@ -41456,6 +42832,48 @@
     }
   ],
   "sung-jinwoo": [
+    {
+      "slug": "event-1st-solo-leveling-shadow-army-1507915",
+      "kind": "event",
+      "title": "Solo Leveling - Shadow Soldiers",
+      "date": "2026-09-02"
+    },
+    {
+      "slug": "event-4th-solo-leveling-sung-jinwoo-1507949",
+      "kind": "event",
+      "title": "Solo Leveling - Sung Jinwoo",
+      "date": "2026-08-31"
+    },
+    {
+      "slug": "event-3rd-solo-leveling-esil-1507959",
+      "kind": "event",
+      "title": "Solo Leveling - Esil",
+      "date": "2026-08-31"
+    },
+    {
+      "slug": "event-2nd-solo-leveling-sung-jinwoo-1507958",
+      "kind": "event",
+      "title": "Solo Leveling - Sung Jinwoo",
+      "date": "2026-08-31"
+    },
+    {
+      "slug": "event-16th-solo-leveling-han-song-yi-1507971",
+      "kind": "event",
+      "title": "Solo Leveling - Han Song-yi",
+      "date": "2026-08-31"
+    },
+    {
+      "slug": "event-13th-solo-leveling-sung-jinwoo-1507968",
+      "kind": "event",
+      "title": "Solo Leveling - Sung Jinwoo",
+      "date": "2026-08-31"
+    },
+    {
+      "slug": "event-4th-solo-leveling-sung-jinwoo-1507987",
+      "kind": "event",
+      "title": "Solo Leveling - Sung Jinwoo",
+      "date": "2026-08-30"
+    },
     {
       "slug": "event-1st-solo-leveling-sung-jinwoo-1336101",
       "kind": "event",
@@ -42623,6 +44041,36 @@
   ],
   "igris": [
     {
+      "slug": "event-1st-solo-leveling-shadow-army-1507915",
+      "kind": "event",
+      "title": "Solo Leveling - Shadow Soldiers",
+      "date": "2026-09-02"
+    },
+    {
+      "slug": "event-4th-solo-leveling-sung-jinwoo-1507949",
+      "kind": "event",
+      "title": "Solo Leveling - Sung Jinwoo",
+      "date": "2026-08-31"
+    },
+    {
+      "slug": "event-2nd-solo-leveling-sung-jinwoo-1507958",
+      "kind": "event",
+      "title": "Solo Leveling - Sung Jinwoo",
+      "date": "2026-08-31"
+    },
+    {
+      "slug": "event-13th-solo-leveling-sung-jinwoo-1507968",
+      "kind": "event",
+      "title": "Solo Leveling - Sung Jinwoo",
+      "date": "2026-08-31"
+    },
+    {
+      "slug": "event-4th-solo-leveling-sung-jinwoo-1507987",
+      "kind": "event",
+      "title": "Solo Leveling - Sung Jinwoo",
+      "date": "2026-08-30"
+    },
+    {
       "slug": "event-1st-solo-leveling-sung-jinwoo-1336101",
       "kind": "event",
       "title": "Solo Leveling - Sung Jinwoo",
@@ -43381,6 +44829,18 @@
   ],
   "cha-hae-in": [
     {
+      "slug": "event-3rd-solo-leveling-esil-1507959",
+      "kind": "event",
+      "title": "Solo Leveling - Esil",
+      "date": "2026-08-31"
+    },
+    {
+      "slug": "event-16th-solo-leveling-han-song-yi-1507971",
+      "kind": "event",
+      "title": "Solo Leveling - Han Song-yi",
+      "date": "2026-08-31"
+    },
+    {
       "slug": "contender-consensus",
       "kind": "contender",
       "title": "Solo Leveling - Han Song-yi",
@@ -43755,6 +45215,12 @@
   ],
   "beru": [
     {
+      "slug": "event-1st-solo-leveling-shadow-army-1507915",
+      "kind": "event",
+      "title": "Solo Leveling - Shadow Soldiers",
+      "date": "2026-09-02"
+    },
+    {
       "slug": "event-5th-solo-leveling-sung-jinwoo-1489215",
       "kind": "event",
       "title": "Solo Leveling - Sung Jinwoo",
@@ -44044,6 +45510,12 @@
     }
   ],
   "sung-il-hwan": [
+    {
+      "slug": "event-3rd-solo-leveling-esil-1507959",
+      "kind": "event",
+      "title": "Solo Leveling - Esil",
+      "date": "2026-08-31"
+    },
     {
       "slug": "event-2nd-solo-leveling-esil-1479648",
       "kind": "event",
@@ -46077,6 +47549,12 @@
   ],
   "asuna-stacia-the-goddess-of-creation": [
     {
+      "slug": "event-7th-sword-art-online-goddesses-1507980",
+      "kind": "event",
+      "title": "Sword Art Online - Asuna (Stacia, the Goddess of Creation)",
+      "date": "2026-08-30"
+    },
+    {
       "slug": "event-2nd-sword-art-online-yuna-1461797",
       "kind": "event",
       "title": "Sword Art Online - Asuna (Stacia, the Goddess of Creation)",
@@ -46121,6 +47599,12 @@
   ],
   "leafa-earth-goddess-terraria": [
     {
+      "slug": "event-7th-sword-art-online-goddesses-1507980",
+      "kind": "event",
+      "title": "Sword Art Online - Asuna (Stacia, the Goddess of Creation)",
+      "date": "2026-08-30"
+    },
+    {
       "slug": "event-2nd-sword-art-online-yuna-1461797",
       "kind": "event",
       "title": "Sword Art Online - Asuna (Stacia, the Goddess of Creation)",
@@ -46164,6 +47648,12 @@
     }
   ],
   "sinon-sun-goddess-solus": [
+    {
+      "slug": "event-7th-sword-art-online-goddesses-1507980",
+      "kind": "event",
+      "title": "Sword Art Online - Asuna (Stacia, the Goddess of Creation)",
+      "date": "2026-08-30"
+    },
     {
       "slug": "event-2nd-sword-art-online-yuna-1461797",
       "kind": "event",
@@ -46353,6 +47843,18 @@
   ],
   "rimuru": [
     {
+      "slug": "event-13th-that-time-i-got-reincarnated-as-a-slime-soei-1507929",
+      "kind": "event",
+      "title": "That Time I Got Reincarnated As A Slime - Soei",
+      "date": "2026-09-02"
+    },
+    {
+      "slug": "event-6th-that-time-i-got-reincarnated-as-a-slime-rimuru-1507943",
+      "kind": "event",
+      "title": "That Time I Got Reincarnated As A Slime - Rimuru",
+      "date": "2026-09-01"
+    },
+    {
       "slug": "contender-consensus",
       "kind": "contender",
       "title": "That Time I Got Reincarnated As A Slime - Rimuru",
@@ -46511,6 +48013,12 @@
   ],
   "rimuru-purple": [
     {
+      "slug": "event-9th-that-time-i-got-reincarnated-as-a-slime-rimuru-1507919",
+      "kind": "event",
+      "title": "That Time I Got Reincarnated As A Slime - Rimuru",
+      "date": "2026-09-02"
+    },
+    {
       "slug": "contender-consensus",
       "kind": "contender",
       "title": "That Time I Got Reincarnated As A Slime - Diablo",
@@ -46667,141 +48175,19 @@
       "date": "2026-06-12"
     }
   ],
-  "milim": [
-    {
-      "slug": "event-3rd-that-time-i-got-reincarnated-as-a-slime-milim-1336103",
-      "kind": "event",
-      "title": "That Time I Got Reincarnated As A Slime - Milim",
-      "date": "2026-08-30"
-    },
-    {
-      "slug": "contender-consensus",
-      "kind": "contender",
-      "title": "That Time I Got Reincarnated As A Slime - Milim",
-      "date": "2026-08-28"
-    },
-    {
-      "slug": "event-2nd-that-time-i-got-reincarnated-as-a-slime-milim-1479602",
-      "kind": "event",
-      "title": "That Time I Got Reincarnated As A Slime - Milim",
-      "date": "2026-08-20"
-    },
-    {
-      "slug": "event-15th-that-time-i-got-reincarnated-as-a-slime-milim-1471337",
-      "kind": "event",
-      "title": "That Time I Got Reincarnated As A Slime - Milim",
-      "date": "2026-08-17"
-    },
-    {
-      "slug": "event-4th-that-time-i-got-reincarnated-as-a-slime-milim-1471398",
-      "kind": "event",
-      "title": "That Time I Got Reincarnated As A Slime - Milim",
-      "date": "2026-08-15"
-    },
-    {
-      "slug": "event-12th-that-time-i-got-reincarnated-as-a-slime-milim-1461739",
-      "kind": "event",
-      "title": "That Time I Got Reincarnated As A Slime - Milim",
-      "date": "2026-08-12"
-    },
-    {
-      "slug": "event-12th-that-time-i-got-reincarnated-as-a-slime-first-place-locals-",
-      "kind": "event",
-      "title": "That Time I Got Reincarnated As A Slime - Milim",
-      "date": "2026-08-12"
-    },
-    {
-      "slug": "event-8th-that-time-i-got-reincarnated-as-a-slime-ramiris-1435536",
-      "kind": "event",
-      "title": "That Time I Got Reincarnated As A Slime - Milim",
-      "date": "2026-07-28"
-    },
-    {
-      "slug": "event-2nd-that-time-i-got-reincarnated-as-a-slime-milim-main-milim-141",
-      "kind": "event",
-      "title": "That Time I Got Reincarnated As A Slime - Milim",
-      "date": "2026-07-23"
-    },
-    {
-      "slug": "event-18th-that-time-i-got-reincarnated-as-a-slime-draco-pawnch-140212",
-      "kind": "event",
-      "title": "That Time I Got Reincarnated As A Slime - Milim",
-      "date": "2026-07-22"
-    },
-    {
-      "slug": "event-10th-aot-tsk-bertholdt-hoover-colossal-titan-1374530",
-      "kind": "event",
-      "title": "AOT,TSK - Bertholdt Hoover (Colossal Titan)",
-      "date": "2026-07-16"
-    },
-    {
-      "slug": "event-12th-that-time-i-got-reincarnated-as-a-slime-milim-1374561",
-      "kind": "event",
-      "title": "That Time I Got Reincarnated As A Slime - Milim",
-      "date": "2026-07-15"
-    },
-    {
-      "slug": "event-26th-that-time-i-got-reincarnated-as-a-slime-my-wife-1345765",
-      "kind": "event",
-      "title": "That Time I Got Reincarnated As A Slime - Milim",
-      "date": "2026-07-12"
-    },
-    {
-      "slug": "event-19th-that-time-i-got-reincarnated-as-a-slime-draco-pawnch-133613",
-      "kind": "event",
-      "title": "That Time I Got Reincarnated As A Slime - Milim",
-      "date": "2026-07-08"
-    },
-    {
-      "slug": "event-15th-that-time-i-got-reincarnated-as-a-slime-milim-1336167",
-      "kind": "event",
-      "title": "That Time I Got Reincarnated As A Slime - Milim",
-      "date": "2026-07-06"
-    },
-    {
-      "slug": "event-12th-that-time-i-got-reincarnated-as-a-slime-milim-1336164",
-      "kind": "event",
-      "title": "That Time I Got Reincarnated As A Slime - Milim",
-      "date": "2026-07-06"
-    },
-    {
-      "slug": "event-11th-that-time-i-got-reincarnated-as-a-slime-milim-1336163",
-      "kind": "event",
-      "title": "That Time I Got Reincarnated As A Slime - Milim",
-      "date": "2026-07-06"
-    },
-    {
-      "slug": "event-5th-that-time-i-got-reincarnated-as-a-slime-milim-1291314",
-      "kind": "event",
-      "title": "That Time I Got Reincarnated As A Slime - Milim",
-      "date": "2026-07-03"
-    },
-    {
-      "slug": "event-1st-that-time-i-got-reincarnated-as-a-slime-milim-1291319",
-      "kind": "event",
-      "title": "That Time I Got Reincarnated As A Slime - Milim",
-      "date": "2026-07-03"
-    },
-    {
-      "slug": "event-8th-that-time-i-got-reincarnated-as-a-slime-milim-1336226",
-      "kind": "event",
-      "title": "That Time I Got Reincarnated As A Slime - Milim",
-      "date": "2026-07-02"
-    },
-    {
-      "slug": "event-1st-that-time-i-got-reincarnated-as-a-slime-milim-1253753",
-      "kind": "event",
-      "title": "That Time I Got Reincarnated As A Slime - Milim",
-      "date": "2026-06-26"
-    },
-    {
-      "slug": "event-1st-that-time-i-got-reincarnated-as-a-slime-milim-1253792",
-      "kind": "event",
-      "title": "That Time I Got Reincarnated As A Slime - Milim",
-      "date": "2026-06-22"
-    }
-  ],
   "soei": [
+    {
+      "slug": "event-13th-that-time-i-got-reincarnated-as-a-slime-soei-1507929",
+      "kind": "event",
+      "title": "That Time I Got Reincarnated As A Slime - Soei",
+      "date": "2026-09-02"
+    },
+    {
+      "slug": "event-6th-that-time-i-got-reincarnated-as-a-slime-rimuru-1507943",
+      "kind": "event",
+      "title": "That Time I Got Reincarnated As A Slime - Rimuru",
+      "date": "2026-09-01"
+    },
     {
       "slug": "contender-consensus",
       "kind": "contender",
@@ -46933,6 +48319,146 @@
       "kind": "event",
       "title": "That Time I Got Reincarnated As A Slime - Soei",
       "date": "2026-06-30"
+    }
+  ],
+  "milim": [
+    {
+      "slug": "event-8th-that-time-i-got-reincarnated-as-a-slime-milim-1507945",
+      "kind": "event",
+      "title": "That Time I Got Reincarnated As A Slime - Milim",
+      "date": "2026-09-01"
+    },
+    {
+      "slug": "event-3rd-that-time-i-got-reincarnated-as-a-slime-milim-1336103",
+      "kind": "event",
+      "title": "That Time I Got Reincarnated As A Slime - Milim",
+      "date": "2026-08-30"
+    },
+    {
+      "slug": "contender-consensus",
+      "kind": "contender",
+      "title": "That Time I Got Reincarnated As A Slime - Milim",
+      "date": "2026-08-28"
+    },
+    {
+      "slug": "event-2nd-that-time-i-got-reincarnated-as-a-slime-milim-1479602",
+      "kind": "event",
+      "title": "That Time I Got Reincarnated As A Slime - Milim",
+      "date": "2026-08-20"
+    },
+    {
+      "slug": "event-15th-that-time-i-got-reincarnated-as-a-slime-milim-1471337",
+      "kind": "event",
+      "title": "That Time I Got Reincarnated As A Slime - Milim",
+      "date": "2026-08-17"
+    },
+    {
+      "slug": "event-4th-that-time-i-got-reincarnated-as-a-slime-milim-1471398",
+      "kind": "event",
+      "title": "That Time I Got Reincarnated As A Slime - Milim",
+      "date": "2026-08-15"
+    },
+    {
+      "slug": "event-12th-that-time-i-got-reincarnated-as-a-slime-milim-1461739",
+      "kind": "event",
+      "title": "That Time I Got Reincarnated As A Slime - Milim",
+      "date": "2026-08-12"
+    },
+    {
+      "slug": "event-12th-that-time-i-got-reincarnated-as-a-slime-first-place-locals-",
+      "kind": "event",
+      "title": "That Time I Got Reincarnated As A Slime - Milim",
+      "date": "2026-08-12"
+    },
+    {
+      "slug": "event-8th-that-time-i-got-reincarnated-as-a-slime-ramiris-1435536",
+      "kind": "event",
+      "title": "That Time I Got Reincarnated As A Slime - Milim",
+      "date": "2026-07-28"
+    },
+    {
+      "slug": "event-2nd-that-time-i-got-reincarnated-as-a-slime-milim-main-milim-141",
+      "kind": "event",
+      "title": "That Time I Got Reincarnated As A Slime - Milim",
+      "date": "2026-07-23"
+    },
+    {
+      "slug": "event-18th-that-time-i-got-reincarnated-as-a-slime-draco-pawnch-140212",
+      "kind": "event",
+      "title": "That Time I Got Reincarnated As A Slime - Milim",
+      "date": "2026-07-22"
+    },
+    {
+      "slug": "event-10th-aot-tsk-bertholdt-hoover-colossal-titan-1374530",
+      "kind": "event",
+      "title": "AOT,TSK - Bertholdt Hoover (Colossal Titan)",
+      "date": "2026-07-16"
+    },
+    {
+      "slug": "event-12th-that-time-i-got-reincarnated-as-a-slime-milim-1374561",
+      "kind": "event",
+      "title": "That Time I Got Reincarnated As A Slime - Milim",
+      "date": "2026-07-15"
+    },
+    {
+      "slug": "event-26th-that-time-i-got-reincarnated-as-a-slime-my-wife-1345765",
+      "kind": "event",
+      "title": "That Time I Got Reincarnated As A Slime - Milim",
+      "date": "2026-07-12"
+    },
+    {
+      "slug": "event-19th-that-time-i-got-reincarnated-as-a-slime-draco-pawnch-133613",
+      "kind": "event",
+      "title": "That Time I Got Reincarnated As A Slime - Milim",
+      "date": "2026-07-08"
+    },
+    {
+      "slug": "event-15th-that-time-i-got-reincarnated-as-a-slime-milim-1336167",
+      "kind": "event",
+      "title": "That Time I Got Reincarnated As A Slime - Milim",
+      "date": "2026-07-06"
+    },
+    {
+      "slug": "event-12th-that-time-i-got-reincarnated-as-a-slime-milim-1336164",
+      "kind": "event",
+      "title": "That Time I Got Reincarnated As A Slime - Milim",
+      "date": "2026-07-06"
+    },
+    {
+      "slug": "event-11th-that-time-i-got-reincarnated-as-a-slime-milim-1336163",
+      "kind": "event",
+      "title": "That Time I Got Reincarnated As A Slime - Milim",
+      "date": "2026-07-06"
+    },
+    {
+      "slug": "event-5th-that-time-i-got-reincarnated-as-a-slime-milim-1291314",
+      "kind": "event",
+      "title": "That Time I Got Reincarnated As A Slime - Milim",
+      "date": "2026-07-03"
+    },
+    {
+      "slug": "event-1st-that-time-i-got-reincarnated-as-a-slime-milim-1291319",
+      "kind": "event",
+      "title": "That Time I Got Reincarnated As A Slime - Milim",
+      "date": "2026-07-03"
+    },
+    {
+      "slug": "event-8th-that-time-i-got-reincarnated-as-a-slime-milim-1336226",
+      "kind": "event",
+      "title": "That Time I Got Reincarnated As A Slime - Milim",
+      "date": "2026-07-02"
+    },
+    {
+      "slug": "event-1st-that-time-i-got-reincarnated-as-a-slime-milim-1253753",
+      "kind": "event",
+      "title": "That Time I Got Reincarnated As A Slime - Milim",
+      "date": "2026-06-26"
+    },
+    {
+      "slug": "event-1st-that-time-i-got-reincarnated-as-a-slime-milim-1253792",
+      "kind": "event",
+      "title": "That Time I Got Reincarnated As A Slime - Milim",
+      "date": "2026-06-22"
     }
   ],
   "diablo": [
@@ -47249,6 +48775,12 @@
   ],
   "hinata": [
     {
+      "slug": "event-9th-that-time-i-got-reincarnated-as-a-slime-rimuru-1507919",
+      "kind": "event",
+      "title": "That Time I Got Reincarnated As A Slime - Rimuru",
+      "date": "2026-09-02"
+    },
+    {
       "slug": "event-5th-that-time-i-got-reincarnated-as-a-slime-rimuru-1435499",
       "kind": "event",
       "title": "That Time I Got Reincarnated As A Slime - Rimuru",
@@ -47323,6 +48855,12 @@
   ],
   "luminus": [
     {
+      "slug": "event-9th-that-time-i-got-reincarnated-as-a-slime-rimuru-1507919",
+      "kind": "event",
+      "title": "That Time I Got Reincarnated As A Slime - Rimuru",
+      "date": "2026-09-02"
+    },
+    {
       "slug": "event-5th-that-time-i-got-reincarnated-as-a-slime-rimuru-1435499",
       "kind": "event",
       "title": "That Time I Got Reincarnated As A Slime - Rimuru",
@@ -47396,6 +48934,12 @@
     }
   ],
   "shion-blue": [
+    {
+      "slug": "event-13th-that-time-i-got-reincarnated-as-a-slime-soei-1507929",
+      "kind": "event",
+      "title": "That Time I Got Reincarnated As A Slime - Soei",
+      "date": "2026-09-02"
+    },
     {
       "slug": "event-1st-that-time-i-got-reincarnated-as-a-slime-rimuru-1479646",
       "kind": "event",
@@ -47653,6 +49197,20 @@
       "date": "2026-06-29"
     }
   ],
+  "milim-p-006": [
+    {
+      "slug": "event-8th-that-time-i-got-reincarnated-as-a-slime-milim-1507945",
+      "kind": "event",
+      "title": "That Time I Got Reincarnated As A Slime - Milim",
+      "date": "2026-09-01"
+    },
+    {
+      "slug": "event-3rd-that-time-i-got-reincarnated-as-a-slime-milim-1336103",
+      "kind": "event",
+      "title": "That Time I Got Reincarnated As A Slime - Milim",
+      "date": "2026-08-30"
+    }
+  ],
   "shizu-u": [
     {
       "slug": "event-5th-that-time-i-got-reincarnated-as-a-slime-rimuru-1345783",
@@ -47665,14 +49223,6 @@
       "kind": "event",
       "title": "That Time I Got Reincarnated As A Slime - Shizu (U*)",
       "date": "2026-06-29"
-    }
-  ],
-  "milim-p-006": [
-    {
-      "slug": "event-3rd-that-time-i-got-reincarnated-as-a-slime-milim-1336103",
-      "kind": "event",
-      "title": "That Time I Got Reincarnated As A Slime - Milim",
-      "date": "2026-08-30"
     }
   ],
   "shion-p-005": [
@@ -48627,6 +50177,18 @@
   ],
   "kotaro-amon": [
     {
+      "slug": "event-5th-tokyo-ghoul-kotaro-amon-1507954",
+      "kind": "event",
+      "title": "Tokyo Ghoul - Kotaro Amon",
+      "date": "2026-08-31"
+    },
+    {
+      "slug": "event-1st-tokyo-ghoul-kotaro-amon-1507950",
+      "kind": "event",
+      "title": "Tokyo Ghoul - Kotaro Amon",
+      "date": "2026-08-31"
+    },
+    {
       "slug": "contender-consensus",
       "kind": "contender",
       "title": "Tokyo Ghoul - Kotaro Amon",
@@ -48815,6 +50377,18 @@
   ],
   "juzo-suzuya": [
     {
+      "slug": "event-5th-tokyo-ghoul-kotaro-amon-1507954",
+      "kind": "event",
+      "title": "Tokyo Ghoul - Kotaro Amon",
+      "date": "2026-08-31"
+    },
+    {
+      "slug": "event-1st-tokyo-ghoul-kotaro-amon-1507950",
+      "kind": "event",
+      "title": "Tokyo Ghoul - Kotaro Amon",
+      "date": "2026-08-31"
+    },
+    {
       "slug": "contender-consensus",
       "kind": "contender",
       "title": "Tokyo Ghoul - Kotaro Amon",
@@ -48996,6 +50570,18 @@
     }
   ],
   "kisho-arima": [
+    {
+      "slug": "event-5th-tokyo-ghoul-kotaro-amon-1507954",
+      "kind": "event",
+      "title": "Tokyo Ghoul - Kotaro Amon",
+      "date": "2026-08-31"
+    },
+    {
+      "slug": "event-1st-tokyo-ghoul-kotaro-amon-1507950",
+      "kind": "event",
+      "title": "Tokyo Ghoul - Kotaro Amon",
+      "date": "2026-08-31"
+    },
     {
       "slug": "contender-consensus",
       "kind": "contender",
@@ -49343,6 +50929,12 @@
   ],
   "juzo-suzuya-yellow": [
     {
+      "slug": "event-3rd-tokyo-ghoul-kisho-arima-1507940",
+      "kind": "event",
+      "title": "Tokyo Ghoul - Kisho Arima",
+      "date": "2026-09-01"
+    },
+    {
       "slug": "event-6th-tokyo-ghoul-kotaro-amon-1471441",
       "kind": "event",
       "title": "Tokyo Ghoul - Juzo Suzuya",
@@ -49476,6 +51068,12 @@
     }
   ],
   "kisho-arima-yellow": [
+    {
+      "slug": "event-3rd-tokyo-ghoul-kisho-arima-1507940",
+      "kind": "event",
+      "title": "Tokyo Ghoul - Kisho Arima",
+      "date": "2026-09-01"
+    },
     {
       "slug": "event-6th-tokyo-ghoul-kotaro-amon-1471441",
       "kind": "event",
@@ -49685,6 +51283,12 @@
   ],
   "ken-kaneki-red": [
     {
+      "slug": "event-4th-tokyo-ghoul-ken-kaneki-1507953",
+      "kind": "event",
+      "title": "Tokyo Ghoul - Ken Kaneki",
+      "date": "2026-08-31"
+    },
+    {
       "slug": "event-8th-csm-tkg-power-1489276",
       "kind": "event",
       "title": "CSM,TKG - Power",
@@ -49740,6 +51344,12 @@
     }
   ],
   "ayato-kirishima": [
+    {
+      "slug": "event-4th-tokyo-ghoul-ken-kaneki-1507953",
+      "kind": "event",
+      "title": "Tokyo Ghoul - Ken Kaneki",
+      "date": "2026-08-31"
+    },
     {
       "slug": "event-6th-tokyo-ghoul-ken-kaneki-1336129",
       "kind": "event",
@@ -49890,6 +51500,12 @@
     }
   ],
   "younger-toguro": [
+    {
+      "slug": "event-5th-yu-yu-hakusho-salt-n-pepa-1507916",
+      "kind": "event",
+      "title": "Yu Yu Hakusho - Jin",
+      "date": "2026-09-02"
+    },
     {
       "slug": "event-6th-csm-yyh-elder-toguro-1489274",
       "kind": "event",
@@ -50095,6 +51711,12 @@
   ],
   "hiei": [
     {
+      "slug": "event-2nd-yu-yu-hakusho-hiei-1508001",
+      "kind": "event",
+      "title": "Yu Yu Hakusho - Hiei",
+      "date": "2026-08-29"
+    },
+    {
       "slug": "event-1st-yu-yu-hakusho-youko-kurama-1471428",
       "kind": "event",
       "title": "Yu Yu Hakusho - Youko Kurama",
@@ -50121,6 +51743,12 @@
   ],
   "jin": [
     {
+      "slug": "event-5th-yu-yu-hakusho-salt-n-pepa-1507916",
+      "kind": "event",
+      "title": "Yu Yu Hakusho - Jin",
+      "date": "2026-09-02"
+    },
+    {
       "slug": "event-8th-jjk-tkg-yyh-fma-aoi-todo-1388204",
       "kind": "event",
       "title": "JJK,TKG,YYH,FMA - Aoi Todo",
@@ -50143,6 +51771,70 @@
       "kind": "event",
       "title": "Yu Yu Hakusho - Karasu",
       "date": "2026-06-03"
+    }
+  ],
+  "youko-kurama": [
+    {
+      "slug": "event-2nd-yu-yu-hakusho-hiei-1508001",
+      "kind": "event",
+      "title": "Yu Yu Hakusho - Hiei",
+      "date": "2026-08-29"
+    },
+    {
+      "slug": "event-1st-yu-yu-hakusho-youko-kurama-1471428",
+      "kind": "event",
+      "title": "Yu Yu Hakusho - Youko Kurama",
+      "date": "2026-08-11"
+    },
+    {
+      "slug": "event-8th-yu-yu-hakusho-hiei-1336206",
+      "kind": "event",
+      "title": "Yu Yu Hakusho - Hiei",
+      "date": "2026-07-03"
+    },
+    {
+      "slug": "event-4th-yu-yu-hakusho-youko-kurama-1253756",
+      "kind": "event",
+      "title": "Yu Yu Hakusho - Youko Kurama",
+      "date": "2026-06-26"
+    },
+    {
+      "slug": "event-6th-yu-yu-hakusho-hiei-1108551",
+      "kind": "event",
+      "title": "Yu Yu Hakusho - Hiei",
+      "date": "2026-05-22"
+    }
+  ],
+  "yusuke-urameshi-red": [
+    {
+      "slug": "event-2nd-yu-yu-hakusho-hiei-1508001",
+      "kind": "event",
+      "title": "Yu Yu Hakusho - Hiei",
+      "date": "2026-08-29"
+    },
+    {
+      "slug": "event-4th-yu-yu-hakusho-youko-kurama-1253756",
+      "kind": "event",
+      "title": "Yu Yu Hakusho - Youko Kurama",
+      "date": "2026-06-26"
+    },
+    {
+      "slug": "event-2nd-yu-yu-hakusho-hiei-1213906",
+      "kind": "event",
+      "title": "Yu Yu Hakusho - Hiei",
+      "date": "2026-06-08"
+    },
+    {
+      "slug": "event-6th-yu-yu-hakusho-hiei-1108551",
+      "kind": "event",
+      "title": "Yu Yu Hakusho - Hiei",
+      "date": "2026-05-22"
+    },
+    {
+      "slug": "event-2nd-yu-yu-hakusho-yusuke-urameshi-815938",
+      "kind": "event",
+      "title": "Yusuke Urameshi",
+      "date": "2026-03-11"
     }
   ],
   "kazuma-kuwabara": [
@@ -50171,59 +51863,13 @@
       "date": "2026-03-28"
     }
   ],
-  "youko-kurama": [
-    {
-      "slug": "event-1st-yu-yu-hakusho-youko-kurama-1471428",
-      "kind": "event",
-      "title": "Yu Yu Hakusho - Youko Kurama",
-      "date": "2026-08-11"
-    },
-    {
-      "slug": "event-8th-yu-yu-hakusho-hiei-1336206",
-      "kind": "event",
-      "title": "Yu Yu Hakusho - Hiei",
-      "date": "2026-07-03"
-    },
-    {
-      "slug": "event-4th-yu-yu-hakusho-youko-kurama-1253756",
-      "kind": "event",
-      "title": "Yu Yu Hakusho - Youko Kurama",
-      "date": "2026-06-26"
-    },
-    {
-      "slug": "event-6th-yu-yu-hakusho-hiei-1108551",
-      "kind": "event",
-      "title": "Yu Yu Hakusho - Hiei",
-      "date": "2026-05-22"
-    }
-  ],
-  "yusuke-urameshi-red": [
-    {
-      "slug": "event-4th-yu-yu-hakusho-youko-kurama-1253756",
-      "kind": "event",
-      "title": "Yu Yu Hakusho - Youko Kurama",
-      "date": "2026-06-26"
-    },
-    {
-      "slug": "event-2nd-yu-yu-hakusho-hiei-1213906",
-      "kind": "event",
-      "title": "Yu Yu Hakusho - Hiei",
-      "date": "2026-06-08"
-    },
-    {
-      "slug": "event-6th-yu-yu-hakusho-hiei-1108551",
-      "kind": "event",
-      "title": "Yu Yu Hakusho - Hiei",
-      "date": "2026-05-22"
-    },
-    {
-      "slug": "event-2nd-yu-yu-hakusho-yusuke-urameshi-815938",
-      "kind": "event",
-      "title": "Yusuke Urameshi",
-      "date": "2026-03-11"
-    }
-  ],
   "youko-kurama-red": [
+    {
+      "slug": "event-2nd-yu-yu-hakusho-hiei-1508001",
+      "kind": "event",
+      "title": "Yu Yu Hakusho - Hiei",
+      "date": "2026-08-29"
+    },
     {
       "slug": "event-1st-yu-yu-hakusho-youko-kurama-1471428",
       "kind": "event",
@@ -50245,10 +51891,24 @@
   ],
   "chu": [
     {
+      "slug": "event-5th-yu-yu-hakusho-salt-n-pepa-1507916",
+      "kind": "event",
+      "title": "Yu Yu Hakusho - Jin",
+      "date": "2026-09-02"
+    },
+    {
       "slug": "event-3rd-yu-yu-hakusho-jin-1345740",
       "kind": "event",
       "title": "Yu Yu Hakusho - Jin",
       "date": "2026-07-13"
+    }
+  ],
+  "shishiwakamaru": [
+    {
+      "slug": "event-5th-yu-yu-hakusho-salt-n-pepa-1507916",
+      "kind": "event",
+      "title": "Yu Yu Hakusho - Jin",
+      "date": "2026-09-02"
     }
   ]
 }
