@@ -820,12 +820,16 @@ def tcgplayer_mass_entry_url(items: list | None, cache: dict | None = None) -> s
         if qty < 1:
             continue
         meta = cache.get(cid) or {}
-        label, set_code, number = _tcgplayer_card_label(
+        label, set_code, _number = _tcgplayer_card_label(
             cid, meta.get("name") or it.get("name") or ""
         )
-        if not label:
-            label = number or cid
-        line = " ".join(part for part in (str(qty), label, set_code, number) if part)
+        # Same Mass Entry shape as OP Deck Base: qty name [SET] FULL-ID
+        if label and set_code:
+            line = f"{qty} {label} [{set_code}] {cid}"
+        elif label:
+            line = f"{qty} {label} {cid}"
+        else:
+            line = f"{qty} {cid}"
         parts.append(line)
     if not parts:
         return ""
