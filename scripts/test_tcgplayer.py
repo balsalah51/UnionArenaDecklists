@@ -38,8 +38,8 @@ def test_mass_entry() -> None:
     decoded = urllib.parse.unquote_plus(url)
     assert url.startswith("https://www.tcgplayer.com/massentry?")
     assert "productline=Union+Arena" in url or "productline=Union%20Arena" in url
-    assert "4 Sung Jinwoo [UE17BT] UE17BT/SLG-1-022" in decoded
-    assert "4 Igris [UE17BT] UE17BT/SLG-1-038" in decoded
+    assert "4 Sung Jinwoo (022) [UE17BT] UE17BT/SLG-1-022" in decoded
+    assert "4 Igris (038) [UE17BT] UE17BT/SLG-1-038" in decoded
     assert "SLG-1-022" in decoded and "UE17BT/SLG-1-022" in decoded
     assert "AP" not in decoded
     assert "UNRESOLVED" not in decoded
@@ -49,6 +49,16 @@ def test_mass_entry() -> None:
         {},
     )
     assert "2 UE20BT/TSK-P-003" in urllib.parse.unquote_plus(nameless)
+    stamped = uadb.tcgplayer_mass_entry_url(
+        [{"id": "UE20BT/TSK-1-085", "name": "Milim (085) (SR***)", "count": 4, "group": "Characters"}],
+        {},
+    )
+    assert "4 Milim (085) [UE20BT] UE20BT/TSK-1-085" in urllib.parse.unquote_plus(stamped)
+    promo = uadb.tcgplayer_mass_entry_url(
+        [{"id": "UE20BT/TSK-P-003", "name": "Rimuru", "count": 2, "group": "Characters"}],
+        {},
+    )
+    assert "2 Rimuru (P-003) [UE20BT] UE20BT/TSK-P-003" in urllib.parse.unquote_plus(promo)
 
 
 def test_buttons() -> None:
