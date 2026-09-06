@@ -2169,13 +2169,13 @@ def write_home(arches: list[dict], recent: list[dict], cache: dict, features: di
           <div class="home-splash-brand">
             <img class="home-splash-mark" src="/img/logo.svg" width="72" height="72" alt="" />
             <div class="home-splash-copy">
-              <p class="home-splash-kicker">Union Arena TCG</p>
+              <p class="home-splash-kicker">[Raid]</p>
               <h1>{html.escape(uadb.BRAND)}</h1>
             </div>
           </div>
 {splash_card}
           <div class="home-splash-bar">
-            <p>Public Union Arena TCG lists by anime and manga title. Jump a section, or keep scrolling into the character hubs.</p>
+            <p>Recent lists up top. Character hubs below. Copy one and raid.</p>
           </div>
         </section>
 

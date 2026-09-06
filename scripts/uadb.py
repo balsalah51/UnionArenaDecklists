@@ -23,7 +23,7 @@ BROWSER_UA = (
 )
 DISCORD = "https://discord.gg/aY9RfB662"
 BRAND = "Union Arena Decklists"
-SUBTITLE = "Public lists by title"
+SUBTITLE = "Add this list to your hand"
 CSS_VER = "ua23"
 JS_VER = "ua8"
 TCGPLAYER_CATEGORY_ID = 81
