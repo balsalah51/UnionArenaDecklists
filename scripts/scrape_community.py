@@ -130,6 +130,20 @@ def walk_strings(obj, found: list[str], budget: int = 40) -> None:
 
 
 def youtube_publish_date(vid: str) -> str:
+    data = innertube("next", {"videoId": vid})
+    blob = json.dumps(data)
+    m = re.search(r'"publishDate"\s*:\s*\{\s*"simpleText"\s*:\s*"([^"]+)"', blob)
+    if not m:
+        m = re.search(r'"dateText"\s*:\s*\{\s*"simpleText"\s*:\s*"([^"]+)"', blob)
+    if m:
+        raw = m.group(1).strip()
+        if re.match(r"\d{4}-\d{2}-\d{2}", raw):
+            return raw[:10]
+        for fmt in ("%b %d, %Y", "%B %d, %Y"):
+            try:
+                return str(datetime.strptime(raw, fmt).date())
+            except ValueError:
+                continue
     status, html = uadb.fetch(f"https://www.youtube.com/watch?v={vid}", timeout=20, browser=True)
     if status != 200:
         return ""
@@ -519,6 +533,13 @@ def youtube_queries(arches: list[dict]) -> list[str]:
         "Union Arena Reze deck profile",
         "Joseph Writer Anderson Union Arena deck",
         "Eggman Events Union Arena",
+        "Union Arena decklist September 2026",
+        "Union Arena locals September 2026",
+        "Union Arena rare battle September 2026",
+        "Union Arena 9/4 decklist",
+        "Union Arena 9/5 decklist",
+        "Union Arena 9/6 decklist",
+        "Union Arena this week deck profile",
     ]
     for arch in arches[:28]:
         queries.append(f"Union Arena {arch['name']} deck profile")

@@ -23,7 +23,7 @@ BROWSER_UA = (
 )
 DISCORD = "https://discord.gg/aY9RfB662"
 BRAND = "Union Arena Decklists"
-SUBTITLE = "50-card lists for Standard"
+SUBTITLE = "Public lists by title"
 CSS_VER = "ua23"
 JS_VER = "ua8"
 TCGPLAYER_CATEGORY_ID = 81
@@ -724,7 +724,7 @@ def home_chrome(
 ) -> str:
     page_t = title or page_title(BRAND)
     page_d = description or (
-        "Union Arena TCG decklists for Standard: 50-card lists, character hubs, and consensus cores by anime and manga title."
+        "Union Arena TCG decklists, character hubs, and consensus cores by anime and manga title."
     )
     ld = json_ld or [organization_ld(), website_ld()]
     brand_image = image or OG_IMAGE
