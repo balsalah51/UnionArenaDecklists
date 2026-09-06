@@ -368,10 +368,8 @@ def clip_meta(text: str, limit: int = 160) -> str:
 def page_title(primary: str, brand: str | None = None) -> str:
     brand = brand or BRAND
     primary = re.sub(r"\s+", " ", (primary or "").strip())
-    if not primary:
-        return f"{brand} | Standard TCG 50-card lists"
-    if primary.lower() == brand.lower():
-        return f"{brand} | Standard TCG 50-card lists"
+    if not primary or primary.lower() == brand.lower():
+        return brand
     if brand.lower() in primary.lower():
         return primary[:70]
     titled = f"{primary} | {brand}"
@@ -779,6 +777,10 @@ def copy_button(sim_text: str) -> str:
     )
 
 
+_COLLECTOR_PAREN_RE = re.compile(r"\s+\((P-\d{2,3}|\d{3})\)\s*$", re.I)
+_COLLECTOR_FROM_CID_RE = re.compile(r"(P-\d{3}|\d{3})$", re.I)
+
+
 def _tcgplayer_card_label(cid: str, name: str) -> tuple[str, str, str]:
     cid = (cid or "").strip()
     set_code = cid.split("/", 1)[0] if "/" in cid else ""
@@ -788,6 +790,31 @@ def _tcgplayer_card_label(cid: str, name: str) -> tuple[str, str, str]:
     if not label or label.upper() == cid.upper() or "/" in label:
         label = ""
     return label, set_code, number
+
+
+def _tcgplayer_collector_number(cid: str) -> str:
+    raw = legal_number(cid)
+    m = _COLLECTOR_FROM_CID_RE.search(raw)
+    return m.group(1).upper() if m else ""
+
+
+def _tcgplayer_mass_entry_name(cid: str, name: str) -> str:
+    """Official-style catalog name: keep collector suffix, drop rarity stamps."""
+    label = display_name(name)
+    if not label or label.upper() == cid.upper() or "/" in label:
+        return ""
+    while True:
+        m = re.search(r"\s+\(([^)]+)\)\s*$", label)
+        if not m:
+            break
+        inner = m.group(1).strip()
+        if re.fullmatch(r"(?i)P-\d{2,3}|\d{3}", inner):
+            break
+        label = label[: m.start()].rstrip()
+    collector = _tcgplayer_collector_number(cid)
+    if collector and not _COLLECTOR_PAREN_RE.search(label):
+        label = f"{label} ({collector})"
+    return label
 
 
 def tcgplayer_card_search_url(cid: str, name: str = "") -> str:
@@ -820,10 +847,11 @@ def tcgplayer_mass_entry_url(items: list | None, cache: dict | None = None) -> s
         if qty < 1:
             continue
         meta = cache.get(cid) or {}
-        label, set_code, _number = _tcgplayer_card_label(
+        set_code = cid.split("/", 1)[0] if "/" in cid else ""
+        label = _tcgplayer_mass_entry_name(
             cid, meta.get("name") or it.get("name") or ""
         )
-        # Same Mass Entry shape as OP Deck Base: qty name [SET] FULL-ID
+        # TCGplayer Mass Entry: qty OfficialName (NNN) [SET] FULL-ID
         if label and set_code:
             line = f"{qty} {label} [{set_code}] {cid}"
         elif label:
