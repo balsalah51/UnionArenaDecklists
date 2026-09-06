@@ -350,6 +350,10 @@ def scrape_ocr(found: list[dict], seen: set[str], cache: dict, arches: list[dict
             status, html = uadb.fetch(f"https://www.youtube.com/watch?v={vid}", timeout=22, browser=True)
             page = html if status == 200 else ""
             date = watch_date(page)
+            if not date:
+                from scrape_community import youtube_publish_date
+
+                date = youtube_publish_date(vid)
             title = title or watch_title(page)
             merged: dict[str, int] = {}
             for image in stills(vid, tmp):
