@@ -1,5 +1,5 @@
 {
-  "updated": "2026-09-05",
+  "updated": "2026-09-02",
   "site": "https://unionarenadecklists.com",
   "discord_invite": "https://discord.gg/aY9RfB662",
   "welcome": {
@@ -10,7 +10,7 @@
     {
       "id": "format-pulse",
       "title": "Format pulse",
-      "date": "2026-09-05",
+      "date": "2026-09-02",
       "body": "English events are single-title Standard: 50 cards, usually one IP. Names showing up most on public lists right now: Solo Leveling - Sung Jinwoo, Evangelion - Evangelion Test Type-01 Pseudo DMS Phase, Rurouni Kenshin - Kaoru Kamiya, Evangelion - Rei Ayanami."
     },
     {
@@ -22,13 +22,13 @@
     {
       "id": "how-lists-land",
       "title": "How lists land here",
-      "date": "2026-09-05",
+      "date": "2026-09-02",
       "body": "Consensus 50s come from TCG Contender Standard snapshots. Official top-placing recipes and public YouTube lists sit next to them. The board refreshes with the weekly site ingest."
     },
     {
       "id": "share-a-50",
       "title": "Share a 50",
-      "date": "2026-09-05",
+      "date": "2026-09-02",
       "body": "Paste `NxSET/CODE` lines in the matching anime or manga thread. Copy on any list page dumps that format. One thread per title: Solo Leveling, Yu Yu Hakusho, Evangelion, and the rest."
     }
   ],
@@ -139,7 +139,7 @@
           ],
           "sim_text": "4xUE15BT/EVA-1-071\n4xUEPR/EVA-1-084\n4xUEPR/EVA-1-069\n4xUE15BT/EVA-1-070\n4xUE15ST/EVA-1-102\n4xUEPR/EVA-1-074\n4xUE15BT/EVA-1-075\n4xUE15BT/EVA-1-094\n4xUE15BT/EVA-1-080\n4xUE15BT/EVA-1-079\n4xUE15BT/EVA-1-093\n4xUE15BT/EVA-1-100",
           "cards": 48,
-          "list_count": 44,
+          "list_count": 45,
           "recent_lists": [
             {
               "slug": "event-9th-evangelion-evangelion-test-type-01-pseudo-dms-phase-1507927",
@@ -928,7 +928,7 @@
           ],
           "sim_text": "4xUEPR/EVA-1-048\n4xUE15BT/EVA-1-049\n4xUE15BT/EVA-1-054\n4xUE15BT/EVA-1-056\n4xUE15BT/EVA-1-046\n4xUEPR/EVA-1-027\n4xUE15ST/EVA-1-113\n4xUE15BT/EVA-1-033\n4xUE15BT/EVA-1-042\n4xUE15BT/EVA-1-064\n4xUE15BT/EVA-1-061\n4xUE15BT/EVA-1-043\n2xUE16BT/KGR-1-033",
           "cards": 50,
-          "list_count": 9,
+          "list_count": 10,
           "recent_lists": [
             {
               "slug": "event-17th-evangelion-evangelion-production-model-new-02-1507972",
@@ -943,6 +943,13 @@
               "title": "Evangelion - Evangelion Production Model-New 02",
               "date": "2026-08-28",
               "href": "decklists/evangelion-evangelion-production-model-new-02/contender-consensus.html"
+            },
+            {
+              "slug": "event-3rd-evangelion-evangelion-production-model-new-02-1508007",
+              "kind": "event",
+              "title": "Evangelion - Evangelion Production Model-New 02",
+              "date": "2026-08-26",
+              "href": "decklists/evangelion-evangelion-production-model-new-02/event-3rd-evangelion-evangelion-production-model-new-02-1508007.html"
             },
             {
               "slug": "event-12th-evangelion-evangelion-production-model-new-02-1471361",
@@ -978,13 +985,6 @@
               "title": "Evangelion - Evangelion Production Model-New 02",
               "date": "2026-06-18",
               "href": "decklists/evangelion-evangelion-production-model-new-02/event-5th-evangelion-evangelion-production-model-new-02-1234608.html"
-            },
-            {
-              "slug": "event-11th-evangelion-evangelion-production-model-new-02-968669",
-              "kind": "event",
-              "title": "Evangelion - Evangelion Production Model-New 02",
-              "date": "2026-04-19",
-              "href": "decklists/evangelion-evangelion-production-model-new-02/event-11th-evangelion-evangelion-production-model-new-02-968669.html"
             }
           ]
         },
@@ -2444,7 +2444,7 @@
           ],
           "sim_text": "3xUE15BT/EVA-1-024\n3xUE15BT/EVA-1-026\n4xUE15BT/EVA-1-027\n4xUE15BT/EVA-1-028\n2xUE15BT/EVA-1-029\n4xUE15BT/EVA-1-030\n4xUE15BT/EVA-1-034\n2xUE15BT/EVA-1-035\n2xUE15BT/EVA-1-036\n2xUE15BT/EVA-1-038\n4xUE15BT/EVA-1-039\n4xUE15BT/EVA-1-058\n4xUE15BT/EVA-1-059\n4xUE15BT/EVA-1-065\n4xUE15ST/EVA-1-112",
           "cards": 50,
-          "list_count": 1,
+          "list_count": 2,
           "recent_lists": [
             {
               "slug": "event-3rd-evangelion-kaworu-nagisa-1496613",
@@ -2452,6 +2452,13 @@
               "title": "Evangelion - Kaworu Nagisa",
               "date": "2026-08-28",
               "href": "decklists/evangelion-kaworu-nagisa/event-3rd-evangelion-kaworu-nagisa-1496613.html"
+            },
+            {
+              "slug": "event-5th-evangelion-kaworu-nagisa-1508009",
+              "kind": "event",
+              "title": "Evangelion - Kaworu Nagisa",
+              "date": "2026-08-26",
+              "href": "decklists/evangelion-kaworu-nagisa/event-5th-evangelion-kaworu-nagisa-1508009.html"
             }
           ]
         },
@@ -5657,7 +5664,7 @@
           ],
           "sim_text": "4xUE22BT/CSM-1-047\n4xUE22BT/CSM-1-048\n4xUE22BT/CSM-1-049\n4xUE22BT/CSM-1-050\n4xUE22BT/CSM-1-051\n4xUE22BT/CSM-1-057\n4xUE22BT/CSM-1-059\n4xUE22BT/CSM-1-060\n4xUE22BT/CSM-1-061\n4xUE22BT/CSM-1-076\n4xUE22BT/CSM-1-080\n4xUE22BT/CSM-1-067\n2xUE22BT/CSM-1-079",
           "cards": 50,
-          "list_count": 22,
+          "list_count": 23,
           "recent_lists": [
             {
               "slug": "event-3rd-csm-chainsaw-man-1507952",
@@ -5702,18 +5709,18 @@
               "href": "decklists/csm-chainsaw-man/event-2nd-csm-chainsaw-man-1496629.html"
             },
             {
+              "slug": "event-2nd-csm-chainsaw-man-1508020",
+              "kind": "event",
+              "title": "Chainsaw Man",
+              "date": "2026-08-24",
+              "href": "decklists/csm-chainsaw-man/event-2nd-csm-chainsaw-man-1508020.html"
+            },
+            {
               "slug": "event-5th-csm-chainsaw-man-1489232",
               "kind": "event",
               "title": "Chainsaw Man",
               "date": "2026-08-23",
               "href": "decklists/csm-chainsaw-man/event-5th-csm-chainsaw-man-1489232.html"
-            },
-            {
-              "slug": "event-5th-csm-chainsaw-man-1479605",
-              "kind": "event",
-              "title": "Chainsaw Man",
-              "date": "2026-08-20",
-              "href": "decklists/csm-chainsaw-man/event-5th-csm-chainsaw-man-1479605.html"
             }
           ]
         },
@@ -5987,7 +5994,7 @@
           ],
           "sim_text": "4xUE22BT/CSM-1-047\n4xUE22BT/CSM-1-048\n4xUE22BT/CSM-1-049\n4xUE22BT/CSM-1-050\n4xUE22BT/CSM-1-057\n4xUE22BT/CSM-1-060\n4xUE22BT/CSM-1-061\n3xUE22BT/CSM-1-051\n3xUE22BT/CSM-1-070\n1xUE22BT/CSM-1-059\n4xUE22BT/CSM-1-076\n4xUE22BT/CSM-1-080\n4xUE22BT/CSM-1-067\n3xUE22BT/CSM-1-079",
           "cards": 50,
-          "list_count": 21,
+          "list_count": 22,
           "recent_lists": [
             {
               "slug": "event-7th-csm-csm-1507917",
@@ -6002,6 +6009,13 @@
               "title": "Chainsaw Man - Power",
               "date": "2026-08-28",
               "href": "decklists/csm-power/contender-consensus.html"
+            },
+            {
+              "slug": "event-6th-csm-power-1508024",
+              "kind": "event",
+              "title": "Chainsaw Man - Power",
+              "date": "2026-08-24",
+              "href": "decklists/csm-power/event-6th-csm-power-1508024.html"
             },
             {
               "slug": "event-8th-csm-power-1479586",
@@ -6037,13 +6051,6 @@
               "title": "Chainsaw Man - Power",
               "date": "2026-08-10",
               "href": "decklists/csm-power/event-16th-csm-power-1471450.html"
-            },
-            {
-              "slug": "event-1st-csm-power-1452832",
-              "kind": "event",
-              "title": "Chainsaw Man - Unleashed Combat Power, 96%",
-              "date": "2026-08-08",
-              "href": "decklists/csm-power/event-1st-csm-power-1452832.html"
             }
           ]
         },
@@ -14288,7 +14295,7 @@
         "rurouni-kenshin",
         "rurouni kenshin"
       ],
-      "deck_count": 19,
+      "deck_count": 20,
       "meta_share": 0.06508734340391589,
       "color": "Red",
       "img": "https://www.unionarena-tcg.com/na/images/cardlist/card/UE11ST_RNK-1-101.png",
@@ -14551,7 +14558,7 @@
           ],
           "sim_text": "4xUE11BT/RNK-1-035\n4xUE11BT/RNK-1-036\n4xUEPR/RNK-1-037\n4xUE11BT/RNK-1-038\n4xUE11BT/RNK-1-039\n4xUE11BT/RNK-1-040\n4xUE11ST/RNK-1-113\n4xUEPR/RNK-1-045\n4xUEPR/RNK-1-046\n4xUEPR/RNK-1-047\n2xUE11BT/RNK-1-048\n4xUE11BT/RNK-1-063\n4xUE11BT/RNK-1-064",
           "cards": 50,
-          "list_count": 61,
+          "list_count": 62,
           "recent_lists": [
             {
               "slug": "event-2nd-rurouni-kenshin-hajime-saito-1507923",
@@ -14566,6 +14573,13 @@
               "title": "Rurouni Kenshin - Hajime Saito",
               "date": "2026-08-28",
               "href": "decklists/rurouni-kenshin-hajime-saito/contender-consensus.html"
+            },
+            {
+              "slug": "event-6th-rurouni-kenshin-hajime-saito-1508010",
+              "kind": "event",
+              "title": "Rurouni Kenshin - Hajime Saito",
+              "date": "2026-08-26",
+              "href": "decklists/rurouni-kenshin-hajime-saito/event-6th-rurouni-kenshin-hajime-saito-1508010.html"
             },
             {
               "slug": "event-10th-rurouni-kenshin-hajime-saito-1471359",
@@ -14601,13 +14615,6 @@
               "title": "Rurouni Kenshin - Aoshi Shinomori",
               "date": "2026-08-11",
               "href": "decklists/rurouni-kenshin-hajime-saito/event-4th-rurouni-kenshin-hajime-saito-1471431.html"
-            },
-            {
-              "slug": "event-7th-rurouni-kenshin-hajime-saito-1471434",
-              "kind": "event",
-              "title": "Rurouni Kenshin - Aoshi Shinomori",
-              "date": "2026-08-11",
-              "href": "decklists/rurouni-kenshin-hajime-saito/event-7th-rurouni-kenshin-hajime-saito-1471434.html"
             }
           ]
         },
@@ -16619,6 +16626,128 @@
           ]
         },
         {
+          "key": "rurouni-kenshin-sanosuke-sagara",
+          "name": "Sanosuke Sagara",
+          "full": "Rurouni Kenshin - Sanosuke Sagara",
+          "title": "Rurouni Kenshin",
+          "page": "decklists/rurouni-kenshin-sanosuke-sagara.html",
+          "dir": "decklists/rurouni-kenshin-sanosuke-sagara",
+          "tier": "",
+          "style": "",
+          "meta_share": 0.0,
+          "color": "Red",
+          "img": "https://www.unionarena-tcg.com/na/images/cardlist/card/UE11BT_RNK-1-077.png",
+          "updated": "2026-08-25",
+          "consensus_slug": "event-2nd-rurouni-kenshin-sanosuke-sagara-1508014",
+          "consensus_kind": "event",
+          "consensus_date": "2026-08-25",
+          "consensus_url": "decklists/rurouni-kenshin-sanosuke-sagara/event-2nd-rurouni-kenshin-sanosuke-sagara-1508014.html",
+          "lines": [
+            {
+              "count": 1,
+              "id": "UE11BT/RNK-1-070",
+              "name": "Kaoru Kamiya (070)",
+              "group": "Characters"
+            },
+            {
+              "count": 4,
+              "id": "UE11BT/RNK-1-071",
+              "name": "Kaoru Kamiya (071)",
+              "group": "Characters"
+            },
+            {
+              "count": 4,
+              "id": "UE11BT/RNK-1-073",
+              "name": "Sanosuke Sagara (073) (C*)",
+              "group": "Characters"
+            },
+            {
+              "count": 4,
+              "id": "UE11BT/RNK-1-076",
+              "name": "Sanosuke Sagara (076)",
+              "group": "Characters"
+            },
+            {
+              "count": 4,
+              "id": "UE11BT/RNK-1-077",
+              "name": "Sanosuke Sagara (077)",
+              "group": "Characters"
+            },
+            {
+              "count": 4,
+              "id": "UE11BT/RNK-1-085",
+              "name": "Kenshin Himura (085) (Box Topper Foil)",
+              "group": "Characters"
+            },
+            {
+              "count": 4,
+              "id": "UE11BT/RNK-1-087",
+              "name": "Kenshin Himura (087)",
+              "group": "Characters"
+            },
+            {
+              "count": 2,
+              "id": "UE11BT/RNK-1-089",
+              "name": "Kenshin Himura (089)",
+              "group": "Characters"
+            },
+            {
+              "count": 3,
+              "id": "UE11BT/RNK-1-090",
+              "name": "Kenshin Himura",
+              "group": "Characters"
+            },
+            {
+              "count": 4,
+              "id": "UE11BT/RNK-1-093",
+              "name": "Yahiko Myojin (093)",
+              "group": "Characters"
+            },
+            {
+              "count": 4,
+              "id": "UE11BT/RNK-1-100",
+              "name": "Ryuutsuisen",
+              "group": "Characters"
+            },
+            {
+              "count": 4,
+              "id": "UE11ST/RNK-1-096",
+              "name": "Oath Not to Kill",
+              "group": "Characters"
+            },
+            {
+              "count": 3,
+              "id": "UE11ST/RNK-1-102",
+              "name": "Hajime Saito (102)",
+              "group": "Characters"
+            },
+            {
+              "count": 2,
+              "id": "UE11ST/RNK-1-103",
+              "name": "Sanosuke Sagara (103)",
+              "group": "Characters"
+            },
+            {
+              "count": 3,
+              "id": "UE11ST/RNK-1-106",
+              "name": "Kenshin Himura (106)",
+              "group": "Characters"
+            }
+          ],
+          "sim_text": "1xUE11BT/RNK-1-070\n4xUE11BT/RNK-1-071\n4xUE11BT/RNK-1-073\n4xUE11BT/RNK-1-076\n4xUE11BT/RNK-1-077\n4xUE11BT/RNK-1-085\n4xUE11BT/RNK-1-087\n2xUE11BT/RNK-1-089\n3xUE11BT/RNK-1-090\n4xUE11BT/RNK-1-093\n4xUE11BT/RNK-1-100\n4xUE11ST/RNK-1-096\n3xUE11ST/RNK-1-102\n2xUE11ST/RNK-1-103\n3xUE11ST/RNK-1-106",
+          "cards": 50,
+          "list_count": 1,
+          "recent_lists": [
+            {
+              "slug": "event-2nd-rurouni-kenshin-sanosuke-sagara-1508014",
+              "kind": "event",
+              "title": "Rurouni Kenshin - Sanosuke Sagara",
+              "date": "2026-08-25",
+              "href": "decklists/rurouni-kenshin-sanosuke-sagara/event-2nd-rurouni-kenshin-sanosuke-sagara-1508014.html"
+            }
+          ]
+        },
+        {
           "key": "rurouni-kenshin-kenshin-master-wombo-combo",
           "name": "Seijuro Hiko",
           "full": "Rurouni Kenshin - Seijuro Hiko",
@@ -17793,10 +17922,16 @@
               "id": "UE20BT/TSK-2-058",
               "name": "Master Chef",
               "group": "Events"
+            },
+            {
+              "count": 2,
+              "id": "UE20BT/TSK-P-005",
+              "name": "Shion (P-005)",
+              "group": "Characters"
             }
           ],
-          "sim_text": "3xUE20BT/TSK-2-030\n3xUE20BT/TSK-2-036\n4xUE20BT/TSK-2-041\n3xUE20BT/TSK-2-042\n3xUE20BT/TSK-2-043\n4xUE20BT/TSK-2-044\n2xUE20BT/TSK-2-049\n4xUE20BT/TSK-2-050\n4xUE20BT/TSK-2-052\n4xUE20BT/TSK-2-053\n2xUE20BT/TSK-2-055\n4xUE20BT/TSK-2-056\n4xUE20BT/TSK-2-057\n4xUE20BT/TSK-2-058",
-          "cards": 48,
+          "sim_text": "3xUE20BT/TSK-2-030\n3xUE20BT/TSK-2-036\n4xUE20BT/TSK-2-041\n3xUE20BT/TSK-2-042\n3xUE20BT/TSK-2-043\n4xUE20BT/TSK-2-044\n2xUE20BT/TSK-2-049\n4xUE20BT/TSK-2-050\n4xUE20BT/TSK-2-052\n4xUE20BT/TSK-2-053\n2xUE20BT/TSK-2-055\n4xUE20BT/TSK-2-056\n4xUE20BT/TSK-2-057\n4xUE20BT/TSK-2-058\n2xUE20BT/TSK-P-005",
+          "cards": 50,
           "list_count": 6,
           "recent_lists": [
             {
@@ -17845,8 +17980,8 @@
         },
         {
           "key": "that-time-i-got-reincarnated-as-a-slime-shizu",
-          "name": "Shizu (U*)",
-          "full": "That Time I Got Reincarnated As A Slime - Shizu (U*)",
+          "name": "Shizu (P-002)",
+          "full": "That Time I Got Reincarnated As A Slime - Shizu (P-002)",
           "title": "That Time I Got Reincarnated As A Slime",
           "page": "decklists/that-time-i-got-reincarnated-as-a-slime-shizu.html",
           "dir": "decklists/that-time-i-got-reincarnated-as-a-slime-shizu",
@@ -17854,7 +17989,7 @@
           "style": "",
           "meta_share": 0.0,
           "color": "Blue",
-          "img": "https://www.unionarena-tcg.com/na/images/cardlist/card/UE20BT_TSK-2-015.png",
+          "img": "https://www.unionarena-tcg.com/na/images/cardlist/card/UE20BT_TSK-P-002.png",
           "updated": "2026-06-29",
           "consensus_slug": "event-1st-that-time-i-got-reincarnated-as-a-slime-shizu-1270847",
           "consensus_kind": "event",
@@ -17938,16 +18073,28 @@
               "id": "UE20BT/TSK-2-019",
               "name": "Shion (019)",
               "group": "Characters"
+            },
+            {
+              "count": 4,
+              "id": "UE20BT/TSK-P-002",
+              "name": "Shizu (P-002)",
+              "group": "Characters"
+            },
+            {
+              "count": 4,
+              "id": "UE20BT/TSK-P-004",
+              "name": "Rimuru (P-004)",
+              "group": "Characters"
             }
           ],
-          "sim_text": "4xUE20BT/TSK-1-040\n4xUE20BT/TSK-1-043\n2xUE20BT/TSK-1-052\n1xUE20BT/TSK-1-053\n3xUE20BT/TSK-1-062\n4xUE20BT/TSK-1-067\n4xUE20BT/TSK-1-105\n2xUE20BT/TSK-1-107\n4xUE20BT/TSK-2-015\n4xUE20BT/TSK-2-016\n4xUE20BT/TSK-2-017\n4xUE20BT/TSK-2-018\n2xUE20BT/TSK-2-019",
-          "cards": 42,
+          "sim_text": "4xUE20BT/TSK-1-040\n4xUE20BT/TSK-1-043\n2xUE20BT/TSK-1-052\n1xUE20BT/TSK-1-053\n3xUE20BT/TSK-1-062\n4xUE20BT/TSK-1-067\n4xUE20BT/TSK-1-105\n2xUE20BT/TSK-1-107\n4xUE20BT/TSK-2-015\n4xUE20BT/TSK-2-016\n4xUE20BT/TSK-2-017\n4xUE20BT/TSK-2-018\n2xUE20BT/TSK-2-019\n4xUE20BT/TSK-P-002\n4xUE20BT/TSK-P-004",
+          "cards": 50,
           "list_count": 1,
           "recent_lists": [
             {
               "slug": "event-1st-that-time-i-got-reincarnated-as-a-slime-shizu-1270847",
               "kind": "event",
-              "title": "That Time I Got Reincarnated As A Slime - Shizu (U*)",
+              "title": "That Time I Got Reincarnated As A Slime - Shizu (P-002)",
               "date": "2026-06-29",
               "href": "decklists/that-time-i-got-reincarnated-as-a-slime-shizu/event-1st-that-time-i-got-reincarnated-as-a-slime-shizu-1270847.html"
             }
@@ -18346,7 +18493,7 @@
           ],
           "sim_text": "4xUEPR/IYS-1-043\n4xUEPR/IYS-1-044\n4xUE23BT/IYS-1-045\n4xUE23BT/IYS-1-046\n4xUE23BT/IYS-1-063\n4xUE23BT/IYS-1-065\n4xUE23BT/IYS-1-066\n4xUE23BT/IYS-1-049\n4xUE23BT/IYS-1-076\n4xUEPR/IYS-1-042\n4xUE23BT/IYS-1-079\n3xUE23BT/IYS-1-072\n2xUE23BT/IYS-1-074",
           "cards": 49,
-          "list_count": 8,
+          "list_count": 9,
           "recent_lists": [
             {
               "slug": "event-8th-iys-inuyasha-1507926",
@@ -18384,6 +18531,13 @@
               "href": "decklists/iys-inuyasha/event-4th-inuyasha-inuyasha-1489204.html"
             },
             {
+              "slug": "event-7th-iys-inuyasha-1508018",
+              "kind": "event",
+              "title": "Inuyasha",
+              "date": "2026-08-25",
+              "href": "decklists/iys-inuyasha/event-7th-iys-inuyasha-1508018.html"
+            },
+            {
               "slug": "event-3rd-iys-inuyasha-1479641",
               "kind": "event",
               "title": "Inuyasha",
@@ -18396,13 +18550,6 @@
               "title": "Inuyasha",
               "date": "2026-08-17",
               "href": "decklists/iys-inuyasha/event-19th-iys-inuyasha-1471341.html"
-            },
-            {
-              "slug": "event-28th-iys-inuyasha-1471375",
-              "kind": "event",
-              "title": "Inuyasha",
-              "date": "2026-08-16",
-              "href": "decklists/iys-inuyasha/event-28th-iys-inuyasha-1471375.html"
             }
           ]
         },
@@ -19932,7 +20079,7 @@
           ],
           "sim_text": "4xUEPR/JJK-3-030\n4xUE03BT/JJK-1-079\n4xUE03BT/JJK-1-081\n4xUEPR/JJK-1-100\n4xUEPR/JJK-3-029\n4xUEX02BT/JJK-2-010\n4xUE03BT/JJK-1-098\n4xUE03BT/JJK-1-096\n4xUE03BT/JJK-1-074\n4xUEX02BT/JJK-3-027\n4xUE03BT/JJK-1-075\n4xUE03BT/JJK-1-076\n2xUE16BT/KGR-1-033",
           "cards": 50,
-          "list_count": 46,
+          "list_count": 47,
           "recent_lists": [
             {
               "slug": "event-10th-jujutsu-kaisen-aoi-todo-1507965",
@@ -19963,6 +20110,13 @@
               "href": "decklists/jujutsu-kaisen-aoi-todo/event-3rd-jujutsu-kaisen-aoi-todo-1496619.html"
             },
             {
+              "slug": "event-7th-jujutsu-kaisen-aoi-todo-1508011",
+              "kind": "event",
+              "title": "Jujutsu Kaisen - Aoi Todo",
+              "date": "2026-08-26",
+              "href": "decklists/jujutsu-kaisen-aoi-todo/event-7th-jujutsu-kaisen-aoi-todo-1508011.html"
+            },
+            {
               "slug": "event-1st-jujutsu-kaisen-aoi-todo-1496648",
               "kind": "event",
               "title": "Jujutsu Kaisen - Aoi Todo",
@@ -19982,13 +20136,6 @@
               "title": "Jujutsu Kaisen - Aoi Todo",
               "date": "2026-08-16",
               "href": "decklists/jujutsu-kaisen-aoi-todo/event-2nd-jujutsu-kaisen-aoi-todo-1471351.html"
-            },
-            {
-              "slug": "event-16th-jujutsu-kaisen-aoi-todo-1461731",
-              "kind": "event",
-              "title": "Jujutsu Kaisen - Aoi Todo",
-              "date": "2026-08-13",
-              "href": "decklists/jujutsu-kaisen-aoi-todo/event-16th-jujutsu-kaisen-aoi-todo-1461731.html"
             }
           ]
         },
@@ -27093,7 +27240,7 @@
           ],
           "sim_text": "4xUE18BT/TKG-1-001\n4xUE18BT/TKG-1-002\n2xUE18BT/TKG-1-003\n4xUE18BT/TKG-1-004\n4xUE18BT/TKG-1-007\n4xUE18BT/TKG-1-008\n4xUE18BT/TKG-1-009\n4xUE18BT/TKG-1-010\n4xUE18BT/TKG-1-011\n3xUE18BT/TKG-1-017\n2xUE18BT/TKG-1-027\n4xUE18BT/TKG-1-029\n4xUE18BT/TKG-1-031\n3xUE18ST/TKG-1-110",
           "cards": 50,
-          "list_count": 7,
+          "list_count": 8,
           "recent_lists": [
             {
               "slug": "event-3rd-tokyo-ghoul-kisho-arima-1507940",
@@ -27101,6 +27248,13 @@
               "title": "Tokyo Ghoul - Kisho Arima",
               "date": "2026-09-01",
               "href": "decklists/tokyo-ghoul-kisho-arima/event-3rd-tokyo-ghoul-kisho-arima-1507940.html"
+            },
+            {
+              "slug": "event-3rd-tokyo-ghoul-kisho-arima-1508015",
+              "kind": "event",
+              "title": "Tokyo Ghoul - Kisho Arima",
+              "date": "2026-08-25",
+              "href": "decklists/tokyo-ghoul-kisho-arima/event-3rd-tokyo-ghoul-kisho-arima-1508015.html"
             },
             {
               "slug": "event-2nd-tokyo-ghoul-kisho-arima-1388119",
@@ -35383,10 +35537,16 @@
               "id": "UEX05BT/KMY-3-057",
               "name": "Urogi",
               "group": "Characters"
+            },
+            {
+              "count": 3,
+              "id": "UEX05BT/KMY-P-002",
+              "name": "Akaza",
+              "group": "Characters"
             }
           ],
-          "sim_text": "4xUE05BT/KMY-1-035\n4xUE05BT/KMY-1-036\n4xUE05BT/KMY-1-041\n4xUE05BT/KMY-1-044\n4xUE05BT/KMY-1-047\n1xUE05BT/KMY-1-052\n4xUE05BT/KMY-1-063\n4xUE05BT/KMY-1-064\n4xUE05BT/KMY-1-067\n3xUEX05BT/KMY-3-049\n4xUEX05BT/KMY-3-051\n3xUEX05BT/KMY-3-052\n4xUEX05BT/KMY-3-057",
-          "cards": 47,
+          "sim_text": "4xUE05BT/KMY-1-035\n4xUE05BT/KMY-1-036\n4xUE05BT/KMY-1-041\n4xUE05BT/KMY-1-044\n4xUE05BT/KMY-1-047\n1xUE05BT/KMY-1-052\n4xUE05BT/KMY-1-063\n4xUE05BT/KMY-1-064\n4xUE05BT/KMY-1-067\n3xUEX05BT/KMY-3-049\n4xUEX05BT/KMY-3-051\n3xUEX05BT/KMY-3-052\n4xUEX05BT/KMY-3-057\n3xUEX05BT/KMY-P-002",
+          "cards": 50,
           "list_count": 1,
           "recent_lists": [
             {
@@ -35493,10 +35653,16 @@
               "id": "UEX05BT/KMY-3-073",
               "name": "Flame Breathing First Form: Unknowing Fire",
               "group": "Characters"
+            },
+            {
+              "count": 3,
+              "id": "UEX05BT/KMY-P-003",
+              "name": "Kyojuro Rengoku (003)",
+              "group": "Characters"
             }
           ],
-          "sim_text": "4xUE05BT/KMY-1-068\n3xUE05BT/KMY-1-071\n2xUE05BT/KMY-1-072\n2xUE05BT/KMY-1-090\n4xUE05BT/KMY-1-092\n4xUE05BT/KMY-1-099\n4xUEX05BT/KMY-3-062\n4xUEX05BT/KMY-3-066\n4xUEX05BT/KMY-3-067\n4xUEX05BT/KMY-3-070\n4xUEX05BT/KMY-3-071\n4xUEX05BT/KMY-3-072\n4xUEX05BT/KMY-3-073",
-          "cards": 47,
+          "sim_text": "4xUE05BT/KMY-1-068\n3xUE05BT/KMY-1-071\n2xUE05BT/KMY-1-072\n2xUE05BT/KMY-1-090\n4xUE05BT/KMY-1-092\n4xUE05BT/KMY-1-099\n4xUEX05BT/KMY-3-062\n4xUEX05BT/KMY-3-066\n4xUEX05BT/KMY-3-067\n4xUEX05BT/KMY-3-070\n4xUEX05BT/KMY-3-071\n4xUEX05BT/KMY-3-072\n4xUEX05BT/KMY-3-073\n3xUEX05BT/KMY-P-003",
+          "cards": 50,
           "list_count": 1,
           "recent_lists": [
             {
@@ -35615,10 +35781,16 @@
               "id": "UEX05BT/KMY-3-061",
               "name": "Muzan's Research",
               "group": "Characters"
+            },
+            {
+              "count": 2,
+              "id": "UEX05BT/KMY-P-002",
+              "name": "Akaza",
+              "group": "Characters"
             }
           ],
-          "sim_text": "3xUE05BT/KMY-1-035\n4xUE05BT/KMY-1-036\n4xUE05BT/KMY-1-041\n4xUE05BT/KMY-1-044\n2xUE05BT/KMY-1-047\n2xUE05BT/KMY-1-049\n3xUE05BT/KMY-1-050\n1xUE05BT/KMY-1-063\n4xUE05BT/KMY-1-064\n4xUE05BT/KMY-1-067\n3xUEX05BT/KMY-3-049\n4xUEX05BT/KMY-3-051\n3xUEX05BT/KMY-3-052\n4xUEX05BT/KMY-3-057\n3xUEX05BT/KMY-3-061",
-          "cards": 48,
+          "sim_text": "3xUE05BT/KMY-1-035\n4xUE05BT/KMY-1-036\n4xUE05BT/KMY-1-041\n4xUE05BT/KMY-1-044\n2xUE05BT/KMY-1-047\n2xUE05BT/KMY-1-049\n3xUE05BT/KMY-1-050\n1xUE05BT/KMY-1-063\n4xUE05BT/KMY-1-064\n4xUE05BT/KMY-1-067\n3xUEX05BT/KMY-3-049\n4xUEX05BT/KMY-3-051\n3xUEX05BT/KMY-3-052\n4xUEX05BT/KMY-3-057\n3xUEX05BT/KMY-3-061\n2xUEX05BT/KMY-P-002",
+          "cards": 50,
           "list_count": 3,
           "recent_lists": [
             {
@@ -36252,6 +36424,116 @@
           ]
         },
         {
+          "key": "demon-slayer-tanjiro-nezuko",
+          "name": "Nezuko Kamado",
+          "full": "Demon Slayer - Nezuko Kamado",
+          "title": "Demon Slayer",
+          "page": "decklists/demon-slayer-tanjiro-nezuko.html",
+          "dir": "decklists/demon-slayer-tanjiro-nezuko",
+          "tier": "",
+          "style": "",
+          "meta_share": 0.0,
+          "color": "Yellow",
+          "img": "https://www.unionarena-tcg.com/na/images/cardlist/card/UE05ST_KMY-1-104.png",
+          "updated": "2026-05-09",
+          "consensus_slug": "event-7th-demon-slayer-tanjiro-nezuko-1077408",
+          "consensus_kind": "event",
+          "consensus_date": "2026-05-09",
+          "consensus_url": "decklists/demon-slayer-tanjiro-nezuko/event-7th-demon-slayer-tanjiro-nezuko-1077408.html",
+          "lines": [
+            {
+              "count": 4,
+              "id": "UEX05BT/KMY-3-014",
+              "name": "Tanjiro Kamado (014)",
+              "group": "Characters"
+            },
+            {
+              "count": 4,
+              "id": "UEX05BT/KMY-3-015",
+              "name": "Tanjiro Kamado (015)",
+              "group": "Characters"
+            },
+            {
+              "count": 4,
+              "id": "UEX05BT/KMY-3-016",
+              "name": "Tanjiro Kamado (016)",
+              "group": "Characters"
+            },
+            {
+              "count": 4,
+              "id": "UEX05BT/KMY-3-017",
+              "name": "Tanjiro Kamado (017)",
+              "group": "Characters"
+            },
+            {
+              "count": 4,
+              "id": "UEX05BT/KMY-3-018",
+              "name": "Nezuko Kamado (018)",
+              "group": "Characters"
+            },
+            {
+              "count": 4,
+              "id": "UEX05BT/KMY-3-019",
+              "name": "Nezuko Kamado",
+              "group": "Characters"
+            },
+            {
+              "count": 4,
+              "id": "UEX05BT/KMY-3-020",
+              "name": "Nezuko Kamado (020)",
+              "group": "Characters"
+            },
+            {
+              "count": 4,
+              "id": "UEX05BT/KMY-3-021",
+              "name": "Nezuko Kamado (021)",
+              "group": "Characters"
+            },
+            {
+              "count": 4,
+              "id": "UEX05BT/KMY-3-025",
+              "name": "Hotaru Haganezuka",
+              "group": "Characters"
+            },
+            {
+              "count": 4,
+              "id": "UEX05BT/KMY-3-041",
+              "name": "Nichirin Sword (Tanjiro Kamado)",
+              "group": "Sites"
+            },
+            {
+              "count": 4,
+              "id": "UEX05BT/KMY-3-044",
+              "name": "The Mark",
+              "group": "Characters"
+            },
+            {
+              "count": 4,
+              "id": "UEX05BT/KMY-3-045",
+              "name": "Dancing Flash",
+              "group": "Characters"
+            },
+            {
+              "count": 2,
+              "id": "UEX05BT/KMY-P-001",
+              "name": "Nezuko Kamado (001)",
+              "group": "Characters"
+            }
+          ],
+          "sim_text": "4xUEX05BT/KMY-3-014\n4xUEX05BT/KMY-3-015\n4xUEX05BT/KMY-3-016\n4xUEX05BT/KMY-3-017\n4xUEX05BT/KMY-3-018\n4xUEX05BT/KMY-3-019\n4xUEX05BT/KMY-3-020\n4xUEX05BT/KMY-3-021\n4xUEX05BT/KMY-3-025\n4xUEX05BT/KMY-3-041\n4xUEX05BT/KMY-3-044\n4xUEX05BT/KMY-3-045\n2xUEX05BT/KMY-P-001",
+          "cards": 50,
+          "list_count": 1,
+          "recent_lists": [
+            {
+              "slug": "event-7th-demon-slayer-tanjiro-nezuko-1077408",
+              "kind": "event",
+              "title": "Demon Slayer - Nezuko Kamado",
+              "date": "2026-05-09",
+              "href": "decklists/demon-slayer-tanjiro-nezuko/event-7th-demon-slayer-tanjiro-nezuko-1077408.html"
+            }
+          ]
+        },
+        {
           "key": "demon-slayer-shinobu-kocho",
           "name": "Shinobu Kocho",
           "full": "Demon Slayer - Shinobu Kocho",
@@ -36365,110 +36647,6 @@
               "title": "Demon Slayer - Shinobu Kocho",
               "date": "2026-07-05",
               "href": "decklists/demon-slayer-shinobu-kocho/event-2nd-demon-slayer-shinobu-kocho-1311453.html"
-            }
-          ]
-        },
-        {
-          "key": "demon-slayer-tanjiro-nezuko",
-          "name": "Tanjiro Kamado",
-          "full": "Demon Slayer - Tanjiro Kamado",
-          "title": "Demon Slayer",
-          "page": "decklists/demon-slayer-tanjiro-nezuko.html",
-          "dir": "decklists/demon-slayer-tanjiro-nezuko",
-          "tier": "",
-          "style": "",
-          "meta_share": 0.0,
-          "color": "Red",
-          "img": "https://www.unionarena-tcg.com/na/images/cardlist/card/UEX05BT_KMY-3-064.png",
-          "updated": "2026-05-09",
-          "consensus_slug": "event-7th-demon-slayer-tanjiro-nezuko-1077408",
-          "consensus_kind": "event",
-          "consensus_date": "2026-05-09",
-          "consensus_url": "decklists/demon-slayer-tanjiro-nezuko/event-7th-demon-slayer-tanjiro-nezuko-1077408.html",
-          "lines": [
-            {
-              "count": 4,
-              "id": "UEX05BT/KMY-3-014",
-              "name": "Tanjiro Kamado (014)",
-              "group": "Characters"
-            },
-            {
-              "count": 4,
-              "id": "UEX05BT/KMY-3-015",
-              "name": "Tanjiro Kamado (015)",
-              "group": "Characters"
-            },
-            {
-              "count": 4,
-              "id": "UEX05BT/KMY-3-016",
-              "name": "Tanjiro Kamado (016)",
-              "group": "Characters"
-            },
-            {
-              "count": 4,
-              "id": "UEX05BT/KMY-3-017",
-              "name": "Tanjiro Kamado (017)",
-              "group": "Characters"
-            },
-            {
-              "count": 4,
-              "id": "UEX05BT/KMY-3-018",
-              "name": "Nezuko Kamado (018)",
-              "group": "Characters"
-            },
-            {
-              "count": 4,
-              "id": "UEX05BT/KMY-3-019",
-              "name": "Nezuko Kamado",
-              "group": "Characters"
-            },
-            {
-              "count": 4,
-              "id": "UEX05BT/KMY-3-020",
-              "name": "Nezuko Kamado (020)",
-              "group": "Characters"
-            },
-            {
-              "count": 4,
-              "id": "UEX05BT/KMY-3-021",
-              "name": "Nezuko Kamado (021)",
-              "group": "Characters"
-            },
-            {
-              "count": 4,
-              "id": "UEX05BT/KMY-3-025",
-              "name": "Hotaru Haganezuka",
-              "group": "Characters"
-            },
-            {
-              "count": 4,
-              "id": "UEX05BT/KMY-3-041",
-              "name": "Nichirin Sword (Tanjiro Kamado)",
-              "group": "Sites"
-            },
-            {
-              "count": 4,
-              "id": "UEX05BT/KMY-3-044",
-              "name": "The Mark",
-              "group": "Characters"
-            },
-            {
-              "count": 4,
-              "id": "UEX05BT/KMY-3-045",
-              "name": "Dancing Flash",
-              "group": "Characters"
-            }
-          ],
-          "sim_text": "4xUEX05BT/KMY-3-014\n4xUEX05BT/KMY-3-015\n4xUEX05BT/KMY-3-016\n4xUEX05BT/KMY-3-017\n4xUEX05BT/KMY-3-018\n4xUEX05BT/KMY-3-019\n4xUEX05BT/KMY-3-020\n4xUEX05BT/KMY-3-021\n4xUEX05BT/KMY-3-025\n4xUEX05BT/KMY-3-041\n4xUEX05BT/KMY-3-044\n4xUEX05BT/KMY-3-045",
-          "cards": 48,
-          "list_count": 1,
-          "recent_lists": [
-            {
-              "slug": "event-7th-demon-slayer-tanjiro-nezuko-1077408",
-              "kind": "event",
-              "title": "Demon Slayer - Tanjiro Kamado",
-              "date": "2026-05-09",
-              "href": "decklists/demon-slayer-tanjiro-nezuko/event-7th-demon-slayer-tanjiro-nezuko-1077408.html"
             }
           ]
         },
@@ -39225,6 +39403,12 @@
             },
             {
               "count": 4,
+              "id": "UE20BT/TSK-P-003",
+              "name": "Milim (P-003)",
+              "group": "Characters"
+            },
+            {
+              "count": 4,
               "id": "UEPR/AOT-1-054",
               "name": "Bertholdt Hoover (054)",
               "group": "Characters"
@@ -39266,8 +39450,8 @@
               "group": "Characters"
             }
           ],
-          "sim_text": "4xUE10BT/AOT-1-056\n3xUE10BT/AOT-1-057\n2xUE10BT/AOT-1-060\n4xUE10BT/AOT-1-064\n4xUE20BT/TSK-1-082\n2xUE20BT/TSK-1-085\n3xUE20BT/TSK-2-066\n3xUE20BT/TSK-2-073\n4xUEPR/AOT-1-054\n4xUEPR/AOT-1-055\n3xUEPR/AOT-1-058\n3xUEPR/AOT-1-067\n1xUEPR/TSK-1-083\n2xUEPR/TSK-1-092\n4xUEPR/TSK-1-096",
-          "cards": 46,
+          "sim_text": "4xUE10BT/AOT-1-056\n3xUE10BT/AOT-1-057\n2xUE10BT/AOT-1-060\n4xUE10BT/AOT-1-064\n4xUE20BT/TSK-1-082\n2xUE20BT/TSK-1-085\n3xUE20BT/TSK-2-066\n3xUE20BT/TSK-2-073\n4xUE20BT/TSK-P-003\n4xUEPR/AOT-1-054\n4xUEPR/AOT-1-055\n3xUEPR/AOT-1-058\n3xUEPR/AOT-1-067\n1xUEPR/TSK-1-083\n2xUEPR/TSK-1-092\n4xUEPR/TSK-1-096",
+          "cards": 50,
           "list_count": 1,
           "recent_lists": [
             {
@@ -42044,11 +42228,11 @@
           "meta_share": 0.0,
           "color": "Red",
           "img": "https://www.unionarena-tcg.com/na/images/cardlist/card/UE08BT_BCV-1-088.png",
-          "updated": "2026-07-13",
-          "consensus_slug": "event-7th-black-clover-yami-sukehiro-1345730",
+          "updated": "2026-08-24",
+          "consensus_slug": "event-3rd-black-clover-yami-sukehiro-1508021",
           "consensus_kind": "event",
-          "consensus_date": "2026-07-13",
-          "consensus_url": "decklists/black-clover-yami-sukehiro/event-7th-black-clover-yami-sukehiro-1345730.html",
+          "consensus_date": "2026-08-24",
+          "consensus_url": "decklists/black-clover-yami-sukehiro/event-3rd-black-clover-yami-sukehiro-1508021.html",
           "lines": [
             {
               "count": 4,
@@ -42143,8 +42327,15 @@
           ],
           "sim_text": "4xUE08BT/BCV-1-002\n3xUE08BT/BCV-1-003\n4xUE08BT/BCV-1-004\n4xUE08BT/BCV-1-006\n4xUE08BT/BCV-1-009\n2xUE08BT/BCV-1-011\n2xUE08BT/BCV-1-012\n4xUE08BT/BCV-1-014\n3xUE08BT/BCV-1-015\n2xUE08BT/BCV-1-016\n3xUE08BT/BCV-1-029\n4xUE08BT/BCV-1-030\n4xUE08BT/BCV-1-031\n4xUE08ST/BCV-1-110\n3xUE08ST/BCV-1-111",
           "cards": 50,
-          "list_count": 1,
+          "list_count": 2,
           "recent_lists": [
+            {
+              "slug": "event-3rd-black-clover-yami-sukehiro-1508021",
+              "kind": "event",
+              "title": "Black Clover - Yami Sukehiro",
+              "date": "2026-08-24",
+              "href": "decklists/black-clover-yami-sukehiro/event-3rd-black-clover-yami-sukehiro-1508021.html"
+            },
             {
               "slug": "event-7th-black-clover-yami-sukehiro-1345730",
               "kind": "event",
@@ -44696,7 +44887,7 @@
         "hunter-x-hunter",
         "hunter x hunter"
       ],
-      "deck_count": 8,
+      "deck_count": 7,
       "meta_share": 0.0,
       "color": "Purple",
       "img": "https://www.unionarena-tcg.com/na/images/cardlist/card/UEX04BT_HTR-2-050.png",
@@ -45140,6 +45331,12 @@
               "group": "Events"
             },
             {
+              "count": 3,
+              "id": "UE02BT/HTR-P-003",
+              "name": "Kurapika (003)",
+              "group": "Characters"
+            },
+            {
               "count": 4,
               "id": "UE02ST/HTR-1-097",
               "name": "Fishing Rod",
@@ -45176,8 +45373,8 @@
               "group": "Characters"
             }
           ],
-          "sim_text": "4xUE02BT/HTR-1-075\n4xUE02BT/HTR-1-078\n3xUE02BT/HTR-1-081\n3xUE02BT/HTR-1-082\n3xUE02BT/HTR-1-090\n4xUE02BT/HTR-1-092\n4xUE02BT/HTR-1-099\n4xUE02ST/HTR-1-097\n4xUE02ST/HTR-1-101\n4xUE02ST/HTR-1-102\n4xUE02ST/HTR-1-104\n4xUE02ST/HTR-1-105\n2xUEPR/HTR-1-076",
-          "cards": 47,
+          "sim_text": "4xUE02BT/HTR-1-075\n4xUE02BT/HTR-1-078\n3xUE02BT/HTR-1-081\n3xUE02BT/HTR-1-082\n3xUE02BT/HTR-1-090\n4xUE02BT/HTR-1-092\n4xUE02BT/HTR-1-099\n3xUE02BT/HTR-P-003\n4xUE02ST/HTR-1-097\n4xUE02ST/HTR-1-101\n4xUE02ST/HTR-1-102\n4xUE02ST/HTR-1-104\n4xUE02ST/HTR-1-105\n2xUEPR/HTR-1-076",
+          "cards": 50,
           "list_count": 5,
           "recent_lists": [
             {
@@ -45291,6 +45488,12 @@
             },
             {
               "count": 4,
+              "id": "UE02BT/HTR-P-002",
+              "name": "Killua Zoldyck (002)",
+              "group": "Characters"
+            },
+            {
+              "count": 4,
               "id": "UEX04BT/HTR-2-057",
               "name": "Killua Zoldyck (057) (Box Topper Foil)",
               "group": "Characters"
@@ -45314,8 +45517,8 @@
               "group": "Characters"
             }
           ],
-          "sim_text": "4xUE02BT/HTR-1-044\n4xUE02BT/HTR-1-049\n4xUE02BT/HTR-1-050\n2xUE02BT/HTR-1-051\n4xUE02BT/HTR-1-053\n2xUE02BT/HTR-1-056\n4xUE02BT/HTR-1-057\n4xUE02BT/HTR-1-062\n4xUE02BT/HTR-1-066\n4xUEX04BT/HTR-2-057\n4xUEX04BT/HTR-2-059\n2xUEX04BT/HTR-2-060\n4xUEX04BT/HTR-2-076",
-          "cards": 46,
+          "sim_text": "4xUE02BT/HTR-1-044\n4xUE02BT/HTR-1-049\n4xUE02BT/HTR-1-050\n2xUE02BT/HTR-1-051\n4xUE02BT/HTR-1-053\n2xUE02BT/HTR-1-056\n4xUE02BT/HTR-1-057\n4xUE02BT/HTR-1-062\n4xUE02BT/HTR-1-066\n4xUE02BT/HTR-P-002\n4xUEX04BT/HTR-2-057\n4xUEX04BT/HTR-2-059\n2xUEX04BT/HTR-2-060\n4xUEX04BT/HTR-2-076",
+          "cards": 50,
           "list_count": 1,
           "recent_lists": [
             {
@@ -45440,162 +45643,6 @@
               "title": "Hunter x Hunter - Killua Zoldyck",
               "date": "2026-06-04",
               "href": "decklists/hunter-x-hunter-killua-zoldyck/event-4th-hunter-x-hunter-killua-zoldyck-1191463.html"
-            }
-          ]
-        },
-        {
-          "key": "hunter-x-hunter-kurapika",
-          "name": "Kurapika",
-          "full": "Hunter x Hunter - Kurapika",
-          "title": "Hunter x Hunter",
-          "page": "decklists/hunter-x-hunter-kurapika.html",
-          "dir": "decklists/hunter-x-hunter-kurapika",
-          "tier": "",
-          "style": "",
-          "meta_share": 0.0,
-          "color": "Green",
-          "img": "https://www.unionarena-tcg.com/na/images/cardlist/card/UE02BT_HTR-1-074.png",
-          "updated": "2026-07-06",
-          "consensus_slug": "event-4th-hunter-x-hunter-kurapika-1336180",
-          "consensus_kind": "event",
-          "consensus_date": "2026-07-06",
-          "consensus_url": "decklists/hunter-x-hunter-kurapika/event-4th-hunter-x-hunter-kurapika-1336180.html",
-          "lines": [
-            {
-              "count": 4,
-              "id": "UE02BT/HTR-1-071",
-              "name": "Kurapika (071)",
-              "group": "Characters"
-            },
-            {
-              "count": 3,
-              "id": "UE02BT/HTR-1-072",
-              "name": "Kurapika (072)",
-              "group": "Characters"
-            },
-            {
-              "count": 4,
-              "id": "UE02BT/HTR-1-073",
-              "name": "Kurapika (073)",
-              "group": "Characters"
-            },
-            {
-              "count": 4,
-              "id": "UE02BT/HTR-1-074",
-              "name": "Kurapika (074)",
-              "group": "Characters"
-            },
-            {
-              "count": 4,
-              "id": "UE02BT/HTR-1-081",
-              "name": "Zepile",
-              "group": "Characters"
-            },
-            {
-              "count": 2,
-              "id": "UE02BT/HTR-1-082",
-              "name": "Melody",
-              "group": "Characters"
-            },
-            {
-              "count": 3,
-              "id": "UE02BT/HTR-1-084",
-              "name": "Neon",
-              "group": "Characters"
-            },
-            {
-              "count": 3,
-              "id": "UE02BT/HTR-1-086",
-              "name": "Basho",
-              "group": "Characters"
-            },
-            {
-              "count": 1,
-              "id": "UE02BT/HTR-1-089",
-              "name": "Ponzu",
-              "group": "Characters"
-            },
-            {
-              "count": 2,
-              "id": "UE02BT/HTR-1-090",
-              "name": "Leorio (090)",
-              "group": "Characters"
-            },
-            {
-              "count": 1,
-              "id": "UE02BT/HTR-1-093",
-              "name": "Hisoka (093)",
-              "group": "Characters"
-            },
-            {
-              "count": 4,
-              "id": "UE02BT/HTR-1-096",
-              "name": "Emperor Time: Absolute Mastery",
-              "group": "Events"
-            },
-            {
-              "count": 4,
-              "id": "UE02BT/HTR-1-099",
-              "name": "Hunter License",
-              "group": "Events"
-            },
-            {
-              "count": 3,
-              "id": "UE02ST/HTR-1-104",
-              "name": "Mito",
-              "group": "Characters"
-            },
-            {
-              "count": 2,
-              "id": "UEX04BT/HTR-2-064",
-              "name": "Kurapika (064) (Box Topper Foil)",
-              "group": "Characters"
-            },
-            {
-              "count": 2,
-              "id": "UEX04BT/HTR-2-077",
-              "name": "Kurapika (077)",
-              "group": "Characters"
-            }
-          ],
-          "sim_text": "4xUE02BT/HTR-1-071\n3xUE02BT/HTR-1-072\n4xUE02BT/HTR-1-073\n4xUE02BT/HTR-1-074\n4xUE02BT/HTR-1-081\n2xUE02BT/HTR-1-082\n3xUE02BT/HTR-1-084\n3xUE02BT/HTR-1-086\n1xUE02BT/HTR-1-089\n2xUE02BT/HTR-1-090\n1xUE02BT/HTR-1-093\n4xUE02BT/HTR-1-096\n4xUE02BT/HTR-1-099\n3xUE02ST/HTR-1-104\n2xUEX04BT/HTR-2-064\n2xUEX04BT/HTR-2-077",
-          "cards": 46,
-          "list_count": 5,
-          "recent_lists": [
-            {
-              "slug": "event-4th-hunter-x-hunter-kurapika-1336180",
-              "kind": "event",
-              "title": "Hunter x Hunter - Kurapika",
-              "date": "2026-07-06",
-              "href": "decklists/hunter-x-hunter-kurapika/event-4th-hunter-x-hunter-kurapika-1336180.html"
-            },
-            {
-              "slug": "event-1st-hunter-x-hunter-kurapika-1336219",
-              "kind": "event",
-              "title": "Hunter x Hunter - Kurapika",
-              "date": "2026-07-02",
-              "href": "decklists/hunter-x-hunter-kurapika/event-1st-hunter-x-hunter-kurapika-1336219.html"
-            },
-            {
-              "slug": "event-6th-hunter-x-hunter-kurapika-1336224",
-              "kind": "event",
-              "title": "Hunter x Hunter - Kurapika",
-              "date": "2026-07-02",
-              "href": "decklists/hunter-x-hunter-kurapika/event-6th-hunter-x-hunter-kurapika-1336224.html"
-            },
-            {
-              "slug": "event-4th-hunter-x-hunter-kurapika-1336233",
-              "kind": "event",
-              "title": "Hunter x Hunter - Kurapika",
-              "date": "2026-07-02",
-              "href": "decklists/hunter-x-hunter-kurapika/event-4th-hunter-x-hunter-kurapika-1336233.html"
-            },
-            {
-              "slug": "event-8th-hunter-x-hunter-kurapika-1143794",
-              "kind": "event",
-              "title": "Hunter x Hunter - Kurapika",
-              "date": "2026-05-20",
-              "href": "decklists/hunter-x-hunter-kurapika/event-8th-hunter-x-hunter-kurapika-1143794.html"
             }
           ]
         },
@@ -46222,10 +46269,16 @@
               "id": "UE14BT/NIK-1-100",
               "name": "LIGHT OF HERO",
               "group": "Events"
+            },
+            {
+              "count": 4,
+              "id": "UE14BT/NIK-P-003",
+              "name": "Elegg",
+              "group": "Characters"
             }
           ],
-          "sim_text": "4xUE14BT/NIK-1-082\n3xUE14BT/NIK-1-083\n1xUE14BT/NIK-1-084\n4xUE14BT/NIK-1-087\n2xUE14BT/NIK-1-088\n4xUE14BT/NIK-1-089\n4xUE14BT/NIK-1-090\n3xUE14BT/NIK-1-091\n4xUE14BT/NIK-1-092\n4xUE14BT/NIK-1-094\n2xUE14BT/NIK-1-095\n4xUE14BT/NIK-1-098\n3xUE14BT/NIK-1-099\n4xUE14BT/NIK-1-100",
-          "cards": 46,
+          "sim_text": "4xUE14BT/NIK-1-082\n3xUE14BT/NIK-1-083\n1xUE14BT/NIK-1-084\n4xUE14BT/NIK-1-087\n2xUE14BT/NIK-1-088\n4xUE14BT/NIK-1-089\n4xUE14BT/NIK-1-090\n3xUE14BT/NIK-1-091\n4xUE14BT/NIK-1-092\n4xUE14BT/NIK-1-094\n2xUE14BT/NIK-1-095\n4xUE14BT/NIK-1-098\n3xUE14BT/NIK-1-099\n4xUE14BT/NIK-1-100\n4xUE14BT/NIK-P-003",
+          "cards": 50,
           "list_count": 3,
           "recent_lists": [
             {
@@ -48647,10 +48700,16 @@
               "id": "UE13BT/YYH-1-111",
               "name": "Younger Toguro (111)",
               "group": "Characters"
+            },
+            {
+              "count": 4,
+              "id": "UE13BT/YYH-P-001",
+              "name": "Younger Toguro (001)",
+              "group": "Characters"
             }
           ],
-          "sim_text": "4xUE13BT/YYH-1-006\n4xUE13BT/YYH-1-007\n3xUE13BT/YYH-1-008\n4xUE13BT/YYH-1-011\n4xUE13BT/YYH-1-021\n4xUE13BT/YYH-1-022\n4xUE13BT/YYH-1-024\n4xUE13BT/YYH-1-025\n3xUE13BT/YYH-1-026\n4xUE13BT/YYH-1-032\n4xUE13BT/YYH-1-033\n4xUE13BT/YYH-1-111",
-          "cards": 46,
+          "sim_text": "4xUE13BT/YYH-1-006\n4xUE13BT/YYH-1-007\n3xUE13BT/YYH-1-008\n4xUE13BT/YYH-1-011\n4xUE13BT/YYH-1-021\n4xUE13BT/YYH-1-022\n4xUE13BT/YYH-1-024\n4xUE13BT/YYH-1-025\n3xUE13BT/YYH-1-026\n4xUE13BT/YYH-1-032\n4xUE13BT/YYH-1-033\n4xUE13BT/YYH-1-111\n4xUE13BT/YYH-P-001",
+          "cards": 50,
           "list_count": 4,
           "recent_lists": [
             {
@@ -48796,10 +48855,16 @@
               "id": "UE13BT/YYH-1-113",
               "name": "Yukina (113)",
               "group": "Characters"
+            },
+            {
+              "count": 2,
+              "id": "UE13BT/YYH-P-003",
+              "name": "Kurama (003)",
+              "group": "Characters"
             }
           ],
-          "sim_text": "2xUE13BT/YYH-1-071\n4xUE13BT/YYH-1-072\n4xUE13BT/YYH-1-080\n2xUE13BT/YYH-1-081\n3xUE13BT/YYH-1-082\n4xUE13BT/YYH-1-083\n4xUE13BT/YYH-1-087\n2xUE13BT/YYH-1-088\n2xUE13BT/YYH-1-089\n2xUE13BT/YYH-1-091\n4xUE13BT/YYH-1-092\n3xUE13BT/YYH-1-093\n4xUE13BT/YYH-1-094\n2xUE13BT/YYH-1-095\n4xUE13BT/YYH-1-097\n2xUE13BT/YYH-1-113",
-          "cards": 48,
+          "sim_text": "2xUE13BT/YYH-1-071\n4xUE13BT/YYH-1-072\n4xUE13BT/YYH-1-080\n2xUE13BT/YYH-1-081\n3xUE13BT/YYH-1-082\n4xUE13BT/YYH-1-083\n4xUE13BT/YYH-1-087\n2xUE13BT/YYH-1-088\n2xUE13BT/YYH-1-089\n2xUE13BT/YYH-1-091\n4xUE13BT/YYH-1-092\n3xUE13BT/YYH-1-093\n4xUE13BT/YYH-1-094\n2xUE13BT/YYH-1-095\n4xUE13BT/YYH-1-097\n2xUE13BT/YYH-1-113\n2xUE13BT/YYH-P-003",
+          "cards": 50,
           "list_count": 4,
           "recent_lists": [
             {
@@ -49059,253 +49124,6 @@
           ]
         },
         {
-          "key": "yu-yu-hakusho-karasu",
-          "name": "Karasu",
-          "full": "Yu Yu Hakusho - Karasu",
-          "title": "Yu Yu Hakusho",
-          "page": "decklists/yu-yu-hakusho-karasu.html",
-          "dir": "decklists/yu-yu-hakusho-karasu",
-          "tier": "",
-          "style": "",
-          "meta_share": 0.0,
-          "color": "Purple",
-          "img": "https://www.unionarena-tcg.com/na/images/cardlist/card/UE13BT_YYH-1-008.png",
-          "updated": "2026-06-03",
-          "consensus_slug": "event-3rd-yu-yu-hakusho-karasu-1212835",
-          "consensus_kind": "event",
-          "consensus_date": "2026-06-03",
-          "consensus_url": "decklists/yu-yu-hakusho-karasu/event-3rd-yu-yu-hakusho-karasu-1212835.html",
-          "lines": [
-            {
-              "count": 3,
-              "id": "UE13BT/YYH-1-008",
-              "name": "Karasu (008)",
-              "group": "Characters"
-            },
-            {
-              "count": 4,
-              "id": "UE13BT/YYH-1-011",
-              "name": "Sakyo",
-              "group": "Characters"
-            },
-            {
-              "count": 2,
-              "id": "UE13BT/YYH-1-021",
-              "name": "Dr. Ichigaki",
-              "group": "Characters"
-            },
-            {
-              "count": 4,
-              "id": "UE13BT/YYH-1-022",
-              "name": "Elder Toguro",
-              "group": "Characters"
-            },
-            {
-              "count": 4,
-              "id": "UE13BT/YYH-1-024",
-              "name": "Younger Toguro (024)",
-              "group": "Characters"
-            },
-            {
-              "count": 4,
-              "id": "UE13BT/YYH-1-025",
-              "name": "Younger Toguro (025)",
-              "group": "Characters"
-            },
-            {
-              "count": 4,
-              "id": "UE13BT/YYH-1-032",
-              "name": "100 Percent of 100 Percent",
-              "group": "Events"
-            },
-            {
-              "count": 4,
-              "id": "UE13BT/YYH-1-110",
-              "name": "Jin (110)",
-              "group": "Characters"
-            },
-            {
-              "count": 2,
-              "id": "UE13BT/YYH-1-111",
-              "name": "Younger Toguro (111)",
-              "group": "Characters"
-            },
-            {
-              "count": 4,
-              "id": "UEPR/YYH-1-006",
-              "name": "Karasu",
-              "group": "Characters"
-            },
-            {
-              "count": 4,
-              "id": "UEPR/YYH-1-007",
-              "name": "Karasu (007)",
-              "group": "Characters"
-            },
-            {
-              "count": 3,
-              "id": "UEPR/YYH-1-026",
-              "name": "Byakko",
-              "group": "Characters"
-            },
-            {
-              "count": 4,
-              "id": "UEPR/YYH-1-033",
-              "name": "Not Bad",
-              "group": "Events"
-            }
-          ],
-          "sim_text": "3xUE13BT/YYH-1-008\n4xUE13BT/YYH-1-011\n2xUE13BT/YYH-1-021\n4xUE13BT/YYH-1-022\n4xUE13BT/YYH-1-024\n4xUE13BT/YYH-1-025\n4xUE13BT/YYH-1-032\n4xUE13BT/YYH-1-110\n2xUE13BT/YYH-1-111\n4xUEPR/YYH-1-006\n4xUEPR/YYH-1-007\n3xUEPR/YYH-1-026\n4xUEPR/YYH-1-033",
-          "cards": 46,
-          "list_count": 4,
-          "recent_lists": [
-            {
-              "slug": "event-3rd-yu-yu-hakusho-karasu-1212835",
-              "kind": "event",
-              "title": "Yu Yu Hakusho - Karasu",
-              "date": "2026-06-03",
-              "href": "decklists/yu-yu-hakusho-karasu/event-3rd-yu-yu-hakusho-karasu-1212835.html"
-            },
-            {
-              "slug": "event-3rd-yu-yu-hakusho-karasu-1108554",
-              "kind": "event",
-              "title": "Yu Yu Hakusho - Karasu",
-              "date": "2026-05-21",
-              "href": "decklists/yu-yu-hakusho-karasu/event-3rd-yu-yu-hakusho-karasu-1108554.html"
-            },
-            {
-              "slug": "event-6th-yu-yu-hakusho-karasu-1077393",
-              "kind": "event",
-              "title": "Yu Yu Hakusho - Karasu",
-              "date": "2026-05-13",
-              "href": "decklists/yu-yu-hakusho-karasu/event-6th-yu-yu-hakusho-karasu-1077393.html"
-            },
-            {
-              "slug": "event-9th-yu-yu-hakusho-karasu-951240",
-              "kind": "event",
-              "title": "Yu Yu Hakusho - Karasu",
-              "date": "2026-04-09",
-              "href": "decklists/yu-yu-hakusho-karasu/event-9th-yu-yu-hakusho-karasu-951240.html"
-            }
-          ]
-        },
-        {
-          "key": "yu-yu-hakusho-togu-bro",
-          "name": "Karasu",
-          "full": "Yu Yu Hakusho - Karasu",
-          "title": "Yu Yu Hakusho",
-          "page": "decklists/yu-yu-hakusho-togu-bro.html",
-          "dir": "decklists/yu-yu-hakusho-togu-bro",
-          "tier": "",
-          "style": "",
-          "meta_share": 0.0,
-          "color": "Purple",
-          "img": "https://www.unionarena-tcg.com/na/images/cardlist/card/UE13BT_YYH-1-008.png",
-          "updated": "2026-07-12",
-          "consensus_slug": "event-23rd-yu-yu-hakusho-togu-bro-1402392",
-          "consensus_kind": "event",
-          "consensus_date": "2026-07-12",
-          "consensus_url": "decklists/yu-yu-hakusho-togu-bro/event-23rd-yu-yu-hakusho-togu-bro-1402392.html",
-          "lines": [
-            {
-              "count": 4,
-              "id": "UE13BT/YYH-1-005",
-              "name": "Onji",
-              "group": "Characters"
-            },
-            {
-              "count": 4,
-              "id": "UE13BT/YYH-1-006",
-              "name": "Karasu (006)",
-              "group": "Characters"
-            },
-            {
-              "count": 4,
-              "id": "UE13BT/YYH-1-007",
-              "name": "Karasu",
-              "group": "Characters"
-            },
-            {
-              "count": 4,
-              "id": "UE13BT/YYH-1-008",
-              "name": "Karasu (008)",
-              "group": "Characters"
-            },
-            {
-              "count": 4,
-              "id": "UE13BT/YYH-1-011",
-              "name": "Sakyo",
-              "group": "Characters"
-            },
-            {
-              "count": 2,
-              "id": "UE13BT/YYH-1-021",
-              "name": "Dr. Ichigaki",
-              "group": "Characters"
-            },
-            {
-              "count": 4,
-              "id": "UE13BT/YYH-1-022",
-              "name": "Elder Toguro",
-              "group": "Characters"
-            },
-            {
-              "count": 2,
-              "id": "UE13BT/YYH-1-023",
-              "name": "Younger Toguro (023)",
-              "group": "Characters"
-            },
-            {
-              "count": 2,
-              "id": "UE13BT/YYH-1-024",
-              "name": "Younger Toguro (024)",
-              "group": "Characters"
-            },
-            {
-              "count": 4,
-              "id": "UE13BT/YYH-1-025",
-              "name": "Younger Toguro (025)",
-              "group": "Characters"
-            },
-            {
-              "count": 4,
-              "id": "UE13BT/YYH-1-032",
-              "name": "100 Percent of 100 Percent",
-              "group": "Events"
-            },
-            {
-              "count": 4,
-              "id": "UE13BT/YYH-1-033",
-              "name": "Not Bad",
-              "group": "Characters"
-            },
-            {
-              "count": 2,
-              "id": "UE13BT/YYH-1-034",
-              "name": "Rainbow Cyclone",
-              "group": "Characters"
-            },
-            {
-              "count": 2,
-              "id": "UE13BT/YYH-1-111",
-              "name": "Younger Toguro (111)",
-              "group": "Characters"
-            }
-          ],
-          "sim_text": "4xUE13BT/YYH-1-005\n4xUE13BT/YYH-1-006\n4xUE13BT/YYH-1-007\n4xUE13BT/YYH-1-008\n4xUE13BT/YYH-1-011\n2xUE13BT/YYH-1-021\n4xUE13BT/YYH-1-022\n2xUE13BT/YYH-1-023\n2xUE13BT/YYH-1-024\n4xUE13BT/YYH-1-025\n4xUE13BT/YYH-1-032\n4xUE13BT/YYH-1-033\n2xUE13BT/YYH-1-034\n2xUE13BT/YYH-1-111",
-          "cards": 46,
-          "list_count": 1,
-          "recent_lists": [
-            {
-              "slug": "event-23rd-yu-yu-hakusho-togu-bro-1402392",
-              "kind": "event",
-              "title": "Yu Yu Hakusho - Karasu",
-              "date": "2026-07-12",
-              "href": "decklists/yu-yu-hakusho-togu-bro/event-23rd-yu-yu-hakusho-togu-bro-1402392.html"
-            }
-          ]
-        },
-        {
           "key": "yu-yu-hakusho-genkai",
           "name": "Kazuma Kuwabara",
           "full": "Yu Yu Hakusho - Kazuma Kuwabara",
@@ -49516,10 +49334,16 @@
               "id": "UE13BT/YYH-1-103",
               "name": "Yusuke Urameshi (103)",
               "group": "Characters"
+            },
+            {
+              "count": 4,
+              "id": "UE13BT/YYH-P-002",
+              "name": "Yusuke Urameshi (002)",
+              "group": "Characters"
             }
           ],
-          "sim_text": "4xUE13BT/YYH-1-035\n3xUE13BT/YYH-1-036\n2xUE13BT/YYH-1-037\n4xUE13BT/YYH-1-038\n4xUE13BT/YYH-1-048\n4xUE13BT/YYH-1-050\n4xUE13BT/YYH-1-056\n4xUE13BT/YYH-1-058\n3xUE13BT/YYH-1-059\n3xUE13BT/YYH-1-064\n4xUE13BT/YYH-1-065\n3xUE13BT/YYH-1-102\n4xUE13BT/YYH-1-103",
-          "cards": 46,
+          "sim_text": "4xUE13BT/YYH-1-035\n3xUE13BT/YYH-1-036\n2xUE13BT/YYH-1-037\n4xUE13BT/YYH-1-038\n4xUE13BT/YYH-1-048\n4xUE13BT/YYH-1-050\n4xUE13BT/YYH-1-056\n4xUE13BT/YYH-1-058\n3xUE13BT/YYH-1-059\n3xUE13BT/YYH-1-064\n4xUE13BT/YYH-1-065\n3xUE13BT/YYH-1-102\n4xUE13BT/YYH-1-103\n4xUE13BT/YYH-P-002",
+          "cards": 50,
           "list_count": 1,
           "recent_lists": [
             {
@@ -49661,6 +49485,265 @@
           ]
         },
         {
+          "key": "yu-yu-hakusho-karasu",
+          "name": "Younger Toguro",
+          "full": "Yu Yu Hakusho - Younger Toguro",
+          "title": "Yu Yu Hakusho",
+          "page": "decklists/yu-yu-hakusho-karasu.html",
+          "dir": "decklists/yu-yu-hakusho-karasu",
+          "tier": "",
+          "style": "",
+          "meta_share": 0.0,
+          "color": "Purple",
+          "img": "https://www.unionarena-tcg.com/na/images/cardlist/card/UE13BT_YYH-1-025.png",
+          "updated": "2026-06-03",
+          "consensus_slug": "event-3rd-yu-yu-hakusho-karasu-1212835",
+          "consensus_kind": "event",
+          "consensus_date": "2026-06-03",
+          "consensus_url": "decklists/yu-yu-hakusho-karasu/event-3rd-yu-yu-hakusho-karasu-1212835.html",
+          "lines": [
+            {
+              "count": 3,
+              "id": "UE13BT/YYH-1-008",
+              "name": "Karasu (008)",
+              "group": "Characters"
+            },
+            {
+              "count": 4,
+              "id": "UE13BT/YYH-1-011",
+              "name": "Sakyo",
+              "group": "Characters"
+            },
+            {
+              "count": 2,
+              "id": "UE13BT/YYH-1-021",
+              "name": "Dr. Ichigaki",
+              "group": "Characters"
+            },
+            {
+              "count": 4,
+              "id": "UE13BT/YYH-1-022",
+              "name": "Elder Toguro",
+              "group": "Characters"
+            },
+            {
+              "count": 4,
+              "id": "UE13BT/YYH-1-024",
+              "name": "Younger Toguro (024)",
+              "group": "Characters"
+            },
+            {
+              "count": 4,
+              "id": "UE13BT/YYH-1-025",
+              "name": "Younger Toguro (025)",
+              "group": "Characters"
+            },
+            {
+              "count": 4,
+              "id": "UE13BT/YYH-1-032",
+              "name": "100 Percent of 100 Percent",
+              "group": "Events"
+            },
+            {
+              "count": 4,
+              "id": "UE13BT/YYH-1-110",
+              "name": "Jin (110)",
+              "group": "Characters"
+            },
+            {
+              "count": 2,
+              "id": "UE13BT/YYH-1-111",
+              "name": "Younger Toguro (111)",
+              "group": "Characters"
+            },
+            {
+              "count": 4,
+              "id": "UE13BT/YYH-P-001",
+              "name": "Younger Toguro (001)",
+              "group": "Characters"
+            },
+            {
+              "count": 4,
+              "id": "UEPR/YYH-1-006",
+              "name": "Karasu",
+              "group": "Characters"
+            },
+            {
+              "count": 4,
+              "id": "UEPR/YYH-1-007",
+              "name": "Karasu (007)",
+              "group": "Characters"
+            },
+            {
+              "count": 3,
+              "id": "UEPR/YYH-1-026",
+              "name": "Byakko",
+              "group": "Characters"
+            },
+            {
+              "count": 4,
+              "id": "UEPR/YYH-1-033",
+              "name": "Not Bad",
+              "group": "Events"
+            }
+          ],
+          "sim_text": "3xUE13BT/YYH-1-008\n4xUE13BT/YYH-1-011\n2xUE13BT/YYH-1-021\n4xUE13BT/YYH-1-022\n4xUE13BT/YYH-1-024\n4xUE13BT/YYH-1-025\n4xUE13BT/YYH-1-032\n4xUE13BT/YYH-1-110\n2xUE13BT/YYH-1-111\n4xUE13BT/YYH-P-001\n4xUEPR/YYH-1-006\n4xUEPR/YYH-1-007\n3xUEPR/YYH-1-026\n4xUEPR/YYH-1-033",
+          "cards": 50,
+          "list_count": 4,
+          "recent_lists": [
+            {
+              "slug": "event-3rd-yu-yu-hakusho-karasu-1212835",
+              "kind": "event",
+              "title": "Yu Yu Hakusho - Younger Toguro",
+              "date": "2026-06-03",
+              "href": "decklists/yu-yu-hakusho-karasu/event-3rd-yu-yu-hakusho-karasu-1212835.html"
+            },
+            {
+              "slug": "event-3rd-yu-yu-hakusho-karasu-1108554",
+              "kind": "event",
+              "title": "Yu Yu Hakusho - Younger Toguro",
+              "date": "2026-05-21",
+              "href": "decklists/yu-yu-hakusho-karasu/event-3rd-yu-yu-hakusho-karasu-1108554.html"
+            },
+            {
+              "slug": "event-6th-yu-yu-hakusho-karasu-1077393",
+              "kind": "event",
+              "title": "Yu Yu Hakusho - Younger Toguro",
+              "date": "2026-05-13",
+              "href": "decklists/yu-yu-hakusho-karasu/event-6th-yu-yu-hakusho-karasu-1077393.html"
+            },
+            {
+              "slug": "event-9th-yu-yu-hakusho-karasu-951240",
+              "kind": "event",
+              "title": "Yu Yu Hakusho - Younger Toguro",
+              "date": "2026-04-09",
+              "href": "decklists/yu-yu-hakusho-karasu/event-9th-yu-yu-hakusho-karasu-951240.html"
+            }
+          ]
+        },
+        {
+          "key": "yu-yu-hakusho-togu-bro",
+          "name": "Younger Toguro",
+          "full": "Yu Yu Hakusho - Younger Toguro",
+          "title": "Yu Yu Hakusho",
+          "page": "decklists/yu-yu-hakusho-togu-bro.html",
+          "dir": "decklists/yu-yu-hakusho-togu-bro",
+          "tier": "",
+          "style": "",
+          "meta_share": 0.0,
+          "color": "Purple",
+          "img": "https://www.unionarena-tcg.com/na/images/cardlist/card/UE13BT_YYH-1-025.png",
+          "updated": "2026-07-12",
+          "consensus_slug": "event-23rd-yu-yu-hakusho-togu-bro-1402392",
+          "consensus_kind": "event",
+          "consensus_date": "2026-07-12",
+          "consensus_url": "decklists/yu-yu-hakusho-togu-bro/event-23rd-yu-yu-hakusho-togu-bro-1402392.html",
+          "lines": [
+            {
+              "count": 4,
+              "id": "UE13BT/YYH-1-005",
+              "name": "Onji",
+              "group": "Characters"
+            },
+            {
+              "count": 4,
+              "id": "UE13BT/YYH-1-006",
+              "name": "Karasu (006)",
+              "group": "Characters"
+            },
+            {
+              "count": 4,
+              "id": "UE13BT/YYH-1-007",
+              "name": "Karasu",
+              "group": "Characters"
+            },
+            {
+              "count": 4,
+              "id": "UE13BT/YYH-1-008",
+              "name": "Karasu (008)",
+              "group": "Characters"
+            },
+            {
+              "count": 4,
+              "id": "UE13BT/YYH-1-011",
+              "name": "Sakyo",
+              "group": "Characters"
+            },
+            {
+              "count": 2,
+              "id": "UE13BT/YYH-1-021",
+              "name": "Dr. Ichigaki",
+              "group": "Characters"
+            },
+            {
+              "count": 4,
+              "id": "UE13BT/YYH-1-022",
+              "name": "Elder Toguro",
+              "group": "Characters"
+            },
+            {
+              "count": 2,
+              "id": "UE13BT/YYH-1-023",
+              "name": "Younger Toguro (023)",
+              "group": "Characters"
+            },
+            {
+              "count": 2,
+              "id": "UE13BT/YYH-1-024",
+              "name": "Younger Toguro (024)",
+              "group": "Characters"
+            },
+            {
+              "count": 4,
+              "id": "UE13BT/YYH-1-025",
+              "name": "Younger Toguro (025)",
+              "group": "Characters"
+            },
+            {
+              "count": 4,
+              "id": "UE13BT/YYH-1-032",
+              "name": "100 Percent of 100 Percent",
+              "group": "Events"
+            },
+            {
+              "count": 4,
+              "id": "UE13BT/YYH-1-033",
+              "name": "Not Bad",
+              "group": "Characters"
+            },
+            {
+              "count": 2,
+              "id": "UE13BT/YYH-1-034",
+              "name": "Rainbow Cyclone",
+              "group": "Characters"
+            },
+            {
+              "count": 2,
+              "id": "UE13BT/YYH-1-111",
+              "name": "Younger Toguro (111)",
+              "group": "Characters"
+            },
+            {
+              "count": 4,
+              "id": "UE13BT/YYH-P-001",
+              "name": "Younger Toguro (001)",
+              "group": "Characters"
+            }
+          ],
+          "sim_text": "4xUE13BT/YYH-1-005\n4xUE13BT/YYH-1-006\n4xUE13BT/YYH-1-007\n4xUE13BT/YYH-1-008\n4xUE13BT/YYH-1-011\n2xUE13BT/YYH-1-021\n4xUE13BT/YYH-1-022\n2xUE13BT/YYH-1-023\n2xUE13BT/YYH-1-024\n4xUE13BT/YYH-1-025\n4xUE13BT/YYH-1-032\n4xUE13BT/YYH-1-033\n2xUE13BT/YYH-1-034\n2xUE13BT/YYH-1-111\n4xUE13BT/YYH-P-001",
+          "cards": 50,
+          "list_count": 1,
+          "recent_lists": [
+            {
+              "slug": "event-23rd-yu-yu-hakusho-togu-bro-1402392",
+              "kind": "event",
+              "title": "Yu Yu Hakusho - Younger Toguro",
+              "date": "2026-07-12",
+              "href": "decklists/yu-yu-hakusho-togu-bro/event-23rd-yu-yu-hakusho-togu-bro-1402392.html"
+            }
+          ]
+        },
+        {
           "key": "yu-yu-hakusho-toguro-bros",
           "name": "Younger Toguro",
           "full": "Yu Yu Hakusho - Younger Toguro",
@@ -49749,10 +49832,16 @@
               "id": "UE13BT/YYH-1-111",
               "name": "Younger Toguro (111)",
               "group": "Characters"
+            },
+            {
+              "count": 4,
+              "id": "UE13BT/YYH-P-001",
+              "name": "Younger Toguro (001)",
+              "group": "Characters"
             }
           ],
-          "sim_text": "4xUE13BT/YYH-1-006\n4xUE13BT/YYH-1-007\n4xUE13BT/YYH-1-008\n4xUE13BT/YYH-1-010\n4xUE13BT/YYH-1-011\n2xUE13BT/YYH-1-021\n4xUE13BT/YYH-1-022\n4xUE13BT/YYH-1-023\n4xUE13BT/YYH-1-025\n4xUE13BT/YYH-1-032\n4xUE13BT/YYH-1-033\n4xUE13BT/YYH-1-111",
-          "cards": 46,
+          "sim_text": "4xUE13BT/YYH-1-006\n4xUE13BT/YYH-1-007\n4xUE13BT/YYH-1-008\n4xUE13BT/YYH-1-010\n4xUE13BT/YYH-1-011\n2xUE13BT/YYH-1-021\n4xUE13BT/YYH-1-022\n4xUE13BT/YYH-1-023\n4xUE13BT/YYH-1-025\n4xUE13BT/YYH-1-032\n4xUE13BT/YYH-1-033\n4xUE13BT/YYH-1-111\n4xUE13BT/YYH-P-001",
+          "cards": 50,
           "list_count": 1,
           "recent_lists": [
             {
@@ -49941,7 +50030,7 @@
       "slug": "rurouni-kenshin",
       "color": "Red",
       "color_class": "color-red",
-      "deck_count": 19,
+      "deck_count": 20,
       "href": "/discord/rurouni-kenshin.html"
     },
     {
@@ -50117,7 +50206,7 @@
       "slug": "hunter-x-hunter",
       "color": "Purple",
       "color_class": "color-purple",
-      "deck_count": 8,
+      "deck_count": 7,
       "href": "/discord/hunter-x-hunter.html"
     },
     {

@@ -506,6 +506,8 @@ class SeriesLinkTests(unittest.TestCase):
         self.assertIn("How many cards are in a Union Arena deck?", html)
         self.assertIn("Exactly 50 cards", html)
         self.assertIn('id="faq"', html)
+        self.assertIn("/tier-list.html", html)
+        self.assertIn("/guides/", html)
 
 
 if __name__ == "__main__":

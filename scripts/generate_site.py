@@ -1909,7 +1909,10 @@ def write_hub(
     cache: dict,
     feature: dict,
     catalog: list[dict] | None = None,
+    guide: dict | None = None,
 ) -> None:
+    import write_guides
+
     color = uadb.color_class((feature.get("meta") or {}).get("color"))
     img = uadb.card_image_url(feature.get("id") or "", cache) if feature.get("id") else ""
     meta = feature.get("meta") or {}
@@ -1964,7 +1967,9 @@ def write_hub(
         "Other characters in this anime or manga",
         related_character_hubs(arch, catalog or []),
     )
-    more_links = ['<a href="/format.html">Standard format</a>', '<a href="/shop.html">Shop supplies</a>']
+    more_links = ['<a href="/tier-list.html">Tier list</a>', '<a href="/format.html">Standard format</a>', '<a href="/shop.html">Shop supplies</a>']
+    if guide:
+        more_links.insert(0, f'<a href="{html.escape(guide["href"])}">{html.escape(guide["title"])}</a>')
     if series:
         more_links.insert(0, f'<a href="{html.escape(series["href"])}">All {html.escape(series["name"])} decks</a>')
         more_links.append(f'<a href="{html.escape(series["discord"])}">{html.escape(series["name"])} on Discord</a>')
@@ -1994,6 +1999,7 @@ def write_hub(
             <div class="muted">From public tournament lists</div>
           </div>
           <p class="leader-take">{html.escape(take_text(arch))}</p>
+{write_guides.strategy_link_html(guide)}
         </section>
 {render_text_deck(items, cache, arch.get("sample_label") or "Consensus list")}
         <section class="deck-index" style="margin-top:22px">
@@ -2180,6 +2186,19 @@ def write_home(arches: list[dict], recent: list[dict], cache: dict, features: di
         </section>
 
         <nav class="home-big3" aria-label="Main sections">
+          <a class="home-big home-big-tier" href="/tier-list.html">
+            <span class="home-big-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 2.1 13.85 5.2h-3.7L12 2.1Z"/>
+                <rect x="10.15" y="5.35" width="3.7" height="1.85" rx="0.4"/>
+                <path d="M9 20.6V8.9h6v11.7H9Z"/>
+                <path d="M3.6 20.6v-6.4H9v6.4H3.6Z" opacity=".88"/>
+                <path d="M15 20.6v-4.7h5.4v4.7H15Z" opacity=".72"/>
+              </svg>
+            </span>
+            <span class="home-big-title">Tier List</span>
+            <span class="home-big-note">S through D with character pictures</span>
+          </a>
           <a class="home-big home-big-recent" href="#recent">
             <span class="home-big-icon" aria-hidden="true">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round">
@@ -2552,7 +2571,7 @@ def write_format(arches: list[dict]) -> None:
             <h3>Current metagame</h3>
             <div class="muted">From lists on this site</div>
           </div>
-          <p>The snapshot follows public Union Arena tournaments. Sung Jinwoo, Hajime Saito, Shin Asakura, and Rei Ayanami are the names that keep showing up. Everything else is a step down or a title specialist.</p>
+          <p>The snapshot follows public Union Arena tournaments. Sung Jinwoo, Hajime Saito, Shin Asakura, and Rei Ayanami are the names that keep showing up. Everything else is a step down or a title specialist. The live board is the <a href="/tier-list.html">tier list</a>. Character writeups live under <a href="/guides/">guides</a>.</p>
           <ul class="meta-blurbs">
 {chr(10).join(blurbs)}
           </ul>
@@ -2588,7 +2607,7 @@ def write_format(arches: list[dict]) -> None:
     for q, a in FORMAT_FAQ
 )}
         </section>
-        <p class="hub-more"><a href="/characters.html">Characters</a> · <a href="/series.html">Titles</a> · <a href="/shop.html">Shop</a></p>"""
+        <p class="hub-more"><a href="/tier-list.html">Tier list</a> · <a href="/guides/">Guides</a> · <a href="/characters.html">Characters</a> · <a href="/series.html">Titles</a> · <a href="/shop.html">Shop</a></p>"""
     page = uadb.page_chrome(
         "Union Arena format and restricted cards | Union Arena Decklists",
         "Standard constructed rules for Union Arena: 50-card lists, restricted Evangelion cards, current-format characters.",
@@ -2718,7 +2737,7 @@ def write_privacy() -> None:
 def write_404() -> None:
     body = """        <nav class="crumb" aria-label="Breadcrumb"><a href="/">Home</a> / Missing page</nav>
         <h1>That page is not here</h1>
-        <p>Try the <a href="/">home splash</a>, <a href="/characters.html">character pages</a>, <a href="/series.html">title pages</a>, <a href="/shop.html">shop</a>, or <a href="/#recent">recent lists</a>.</p>"""
+        <p>Try the <a href="/">home splash</a>, <a href="/tier-list.html">tier list</a>, <a href="/guides/">guides</a>, <a href="/characters.html">character pages</a>, <a href="/series.html">title pages</a>, <a href="/shop.html">shop</a>, or <a href="/#recent">recent lists</a>.</p>"""
     page = uadb.page_chrome(
         "Page not found | Union Arena Decklists",
         "That Union Arena Decklists page is missing.",
@@ -3001,6 +3020,9 @@ def main() -> None:
         uadb.log("combo-hub", arch["key"], "lists", len(arch.get("lists") or []), "feature", feat.get("id"))
 
     catalog = build_title_catalog([job[0] for job in hub_jobs])
+    import write_guides
+
+    plan = write_guides.build_plan(hub_jobs, cache, features)
     if not pages_only:
         for arch, lists, items, feature, write_lists in hub_jobs:
             if write_lists:
@@ -3014,7 +3036,15 @@ def main() -> None:
                         siblings=lists,
                         catalog=catalog,
                     )
-            write_hub(arch, lists, items, cache, feature, catalog=catalog)
+            write_hub(
+                arch,
+                lists,
+                items,
+                cache,
+                feature,
+                catalog=catalog,
+                guide=write_guides.guide_for_arch(plan, arch),
+            )
 
     recent.sort(key=lambda r: r.get("when") or "0000", reverse=True)
     prices = uadb.load_tcgplayer_prices()
@@ -3027,12 +3057,13 @@ def main() -> None:
     write_characters_index(home_roster, features, cache, catalog)
     sitemap.extend(write_series_pages(catalog, features, cache))
     write_format(unique_arches([a for a in arches if not a.get("from_color")]))
+    sitemap.extend(write_guides.write_pages(plan, cache, features))
     write_shop()
     write_privacy()
-    board = discord_board.build_board(board_decks)
-    sitemap.extend(discord_board.write_pages(board))
     lastmod = (recent[0].get("when") if recent else "") or date.today().isoformat()
     stamp = lastmod[:10] if lastmod else ""
+    board = discord_board.build_board(board_decks, updated=stamp)
+    sitemap.extend(discord_board.write_pages(board))
     write_feed(recent, lastmod=stamp)
     write_sitemap(sitemap, lastmod=stamp, images=_SITEMAP_IMAGES)
     write_404()

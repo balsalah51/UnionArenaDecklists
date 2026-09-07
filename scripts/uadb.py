@@ -24,7 +24,7 @@ BROWSER_UA = (
 DISCORD = "https://discord.gg/aY9RfB662"
 BRAND = "Union Arena Decklists"
 SUBTITLE = "Add this list to your hand"
-CSS_VER = "ua23"
+CSS_VER = "ua24"
 JS_VER = "ua8"
 TCGPLAYER_CATEGORY_ID = 81
 TCGPLAYER_PRICES_FILE = "data/tcgplayer-prices.json"
@@ -324,7 +324,9 @@ def nav_html(current: str = "") -> str:
             '      <nav aria-label="Primary">',
             item("/#recent", "Recent lists", "recent"),
             item("/characters.html", "Characters", "characters"),
+            item("/tier-list.html", "Tier List", "tier"),
             item("/format.html", "Format", "format"),
+            item("/guides/", "Guides", "guides"),
             item("/shop.html", "Shop", "shop"),
             item("/discord/welcome.html", "Discord", "discord"),
             "      </nav>",
@@ -648,6 +650,8 @@ def footer_links() -> str:
         '      <a href="/characters.html">Characters</a> · '
         '<a href="/series.html">Titles</a> · '
         '<a href="/#recent">Recent lists</a> · '
+        '<a href="/tier-list.html">Tier List</a> · '
+        '<a href="/guides/">Guides</a> · '
         '<a href="/format.html">Format</a> · '
         '<a href="/shop.html">Shop</a> · '
         '<a href="/discord/welcome.html">Discord</a> · '
