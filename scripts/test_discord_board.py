@@ -166,6 +166,8 @@ def test_pages_and_fetch(tmp_path: Path | None = None) -> None:
     dest = Path(tmp_path) if tmp_path else Path(tempfile.mkdtemp())
     paths = discord_board.write_pages(board, dest)
     welcome = (dest / "welcome.html").read_text()
+    assert "data-theme-toggle" in welcome
+    assert "uadb-theme" in welcome
     assert "\u2014" not in welcome
     assert "Welcome to UA Arena" in welcome or "Welcome to the list hall" in welcome
     assert "announcements" in welcome
