@@ -573,7 +573,7 @@ def discord_chrome(title: str, description: str, board: dict, current: str, body
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-{uadb.seo_head(title, description, rel, json_ld=ld)}{uadb.FONT_LINKS}  <link rel="stylesheet" href="/css/site.css?v={uadb.CSS_VER}" />
+{uadb.seo_head(title, description, rel, json_ld=ld)}{uadb.THEME_BOOT}{uadb.FONT_LINKS}  <link rel="stylesheet" href="/css/site.css?v={uadb.CSS_VER}" />
 </head>
 <body class="discord-app">
   {uadb.skip_link()}
@@ -586,7 +586,7 @@ def discord_chrome(title: str, description: str, board: dict, current: str, body
           <div class="subtitle">{html.escape(uadb.SUBTITLE)}</div>
         </div>
       </a>
-{uadb.nav_html("discord")}
+{uadb.header_tools_html("discord")}
     </header>
     <div class="discord-shell">
 {render_sidebar(board, current)}

@@ -24,8 +24,13 @@ BROWSER_UA = (
 DISCORD = "https://discord.gg/aY9RfB662"
 BRAND = "Union Arena Decklists"
 SUBTITLE = "Add this list to your hand"
-CSS_VER = "ua24"
-JS_VER = "ua8"
+CSS_VER = "ua25"
+JS_VER = "ua9"
+THEME_COOKIE = "uadb-theme"
+THEME_BOOT = """  <script>
+(function(){try{var m=document.cookie.match(/(?:^|; )uadb-theme=([^;]*)/);var t=m?decodeURIComponent(m[1]).trim():"";if(t==="dark"||t==="light")document.documentElement.setAttribute("data-theme",t);}catch(e){}})();
+  </script>
+"""
 TCGPLAYER_CATEGORY_ID = 81
 TCGPLAYER_PRICES_FILE = "data/tcgplayer-prices.json"
 HERO_IMAGE = f"{SITE}/img/uadb-hero.png"
@@ -331,6 +336,33 @@ def nav_html(current: str = "") -> str:
             item("/discord/welcome.html", "Discord", "discord"),
             "      </nav>",
         ]
+    )
+
+
+def theme_toggle_html() -> str:
+    return (
+        '<button type="button" class="theme-toggle" data-theme-toggle '
+        'aria-pressed="false" aria-label="Switch to dark mode">'
+        '<span class="theme-icon theme-icon-moon" aria-hidden="true">'
+        '<svg viewBox="0 0 24 24" fill="currentColor">'
+        '<path d="M16.4 13.2A7.2 7.2 0 0 1 10 4.4a.6.6 0 0 0-.8-.7 8.4 8.4 0 1 0 11.1 11.1.6.6 0 0 0-.7-.8 7.2 7.2 0 0 1-3.2-1z"/>'
+        "</svg></span>"
+        '<span class="theme-icon theme-icon-sun" aria-hidden="true">'
+        '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">'
+        '<circle cx="12" cy="12" r="4"/>'
+        '<path d="M12 3v2M12 19v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M3 12h2M19 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/>'
+        "</svg></span>"
+        "<span data-theme-label>Dark</span>"
+        "</button>"
+    )
+
+
+def header_tools_html(current: str = "") -> str:
+    return (
+        '      <div class="header-tools">\n'
+        f"{nav_html(current)}\n"
+        f"        {theme_toggle_html()}\n"
+        "      </div>"
     )
 
 
@@ -681,7 +713,7 @@ def page_chrome(
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-{seo_head(title, description, path, image=image, image_alt=image_alt, json_ld=json_ld, robots=robots, published=published, modified=modified)}{FONT_LINKS}  <link rel="stylesheet" href="/css/site.css?v={CSS_VER}" />
+{seo_head(title, description, path, image=image, image_alt=image_alt, json_ld=json_ld, robots=robots, published=published, modified=modified)}{THEME_BOOT}{FONT_LINKS}  <link rel="stylesheet" href="/css/site.css?v={CSS_VER}" />
 </head>
 <body class="{html.escape(color)}">
   {skip_link()}
@@ -694,7 +726,7 @@ def page_chrome(
           <div class="subtitle">{html.escape(SUBTITLE)}</div>
         </div>
       </a>
-{nav_html(current)}
+{header_tools_html(current)}
     </header>
 
     <main class="single" id="main">
@@ -738,7 +770,7 @@ def home_chrome(
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-{seo_head(page_t, page_d, "/", image=brand_image, image_alt=brand_alt, json_ld=ld)}{FONT_LINKS}  <link rel="stylesheet" href="/css/site.css?v={CSS_VER}" />
+{seo_head(page_t, page_d, "/", image=brand_image, image_alt=brand_alt, json_ld=ld)}{THEME_BOOT}{FONT_LINKS}  <link rel="stylesheet" href="/css/site.css?v={CSS_VER}" />
 </head>
 <body>
   {skip_link()}
@@ -751,7 +783,7 @@ def home_chrome(
           <div class="subtitle">{html.escape(SUBTITLE)}</div>
         </div>
       </a>
-{nav_html()}
+{header_tools_html()}
     </header>
 
     <main class="single home" id="main" role="main">

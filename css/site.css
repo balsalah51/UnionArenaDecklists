@@ -9,6 +9,11 @@
   --maxw:980px;
   --shadow:0 6px 20px rgba(16,22,26,0.08);
   --leader: var(--accent);
+  --card:#ffffff;
+  --card-border:rgba(0,0,0,.06);
+  --intro:#efeae6;
+  --intro-text:#3a3333;
+  color-scheme:light;
   font-family: Nunito, ui-sans-serif, system-ui, "Segoe UI", sans-serif;
 }
 html{box-sizing:border-box}
@@ -51,9 +56,22 @@ img.logo{display:block;padding:0;border:0}
   color:#5c2a2a
 }
 .subtitle{color:var(--muted);font-size:13px;margin-top:2px;font-weight:600}
+.header-tools{display:flex;align-items:center;justify-content:flex-end;flex-wrap:wrap;gap:8px 0}
 nav{display:flex;flex-wrap:wrap;justify-content:flex-end;row-gap:6px}
 nav a{color:var(--muted);text-decoration:none;margin-left:14px;font-weight:600}
 nav a:hover,nav a[aria-current="page"]{color:var(--accent)}
+.theme-toggle{
+  display:inline-flex;align-items:center;gap:6px;margin-left:14px;
+  padding:6px 10px;border-radius:999px;cursor:pointer;
+  border:1px solid rgba(122,46,46,.28);background:#fff;color:#6e3a3a;
+  font:inherit;font-size:13px;font-weight:800;line-height:1
+}
+.theme-toggle:hover{border-color:#7a2e2e}
+.theme-toggle:focus-visible{outline:2px solid #7a2e2e;outline-offset:2px}
+.theme-icon{width:16px;height:16px;display:none}
+.theme-icon svg{width:16px;height:16px;display:block}
+html:not([data-theme="dark"]) .theme-icon-moon{display:block}
+html[data-theme="dark"] .theme-icon-sun{display:block}
 main{margin-top:22px;display:grid;grid-template-columns:1fr 340px;gap:22px;align-items:start}
 main.single{grid-template-columns:1fr}
 .card{background:var(--surface);border-radius:var(--radius);box-shadow:var(--shadow);padding:22px;min-width:0;max-width:100%}
@@ -524,8 +542,10 @@ a.pill:hover{color:var(--accent)}
   .stat-grid{grid-template-columns:1fr}
   main{grid-template-columns:1fr}
   header{flex-wrap:wrap}
-  nav{width:100%;display:flex;flex-wrap:wrap;justify-content:flex-start;margin-top:8px}
+  .header-tools{width:100%;justify-content:flex-start;margin-top:8px}
+  nav{width:auto;display:flex;flex-wrap:wrap;justify-content:flex-start;margin-top:0}
   nav a{margin-left:0;margin-right:14px}
+  .theme-toggle{margin-left:0}
   .wrap{padding:16px;margin:18px auto}
   .leader-grid,.home-leaders{grid-template-columns:1fr}
   .leader-cards,.home-cards{grid-template-columns:repeat(2,1fr)}
@@ -871,3 +891,80 @@ a.guide-card .muted{display:block;margin-top:4px;font-size:13px}
 .faq summary{cursor:pointer;font-weight:800;color:#3a3333}
 .faq details p{margin:8px 0 0;color:var(--muted);line-height:1.5}
 form.char-search{display:block}
+html[data-theme="dark"]{
+  --bg:#161211;
+  --surface:#221c1c;
+  --text:#f3eee9;
+  --muted:#c4b6b0;
+  --accent:#ef6a6a;
+  --accent-bleed:rgba(239,106,106,.16);
+  --shadow:0 8px 24px rgba(0,0,0,.4);
+  --card:#2a2220;
+  --card-border:rgba(255,255,255,.08);
+  --intro:#2a2220;
+  --intro-text:#f3eee9;
+  color-scheme:dark
+}
+html[data-theme="dark"] header{border-bottom-color:rgba(255,255,255,.08)}
+html[data-theme="dark"] .brand-kicker{color:#c4a8a4}
+html[data-theme="dark"] .brand-name{color:#f3d8d2}
+html[data-theme="dark"] .theme-toggle{
+  background:#2a2220;color:#f3d8d2;border-color:rgba(243,216,210,.28)
+}
+html[data-theme="dark"] .theme-toggle:hover{border-color:#f3d48a}
+html[data-theme="dark"] .theme-toggle:focus-visible{outline-color:#f3d48a}
+html[data-theme="dark"] .hero{
+  background:linear-gradient(180deg,rgba(239,106,106,.06),transparent);
+  border-color:rgba(255,255,255,.04)
+}
+html[data-theme="dark"] .home-ghost,
+html[data-theme="dark"] .home-big-recent,
+html[data-theme="dark"] .home-big-leaders,
+html[data-theme="dark"] .home-big-shop,
+html[data-theme="dark"] .home-big-discord,
+html[data-theme="dark"] .jump-ghost{
+  background:var(--surface);color:#f3d8d2;border-color:rgba(255,255,255,.1)
+}
+html[data-theme="dark"] .home-leaders-intro{
+  background:var(--intro);color:var(--intro-text);border-color:rgba(255,255,255,.06)
+}
+html[data-theme="dark"] .home-leaders-intro h2,
+html[data-theme="dark"] .home-leaders-intro h3,
+html[data-theme="dark"] .home-leaders-intro p,
+html[data-theme="dark"] .char-hit-name{color:var(--text)}
+html[data-theme="dark"] .home-leaders-kicker,
+html[data-theme="dark"] .char-search-label{color:#c4a8a4}
+html[data-theme="dark"] .home-leaders-search-link{color:#f3d8d2;border-bottom-color:rgba(243,216,210,.35)}
+html[data-theme="dark"] .char-search input,
+html[data-theme="dark"] .list-filters input,
+html[data-theme="dark"] .list-filters select,
+html[data-theme="dark"] .char-search-results,
+html[data-theme="dark"] .recent-item,
+html[data-theme="dark"] .item,
+html[data-theme="dark"] .leader-card-link,
+html[data-theme="dark"] .leader-tile,
+html[data-theme="dark"] .card-entry,
+html[data-theme="dark"] .deck-stats,
+html[data-theme="dark"] .meta-strip,
+html[data-theme="dark"] .meta-blurbs li,
+html[data-theme="dark"] .tier-row,
+html[data-theme="dark"] a.guide-card,
+html[data-theme="dark"] .shop-card,
+html[data-theme="dark"] .copy-sim,
+html[data-theme="dark"] .buy-pill{
+  background:var(--card);color:var(--text);border-color:var(--card-border)
+}
+html[data-theme="dark"] .leader-strategy{background:#2a2220;border-color:rgba(243,216,210,.14)}
+html[data-theme="dark"] .leader-strategy a,
+html[data-theme="dark"] a.guide-card strong{color:#f3d8d2}
+html[data-theme="dark"] .faq summary{color:var(--text)}
+html[data-theme="dark"] .faq details{border-color:rgba(255,255,255,.08)}
+html[data-theme="dark"] .copy-sim{color:#f3d8d2}
+html[data-theme="dark"] .buy-pill{color:#f3d8d2;border-color:#f3d8d2}
+html[data-theme="dark"] footer{color:var(--muted)}
+html[data-theme="dark"] body.discord-app{
+  background:var(--bg);color:var(--text)
+}
+html[data-theme="dark"] body.discord-app .theme-toggle{
+  background:#2b2d31;color:#f2f3f5;border-color:rgba(255,255,255,.16)
+}

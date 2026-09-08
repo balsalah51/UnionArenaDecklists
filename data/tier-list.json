@@ -1,6 +1,6 @@
 {
-  "updated": "2026-09-07",
-  "recent_from": "2026-07-24",
+  "updated": "2026-09-08",
+  "recent_from": "2026-07-25",
   "characters": [
     {
       "name": "Sung Jinwoo",
@@ -106,22 +106,22 @@
       "title": "Sakamoto Days",
       "tier": "A",
       "page": "decklists/heisuke-mashimo.html",
-      "recent_top8": 12,
-      "recent_results": 16,
+      "recent_top8": 11,
+      "recent_results": 15,
       "meta_share": 0.020160163923964733,
       "contender_tier": "2",
-      "score": 89.51
+      "score": 84.01
     },
     {
       "name": "Taro Sakamoto",
       "title": "Sakamoto Days",
       "tier": "A",
       "page": "decklists/taro-sakamoto.html",
-      "recent_top8": 12,
-      "recent_results": 17,
+      "recent_top8": 11,
+      "recent_results": 16,
       "meta_share": 0.014707158564018045,
       "contender_tier": "2",
-      "score": 84.982
+      "score": 79.482
     },
     {
       "name": "Evangelion Proto Type-00",
@@ -179,17 +179,6 @@
       "score": 47.242
     },
     {
-      "name": "Kenshin Himura",
-      "title": "Rurouni Kenshin",
-      "tier": "A",
-      "page": "decklists/kenshin-himura.html",
-      "recent_top8": 6,
-      "recent_results": 8,
-      "meta_share": 0.009299524187338554,
-      "contender_tier": "2",
-      "score": 45.158
-    },
-    {
       "name": "Reze",
       "title": "Chainsaw Man",
       "tier": "A",
@@ -199,6 +188,17 @@
       "meta_share": 0.007478326661029574,
       "contender_tier": "2",
       "score": 42.749
+    },
+    {
+      "name": "Kenshin Himura",
+      "title": "Rurouni Kenshin",
+      "tier": "A",
+      "page": "decklists/kenshin-himura.html",
+      "recent_top8": 5,
+      "recent_results": 7,
+      "meta_share": 0.009299524187338554,
+      "contender_tier": "2",
+      "score": 39.658
     },
     {
       "name": "Evangelion Production Model-New 02",
