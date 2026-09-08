@@ -251,7 +251,57 @@
     });
   }
 
+  var THEME_COOKIE = "uadb-theme";
+  var THEME_MAX_AGE = 365 * 24 * 60 * 60;
+
+  function readCookie(name) {
+    var parts = ("; " + document.cookie).split("; " + name + "=");
+    if (parts.length < 2) return "";
+    return decodeURIComponent(parts.pop().split(";").shift() || "").trim();
+  }
+
+  function writeCookie(name, value) {
+    document.cookie = name + "=" + encodeURIComponent(value) +
+      "; Max-Age=" + THEME_MAX_AGE + "; Path=/; SameSite=Lax";
+  }
+
+  function currentTheme() {
+    var attr = document.documentElement.getAttribute("data-theme");
+    if (attr === "dark" || attr === "light") return attr;
+    var cookie = readCookie(THEME_COOKIE);
+    if (cookie === "dark" || cookie === "light") return cookie;
+    return "light";
+  }
+
+  function applyTheme(theme) {
+    theme = theme === "dark" ? "dark" : "light";
+    document.documentElement.setAttribute("data-theme", theme);
+    var meta = document.querySelector('meta[name="theme-color"]');
+    if (meta) meta.setAttribute("content", theme === "dark" ? "#161211" : "#7a2e2e");
+    var next = theme === "dark" ? "light" : "dark";
+    document.querySelectorAll("[data-theme-toggle]").forEach(function (btn) {
+      btn.setAttribute("aria-pressed", theme === "dark" ? "true" : "false");
+      btn.setAttribute("aria-label", "Switch to " + next + " mode");
+      var label = btn.querySelector("[data-theme-label]");
+      if (label) label.textContent = next === "dark" ? "Dark" : "Light";
+    });
+  }
+
+  function initTheme() {
+    applyTheme(currentTheme());
+    document.querySelectorAll("[data-theme-toggle]").forEach(function (btn) {
+      if (btn.dataset.boundTheme) return;
+      btn.dataset.boundTheme = "1";
+      btn.addEventListener("click", function () {
+        var next = currentTheme() === "dark" ? "light" : "dark";
+        writeCookie(THEME_COOKIE, next);
+        applyTheme(next);
+      });
+    });
+  }
+
   function ready() {
+    initTheme();
     ensureCopyButtons();
     initCopy();
     initFilters();

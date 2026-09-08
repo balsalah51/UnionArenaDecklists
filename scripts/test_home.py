@@ -12,6 +12,7 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "scripts"))
 
 import generate_site  # noqa: E402
+import uadb  # noqa: E402
 from generate_site import (  # noqa: E402
     build_character_search,
     combo_has_raid_face,
@@ -370,6 +371,9 @@ class RaidTests(unittest.TestCase):
         self.assertIn('href="/shop.html"', html)
         self.assertIn("home-big-shop", html)
         self.assertIn("home-big-tier", html)
+        self.assertIn("data-theme-toggle", html)
+        self.assertIn("uadb-theme", html)
+        self.assertIn("header-tools", html)
         self.assertIn('href="/tier-list.html"', html)
         self.assertIn("Tier List", html)
         self.assertNotIn("home-shop-grid", html)
@@ -443,6 +447,17 @@ class RaidTests(unittest.TestCase):
         self.assertIn("width:340px", css)
         self.assertIn(".text-line .card-pop{", css)
         self.assertIn("|| 340", (ROOT / "scripts" / "uadb.py").read_text(encoding="utf-8"))
+
+    def test_theme_toggle_uses_cookie(self):
+        js = (ROOT / "js" / "site.js").read_text(encoding="utf-8")
+        self.assertIn('uadb-theme', js)
+        self.assertIn("Path=/", js)
+        self.assertIn("Max-Age=", js)
+        self.assertIn("SameSite=Lax", js)
+        self.assertIn("data-theme", js)
+        boot = uadb.THEME_BOOT
+        self.assertIn("uadb-theme", boot)
+        self.assertIn("data-theme", boot)
 
     def test_site_js_parses(self):
         import subprocess

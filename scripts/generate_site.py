@@ -2690,7 +2690,7 @@ def write_shop() -> None:
 def write_privacy() -> None:
     body = f"""        {uadb.crumb_html([("/", "Home"), (None, "Privacy Policy")])}
         <h1>Privacy Policy</h1>
-        <p class="muted">Last updated: August 31, 2026</p>
+        <p class="muted">Last updated: September 8, 2026</p>
         <p>Union Arena Decklists ("we," "us," or "this site") respects your privacy. This Privacy Policy explains what information we collect when you visit unionarenadecklists.com, how we use it, and the choices you have.</p>
         <section>
           <h3>Information We Collect</h3>
@@ -2699,7 +2699,7 @@ def write_privacy() -> None:
         </section>
         <section>
           <h3>Cookies</h3>
-          <p>We use cookies and similar tracking technologies to understand how visitors use the site, remember basic preferences, and support advertising if ads are enabled.</p>
+          <p>We use cookies and similar tracking technologies to understand how visitors use the site, remember basic preferences, and support advertising if ads are enabled. The <code>uadb-theme</code> cookie stores whether you last picked light or dark mode so the next visit opens on that setting. It stays on your device for a year and is only used for that preference.</p>
         </section>
         <section>
           <h3>Advertising</h3>
