@@ -44,7 +44,10 @@ ICON_192 = f"{SITE}/img/icon-192.png"
 ICON_512 = f"{SITE}/img/icon-512.png"
 SEARCH_PATH = "/characters.html"
 DEFAULT_ROBOTS = "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
-SITE_DESCRIPTION = "50-card Union Arena TCG decklists for Standard, grouped by anime and manga title."
+SITE_DESCRIPTION = (
+    "Public 50-card Union Arena TCG lists for English Standard, grouped by anime and manga title, "
+    "with recent event 50s, character hubs, and a sourced tier board."
+)
 ADSENSE_CLIENT = "ca-pub-1074015774205047"
 FONT_LINKS = f"""  <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -528,6 +531,20 @@ def faq_ld(pairs: list[tuple[str, str]]) -> dict:
     }
 
 
+def how_to_ld(name: str, description: str, steps: list[str]) -> dict:
+    return {
+        "@context": "https://schema.org",
+        "@type": "HowTo",
+        "name": name,
+        "description": clip_meta(description),
+        "step": [
+            {"@type": "HowToStep", "position": i, "name": f"Step {i}", "text": step}
+            for i, step in enumerate(steps, start=1)
+            if step
+        ],
+    }
+
+
 def webpage_ld(
     path: str,
     title: str,
@@ -583,6 +600,13 @@ def decklist_ld(
     )
     block["genre"] = "Trading Card Game decklist"
     block["about"] = about
+    if image:
+        img_url = absolute_url(image) if image.startswith("/") else image
+        block["image"] = {
+            "@type": "ImageObject",
+            "url": img_url,
+            "contentUrl": img_url,
+        }
     return block
 
 
@@ -650,8 +674,12 @@ def seo_head(
     return (
         f"  <title>{html.escape(title)}</title>\n"
         f'  <meta name="description" content="{html.escape(desc)}" />\n'
+        f'  <meta name="author" content="{html.escape(BRAND)}" />\n'
         f"{robots_tag}"
         f'  <link rel="canonical" href="{html.escape(url)}" />\n'
+        f'  <link rel="alternate" hreflang="en" href="{html.escape(url)}" />\n'
+        f'  <link rel="alternate" hreflang="x-default" href="{html.escape(url)}" />\n'
+        f'  <link rel="sitemap" type="application/xml" href="{SITE}/sitemap.xml" />\n'
         f'  <meta property="og:site_name" content="{html.escape(BRAND)}" />\n'
         f'  <meta property="og:title" content="{html.escape(title)}" />\n'
         f'  <meta property="og:description" content="{html.escape(desc)}" />\n'
@@ -759,9 +787,7 @@ def home_chrome(
     json_ld: list[dict] | None = None,
 ) -> str:
     page_t = title or page_title(BRAND)
-    page_d = description or (
-        "Union Arena TCG decklists, character hubs, and consensus cores by anime and manga title."
-    )
+    page_d = description or SITE_DESCRIPTION
     ld = json_ld or [organization_ld(), website_ld()]
     brand_image = image or OG_IMAGE
     brand_alt = image_alt or BRAND

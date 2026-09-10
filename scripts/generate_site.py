@@ -109,8 +109,26 @@ FORMAT_FAQ = [
         "Where can I find Union Arena decklists?",
         "Union Arena Decklists publishes public 50-card Standard lists by character and title, including consensus cores, official top-placing lists, and recent tournament 50s.",
     ),
+    (
+        "How do I copy a Union Arena 50 into TCGplayer?",
+        "Open a list page, use Copy list for the text 50, or Buy this list on TCGplayer to send the same cards into Mass Entry. AP cards stay out of the 50.",
+    ),
+    (
+        "Does this site invent tournament results?",
+        "No. Rankings and writeups only use public TCG Contender tiers plus hosted official and event 50s. Community lists are labeled as community lists.",
+    ),
 ]
+COPY_LIST_HOW_TO = (
+    "Copy a Union Arena 50 into TCGplayer",
+    "Turn a hosted 50-card list into a TCGplayer Mass Entry cart without retyping cards.",
+    [
+        "Open a character hub or a recent list on Union Arena Decklists.",
+        "Use Copy list to put the 50-card text on the clipboard, or Buy this list on TCGplayer to open Mass Entry with the same cards.",
+        "AP cards stay beside the 50 and are skipped in Mass Entry.",
+    ],
+)
 _SITEMAP_IMAGES: dict[str, list[tuple[str, str]] | tuple[str, str]] = {}
+_SITEMAP_DATES: dict[str, str] = {}
 SHOP_GROUP_META = [
     ("Sleeves", "packs", "Card sleeves on Amazon"),
     ("Dice", "sets", "Dice on Amazon"),
@@ -1390,7 +1408,7 @@ def hub_doc_title(arch: dict) -> str:
     return uadb.page_title(primary)
 
 
-def list_doc_description(arch: dict, entry: dict) -> str:
+def list_doc_description(arch: dict, entry: dict, items: list[dict] | None = None) -> str:
     full = arch.get("full") or arch.get("name") or "Union Arena"
     sub = uadb.no_em(entry.get("subtitle") or "")
     kind = list_kind_label(entry.get("kind") or "")
@@ -1400,7 +1418,39 @@ def list_doc_description(arch: dict, entry: dict) -> str:
         bits.append(date)
     if sub:
         bits.append(sub)
-    bits.append("50-card Standard list with card pictures and TCGplayer links.")
+    cards = 0
+    names: list[str] = []
+    for it in items or []:
+        if it.get("group") == "AP cards":
+            continue
+        n = int(it.get("count") or 0)
+        cards += n
+        label = uadb.display_name(it.get("name") or "") or it.get("id") or ""
+        if label and len(names) < 4:
+            names.append(f"{n}x {label}" if n else label)
+    if cards:
+        bits.append(f"{cards}-card Standard list")
+    else:
+        bits.append("50-card Standard list")
+    if names:
+        bits.append("opens with " + ", ".join(names))
+    bits.append("Card pictures and TCGplayer links.")
+    return uadb.clip_meta(" · ".join(bits))
+
+
+def hub_doc_description(arch: dict, lists: list[dict]) -> str:
+    n_lists = len(lists)
+    newest = (lists[0].get("date") if lists else "") or ""
+    series = arch.get("title") or ""
+    bits = [
+        f"{arch.get('full') or arch.get('name') or 'Union Arena'} Union Arena decklists: "
+        f"{n_lists} public 50-card Standard list{'' if n_lists == 1 else 's'}"
+    ]
+    if series:
+        bits.append(f"for {series}")
+    if newest:
+        bits.append(f"newest {newest}")
+    bits.append("Consensus core, card pictures, and related character decks.")
     return uadb.clip_meta(" · ".join(bits))
 
 
@@ -1512,6 +1562,16 @@ def _sitemap_image_rows(img) -> list[tuple[str, str]]:
         title = str(img[1]) if len(img) > 1 else ""
         return [(url, title)] if url else []
     return [(str(img), "")]
+
+
+def remember_date(path: str, when: str) -> None:
+    key = (path or "").lstrip("/")
+    stamp = (when or "")[:10]
+    if not stamp:
+        return
+    prev = _SITEMAP_DATES.get(key) or ""
+    if stamp > prev:
+        _SITEMAP_DATES[key] = stamp
 
 
 def remember_image(path: str, image: str, title: str = "") -> None:
@@ -1872,7 +1932,8 @@ def write_list_page(
         <p class="hub-more">{' · '.join(more_links)}</p>
         <p class="muted" style="margin-top:22px">{html.escape(kind_note)} Source: <a href="{html.escape(source)}">{html.escape(source)}</a>. Images hosted by Bandai. Buy links are TCGplayer affiliate links. Fan site, not affiliated with Bandai.</p>"""
     page_title = list_doc_title(arch, entry)
-    page_desc = list_doc_description(arch, entry)
+    page_desc = list_doc_description(arch, entry, items)
+    remember_date(list_path, entry.get("date") or "")
     page = uadb.page_chrome(
         page_title,
         page_desc,
@@ -1973,13 +2034,8 @@ def write_hub(
     if series:
         more_links.insert(0, f'<a href="{html.escape(series["href"])}">All {html.escape(series["name"])} decks</a>')
         more_links.append(f'<a href="{html.escape(series["discord"])}">{html.escape(series["name"])} on Discord</a>')
-    n_lists = len(lists)
-    desc = uadb.clip_meta(
-        f"{arch['full']} Union Arena decklists: {n_lists} public 50-card Standard list"
-        f"{'' if n_lists == 1 else 's'}"
-        + (f" for {arch['title']}" if arch.get("title") else "")
-        + ". Consensus core, card pictures, and related character decks."
-    )
+    desc = hub_doc_description(arch, lists)
+    remember_date(arch["page"], (lists[0].get("date") if lists else "") or "")
     body = f"""        {uadb.crumb_html(crumbs)}
         <div class="leader-hero">
           {f'<img src="{html.escape(img)}" alt="{html.escape(arch["full"])} Union Arena character card" fetchpriority="high" decoding="async" />' if img else ''}
@@ -2275,9 +2331,15 @@ def write_home(arches: list[dict], recent: list[dict], cache: dict, features: di
     ]
     remember_image("", "/img/og-logo.png", uadb.BRAND)
     remember_image("", "/img/icon-512.png", f"{uadb.BRAND} logo")
+    remember_date("", (recent[0].get("when") if recent else "") or "")
+    home_desc = uadb.clip_meta(
+        f"{uadb.SITE_DESCRIPTION} Recent lists, character hubs, and the sourced tier board. "
+        f"{len(recent)} hosted 50s on this pass."
+    )
     (uadb.ROOT / "index.html").write_text(
         uadb.home_chrome(
             body,
+            description=home_desc,
             json_ld=[
                 uadb.organization_ld(),
                 uadb.website_ld(),
@@ -2396,6 +2458,11 @@ def write_characters_index(
                 uadb.page_title("Union Arena characters and title decklists"),
                 "Every Union Arena character hub and 50-card Standard list, grouped by anime and manga title. Search Raiders or browse a series.",
                 page_type="CollectionPage",
+            ),
+            uadb.item_list_ld(
+                "Union Arena character hubs",
+                [(f"/{arch['page']}", arch.get("full") or arch.get("name") or "Character") for arch in raiders[:40]],
+                url="/characters.html",
             ),
         ],
     )
@@ -2550,6 +2617,13 @@ def write_series_page(rec: dict, catalog: list[dict], features: dict, cache: dic
     (uadb.ROOT / rec["page"]).write_text(page)
     if img:
         remember_image(rec["page"], img, f"{name} Union Arena decks")
+    newest = ""
+    for arch in hubs:
+        for entry in arch.get("lists") or []:
+            when = (entry.get("date") or "")[:10]
+            if when > newest:
+                newest = when
+    remember_date(rec["page"], newest)
 
 
 def write_format(arches: list[dict]) -> None:
@@ -2619,6 +2693,7 @@ def write_format(arches: list[dict]) -> None:
             uadb.website_ld(),
             uadb.breadcrumb_ld([("/", "Home"), ("/format.html", "Format")]),
             uadb.faq_ld(FORMAT_FAQ),
+            uadb.how_to_ld(*COPY_LIST_HOW_TO),
         ],
     )
     (uadb.ROOT / "format.html").write_text(page)
@@ -2734,6 +2809,37 @@ def write_privacy() -> None:
     (uadb.ROOT / "privacy.html").write_text(page)
 
 
+def write_llms_txt(catalog: list[dict], recent: list[dict]) -> None:
+    titles = ", ".join(rec.get("name") or rec.get("slug") or "" for rec in catalog[:12] if rec.get("name"))
+    newest = (recent[0].get("when") if recent else "") or ""
+    lines = [
+        "# Union Arena Decklists",
+        f"> {uadb.SITE_DESCRIPTION}",
+        "",
+        "This site hosts complete public 50-card Union Arena constructed lists.",
+        "It does not invent tournament results or matchup percentages.",
+        "English events are single-title Standard.",
+        "",
+        "## Start here",
+        f"- Home: {uadb.SITE}/",
+        f"- Recent lists: {uadb.SITE}/#recent",
+        f"- Characters: {uadb.SITE}/characters.html",
+        f"- Titles: {uadb.SITE}/series.html",
+        f"- Tier list: {uadb.SITE}/tier-list.html",
+        f"- Format: {uadb.SITE}/format.html",
+        f"- Guides: {uadb.SITE}/guides/",
+        f"- Sitemap: {uadb.SITE}/sitemap.xml",
+        f"- RSS: {uadb.SITE}/feed.xml",
+        "",
+        "## Titles on this pass",
+        titles or "See /series.html",
+        "",
+        f"Newest hosted list date: {newest or 'see /#recent'}.",
+        "",
+    ]
+    (uadb.ROOT / "llms.txt").write_text(uadb.no_em("\n".join(lines)), encoding="utf-8")
+
+
 def write_404() -> None:
     body = """        <nav class="crumb" aria-label="Breadcrumb"><a href="/">Home</a> / Missing page</nav>
         <h1>That page is not here</h1>
@@ -2749,12 +2855,18 @@ def write_404() -> None:
     (uadb.ROOT / "404.html").write_text(page)
 
 
-def write_sitemap(paths: list[str], lastmod: str = "", images: dict | None = None) -> None:
+def write_sitemap(
+    paths: list[str],
+    lastmod: str = "",
+    images: dict | None = None,
+    dates: dict | None = None,
+) -> None:
     stamp = lastmod or date.today().isoformat()
     skip = re.compile(r"(^discord/board\.json$|^discord/threads/|^discord/?$)")
     seen: set[str] = set()
     rows = []
     images = images or {}
+    dates = dates or {}
     for raw in paths:
         p = (raw or "").lstrip("/")
         if p in seen or skip.search(p):
@@ -2773,7 +2885,8 @@ def write_sitemap(paths: list[str], lastmod: str = "", images: dict | None = Non
                 f"{title_xml}</image:image>"
             )
         extra = "".join(bits)
-        rows.append(f"  <url><loc>{loc}</loc><lastmod>{stamp}</lastmod>{extra}</url>")
+        when = (dates.get(p) or dates.get(raw) or stamp)[:10]
+        rows.append(f"  <url><loc>{loc}</loc><lastmod>{when}</lastmod>{extra}</url>")
     xml = f"""<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
 {chr(10).join(rows)}
@@ -2918,9 +3031,10 @@ def main() -> None:
     features = {}
     recent = []
     published = []
-    global _SITEMAP_IMAGES
+    global _SITEMAP_IMAGES, _SITEMAP_DATES
     _SITEMAP_IMAGES = {}
-    sitemap = ["", "characters.html", "series.html", "format.html", "shop.html", "privacy.html", "feed.xml"]
+    _SITEMAP_DATES = {}
+    sitemap = ["", "characters.html", "series.html", "format.html", "shop.html", "privacy.html", "feed.xml", "llms.txt"]
     index = {}
     board_decks = []
     hub_jobs = []
@@ -3065,7 +3179,8 @@ def main() -> None:
     board = discord_board.build_board(board_decks, updated=stamp)
     sitemap.extend(discord_board.write_pages(board))
     write_feed(recent, lastmod=stamp)
-    write_sitemap(sitemap, lastmod=stamp, images=_SITEMAP_IMAGES)
+    write_llms_txt(catalog, recent)
+    write_sitemap(sitemap, lastmod=stamp, images=_SITEMAP_IMAGES, dates=_SITEMAP_DATES)
     write_404()
     uadb.save_json("data/site-index.json", index)
     uadb.log("wrote site", "pages", len(sitemap), "discord themes", board.get("theme_count"))
