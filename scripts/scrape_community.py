@@ -896,6 +896,10 @@ def main() -> None:
         import scrape_events
 
         scrape_events.scrape_events(found, seen, cache, arches)
+    if "--skip-exburst" not in sys.argv:
+        import scrape_exburst
+
+        scrape_exburst.scrape_exburst(found, seen, cache, arches)
     video_ids: list[tuple[str, str]] = []
     if "--skip-youtube" not in sys.argv:
         video_ids = scrape_youtube(found, seen, cache, arches)

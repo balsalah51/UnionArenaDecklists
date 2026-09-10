@@ -134,6 +134,9 @@ class SeoChromeTests(unittest.TestCase):
         self.assertIn('name="twitter:card"', head)
         self.assertIn("max-image-preview:large", head)
         self.assertIn('property="og:image:alt"', head)
+        self.assertIn('hreflang="x-default"', head)
+        self.assertIn('rel="sitemap"', head)
+        self.assertIn('name="author"', head)
         self.assertIn('rel="icon"', uadb.FONT_LINKS)
         self.assertIn("/img/icon-48.png", uadb.FONT_LINKS)
         self.assertLess(uadb.FONT_LINKS.find("/img/icon-48.png"), uadb.FONT_LINKS.find("/favicon.svg"))
@@ -191,6 +194,11 @@ class SeoChromeTests(unittest.TestCase):
         faq = uadb.faq_ld([("How many cards are in a Union Arena deck?", "Exactly 50 cards.")])
         self.assertEqual(faq["@type"], "FAQPage")
         self.assertEqual(faq["mainEntity"][0]["name"], "How many cards are in a Union Arena deck?")
+        howto = uadb.how_to_ld("Copy a 50", "Open Mass Entry.", ["Open a list.", "Click Buy this list on TCGplayer."])
+        self.assertEqual(howto["@type"], "HowTo")
+        self.assertEqual(len(howto["step"]), 2)
+        self.assertIn("50-card", uadb.SITE_DESCRIPTION)
+        self.assertIn("Standard", uadb.SITE_DESCRIPTION)
 
     def test_google_favicon_files_exist(self):
         root = Path(__file__).resolve().parents[1]
@@ -210,6 +218,8 @@ class SeoChromeTests(unittest.TestCase):
         robots = (root / "robots.txt").read_text(encoding="utf-8")
         self.assertIn("Allow: /favicon.ico", robots)
         self.assertIn("Allow: /img/", robots)
+        self.assertIn("Allow: /llms.txt", robots)
+        self.assertIn("Allow: /guides/", robots)
 
     def test_page_chrome_never_uses_home_or_untitled(self):
         html = uadb.page_chrome(
@@ -364,6 +374,19 @@ class SeriesLinkTests(unittest.TestCase):
             },
         )
         self.assertNotEqual(a, b)
+        desc = generate_site.list_doc_description(
+            arch,
+            {"kind": "event", "date": "2026-08-16", "subtitle": "1st"},
+            [{"name": "Sung Jinwoo", "count": 4, "group": "Characters", "id": "UE17BT/SLG-1-022"}],
+        )
+        self.assertIn("2026-08-16", desc)
+        self.assertIn("Sung Jinwoo", desc)
+        hub_desc = generate_site.hub_doc_description(
+            {"full": "Solo Leveling - Sung Jinwoo", "title": "Solo Leveling"},
+            [{"date": "2026-09-07"}],
+        )
+        self.assertIn("newest 2026-09-07", hub_desc)
+        self.assertIn("Solo Leveling", hub_desc)
 
     def test_hub_and_list_markup_link_series(self):
         arch = {
@@ -443,11 +466,13 @@ class SeriesLinkTests(unittest.TestCase):
                         "discord/",
                     ],
                     lastmod="2026-08-27",
+                    dates={"series.html": "2026-09-01"},
                 )
             xml = (root / "sitemap.xml").read_text(encoding="utf-8")
         self.assertIn("https://unionarenadecklists.com/</loc>", xml)
         self.assertIn("series.html", xml)
         self.assertIn("<lastmod>2026-08-27</lastmod>", xml)
+        self.assertIn("<lastmod>2026-09-01</lastmod>", xml)
         self.assertIn("xmlns:image", xml)
         self.assertNotIn("board.json", xml)
         self.assertNotIn("/threads/", xml)
@@ -513,6 +538,8 @@ class SeriesLinkTests(unittest.TestCase):
         self.assertIn('id="faq"', html)
         self.assertIn("/tier-list.html", html)
         self.assertIn("/guides/", html)
+        self.assertIn("HowTo", html)
+        self.assertIn("Copy a Union Arena 50 into TCGplayer", html)
 
 
 if __name__ == "__main__":
