@@ -171,6 +171,49 @@ class TierAssignTests(unittest.TestCase):
         self.assertEqual(by_name["Ram"], "D")
         self.assertTrue(all(letter in "SABCD" for letter in by_name.values()))
 
+    def test_field_with_many_locals_is_a_bell_curve(self):
+        rows = []
+        for i in range(12):
+            rows.append(
+                {
+                    "name": f"Regular {i:02d}",
+                    "contender_tier": "2",
+                    "meta_share": 0.02 - i * 0.001,
+                    "recent_top8": 12 - i,
+                    "recent_top4": max(0, 6 - i),
+                    "recent_wins": 1 if i < 2 else 0,
+                    "recent_results": 14 - i,
+                    "recent_lists": 16 - i,
+                    "list_count": 20,
+                }
+            )
+        rows.append(
+            {
+                "name": "Sung Jinwoo",
+                "contender_tier": "1",
+                "meta_share": 0.08,
+                "recent_top8": 20,
+                "recent_top4": 12,
+                "recent_wins": 8,
+                "recent_results": 24,
+                "recent_lists": 30,
+                "list_count": 40,
+            }
+        )
+        write_guides.assign_letters(rows)
+        letters = [row["tier"] for row in rows]
+        counts = {letter: letters.count(letter) for letter in "SABCD"}
+        self.assertEqual(max(rows, key=lambda r: r["score"])["tier"], "S")
+        self.assertGreaterEqual(counts["B"], counts["A"])
+        self.assertGreaterEqual(counts["B"], 3)
+        self.assertLess(counts["A"], 6)
+        self.assertTrue(counts["S"] >= 1)
+        self.assertLess(counts["S"], counts["B"])
+        self.assertEqual(write_guides.curve_letters(5), ["S", "A", "B", "C", "D"])
+        curve = write_guides.curve_letters(22)
+        self.assertGreater(curve.count("B"), curve.count("A"))
+        self.assertGreater(curve.count("B"), curve.count("S"))
+
 
 class PlanAndPagesTests(unittest.TestCase):
     def setUp(self):
