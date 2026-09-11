@@ -339,6 +339,33 @@ a.item:hover{border-color:rgba(211,47,47,0.25);box-shadow:var(--shadow);transfor
 .aside-pair a{display:block;line-height:0}
 .aside-pair img{width:72px;height:auto;border-radius:8px;background:#eee;box-shadow:0 4px 12px rgba(16,22,26,0.1)}
 .muted{color:var(--muted);font-size:14px}
+.ad-slot{
+  margin:22px 0 0;padding:14px 16px 16px;border-radius:var(--radius);
+  border:1px dashed rgba(122,46,46,.22);background:rgba(122,46,46,.03);
+  min-height:120px
+}
+.ad-label{
+  margin:0 0 8px;font-size:11px;font-weight:800;letter-spacing:.12em;
+  text-transform:uppercase;color:var(--muted)
+}
+.ad-slot ins.adsbygoogle{display:block;min-height:90px}
+.partner-band{
+  margin:22px 0 8px;padding:20px 22px;border-radius:var(--radius);
+  border:1px solid var(--card-border);background:linear-gradient(180deg,rgba(122,46,46,.05),#fff)
+}
+.partner-kicker{
+  margin:0 0 6px;font-size:11px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:#8a6f6f
+}
+.partner-band h2,.partner-card h2{margin:0;font-size:20px;color:var(--text)}
+.partner-band p{margin:8px 0 0;color:var(--muted);line-height:1.55}
+.partner-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin-top:18px}
+.partner-card{
+  padding:18px 18px 16px;border-radius:var(--radius);
+  border:1px solid var(--card-border);background:#fff;
+  box-shadow:0 2px 10px rgba(16,22,26,0.04)
+}
+.partner-card p{margin:8px 0 0;line-height:1.55;color:var(--text)}
+.partner-card .home-ghost,.partner-card .buy-deck{margin-top:12px}
 footer{margin-top:28px;color:var(--muted);font-size:13px;text-align:left}
 footer a{color:var(--accent);font-weight:700;text-decoration:none}
 footer a:hover{text-decoration:underline}
@@ -641,6 +668,7 @@ a.pill:hover{color:var(--accent)}
   .leader-cards.home-cards{grid-template-columns:repeat(2,1fr)}
   .shop-grid{grid-template-columns:repeat(2,1fr)}
   .shop-card .buy-deck{width:100%}
+  .partner-grid{grid-template-columns:1fr}
 }
 @media (max-width:1080px) and (min-width:881px){
   .home-big3{grid-template-columns:repeat(3,minmax(0,1fr))}
@@ -995,6 +1023,9 @@ html[data-theme="dark"] .meta-blurbs li,
 html[data-theme="dark"] .tier-row,
 html[data-theme="dark"] a.guide-card,
 html[data-theme="dark"] .shop-card,
+html[data-theme="dark"] .partner-card,
+html[data-theme="dark"] .partner-band,
+html[data-theme="dark"] .ad-slot,
 html[data-theme="dark"] .copy-sim,
 html[data-theme="dark"] .buy-pill{
   background:var(--card);color:var(--text);border-color:var(--card-border)
@@ -1006,6 +1037,8 @@ html[data-theme="dark"] .faq summary{color:var(--text)}
 html[data-theme="dark"] .faq details{border-color:rgba(255,255,255,.08)}
 html[data-theme="dark"] .copy-sim{color:#f3d8d2}
 html[data-theme="dark"] .buy-pill{color:#f3d8d2;border-color:#f3d8d2}
+html[data-theme="dark"] .ad-slot{border-color:rgba(243,216,210,.2);background:rgba(255,255,255,.03)}
+html[data-theme="dark"] .partner-kicker{color:#c4a8a4}
 html[data-theme="dark"] footer{color:var(--muted)}
 html[data-theme="dark"] .footer-grid{border-top-color:rgba(255,255,255,.08)}
 html[data-theme="dark"] .footer-mark{color:var(--text)}

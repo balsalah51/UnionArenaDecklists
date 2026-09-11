@@ -24,6 +24,7 @@ from generate_site import (  # noqa: E402
     write_format,
     write_hub,
     write_list_page,
+    write_partners,
     write_sitemap,
 )
 
@@ -205,7 +206,13 @@ class SeoChromeTests(unittest.TestCase):
         self.assertNotIn("Public lists by title", uadb.SITE_DESCRIPTION)
         self.assertIn('name="color-scheme"', uadb.seo_head("Title", "Desc", "/"))
         self.assertIn("footer-grid", uadb.footer_links())
+        self.assertIn("/partners.html", uadb.footer_links())
+        self.assertIn(uadb.SISTER_SITE, uadb.footer_links())
         self.assertIn('width="72" height="100"', uadb.card_img_size("tile"))
+        self.assertIn("adsbygoogle", uadb.ad_slot_html())
+        self.assertIn(uadb.ADSENSE_CLIENT, uadb.ad_slot_html())
+        self.assertIn("partner.tcgplayer.com", uadb.tcgplayer_catalog_url())
+        self.assertIn(uadb.SISTER_SITE, uadb.organization_ld()["sameAs"])
 
     def test_google_favicon_files_exist(self):
         root = Path(__file__).resolve().parents[1]
@@ -227,6 +234,7 @@ class SeoChromeTests(unittest.TestCase):
         self.assertIn("Allow: /img/", robots)
         self.assertIn("Allow: /llms.txt", robots)
         self.assertIn("Allow: /guides/", robots)
+        self.assertIn("Allow: /partners.html", robots)
 
     def test_page_chrome_never_uses_home_or_untitled(self):
         html = uadb.page_chrome(
@@ -547,6 +555,20 @@ class SeriesLinkTests(unittest.TestCase):
         self.assertIn("/guides/", html)
         self.assertIn("HowTo", html)
         self.assertIn("Copy a Union Arena 50 into TCGplayer", html)
+
+    def test_partners_page_lists_live_programs(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            with patch.object(generate_site.uadb, "ROOT", root), patch.object(uadb, "ROOT", root):
+                write_partners()
+            html = (root / "partners.html").read_text(encoding="utf-8")
+        self.assertIn("TCGplayer", html)
+        self.assertIn("Amazon Associates", html)
+        self.assertIn("Google AdSense", html)
+        self.assertIn("onepiecedeckbase.com", html)
+        self.assertIn("Not live here yet", html)
+        self.assertIn("partner.tcgplayer.com", html)
+        self.assertIn("Nothing here is an official Bandai deal", html)
 
 
 if __name__ == "__main__":

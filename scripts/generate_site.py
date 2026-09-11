@@ -2746,12 +2746,22 @@ def write_shop() -> None:
           </div>
         </section>"""
         )
+    singles = uadb.tcgplayer_catalog_url()
     body = f"""        {uadb.crumb_html([("/", "Home"), (None, "Shop")])}
         <h1>Shop</h1>
         <p>Sleeves, playmats, deck boxes, and extras for Union Arena lists. Pair these with a <a href="/characters.html">character deck</a> or the <a href="/series.html">title pages</a>.</p>
+        <section class="partner-band">
+          <p class="partner-kicker">Singles partner</p>
+          <h2>Union Arena cards on TCGplayer</h2>
+          <p>Every list page already opens Mass Entry. Use the catalog when you want to browse singles, sealed product, or fill holes without a full 50.</p>
+          <p class="home-actions">
+            <a class="buy-deck" href="{html.escape(singles)}" target="_blank" rel="noopener sponsored">Browse Union Arena on TCGplayer</a>
+            <a class="home-ghost" href="/partners.html">How this site is funded</a>
+          </p>
+        </section>
 {chr(10).join(sections)}
         {amazon_note_html()}
-        <p class="muted" style="margin-top:12px">Prices, stock, and shipping are set by Amazon. This site does not sell these products directly.</p>"""
+        <p class="muted" style="margin-top:12px">Prices, stock, and shipping are set by Amazon or TCGplayer. This site does not sell these products directly.</p>"""
     page = uadb.page_chrome(
         "Shop sleeves, playmats, and more | Union Arena Decklists",
         "Dragon Shield sleeves, playmats, deck boxes, and extras for Union Arena. Amazon Associate shop links.",
@@ -2770,7 +2780,7 @@ def write_shop() -> None:
 def write_privacy() -> None:
     body = f"""        {uadb.crumb_html([("/", "Home"), (None, "Privacy Policy")])}
         <h1>Privacy Policy</h1>
-        <p class="muted">Last updated: September 8, 2026</p>
+        <p class="muted">Last updated: September 11, 2026</p>
         <p>Union Arena Decklists ("we," "us," or "this site") respects your privacy. This Privacy Policy explains what information we collect when you visit unionarenadecklists.com, how we use it, and the choices you have.</p>
         <section>
           <h3>Information We Collect</h3>
@@ -2783,7 +2793,7 @@ def write_privacy() -> None:
         </section>
         <section>
           <h3>Advertising</h3>
-          <p>This site may display advertisements served by third-party providers, including Google AdSense. You can opt out of personalized advertising at <a href="https://adssettings.google.com/" target="_blank" rel="noopener">Google's Ads Settings</a>.</p>
+          <p>This site may display advertisements served by third-party providers, including Google AdSense. Labeled ad slots sit below the main article on most pages. You can opt out of personalized advertising at <a href="https://adssettings.google.com/" target="_blank" rel="noopener">Google's Ads Settings</a>.</p>
         </section>
         <section>
           <h3>TCGplayer</h3>
@@ -2814,6 +2824,87 @@ def write_privacy() -> None:
     (uadb.ROOT / "privacy.html").write_text(page)
 
 
+def write_partners() -> None:
+    singles = uadb.tcgplayer_catalog_url()
+    body = f"""        {uadb.crumb_html([("/", "Home"), (None, "Partners")])}
+        <h1>Partners and advertising</h1>
+        <p class="page-lead">This is a fan site. The live programs below pay for hosting. Nothing here is an official Bandai deal, and we do not invent sponsorships.</p>
+
+        <section class="partner-grid" aria-label="Live programs">
+          <article class="partner-card">
+            <p class="partner-kicker">Live</p>
+            <h2>TCGplayer</h2>
+            <p>List buy buttons and Mass Entry links use the TCGplayer affiliate program on Impact. A purchase through those links may earn this site a commission, at no extra cost to you.</p>
+            <p><a class="buy-deck" href="{html.escape(singles)}" target="_blank" rel="noopener sponsored">Browse Union Arena singles</a></p>
+          </article>
+          <article class="partner-card">
+            <p class="partner-kicker">Live</p>
+            <h2>Amazon Associates</h2>
+            <p>Shop links for sleeves, playmats, deck boxes, and extras go to Amazon. As an Amazon Associate I earn from qualifying purchases.</p>
+            <p><a class="home-ghost" href="/shop.html">Open the shop</a></p>
+          </article>
+          <article class="partner-card">
+            <p class="partner-kicker">Live</p>
+            <h2>Google AdSense</h2>
+            <p>Labeled advertisement slots sit below the main article. Ads are served by Google. Use Google's ad settings to turn off personalized ads.</p>
+            <p><a class="home-ghost" href="https://adssettings.google.com/" target="_blank" rel="noopener">Ad settings</a></p>
+          </article>
+          <article class="partner-card">
+            <p class="partner-kicker">Sister site</p>
+            <h2>{html.escape(uadb.SISTER_NAME)}</h2>
+            <p>Same list-first approach for the One Piece Card Game. Cross-links stay labeled as a sister site, not a paid placement.</p>
+            <p><a class="home-ghost" href="{html.escape(uadb.SISTER_SITE)}" target="_blank" rel="noopener">Visit {html.escape(uadb.SISTER_NAME)}</a></p>
+          </article>
+        </section>
+
+        <section style="margin-top:28px">
+          <div class="section-title">
+            <h2>Open programs</h2>
+            <div class="muted">Not live here yet</div>
+          </div>
+          <p>These are public programs a Union Arena list site can apply to. They are not current sponsors.</p>
+          <ul class="meta-blurbs">
+            <li>
+              <a href="https://www.flexoffers.com/affiliate-programs/premium-bandai-usa-affiliate-program/" target="_blank" rel="noopener">Premium Bandai USA</a>
+              <p>Official merch and collectibles through FlexOffers. Useful for playmats, figures, and Bandai store drops once an account is approved.</p>
+            </li>
+            <li>
+              <a href="https://ultimateguard.com/en/Partners/" target="_blank" rel="noopener">Ultimate Guard creator partners</a>
+              <p>Direct creator and event-host program for sleeves, cases, and playmats. Apply on their Partners page. Not an open self-serve affiliate link.</p>
+            </li>
+            <li>
+              <a href="https://docs.tcgplayer.com/docs/tcgplayer-affiliate-program" target="_blank" rel="noopener">TCGplayer Impact docs</a>
+              <p>The same Impact campaign already on the buy buttons. Room to add more category and sealed-product links without a second network.</p>
+            </li>
+          </ul>
+          <p class="muted">Dragon Shield sells wholesale to stores, not a public content affiliate program. Those products stay on the Amazon shop.</p>
+        </section>
+
+        <section style="margin-top:28px">
+          <div class="section-title">
+            <h2>Work with this site</h2>
+            <div class="muted">Local stores, events, and creators</div>
+          </div>
+          <p>For a store locator, event recap, or accessory review, open the Discord and say what you want linked. We only publish public lists and labeled affiliate or ad units. We do not sell homepage takeovers or fake tournament results.</p>
+          <p class="home-actions">
+            <a class="home-ghost" href="/discord/welcome.html">Discord</a>
+            <a class="home-ghost" href="/privacy.html">Privacy</a>
+          </p>
+        </section>"""
+    page = uadb.page_chrome(
+        "Partners and advertising | Union Arena Decklists",
+        "How Union Arena Decklists is funded: TCGplayer affiliates, Amazon Associates, Google AdSense, and a sister One Piece list site.",
+        "color-red",
+        body,
+        path="partners.html",
+        json_ld=[
+            uadb.website_ld(),
+            uadb.breadcrumb_ld([("/", "Home"), ("/partners.html", "Partners")]),
+        ],
+    )
+    (uadb.ROOT / "partners.html").write_text(page)
+
+
 def write_llms_txt(catalog: list[dict], recent: list[dict]) -> None:
     titles = ", ".join(rec.get("name") or rec.get("slug") or "" for rec in catalog[:12] if rec.get("name"))
     newest = (recent[0].get("when") if recent else "") or ""
@@ -2833,6 +2924,8 @@ def write_llms_txt(catalog: list[dict], recent: list[dict]) -> None:
         f"- Tier list: {uadb.SITE}/tier-list.html",
         f"- Format: {uadb.SITE}/format.html",
         f"- Guides: {uadb.SITE}/guides/",
+        f"- Shop: {uadb.SITE}/shop.html",
+        f"- Partners: {uadb.SITE}/partners.html",
         f"- Sitemap: {uadb.SITE}/sitemap.xml",
         f"- RSS: {uadb.SITE}/feed.xml",
         "",
@@ -3039,7 +3132,7 @@ def main() -> None:
     global _SITEMAP_IMAGES, _SITEMAP_DATES
     _SITEMAP_IMAGES = {}
     _SITEMAP_DATES = {}
-    sitemap = ["", "characters.html", "series.html", "format.html", "shop.html", "privacy.html", "feed.xml", "llms.txt"]
+    sitemap = ["", "characters.html", "series.html", "format.html", "shop.html", "partners.html", "privacy.html", "feed.xml", "llms.txt"]
     index = {}
     board_decks = []
     hub_jobs = []
@@ -3178,6 +3271,7 @@ def main() -> None:
     write_format(unique_arches([a for a in arches if not a.get("from_color")]))
     sitemap.extend(write_guides.write_pages(plan, cache, features))
     write_shop()
+    write_partners()
     write_privacy()
     lastmod = (recent[0].get("when") if recent else "") or date.today().isoformat()
     stamp = lastmod[:10] if lastmod else ""

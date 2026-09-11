@@ -410,6 +410,10 @@ class RaidTests(unittest.TestCase):
         self.assertIn("recent-row", html)
         self.assertIn("Sleeves, playmats, and more", html)
         self.assertNotIn("Sleeves and dice on Amazon", html)
+        self.assertIn("ad-slot", html)
+        self.assertIn("Advertisement", html)
+        self.assertIn("/partners.html", html)
+        self.assertIn("onepiecedeckbase.com", html)
 
     def test_shop_catalog_has_pictures(self):
         hrefs = [it["href"] for it in generate_site.SHOP_ITEMS]
