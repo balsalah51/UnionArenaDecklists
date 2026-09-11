@@ -17,7 +17,7 @@ import uadb  # noqa: E402
 class ExburstScrapeTests(unittest.TestCase):
     def test_caps_cover_a_300_list_run(self):
         self.assertGreaterEqual(scrape_exburst.MAX_LISTS, 300)
-        self.assertGreaterEqual(scrape_exburst.MAX_PAGES, 20)
+        self.assertGreaterEqual(scrape_exburst.MAX_PAGES, 80)
         self.assertEqual(scrape_exburst.GAME_TABLE, "uaen_decklists")
 
     def test_parses_exburst_qty_lines(self):

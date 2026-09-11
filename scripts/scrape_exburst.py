@@ -16,8 +16,8 @@ import uadb
 
 GAME_TABLE = "uaen_decklists"
 PAGE_SIZE = 100
-MAX_LISTS = 300
-MAX_PAGES = 80
+MAX_LISTS = 500
+MAX_PAGES = 120
 SKIP_SLUGS = {
     "reddit-pic-does-anyone-know-the-most-optimal-purple-sao-song-deck-1qls",
 }
