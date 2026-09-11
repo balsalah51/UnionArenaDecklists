@@ -190,12 +190,15 @@ def score_row(row: dict) -> float:
 
 
 def assign_letters(rows: list[dict]) -> list[dict]:
-    """Map Contender 1-5 onto S-D, then promote names this site keeps posting."""
+    """Map Contender 1-5 onto S-D, then place everyone else from hosted 50s."""
     for row in rows:
-        letter = CONTENDER_LETTER.get(str(row.get("contender_tier") or ""), "D")
+        letter = CONTENDER_LETTER.get(str(row.get("contender_tier") or ""), "")
         top8 = int(row.get("recent_top8") or 0)
         wins = int(row.get("recent_wins") or 0)
         share = float(row.get("meta_share") or 0)
+        results = int(row.get("recent_results") or 0)
+        lists_n = int(row.get("list_count") or 0)
+        recent_n = int(row.get("recent_lists") or 0)
         if letter == "A":
             if top8 >= 2 or wins >= 1 or (top8 >= 1 and share >= 0.03):
                 letter = "S"
@@ -207,8 +210,93 @@ def assign_letters(rows: list[dict]) -> list[dict]:
             letter = "C"
         if letter == "D" and share >= 0.02 and top8 >= 1:
             letter = "C"
+        if not letter:
+            volume = recent_n * 2 + lists_n
+            if top8 >= 2 or wins >= 1 or results >= 5:
+                letter = "B"
+            elif top8 >= 1 or results >= 2 or volume >= 50:
+                letter = "C"
+            else:
+                letter = "D"
         row["tier"] = letter
     return rows
+
+
+def _character_rec(name: str, arch: dict | None = None) -> dict:
+    arch = arch or {}
+    return {
+        "nkey": gen.norm_name(name),
+        "name": name,
+        "title": arch.get("title") or "",
+        "hubs": [],
+        "lists": [],
+        "items": [],
+        "feature": {},
+        "page": arch.get("page") or "",
+        "key": arch.get("key") or "",
+        "full": arch.get("full") or name,
+        "color": arch.get("color") or "",
+        "style": arch.get("style") or "",
+        "contender_tier": str(arch.get("tier") or ""),
+        "meta_share": float(arch.get("meta_share") or 0),
+        "strengths": list(arch.get("strengths") or []),
+        "weaknesses": list(arch.get("weaknesses") or []),
+        "updated": arch.get("updated") or "",
+    }
+
+
+def _is_series_name(name: str) -> bool:
+    raw = (name or "").strip()
+    if not raw:
+        return True
+    pretty = gen.pretty_anime(raw)
+    return pretty != raw
+
+
+def _is_board_name(name: str) -> bool:
+    raw = (name or "").strip()
+    if not raw or gen.looks_like_cid(raw) or gen.norm_name(raw) in gen.COLOR_ONLY:
+        return False
+    return not _is_series_name(raw)
+
+
+def _first_card_feature(lists: list[dict]) -> dict:
+    for entry in lists or []:
+        for it in entry.get("items") or []:
+            cid = (it.get("id") or "").strip()
+            if cid and "/" in cid and "UNRESOLVED" not in cid:
+                return {"id": cid}
+    return {}
+
+
+def _fold_named_faces(groups: dict[str, dict], hub_jobs: list) -> None:
+    """File titled 50s under the character they name, not only the hub key."""
+    pool = gen.character_name_pool([job[0] for job in hub_jobs])
+    for job in hub_jobs:
+        pack = _hub_from_job(job)
+        arch = pack["arch"]
+        series = gen.pretty_anime(arch.get("title") or "") or gen.pretty_anime(arch.get("key") or "")
+        for entry in pack["lists"]:
+            face = gen.attribute_list_face(entry, pool)
+            if not face or not _is_board_name(face):
+                continue
+            nkey = gen.norm_name(face)
+            rec = groups.get(nkey)
+            if rec is None:
+                rec = _character_rec(face, {"title": series, "full": f"{series} - {face}" if series else face})
+                groups[nkey] = rec
+            rec["lists"].append(entry)
+            if series and not rec.get("title"):
+                rec["title"] = series
+            if _is_board_name(arch.get("name") or "") and gen.norm_name(arch.get("name") or "") == nkey:
+                rec["hubs"].append(arch)
+                if pack["items"] and len(pack["items"]) > len(rec.get("items") or []):
+                    rec["items"] = pack["items"]
+                if pack["feature"].get("id") and not rec["feature"].get("id"):
+                    rec["feature"] = pack["feature"]
+                if arch.get("page"):
+                    rec["page"] = arch["page"]
+                    rec["key"] = arch.get("key") or rec.get("key") or ""
 
 
 def _hub_from_job(job) -> dict:
@@ -229,29 +317,11 @@ def collect_characters(hub_jobs: list, cache: dict, today: date | None = None) -
         arch = pack["arch"]
         name = arch.get("name") or ""
         nkey = gen.norm_name(name)
-        if not nkey or nkey in gen.COLOR_ONLY:
+        if not nkey or nkey in gen.COLOR_ONLY or not _is_board_name(name):
             continue
         rec = groups.get(nkey)
         if rec is None:
-            rec = {
-                "nkey": nkey,
-                "name": name,
-                "title": arch.get("title") or "",
-                "hubs": [],
-                "lists": [],
-                "items": [],
-                "feature": {},
-                "page": arch.get("page") or "",
-                "key": arch.get("key") or "",
-                "full": arch.get("full") or name,
-                "color": arch.get("color") or "",
-                "style": arch.get("style") or "",
-                "contender_tier": str(arch.get("tier") or ""),
-                "meta_share": float(arch.get("meta_share") or 0),
-                "strengths": list(arch.get("strengths") or []),
-                "weaknesses": list(arch.get("weaknesses") or []),
-                "updated": arch.get("updated") or "",
-            }
+            rec = _character_rec(name, arch)
             groups[nkey] = rec
         rec["hubs"].append(arch)
         rec["lists"].extend(pack["lists"])
@@ -282,11 +352,19 @@ def collect_characters(hub_jobs: list, cache: dict, today: date | None = None) -
             rec["weaknesses"] = list(arch.get("weaknesses") or rec["weaknesses"])
         rec["updated"] = rec["updated"] or arch.get("updated") or ""
 
+    _fold_named_faces(groups, hub_jobs)
+
     rows = []
     for rec in groups.values():
+        if not _is_board_name(rec.get("name") or ""):
+            continue
         lists = _unique_lists(rec["lists"])
         lists.sort(key=lambda e: e.get("date") or "0000", reverse=True)
         rec["lists"] = lists
+        if not rec["feature"].get("id"):
+            rec["feature"] = _first_card_feature(lists)
+        if not rec.get("page"):
+            rec["page"] = gen.series_href(rec.get("title") or "").lstrip("/") or "characters.html"
         named = [e for e in lists if list_names_character(e, rec["name"])]
         recent = [e for e in named if (e.get("date") or "") >= cutoff]
         results = [e for e in recent if is_result_list(e)]
@@ -310,9 +388,15 @@ def collect_characters(hub_jobs: list, cache: dict, today: date | None = None) -
     return rows
 
 
+def _force_board_names() -> set[str]:
+    return {gen.norm_name(n) for n in gen.EXTRA_FACES}
+
+
 def pick_board(rows: list[dict]) -> list[dict]:
     kept = []
     for row in rows:
+        if not _is_board_name(row.get("name") or ""):
+            continue
         if row["tier"] in "SABC" or row["recent_top8"] or row["meta_share"] >= 0.01:
             kept.append(row)
         if len(kept) >= BOARD_LIMIT:
@@ -321,9 +405,20 @@ def pick_board(rows: list[dict]) -> list[dict]:
         for row in rows:
             if row in kept:
                 continue
+            if not _is_board_name(row.get("name") or ""):
+                continue
             kept.append(row)
             if len(kept) >= 16:
                 break
+    have = {row["nkey"] for row in kept}
+    force = _force_board_names()
+    for row in rows:
+        if row["nkey"] in have:
+            continue
+        if row["nkey"] in force and int(row.get("list_count") or 0) >= 3:
+            kept.append(row)
+            have.add(row["nkey"])
+    kept.sort(key=lambda r: (TIER_ORDER.get(r["tier"], 9), -r["score"], r["name"]))
     return kept
 
 
@@ -598,14 +693,15 @@ def write_tier_list(plan: dict, cache: dict) -> str:
     intro = (
         "This board starts from the public TCG Contender Standard snapshot, then promotes names "
         f"that hosted event 50s on this site keep posting from {recent_from} through {today}. "
-        "English events are single-title Standard. Pictures link to the character hub."
+        "Characters Contender has not numbered yet still get S through D from the hosted 50s "
+        "available here. English events are single-title Standard. Pictures link to the character hub."
     )
     if s_names:
         intro = f"{_join_and(s_names)} sit in S. {intro}"
     faq = [
         (
             "How is this Union Arena tier list built?",
-            "TCG Contender publishes numbered Standard tiers and meta share. This page maps those numbers onto S through D, then promotes characters with recent top 8s in the 50-card lists hosted here. It does not invent results.",
+            "TCG Contender publishes numbered Standard tiers and meta share. This page maps those numbers onto S through D, then promotes characters with recent top 8s in the 50-card lists hosted here. Names with no Contender number are still lettered from hosted list volume and any event 50s on this site. It does not invent results.",
         ),
         (
             "What format is the tier list?",

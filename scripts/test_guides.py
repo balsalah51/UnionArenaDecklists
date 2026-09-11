@@ -142,6 +142,35 @@ class TierAssignTests(unittest.TestCase):
         self.assertEqual(by_name["Low"], "C")
         self.assertEqual(by_name["Fringe"], "D")
 
+    def test_hosted_volume_letters_when_contender_has_no_number(self):
+        rows = [
+            {
+                "name": "Rem",
+                "contender_tier": "",
+                "meta_share": 0.0,
+                "recent_top8": 0,
+                "recent_wins": 0,
+                "recent_results": 0,
+                "recent_lists": 40,
+                "list_count": 62,
+            },
+            {
+                "name": "Ram",
+                "contender_tier": "",
+                "meta_share": 0.0,
+                "recent_top8": 0,
+                "recent_wins": 0,
+                "recent_results": 0,
+                "recent_lists": 3,
+                "list_count": 3,
+            },
+        ]
+        write_guides.assign_letters(rows)
+        by_name = {r["name"]: r["tier"] for r in rows}
+        self.assertEqual(by_name["Rem"], "C")
+        self.assertEqual(by_name["Ram"], "D")
+        self.assertTrue(all(letter in "SABCD" for letter in by_name.values()))
+
 
 class PlanAndPagesTests(unittest.TestCase):
     def setUp(self):
@@ -219,6 +248,46 @@ class PlanAndPagesTests(unittest.TestCase):
         self.assertIn("/guides/sung-jinwoo-strategy.html", hrefs)
         self.assertTrue(any(g["slug"] == "how-to-read-a-50" for g in plan["topic_guides"]))
         self.assertEqual(write_guides.guide_for_arch(plan, self.jobs[0][0])["href"], "/guides/sung-jinwoo-strategy.html")
+
+    def test_named_community_faces_get_letters_and_board_slots(self):
+        rem_lists = [
+            _list(
+                f"exburst-rem-deck-{i}",
+                "2026-08-20",
+                kind="web",
+                title="Rem Deck",
+                key="re-zero",
+            )
+            for i in range(8)
+        ]
+        ram_lists = [
+            _list(
+                f"exburst-ram-deck-{i}",
+                "2026-08-21",
+                kind="web",
+                title="Ram Deck",
+                key="re-zero",
+            )
+            for i in range(3)
+        ]
+        jobs = self.jobs + [
+            _job(
+                _arch("re-zero", "Re:Zero", key="re-zero", tier=""),
+                rem_lists + ram_lists,
+                [],
+            )
+        ]
+        plan = write_guides.build_plan(jobs, self.cache, today=self.today)
+        rows = {r["name"]: r for r in plan["rows"]}
+        self.assertIn("Rem", rows)
+        self.assertIn("Ram", rows)
+        self.assertIn(rows["Rem"]["tier"], "SABCD")
+        self.assertIn(rows["Ram"]["tier"], "SABCD")
+        self.assertTrue(rows["Rem"]["tier"])
+        board = {r["name"] for r in plan["board"]}
+        self.assertIn("Rem", board)
+        self.assertIn("Ram", board)
+        self.assertNotIn("re-zero", {r["name"].lower() for r in plan["board"]})
 
     def test_pages_render_board_and_writeup(self):
         plan = write_guides.build_plan(self.jobs, self.cache, today=self.today)

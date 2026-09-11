@@ -2316,7 +2316,7 @@ def _tier_for_name(name: str, plan: dict) -> str:
     want = norm_name(name)
     if not want:
         return ""
-    for row in (plan or {}).get("rows") or (plan or {}).get("board") or []:
+    for row in list((plan or {}).get("board") or []) + list((plan or {}).get("rows") or []):
         if norm_name(row.get("name") or "") == want:
             return str(row.get("tier") or "")
     guide = ((plan or {}).get("by_key") or {}).get(want) or {}
