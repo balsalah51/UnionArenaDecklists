@@ -5,8 +5,10 @@ from __future__ import annotations
 
 import html
 import json
+import math
 import re
 import sys
+import urllib.parse
 from collections import Counter, defaultdict
 from datetime import date, datetime, timedelta, timezone
 from pathlib import Path
@@ -17,6 +19,62 @@ import uadb
 COLOR_ONLY = {"purple", "red", "yellow", "green", "blue", "black"}
 COLOR_MARK = re.compile(r"【\s*(?:PURPLE|RED|YELLOW|GREEN|BLUE|BLACK)\s*】", re.I)
 MIN_FACE_COST = 4
+BOOSTER_SET_RE = re.compile(r"^UE(\d+)BT$", re.I)
+CID_NAME_RE = re.compile(r"^(?:UE|UA|ST|PR|UEX)[A-Z0-9]+/", re.I)
+SMALL_PIE_PCT = 8.0
+PIE_COLORS = (
+    "#7a2e2e",
+    "#c9a24a",
+    "#1565c0",
+    "#6a1b9a",
+    "#2e7d32",
+    "#d32f2f",
+    "#00838f",
+    "#5d4037",
+    "#ef6a6a",
+    "#455a64",
+)
+FACE_ALIASES = {
+    "beako": "Beatrice",
+    "betty": "Beatrice",
+    "peako": "Beatrice",
+    "i suppose": "Beatrice",
+    "tea party": "Beatrice",
+    "emt": "Emilia",
+    "e m t": "Emilia",
+    "remram": "Rem",
+    "remrush": "Rem",
+    "subarem": "Rem",
+    "subaren": "Rem",
+    "demon sisters": "Rem",
+    "demon maids": "Rem",
+    "yellow maids": "Rem",
+    "maid to win": "Rem",
+    "sister sister": "Rem",
+    "best twins": "Rem",
+    "sistas": "Rem",
+    "white witch": "Echidna",
+    "crusch karsten": "Crusch",
+    "subaru natsuki": "Subaru",
+    "natsuki subaru": "Subaru",
+    "felix argyle": "Felix",
+    "ferris": "Felix",
+}
+EXTRA_FACES = (
+    "Emilia",
+    "Rem",
+    "Ram",
+    "Beatrice",
+    "Echidna",
+    "Crusch",
+    "Subaru",
+    "Felt",
+    "Puck",
+    "Reinhard",
+    "Felix",
+    "Priscilla",
+    "Anastasia",
+)
 HOME_RAID_LEADERS = 20
 MAX_HOME_PER_TITLE = 3
 RAID_RE = re.compile(r"\[raid\]", re.I)
@@ -2161,7 +2219,404 @@ def best_in_format_card(arches: list[dict], features: dict, cache: dict) -> dict
     }
 
 
-def write_home(arches: list[dict], recent: list[dict], cache: dict, features: dict) -> None:
+def looks_like_cid(name: str) -> bool:
+    raw = (name or "").strip()
+    return bool(CID_NAME_RE.match(raw) or re.match(r"^(?:UE|UA|ST|PR|UEX)[A-Z0-9_-]+$", raw, re.I))
+
+
+def list_card_ids(entry: dict) -> list[str]:
+    ids = []
+    for it in entry.get("items") or []:
+        cid = (it.get("id") or "").strip()
+        if cid:
+            ids.append(cid)
+    if ids:
+        return ids
+    return [cid for cid in (entry.get("counts") or {}) if cid]
+
+
+def newest_booster_set(entries: list[dict]) -> str:
+    best = ""
+    best_n = -1
+    for entry in entries or []:
+        for cid in list_card_ids(entry):
+            prefix = cid.split("/", 1)[0].upper()
+            m = BOOSTER_SET_RE.match(prefix)
+            if not m:
+                continue
+            num = int(m.group(1))
+            if num > best_n:
+                best_n = num
+                best = prefix
+    return best
+
+
+def list_has_set(entry: dict, set_code: str) -> bool:
+    if not set_code:
+        return False
+    needle = set_code.upper().rstrip("/") + "/"
+    return any(cid.upper().startswith(needle) for cid in list_card_ids(entry))
+
+
+def character_name_pool(arches: list[dict] | None = None) -> list[tuple[str, str]]:
+    seen: set[str] = set()
+    out: list[tuple[str, str]] = []
+    for arch in arches or []:
+        name = (arch.get("name") or "").strip()
+        if not name or looks_like_cid(name) or norm_name(name) in COLOR_ONLY:
+            continue
+        if norm_name(name) == norm_name(arch.get("title") or ""):
+            continue
+        nkey = norm_name(name)
+        if not nkey or nkey in seen or len(nkey) < 3:
+            continue
+        seen.add(nkey)
+        out.append((name, nkey))
+    for name in EXTRA_FACES:
+        nkey = norm_name(name)
+        if nkey in seen:
+            continue
+        seen.add(nkey)
+        out.append((name, nkey))
+    out.sort(key=lambda row: (-len(row[1]), row[0]))
+    return out
+
+
+def _apply_face_aliases(blob: str) -> str:
+    text = f" {blob} "
+    for src, dest in sorted(FACE_ALIASES.items(), key=lambda kv: -len(kv[0])):
+        text = re.sub(rf"\b{re.escape(src)}\b", dest.lower(), text)
+    return text
+
+
+def attribute_list_face(entry: dict, pool: list[tuple[str, str]]) -> str:
+    blob = " ".join(
+        [
+            str(entry.get("title") or ""),
+            str(entry.get("subtitle") or ""),
+            str(entry.get("player") or ""),
+            str(entry.get("who") or ""),
+            str(entry.get("slug") or "").replace("-", " "),
+            str(entry.get("key") or "").replace("-", " "),
+            str(entry.get("archetype") or ""),
+        ]
+    )
+    text = _apply_face_aliases(norm_name(blob))
+    hits: list[tuple[int, int, str]] = []
+    for name, nkey in pool:
+        for m in re.finditer(rf"\b{re.escape(nkey)}\b", text):
+            hits.append((m.start(), -len(nkey), name))
+    if not hits:
+        return ""
+    hits.sort()
+    return hits[0][2]
+
+
+def _tier_for_name(name: str, plan: dict) -> str:
+    want = norm_name(name)
+    if not want:
+        return ""
+    for row in (plan or {}).get("rows") or (plan or {}).get("board") or []:
+        if norm_name(row.get("name") or "") == want:
+            return str(row.get("tier") or "")
+    guide = ((plan or {}).get("by_key") or {}).get(want) or {}
+    row = guide.get("row") or {}
+    return str(row.get("tier") or "")
+
+
+def _href_for_name(name: str, arches: list[dict], title: str = "") -> str:
+    want = norm_name(name)
+    slug = re.sub(r"[^a-z0-9]+", "-", want).strip("-")
+    for arch in arches or []:
+        page = arch.get("page") or ""
+        if not page:
+            continue
+        key = (arch.get("key") or "").lower()
+        if looks_like_cid(arch.get("name") or ""):
+            if slug and (key == slug or key.endswith("-" + slug)):
+                return f"/{page}"
+            continue
+        if norm_name(arch.get("name") or "") == want:
+            return f"/{page}"
+    if title:
+        return series_href(title)
+    return f"/characters.html?q={urllib.parse.quote(name)}"
+
+
+def _face_image(name: str, entries: list[dict], set_code: str, cache: dict, features: dict, arches: list[dict]) -> str:
+    want = norm_name(name)
+    for arch in arches or []:
+        if norm_name(arch.get("name") or "") != want:
+            continue
+        feat = features.get(arch.get("key") or "") or {}
+        if feat.get("id"):
+            return uadb.card_image_url(feat["id"], cache)
+    counts: Counter[str] = Counter()
+    needle = (set_code or "").upper().rstrip("/") + "/"
+    for entry in entries:
+        for cid in list_card_ids(entry):
+            if needle and cid.upper().startswith(needle):
+                counts[cid] += 1
+    if counts:
+        return uadb.card_image_url(counts.most_common(1)[0][0], cache)
+    return ""
+
+
+def newest_set_share(
+    published: list[dict],
+    cache: dict,
+    features: dict,
+    plan: dict | None = None,
+    arches: list[dict] | None = None,
+) -> dict:
+    set_code = newest_booster_set(published)
+    if not set_code:
+        return {}
+    eligible = [entry for entry in published if list_has_set(entry, set_code)]
+    if not eligible:
+        return {}
+    pool = character_name_pool(arches)
+    grouped: dict[str, list[dict]] = defaultdict(list)
+    leftover = 0
+    for entry in eligible:
+        name = attribute_list_face(entry, pool)
+        if name:
+            grouped[name].append(entry)
+        else:
+            leftover += 1
+    total = len(eligible)
+    key_counts = Counter(
+        (entry.get("key") or entry.get("series") or "").strip()
+        for entry in eligible
+        if (entry.get("key") or entry.get("series") or "").strip()
+    )
+    series_slug_raw = key_counts.most_common(1)[0][0] if key_counts else ""
+    title_name = pretty_anime(series_slug_raw) if series_slug_raw else ""
+    for name, _nkey in sorted(pool, key=lambda row: -len(row[0])):
+        slug = re.sub(r"[^a-z0-9]+", "-", name.lower()).strip("-")
+        if not slug or not series_slug_raw.endswith("-" + slug):
+            continue
+        trimmed = series_slug_raw[: -(len(slug) + 1)]
+        pretty = pretty_anime(trimmed)
+        if pretty and pretty != trimmed:
+            title_name = pretty
+            break
+    if not title_name or title_name == series_slug_raw:
+        title_votes: Counter[str] = Counter()
+        named = {norm_name(name) for name in grouped}
+        for arch in arches or []:
+            if norm_name(arch.get("name") or "") not in named:
+                continue
+            maybe = pretty_anime(arch.get("title") or "")
+            if maybe and maybe != arch.get("title"):
+                title_votes[maybe] += 1
+        if title_votes:
+            title_name = title_votes.most_common(1)[0][0]
+    rows = []
+    for name, entries in grouped.items():
+        n = len(entries)
+        if n < 1:
+            continue
+        rows.append(
+            {
+                "name": name,
+                "count": n,
+                "pct": 100.0 * n / total,
+                "img": _face_image(name, entries, set_code, cache, features or {}, arches or []),
+                "href": _href_for_name(name, arches or [], title_name),
+                "tier": _tier_for_name(name, plan or {}),
+            }
+        )
+    rows.sort(key=lambda r: (-r["count"], r["name"]))
+    keep: list[dict] = []
+    other = leftover
+    for row in rows:
+        if len(keep) < 8 and (row["pct"] >= 3 or row["count"] >= 3):
+            keep.append(row)
+        else:
+            other += row["count"]
+    if other:
+        keep.append(
+            {
+                "name": "Other",
+                "count": other,
+                "pct": 100.0 * other / total,
+                "img": "",
+                "href": "/characters.html",
+                "tier": "",
+            }
+        )
+    return {
+        "set": set_code,
+        "total": total,
+        "title": title_name,
+        "rows": keep,
+    }
+
+
+def _pie_point(cx: float, cy: float, r: float, deg: float) -> tuple[float, float]:
+    rad = math.radians(deg - 90)
+    return (round(cx + r * math.cos(rad), 2), round(cy + r * math.sin(rad), 2))
+
+
+def _pie_slice_path(cx: float, cy: float, r: float, start: float, sweep: float) -> str:
+    if sweep >= 359.9:
+        return (
+            f"M {cx} {cy - r} A {r} {r} 0 1 1 {cx} {cy + r} "
+            f"A {r} {r} 0 1 1 {cx} {cy - r} Z"
+        )
+    large = 1 if sweep > 180 else 0
+    x1, y1 = _pie_point(cx, cy, r, start)
+    x2, y2 = _pie_point(cx, cy, r, start + sweep)
+    return f"M {cx} {cy} L {x1} {y1} A {r} {r} 0 {large} 1 {x2} {y2} Z"
+
+
+def render_newest_set_pie(share: dict) -> str:
+    rows = [r for r in (share.get("rows") or []) if r.get("count")]
+    if not rows:
+        return ""
+    set_code = share.get("set") or "newest booster"
+    total = int(share.get("total") or 0)
+    title = share.get("title") or ""
+    lead = (
+        f"{total} hosted 50s play at least one card from the newest booster, {set_code}."
+        + (f" Most of those lists are {title}." if title else "")
+        + " Slice size is each character's share of those lists."
+    )
+    cx, cy, r = 260.0, 170.0, 100.0
+    start = 0.0
+    slices = []
+    callouts = []
+    clips = []
+    used_y: list[float] = []
+    for i, row in enumerate(rows):
+        sweep = 360.0 * (row["count"] / total) if total else 0
+        color = PIE_COLORS[i % len(PIE_COLORS)]
+        path = _pie_slice_path(cx, cy, r, start, sweep)
+        mid = start + sweep / 2
+        pct_label = f"{row['pct']:.0f}%" if row["pct"] >= 10 else f"{row['pct']:.1f}%"
+        href = row.get("href") or "/characters.html"
+        img = row.get("img") or ""
+        name = row.get("name") or "List"
+        if row["pct"] >= SMALL_PIE_PCT:
+            fx, fy = _pie_point(cx, cy, r * 0.52, mid)
+            face = ""
+            if img:
+                clips.append(
+                    f'<clipPath id="pie-face-{i}"><circle cx="{fx:.1f}" cy="{fy - 6:.1f}" r="16" /></clipPath>'
+                )
+                face = (
+                    f'<image href="{html.escape(img)}" x="{fx - 16:.1f}" y="{fy - 22:.1f}" '
+                    f'width="32" height="32" preserveAspectRatio="xMidYMin slice" clip-path="url(#pie-face-{i})" />'
+                    f'<circle cx="{fx:.1f}" cy="{fy - 6:.1f}" r="16.4" fill="none" stroke="#fff" stroke-width="2" />'
+                )
+            slices.append(
+                f'<a href="{html.escape(href)}">'
+                f'<path d="{path}" fill="{color}" stroke="#fff" stroke-width="2" />'
+                f"{face}"
+                f'<text x="{fx:.1f}" y="{fy + 20:.1f}" text-anchor="middle" class="pie-label">'
+                f"{html.escape(name)}</text>"
+                f'<text x="{fx:.1f}" y="{fy + 34:.1f}" text-anchor="middle" class="pie-pct">'
+                f"{html.escape(pct_label)}</text></a>"
+            )
+        else:
+            slices.append(
+                f'<a href="{html.escape(href)}">'
+                f'<path d="{path}" fill="{color}" stroke="#fff" stroke-width="2" /></a>'
+            )
+            edge = _pie_point(cx, cy, r + 8, mid)
+            side = -1 if edge[0] < cx else 1
+            ly = edge[1]
+            for prev in used_y:
+                if abs(ly - prev) < 32:
+                    ly = prev + 32 if ly >= cy else prev - 32
+            ly = max(18.0, min(322.0, ly))
+            used_y.append(ly)
+            if side < 0:
+                lx, img_x, tx, anchor = 132.0, 8.0, 34.0, "start"
+            else:
+                lx, img_x, tx, anchor = 388.0, 396.0, 422.0, "start"
+            img_tag = ""
+            if img:
+                clips.append(
+                    f'<clipPath id="pie-out-{i}"><circle cx="{img_x + 11:.1f}" cy="{ly:.1f}" r="11" /></clipPath>'
+                )
+                img_tag = (
+                    f'<image href="{html.escape(img)}" x="{img_x:.1f}" y="{ly - 11:.1f}" '
+                    f'width="22" height="22" preserveAspectRatio="xMidYMin slice" clip-path="url(#pie-out-{i})" />'
+                )
+            else:
+                tx = 12.0 if side < 0 else 396.0
+            callouts.append(
+                f'<a href="{html.escape(href)}" class="pie-callout">'
+                f'<line x1="{edge[0]}" y1="{edge[1]}" x2="{lx}" y2="{ly:.1f}" stroke="{color}" stroke-width="1.6" />'
+                f"{img_tag}"
+                f'<text x="{tx:.1f}" y="{ly + 4:.1f}" text-anchor="{anchor}" class="pie-callout-text">'
+                f"{html.escape(name)} {html.escape(pct_label)}</text></a>"
+            )
+        start += sweep
+    legend = []
+    for i, row in enumerate(rows):
+        color = PIE_COLORS[i % len(PIE_COLORS)]
+        pct_label = f"{row['pct']:.0f}%" if row["pct"] >= 10 else f"{row['pct']:.1f}%"
+        tier = row.get("tier") or ""
+        if row.get("name") == "Other":
+            tier_html = ""
+        elif tier:
+            tier_html = f'<span class="pie-tier pie-tier-{html.escape(tier.lower())}">Tier {html.escape(tier)}</span>'
+        else:
+            tier_html = '<span class="pie-tier pie-tier-none">Unranked</span>'
+        img = row.get("img") or ""
+        face = (
+            f'<img src="{html.escape(img)}" alt="" width="36" height="50" loading="lazy" decoding="async" />'
+            if img
+            else '<span class="pie-legend-swatch" aria-hidden="true"></span>'
+        )
+        legend.append(
+            f"""            <li>
+              <a class="pie-legend-item" href="{html.escape(row.get('href') or '/characters.html')}">
+                <span class="pie-legend-dot" style="background:{color}"></span>
+                {face}
+                <span class="pie-legend-copy">
+                  <strong>{html.escape(row['name'])}</strong>
+                  <span class="muted">{html.escape(pct_label)} · {row['count']} list{'' if row['count'] == 1 else 's'}</span>
+                </span>
+                {tier_html}
+              </a>
+            </li>"""
+        )
+    svg = f"""          <svg class="set-pie" viewBox="0 0 520 340" role="img" aria-label="{html.escape(set_code)} list share">
+            <defs>
+              {chr(10).join(clips)}
+            </defs>
+            {chr(10).join(slices)}
+            {chr(10).join(callouts)}
+          </svg>"""
+    return f"""        <section class="set-pie-block" id="newest-set">
+          <div class="set-pie-intro">
+            <p class="home-leaders-kicker">Newest booster</p>
+            <h2>{html.escape(set_code)} share</h2>
+            <p>{html.escape(lead)}</p>
+          </div>
+          <div class="set-pie-wrap">
+{svg}
+          </div>
+          <ul class="set-pie-legend" aria-label="Newest booster list share">
+{chr(10).join(legend)}
+          </ul>
+        </section>
+"""
+
+
+def write_home(
+    arches: list[dict],
+    recent: list[dict],
+    cache: dict,
+    features: dict,
+    plan: dict | None = None,
+    published: list[dict] | None = None,
+    pie_arches: list[dict] | None = None,
+) -> None:
     def tile_html(arch: dict) -> str:
         f = features.get(arch["key"]) or {}
         img = uadb.card_image_url(f.get("id") or "", cache) if f.get("id") else ""
@@ -2215,6 +2670,15 @@ def write_home(arches: list[dict], recent: list[dict], cache: dict, features: di
               {buy}
             </li>"""
         )
+    pie_html = render_newest_set_pie(
+        newest_set_share(
+            published or [],
+            cache,
+            features,
+            plan or {},
+            pie_arches if pie_arches is not None else arches,
+        )
+    )
     best = best_in_format_card(arches, features, cache)
     splash_card = ""
     if best.get("id"):
@@ -2294,6 +2758,7 @@ def write_home(arches: list[dict], recent: list[dict], cache: dict, features: di
           </a>
         </nav>
 
+{pie_html}
         <section class="home-leaders-flow" id="characters">
           <div class="home-leaders-intro">
             <p class="home-leaders-kicker">The roster</p>
@@ -3150,6 +3615,8 @@ def main() -> None:
             cons_entry = {
                 "slug": "contender-consensus",
                 "kind": "contender",
+                "key": arch.get("key") or "",
+                "series": arch.get("title") or "",
                 "title": list_heading(arch),
                 "subtitle": f"TCG Contender Standard snapshot · {arch.get('updated') or ''}",
                 "player": "",
@@ -3174,6 +3641,9 @@ def main() -> None:
             comm_entry = {
                 "slug": comm.get("slug") or uadb.slugify(comm.get("title") or "community"),
                 "kind": comm.get("kind") or "web",
+                "key": comm.get("key") or arch.get("key") or "",
+                "series": arch.get("title") or "",
+                "archetype": comm.get("archetype") or comm.get("title") or "",
                 "title": list_heading(arch, c_feat.get("character") or arch["name"]),
                 "subtitle": list_subtitle(
                     {
@@ -3265,7 +3735,15 @@ def main() -> None:
     series = build_series_search(published, combo_arches, cache, features)
     uadb.save_json("data/character-search.json", {"characters": search, "series": series})
     uadb.log("home raid leaders", len(home_roster), "search characters", len(search), "titles", len(series))
-    write_home(home_roster, recent, cache, features)
+    write_home(
+        home_roster,
+        recent,
+        cache,
+        features,
+        plan=plan,
+        published=published,
+        pie_arches=combo_arches,
+    )
     write_characters_index(home_roster, features, cache, catalog)
     sitemap.extend(write_series_pages(catalog, features, cache))
     write_format(unique_arches([a for a in arches if not a.get("from_color")]))
