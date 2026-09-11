@@ -230,7 +230,7 @@ main.single{grid-template-columns:1fr}
 .set-pie-intro h2{margin:0;font-size:28px;letter-spacing:-.02em;color:#3a3333}
 .set-pie-intro p{margin:8px 0 0;font-weight:600;color:#6b6f73;max-width:62ch}
 .set-pie-wrap{display:flex;justify-content:center;margin-top:12px}
-.set-pie{width:min(100%,840px);height:auto;display:block}
+.set-pie{width:min(100%,980px);height:auto;display:block}
 .set-pie .pie-label,.set-pie .pie-pct{
   fill:#fff;font-weight:800;font-size:14px;font-family:Nunito,system-ui,sans-serif;
   paint-order:stroke;stroke:rgba(0,0,0,.45);stroke-width:3px
