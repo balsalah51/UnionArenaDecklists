@@ -199,6 +199,13 @@ class SeoChromeTests(unittest.TestCase):
         self.assertEqual(len(howto["step"]), 2)
         self.assertIn("50-card", uadb.SITE_DESCRIPTION)
         self.assertIn("Standard", uadb.SITE_DESCRIPTION)
+        self.assertLessEqual(len(uadb.SITE_DESCRIPTION), 160)
+        self.assertEqual(uadb.clip_meta(uadb.SITE_DESCRIPTION), uadb.SITE_DESCRIPTION)
+        self.assertNotIn("Standard format", uadb.SITE_DESCRIPTION)
+        self.assertNotIn("Public lists by title", uadb.SITE_DESCRIPTION)
+        self.assertIn('name="color-scheme"', uadb.seo_head("Title", "Desc", "/"))
+        self.assertIn("footer-grid", uadb.footer_links())
+        self.assertIn('width="72" height="100"', uadb.card_img_size("tile"))
 
     def test_google_favicon_files_exist(self):
         root = Path(__file__).resolve().parents[1]

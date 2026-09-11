@@ -24,7 +24,7 @@ BROWSER_UA = (
 DISCORD = "https://discord.gg/aY9RfB662"
 BRAND = "Union Arena Decklists"
 SUBTITLE = "Add this list to your hand"
-CSS_VER = "ua25"
+CSS_VER = "ua26"
 JS_VER = "ua9"
 THEME_COOKIE = "uadb-theme"
 THEME_BOOT = """  <script>
@@ -45,9 +45,16 @@ ICON_512 = f"{SITE}/img/icon-512.png"
 SEARCH_PATH = "/characters.html"
 DEFAULT_ROBOTS = "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
 SITE_DESCRIPTION = (
-    "Public 50-card Union Arena TCG lists for English Standard, grouped by anime and manga title, "
-    "with recent event 50s, character hubs, and a sourced tier board."
+    "Public 50-card Union Arena TCG lists for English Standard. "
+    "Recent event 50s, character hubs, and a sourced tier board."
 )
+CARD_IMG_SIZE = {
+    "thumb": (28, 40),
+    "tile": (72, 100),
+    "hero": (200, 279),
+    "splash": (156, 218),
+    "card": (200, 279),
+}
 ADSENSE_CLIENT = "ca-pub-1074015774205047"
 FONT_LINKS = f"""  <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -394,6 +401,11 @@ def absolute_url(path: str) -> str:
     return f"{SITE}/{raw.lstrip('/')}"
 
 
+def card_img_size(kind: str = "tile") -> str:
+    width, height = CARD_IMG_SIZE.get(kind) or CARD_IMG_SIZE["tile"]
+    return f'width="{width}" height="{height}"'
+
+
 def clip_meta(text: str, limit: int = 160) -> str:
     clean = re.sub(r"\s+", " ", (text or "").strip())
     if len(clean) <= limit:
@@ -674,6 +686,7 @@ def seo_head(
     return (
         f"  <title>{html.escape(title)}</title>\n"
         f'  <meta name="description" content="{html.escape(desc)}" />\n'
+        f'  <meta name="color-scheme" content="light dark" />\n'
         f'  <meta name="author" content="{html.escape(BRAND)}" />\n'
         f"{robots_tag}"
         f'  <link rel="canonical" href="{html.escape(url)}" />\n'
@@ -706,18 +719,25 @@ def skip_link() -> str:
 
 def footer_links() -> str:
     return (
-        f'      © <span id="year"></span> {html.escape(BRAND)}. Fan site, not affiliated with Bandai.\n'
-        '      <a href="/characters.html">Characters</a> · '
-        '<a href="/series.html">Titles</a> · '
-        '<a href="/#recent">Recent lists</a> · '
-        '<a href="/tier-list.html">Tier List</a> · '
-        '<a href="/guides/">Guides</a> · '
-        '<a href="/format.html">Format</a> · '
-        '<a href="/shop.html">Shop</a> · '
-        '<a href="/discord/welcome.html">Discord</a> · '
-        '<a href="/feed.xml">RSS</a> · '
-        '<a href="/privacy.html">Privacy</a>\n'
-        '      <span class="footer-amazon">As an Amazon Associate I earn from qualifying purchases.</span>'
+        '      <div class="footer-grid">\n'
+        '        <div class="footer-col">\n'
+        f'          <p class="footer-mark">© <span id="year"></span> {html.escape(BRAND)}</p>\n'
+        "          <p>Fan site, not affiliated with Bandai.</p>\n"
+        '          <p class="footer-amazon">As an Amazon Associate I earn from qualifying purchases.</p>\n'
+        "        </div>\n"
+        '        <nav class="footer-nav" aria-label="Footer">\n'
+        '          <a href="/characters.html">Characters</a>\n'
+        '          <a href="/series.html">Titles</a>\n'
+        '          <a href="/#recent">Recent lists</a>\n'
+        '          <a href="/tier-list.html">Tier List</a>\n'
+        '          <a href="/guides/">Guides</a>\n'
+        '          <a href="/format.html">Format</a>\n'
+        '          <a href="/shop.html">Shop</a>\n'
+        '          <a href="/discord/welcome.html">Discord</a>\n'
+        '          <a href="/feed.xml">RSS</a>\n'
+        '          <a href="/privacy.html">Privacy</a>\n'
+        "        </nav>\n"
+        "      </div>"
     )
 
 
