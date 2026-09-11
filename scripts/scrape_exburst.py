@@ -45,15 +45,10 @@ def discover_anon_key() -> str:
     return m.group(1)
 
 
-def rest_rows(key: str, offset: int, limit: int = PAGE_SIZE) -> list[dict]:
+def rest_range(key: str, table: str, query: str, offset: int, limit: int = PAGE_SIZE) -> list[dict]:
     start = offset
     end = offset + limit - 1
-    url = (
-        "https://auth.exburst.dev/rest/v1/"
-        f"{GAME_TABLE}?is_public=eq.1"
-        "&select=id,decklist_name,modified_date,archetype,decklist_content"
-        "&order=modified_date.desc"
-    )
+    url = f"https://auth.exburst.dev/rest/v1/{table}?{query}"
     req = urllib.request.Request(
         url,
         headers={
@@ -76,17 +71,17 @@ def rest_rows(key: str, offset: int, limit: int = PAGE_SIZE) -> list[dict]:
             if exc.code in {522, 523, 524, 502, 503} and attempt < 2:
                 time.sleep(2 + attempt)
                 continue
-            uadb.log("exburst rest", exc.code, offset, body[:120])
+            uadb.log("exburst rest", table, exc.code, offset, body[:120])
             return []
         except (urllib.error.URLError, TimeoutError) as exc:
             last_err = str(exc)
             if attempt < 2:
                 time.sleep(2 + attempt)
                 continue
-            uadb.log("exburst rest", "error", offset, last_err[:120])
+            uadb.log("exburst rest", table, "error", offset, last_err[:120])
             return []
     else:
-        uadb.log("exburst rest", "fail", offset, last_err[:120])
+        uadb.log("exburst rest", table, "fail", offset, last_err[:120])
         return []
     if not raw.startswith("["):
         return []
@@ -95,6 +90,15 @@ def rest_rows(key: str, offset: int, limit: int = PAGE_SIZE) -> list[dict]:
     except json.JSONDecodeError:
         return []
     return rows if isinstance(rows, list) else []
+
+
+def rest_rows(key: str, offset: int, limit: int = PAGE_SIZE) -> list[dict]:
+    query = (
+        "is_public=eq.1"
+        "&select=id,decklist_name,modified_date,archetype,decklist_content"
+        "&order=modified_date.desc"
+    )
+    return rest_range(key, GAME_TABLE, query, offset, limit)
 
 
 def english_enough(counts: dict[str, int]) -> bool:
