@@ -14,9 +14,13 @@ sys.path.insert(0, str(ROOT / "scripts"))
 import generate_site  # noqa: E402
 import uadb  # noqa: E402
 from generate_site import (  # noqa: E402
+    attribute_list_face,
     build_character_search,
+    character_name_pool,
     combo_has_raid_face,
     is_raid_meta,
+    newest_booster_set,
+    newest_set_share,
     pick_home_raid_leaders,
     write_home,
 )
@@ -410,6 +414,10 @@ class RaidTests(unittest.TestCase):
         self.assertIn("recent-row", html)
         self.assertIn("Sleeves, playmats, and more", html)
         self.assertNotIn("Sleeves and dice on Amazon", html)
+        self.assertIn("ad-slot", html)
+        self.assertIn("Advertisement", html)
+        self.assertIn("/partners.html", html)
+        self.assertIn("onepiecedeckbase.com", html)
 
     def test_shop_catalog_has_pictures(self):
         hrefs = [it["href"] for it in generate_site.SHOP_ITEMS]
@@ -468,6 +476,162 @@ class RaidTests(unittest.TestCase):
             text=True,
         )
         self.assertEqual(r.returncode, 0, r.stderr)
+
+
+class NewestSetPieTests(unittest.TestCase):
+    def test_newest_booster_ignores_ex_and_promo(self):
+        lists = [
+            {"items": [{"id": "UE17BT/SLG-1-001"}]},
+            {"items": [{"id": "UE24BT/RZ-1-001"}, {"id": "UE08BT/X-1-001"}]},
+            {"items": [{"id": "UEX01BT/FOO-1-001"}]},
+            {"counts": {"UEPR/RZ-1-001": 4}},
+        ]
+        self.assertEqual(newest_booster_set(lists), "UE24BT")
+
+    def test_attribute_named_faces(self):
+        pool = character_name_pool([])
+        self.assertEqual(attribute_list_face({"title": "Beako deck"}, pool), "Beatrice")
+        self.assertEqual(attribute_list_face({"title": "Rem and Ram"}, pool), "Rem")
+        self.assertEqual(attribute_list_face({"title": "Purple Emilia"}, pool), "Emilia")
+        self.assertEqual(attribute_list_face({"title": "Mystery mash"}, pool), "")
+
+    def test_home_includes_newest_set_pie(self):
+        combo = [
+            {
+                "key": "opm-saitama",
+                "name": "Saitama",
+                "full": "One Punch Man - Saitama",
+                "title": "One Punch Man",
+                "page": "decklists/opm-saitama.html",
+                "color": "Yellow",
+                "buy_url": "https://www.tcgplayer.com/massentry?productline=Union+Arena&c=4+Saitama",
+            }
+        ]
+        recent = [
+            {
+                "href": "/decklists/opm-saitama/x.html",
+                "img": "/img/x.png",
+                "name": "Saitama",
+                "who": "One Punch Man - Saitama",
+                "meta": "Locals",
+                "when": "2026-08-20",
+                "color": "Yellow",
+                "buy_url": "https://www.tcgplayer.com/massentry?productline=Union+Arena&c=4+Saitama",
+            }
+        ]
+        published = []
+        for i in range(10):
+            published.append(
+                {
+                    "title": "Emilia Deck",
+                    "slug": f"emilia-{i}",
+                    "key": "re-zero",
+                    "items": [{"id": "UE24BT/RZ-1-001", "count": 4}],
+                }
+            )
+        for i in range(6):
+            published.append(
+                {
+                    "title": "Rem Deck",
+                    "slug": f"rem-{i}",
+                    "key": "re-zero",
+                    "items": [{"id": "UE24BT/RZ-1-010", "count": 4}],
+                }
+            )
+        published.append(
+            {
+                "title": "Beako special",
+                "slug": "beako-1",
+                "key": "re-zero",
+                "items": [{"id": "UE24BT/RZ-1-020", "count": 4}],
+            }
+        )
+        published.append(
+            {
+                "title": "Mystery mash",
+                "slug": "mystery-1",
+                "key": "re-zero",
+                "items": [{"id": "UE24BT/RZ-1-099", "count": 4}],
+            }
+        )
+        published.append(
+            {
+                "title": "Old Solo list",
+                "slug": "old-1",
+                "key": "solo-leveling",
+                "items": [{"id": "UE17BT/SLG-1-001", "count": 4}],
+            }
+        )
+        plan = {
+            "rows": [
+                {"name": "Emilia", "tier": "S"},
+                {"name": "Rem", "tier": "A"},
+            ]
+        }
+        pie_arches = [
+            {
+                "name": "Hakari",
+                "page": "decklists/100-girlfriends-hakari.html",
+                "title": "100 Girlfriends",
+                "key": "100-girlfriends-hakari",
+            },
+            {
+                "name": "Emilia",
+                "page": "decklists/re-zero-emilia.html",
+                "title": "Re:Zero",
+                "key": "re-zero-emilia",
+            },
+            {
+                "name": "Rem",
+                "page": "decklists/re-zero-rem.html",
+                "title": "Re:Zero",
+                "key": "re-zero-rem",
+            },
+        ]
+        features = {
+            "re-zero-emilia": {"id": "UE24BT/RZ-1-001"},
+            "re-zero-rem": {"id": "UE24BT/RZ-1-010"},
+        }
+        share = newest_set_share(published, {}, features, plan, pie_arches)
+        self.assertEqual(share["set"], "UE24BT")
+        self.assertEqual(share["total"], 18)
+        self.assertEqual(share["title"], "Re:Zero")
+        names = [row["name"] for row in share["rows"]]
+        self.assertIn("Emilia", names)
+        self.assertIn("Rem", names)
+        self.assertIn("Beatrice", names)
+        self.assertIn("Other", names)
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            with patch.object(generate_site.uadb, "ROOT", root):
+                write_home(
+                    combo,
+                    recent,
+                    {},
+                    features,
+                    plan=plan,
+                    published=published,
+                    pie_arches=pie_arches,
+                )
+            html = (root / "index.html").read_text(encoding="utf-8")
+        self.assertIn('id="newest-set"', html)
+        self.assertIn("set-pie", html)
+        self.assertIn("set-pie-legend", html)
+        self.assertIn("pie-callout", html)
+        self.assertIn("<defs>", html)
+        self.assertIn("clipPath", html)
+        self.assertIn("UE24BT", html)
+        self.assertIn("Emilia", html)
+        self.assertIn("Rem", html)
+        self.assertIn("Beatrice", html)
+        self.assertIn("Tier S", html)
+        self.assertIn("Tier A", html)
+        self.assertIn("Unranked", html)
+        self.assertIn("/decklists/re-zero-emilia.html", html)
+        self.assertIn("hosted 50s play at least one card from the newest booster", html)
+        self.assertIn("Most of those lists are Re:Zero.", html)
+        self.assertNotIn("100 Girlfriends", html)
+        self.assertNotIn("Standard format", html)
 
 
 if __name__ == "__main__":

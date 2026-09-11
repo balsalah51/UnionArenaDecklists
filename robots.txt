@@ -12,6 +12,7 @@ Allow: /sitemap.xml
 Allow: /llms.txt
 Allow: /guides/
 Allow: /tier-list.html
+Allow: /partners.html
 Disallow: /data/
 Disallow: /scripts/
 Disallow: /discord/board.json

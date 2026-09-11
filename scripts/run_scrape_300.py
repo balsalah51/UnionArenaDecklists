@@ -16,7 +16,7 @@ import scrape_events
 import scrape_exburst
 import uadb
 
-TARGET_NEW = 500
+TARGET_NEW = 600
 SKIP_SLUGS = {
     "reddit-pic-does-anyone-know-the-most-optimal-purple-sao-song-deck-1qls",
 }

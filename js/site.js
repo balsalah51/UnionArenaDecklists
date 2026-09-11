@@ -300,6 +300,17 @@
     });
   }
 
+  function initAds() {
+    var slots = document.querySelectorAll("ins.adsbygoogle");
+    if (!slots.length) return;
+    try {
+      slots.forEach(function (el) {
+        if (el.getAttribute("data-adsbygoogle-status")) return;
+        (window.adsbygoogle = window.adsbygoogle || []).push({});
+      });
+    } catch (err) {}
+  }
+
   function ready() {
     initTheme();
     ensureCopyButtons();
@@ -307,6 +318,7 @@
     initFilters();
     initBuyLinks();
     initCharSearch();
+    initAds();
   }
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", ready);
   else ready();

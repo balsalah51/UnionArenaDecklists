@@ -16,8 +16,8 @@ import uadb
 
 GAME_TABLE = "uaen_decklists"
 PAGE_SIZE = 100
-MAX_LISTS = 500
-MAX_PAGES = 120
+MAX_LISTS = 600
+MAX_PAGES = 180
 SKIP_SLUGS = {
     "reddit-pic-does-anyone-know-the-most-optimal-purple-sao-song-deck-1qls",
 }
@@ -61,15 +61,32 @@ def rest_rows(key: str, offset: int, limit: int = PAGE_SIZE) -> list[dict]:
             "Authorization": f"Bearer {key}",
             "Accept": "application/json",
             "Range": f"{start}-{end}",
-            "User-Agent": uadb.UA,
+            "User-Agent": uadb.BROWSER_UA,
         },
     )
-    try:
-        with urllib.request.urlopen(req, timeout=28) as resp:
-            raw = resp.read().decode()
-    except urllib.error.HTTPError as exc:
-        body = exc.read().decode() if exc.fp else ""
-        uadb.log("exburst rest", exc.code, offset, body[:120])
+    last_err = ""
+    for attempt in range(3):
+        try:
+            with urllib.request.urlopen(req, timeout=28) as resp:
+                raw = resp.read().decode()
+            break
+        except urllib.error.HTTPError as exc:
+            body = exc.read().decode() if exc.fp else ""
+            last_err = f"{exc.code} {body[:120]}"
+            if exc.code in {522, 523, 524, 502, 503} and attempt < 2:
+                time.sleep(2 + attempt)
+                continue
+            uadb.log("exburst rest", exc.code, offset, body[:120])
+            return []
+        except (urllib.error.URLError, TimeoutError) as exc:
+            last_err = str(exc)
+            if attempt < 2:
+                time.sleep(2 + attempt)
+                continue
+            uadb.log("exburst rest", "error", offset, last_err[:120])
+            return []
+    else:
+        uadb.log("exburst rest", "fail", offset, last_err[:120])
         return []
     if not raw.startswith("["):
         return []

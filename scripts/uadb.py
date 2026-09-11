@@ -22,10 +22,12 @@ BROWSER_UA = (
     "(KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36"
 )
 DISCORD = "https://discord.gg/aY9RfB662"
+SISTER_SITE = "https://onepiecedeckbase.com"
+SISTER_NAME = "One Piece Deck Base"
 BRAND = "Union Arena Decklists"
 SUBTITLE = "Add this list to your hand"
-CSS_VER = "ua26"
-JS_VER = "ua9"
+CSS_VER = "ua28"
+JS_VER = "ua10"
 THEME_COOKIE = "uadb-theme"
 THEME_BOOT = """  <script>
 (function(){try{var m=document.cookie.match(/(?:^|; )uadb-theme=([^;]*)/);var t=m?decodeURIComponent(m[1]).trim():"";if(t==="dark"||t==="light")document.documentElement.setAttribute("data-theme",t);}catch(e){}})();
@@ -480,7 +482,7 @@ def organization_ld() -> dict:
             "height": 512,
         },
         "image": ICON_512,
-        "sameAs": [DISCORD],
+        "sameAs": [DISCORD, SISTER_SITE],
         "description": SITE_DESCRIPTION,
     }
 
@@ -717,12 +719,32 @@ def skip_link() -> str:
     return '<a class="skip-link" href="#main">Skip to content</a>'
 
 
+def tcgplayer_catalog_url() -> str:
+    query = urllib.parse.urlencode(
+        {"productLineName": "union-arena", "view": "grid"}
+    )
+    return tcgplayer_affiliate_url(
+        f"https://www.tcgplayer.com/search/union-arena/product?{query}"
+    )
+
+
+def ad_slot_html() -> str:
+    return (
+        '    <aside class="ad-slot" aria-label="Advertisement">\n'
+        '      <p class="ad-label">Advertisement</p>\n'
+        f'      <ins class="adsbygoogle" style="display:block" data-ad-client="{html.escape(ADSENSE_CLIENT)}" '
+        'data-ad-format="auto" data-full-width-responsive="true"></ins>\n'
+        "    </aside>"
+    )
+
+
 def footer_links() -> str:
     return (
         '      <div class="footer-grid">\n'
         '        <div class="footer-col">\n'
         f'          <p class="footer-mark">© <span id="year"></span> {html.escape(BRAND)}</p>\n'
         "          <p>Fan site, not affiliated with Bandai.</p>\n"
+        f'          <p>Sister site: <a href="{html.escape(SISTER_SITE)}" target="_blank" rel="noopener">{html.escape(SISTER_NAME)}</a></p>\n'
         '          <p class="footer-amazon">As an Amazon Associate I earn from qualifying purchases.</p>\n'
         "        </div>\n"
         '        <nav class="footer-nav" aria-label="Footer">\n'
@@ -733,6 +755,7 @@ def footer_links() -> str:
         '          <a href="/guides/">Guides</a>\n'
         '          <a href="/format.html">Format</a>\n'
         '          <a href="/shop.html">Shop</a>\n'
+        '          <a href="/partners.html">Partners</a>\n'
         '          <a href="/discord/welcome.html">Discord</a>\n'
         '          <a href="/feed.xml">RSS</a>\n'
         '          <a href="/privacy.html">Privacy</a>\n'
@@ -782,6 +805,7 @@ def page_chrome(
 {body}
       </div>
     </main>
+{ad_slot_html()}
     <footer>
 {footer_links()}
     </footer>
@@ -835,6 +859,7 @@ def home_chrome(
     <main class="single home" id="main" role="main">
 {body}
     </main>
+{ad_slot_html()}
     <footer>
 {footer_links()}
     </footer>
