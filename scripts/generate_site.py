@@ -22,10 +22,12 @@ MIN_FACE_COST = 4
 BOOSTER_SET_RE = re.compile(r"^UE(\d+)BT$", re.I)
 CID_NAME_RE = re.compile(r"^(?:UE|UA|ST|PR|UEX)[A-Z0-9]+/", re.I)
 SMALL_PIE_PCT = 16.0
-PIE_VIEW_W = 1000.0
-PIE_VIEW_H = 720.0
-PIE_CX, PIE_CY, PIE_R = 500.0, 360.0, 230.0
-PIE_CALLOUT_GAP = 46.0
+PIE_VIEW_W = 1200.0
+PIE_VIEW_H = 840.0
+PIE_CX, PIE_CY, PIE_R = 600.0, 420.0, 305.0
+PIE_CALLOUT_GAP = 48.0
+PIE_CALLOUT_W = 184.0
+PIE_CALLOUT_PAD = 22.0
 PIE_COLORS = (
     "#7a2e2e",
     "#c9a24a",
@@ -2531,20 +2533,20 @@ def render_newest_set_pie(share: dict) -> str:
             face = ""
             if img:
                 clips.append(
-                    f'<clipPath id="pie-face-{i}"><circle cx="{fx:.1f}" cy="{fy - 8:.1f}" r="22" /></clipPath>'
+                    f'<clipPath id="pie-face-{i}"><circle cx="{fx:.1f}" cy="{fy - 10:.1f}" r="26" /></clipPath>'
                 )
                 face = (
-                    f'<image href="{html.escape(img)}" x="{fx - 22:.1f}" y="{fy - 30:.1f}" '
-                    f'width="44" height="44" preserveAspectRatio="xMidYMin slice" clip-path="url(#pie-face-{i})" />'
-                    f'<circle cx="{fx:.1f}" cy="{fy - 8:.1f}" r="22.6" fill="none" stroke="#fff" stroke-width="2.4" />'
+                    f'<image href="{html.escape(img)}" x="{fx - 26:.1f}" y="{fy - 36:.1f}" '
+                    f'width="52" height="52" preserveAspectRatio="xMidYMin slice" clip-path="url(#pie-face-{i})" />'
+                    f'<circle cx="{fx:.1f}" cy="{fy - 10:.1f}" r="26.6" fill="none" stroke="#fff" stroke-width="2.6" />'
                 )
             slices.append(
                 f'<a href="{html.escape(href)}">'
                 f'<path d="{path}" fill="{color}" stroke="#fff" stroke-width="3" />'
                 f"{face}"
-                f'<text x="{fx:.1f}" y="{fy + 28:.1f}" text-anchor="middle" class="pie-label">'
+                f'<text x="{fx:.1f}" y="{fy + 32:.1f}" text-anchor="middle" class="pie-label">'
                 f"{html.escape(name)}</text>"
-                f'<text x="{fx:.1f}" y="{fy + 50:.1f}" text-anchor="middle" class="pie-pct">'
+                f'<text x="{fx:.1f}" y="{fy + 56:.1f}" text-anchor="middle" class="pie-pct">'
                 f"{html.escape(pct_label)}</text></a>"
             )
         else:
@@ -2576,12 +2578,14 @@ def render_newest_set_pie(share: dict) -> str:
             i = row["i"]
             label = f"{row['name']} {row['pct_label']}"
             edge_x, edge_y = row["edge"]
-            elbow_x = cx + side * (r + 22)
+            elbow_x = cx + side * (r + 24)
             if side < 0:
-                box_x, box_w, img_x, tx, anchor = 18.0, 176.0, 28.0, 64.0, "start"
+                box_x, box_w = PIE_CALLOUT_PAD, PIE_CALLOUT_W
+                img_x, tx, anchor = box_x + 10.0, box_x + 46.0, "start"
                 line_x = box_x + box_w
             else:
-                box_x, box_w, img_x, tx, anchor = 806.0, 176.0, 816.0, 852.0, "start"
+                box_x, box_w = PIE_VIEW_W - PIE_CALLOUT_PAD - PIE_CALLOUT_W, PIE_CALLOUT_W
+                img_x, tx, anchor = box_x + 10.0, box_x + 46.0, "start"
                 line_x = box_x
             pill = (
                 f'<rect class="pie-callout-bg" x="{box_x:.1f}" y="{ly - 20:.1f}" '
