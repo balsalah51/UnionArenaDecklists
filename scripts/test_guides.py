@@ -142,6 +142,78 @@ class TierAssignTests(unittest.TestCase):
         self.assertEqual(by_name["Low"], "C")
         self.assertEqual(by_name["Fringe"], "D")
 
+    def test_hosted_volume_letters_when_contender_has_no_number(self):
+        rows = [
+            {
+                "name": "Rem",
+                "contender_tier": "",
+                "meta_share": 0.0,
+                "recent_top8": 0,
+                "recent_wins": 0,
+                "recent_results": 0,
+                "recent_lists": 40,
+                "list_count": 62,
+            },
+            {
+                "name": "Ram",
+                "contender_tier": "",
+                "meta_share": 0.0,
+                "recent_top8": 0,
+                "recent_wins": 0,
+                "recent_results": 0,
+                "recent_lists": 3,
+                "list_count": 3,
+            },
+        ]
+        write_guides.assign_letters(rows)
+        by_name = {r["name"]: r["tier"] for r in rows}
+        self.assertEqual(by_name["Rem"], "C")
+        self.assertEqual(by_name["Ram"], "D")
+        self.assertTrue(all(letter in "SABCD" for letter in by_name.values()))
+
+    def test_field_with_many_locals_is_a_bell_curve(self):
+        rows = []
+        for i in range(12):
+            rows.append(
+                {
+                    "name": f"Regular {i:02d}",
+                    "contender_tier": "2",
+                    "meta_share": 0.02 - i * 0.001,
+                    "recent_top8": 12 - i,
+                    "recent_top4": max(0, 6 - i),
+                    "recent_wins": 1 if i < 2 else 0,
+                    "recent_results": 14 - i,
+                    "recent_lists": 16 - i,
+                    "list_count": 20,
+                }
+            )
+        rows.append(
+            {
+                "name": "Sung Jinwoo",
+                "contender_tier": "1",
+                "meta_share": 0.08,
+                "recent_top8": 20,
+                "recent_top4": 12,
+                "recent_wins": 8,
+                "recent_results": 24,
+                "recent_lists": 30,
+                "list_count": 40,
+            }
+        )
+        write_guides.assign_letters(rows)
+        letters = [row["tier"] for row in rows]
+        counts = {letter: letters.count(letter) for letter in "SABCD"}
+        self.assertEqual(max(rows, key=lambda r: r["score"])["tier"], "S")
+        self.assertGreaterEqual(counts["B"], counts["A"])
+        self.assertGreaterEqual(counts["B"], 3)
+        self.assertLess(counts["A"], 6)
+        self.assertTrue(counts["S"] >= 1)
+        self.assertLess(counts["S"], counts["B"])
+        self.assertEqual(write_guides.curve_letters(5), ["S", "A", "B", "C", "D"])
+        curve = write_guides.curve_letters(22)
+        self.assertGreater(curve.count("B"), curve.count("A"))
+        self.assertGreater(curve.count("B"), curve.count("S"))
+
 
 class PlanAndPagesTests(unittest.TestCase):
     def setUp(self):
@@ -219,6 +291,46 @@ class PlanAndPagesTests(unittest.TestCase):
         self.assertIn("/guides/sung-jinwoo-strategy.html", hrefs)
         self.assertTrue(any(g["slug"] == "how-to-read-a-50" for g in plan["topic_guides"]))
         self.assertEqual(write_guides.guide_for_arch(plan, self.jobs[0][0])["href"], "/guides/sung-jinwoo-strategy.html")
+
+    def test_named_community_faces_get_letters_and_board_slots(self):
+        rem_lists = [
+            _list(
+                f"exburst-rem-deck-{i}",
+                "2026-08-20",
+                kind="web",
+                title="Rem Deck",
+                key="re-zero",
+            )
+            for i in range(8)
+        ]
+        ram_lists = [
+            _list(
+                f"exburst-ram-deck-{i}",
+                "2026-08-21",
+                kind="web",
+                title="Ram Deck",
+                key="re-zero",
+            )
+            for i in range(3)
+        ]
+        jobs = self.jobs + [
+            _job(
+                _arch("re-zero", "Re:Zero", key="re-zero", tier=""),
+                rem_lists + ram_lists,
+                [],
+            )
+        ]
+        plan = write_guides.build_plan(jobs, self.cache, today=self.today)
+        rows = {r["name"]: r for r in plan["rows"]}
+        self.assertIn("Rem", rows)
+        self.assertIn("Ram", rows)
+        self.assertIn(rows["Rem"]["tier"], "SABCD")
+        self.assertIn(rows["Ram"]["tier"], "SABCD")
+        self.assertTrue(rows["Rem"]["tier"])
+        board = {r["name"] for r in plan["board"]}
+        self.assertIn("Rem", board)
+        self.assertIn("Ram", board)
+        self.assertNotIn("re-zero", {r["name"].lower() for r in plan["board"]})
 
     def test_pages_render_board_and_writeup(self):
         plan = write_guides.build_plan(self.jobs, self.cache, today=self.today)

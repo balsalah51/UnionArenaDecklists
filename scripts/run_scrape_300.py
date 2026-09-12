@@ -14,6 +14,7 @@ os.chdir(ROOT)
 import scrape_community
 import scrape_events
 import scrape_exburst
+import scrape_exburst_events
 import uadb
 
 TARGET_NEW = 600
@@ -62,6 +63,9 @@ def main() -> None:
     scrape_events.RECENT_DAYS = 400
     scrape_events.MAX_LISTS = TARGET_NEW
     scrape_events.scrape_events(found, seen, cache, arches)
+    persist(found)
+
+    scrape_exburst_events.scrape_exburst_events(found, seen, cache, arches)
     persist(found)
 
     new_now = len({row.get("slug") for row in found if row.get("slug")} - start_slugs)

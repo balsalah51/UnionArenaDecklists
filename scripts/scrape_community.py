@@ -823,28 +823,30 @@ def collapse_by_slug(rows: list[dict]) -> list[dict]:
             -len(key),
         )
 
-    by_id: dict[str, dict] = {}
+    by_id: dict[tuple[str, str], dict] = {}
     out: list[dict] = []
-    used: set[str] = set()
+    used: set[tuple[str, str]] = set()
     for row in collapsed:
         slug = row.get("slug") or ""
-        m = re.search(r"-(\d{6,})$", slug) if row.get("kind") == "event" else None
+        kind = row.get("kind") or ""
+        m = re.search(r"-(\d{6,})$", slug) if kind in {"event", "tournament"} else None
         if m:
-            did = m.group(1)
-            prev = by_id.get(did)
+            ident = (kind, m.group(1))
+            prev = by_id.get(ident)
             if prev is None or score(row) > score(prev):
-                by_id[did] = row
+                by_id[ident] = row
     for row in collapsed:
         slug = row.get("slug") or ""
-        m = re.search(r"-(\d{6,})$", slug) if row.get("kind") == "event" else None
+        kind = row.get("kind") or ""
+        m = re.search(r"-(\d{6,})$", slug) if kind in {"event", "tournament"} else None
         if not m:
             out.append(row)
             continue
-        did = m.group(1)
-        if did in used:
+        ident = (kind, m.group(1))
+        if ident in used:
             continue
-        used.add(did)
-        out.append(by_id[did])
+        used.add(ident)
+        out.append(by_id[ident])
     return out
 
 
@@ -896,6 +898,10 @@ def main() -> None:
         import scrape_events
 
         scrape_events.scrape_events(found, seen, cache, arches)
+    if "--skip-exburst-events" not in sys.argv and "--skip-exburst" not in sys.argv:
+        import scrape_exburst_events
+
+        scrape_exburst_events.scrape_exburst_events(found, seen, cache, arches)
     if "--skip-exburst" not in sys.argv:
         import scrape_exburst
 

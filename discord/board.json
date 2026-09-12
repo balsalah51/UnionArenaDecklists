@@ -139,8 +139,29 @@
           ],
           "sim_text": "4xUE15BT/EVA-1-071\n4xUEPR/EVA-1-084\n4xUEPR/EVA-1-069\n4xUE15BT/EVA-1-070\n4xUE15ST/EVA-1-102\n4xUEPR/EVA-1-074\n4xUE15BT/EVA-1-075\n4xUE15BT/EVA-1-094\n4xUE15BT/EVA-1-080\n4xUE15BT/EVA-1-079\n4xUE15BT/EVA-1-093\n4xUE15BT/EVA-1-100",
           "cards": 48,
-          "list_count": 46,
+          "list_count": 85,
           "recent_lists": [
+            {
+              "slug": "tournament-5th-evangelion-evangelion-test-type-01-pseudo-dms-ph-125499",
+              "kind": "tournament",
+              "title": "Evangelion - Evangelion Test Type-01 Pseudo DMS Phase",
+              "date": "2026-09-10",
+              "href": "decklists/evangelion-evangelion-test-type-01-pseudo-dms-phase/tournament-5th-evangelion-evangelion-test-type-01-pseudo-dms-ph-125499.html"
+            },
+            {
+              "slug": "tournament-9th-evangelion-evangelion-test-type-01-pseudo-dms-ph-125502",
+              "kind": "tournament",
+              "title": "Evangelion - Evangelion Test Type-01 Pseudo DMS Phase",
+              "date": "2026-09-10",
+              "href": "decklists/evangelion-evangelion-test-type-01-pseudo-dms-phase/tournament-9th-evangelion-evangelion-test-type-01-pseudo-dms-ph-125502.html"
+            },
+            {
+              "slug": "tournament-4th-evangelion-evangelion-test-type-01-pseudo-dms-ph-124741",
+              "kind": "tournament",
+              "title": "Evangelion - Evangelion Test Type-01 Pseudo DMS Phase",
+              "date": "2026-09-07",
+              "href": "decklists/evangelion-evangelion-test-type-01-pseudo-dms-phase/tournament-4th-evangelion-evangelion-test-type-01-pseudo-dms-ph-124741.html"
+            },
             {
               "slug": "event-11th-evangelion-evangelion-test-type-01-pseudo-dms-phase-1517184",
               "kind": "event",
@@ -149,53 +170,32 @@
               "href": "decklists/evangelion-evangelion-test-type-01-pseudo-dms-phase/event-11th-evangelion-evangelion-test-type-01-pseudo-dms-phase-1517184.html"
             },
             {
+              "slug": "tournament-11th-evangelion-evangelion-test-type-01-pseudo-dms-p-123833",
+              "kind": "tournament",
+              "title": "Evangelion - Evangelion Test Type-01 Pseudo DMS Phase",
+              "date": "2026-09-05",
+              "href": "decklists/evangelion-evangelion-test-type-01-pseudo-dms-phase/tournament-11th-evangelion-evangelion-test-type-01-pseudo-dms-p-123833.html"
+            },
+            {
+              "slug": "tournament-4th-evangelion-evangelion-test-type-01-pseudo-dms-ph-125454",
+              "kind": "tournament",
+              "title": "Evangelion - Evangelion Test Type-01 Pseudo DMS Phase",
+              "date": "2026-09-03",
+              "href": "decklists/evangelion-evangelion-test-type-01-pseudo-dms-phase/tournament-4th-evangelion-evangelion-test-type-01-pseudo-dms-ph-125454.html"
+            },
+            {
+              "slug": "tournament-6th-evangelion-evangelion-test-type-01-pseudo-dms-ph-125456",
+              "kind": "tournament",
+              "title": "Evangelion - Evangelion Test Type-01 Pseudo DMS Phase",
+              "date": "2026-09-03",
+              "href": "decklists/evangelion-evangelion-test-type-01-pseudo-dms-phase/tournament-6th-evangelion-evangelion-test-type-01-pseudo-dms-ph-125456.html"
+            },
+            {
               "slug": "event-9th-evangelion-evangelion-test-type-01-pseudo-dms-phase-1507927",
               "kind": "event",
               "title": "Evangelion - Evangelion Test Type-01 Pseudo DMS Phase",
               "date": "2026-09-02",
               "href": "decklists/evangelion-evangelion-test-type-01-pseudo-dms-phase/event-9th-evangelion-evangelion-test-type-01-pseudo-dms-phase-1507927.html"
-            },
-            {
-              "slug": "event-8th-evangelion-evangelion-test-type-01-pseudo-dms-phase-1507963",
-              "kind": "event",
-              "title": "Evangelion - Evangelion Test Type-01 Pseudo DMS Phase",
-              "date": "2026-08-31",
-              "href": "decklists/evangelion-evangelion-test-type-01-pseudo-dms-phase/event-8th-evangelion-evangelion-test-type-01-pseudo-dms-phase-1507963.html"
-            },
-            {
-              "slug": "event-1st-evangelion-evangelion-test-type-01-pseudo-dms-phase-1507946",
-              "kind": "event",
-              "title": "Evangelion - Evangelion Test Type-01 Pseudo DMS Phase",
-              "date": "2026-08-31",
-              "href": "decklists/evangelion-evangelion-test-type-01-pseudo-dms-phase/event-1st-evangelion-evangelion-test-type-01-pseudo-dms-phase-1507946.html"
-            },
-            {
-              "slug": "event-5th-evangelion-evangelion-test-type-01-pseudo-dms-phase-1336105",
-              "kind": "event",
-              "title": "Evangelion - Evangelion Test Type-01 Pseudo DMS Phase",
-              "date": "2026-08-30",
-              "href": "decklists/evangelion-evangelion-test-type-01-pseudo-dms-phase/event-5th-evangelion-evangelion-test-type-01-pseudo-dms-phase-1336105.html"
-            },
-            {
-              "slug": "event-1st-evangelion-evangelion-test-type-01-pseudo-dms-phase-1507984",
-              "kind": "event",
-              "title": "Evangelion - Evangelion Test Type-01 Pseudo DMS Phase",
-              "date": "2026-08-30",
-              "href": "decklists/evangelion-evangelion-test-type-01-pseudo-dms-phase/event-1st-evangelion-evangelion-test-type-01-pseudo-dms-phase-1507984.html"
-            },
-            {
-              "slug": "contender-consensus",
-              "kind": "contender",
-              "title": "Evangelion - Evangelion Test Type-01 Pseudo DMS Phase",
-              "date": "2026-08-28",
-              "href": "decklists/evangelion-evangelion-test-type-01-pseudo-dms-phase/contender-consensus.html"
-            },
-            {
-              "slug": "event-2nd-evangelion-evangelion-test-type-01-pseudo-dms-phase-1496643",
-              "kind": "event",
-              "title": "Evangelion - Evangelion Test Type-01 Pseudo DMS Phase",
-              "date": "2026-08-25",
-              "href": "decklists/evangelion-evangelion-test-type-01-pseudo-dms-phase/event-2nd-evangelion-evangelion-test-type-01-pseudo-dms-phase-1496643.html"
             }
           ]
         },
@@ -298,7 +298,7 @@
           ],
           "sim_text": "4xUE15BT/EVA-1-012\n4xUE15BT/EVA-1-013\n4xUE15BT/EVA-1-014\n4xUE15BT/EVA-1-017\n4xUE15BT/EVA-1-018\n4xUE15BT/EVA-1-006\n4xUE15BT/EVA-1-008\n4xUE15BT/EVA-1-004\n4xUE15BT/EVA-1-005\n4xUE15ST/EVA-1-110\n2xUEPR/EVA-1-003\n4xUE15BT/EVA-1-023\n4xUE15BT/EVA-1-020",
           "cards": 50,
-          "list_count": 169,
+          "list_count": 211,
           "recent_lists": [
             {
               "slug": "exburst-yellow-eva-evangelion-rei-ayanami-110156",
@@ -451,7 +451,7 @@
           ],
           "sim_text": "4xUEPR/EVA-1-084\n4xUEPR/EVA-1-069\n4xUE15BT/EVA-1-070\n4xUE15ST/EVA-1-102\n4xUEPR/EVA-1-074\n4xUE15BT/EVA-1-075\n3xUE15BT/EVA-1-085\n4xUE15BT/EVA-1-094\n4xUE15BT/EVA-1-080\n4xUE15BT/EVA-1-079\n4xUE15BT/EVA-1-100\n3xUE15BT/EVA-1-093",
           "cards": 46,
-          "list_count": 19,
+          "list_count": 38,
           "recent_lists": [
             {
               "slug": "event-15th-evangelion-evangelion-proto-type-00-1507970",
@@ -459,6 +459,13 @@
               "title": "Evangelion - Evangelion Proto Type-00",
               "date": "2026-08-31",
               "href": "decklists/evangelion-evangelion-proto-type-00/event-15th-evangelion-evangelion-proto-type-00-1507970.html"
+            },
+            {
+              "slug": "tournament-15th-place-evangelion-evangelion-proto-type-00-122013",
+              "kind": "tournament",
+              "title": "Evangelion - Evangelion Proto Type-00",
+              "date": "2026-08-31",
+              "href": "decklists/evangelion-evangelion-proto-type-00/tournament-15th-place-evangelion-evangelion-proto-type-00-122013.html"
             },
             {
               "slug": "contender-consensus",
@@ -475,39 +482,32 @@
               "href": "decklists/evangelion-evangelion-proto-type-00/event-1st-evangelion-evangelion-proto-type-00-1496642.html"
             },
             {
-              "slug": "event-7th-evangelion-evangelion-proto-type-00-1471329",
-              "kind": "event",
+              "slug": "tournament-1st-place-evangelion-evangelion-proto-type-00-120688",
+              "kind": "tournament",
               "title": "Evangelion - Evangelion Proto Type-00",
-              "date": "2026-08-17",
-              "href": "decklists/evangelion-evangelion-proto-type-00/event-7th-evangelion-evangelion-proto-type-00-1471329.html"
+              "date": "2026-08-25",
+              "href": "decklists/evangelion-evangelion-proto-type-00/tournament-1st-place-evangelion-evangelion-proto-type-00-120688.html"
             },
             {
-              "slug": "event-2nd-evangelion-evangelion-proto-type-00-1461725",
-              "kind": "event",
+              "slug": "tournament-1st-place-evangelion-evangelion-proto-type-00-120338",
+              "kind": "tournament",
               "title": "Evangelion - Evangelion Proto Type-00",
-              "date": "2026-08-13",
-              "href": "decklists/evangelion-evangelion-proto-type-00/event-2nd-evangelion-evangelion-proto-type-00-1461725.html"
+              "date": "2026-08-24",
+              "href": "decklists/evangelion-evangelion-proto-type-00/tournament-1st-place-evangelion-evangelion-proto-type-00-120338.html"
             },
             {
-              "slug": "event-2nd-evangelion-evangelion-proto-type-00-1461766",
-              "kind": "event",
+              "slug": "tournament-4th-place-evangelion-evangelion-proto-type-00-119425",
+              "kind": "tournament",
               "title": "Evangelion - Evangelion Proto Type-00",
-              "date": "2026-08-10",
-              "href": "decklists/evangelion-evangelion-proto-type-00/event-2nd-evangelion-evangelion-proto-type-00-1461766.html"
+              "date": "2026-08-20",
+              "href": "decklists/evangelion-evangelion-proto-type-00/tournament-4th-place-evangelion-evangelion-proto-type-00-119425.html"
             },
             {
-              "slug": "event-8th-evangelion-evangelion-proto-type-00-1446135",
-              "kind": "event",
+              "slug": "tournament-4th-place-evangelion-evangelion-proto-type-00-120112",
+              "kind": "tournament",
               "title": "Evangelion - Evangelion Proto Type-00",
-              "date": "2026-08-02",
-              "href": "decklists/evangelion-evangelion-proto-type-00/event-8th-evangelion-evangelion-proto-type-00-1446135.html"
-            },
-            {
-              "slug": "event-30th-evangelion-evangelion-proto-type-00-1446157",
-              "kind": "event",
-              "title": "Evangelion - Evangelion Proto Type-00",
-              "date": "2026-08-02",
-              "href": "decklists/evangelion-evangelion-proto-type-00/event-30th-evangelion-evangelion-proto-type-00-1446157.html"
+              "date": "2026-08-20",
+              "href": "decklists/evangelion-evangelion-proto-type-00/tournament-4th-place-evangelion-evangelion-proto-type-00-120112.html"
             }
           ]
         },
@@ -610,7 +610,7 @@
           ],
           "sim_text": "4xUEPR/EVA-1-048\n4xUE15BT/EVA-1-049\n4xUEPR/EVA-1-050\n4xUE15ST/EVA-1-113\n4xUE15BT/EVA-1-054\n4xUE15BT/EVA-1-056\n4xUE15BT/EVA-1-046\n4xUE15BT/EVA-1-081\n4xUE15BT/EVA-1-042\n4xUE15BT/EVA-1-043\n4xUE15BT/EVA-1-064\n4xUE15BT/EVA-1-061\n2xUE15BT/EVA-1-033",
           "cards": 50,
-          "list_count": 16,
+          "list_count": 24,
           "recent_lists": [
             {
               "slug": "event-1st-evangelion-evangelion-production-model-08-1507938",
@@ -618,6 +618,13 @@
               "title": "Evangelion - Evangelion Production Model-08",
               "date": "2026-09-01",
               "href": "decklists/evangelion-evangelion-production-model-08/event-1st-evangelion-evangelion-production-model-08-1507938.html"
+            },
+            {
+              "slug": "tournament-1st-place-evangelion-evangelion-production-model-08-122406",
+              "kind": "tournament",
+              "title": "Evangelion - Evangelion Production Model-08",
+              "date": "2026-09-01",
+              "href": "decklists/evangelion-evangelion-production-model-08/tournament-1st-place-evangelion-evangelion-production-model-08-122406.html"
             },
             {
               "slug": "event-7th-evangelion-evangelion-production-model-08-1336107",
@@ -641,32 +648,25 @@
               "href": "decklists/evangelion-evangelion-production-model-08/event-5th-evangelion-evangelion-production-model-08-1446117.html"
             },
             {
+              "slug": "tournament-5th-evangelion-evangelion-production-model-08-114588",
+              "kind": "tournament",
+              "title": "Evangelion - Evangelion Production Model-08",
+              "date": "2026-08-03",
+              "href": "decklists/evangelion-evangelion-production-model-08/tournament-5th-evangelion-evangelion-production-model-08-114588.html"
+            },
+            {
+              "slug": "tournament-12th-evangelion-evangelion-production-model-08-117616",
+              "kind": "tournament",
+              "title": "Evangelion - Evangelion Production Model-08",
+              "date": "2026-08-03",
+              "href": "decklists/evangelion-evangelion-production-model-08/tournament-12th-evangelion-evangelion-production-model-08-117616.html"
+            },
+            {
               "slug": "event-2nd-evangelion-evangelion-production-model-08-1435481",
               "kind": "event",
               "title": "Evangelion - Evangelion Production Model-08",
               "date": "2026-07-31",
               "href": "decklists/evangelion-evangelion-production-model-08/event-2nd-evangelion-evangelion-production-model-08-1435481.html"
-            },
-            {
-              "slug": "event-7th-evangelion-evangelion-production-model-08-1435506",
-              "kind": "event",
-              "title": "Evangelion - Evangelion Production Model-08",
-              "date": "2026-07-30",
-              "href": "decklists/evangelion-evangelion-production-model-08/event-7th-evangelion-evangelion-production-model-08-1435506.html"
-            },
-            {
-              "slug": "event-1st-evangelion-evangelion-production-model-08-1435490",
-              "kind": "event",
-              "title": "Evangelion - Evangelion Production Model-08",
-              "date": "2026-07-30",
-              "href": "decklists/evangelion-evangelion-production-model-08/event-1st-evangelion-evangelion-production-model-08-1435490.html"
-            },
-            {
-              "slug": "event-1st-evangelion-evangelion-production-model-08-1435515",
-              "kind": "event",
-              "title": "Evangelion - Evangelion Production Model-08",
-              "date": "2026-07-29",
-              "href": "decklists/evangelion-evangelion-production-model-08/event-1st-evangelion-evangelion-production-model-08-1435515.html"
             }
           ]
         },
@@ -769,7 +769,7 @@
           ],
           "sim_text": "4xUEPR/EVA-1-086\n4xUE15BT/EVA-1-088\n4xUE15BT/EVA-1-090\n4xUE15BT/EVA-1-091\n4xUE15BT/EVA-1-092\n4xUEPR/EVA-1-068\n2xUE15ST/EVA-1-106\n4xUE15BT/EVA-1-078\n4xUE15BT/EVA-1-081\n4xUE15BT/EVA-1-082\n4xUE15BT/EVA-1-098\n4xUE15BT/EVA-1-097\n4xUE15BT/EVA-1-077",
           "cards": 50,
-          "list_count": 10,
+          "list_count": 15,
           "recent_lists": [
             {
               "slug": "contender-consensus",
@@ -786,11 +786,25 @@
               "href": "decklists/evangelion-evangelion-production-model-02/event-1st-evangelion-evangelion-production-model-02-1489259.html"
             },
             {
+              "slug": "tournament-1st-place-evangelion-evangelion-production-model-02-119824",
+              "kind": "tournament",
+              "title": "Evangelion - Evangelion Production Model-02 (Beast Form)",
+              "date": "2026-08-21",
+              "href": "decklists/evangelion-evangelion-production-model-02/tournament-1st-place-evangelion-evangelion-production-model-02-119824.html"
+            },
+            {
               "slug": "event-1st-evangelion-evangelion-production-model-02-1471400",
               "kind": "event",
               "title": "Evangelion - Evangelion Production Model-02 (Beast Form)",
               "date": "2026-08-14",
               "href": "decklists/evangelion-evangelion-production-model-02/event-1st-evangelion-evangelion-production-model-02-1471400.html"
+            },
+            {
+              "slug": "tournament-1st-place-evangelion-evangelion-production-model-02-117636",
+              "kind": "tournament",
+              "title": "Evangelion - Evangelion Production Model-02 (Beast Form)",
+              "date": "2026-08-14",
+              "href": "decklists/evangelion-evangelion-production-model-02/tournament-1st-place-evangelion-evangelion-production-model-02-117636.html"
             },
             {
               "slug": "event-2nd-evangelion-evangelion-production-model-02-1479664",
@@ -800,32 +814,18 @@
               "href": "decklists/evangelion-evangelion-production-model-02/event-2nd-evangelion-evangelion-production-model-02-1479664.html"
             },
             {
+              "slug": "tournament-2nd-place-evangelion-evangelion-production-model-02-119384",
+              "kind": "tournament",
+              "title": "Evangelion - Evangelion Production Model-02 (Beast Form)",
+              "date": "2026-08-13",
+              "href": "decklists/evangelion-evangelion-production-model-02/tournament-2nd-place-evangelion-evangelion-production-model-02-119384.html"
+            },
+            {
               "slug": "event-3rd-evangelion-evangelion-production-model-02-1446170",
               "kind": "event",
               "title": "Evangelion - Evangelion Production Model-02 (Beast Form)",
               "date": "2026-08-01",
               "href": "decklists/evangelion-evangelion-production-model-02/event-3rd-evangelion-evangelion-production-model-02-1446170.html"
-            },
-            {
-              "slug": "event-5th-evangelion-evangelion-production-model-02-1402097",
-              "kind": "event",
-              "title": "Evangelion - Evangelion Production Model-02 (Beast Form)",
-              "date": "2026-07-23",
-              "href": "decklists/evangelion-evangelion-production-model-02/event-5th-evangelion-evangelion-production-model-02-1402097.html"
-            },
-            {
-              "slug": "event-3rd-evangelion-evangelion-production-model-02-1345803",
-              "kind": "event",
-              "title": "Evangelion - Evangelion Production Model-02 (Beast Form)",
-              "date": "2026-07-10",
-              "href": "decklists/evangelion-evangelion-production-model-02/event-3rd-evangelion-evangelion-production-model-02-1345803.html"
-            },
-            {
-              "slug": "event-8th-evangelion-evangelion-production-model-02-1336123",
-              "kind": "event",
-              "title": "Evangelion - Evangelion Production Model-02 (Beast Form)",
-              "date": "2026-07-09",
-              "href": "decklists/evangelion-evangelion-production-model-02/event-8th-evangelion-evangelion-production-model-02-1336123.html"
             }
           ]
         },
@@ -928,14 +928,35 @@
           ],
           "sim_text": "4xUEPR/EVA-1-048\n4xUE15BT/EVA-1-049\n4xUE15BT/EVA-1-054\n4xUE15BT/EVA-1-056\n4xUE15BT/EVA-1-046\n4xUEPR/EVA-1-027\n4xUE15ST/EVA-1-113\n4xUE15BT/EVA-1-033\n4xUE15BT/EVA-1-042\n4xUE15BT/EVA-1-064\n4xUE15BT/EVA-1-061\n4xUE15BT/EVA-1-043\n2xUE16BT/KGR-1-033",
           "cards": 50,
-          "list_count": 10,
+          "list_count": 17,
           "recent_lists": [
+            {
+              "slug": "tournament-5th-evangelion-evangelion-production-model-new-02-124742",
+              "kind": "tournament",
+              "title": "Evangelion - Evangelion Production Model-New 02",
+              "date": "2026-09-07",
+              "href": "decklists/evangelion-evangelion-production-model-new-02/tournament-5th-evangelion-evangelion-production-model-new-02-124742.html"
+            },
+            {
+              "slug": "tournament-16th-evangelion-evangelion-production-model-new-02-124754",
+              "kind": "tournament",
+              "title": "Evangelion - Evangelion Production Model-New 02",
+              "date": "2026-09-07",
+              "href": "decklists/evangelion-evangelion-production-model-new-02/tournament-16th-evangelion-evangelion-production-model-new-02-124754.html"
+            },
             {
               "slug": "event-17th-evangelion-evangelion-production-model-new-02-1507972",
               "kind": "event",
               "title": "Evangelion - Evangelion Production Model-New 02",
               "date": "2026-08-31",
               "href": "decklists/evangelion-evangelion-production-model-new-02/event-17th-evangelion-evangelion-production-model-new-02-1507972.html"
+            },
+            {
+              "slug": "tournament-17th-evangelion-evangelion-production-model-new-02-122015",
+              "kind": "tournament",
+              "title": "Evangelion - Evangelion Production Model-New 02",
+              "date": "2026-08-31",
+              "href": "decklists/evangelion-evangelion-production-model-new-02/tournament-17th-evangelion-evangelion-production-model-new-02-122015.html"
             },
             {
               "slug": "contender-consensus",
@@ -952,39 +973,18 @@
               "href": "decklists/evangelion-evangelion-production-model-new-02/event-3rd-evangelion-evangelion-production-model-new-02-1508007.html"
             },
             {
+              "slug": "tournament-3rd-evangelion-evangelion-production-model-new-02-121653",
+              "kind": "tournament",
+              "title": "Evangelion - Evangelion Production Model-New 02",
+              "date": "2026-08-26",
+              "href": "decklists/evangelion-evangelion-production-model-new-02/tournament-3rd-evangelion-evangelion-production-model-new-02-121653.html"
+            },
+            {
               "slug": "event-12th-evangelion-evangelion-production-model-new-02-1471361",
               "kind": "event",
               "title": "Evangelion - Evangelion Production Model-New 02",
               "date": "2026-08-16",
               "href": "decklists/evangelion-evangelion-production-model-new-02/event-12th-evangelion-evangelion-production-model-new-02-1471361.html"
-            },
-            {
-              "slug": "event-5th-evangelion-evangelion-production-model-new-02-1446132",
-              "kind": "event",
-              "title": "Evangelion - Evangelion Production Model-New 02",
-              "date": "2026-08-02",
-              "href": "decklists/evangelion-evangelion-production-model-new-02/event-5th-evangelion-evangelion-production-model-new-02-1446132.html"
-            },
-            {
-              "slug": "event-3rd-evangelion-evangelion-production-model-new-02-1435510",
-              "kind": "event",
-              "title": "Evangelion - Evangelion Production Model-New 02",
-              "date": "2026-07-29",
-              "href": "decklists/evangelion-evangelion-production-model-new-02/event-3rd-evangelion-evangelion-production-model-new-02-1435510.html"
-            },
-            {
-              "slug": "event-2nd-evangelion-evangelion-production-model-new-02-1345725",
-              "kind": "event",
-              "title": "Evangelion - Evangelion Production Model-New 02",
-              "date": "2026-07-13",
-              "href": "decklists/evangelion-evangelion-production-model-new-02/event-2nd-evangelion-evangelion-production-model-new-02-1345725.html"
-            },
-            {
-              "slug": "event-5th-evangelion-evangelion-production-model-new-02-1234608",
-              "kind": "event",
-              "title": "Evangelion - Evangelion Production Model-New 02",
-              "date": "2026-06-18",
-              "href": "decklists/evangelion-evangelion-production-model-new-02/event-5th-evangelion-evangelion-production-model-new-02-1234608.html"
             }
           ]
         },
@@ -1258,7 +1258,7 @@
           ],
           "sim_text": "4xUE15ST/EVA-1-110\n4xUE15BT/EVA-1-012\n4xUE15BT/EVA-1-013\n4xUE15BT/EVA-1-014\n4xUE15BT/EVA-1-017\n4xUE15BT/EVA-1-018\n4xUE15BT/EVA-1-006\n4xUE15BT/EVA-1-008\n4xUE15BT/EVA-1-005\n2xUE15BT/EVA-1-004\n4xUE15BT/EVA-1-023\n4xUE15ST/EVA-1-111\n4xUE15BT/EVA-1-020",
           "cards": 50,
-          "list_count": 106,
+          "list_count": 138,
           "recent_lists": [
             {
               "slug": "exburst-spear-evangelion-asuka-shikinami-langley-117714",
@@ -1423,8 +1423,15 @@
           ],
           "sim_text": "4xUE15BT/EVA-1-037\n4xUEPR/EVA-1-038\n4xUE15BT/EVA-1-039\n4xUE15BT/EVA-1-028\n3xUE15BT/EVA-1-029\n3xUE15BT/EVA-1-031\n4xUE15BT/EVA-1-034\n4xUE15BT/EVA-1-033\n4xUE15ST/EVA-1-112\n4xUE15BT/EVA-1-065\n4xUE15BT/EVA-1-059\n3xUE15BT/EVA-1-058\n3xUE15BT/EVA-1-062\n2xUE15BT/EVA-1-035",
           "cards": 50,
-          "list_count": 8,
+          "list_count": 17,
           "recent_lists": [
+            {
+              "slug": "tournament-5th-place-evangelion-evangelion-13-125000",
+              "kind": "tournament",
+              "title": "Evangelion - Evangelion 13",
+              "date": "2026-09-08",
+              "href": "decklists/evangelion-evangelion-13/tournament-5th-place-evangelion-evangelion-13-125000.html"
+            },
             {
               "slug": "event-6th-evangelion-evangelion-13-1517199",
               "kind": "event",
@@ -1433,11 +1440,25 @@
               "href": "decklists/evangelion-evangelion-13/event-6th-evangelion-evangelion-13-1517199.html"
             },
             {
+              "slug": "tournament-6th-place-evangelion-evangelion-13-122642",
+              "kind": "tournament",
+              "title": "Evangelion - Evangelion 13",
+              "date": "2026-09-03",
+              "href": "decklists/evangelion-evangelion-13/tournament-6th-place-evangelion-evangelion-13-122642.html"
+            },
+            {
               "slug": "event-14th-evangelion-evangelion-13-1507930",
               "kind": "event",
               "title": "Evangelion - Evangelion 13",
               "date": "2026-09-02",
               "href": "decklists/evangelion-evangelion-13/event-14th-evangelion-evangelion-13-1507930.html"
+            },
+            {
+              "slug": "tournament-14th-place-evangelion-evangelion-13-122438",
+              "kind": "tournament",
+              "title": "Evangelion - Evangelion 13",
+              "date": "2026-09-02",
+              "href": "decklists/evangelion-evangelion-13/tournament-14th-place-evangelion-evangelion-13-122438.html"
             },
             {
               "slug": "contender-consensus",
@@ -1454,32 +1475,11 @@
               "href": "decklists/evangelion-evangelion-13/event-11th-evangelion-evangelion-13-1496639.html"
             },
             {
-              "slug": "event-24th-evangelion-evangelion-13-1388145",
-              "kind": "event",
+              "slug": "tournament-11th-place-evangelion-evangelion-13-120823",
+              "kind": "tournament",
               "title": "Evangelion - Evangelion 13",
-              "date": "2026-07-18",
-              "href": "decklists/evangelion-evangelion-13/event-24th-evangelion-evangelion-13-1388145.html"
-            },
-            {
-              "slug": "event-6th-evangelion-evangelion-13-1291321",
-              "kind": "event",
-              "title": "Evangelion - Evangelion 13",
-              "date": "2026-07-03",
-              "href": "decklists/evangelion-evangelion-13/event-6th-evangelion-evangelion-13-1291321.html"
-            },
-            {
-              "slug": "event-1st-evangelion-evangelion-13-951228",
-              "kind": "event",
-              "title": "Evangelion - Evangelion 13",
-              "date": "2026-04-10",
-              "href": "decklists/evangelion-evangelion-13/event-1st-evangelion-evangelion-13-951228.html"
-            },
-            {
-              "slug": "event-5th-evangelion-evangelion-13-889963",
-              "kind": "event",
-              "title": "Evangelion - Evangelion 13",
-              "date": "2026-04-03",
-              "href": "decklists/evangelion-evangelion-13/event-5th-evangelion-evangelion-13-889963.html"
+              "date": "2026-08-27",
+              "href": "decklists/evangelion-evangelion-13/tournament-11th-place-evangelion-evangelion-13-120823.html"
             }
           ]
         },
@@ -5775,7 +5775,7 @@
           ],
           "sim_text": "4xUE22BT/CSM-1-016\n4xUE22BT/CSM-1-017\n4xUE22BT/CSM-1-003\n4xUE22BT/CSM-1-004\n4xUE22BT/CSM-1-006\n4xUE22BT/CSM-1-008\n4xUE22BT/CSM-1-025\n4xUE22BT/CSM-1-028\n4xUE22BT/CSM-1-030\n4xUE22BT/CSM-1-031\n4xUE22BT/CSM-1-036\n4xUE22BT/CSM-1-039\n2xUE16BT/KGR-1-033",
           "cards": 50,
-          "list_count": 66,
+          "list_count": 128,
           "recent_lists": [
             {
               "slug": "exburst-rb-reze-csm-denji-125389",
@@ -5934,8 +5934,22 @@
           ],
           "sim_text": "4xUE22BT/CSM-1-047\n4xUE22BT/CSM-1-048\n4xUE22BT/CSM-1-049\n4xUE22BT/CSM-1-050\n4xUE22BT/CSM-1-051\n4xUE22BT/CSM-1-057\n4xUE22BT/CSM-1-059\n4xUE22BT/CSM-1-060\n4xUE22BT/CSM-1-061\n4xUE22BT/CSM-1-076\n4xUE22BT/CSM-1-080\n4xUE22BT/CSM-1-067\n2xUE22BT/CSM-1-079",
           "cards": 50,
-          "list_count": 27,
+          "list_count": 55,
           "recent_lists": [
+            {
+              "slug": "tournament-7th-place-csm-chainsaw-man-125500",
+              "kind": "tournament",
+              "title": "Chainsaw Man",
+              "date": "2026-09-10",
+              "href": "decklists/csm-chainsaw-man/tournament-7th-place-csm-chainsaw-man-125500.html"
+            },
+            {
+              "slug": "tournament-11th-place-csm-chainsaw-man-125505",
+              "kind": "tournament",
+              "title": "Chainsaw Man",
+              "date": "2026-09-10",
+              "href": "decklists/csm-chainsaw-man/tournament-11th-place-csm-chainsaw-man-125505.html"
+            },
             {
               "slug": "exburst-chainsaw-man-build-csm-chainsaw-man-118724",
               "kind": "web",
@@ -5958,6 +5972,13 @@
               "href": "decklists/csm-chainsaw-man/exburst-chainsaw-man-rahhhh-csm-chainsaw-man-108886.html"
             },
             {
+              "slug": "tournament-5th-place-csm-chainsaw-man-125455",
+              "kind": "tournament",
+              "title": "Chainsaw Man",
+              "date": "2026-09-03",
+              "href": "decklists/csm-chainsaw-man/tournament-5th-place-csm-chainsaw-man-125455.html"
+            },
+            {
               "slug": "event-3rd-csm-chainsaw-man-1507952",
               "kind": "event",
               "title": "Chainsaw Man",
@@ -5970,27 +5991,6 @@
               "title": "Chainsaw Man",
               "date": "2026-08-31",
               "href": "decklists/csm-chainsaw-man/event-19th-csm-chainsaw-man-1507974.html"
-            },
-            {
-              "slug": "event-22nd-csm-chainsaw-man-1507977",
-              "kind": "event",
-              "title": "Chainsaw Man",
-              "date": "2026-08-31",
-              "href": "decklists/csm-chainsaw-man/event-22nd-csm-chainsaw-man-1507977.html"
-            },
-            {
-              "slug": "contender-consensus",
-              "kind": "contender",
-              "title": "Chainsaw Man",
-              "date": "2026-08-28",
-              "href": "decklists/csm-chainsaw-man/contender-consensus.html"
-            },
-            {
-              "slug": "event-4th-csm-chainsaw-man-1496635",
-              "kind": "event",
-              "title": "Chainsaw Man",
-              "date": "2026-08-27",
-              "href": "decklists/csm-chainsaw-man/event-4th-csm-chainsaw-man-1496635.html"
             }
           ]
         },
@@ -6099,7 +6099,7 @@
           ],
           "sim_text": "4xUE22BT/CSM-1-010\n4xUE22BT/CSM-1-004\n4xUE22BT/CSM-1-007\n4xUE22BT/CSM-1-018\n4xUE22BT/CSM-1-020\n4xUE22BT/CSM-1-021\n4xUE22BT/CSM-1-023\n4xUE22BT/CSM-1-024\n3xUE22BT/CSM-1-008\n3xUE22BT/CSM-1-019\n1xUE22BT/CSM-1-022\n4xUE22BT/CSM-1-040\n4xUE22BT/CSM-1-034\n3xUE22BT/CSM-1-037",
           "cards": 50,
-          "list_count": 23,
+          "list_count": 37,
           "recent_lists": [
             {
               "slug": "exburst-makima-copy-csm-makima-112682",
@@ -6264,7 +6264,7 @@
           ],
           "sim_text": "4xUE22BT/CSM-1-047\n4xUE22BT/CSM-1-048\n4xUE22BT/CSM-1-049\n4xUE22BT/CSM-1-050\n4xUE22BT/CSM-1-057\n4xUE22BT/CSM-1-060\n4xUE22BT/CSM-1-061\n3xUE22BT/CSM-1-051\n3xUE22BT/CSM-1-070\n1xUE22BT/CSM-1-059\n4xUE22BT/CSM-1-076\n4xUE22BT/CSM-1-080\n4xUE22BT/CSM-1-067\n3xUE22BT/CSM-1-079",
           "cards": 50,
-          "list_count": 38,
+          "list_count": 58,
           "recent_lists": [
             {
               "slug": "exburst-midgard-csm-rare-battle-winner-csm-power-125465",
@@ -6423,7 +6423,7 @@
           ],
           "sim_text": "4xUE22BT/CSM-1-052\n4xUE22BT/CSM-1-053\n4xUE22BT/CSM-1-054\n4xUE22BT/CSM-1-056\n4xUE22BT/CSM-1-063\n4xUE22BT/CSM-1-064\n4xUE22BT/CSM-1-065\n4xUE22BT/CSM-1-066\n4xUE22BT/CSM-1-070\n3xUE22BT/CSM-1-045\n4xUE22BT/CSM-1-074\n4xUE22BT/CSM-1-077\n3xUE22BT/CSM-1-075",
           "cards": 50,
-          "list_count": 26,
+          "list_count": 41,
           "recent_lists": [
             {
               "slug": "exburst-aki-attack-csm-aki-hayakawa-111944",
@@ -6692,7 +6692,7 @@
           ],
           "sim_text": "4xUE22BT/CSM-1-016\n4xUE22BT/CSM-1-017\n4xUE22BT/CSM-1-003\n4xUE22BT/CSM-1-004\n4xUE22BT/CSM-1-006\n4xUE22BT/CSM-1-008\n4xUE22BT/CSM-1-025\n4xUE22BT/CSM-1-026\n4xUE22BT/CSM-1-028\n4xUE22BT/CSM-1-030\n4xUE22BT/CSM-1-031\n4xUE22BT/CSM-1-036\n2xUE22BT/CSM-1-039",
           "cards": 50,
-          "list_count": 11,
+          "list_count": 25,
           "recent_lists": [
             {
               "slug": "exburst-bomb-devil-v2-csm-bomb-devil-125402",
@@ -6716,6 +6716,27 @@
               "href": "decklists/csm-bomb-devil/exburst-bomb-devil-build-r-winner-csm-bomb-devil-124254.html"
             },
             {
+              "slug": "tournament-12th-place-csm-bomb-devil-124749",
+              "kind": "tournament",
+              "title": "Chainsaw Man - Bomb Devil",
+              "date": "2026-09-07",
+              "href": "decklists/csm-bomb-devil/tournament-12th-place-csm-bomb-devil-124749.html"
+            },
+            {
+              "slug": "tournament-20th-place-csm-bomb-devil-122018",
+              "kind": "tournament",
+              "title": "Chainsaw Man - Bomb Devil",
+              "date": "2026-08-31",
+              "href": "decklists/csm-bomb-devil/tournament-20th-place-csm-bomb-devil-122018.html"
+            },
+            {
+              "slug": "tournament-8th-place-csm-bomb-devil-121684",
+              "kind": "tournament",
+              "title": "Chainsaw Man - Bomb Devil",
+              "date": "2026-08-29",
+              "href": "decklists/csm-bomb-devil/tournament-8th-place-csm-bomb-devil-121684.html"
+            },
+            {
               "slug": "contender-consensus",
               "kind": "contender",
               "title": "Chainsaw Man - Bomb Devil",
@@ -6723,32 +6744,11 @@
               "href": "decklists/csm-bomb-devil/contender-consensus.html"
             },
             {
-              "slug": "event-3rd-csm-bomb-devil-1471325",
-              "kind": "event",
+              "slug": "tournament-1st-place-csm-bomb-devil-121647",
+              "kind": "tournament",
               "title": "Chainsaw Man - Bomb Devil",
-              "date": "2026-08-17",
-              "href": "decklists/csm-bomb-devil/event-3rd-csm-bomb-devil-1471325.html"
-            },
-            {
-              "slug": "event-8th-csm-bomb-devil-1471417",
-              "kind": "event",
-              "title": "Chainsaw Man - Bomb Devil",
-              "date": "2026-08-13",
-              "href": "decklists/csm-bomb-devil/event-8th-csm-bomb-devil-1471417.html"
-            },
-            {
-              "slug": "event-3rd-csm-bomb-devil-1461781",
-              "kind": "event",
-              "title": "Chainsaw Man - Bomb Devil",
-              "date": "2026-08-08",
-              "href": "decklists/csm-bomb-devil/event-3rd-csm-bomb-devil-1461781.html"
-            },
-            {
-              "slug": "event-3rd-csm-bomb-devil-1452843",
-              "kind": "event",
-              "title": "Chainsaw Man - Bomb Devil",
-              "date": "2026-08-06",
-              "href": "decklists/csm-bomb-devil/event-3rd-csm-bomb-devil-1452843.html"
+              "date": "2026-08-25",
+              "href": "decklists/csm-bomb-devil/tournament-1st-place-csm-bomb-devil-121647.html"
             }
           ]
         },
@@ -7958,7 +7958,7 @@
           ],
           "sim_text": "4xUEPR/SLG-1-018\n4xUE17BT/SLG-1-022\n3xUE17BT/SLG-1-015\n3xUE17BT/SLG-1-019\n2xUE17BT/SLG-1-017\n2xUE17BT/SLG-1-021\n4xUE17BT/SLG-1-035\n4xUE17BT/SLG-1-039\n4xUE17BT/SLG-1-030\n4xUE17BT/SLG-1-032\n4xUE17BT/SLG-1-031\n3xUE17BT/SLG-1-038\n3xUE17BT/SLG-1-028\n3xUE17BT/SLG-1-027\n3xUE17BT/SLG-1-029",
           "cards": 50,
-          "list_count": 190,
+          "list_count": 300,
           "recent_lists": [
             {
               "slug": "exburst-don-t-look-down-on-my-guys-solo-leveling-sung-jinwoo-73976",
@@ -7996,6 +7996,13 @@
               "href": "decklists/solo-leveling-sung-jinwoo/exburst-arise-solo-leveling-sung-jinwoo-125277.html"
             },
             {
+              "slug": "tournament-10th-place-solo-leveling-sung-jinwoo-125504",
+              "kind": "tournament",
+              "title": "Solo Leveling - Sung Jinwoo",
+              "date": "2026-09-10",
+              "href": "decklists/solo-leveling-sung-jinwoo/tournament-10th-place-solo-leveling-sung-jinwoo-125504.html"
+            },
+            {
               "slug": "exburst-shadow-army-kinda-solo-leveling-sung-jinwoo-71860",
               "kind": "web",
               "title": "Solo Leveling - Sung Jinwoo",
@@ -8008,13 +8015,6 @@
               "title": "Solo Leveling - Sung Jinwoo",
               "date": "2026-09-09",
               "href": "decklists/solo-leveling-sung-jinwoo/exburst-sung-s-summons-solo-leveling-sung-jinwoo-71867.html"
-            },
-            {
-              "slug": "exburst-millwoo-solo-leveling-sung-jinwoo-125123",
-              "kind": "web",
-              "title": "Solo Leveling - Sung Jinwoo",
-              "date": "2026-09-09",
-              "href": "decklists/solo-leveling-sung-jinwoo/exburst-millwoo-solo-leveling-sung-jinwoo-125123.html"
             }
           ]
         },
@@ -8117,7 +8117,7 @@
           ],
           "sim_text": "4xUE17BT/SLG-1-055\n4xUE17BT/SLG-1-058\n4xUE17BT/SLG-1-062\n4xUE17BT/SLG-1-063\n4xUE17BT/SLG-1-064\n4xUE17BT/SLG-1-056\n4xUE17BT/SLG-1-077\n4xUE17BT/SLG-1-071\n4xUE17BT/SLG-1-066\n4xUE17BT/SLG-1-061\n4xUE17BT/SLG-1-072\n4xUE17BT/SLG-1-067\n2xUE17BT/SLG-1-038",
           "cards": 50,
-          "list_count": 19,
+          "list_count": 27,
           "recent_lists": [
             {
               "slug": "exburst-4th-jeju-island-raid-chapanese-solo-leveling-cha-hae-in-76329",
@@ -8148,6 +8148,20 @@
               "href": "decklists/solo-leveling-cha-hae-in/event-3rd-solo-leveling-cha-hae-in-1479593.html"
             },
             {
+              "slug": "tournament-3rd-place-solo-leveling-cha-hae-in-119399",
+              "kind": "tournament",
+              "title": "Solo Leveling - Cha Hae-in",
+              "date": "2026-08-20",
+              "href": "decklists/solo-leveling-cha-hae-in/tournament-3rd-place-solo-leveling-cha-hae-in-119399.html"
+            },
+            {
+              "slug": "tournament-2nd-place-solo-leveling-cha-hae-in-119296",
+              "kind": "tournament",
+              "title": "Solo Leveling - Choi Jong-in",
+              "date": "2026-08-18",
+              "href": "decklists/solo-leveling-cha-hae-in/tournament-2nd-place-solo-leveling-cha-hae-in-119296.html"
+            },
+            {
               "slug": "event-2nd-solo-leveling-cha-hae-in-1479640",
               "kind": "event",
               "title": "Solo Leveling - Cha Hae-in",
@@ -8155,25 +8169,11 @@
               "href": "decklists/solo-leveling-cha-hae-in/event-2nd-solo-leveling-cha-hae-in-1479640.html"
             },
             {
-              "slug": "event-2nd-solo-leveling-cha-hae-in-1461780",
-              "kind": "event",
+              "slug": "tournament-2nd-place-solo-leveling-cha-hae-in-118533",
+              "kind": "tournament",
               "title": "Solo Leveling - Cha Hae-in",
-              "date": "2026-08-08",
-              "href": "decklists/solo-leveling-cha-hae-in/event-2nd-solo-leveling-cha-hae-in-1461780.html"
-            },
-            {
-              "slug": "event-30th-solo-leveling-cha-hae-in-1388151",
-              "kind": "event",
-              "title": "Solo Leveling - Cha Hae-in",
-              "date": "2026-07-18",
-              "href": "decklists/solo-leveling-cha-hae-in/event-30th-solo-leveling-cha-hae-in-1388151.html"
-            },
-            {
-              "slug": "event-31st-solo-leveling-cha-hae-in-1388152",
-              "kind": "event",
-              "title": "Solo Leveling - Cha Hae-in",
-              "date": "2026-07-18",
-              "href": "decklists/solo-leveling-cha-hae-in/event-31st-solo-leveling-cha-hae-in-1388152.html"
+              "date": "2026-08-17",
+              "href": "decklists/solo-leveling-cha-hae-in/tournament-2nd-place-solo-leveling-cha-hae-in-118533.html"
             }
           ]
         },
@@ -8398,14 +8398,35 @@
           ],
           "sim_text": "4xUE17BT/SLG-1-011\n4xUE17BT/SLG-1-008\n4xUE17BT/SLG-1-002\n4xUE17BT/SLG-1-003\n4xUE17BT/SLG-1-015\n4xUE17BT/SLG-1-016\n4xUE17BT/SLG-1-017\n4xUE17BT/SLG-1-020\n4xUE17BT/SLG-1-021\n4xUE17BT/SLG-1-038\n4xUE17BT/SLG-1-040\n3xUE17BT/SLG-1-034\n3xUE17BT/SLG-1-036",
           "cards": 50,
-          "list_count": 16,
+          "list_count": 28,
           "recent_lists": [
+            {
+              "slug": "tournament-2nd-place-solo-leveling-han-song-yi-125265",
+              "kind": "tournament",
+              "title": "Solo Leveling - Han Song-yi",
+              "date": "2026-09-09",
+              "href": "decklists/solo-leveling-han-song-yi/tournament-2nd-place-solo-leveling-han-song-yi-125265.html"
+            },
+            {
+              "slug": "tournament-3rd-place-solo-leveling-han-song-yi-124740",
+              "kind": "tournament",
+              "title": "Solo Leveling - Han Song-yi",
+              "date": "2026-09-07",
+              "href": "decklists/solo-leveling-han-song-yi/tournament-3rd-place-solo-leveling-han-song-yi-124740.html"
+            },
             {
               "slug": "event-16th-solo-leveling-han-song-yi-1507971",
               "kind": "event",
               "title": "Solo Leveling - Han Song-yi",
               "date": "2026-08-31",
               "href": "decklists/solo-leveling-han-song-yi/event-16th-solo-leveling-han-song-yi-1507971.html"
+            },
+            {
+              "slug": "tournament-16th-place-solo-leveling-han-song-yi-122014",
+              "kind": "tournament",
+              "title": "Solo Leveling - Han Song-yi",
+              "date": "2026-08-31",
+              "href": "decklists/solo-leveling-han-song-yi/tournament-16th-place-solo-leveling-han-song-yi-122014.html"
             },
             {
               "slug": "contender-consensus",
@@ -8422,39 +8443,18 @@
               "href": "decklists/solo-leveling-han-song-yi/event-3rd-solo-leveling-han-song-yi-1496630.html"
             },
             {
+              "slug": "tournament-3rd-place-solo-leveling-han-song-yi-120992",
+              "kind": "tournament",
+              "title": "Solo Leveling - Han Song-yi",
+              "date": "2026-08-27",
+              "href": "decklists/solo-leveling-han-song-yi/tournament-3rd-place-solo-leveling-han-song-yi-120992.html"
+            },
+            {
               "slug": "event-1st-solo-leveling-han-song-yi-1446160",
               "kind": "event",
               "title": "Solo Leveling - Han Song-yi",
               "date": "2026-08-01",
               "href": "decklists/solo-leveling-han-song-yi/event-1st-solo-leveling-han-song-yi-1446160.html"
-            },
-            {
-              "slug": "event-3rd-solo-leveling-han-song-yi-1435482",
-              "kind": "event",
-              "title": "Solo Leveling - Han Song-yi",
-              "date": "2026-07-31",
-              "href": "decklists/solo-leveling-han-song-yi/event-3rd-solo-leveling-han-song-yi-1435482.html"
-            },
-            {
-              "slug": "event-24th-solo-leveling-han-song-yi-1388083",
-              "kind": "event",
-              "title": "Solo Leveling - Han Song-yi",
-              "date": "2026-07-20",
-              "href": "decklists/solo-leveling-han-song-yi/event-24th-solo-leveling-han-song-yi-1388083.html"
-            },
-            {
-              "slug": "event-8th-solo-leveling-han-song-yi-1388117",
-              "kind": "event",
-              "title": "Solo Leveling - Han Song-yi",
-              "date": "2026-07-18",
-              "href": "decklists/solo-leveling-han-song-yi/event-8th-solo-leveling-han-song-yi-1388117.html"
-            },
-            {
-              "slug": "event-6th-solo-leveling-han-song-yi-1388159",
-              "kind": "event",
-              "title": "Solo Leveling - Han Song-yi",
-              "date": "2026-07-17",
-              "href": "decklists/solo-leveling-han-song-yi/event-6th-solo-leveling-han-song-yi-1388159.html"
             }
           ]
         },
@@ -11016,7 +11016,7 @@
           ],
           "sim_text": "4xUE19BT/SMD-1-004\n4xUE19BT/SMD-1-006\n4xUE19BT/SMD-1-008\n4xUE19BT/SMD-1-013\n4xUE19BT/SMD-1-014\n4xUE19BT/SMD-1-017\n4xUE19BT/SMD-1-024\n4xUE19BT/SMD-1-026\n3xUE19BT/SMD-1-030\n3xUE19BT/SMD-1-023\n3xUE19BT/SMD-1-025\n1xUE19BT/SMD-1-019\n1xUE19BT/SMD-1-015\n4xUE19BT/SMD-1-038\n3xUE19BT/SMD-1-039",
           "cards": 50,
-          "list_count": 32,
+          "list_count": 61,
           "recent_lists": [
             {
               "slug": "exburst-yo-piisuke-2-0-sakamoto-days-shin-asakura-125349",
@@ -11031,6 +11031,13 @@
               "title": "Sakamoto Days - Shin Asakura",
               "date": "2026-09-09",
               "href": "decklists/sakamoto-days-shin-asakura/exburst-clairvoyant-dragoon-sakamoto-days-shin-asakura-94263.html"
+            },
+            {
+              "slug": "tournament-7th-place-sakamoto-days-shin-asakura-125272",
+              "kind": "tournament",
+              "title": "Sakamoto Days - Shin Asakura",
+              "date": "2026-09-09",
+              "href": "decklists/sakamoto-days-shin-asakura/tournament-7th-place-sakamoto-days-shin-asakura-125272.html"
             },
             {
               "slug": "exburst-asakura-sakamoto-days-shin-asakura-112523",
@@ -11054,25 +11061,18 @@
               "href": "decklists/sakamoto-days-shin-asakura/event-1st-sakamoto-days-shin-asakura-1517174.html"
             },
             {
+              "slug": "tournament-1st-place-sakamoto-days-shin-asakura-123823",
+              "kind": "tournament",
+              "title": "Sakamoto Days - Shin Asakura",
+              "date": "2026-09-05",
+              "href": "decklists/sakamoto-days-shin-asakura/tournament-1st-place-sakamoto-days-shin-asakura-123823.html"
+            },
+            {
               "slug": "event-1st-sakamoto-days-shin-asakura-1507931",
               "kind": "event",
               "title": "Sakamoto Days - Shin Asakura",
               "date": "2026-09-01",
               "href": "decklists/sakamoto-days-shin-asakura/event-1st-sakamoto-days-shin-asakura-1507931.html"
-            },
-            {
-              "slug": "contender-consensus",
-              "kind": "contender",
-              "title": "Sakamoto Days - Shin Asakura",
-              "date": "2026-08-28",
-              "href": "decklists/sakamoto-days-shin-asakura/contender-consensus.html"
-            },
-            {
-              "slug": "event-2nd-sakamoto-days-shin-asakura-1479629",
-              "kind": "event",
-              "title": "Sakamoto Days - Shin Asakura",
-              "date": "2026-08-18",
-              "href": "decklists/sakamoto-days-shin-asakura/event-2nd-sakamoto-days-shin-asakura-1479629.html"
             }
           ]
         },
@@ -11175,7 +11175,7 @@
           ],
           "sim_text": "4xUE19BT/SMD-1-004\n4xUE19BT/SMD-1-007\n4xUE19BT/SMD-1-008\n4xUE19BT/SMD-1-030\n4xUE19BT/SMD-1-013\n4xUE19BT/SMD-1-014\n4xUE19BT/SMD-1-017\n4xUE19BT/SMD-1-023\n4xUE19BT/SMD-1-024\n4xUE19BT/SMD-1-026\n2xUE19BT/SMD-1-006\n4xUE19BT/SMD-1-039\n4xUE19BT/SMD-1-038",
           "cards": 50,
-          "list_count": 28,
+          "list_count": 55,
           "recent_lists": [
             {
               "slug": "exburst-labotomized-seba-deck-sakamoto-days-heisuke-mashimo-93593",
@@ -11192,6 +11192,13 @@
               "href": "decklists/sakamoto-days-heisuke-mashimo/event-1st-sakamoto-days-heisuke-mashimo-1517162.html"
             },
             {
+              "slug": "tournament-1st-place-sakamoto-days-heisuke-mashimo-124008",
+              "kind": "tournament",
+              "title": "Sakamoto Days - Heisuke Mashimo",
+              "date": "2026-09-06",
+              "href": "decklists/sakamoto-days-heisuke-mashimo/tournament-1st-place-sakamoto-days-heisuke-mashimo-124008.html"
+            },
+            {
               "slug": "event-1st-sakamoto-days-heisuke-mashimo-1496609",
               "kind": "event",
               "title": "Sakamoto Days - Heisuke Mashimo",
@@ -11206,32 +11213,25 @@
               "href": "decklists/sakamoto-days-heisuke-mashimo/event-6th-sakamoto-days-heisuke-mashimo-1507989.html"
             },
             {
+              "slug": "tournament-1st-place-sakamoto-days-heisuke-mashimo-121521",
+              "kind": "tournament",
+              "title": "Sakamoto Days - Heisuke Mashimo",
+              "date": "2026-08-30",
+              "href": "decklists/sakamoto-days-heisuke-mashimo/tournament-1st-place-sakamoto-days-heisuke-mashimo-121521.html"
+            },
+            {
+              "slug": "tournament-6th-place-sakamoto-days-heisuke-mashimo-121736",
+              "kind": "tournament",
+              "title": "Sakamoto Days - Heisuke Mashimo",
+              "date": "2026-08-30",
+              "href": "decklists/sakamoto-days-heisuke-mashimo/tournament-6th-place-sakamoto-days-heisuke-mashimo-121736.html"
+            },
+            {
               "slug": "contender-consensus",
               "kind": "contender",
               "title": "Sakamoto Days - Heisuke Mashimo",
               "date": "2026-08-28",
               "href": "decklists/sakamoto-days-heisuke-mashimo/contender-consensus.html"
-            },
-            {
-              "slug": "event-1st-sakamoto-days-heisuke-mashimo-1489237",
-              "kind": "event",
-              "title": "Sakamoto Days - Heisuke Mashimo",
-              "date": "2026-08-22",
-              "href": "decklists/sakamoto-days-heisuke-mashimo/event-1st-sakamoto-days-heisuke-mashimo-1489237.html"
-            },
-            {
-              "slug": "official-2nd-place-sakamoto-days-heisuke-mashimo-lx5kgu",
-              "kind": "official",
-              "title": "Sakamoto Days - Heisuke Mashimo",
-              "date": "2026-08-21",
-              "href": "decklists/sakamoto-days-heisuke-mashimo/official-2nd-place-sakamoto-days-heisuke-mashimo-lx5kgu.html"
-            },
-            {
-              "slug": "event-12th-sakamoto-days-heisuke-mashimo-1471334",
-              "kind": "event",
-              "title": "Sakamoto Days - Heisuke Mashimo",
-              "date": "2026-08-17",
-              "href": "decklists/sakamoto-days-heisuke-mashimo/event-12th-sakamoto-days-heisuke-mashimo-1471334.html"
             }
           ]
         },
@@ -11346,7 +11346,7 @@
           ],
           "sim_text": "4xUE19BT/SMD-1-013\n4xUE19BT/SMD-1-014\n4xUE19BT/SMD-1-023\n4xUE19BT/SMD-1-024\n4xUE19BT/SMD-1-026\n4xUE19BT/SMD-1-049\n3xUE19BT/SMD-1-019\n3xUE19BT/SMD-1-030\n3xUE19BT/SMD-1-021\n3xUE19BT/SMD-1-022\n1xUE19BT/SMD-1-025\n4xUE19BT/SMD-1-038\n3xUE19BT/SMD-1-039\n3xUE19BT/SMD-1-027\n3xUE19BT/SMD-1-035",
           "cards": 50,
-          "list_count": 71,
+          "list_count": 116,
           "recent_lists": [
             {
               "slug": "exburst-sakumo-sakamoto-days-taro-sakamoto-125240",
@@ -11511,7 +11511,7 @@
           ],
           "sim_text": "4xUE19BT/SMD-1-057\n4xUE19BT/SMD-1-042\n4xUE19BT/SMD-1-044\n4xUE19BT/SMD-1-045\n4xUE19BT/SMD-1-046\n4xUE19BT/SMD-1-052\n4xUE19BT/SMD-1-054\n4xUE19BT/SMD-1-055\n4xUE19BT/SMD-1-049\n3xUE19BT/SMD-1-053\n3xUE19BT/SMD-1-047\n4xUE19BT/SMD-1-077\n3xUE19BT/SMD-1-056\n1xUE19BT/SMD-1-075",
           "cards": 50,
-          "list_count": 25,
+          "list_count": 35,
           "recent_lists": [
             {
               "slug": "exburst-the-order-sakamoto-days-osaragi-125254",
@@ -11549,6 +11549,13 @@
               "href": "decklists/sakamoto-days-osaragi/event-1st-sakamoto-days-osaragi-1489205.html"
             },
             {
+              "slug": "tournament-1st-place-sakamoto-days-osaragi-120547",
+              "kind": "tournament",
+              "title": "Sakamoto Days - Osaragi",
+              "date": "2026-08-25",
+              "href": "decklists/sakamoto-days-osaragi/tournament-1st-place-sakamoto-days-osaragi-120547.html"
+            },
+            {
               "slug": "event-13th-sakamoto-days-osaragi-1489223",
               "kind": "event",
               "title": "Sakamoto Days - Osaragi",
@@ -11556,18 +11563,11 @@
               "href": "decklists/sakamoto-days-osaragi/event-13th-sakamoto-days-osaragi-1489223.html"
             },
             {
-              "slug": "event-6th-sakamoto-days-osaragi-1479623",
-              "kind": "event",
+              "slug": "tournament-13th-place-sakamoto-days-osaragi-120351",
+              "kind": "tournament",
               "title": "Sakamoto Days - Osaragi",
-              "date": "2026-08-18",
-              "href": "decklists/sakamoto-days-osaragi/event-6th-sakamoto-days-osaragi-1479623.html"
-            },
-            {
-              "slug": "event-7th-sakamoto-days-osaragi-1471386",
-              "kind": "event",
-              "title": "Sakamoto Days - Osaragi",
-              "date": "2026-08-15",
-              "href": "decklists/sakamoto-days-osaragi/event-7th-sakamoto-days-osaragi-1471386.html"
+              "date": "2026-08-24",
+              "href": "decklists/sakamoto-days-osaragi/tournament-13th-place-sakamoto-days-osaragi-120351.html"
             }
           ]
         },
@@ -11688,8 +11688,36 @@
           ],
           "sim_text": "4xUE19BT/SMD-1-028\n4xUE19BT/SMD-1-014\n4xUE19BT/SMD-1-024\n4xUE19BT/SMD-1-026\n3xUE19BT/SMD-1-031\n3xUE19BT/SMD-1-015\n3xUE19BT/SMD-1-017\n3xUE19BT/SMD-1-021\n3xUE19BT/SMD-1-022\n3xUE19BT/SMD-1-023\n2xUE19BT/SMD-1-030\n2xUE19BT/SMD-1-025\n4xUE19BT/SMD-1-038\n3xUE19BT/SMD-1-039\n3xUE19BT/SMD-1-027\n2xUE19BT/SMD-1-035",
           "cards": 50,
-          "list_count": 10,
+          "list_count": 28,
           "recent_lists": [
+            {
+              "slug": "tournament-1st-place-sakamoto-days-lu-shaotang-124185",
+              "kind": "tournament",
+              "title": "Sakamoto Days - Lu Shaotang",
+              "date": "2026-09-07",
+              "href": "decklists/sakamoto-days-lu-shaotang/tournament-1st-place-sakamoto-days-lu-shaotang-124185.html"
+            },
+            {
+              "slug": "tournament-4th-place-sakamoto-days-lu-shaotang-122558",
+              "kind": "tournament",
+              "title": "Sakamoto Days - Lu Shaotang",
+              "date": "2026-09-02",
+              "href": "decklists/sakamoto-days-lu-shaotang/tournament-4th-place-sakamoto-days-lu-shaotang-122558.html"
+            },
+            {
+              "slug": "tournament-7th-place-sakamoto-days-lu-shaotang-121735",
+              "kind": "tournament",
+              "title": "Sakamoto Days - Lu Shaotang",
+              "date": "2026-08-30",
+              "href": "decklists/sakamoto-days-lu-shaotang/tournament-7th-place-sakamoto-days-lu-shaotang-121735.html"
+            },
+            {
+              "slug": "tournament-4th-place-sakamoto-days-lu-shaotang-121688",
+              "kind": "tournament",
+              "title": "Sakamoto Days - Lu Shaotang",
+              "date": "2026-08-29",
+              "href": "decklists/sakamoto-days-lu-shaotang/tournament-4th-place-sakamoto-days-lu-shaotang-121688.html"
+            },
             {
               "slug": "contender-consensus",
               "kind": "contender",
@@ -11698,53 +11726,25 @@
               "href": "decklists/sakamoto-days-lu-shaotang/contender-consensus.html"
             },
             {
-              "slug": "event-4th-sakamoto-days-lu-shaotang-1452836",
-              "kind": "event",
+              "slug": "tournament-4th-place-sakamoto-days-lu-shaotang-121652",
+              "kind": "tournament",
               "title": "Sakamoto Days - Lu Shaotang",
-              "date": "2026-08-08",
-              "href": "decklists/sakamoto-days-lu-shaotang/event-4th-sakamoto-days-lu-shaotang-1452836.html"
+              "date": "2026-08-26",
+              "href": "decklists/sakamoto-days-lu-shaotang/tournament-4th-place-sakamoto-days-lu-shaotang-121652.html"
             },
             {
-              "slug": "event-6th-sakamoto-days-lu-shaotang-1446133",
-              "kind": "event",
+              "slug": "tournament-2nd-place-sakamoto-days-lu-shaotang-120085",
+              "kind": "tournament",
               "title": "Sakamoto Days - Lu Shaotang",
-              "date": "2026-08-02",
-              "href": "decklists/sakamoto-days-lu-shaotang/event-6th-sakamoto-days-lu-shaotang-1446133.html"
+              "date": "2026-08-23",
+              "href": "decklists/sakamoto-days-lu-shaotang/tournament-2nd-place-sakamoto-days-lu-shaotang-120085.html"
             },
             {
-              "slug": "event-11th-sakamoto-days-lu-shaotang-1446138",
-              "kind": "event",
+              "slug": "tournament-8th-place-sakamoto-days-lu-shaotang-120089",
+              "kind": "tournament",
               "title": "Sakamoto Days - Lu Shaotang",
-              "date": "2026-08-02",
-              "href": "decklists/sakamoto-days-lu-shaotang/event-11th-sakamoto-days-lu-shaotang-1446138.html"
-            },
-            {
-              "slug": "event-4th-sakamoto-days-lu-shaotang-1435493",
-              "kind": "event",
-              "title": "Sakamoto Days - Lu Shaotang",
-              "date": "2026-07-30",
-              "href": "decklists/sakamoto-days-lu-shaotang/event-4th-sakamoto-days-lu-shaotang-1435493.html"
-            },
-            {
-              "slug": "event-5th-sakamoto-days-lu-shaotang-1435504",
-              "kind": "event",
-              "title": "Sakamoto Days - Lu Shaotang",
-              "date": "2026-07-30",
-              "href": "decklists/sakamoto-days-lu-shaotang/event-5th-sakamoto-days-lu-shaotang-1435504.html"
-            },
-            {
-              "slug": "event-2nd-sakamoto-days-lu-shaotang-1417923",
-              "kind": "event",
-              "title": "Sakamoto Days - Lu Shaotang",
-              "date": "2026-07-24",
-              "href": "decklists/sakamoto-days-lu-shaotang/event-2nd-sakamoto-days-lu-shaotang-1417923.html"
-            },
-            {
-              "slug": "event-5th-sakamoto-days-lu-shaotang-1402131",
-              "kind": "event",
-              "title": "Sakamoto Days - Lu Shaotang",
-              "date": "2026-07-22",
-              "href": "decklists/sakamoto-days-lu-shaotang/event-5th-sakamoto-days-lu-shaotang-1402131.html"
+              "date": "2026-08-22",
+              "href": "decklists/sakamoto-days-lu-shaotang/tournament-8th-place-sakamoto-days-lu-shaotang-120089.html"
             }
           ]
         },
@@ -11853,8 +11853,22 @@
           ],
           "sim_text": "4xUE19BT/SMD-1-042\n4xUE19BT/SMD-1-044\n4xUE19BT/SMD-1-045\n4xUE19BT/SMD-1-046\n4xUE19BT/SMD-1-052\n4xUE19BT/SMD-1-053\n4xUE19BT/SMD-1-054\n4xUE19BT/SMD-1-055\n4xUE19BT/SMD-1-049\n1xUE19BT/SMD-1-057\n4xUE19BT/SMD-1-077\n3xUE19BT/SMD-1-075\n3xUE19BT/SMD-1-062\n3xUE19BT/SMD-1-056",
           "cards": 50,
-          "list_count": 6,
+          "list_count": 13,
           "recent_lists": [
+            {
+              "slug": "tournament-1st-place-sakamoto-days-shishiba-124993",
+              "kind": "tournament",
+              "title": "Sakamoto Days - Shishiba",
+              "date": "2026-09-08",
+              "href": "decklists/sakamoto-days-shishiba/tournament-1st-place-sakamoto-days-shishiba-124993.html"
+            },
+            {
+              "slug": "tournament-4th-place-sakamoto-days-shishiba-122455",
+              "kind": "tournament",
+              "title": "Sakamoto Days - Shishiba",
+              "date": "2026-09-02",
+              "href": "decklists/sakamoto-days-shishiba/tournament-4th-place-sakamoto-days-shishiba-122455.html"
+            },
             {
               "slug": "contender-consensus",
               "kind": "contender",
@@ -11863,39 +11877,39 @@
               "href": "decklists/sakamoto-days-shishiba/contender-consensus.html"
             },
             {
-              "slug": "event-1st-sakamoto-days-shishiba-1291318",
-              "kind": "event",
+              "slug": "tournament-7th-sakamoto-days-shishiba-110479",
+              "kind": "tournament",
               "title": "Sakamoto Days - Shishiba",
-              "date": "2026-07-03",
-              "href": "decklists/sakamoto-days-shishiba/event-1st-sakamoto-days-shishiba-1291318.html"
+              "date": "2026-07-22",
+              "href": "decklists/sakamoto-days-shishiba/tournament-7th-sakamoto-days-shishiba-110479.html"
             },
             {
-              "slug": "event-8th-sakamoto-days-shishiba-1253638",
-              "kind": "event",
+              "slug": "tournament-1st-sakamoto-days-shishiba-110132",
+              "kind": "tournament",
               "title": "Sakamoto Days - Shishiba",
-              "date": "2026-06-25",
-              "href": "decklists/sakamoto-days-shishiba/event-8th-sakamoto-days-shishiba-1253638.html"
+              "date": "2026-07-21",
+              "href": "decklists/sakamoto-days-shishiba/tournament-1st-sakamoto-days-shishiba-110132.html"
             },
             {
-              "slug": "event-5th-sakamoto-days-shishiba-1212779",
-              "kind": "event",
+              "slug": "tournament-13th-sakamoto-days-shishiba-109697",
+              "kind": "tournament",
               "title": "Sakamoto Days - Shishiba",
-              "date": "2026-06-07",
-              "href": "decklists/sakamoto-days-shishiba/event-5th-sakamoto-days-shishiba-1212779.html"
+              "date": "2026-07-20",
+              "href": "decklists/sakamoto-days-shishiba/tournament-13th-sakamoto-days-shishiba-109697.html"
             },
             {
-              "slug": "event-1st-sakamoto-days-shishiba-1212804",
-              "kind": "event",
+              "slug": "tournament-19th-sakamoto-days-shishiba-109595",
+              "kind": "tournament",
               "title": "Sakamoto Days - Shishiba",
-              "date": "2026-06-06",
-              "href": "decklists/sakamoto-days-shishiba/event-1st-sakamoto-days-shishiba-1212804.html"
+              "date": "2026-07-20",
+              "href": "decklists/sakamoto-days-shishiba/tournament-19th-sakamoto-days-shishiba-109595.html"
             },
             {
-              "slug": "event-2nd-sakamoto-days-shishiba-1143754",
-              "kind": "event",
+              "slug": "tournament-18th-sakamoto-days-shishiba-108523",
+              "kind": "tournament",
               "title": "Sakamoto Days - Shishiba",
-              "date": "2026-05-28",
-              "href": "decklists/sakamoto-days-shishiba/event-2nd-sakamoto-days-shishiba-1143754.html"
+              "date": "2026-07-16",
+              "href": "decklists/sakamoto-days-shishiba/tournament-18th-sakamoto-days-shishiba-108523.html"
             }
           ]
         },
@@ -15410,7 +15424,7 @@
           ],
           "sim_text": "4xUEPR/RNK-1-068\n4xUE11BT/RNK-1-071\n4xUEPR/RNK-1-085\n4xUE11BT/RNK-1-086\n4xUE11BT/RNK-1-087\n4xUE11BT/RNK-1-088\n4xUE11BT/RNK-1-089\n4xUEPR/RNK-1-090\n4xUE11ST/RNK-1-106\n3xUE11ST/RNK-1-101\n3xUE11ST/RNK-1-105\n4xUE11BT/RNK-1-096\n4xUE11BT/RNK-1-100",
           "cards": 50,
-          "list_count": 38,
+          "list_count": 79,
           "recent_lists": [
             {
               "slug": "exburst-red-sanosuke-aggro-punch-rurouni-kenshin-kaoru-kamiya-110532",
@@ -15434,39 +15448,39 @@
               "href": "decklists/rurouni-kenshin-kaoru-kamiya/exburst-rurouni-kenshin-starter-rurouni-kenshin-kaoru-kamiya-125162.html"
             },
             {
-              "slug": "event-12th-rurouni-kenshin-kaoru-kamiya-1507967",
-              "kind": "event",
+              "slug": "tournament-9th-place-rurouni-kenshin-kaoru-kamiya-125273",
+              "kind": "tournament",
               "title": "Rurouni Kenshin - Kaoru Kamiya",
-              "date": "2026-08-31",
-              "href": "decklists/rurouni-kenshin-kaoru-kamiya/event-12th-rurouni-kenshin-kaoru-kamiya-1507967.html"
+              "date": "2026-09-09",
+              "href": "decklists/rurouni-kenshin-kaoru-kamiya/tournament-9th-place-rurouni-kenshin-kaoru-kamiya-125273.html"
             },
             {
-              "slug": "contender-consensus",
-              "kind": "contender",
+              "slug": "tournament-8th-place-rurouni-kenshin-kaoru-kamiya-124178",
+              "kind": "tournament",
               "title": "Rurouni Kenshin - Kaoru Kamiya",
-              "date": "2026-08-28",
-              "href": "decklists/rurouni-kenshin-kaoru-kamiya/contender-consensus.html"
+              "date": "2026-09-07",
+              "href": "decklists/rurouni-kenshin-kaoru-kamiya/tournament-8th-place-rurouni-kenshin-kaoru-kamiya-124178.html"
             },
             {
-              "slug": "event-1st-rurouni-kenshin-kaoru-kamiya-1496632",
-              "kind": "event",
+              "slug": "tournament-7th-place-rurouni-kenshin-kaoru-kamiya-124744",
+              "kind": "tournament",
               "title": "Rurouni Kenshin - Kaoru Kamiya",
-              "date": "2026-08-27",
-              "href": "decklists/rurouni-kenshin-kaoru-kamiya/event-1st-rurouni-kenshin-kaoru-kamiya-1496632.html"
+              "date": "2026-09-07",
+              "href": "decklists/rurouni-kenshin-kaoru-kamiya/tournament-7th-place-rurouni-kenshin-kaoru-kamiya-124744.html"
             },
             {
-              "slug": "event-1st-rurouni-kenshin-kaoru-kamiya-1496628",
-              "kind": "event",
+              "slug": "tournament-14th-place-rurouni-kenshin-kaoru-kamiya-124752",
+              "kind": "tournament",
               "title": "Rurouni Kenshin - Kaoru Kamiya",
-              "date": "2026-08-27",
-              "href": "decklists/rurouni-kenshin-kaoru-kamiya/event-1st-rurouni-kenshin-kaoru-kamiya-1496628.html"
+              "date": "2026-09-07",
+              "href": "decklists/rurouni-kenshin-kaoru-kamiya/tournament-14th-place-rurouni-kenshin-kaoru-kamiya-124752.html"
             },
             {
-              "slug": "event-4th-rurouni-kenshin-kaoru-kamiya-1496645",
-              "kind": "event",
+              "slug": "tournament-7th-place-rurouni-kenshin-kaoru-kamiya-122555",
+              "kind": "tournament",
               "title": "Rurouni Kenshin - Kaoru Kamiya",
-              "date": "2026-08-25",
-              "href": "decklists/rurouni-kenshin-kaoru-kamiya/event-4th-rurouni-kenshin-kaoru-kamiya-1496645.html"
+              "date": "2026-09-02",
+              "href": "decklists/rurouni-kenshin-kaoru-kamiya/tournament-7th-place-rurouni-kenshin-kaoru-kamiya-122555.html"
             }
           ]
         },
@@ -15569,7 +15583,7 @@
           ],
           "sim_text": "4xUE11BT/RNK-1-035\n4xUE11BT/RNK-1-036\n4xUEPR/RNK-1-037\n4xUE11BT/RNK-1-038\n4xUE11BT/RNK-1-039\n4xUE11BT/RNK-1-040\n4xUE11ST/RNK-1-113\n4xUEPR/RNK-1-045\n4xUEPR/RNK-1-046\n4xUEPR/RNK-1-047\n2xUE11BT/RNK-1-048\n4xUE11BT/RNK-1-063\n4xUE11BT/RNK-1-064",
           "cards": 50,
-          "list_count": 69,
+          "list_count": 109,
           "recent_lists": [
             {
               "slug": "exburst-siato-and-dorothy-rurouni-kenshin-hajime-saito-112309",
@@ -15577,6 +15591,13 @@
               "title": "Rurouni Kenshin - Hajime Saito",
               "date": "2026-09-10",
               "href": "decklists/rurouni-kenshin-hajime-saito/exburst-siato-and-dorothy-rurouni-kenshin-hajime-saito-112309.html"
+            },
+            {
+              "slug": "tournament-8th-place-rurouni-kenshin-hajime-saito-125501",
+              "kind": "tournament",
+              "title": "Rurouni Kenshin - Hajime Saito",
+              "date": "2026-09-10",
+              "href": "decklists/rurouni-kenshin-hajime-saito/tournament-8th-place-rurouni-kenshin-hajime-saito-125501.html"
             },
             {
               "slug": "exburst-aoshi-rurouni-kenshin-hajime-saito-125144",
@@ -15600,6 +15621,13 @@
               "href": "decklists/rurouni-kenshin-hajime-saito/exburst-saito-slash-rurouni-kenshin-hajime-saito-123937.html"
             },
             {
+              "slug": "tournament-5th-place-rurouni-kenshin-hajime-saito-124097",
+              "kind": "tournament",
+              "title": "Rurouni Kenshin - Hajime Saito",
+              "date": "2026-09-06",
+              "href": "decklists/rurouni-kenshin-hajime-saito/tournament-5th-place-rurouni-kenshin-hajime-saito-124097.html"
+            },
+            {
               "slug": "event-2nd-rurouni-kenshin-hajime-saito-1507923",
               "kind": "event",
               "title": "Rurouni Kenshin - Hajime Saito",
@@ -15612,20 +15640,6 @@
               "title": "Rurouni Kenshin - Hajime Saito",
               "date": "2026-09-02",
               "href": "decklists/rurouni-kenshin-hajime-saito/event-8th-rurouni-kenshin-hajime-saito-1517218.html"
-            },
-            {
-              "slug": "event-1st-rurouni-kenshin-hajime-saito-1517211",
-              "kind": "event",
-              "title": "Rurouni Kenshin - Hajime Saito",
-              "date": "2026-09-02",
-              "href": "decklists/rurouni-kenshin-hajime-saito/event-1st-rurouni-kenshin-hajime-saito-1517211.html"
-            },
-            {
-              "slug": "contender-consensus",
-              "kind": "contender",
-              "title": "Rurouni Kenshin - Hajime Saito",
-              "date": "2026-08-28",
-              "href": "decklists/rurouni-kenshin-hajime-saito/contender-consensus.html"
             }
           ]
         },
@@ -15728,7 +15742,7 @@
           ],
           "sim_text": "4xUE11BT/RNK-1-071\n4xUE11ST/RNK-1-101\n4xUEPR/RNK-1-085\n4xUE11BT/RNK-1-087\n4xUE11BT/RNK-1-088\n4xUEPR/RNK-1-090\n4xUE11ST/RNK-1-106\n4xUEPR/RNK-1-092\n3xUE11BT/RNK-1-089\n3xUE11BT/RNK-1-082\n4xUEPR/RNK-1-086\n4xUE11BT/RNK-1-096\n4xUE11BT/RNK-1-100",
           "cards": 50,
-          "list_count": 81,
+          "list_count": 103,
           "recent_lists": [
             {
               "slug": "exburst-ka-chow-rurouni-kenshin-kenshin-himura-58997",
@@ -15887,7 +15901,7 @@
           ],
           "sim_text": "4xUE11BT/RNK-1-053\n4xUE11BT/RNK-1-043\n4xUE11BT/RNK-1-044\n4xUE11BT/RNK-1-055\n4xUEPR/RNK-1-056\n4xUEPR/RNK-1-057\n4xUE11BT/RNK-1-058\n4xUE11BT/RNK-1-059\n4xUE11BT/RNK-1-060\n4xUE11BT/RNK-1-067\n4xUE11BT/RNK-1-066\n4xUE11BT/RNK-1-065\n2xUE11BT/RNK-1-034",
           "cards": 50,
-          "list_count": 12,
+          "list_count": 22,
           "recent_lists": [
             {
               "slug": "exburst-purple-ten-swords-rurouni-kenshin-sojiro-seta-110534",
@@ -15911,6 +15925,13 @@
               "href": "decklists/rurouni-kenshin-sojiro-seta/exburst-j-ppongatana-rurouni-kenshin-sojiro-seta-77509.html"
             },
             {
+              "slug": "tournament-9th-place-rurouni-kenshin-sojiro-seta-125011",
+              "kind": "tournament",
+              "title": "Rurouni Kenshin - Sojiro Seta",
+              "date": "2026-09-08",
+              "href": "decklists/rurouni-kenshin-sojiro-seta/tournament-9th-place-rurouni-kenshin-sojiro-seta-125011.html"
+            },
+            {
               "slug": "event-2nd-rurouni-kenshin-sojiro-seta-1517187",
               "kind": "event",
               "title": "Rurouni Kenshin - Sojiro Seta",
@@ -15918,32 +15939,25 @@
               "href": "decklists/rurouni-kenshin-sojiro-seta/event-2nd-rurouni-kenshin-sojiro-seta-1517187.html"
             },
             {
+              "slug": "tournament-2nd-place-rurouni-kenshin-sojiro-seta-124190",
+              "kind": "tournament",
+              "title": "Rurouni Kenshin - Sojiro Seta",
+              "date": "2026-09-04",
+              "href": "decklists/rurouni-kenshin-sojiro-seta/tournament-2nd-place-rurouni-kenshin-sojiro-seta-124190.html"
+            },
+            {
+              "slug": "tournament-6th-place-rurouni-kenshin-sojiro-seta-121686",
+              "kind": "tournament",
+              "title": "Rurouni Kenshin - Sojiro Seta",
+              "date": "2026-08-29",
+              "href": "decklists/rurouni-kenshin-sojiro-seta/tournament-6th-place-rurouni-kenshin-sojiro-seta-121686.html"
+            },
+            {
               "slug": "contender-consensus",
               "kind": "contender",
               "title": "Rurouni Kenshin - Sojiro Seta",
               "date": "2026-08-28",
               "href": "decklists/rurouni-kenshin-sojiro-seta/contender-consensus.html"
-            },
-            {
-              "slug": "event-3rd-rurouni-kenshin-sojiro-seta-1489230",
-              "kind": "event",
-              "title": "Rurouni Kenshin - Sojiro Seta",
-              "date": "2026-08-23",
-              "href": "decklists/rurouni-kenshin-sojiro-seta/event-3rd-rurouni-kenshin-sojiro-seta-1489230.html"
-            },
-            {
-              "slug": "event-1st-rurouni-kenshin-sojiro-seta-1471410",
-              "kind": "event",
-              "title": "Rurouni Kenshin - Sojiro Seta",
-              "date": "2026-08-13",
-              "href": "decklists/rurouni-kenshin-sojiro-seta/event-1st-rurouni-kenshin-sojiro-seta-1471410.html"
-            },
-            {
-              "slug": "event-25th-rurouni-kenshin-sojiro-seta-1388146",
-              "kind": "event",
-              "title": "Rurouni Kenshin - Sojiro Seta",
-              "date": "2026-07-18",
-              "href": "decklists/rurouni-kenshin-sojiro-seta/event-25th-rurouni-kenshin-sojiro-seta-1388146.html"
             }
           ]
         },
@@ -18106,7 +18120,7 @@
           ],
           "sim_text": "4xUE20BT/TSK-1-062\n4xUE20BT/TSK-1-040\n4xUE20BT/TSK-2-017\n4xUE20BT/TSK-1-107\n4xUE20BT/TSK-1-059\n4xUE20BT/TSK-1-060\n3xUE20BT/TSK-1-050\n3xUE20BT/TSK-1-052\n3xUE20BT/TSK-1-053\n3xUE20BT/TSK-1-058\n4xUE20BT/TSK-2-024\n4xUE20BT/TSK-P-001\n3xUE20BT/TSK-1-065\n3xUE20BT/TSK-P-002",
           "cards": 50,
-          "list_count": 58,
+          "list_count": 101,
           "recent_lists": [
             {
               "slug": "exburst-y-slime-v2-that-time-i-got-reincarnated-as-a-slime-rimuru-1254",
@@ -18265,7 +18279,7 @@
           ],
           "sim_text": "4xUE20BT/TSK-1-096\n4xUE20BT/TSK-2-064\n4xUE20BT/TSK-2-065\n4xUE20BT/TSK-2-066\n4xUE20BT/TSK-1-082\n4xUE20BT/TSK-1-083\n4xUE20BT/TSK-1-085\n4xUE20BT/TSK-2-067\n4xUE20BT/TSK-2-068\n4xUE20BT/TSK-1-086\n4xUE20BT/TSK-1-088\n4xUE20BT/TSK-P-003\n2xUE20BT/TSK-1-097",
           "cards": 50,
-          "list_count": 31,
+          "list_count": 43,
           "recent_lists": [
             {
               "slug": "exburst-millim-that-time-i-got-reincarnated-as-a-slime-milim-99395",
@@ -18430,7 +18444,7 @@
           ],
           "sim_text": "4xUE20BT/TSK-1-062\n4xUE20BT/TSK-1-040\n4xUE20BT/TSK-1-059\n4xUE20BT/TSK-1-060\n3xUE20BT/TSK-2-017\n3xUE20BT/TSK-2-018\n3xUE20BT/TSK-1-050\n3xUE20BT/TSK-1-107\n3xUE20BT/TSK-1-058\n4xUE20BT/TSK-2-024\n4xUE20BT/TSK-P-001\n4xUE20BT/TSK-P-002\n4xUE20BT/TSK-1-021\n3xUE20BT/TSK-1-065",
           "cards": 50,
-          "list_count": 25,
+          "list_count": 27,
           "recent_lists": [
             {
               "slug": "exburst-kijin-3-0-that-time-i-got-reincarnated-as-a-slime-soei-125468",
@@ -18589,7 +18603,7 @@
           ],
           "sim_text": "4xUE20BT/TSK-2-030\n4xUE20BT/TSK-2-056\n4xUE20BT/TSK-2-041\n4xUE20BT/TSK-2-042\n4xUE20BT/TSK-2-044\n4xUE20BT/TSK-2-050\n4xUE20BT/TSK-2-052\n4xUE20BT/TSK-2-053\n4xUE20BT/TSK-2-057\n4xUE20BT/TSK-2-058\n4xUE20BT/TSK-2-036\n4xUE20BT/TSK-P-005\n2xUE20BT/TSK-2-054",
           "cards": 50,
-          "list_count": 15,
+          "list_count": 22,
           "recent_lists": [
             {
               "slug": "exburst-y-slime-diablo-that-time-i-got-reincarnated-as-a-slime-diablo-",
@@ -18597,6 +18611,13 @@
               "title": "That Time I Got Reincarnated As A Slime - Diablo",
               "date": "2026-09-10",
               "href": "decklists/that-time-i-got-reincarnated-as-a-slime-diablo/exburst-y-slime-diablo-that-time-i-got-reincarnated-as-a-slime-diablo-.html"
+            },
+            {
+              "slug": "tournament-3rd-that-time-i-got-reincarnated-as-a-slime-diablo-125498",
+              "kind": "tournament",
+              "title": "That Time I Got Reincarnated As A Slime - Diablo",
+              "date": "2026-09-10",
+              "href": "decklists/that-time-i-got-reincarnated-as-a-slime-diablo/tournament-3rd-that-time-i-got-reincarnated-as-a-slime-diablo-125498.html"
             },
             {
               "slug": "exburst-kijin-aggro-that-time-i-got-reincarnated-as-a-slime-diablo-121",
@@ -18620,32 +18641,25 @@
               "href": "decklists/that-time-i-got-reincarnated-as-a-slime-diablo/event-1st-that-time-i-got-reincarnated-as-a-slime-diablo-1517172.html"
             },
             {
+              "slug": "tournament-1st-that-time-i-got-reincarnated-as-a-slime-diablo-123455",
+              "kind": "tournament",
+              "title": "That Time I Got Reincarnated As A Slime - Diablo",
+              "date": "2026-09-05",
+              "href": "decklists/that-time-i-got-reincarnated-as-a-slime-diablo/tournament-1st-that-time-i-got-reincarnated-as-a-slime-diablo-123455.html"
+            },
+            {
+              "slug": "tournament-9th-that-time-i-got-reincarnated-as-a-slime-diablo-125458",
+              "kind": "tournament",
+              "title": "That Time I Got Reincarnated As A Slime - Diablo",
+              "date": "2026-09-03",
+              "href": "decklists/that-time-i-got-reincarnated-as-a-slime-diablo/tournament-9th-that-time-i-got-reincarnated-as-a-slime-diablo-125458.html"
+            },
+            {
               "slug": "contender-consensus",
               "kind": "contender",
               "title": "That Time I Got Reincarnated As A Slime - Diablo",
               "date": "2026-08-28",
               "href": "decklists/that-time-i-got-reincarnated-as-a-slime-diablo/contender-consensus.html"
-            },
-            {
-              "slug": "event-8th-that-time-i-got-reincarnated-as-a-slime-diablo-1479598",
-              "kind": "event",
-              "title": "That Time I Got Reincarnated As A Slime - Diablo",
-              "date": "2026-08-20",
-              "href": "decklists/that-time-i-got-reincarnated-as-a-slime-diablo/event-8th-that-time-i-got-reincarnated-as-a-slime-diablo-1479598.html"
-            },
-            {
-              "slug": "event-4th-that-time-i-got-reincarnated-as-a-slime-diablo-1402150",
-              "kind": "event",
-              "title": "That Time I Got Reincarnated As A Slime - Diablo",
-              "date": "2026-07-21",
-              "href": "decklists/that-time-i-got-reincarnated-as-a-slime-diablo/event-4th-that-time-i-got-reincarnated-as-a-slime-diablo-1402150.html"
-            },
-            {
-              "slug": "event-12th-that-time-i-got-reincarnated-as-a-slime-yellow-diablo-deck-",
-              "kind": "event",
-              "title": "That Time I Got Reincarnated As A Slime - Diablo",
-              "date": "2026-07-20",
-              "href": "decklists/that-time-i-got-reincarnated-as-a-slime-diablo/event-12th-that-time-i-got-reincarnated-as-a-slime-yellow-diablo-deck-.html"
             }
           ]
         },
@@ -19469,7 +19483,7 @@
           ],
           "sim_text": "4xUE23BT/IYS-1-002\n4xUE23BT/IYS-1-003\n4xUE23BT/IYS-1-012\n4xUE23BT/IYS-1-013\n4xUE23BT/IYS-1-004\n4xUEPR/IYS-1-005\n4xUE23BT/IYS-1-007\n4xUE23BT/IYS-1-008\n4xUE23BT/IYS-1-009\n3xUE23BT/IYS-1-006\n4xUE23BT/IYS-1-037\n4xUE23BT/IYS-1-040\n3xUE23BT/IYS-1-001",
           "cards": 50,
-          "list_count": 24,
+          "list_count": 34,
           "recent_lists": [
             {
               "slug": "exburst-sesshomaru-iys-sesshomaru-113893",
@@ -19628,7 +19642,7 @@
           ],
           "sim_text": "4xUEPR/IYS-1-043\n4xUEPR/IYS-1-044\n4xUE23BT/IYS-1-045\n4xUE23BT/IYS-1-046\n4xUE23BT/IYS-1-063\n4xUE23BT/IYS-1-065\n4xUE23BT/IYS-1-066\n4xUE23BT/IYS-1-049\n4xUE23BT/IYS-1-076\n4xUEPR/IYS-1-042\n4xUE23BT/IYS-1-079\n3xUE23BT/IYS-1-072\n2xUE23BT/IYS-1-074",
           "cards": 49,
-          "list_count": 52,
+          "list_count": 98,
           "recent_lists": [
             {
               "slug": "exburst-naraku-deck-iys-inuyasha-115694",
@@ -21460,7 +21474,7 @@
           ],
           "sim_text": "4xUEPR/JJK-3-030\n4xUE03BT/JJK-1-079\n4xUE03BT/JJK-1-081\n4xUEPR/JJK-1-100\n4xUEPR/JJK-3-029\n4xUEX02BT/JJK-2-010\n4xUE03BT/JJK-1-098\n4xUE03BT/JJK-1-096\n4xUE03BT/JJK-1-074\n4xUEX02BT/JJK-3-027\n4xUE03BT/JJK-1-075\n4xUE03BT/JJK-1-076\n2xUE16BT/KGR-1-033",
           "cards": 50,
-          "list_count": 76,
+          "list_count": 112,
           "recent_lists": [
             {
               "slug": "exburst-megumi-jjk-jujutsu-kaisen-aoi-todo-69033",
@@ -23825,7 +23839,7 @@
           ],
           "sim_text": "4xUE01BT/BLC-1-100\n4xUEX01BT/BLC-2-066\n4xUEX01BT/BLC-2-067\n4xUE01BT/BLC-1-083\n4xUE01BT/BLC-1-085\n2xUE01BT/BLC-1-080\n4xUE01BT/BLC-1-088\n4xUE01NC/BLC-3-010\n4xUEX01BT/BLC-2-063\n4xUEX01BT/BLC-2-005\n4xUE01BT/BLC-1-076\n4xUE01BT/BLC-1-096\n3xUE01NC/BLC-3-008\n1xUEX01BT/BLC-2-072",
           "cards": 50,
-          "list_count": 39,
+          "list_count": 59,
           "recent_lists": [
             {
               "slug": "exburst-binder-toshiro-kenpachi-bleach-kenpachi-zaraki-42566",
@@ -23840,6 +23854,13 @@
               "title": "Bleach - Kenpachi Zaraki",
               "date": "2026-09-09",
               "href": "decklists/bleach-kenpachi-zaraki/exburst-green-yamamoto-deck-bleach-kenpachi-zaraki-65347.html"
+            },
+            {
+              "slug": "tournament-8th-place-bleach-kenpachi-zaraki-125274",
+              "kind": "tournament",
+              "title": "Bleach - Kenpachi Zaraki",
+              "date": "2026-09-09",
+              "href": "decklists/bleach-kenpachi-zaraki/tournament-8th-place-bleach-kenpachi-zaraki-125274.html"
             },
             {
               "slug": "exburst-green-toshiro-kenpachi-bleach-kenpachi-zaraki-56655",
@@ -23870,18 +23891,11 @@
               "href": "decklists/bleach-kenpachi-zaraki/exburst-greenbleach-bleach-kenpachi-zaraki-124685.html"
             },
             {
-              "slug": "event-2nd-bleach-kenpachi-zaraki-1517175",
-              "kind": "event",
+              "slug": "tournament-15th-place-bleach-kenpachi-zaraki-124753",
+              "kind": "tournament",
               "title": "Bleach - Kenpachi Zaraki",
-              "date": "2026-09-05",
-              "href": "decklists/bleach-kenpachi-zaraki/event-2nd-bleach-kenpachi-zaraki-1517175.html"
-            },
-            {
-              "slug": "event-3rd-bleach-kenpachi-zaraki-1517188",
-              "kind": "event",
-              "title": "Bleach - Kenpachi Zaraki",
-              "date": "2026-09-04",
-              "href": "decklists/bleach-kenpachi-zaraki/event-3rd-bleach-kenpachi-zaraki-1517188.html"
+              "date": "2026-09-07",
+              "href": "decklists/bleach-kenpachi-zaraki/tournament-15th-place-bleach-kenpachi-zaraki-124753.html"
             }
           ]
         },
@@ -23990,7 +24004,7 @@
           ],
           "sim_text": "4xUEX01BT/BLC-2-019\n4xUE01BT/BLC-1-039\n4xUE01BT/BLC-1-041\n4xUEX01BT/BLC-2-051\n4xUEX01BT/BLC-2-014\n3xUEX01BT/BLC-2-018\n3xUE01ST/BLC-1-104\n1xUEPR/BLC-2-017\n4xUEX01BT/BLC-2-049\n4xUE01NC/BLC-3-001\n4xUE01ST/BLC-1-103\n4xUEPR/BLC-2-016\n4xUEX01BT/BLC-2-021\n3xUEX01BT/BLC-2-047",
           "cards": 50,
-          "list_count": 46,
+          "list_count": 69,
           "recent_lists": [
             {
               "slug": "exburst-byakuya-ichigo-bleach-ichigo-kurosaki-125381",
@@ -24161,7 +24175,7 @@
           ],
           "sim_text": "4xUE01BT/BLC-1-100\n4xUEX01BT/BLC-2-066\n4xUEX01BT/BLC-2-067\n4xUE01BT/BLC-1-085\n4xUE01BT/BLC-1-081\n3xUE01BT/BLC-1-083\n4xUE01NC/BLC-3-008\n4xUE01NC/BLC-3-010\n4xUEX01BT/BLC-2-063\n4xUEX01BT/BLC-2-005\n3xUE01BT/BLC-1-096\n4xUE01BT/BLC-1-088\n1xUEX01BT/BLC-2-073\n2xUE01BT/BLC-1-076\n1xUE21BT/RLY-1-078",
           "cards": 50,
-          "list_count": 10,
+          "list_count": 21,
           "recent_lists": [
             {
               "slug": "exburst-bambies-v2-bleach-toshiro-hitsugaya-125060",
@@ -24185,11 +24199,25 @@
               "href": "decklists/bleach-toshiro-hitsugaya/event-6th-bleach-toshiro-hitsugaya-1517159.html"
             },
             {
+              "slug": "tournament-6th-place-bleach-toshiro-hitsugaya-124180",
+              "kind": "tournament",
+              "title": "Bleach - Toshiro Hitsugaya",
+              "date": "2026-09-07",
+              "href": "decklists/bleach-toshiro-hitsugaya/tournament-6th-place-bleach-toshiro-hitsugaya-124180.html"
+            },
+            {
               "slug": "event-1st-bleach-toshiro-hitsugaya-1508000",
               "kind": "event",
               "title": "Bleach - Toshiro Hitsugaya",
               "date": "2026-08-29",
               "href": "decklists/bleach-toshiro-hitsugaya/event-1st-bleach-toshiro-hitsugaya-1508000.html"
+            },
+            {
+              "slug": "tournament-1st-place-bleach-toshiro-hitsugaya-121805",
+              "kind": "tournament",
+              "title": "Bleach - Toshiro Hitsugaya",
+              "date": "2026-08-29",
+              "href": "decklists/bleach-toshiro-hitsugaya/tournament-1st-place-bleach-toshiro-hitsugaya-121805.html"
             },
             {
               "slug": "contender-consensus",
@@ -24204,20 +24232,6 @@
               "title": "Bleach - Toshiro Hitsugaya",
               "date": "2026-08-16",
               "href": "decklists/bleach-toshiro-hitsugaya/event-6th-bleach-toshiro-hitsugaya-1471347.html"
-            },
-            {
-              "slug": "event-6th-bleach-toshiro-hitsugaya-1471405",
-              "kind": "event",
-              "title": "Bleach - Toshiro Hitsugaya",
-              "date": "2026-08-14",
-              "href": "decklists/bleach-toshiro-hitsugaya/event-6th-bleach-toshiro-hitsugaya-1471405.html"
-            },
-            {
-              "slug": "event-3rd-bleach-toshiro-hitsugaya-1388124",
-              "kind": "event",
-              "title": "Bleach - Toshiro Hitsugaya",
-              "date": "2026-07-18",
-              "href": "decklists/bleach-toshiro-hitsugaya/event-3rd-bleach-toshiro-hitsugaya-1388124.html"
             }
           ]
         },
@@ -26855,7 +26869,7 @@
           ],
           "sim_text": "4xUE18BT/TKG-1-055\n4xUE18BT/TKG-1-038\n4xUE18BT/TKG-1-041\n4xUE18BT/TKG-1-042\n4xUEPR/TKG-1-050\n4xUE18BT/TKG-1-037\n3xUE18BT/TKG-1-040\n3xUE18BT/TKG-1-045\n1xUE18BT/TKG-1-059\n4xUE18BT/TKG-1-061\n4xUE18BT/TKG-1-066\n4xUE18BT/TKG-1-053\n4xUE18BT/TKG-1-063\n3xUE18BT/TKG-1-057",
           "cards": 50,
-          "list_count": 63,
+          "list_count": 94,
           "recent_lists": [
             {
               "slug": "exburst-big-deck-energy-tokyo-ghoul-uta-113989",
@@ -27014,7 +27028,7 @@
           ],
           "sim_text": "4xUE18BT/TKG-1-094\n4xUEPR/TKG-1-091\n4xUEPR/TKG-1-087\n4xUE18BT/TKG-1-089\n4xUE18BT/TKG-1-080\n4xUE18BT/TKG-1-081\n4xUE18BT/TKG-1-082\n4xUE18BT/TKG-1-083\n2xUE18BT/TKG-1-084\n4xUE18BT/TKG-1-096\n4xUE18BT/TKG-1-085\n4xUE18BT/TKG-1-008\n4xUE18BT/TKG-1-100",
           "cards": 50,
-          "list_count": 56,
+          "list_count": 80,
           "recent_lists": [
             {
               "slug": "exburst-red-kaneki-tokyo-ghoul-kotaro-amon-110883",
@@ -29768,7 +29782,7 @@
           ],
           "sim_text": "4xUE16BT/KGR-1-043\n4xUEPR/KGR-1-055\n4xUE16BT/KGR-1-058\n4xUE16BT/KGR-1-059\n4xUEPR/KGR-1-060\n4xUEPR/KGR-1-045\n4xUE16BT/KGR-1-046\n4xUE16BT/KGR-1-047\n2xUE16BT/KGR-1-050\n4xUEPR/KGR-1-056\n4xUE16BT/KGR-1-082\n4xUE16BT/KGR-1-002\n4xUE16BT/KGR-1-077",
           "cards": 50,
-          "list_count": 8,
+          "list_count": 13,
           "recent_lists": [
             {
               "slug": "event-1st-kagurabachi-hakuri-sazanami-1517196",
@@ -29776,6 +29790,13 @@
               "title": "Kagurabachi - Hakuri Sazanami",
               "date": "2026-09-03",
               "href": "decklists/kagurabachi-hakuri-sazanami/event-1st-kagurabachi-hakuri-sazanami-1517196.html"
+            },
+            {
+              "slug": "tournament-1st-place-kagurabachi-hakuri-sazanami-122638",
+              "kind": "tournament",
+              "title": "Kagurabachi - Hakuri Sazanami",
+              "date": "2026-09-03",
+              "href": "decklists/kagurabachi-hakuri-sazanami/tournament-1st-place-kagurabachi-hakuri-sazanami-122638.html"
             },
             {
               "slug": "event-6th-kagurabachi-hakuri-sazanami-1336106",
@@ -29799,6 +29820,13 @@
               "href": "decklists/kagurabachi-hakuri-sazanami/event-5th-kagurabachi-hakuri-sazanami-1461769.html"
             },
             {
+              "slug": "tournament-5th-place-kagurabachi-hakuri-sazanami-116408",
+              "kind": "tournament",
+              "title": "Kagurabachi - Hakuri Sazanami",
+              "date": "2026-08-10",
+              "href": "decklists/kagurabachi-hakuri-sazanami/tournament-5th-place-kagurabachi-hakuri-sazanami-116408.html"
+            },
+            {
               "slug": "event-20th-kagurabachi-hakuri-sazanami-1446147",
               "kind": "event",
               "title": "Kagurabachi - Hakuri Sazanami",
@@ -29806,25 +29834,11 @@
               "href": "decklists/kagurabachi-hakuri-sazanami/event-20th-kagurabachi-hakuri-sazanami-1446147.html"
             },
             {
-              "slug": "event-11th-kagurabachi-hakuri-sazanami-1388070",
-              "kind": "event",
+              "slug": "tournament-20th-kagurabachi-hakuri-sazanami-114768",
+              "kind": "tournament",
               "title": "Kagurabachi - Hakuri Sazanami",
-              "date": "2026-07-20",
-              "href": "decklists/kagurabachi-hakuri-sazanami/event-11th-kagurabachi-hakuri-sazanami-1388070.html"
-            },
-            {
-              "slug": "event-6th-kagurabachi-hakuri-sazanami-1388167",
-              "kind": "event",
-              "title": "Kagurabachi - Hakuri Sazanami",
-              "date": "2026-07-16",
-              "href": "decklists/kagurabachi-hakuri-sazanami/event-6th-kagurabachi-hakuri-sazanami-1388167.html"
-            },
-            {
-              "slug": "event-2nd-kagurabachi-hakuri-sazanami-1291338",
-              "kind": "event",
-              "title": "Kagurabachi - Hakuri Sazanami",
-              "date": "2026-06-29",
-              "href": "decklists/kagurabachi-hakuri-sazanami/event-2nd-kagurabachi-hakuri-sazanami-1291338.html"
+              "date": "2026-08-02",
+              "href": "decklists/kagurabachi-hakuri-sazanami/tournament-20th-kagurabachi-hakuri-sazanami-114768.html"
             }
           ]
         },
@@ -29933,7 +29947,7 @@
           ],
           "sim_text": "4xUE16BT/KGR-1-043\n4xUEPR/KGR-1-055\n4xUEPR/KGR-1-060\n4xUE16BT/KGR-1-046\n4xUE16BT/KGR-1-047\n4xUE16BT/KGR-1-050\n3xUE16BT/KGR-1-058\n3xUE16BT/KGR-1-059\n3xUEPR/KGR-1-045\n1xUE16BT/KGR-1-048\n4xUEPR/KGR-1-056\n4xUE16BT/KGR-1-082\n4xUE16BT/KGR-1-054\n4xUE16BT/KGR-1-077",
           "cards": 50,
-          "list_count": 101,
+          "list_count": 126,
           "recent_lists": [
             {
               "slug": "exburst-flame-bone-nuke-baby-kagurabachi-chihiro-rokuhira-125262",
@@ -29964,6 +29978,13 @@
               "href": "decklists/kagurabachi-chihiro-rokuhira/exburst-tou-kagurabachi-chihiro-rokuhira-70287.html"
             },
             {
+              "slug": "tournament-12th-place-kagurabachi-chihiro-rokuhira-125506",
+              "kind": "tournament",
+              "title": "Kagurabachi - Chihiro Rokuhira",
+              "date": "2026-09-10",
+              "href": "decklists/kagurabachi-chihiro-rokuhira/tournament-12th-place-kagurabachi-chihiro-rokuhira-125506.html"
+            },
+            {
               "slug": "exburst-chihiro-rokuhira-deck-kagurabachi-chihiro-rokuhira-82871",
               "kind": "web",
               "title": "Kagurabachi - Chihiro Rokuhira",
@@ -29983,13 +30004,6 @@
               "title": "Kagurabachi - Chihiro Rokuhira",
               "date": "2026-09-08",
               "href": "decklists/kagurabachi-chihiro-rokuhira/exburst-speed-kagurabachi-chihiro-rokuhira-68934.html"
-            },
-            {
-              "slug": "exburst-kamunabi-hq-kagurabachi-chihiro-rokuhira-92266",
-              "kind": "web",
-              "title": "Kagurabachi - Chihiro Rokuhira",
-              "date": "2026-09-08",
-              "href": "decklists/kagurabachi-chihiro-rokuhira/exburst-kamunabi-hq-kagurabachi-chihiro-rokuhira-92266.html"
             }
           ]
         },
@@ -32642,7 +32656,7 @@
           ],
           "sim_text": "4xUE12BT/KJ8-1-028\n4xUE12BT/KJ8-1-024\n4xUE12BT/KJ8-1-016\n4xUE12BT/KJ8-1-018\n4xUE12BT/KJ8-1-019\n4xUE12BT/KJ8-1-020\n4xUE12BT/KJ8-1-009\n4xUEPR/KJ8-1-010\n4xUE12BT/KJ8-1-011\n4xUE12BT/KJ8-1-012\n4xUEPR/KJ8-1-029\n4xUE12BT/KJ8-1-038\n2xUE12BT/KJ8-1-040",
           "cards": 50,
-          "list_count": 27,
+          "list_count": 50,
           "recent_lists": [
             {
               "slug": "exburst-ndnd-kaiju-no-8-reno-ichikawa-118523",
@@ -34319,7 +34333,7 @@
           ],
           "sim_text": "4xUEX06BT/SAO-2-035\n4xUEX06BT/SAO-2-036\n4xUEPR/SAO-2-038\n4xUEX06BT/SAO-2-028\n4xUEX06BT/SAO-2-029\n4xUEPR/SAO-2-030\n4xUEX06BT/SAO-2-031\n4xUEX06BT/SAO-2-032\n3xUEX06BT/SAO-2-033\n4xUEX06BT/SAO-2-057\n4xUEX06BT/SAO-2-060\n4xUEX06BT/SAO-2-061\n3xUEX06BT/SAO-2-055",
           "cards": 50,
-          "list_count": 91,
+          "list_count": 122,
           "recent_lists": [
             {
               "slug": "exburst-sao-sinon-deck-sword-art-online-yuna-113779",
@@ -36661,7 +36675,7 @@
           ],
           "sim_text": "4xUEPR/KMY-1-044\n4xUEX05BT/KMY-3-051\n4xUEX05BT/KMY-3-052\n4xUE05BT/KMY-1-035\n2xUE05BT/KMY-1-045\n4xUEX05BT/KMY-3-049\n4xUE05BT/KMY-1-037\n4xUE05BT/KMY-1-036\n4xUE05BT/KMY-1-067\n4xUEX05BT/KMY-3-061\n4xUE05BT/KMY-1-050\n4xUE05BT/KMY-1-041\n4xUEX05BT/KMY-3-057",
           "cards": 50,
-          "list_count": 25,
+          "list_count": 36,
           "recent_lists": [
             {
               "slug": "exburst-blue-siblings-demon-slayer-muzan-kibutsuji-124257",
@@ -38434,7 +38448,7 @@
           ],
           "sim_text": "4xUEPR/CGH-1-038\n4xUEPR/CGH-1-046\n4xUE04BT/CGH-1-034\n4xUEPR/CGH-1-035\n4xUE04BT/CGH-1-036\n2xUEX03BT/CGH-2-053\n4xUEPR/CGH-1-042\n4xUE04BT/CGH-1-055\n4xUE04BT/CGH-1-059\n4xUE04BT/CGH-1-060\n4xUE04BT/CGH-1-062\n4xUEX03BT/CGH-2-052\n4xUE04BT/CGH-1-063",
           "cards": 50,
-          "list_count": 31,
+          "list_count": 47,
           "recent_lists": [
             {
               "slug": "exburst-blue-rolo-code-geass-suzaku-kururugi-125388",
@@ -39338,7 +39352,7 @@
           ],
           "sim_text": "4xUE21BT/RLY-1-068\n4xUE21BT/RLY-1-070\n4xUE21BT/RLY-1-044\n4xUE21BT/RLY-1-048\n4xUE21BT/RLY-1-049\n4xUE21BT/RLY-1-052\n4xUE21BT/RLY-1-053\n4xUE21BT/RLY-1-061\n4xUE21BT/RLY-1-065\n4xUE21BT/RLY-1-066\n4xUE21BT/RLY-1-067\n2xUE21BT/RLY-1-082\n4xUE21BT/RLY-1-081",
           "cards": 50,
-          "list_count": 39,
+          "list_count": 56,
           "recent_lists": [
             {
               "slug": "exburst-shizuka-nano-the-100-girlfriends-shizuka-yoshimoto-107830",
@@ -44178,7 +44192,7 @@
           ],
           "sim_text": "1xUE02BT/HTR-1-034\n4xUE02BT/HTR-1-035\n4xUE02BT/HTR-1-036\n4xUE02BT/HTR-1-037\n3xUE02BT/HTR-1-038\n2xUE02BT/HTR-1-039\n4xUE02BT/HTR-1-041\n2xUE02BT/HTR-1-043\n4xUE02BT/HTR-1-044\n4xUE02BT/HTR-1-046\n4xUE02BT/HTR-1-062\n2xUE02BT/HTR-1-064\n4xUE02BT/HTR-1-065\n4xUEX04BT/HTR-2-050\n2xUEX04BT/HTR-2-051\n2xUEX04BT/HTR-2-054",
           "cards": 50,
-          "list_count": 1,
+          "list_count": 2,
           "recent_lists": [
             {
               "slug": "event-8th-hunter-x-hunter-chrollo-1402115",
@@ -44186,6 +44200,13 @@
               "title": "Hunter x Hunter - Chrollo",
               "date": "2026-07-23",
               "href": "decklists/hunter-x-hunter-chrollo/event-8th-hunter-x-hunter-chrollo-1402115.html"
+            },
+            {
+              "slug": "tournament-8th-hunter-x-hunter-chrollo-111044",
+              "kind": "tournament",
+              "title": "Hunter x Hunter - Chrollo",
+              "date": "2026-07-23",
+              "href": "decklists/hunter-x-hunter-chrollo/tournament-8th-hunter-x-hunter-chrollo-111044.html"
             }
           ]
         },
@@ -44544,7 +44565,7 @@
           ],
           "sim_text": "4xUE02BT/HTR-1-044\n4xUE02BT/HTR-1-049\n4xUE02BT/HTR-1-050\n2xUE02BT/HTR-1-051\n4xUE02BT/HTR-1-053\n2xUE02BT/HTR-1-056\n4xUE02BT/HTR-1-057\n4xUE02BT/HTR-1-062\n4xUE02BT/HTR-1-066\n4xUE02BT/HTR-P-002\n4xUEX04BT/HTR-2-057\n4xUEX04BT/HTR-2-059\n2xUEX04BT/HTR-2-060\n4xUEX04BT/HTR-2-076",
           "cards": 50,
-          "list_count": 1,
+          "list_count": 2,
           "recent_lists": [
             {
               "slug": "event-3rd-hunter-x-hunter-illumi-1471412",
@@ -44552,6 +44573,13 @@
               "title": "Hunter x Hunter - Illumi",
               "date": "2026-08-13",
               "href": "decklists/hunter-x-hunter-illumi/event-3rd-hunter-x-hunter-illumi-1471412.html"
+            },
+            {
+              "slug": "tournament-3rd-place-hunter-x-hunter-illumi-117840",
+              "kind": "tournament",
+              "title": "Hunter x Hunter - Illumi",
+              "date": "2026-08-13",
+              "href": "decklists/hunter-x-hunter-illumi/tournament-3rd-place-hunter-x-hunter-illumi-117840.html"
             }
           ]
         },
@@ -45435,7 +45463,7 @@
           ],
           "sim_text": "4xUEPR/OPM-1-046\n4xUEPR/OPM-1-047\n4xUEPR/OPM-1-039\n4xUEPR/OPM-1-040\n4xUE06BT/OPM-1-041\n4xUE06BT/OPM-1-061\n4xUE06BT/OPM-1-049\n4xUE06BT/OPM-1-062\n3xUE06BT/OPM-1-111\n4xUE06BT/OPM-1-065\n4xUE06BT/OPM-1-064\n4xUEPR/OPM-1-056\n2xUE06BT/OPM-1-067\n1xUE06BT/OPM-1-058",
           "cards": 50,
-          "list_count": 27,
+          "list_count": 37,
           "recent_lists": [
             {
               "slug": "exburst-one-punch-one-punch-man-green-122580",

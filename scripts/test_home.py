@@ -2,6 +2,7 @@
 """Homepage: 20 raid leaders, shop pill, character search."""
 from __future__ import annotations
 
+import re
 import sys
 import tempfile
 import unittest
@@ -14,6 +15,9 @@ sys.path.insert(0, str(ROOT / "scripts"))
 import generate_site  # noqa: E402
 import uadb  # noqa: E402
 from generate_site import (  # noqa: E402
+    PIE_R,
+    PIE_VIEW_W,
+    SMALL_PIE_PCT,
     attribute_list_face,
     build_character_search,
     character_name_pool,
@@ -21,7 +25,9 @@ from generate_site import (  # noqa: E402
     is_raid_meta,
     newest_booster_set,
     newest_set_share,
+    pack_pie_lane_ys,
     pick_home_raid_leaders,
+    render_newest_set_pie,
     write_home,
 )
 
@@ -618,6 +624,11 @@ class NewestSetPieTests(unittest.TestCase):
         self.assertIn("set-pie", html)
         self.assertIn("set-pie-legend", html)
         self.assertIn("pie-callout", html)
+        self.assertIn('viewBox="0 0 1000 720"', html)
+        self.assertIn("pie-callout-bg", html)
+        self.assertGreaterEqual(PIE_VIEW_W, 900)
+        self.assertGreaterEqual(PIE_R, 200)
+        self.assertGreaterEqual(SMALL_PIE_PCT, 16)
         self.assertIn("<defs>", html)
         self.assertIn("clipPath", html)
         self.assertIn("UE24BT", html)
@@ -632,6 +643,36 @@ class NewestSetPieTests(unittest.TestCase):
         self.assertIn("Most of those lists are Re:Zero.", html)
         self.assertNotIn("100 Girlfriends", html)
         self.assertNotIn("Standard format", html)
+
+    def test_callouts_never_overlap(self):
+        stacked = pack_pie_lane_ys([200.0, 200.0, 208.0, 201.0], 40.0, 680.0, 46.0)
+        self.assertEqual(len(stacked), 4)
+        ordered = sorted(stacked)
+        gaps = [ordered[i + 1] - ordered[i] for i in range(len(ordered) - 1)]
+        self.assertTrue(gaps and min(gaps) >= 46)
+        share = {
+            "set": "UE24BT",
+            "total": 100,
+            "title": "Re:Zero",
+            "rows": [
+                {"name": "Rem", "count": 32, "pct": 32.0, "img": "/r.png", "href": "/rem.html", "tier": "C"},
+                {"name": "Emilia", "count": 22, "pct": 22.0, "img": "/e.png", "href": "/emilia.html", "tier": "C"},
+                {"name": "Beatrice", "count": 10, "pct": 10.0, "img": "/b.png", "href": "/bea.html", "tier": "D"},
+                {"name": "Crusch", "count": 6, "pct": 6.0, "img": "/c.png", "href": "/cru.html", "tier": "D"},
+                {"name": "Echidna", "count": 4, "pct": 4.0, "img": "/k.png", "href": "/ech.html", "tier": "D"},
+                {"name": "Ram", "count": 2, "pct": 2.0, "img": "/a.png", "href": "/ram.html", "tier": "D"},
+                {"name": "Subaru", "count": 2, "pct": 2.0, "img": "/s.png", "href": "/sub.html", "tier": "D"},
+                {"name": "Other", "count": 22, "pct": 22.0, "img": "", "href": "/characters.html", "tier": ""},
+            ],
+        }
+        svg = render_newest_set_pie(share)
+        self.assertIn("Beatrice 10%", svg)
+        self.assertIn('class="pie-callout"', svg)
+        self.assertNotIn(">Beatrice</text>", svg)
+        ys = [float(y) for y in re.findall(r'class="pie-callout-bg"[^>]* y="([0-9.]+)"', svg)]
+        self.assertGreaterEqual(len(ys), 4)
+        ordered_y = sorted(ys)
+        self.assertGreaterEqual(min(ordered_y[i + 1] - ordered_y[i] for i in range(len(ordered_y) - 1)), 26)
 
 
 if __name__ == "__main__":

@@ -21,7 +21,11 @@ COLOR_MARK = re.compile(r"【\s*(?:PURPLE|RED|YELLOW|GREEN|BLUE|BLACK)\s*】", r
 MIN_FACE_COST = 4
 BOOSTER_SET_RE = re.compile(r"^UE(\d+)BT$", re.I)
 CID_NAME_RE = re.compile(r"^(?:UE|UA|ST|PR|UEX)[A-Z0-9]+/", re.I)
-SMALL_PIE_PCT = 8.0
+SMALL_PIE_PCT = 16.0
+PIE_VIEW_W = 1000.0
+PIE_VIEW_H = 720.0
+PIE_CX, PIE_CY, PIE_R = 500.0, 360.0, 230.0
+PIE_CALLOUT_GAP = 46.0
 PIE_COLORS = (
     "#7a2e2e",
     "#c9a24a",
@@ -2316,7 +2320,7 @@ def _tier_for_name(name: str, plan: dict) -> str:
     want = norm_name(name)
     if not want:
         return ""
-    for row in (plan or {}).get("rows") or (plan or {}).get("board") or []:
+    for row in list((plan or {}).get("board") or []) + list((plan or {}).get("rows") or []):
         if norm_name(row.get("name") or "") == want:
             return str(row.get("tier") or "")
     guide = ((plan or {}).get("by_key") or {}).get(want) or {}
@@ -2459,6 +2463,31 @@ def _pie_point(cx: float, cy: float, r: float, deg: float) -> tuple[float, float
     return (round(cx + r * math.cos(rad), 2), round(cy + r * math.sin(rad), 2))
 
 
+def pack_pie_lane_ys(preferred: list[float], y_min: float, y_max: float, gap: float = PIE_CALLOUT_GAP) -> list[float]:
+    """Spread callout rows so neighboring labels never sit on top of each other."""
+    if not preferred:
+        return []
+    order = sorted(range(len(preferred)), key=lambda i: preferred[i])
+    packed = [0.0] * len(preferred)
+    prev = y_min - gap
+    for i in order:
+        y = max(float(preferred[i]), prev + gap)
+        packed[i] = y
+        prev = y
+    if packed[order[-1]] > y_max:
+        prev = y_max + gap
+        for i in reversed(order):
+            y = min(packed[i], prev - gap)
+            packed[i] = y
+            prev = y
+        prev = y_min - gap
+        for i in order:
+            y = max(packed[i], prev + gap)
+            packed[i] = y
+            prev = y
+    return packed
+
+
 def _pie_slice_path(cx: float, cy: float, r: float, start: float, sweep: float) -> str:
     if sweep >= 359.9:
         return (
@@ -2483,12 +2512,11 @@ def render_newest_set_pie(share: dict) -> str:
         + (f" Most of those lists are {title}." if title else "")
         + " Slice size is each character's share of those lists."
     )
-    cx, cy, r = 260.0, 170.0, 100.0
+    cx, cy, r = PIE_CX, PIE_CY, PIE_R
     start = 0.0
     slices = []
-    callouts = []
     clips = []
-    used_y: list[float] = []
+    pending: list[dict] = []
     for i, row in enumerate(rows):
         sweep = 360.0 * (row["count"] / total) if total else 0
         color = PIE_COLORS[i % len(PIE_COLORS)]
@@ -2499,62 +2527,85 @@ def render_newest_set_pie(share: dict) -> str:
         img = row.get("img") or ""
         name = row.get("name") or "List"
         if row["pct"] >= SMALL_PIE_PCT:
-            fx, fy = _pie_point(cx, cy, r * 0.52, mid)
+            fx, fy = _pie_point(cx, cy, r * 0.55, mid)
             face = ""
             if img:
                 clips.append(
-                    f'<clipPath id="pie-face-{i}"><circle cx="{fx:.1f}" cy="{fy - 6:.1f}" r="16" /></clipPath>'
+                    f'<clipPath id="pie-face-{i}"><circle cx="{fx:.1f}" cy="{fy - 8:.1f}" r="22" /></clipPath>'
                 )
                 face = (
-                    f'<image href="{html.escape(img)}" x="{fx - 16:.1f}" y="{fy - 22:.1f}" '
-                    f'width="32" height="32" preserveAspectRatio="xMidYMin slice" clip-path="url(#pie-face-{i})" />'
-                    f'<circle cx="{fx:.1f}" cy="{fy - 6:.1f}" r="16.4" fill="none" stroke="#fff" stroke-width="2" />'
+                    f'<image href="{html.escape(img)}" x="{fx - 22:.1f}" y="{fy - 30:.1f}" '
+                    f'width="44" height="44" preserveAspectRatio="xMidYMin slice" clip-path="url(#pie-face-{i})" />'
+                    f'<circle cx="{fx:.1f}" cy="{fy - 8:.1f}" r="22.6" fill="none" stroke="#fff" stroke-width="2.4" />'
                 )
             slices.append(
                 f'<a href="{html.escape(href)}">'
-                f'<path d="{path}" fill="{color}" stroke="#fff" stroke-width="2" />'
+                f'<path d="{path}" fill="{color}" stroke="#fff" stroke-width="3" />'
                 f"{face}"
-                f'<text x="{fx:.1f}" y="{fy + 20:.1f}" text-anchor="middle" class="pie-label">'
+                f'<text x="{fx:.1f}" y="{fy + 28:.1f}" text-anchor="middle" class="pie-label">'
                 f"{html.escape(name)}</text>"
-                f'<text x="{fx:.1f}" y="{fy + 34:.1f}" text-anchor="middle" class="pie-pct">'
+                f'<text x="{fx:.1f}" y="{fy + 50:.1f}" text-anchor="middle" class="pie-pct">'
                 f"{html.escape(pct_label)}</text></a>"
             )
         else:
             slices.append(
                 f'<a href="{html.escape(href)}">'
-                f'<path d="{path}" fill="{color}" stroke="#fff" stroke-width="2" /></a>'
+                f'<path d="{path}" fill="{color}" stroke="#fff" stroke-width="3" /></a>'
             )
-            edge = _pie_point(cx, cy, r + 8, mid)
-            side = -1 if edge[0] < cx else 1
-            ly = edge[1]
-            for prev in used_y:
-                if abs(ly - prev) < 32:
-                    ly = prev + 32 if ly >= cy else prev - 32
-            ly = max(18.0, min(322.0, ly))
-            used_y.append(ly)
-            if side < 0:
-                lx, img_x, tx, anchor = 132.0, 8.0, 34.0, "start"
-            else:
-                lx, img_x, tx, anchor = 388.0, 396.0, 422.0, "start"
-            img_tag = ""
-            if img:
-                clips.append(
-                    f'<clipPath id="pie-out-{i}"><circle cx="{img_x + 11:.1f}" cy="{ly:.1f}" r="11" /></clipPath>'
-                )
-                img_tag = (
-                    f'<image href="{html.escape(img)}" x="{img_x:.1f}" y="{ly - 11:.1f}" '
-                    f'width="22" height="22" preserveAspectRatio="xMidYMin slice" clip-path="url(#pie-out-{i})" />'
-                )
-            else:
-                tx = 12.0 if side < 0 else 396.0
-            callouts.append(
-                f'<a href="{html.escape(href)}" class="pie-callout">'
-                f'<line x1="{edge[0]}" y1="{edge[1]}" x2="{lx}" y2="{ly:.1f}" stroke="{color}" stroke-width="1.6" />'
-                f"{img_tag}"
-                f'<text x="{tx:.1f}" y="{ly + 4:.1f}" text-anchor="{anchor}" class="pie-callout-text">'
-                f"{html.escape(name)} {html.escape(pct_label)}</text></a>"
+            edge = _pie_point(cx, cy, r + 10, mid)
+            pending.append(
+                {
+                    "i": i,
+                    "name": name,
+                    "pct_label": pct_label,
+                    "href": href,
+                    "img": img,
+                    "color": color,
+                    "edge": edge,
+                    "side": -1 if edge[0] < cx else 1,
+                    "y": edge[1],
+                }
             )
         start += sweep
+    callouts = []
+    y_min, y_max = 40.0, PIE_VIEW_H - 40.0
+    for side, lane in ((-1, [c for c in pending if c["side"] < 0]), (1, [c for c in pending if c["side"] > 0])):
+        packed = pack_pie_lane_ys([c["y"] for c in lane], y_min, y_max)
+        for row, ly in zip(lane, packed):
+            row["y"] = ly
+            i = row["i"]
+            label = f"{row['name']} {row['pct_label']}"
+            edge_x, edge_y = row["edge"]
+            elbow_x = cx + side * (r + 22)
+            if side < 0:
+                box_x, box_w, img_x, tx, anchor = 18.0, 176.0, 28.0, 64.0, "start"
+                line_x = box_x + box_w
+            else:
+                box_x, box_w, img_x, tx, anchor = 806.0, 176.0, 816.0, 852.0, "start"
+                line_x = box_x
+            pill = (
+                f'<rect class="pie-callout-bg" x="{box_x:.1f}" y="{ly - 20:.1f}" '
+                f'width="{box_w:.1f}" height="40" rx="20" />'
+            )
+            img_tag = ""
+            if row["img"]:
+                clips.append(
+                    f'<clipPath id="pie-out-{i}"><circle cx="{img_x + 14:.1f}" cy="{ly:.1f}" r="14" /></clipPath>'
+                )
+                img_tag = (
+                    f'<image href="{html.escape(row["img"])}" x="{img_x:.1f}" y="{ly - 14:.1f}" '
+                    f'width="28" height="28" preserveAspectRatio="xMidYMin slice" clip-path="url(#pie-out-{i})" />'
+                )
+            else:
+                tx = box_x + 18.0
+            callouts.append(
+                f'<a href="{html.escape(row["href"])}" class="pie-callout">'
+                f'<line x1="{edge_x}" y1="{edge_y}" x2="{elbow_x:.1f}" y2="{ly:.1f}" stroke="{row["color"]}" stroke-width="2" />'
+                f'<line x1="{elbow_x:.1f}" y1="{ly:.1f}" x2="{line_x:.1f}" y2="{ly:.1f}" stroke="{row["color"]}" stroke-width="2" />'
+                f"{pill}{img_tag}"
+                f'<text x="{tx:.1f}" y="{ly + 5:.1f}" text-anchor="{anchor}" class="pie-callout-text">'
+                f"{html.escape(label)}</text></a>"
+            )
     legend = []
     for i, row in enumerate(rows):
         color = PIE_COLORS[i % len(PIE_COLORS)]
@@ -2585,7 +2636,7 @@ def render_newest_set_pie(share: dict) -> str:
               </a>
             </li>"""
         )
-    svg = f"""          <svg class="set-pie" viewBox="0 0 520 340" role="img" aria-label="{html.escape(set_code)} list share">
+    svg = f"""          <svg class="set-pie" viewBox="0 0 {int(PIE_VIEW_W)} {int(PIE_VIEW_H)}" role="img" aria-label="{html.escape(set_code)} list share">
             <defs>
               {chr(10).join(clips)}
             </defs>
