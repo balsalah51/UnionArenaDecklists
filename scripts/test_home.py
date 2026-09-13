@@ -674,6 +674,29 @@ class NewestSetPieTests(unittest.TestCase):
         ordered_y = sorted(ys)
         self.assertGreaterEqual(min(ordered_y[i + 1] - ordered_y[i] for i in range(len(ordered_y) - 1)), 26)
 
+    def test_extra_arches_keeps_long_named_keys(self):
+        generate_site._COMMUNITY = [
+            {
+                "key": "fullmetal-alchemist-olivier-mira-armstrong",
+                "counts": {"UE09BT/FMA-1-060": 50},
+                "archetype": "Armstrong Deck",
+                "date": "2026-09-12",
+            },
+            {
+                "key": "iys-i-wish-my-4th-kikyo-would-have-arrived-on-time",
+                "counts": {"UE23BT/IYS-1-046": 50},
+                "archetype": "IYS - I wish my 4th Kikyo would have arrived on time",
+                "date": "2026-09-08",
+            },
+        ]
+        try:
+            extra = {arch["key"]: arch for arch in generate_site.extra_arches([])}
+            self.assertIn("fullmetal-alchemist-olivier-mira-armstrong", extra)
+            self.assertEqual(extra["fullmetal-alchemist-olivier-mira-armstrong"]["name"], "Olivier Mira Armstrong")
+            self.assertNotIn("iys-i-wish-my-4th-kikyo-would-have-arrived-on-time", extra)
+        finally:
+            generate_site._COMMUNITY = None
+
 
 if __name__ == "__main__":
     unittest.main()

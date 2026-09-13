@@ -18,6 +18,8 @@ GAME_TABLE = "uaen_decklists"
 PAGE_SIZE = 100
 MAX_LISTS = 600
 MAX_PAGES = 180
+DATE_FROM = ""
+DATE_TO = ""
 SKIP_SLUGS = {
     "reddit-pic-does-anyone-know-the-most-optimal-purple-sao-song-deck-1qls",
 }
@@ -92,12 +94,25 @@ def rest_range(key: str, table: str, query: str, offset: int, limit: int = PAGE_
     return rows if isinstance(rows, list) else []
 
 
+def in_date_window(when: str) -> bool:
+    day = (when or "")[:10]
+    if DATE_FROM and (not day or day < DATE_FROM):
+        return False
+    if DATE_TO and (not day or day >= DATE_TO):
+        return False
+    return True
+
+
 def rest_rows(key: str, offset: int, limit: int = PAGE_SIZE) -> list[dict]:
     query = (
         "is_public=eq.1"
         "&select=id,decklist_name,modified_date,archetype,decklist_content"
         "&order=modified_date.desc"
     )
+    if DATE_FROM:
+        query += f"&modified_date=gte.{DATE_FROM}"
+    if DATE_TO:
+        query += f"&modified_date=lt.{DATE_TO}"
     return rest_range(key, GAME_TABLE, query, offset, limit)
 
 
@@ -106,6 +121,12 @@ def english_enough(counts: dict[str, int]) -> bool:
         return False
     english = sum(n for cid, n in counts.items() if EN_CID_RE.search(cid))
     return english >= max(30, int(0.8 * sum(counts.values())))
+
+
+def catalog_slug(name: str, arch_key: str, did: int) -> str:
+    suffix = f"-{did}"
+    base = uadb.slugify(f"exburst-{name}-{arch_key}")[: 70 - len(suffix)]
+    return f"{base}{suffix}"
 
 
 def known_exburst_ids(found: list[dict]) -> set[int]:
@@ -159,7 +180,10 @@ def scrape_exburst(found: list[dict], seen: set[str], cache: dict, arches: list[
                 skipped += 1
                 continue
             date = (row.get("modified_date") or "")[:10]
-            slug = uadb.slugify(f"exburst-{name}-{arch_key}-{did}")[:70]
+            if not in_date_window(date):
+                skipped += 1
+                continue
+            slug = catalog_slug(name, arch_key, did)
             if slug in SKIP_SLUGS:
                 continue
             item = item_from_counts(
