@@ -111,6 +111,11 @@ class ExburstEventScrapeTests(unittest.TestCase):
             )
         )
 
+    def test_event_scrape_does_not_drop_short_existing_slugs(self):
+        src = Path(scrape_exburst_events.__file__).read_text(encoding="utf-8")
+        self.assertNotIn("dropped truncated slugs", src)
+        self.assertNotIn("found[:] = kept", src)
+
     def test_known_ids_from_deck_url_and_slug(self):
         have = scrape_exburst_events.known_exburst_decks(
             [

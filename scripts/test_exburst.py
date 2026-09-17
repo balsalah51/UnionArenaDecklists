@@ -33,6 +33,28 @@ class ExburstScrapeTests(unittest.TestCase):
         self.assertTrue(scrape_exburst.english_enough(en))
         self.assertFalse(scrape_exburst.english_enough(ja))
 
+    def test_date_window_keeps_last_week(self):
+        old_from, old_to = scrape_exburst.DATE_FROM, scrape_exburst.DATE_TO
+        scrape_exburst.DATE_FROM = "2026-09-10"
+        scrape_exburst.DATE_TO = "2026-09-17"
+        try:
+            self.assertTrue(scrape_exburst.in_date_window("2026-09-10"))
+            self.assertTrue(scrape_exburst.in_date_window("2026-09-16T18:00:00"))
+            self.assertFalse(scrape_exburst.in_date_window("2026-09-09"))
+            self.assertFalse(scrape_exburst.in_date_window("2026-09-17"))
+        finally:
+            scrape_exburst.DATE_FROM, scrape_exburst.DATE_TO = old_from, old_to
+
+    def test_catalog_slug_keeps_full_deck_id(self):
+        slug = scrape_exburst.catalog_slug(
+            "Yellow Rimiru Diablo",
+            "that-time-i-got-reincarnated-as-a-slime-diablo",
+            125918,
+        )
+        self.assertTrue(slug.endswith("-125918"))
+        self.assertLessEqual(len(slug), 70)
+        self.assertTrue(slug.startswith("exburst-"))
+
     def test_known_ids_from_source_url(self):
         have = scrape_exburst.known_exburst_ids(
             [{"source_url": "https://exburst.dev/ua/en/decklists/125053", "slug": "exburst-foo"}]

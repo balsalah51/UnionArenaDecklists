@@ -81,7 +81,8 @@ COLOR_INT = {
 }
 
 MASH_TITLE = re.compile(
-    r"(?i)\b(opm|bcv|kj8|htr|csm|slg|yyh|iys)\b.+\b(opm|bcv|kj8|htr|csm|slg|yyh|iys)\b"
+    r"(?i)\b(opm|bcv|kj8|htr|csm|slg|yyh|iys|eva|tkg|smd|tsk|blc|sao|jjk|aot|fma)\b"
+    r".+\b(opm|bcv|kj8|htr|csm|slg|yyh|iys|eva|tkg|smd|tsk|blc|sao|jjk|aot|fma)\b"
 )
 
 
@@ -96,6 +97,31 @@ def is_real_theme(title: str, slug: str = "") -> bool:
     if MASH_TITLE.search(blob):
         return False
     if blob.count(",") >= 2 and len(blob) < 48:
+        return False
+    want = (slug or theme_slug(title) or "").strip()
+    if not want or want == "title" or want in COLOR_ONLY:
+        return False
+    known = set(THEME_ALIASES.values()) | {uadb.slugify(name) for name in uadb.ANIME_PRETTY.values()}
+    known.update(
+        {
+            "bleach",
+            "evangelion",
+            "jujutsu-kaisen",
+            "sakamoto-days",
+            "kagurabachi",
+            "code-geass",
+            "rurouni-kenshin",
+            "tokyo-ghoul",
+            "sword-art-online",
+            "re-zero",
+            "nikke",
+        }
+    )
+    if want in known:
+        return True
+    if any(name != want and name.startswith(f"{want}-") for name in known):
+        return False
+    if any(want.startswith(f"{name}-") for name in known):
         return False
     return True
 

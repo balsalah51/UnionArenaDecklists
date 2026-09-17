@@ -114,6 +114,15 @@ def test_aliases_and_grouping() -> None:
     assert discord_board.resolve_theme("csm", board["themes"])["slug"] == "chainsaw-man"
     assert discord_board.theme_slug("IYS") == "inuyasha"
     assert discord_board.is_real_theme("OPM,BCV,KJ8,HTR", "opm-bcv-kj8-htr") is False
+    assert discord_board.is_real_theme("Attack On Titan", "attack-on-titan") is True
+    assert discord_board.is_real_theme("Re:Zero", "re-zero") is True
+    assert discord_board.is_real_theme("Bleach", "bleach") is True
+    assert discord_board.is_real_theme("Nikke", "nikke") is True
+    assert discord_board.is_real_theme("Attack", "attack") is False
+    assert discord_board.is_real_theme("Attack On", "attack-on") is False
+    assert discord_board.is_real_theme("Attack On Titan Annie", "attack-on-titan-annie") is False
+    assert discord_board.is_real_theme("Yu", "yu") is False
+    assert discord_board.is_real_theme("EVA TKG SMD", "eva-tkg-smd") is False
     assert board["theme_count"] == 3
     assert board["deck_count"] == 3
     junk = sample_decks() + [

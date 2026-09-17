@@ -3603,11 +3603,18 @@ def extra_arches(existing: list[dict]) -> list[dict]:
             title_name = pretty_anime(sample.get("anime") or "")
             char_name = sample.get("character") or key
         title_name = pretty_anime(title_name) or title_name
-        if len(char_name) > 36 or key.count("-") > 8:
+        if not char_name or char_name == key or len(char_name) > 36:
+            bits = [part for part in key.split("-") if part]
+            char_name = " ".join(bits[-3:]).title() if bits else key
+        if not title_name:
+            slug_char = uadb.slugify(char_name)
+            prefix = key[: -len(slug_char)].rstrip("-") if slug_char and key.endswith(slug_char) else key
+            title_name = pretty_anime(prefix) or prefix.replace("-", " ").title()
+        if key.count("-") > 8:
             continue
         if re.search(r"(opm|bcv|kj8|htr|csm|slg).{0,8}(opm|bcv|kj8|htr|csm|slg)", key):
             continue
-        if re.search(r"mommy|i-don-t-know|dont-know", key):
+        if re.search(r"mommy|i-don-t-know|dont-know|i-wish-my", key):
             continue
         extra.append(
             {
