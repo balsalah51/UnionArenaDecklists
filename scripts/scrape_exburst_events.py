@@ -23,6 +23,8 @@ MAX_TOURNAMENTS = 250
 MAX_LISTS = 600
 MIN_PLAYERS = 4
 RECENT_DAYS = 21
+DATE_FROM = ""
+DATE_TO = ""
 SKIP_SLUGS = {
     "reddit-pic-does-anyone-know-the-most-optimal-purple-sao-song-deck-1qls",
 }
@@ -53,6 +55,12 @@ def keep_tournament(row: dict, regs: list[dict] | None = None, today: date | Non
         return False
     players = max(int(row.get("maxPlayers") or 0), len(regs or []))
     when = (row.get("startDate") or "")[:10]
+    if DATE_FROM or DATE_TO:
+        if DATE_FROM and (not when or when < DATE_FROM):
+            return False
+        if DATE_TO and (not when or when >= DATE_TO):
+            return False
+        return True
     recent_cut = ((today or date.today()) - timedelta(days=RECENT_DAYS)).isoformat()
     return players >= MIN_PLAYERS or (bool(when) and when >= recent_cut)
 
@@ -251,18 +259,8 @@ def scrape_exburst_events(
     if cap < 1:
         return 0
     key = scrape_exburst.discover_anon_key()
-    dropped = 0
-    kept: list[dict] = []
-    for row in found:
-        slug = row.get("slug") or ""
-        if row.get("kind") == "tournament" and not slug_has_deck_id(slug):
-            seen.discard(slug)
-            dropped += 1
-            continue
-        kept.append(row)
-    if dropped:
-        found[:] = kept
-        uadb.log("exburst events dropped truncated slugs", dropped)
+    # Keep stored tournament rows even when the slug ends short of six
+    # digits. Dropping those here deleted hosted 50s on the next scrape.
     tours = fetch_finished_tournaments(key)
     regs_by_tour = fetch_registrations(key, [int(t.get("id") or 0) for t in tours if t.get("id")])
     have = known_exburst_decks(found)

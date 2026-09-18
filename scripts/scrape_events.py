@@ -18,6 +18,8 @@ MAX_TOURNAMENTS = 500
 MAX_LISTS = 3000
 MIN_PLAYERS = 6
 RECENT_DAYS = 14
+DATE_FROM = ""
+DATE_TO = ""
 EVENT_ID_RE = re.compile(r"-(\d{6,})$")
 
 
@@ -62,7 +64,13 @@ def pick_tournaments(rows: list[dict]) -> list[dict]:
         event = (row.get("eventType") or "").lower()
         players = int(row.get("playerCount") or 0)
         when = (row.get("date") or "")[:10]
-        if (
+        if DATE_FROM or DATE_TO:
+            if DATE_FROM and (not when or when < DATE_FROM):
+                continue
+            if DATE_TO and (not when or when >= DATE_TO):
+                continue
+            picked.append(row)
+        elif (
             event == "regional"
             or players >= MIN_PLAYERS
             or int(row.get("decklistCount") or 0) >= 4

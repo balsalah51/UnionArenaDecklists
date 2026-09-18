@@ -82,10 +82,7 @@ def placement_of(entry: dict) -> int | None:
 
 
 def is_result_list(entry: dict) -> bool:
-    kind = (entry.get("kind") or "").lower()
-    if kind in RESULT_KINDS:
-        return True
-    return placement_of(entry) is not None
+    return (entry.get("kind") or "").lower() in RESULT_KINDS
 
 
 def list_names_character(entry: dict, name: str) -> bool:

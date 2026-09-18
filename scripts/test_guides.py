@@ -68,7 +68,17 @@ class PlacementTests(unittest.TestCase):
 
     def test_result_kinds_count_without_place(self):
         self.assertTrue(write_guides.is_result_list({"kind": "official"}))
+        self.assertTrue(write_guides.is_result_list({"kind": "event", "title": "locals dump"}))
         self.assertFalse(write_guides.is_result_list({"kind": "youtube", "title": "profile"}))
+        self.assertFalse(
+            write_guides.is_result_list(
+                {
+                    "kind": "web",
+                    "title": "3rd Wheel Subaru (Crusch x Ferris)",
+                    "slug": "exburst-3rd-wheel-subaru-crusch-x-ferris-re-zero-126972",
+                }
+            )
+        )
 
     def test_shared_fifty_does_not_name_every_character(self):
         entry = {
