@@ -38,7 +38,7 @@
     {
       "name": "Evangelion Test Type-01 Pseudo DMS Phase",
       "title": "Evangelion",
-      "tier": "S",
+      "tier": "A",
       "page": "decklists/evangelion-test-type-01-pseudo-dms-phase.html",
       "recent_top8": 46,
       "recent_results": 52,
@@ -93,24 +93,13 @@
     {
       "name": "Hajime Saito",
       "title": "Rurouni Kenshin",
-      "tier": "A",
+      "tier": "B",
       "page": "decklists/hajime-saito.html",
       "recent_top8": 32,
       "recent_results": 38,
       "meta_share": 0.02828344,
       "contender_tier": "1",
       "score": 188.314
-    },
-    {
-      "name": "Taro Sakamoto",
-      "title": "Sakamoto Days",
-      "tier": "A",
-      "page": "decklists/taro-sakamoto-purple.html",
-      "recent_top8": 32,
-      "recent_results": 39,
-      "meta_share": 0.01802544,
-      "contender_tier": "2",
-      "score": 186.101
     },
     {
       "name": "Shin Asakura",
@@ -122,6 +111,17 @@
       "meta_share": 0.012450558,
       "contender_tier": "2",
       "score": 183.773
+    },
+    {
+      "name": "Taro Sakamoto",
+      "title": "Sakamoto Days",
+      "tier": "B",
+      "page": "decklists/taro-sakamoto-purple.html",
+      "recent_top8": 31,
+      "recent_results": 38,
+      "meta_share": 0.01802544,
+      "contender_tier": "2",
+      "score": 180.551
     },
     {
       "name": "Heisuke Mashimo",
@@ -203,7 +203,7 @@
     {
       "name": "Kotaro Amon",
       "title": "Tokyo Ghoul",
-      "tier": "B",
+      "tier": "C",
       "page": "decklists/kotaro-amon.html",
       "recent_top8": 19,
       "recent_results": 21,
@@ -214,7 +214,7 @@
     {
       "name": "Reno Ichikawa",
       "title": "Kaiju No. 8",
-      "tier": "B",
+      "tier": "C",
       "page": "decklists/kj8-eva-jjk-reno-ichikawa.html",
       "recent_top8": 16,
       "recent_results": 27,
@@ -225,7 +225,7 @@
     {
       "name": "Asuka Shikinami Langley",
       "title": "Evangelion",
-      "tier": "B",
+      "tier": "C",
       "page": "decklists/asuka-shikinami-langley-red.html",
       "recent_top8": 14,
       "recent_results": 19,
@@ -248,89 +248,56 @@
       "name": "Rem",
       "title": "Re:Zero",
       "tier": "C",
-      "page": "series/re-zero.html",
+      "page": "decklists/rem-blue.html",
       "recent_top8": 0,
       "recent_results": 0,
       "meta_share": 0.0,
       "contender_tier": "",
-      "score": 31.5
+      "score": 58.25
     },
     {
       "name": "Emilia",
       "title": "Re:Zero",
-      "tier": "C",
-      "page": "series/re-zero.html",
+      "tier": "D",
+      "page": "decklists/emilia-yellow.html",
       "recent_top8": 0,
       "recent_results": 0,
       "meta_share": 0.0,
       "contender_tier": "",
-      "score": 29.25
+      "score": 47.75
     },
     {
       "name": "Beatrice",
       "title": "Re:Zero",
-      "tier": "C",
-      "page": "series/re-zero.html",
-      "recent_top8": 0,
-      "recent_results": 0,
-      "meta_share": 0.0,
-      "contender_tier": "",
-      "score": 9.25
-    },
-    {
-      "name": "Crusch",
-      "title": "Re:Zero",
-      "tier": "C",
-      "page": "series/re-zero.html",
-      "recent_top8": 0,
-      "recent_results": 0,
-      "meta_share": 0.0,
-      "contender_tier": "",
-      "score": 8.0
-    },
-    {
-      "name": "Echidna",
-      "title": "Re:Zero",
-      "tier": "C",
-      "page": "series/re-zero.html",
-      "recent_top8": 0,
-      "recent_results": 0,
-      "meta_share": 0.0,
-      "contender_tier": "",
-      "score": 4.85
-    },
-    {
-      "name": "Subaru",
-      "title": "Re:Zero",
       "tier": "D",
-      "page": "series/re-zero.html",
+      "page": "decklists/beatrice.html",
       "recent_top8": 0,
       "recent_results": 0,
       "meta_share": 0.0,
       "contender_tier": "",
-      "score": 4.2
-    },
-    {
-      "name": "Puck",
-      "title": "Re:Zero",
-      "tier": "D",
-      "page": "series/re-zero.html",
-      "recent_top8": 0,
-      "recent_results": 0,
-      "meta_share": 0.0,
-      "contender_tier": "",
-      "score": 0.9
+      "score": 20.5
     },
     {
       "name": "Ram",
       "title": "Re:Zero",
       "tier": "D",
+      "page": "decklists/ram.html",
+      "recent_top8": 0,
+      "recent_results": 0,
+      "meta_share": 0.0,
+      "contender_tier": "",
+      "score": 14.75
+    },
+    {
+      "name": "Crusch",
+      "title": "Re:Zero",
+      "tier": "D",
       "page": "series/re-zero.html",
       "recent_top8": 0,
       "recent_results": 0,
       "meta_share": 0.0,
       "contender_tier": "",
-      "score": 0.9
+      "score": 14.5
     }
   ]
 }

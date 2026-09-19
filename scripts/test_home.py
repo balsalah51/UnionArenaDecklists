@@ -29,6 +29,8 @@ from generate_site import (  # noqa: E402
     pack_pie_lane_ys,
     pick_home_raid_leaders,
     render_newest_set_pie,
+    series_name,
+    series_slug,
     write_home,
 )
 
@@ -55,6 +57,12 @@ class RaidTests(unittest.TestCase):
             0.013,
         )
         self.assertEqual(contender_meta_share({}), 0.0)
+
+    def test_official_rezero_title_maps_to_series_page(self):
+        official = "Re:ZERO -Starting Life in Another World-"
+        self.assertEqual(series_name(official), "Re:Zero")
+        self.assertEqual(series_slug(official), "re-zero")
+        self.assertEqual(series_slug("Re:Zero"), "re-zero")
 
     def test_raid_detect(self):
         self.assertTrue(is_raid_meta({"trigger": "[Raid] 1"}))

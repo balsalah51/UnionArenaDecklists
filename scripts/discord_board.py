@@ -68,6 +68,9 @@ THEME_ALIASES = {
     "100girlfriends": "the-100-girlfriends",
     "kj8": "kaiju-no-8",
     "kaiju": "kaiju-no-8",
+    "rez": "re-zero",
+    "rezero": "re-zero",
+    "re:zero": "re-zero",
 }
 
 COLOR_ONLY = {"purple", "red", "yellow", "green", "blue", "black"}
