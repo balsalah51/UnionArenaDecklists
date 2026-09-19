@@ -346,6 +346,22 @@ def load_cache() -> dict:
     return cache
 
 
+def contender_meta_share(row: dict | None) -> float:
+    """Read share from either the old metaShare field or the weighted snapshot."""
+    row = row or {}
+    shares = row.get("metaShares") or {}
+    for val in (
+        row.get("metaShare"),
+        row.get("metaShareWeighted"),
+        shares.get("weighted"),
+        shares.get("recent30d"),
+        shares.get("sinceBanlist"),
+    ):
+        if val not in (None, ""):
+            return float(val)
+    return 0.0
+
+
 def archetypes_from_contender() -> list[dict]:
     fmt = uadb.load_json("data/contender-format.json", {})
     ov = uadb.load_json("data/contender-overview.json", {})
@@ -370,7 +386,7 @@ def archetypes_from_contender() -> list[dict]:
                 "dir": f"decklists/{key}",
                 "tier": str(meta_row.get("tier") or ""),
                 "style": meta_row.get("style") or "",
-                "meta_share": float(meta_row.get("metaShare") or 0),
+                "meta_share": contender_meta_share(meta_row),
                 "updated": updated,
                 "strengths": detail.get("strengths") or [],
                 "weaknesses": detail.get("weaknesses") or [],
@@ -705,9 +721,7 @@ def current_raid_priority() -> dict[str, float]:
         nkey = norm_name(char)
         if not nkey or nkey in COLOR_ONLY:
             continue
-        recent = float((deck.get("metaShares") or {}).get("recent30d") or 0)
-        share = float(deck.get("metaShare") or 0)
-        out[nkey] = max(out.get(nkey, 0.0), recent, share)
+        out[nkey] = max(out.get(nkey, 0.0), contender_meta_share(deck))
     return out
 
 
