@@ -122,6 +122,7 @@ ANIME_PRETTY = {
     "my hero academia": "My Hero Academia",
     "rez": "Re:Zero",
     "re zero": "Re:Zero",
+    "re zero starting life in another world": "Re:Zero",
     "nik": "Nikke",
     "nikke": "Nikke",
     "slime": "That Time I Got Reincarnated As A Slime",

@@ -5,6 +5,7 @@ from __future__ import annotations
 
 import sys
 import unittest
+from datetime import date, timedelta
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -36,7 +37,7 @@ class EventScrapeTests(unittest.TestCase):
                     "eventType": "local",
                     "playerCount": 3,
                     "decklistCount": 1,
-                    "date": "2026-08-29",
+                    "date": (date.today() - timedelta(days=5)).isoformat(),
                 }
             ]
         )
