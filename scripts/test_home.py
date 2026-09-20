@@ -22,12 +22,15 @@ from generate_site import (  # noqa: E402
     build_character_search,
     character_name_pool,
     combo_has_raid_face,
+    contender_meta_share,
     is_raid_meta,
     newest_booster_set,
     newest_set_share,
     pack_pie_lane_ys,
     pick_home_raid_leaders,
     render_newest_set_pie,
+    series_name,
+    series_slug,
     write_home,
 )
 
@@ -43,6 +46,24 @@ def raid_card(name: str, cost: str = "4") -> dict:
 
 
 class RaidTests(unittest.TestCase):
+    def test_contender_meta_share_reads_weighted_snapshot(self):
+        self.assertAlmostEqual(contender_meta_share({"metaShare": 0.08}), 0.08)
+        self.assertAlmostEqual(
+            contender_meta_share({"metaShareWeighted": 0.020168837, "metaShares": {"weighted": 0.02}}),
+            0.020168837,
+        )
+        self.assertAlmostEqual(
+            contender_meta_share({"metaShares": {"recent30d": 0.013}}),
+            0.013,
+        )
+        self.assertEqual(contender_meta_share({}), 0.0)
+
+    def test_official_rezero_title_maps_to_series_page(self):
+        official = "Re:ZERO -Starting Life in Another World-"
+        self.assertEqual(series_name(official), "Re:Zero")
+        self.assertEqual(series_slug(official), "re-zero")
+        self.assertEqual(series_slug("Re:Zero"), "re-zero")
+
     def test_raid_detect(self):
         self.assertTrue(is_raid_meta({"trigger": "[Raid] 1"}))
         self.assertTrue(is_raid_meta({"effect": "When this [Raid]s"}))
