@@ -2833,7 +2833,7 @@
         },
         "representativeCardName": "Chainsaw Man (047)",
         "representativeCardId": null,
-        "representativeImageUrl": "/cdn/cards/unionarena/725125/1333690_thumb_0.webp",
+        "representativeImageUrl": "/cdn/cards/unionarena/725125/1312551_thumb_0.webp",
         "colorIdentity": [
           "Red"
         ],
@@ -2953,7 +2953,7 @@
         },
         "representativeCardName": "Heisuke Mashimo (008)",
         "representativeCardId": null,
-        "representativeImageUrl": "/cdn/cards/unionarena/127280/232225_thumb_0.webp",
+        "representativeImageUrl": "/cdn/cards/unionarena/127280/993800_thumb_0.webp",
         "colorIdentity": [
           "Yellow"
         ],
@@ -3239,7 +3239,7 @@
         },
         "representativeCardName": "Ram (007)",
         "representativeCardId": null,
-        "representativeImageUrl": "/cdn/cards/unionarena/1005542/1802869_thumb_0.webp",
+        "representativeImageUrl": "/cdn/cards/unionarena/1005699/1803026_thumb_0.webp",
         "colorIdentity": [
           "Yellow"
         ],
@@ -3263,7 +3263,7 @@
         },
         "representativeCardName": "Shuna (006)",
         "representativeCardId": null,
-        "representativeImageUrl": "/cdn/cards/unionarena/546223/999061_thumb_0.webp",
+        "representativeImageUrl": "/cdn/cards/unionarena/546223/1090073_thumb_0.webp",
         "colorIdentity": [
           "Yellow"
         ],
@@ -3287,7 +3287,7 @@
         },
         "representativeCardName": "Emilia (022)",
         "representativeCardId": null,
-        "representativeImageUrl": "/cdn/cards/unionarena/1005566/1802893_thumb_0.webp",
+        "representativeImageUrl": "/cdn/cards/unionarena/1005669/1802996_thumb_0.webp",
         "colorIdentity": [
           "Yellow"
         ],
@@ -3409,7 +3409,7 @@
         },
         "representativeCardName": "Armin Arlelt (075)",
         "representativeCardId": null,
-        "representativeImageUrl": "/cdn/cards/unionarena/125821/230766.webp",
+        "representativeImageUrl": "/cdn/cards/unionarena/124396/229341.webp",
         "colorIdentity": [
           "Red"
         ],
@@ -3743,7 +3743,7 @@
         },
         "representativeCardName": "Gon Freecss (075) (Box Topper Foil)",
         "representativeCardId": null,
-        "representativeImageUrl": "/cdn/cards/unionarena/124748/229693.webp",
+        "representativeImageUrl": null,
         "colorIdentity": [
           "Green"
         ],
@@ -4079,7 +4079,7 @@
         },
         "representativeCardName": "Bankai (100)",
         "representativeCardId": null,
-        "representativeImageUrl": "/cdn/cards/unionarena/123749/228694.webp",
+        "representativeImageUrl": "/cdn/cards/unionarena/127454/232399.webp",
         "colorIdentity": [
           "Green"
         ],
@@ -4319,7 +4319,7 @@
         },
         "representativeCardName": "Diablo (030)",
         "representativeCardId": null,
-        "representativeImageUrl": "/cdn/cards/unionarena/546205/999043_thumb_0.webp",
+        "representativeImageUrl": "/cdn/cards/unionarena/546205/1090037_thumb_0.webp",
         "colorIdentity": [
           "Purple"
         ],
@@ -4439,7 +4439,7 @@
         },
         "representativeCardName": "Toshiro Hitsugaya (083)",
         "representativeCardId": null,
-        "representativeImageUrl": "/cdn/cards/unionarena/123879/228824.webp",
+        "representativeImageUrl": "/cdn/cards/unionarena/127432/232377.webp",
         "colorIdentity": [
           "Green"
         ],
@@ -4463,7 +4463,7 @@
         },
         "representativeCardName": "King (039) (Box Topper Foil)",
         "representativeCardId": null,
-        "representativeImageUrl": "/cdn/cards/unionarena/905550/1606550_thumb_0.webp",
+        "representativeImageUrl": null,
         "colorIdentity": [
           "Green"
         ],
@@ -4608,7 +4608,7 @@
         },
         "representativeCardName": "Kenpachi Zaraki (066)",
         "representativeCardId": null,
-        "representativeImageUrl": "/cdn/cards/unionarena/123891/228836.webp",
+        "representativeImageUrl": null,
         "colorIdentity": [
           "Green"
         ],
@@ -4632,7 +4632,7 @@
         },
         "representativeCardName": "Makima (021)",
         "representativeCardId": null,
-        "representativeImageUrl": "/cdn/cards/unionarena/725121/1312547_thumb_0.webp",
+        "representativeImageUrl": "/cdn/cards/unionarena/1105158/1937887_thumb_0.webp",
         "colorIdentity": [
           "Purple"
         ],
@@ -5037,28 +5037,28 @@
     "energyCurve": [
       {
         "cost": 0,
-        "totalCopies": 882,
-        "avgPerDeck": 10.6
+        "totalCopies": 859,
+        "avgPerDeck": 10.3
       },
       {
         "cost": 1,
-        "totalCopies": 411,
-        "avgPerDeck": 5
+        "totalCopies": 379,
+        "avgPerDeck": 4.6
       },
       {
         "cost": 2,
-        "totalCopies": 493,
-        "avgPerDeck": 5.9
+        "totalCopies": 479,
+        "avgPerDeck": 5.8
       },
       {
         "cost": 3,
-        "totalCopies": 1056,
-        "avgPerDeck": 12.7
+        "totalCopies": 1033,
+        "avgPerDeck": 12.4
       },
       {
         "cost": 4,
-        "totalCopies": 912,
-        "avgPerDeck": 11
+        "totalCopies": 885,
+        "avgPerDeck": 10.7
       },
       {
         "cost": 5,
@@ -5067,8 +5067,8 @@
       },
       {
         "cost": 6,
-        "totalCopies": 80,
-        "avgPerDeck": 1
+        "totalCopies": 76,
+        "avgPerDeck": 0.9
       },
       {
         "cost": 7,
@@ -5077,21 +5077,21 @@
       },
       {
         "cost": 8,
-        "totalCopies": 56,
-        "avgPerDeck": 0.7
+        "totalCopies": 49,
+        "avgPerDeck": 0.6
       }
     ],
     "evidence": {
-      "newestListDate": "2026-09-25",
-      "ageDays": 6,
+      "newestListDate": "2026-09-30",
+      "ageDays": 3,
       "stale": false
     },
     "metaShareSummary": {
       "sinceBanlistDate": "2026-02-14",
       "sinceBanlistSource": "firstTournament",
-      "totalSampleSize": 2402,
-      "recent30dSampleSize": 361,
-      "sinceBanlistSampleSize": 2402,
+      "totalSampleSize": 2506,
+      "recent30dSampleSize": 421,
+      "sinceBanlistSampleSize": 2506,
       "hhi": 159.70192,
       "top3Share": 0.13517375
     }
