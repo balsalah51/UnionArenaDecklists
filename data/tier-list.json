@@ -1,72 +1,61 @@
 {
-  "updated": "2026-10-01",
-  "recent_from": "2026-08-17",
+  "updated": "2026-10-03",
+  "recent_from": "2026-08-19",
   "characters": [
     {
       "name": "Sung Jinwoo",
       "title": "Solo Leveling",
       "tier": "S",
       "page": "decklists/sung-jinwoo-green.html",
-      "recent_top8": 85,
-      "recent_results": 102,
+      "recent_top8": 75,
+      "recent_results": 92,
       "meta_share": 0.06522161595440944,
       "contender_tier": "1",
-      "score": 506.611
+      "score": 457.361
     },
     {
       "name": "Chainsaw Man",
       "title": "Chainsaw Man",
       "tier": "S",
       "page": "decklists/chainsaw-man.html",
-      "recent_top8": 53,
-      "recent_results": 59,
+      "recent_top8": 52,
+      "recent_results": 58,
       "meta_share": 0.028028487875593,
       "contender_tier": "2",
-      "score": 319.601
+      "score": 316.051
     },
     {
       "name": "Inuyasha",
       "title": "Inuyasha",
       "tier": "S",
       "page": "decklists/iys-inuyasha.html",
-      "recent_top8": 55,
-      "recent_results": 66,
+      "recent_top8": 47,
+      "recent_results": 55,
       "meta_share": 0.014374352236318673,
       "contender_tier": "2",
-      "score": 314.019
-    },
-    {
-      "name": "Denji",
-      "title": "Chainsaw Man",
-      "tier": "A",
-      "page": "decklists/denji.html",
-      "recent_top8": 38,
-      "recent_results": 45,
-      "meta_share": 0.024472030118900697,
-      "contender_tier": "1",
-      "score": 273.724
+      "score": 263.719
     },
     {
       "name": "Evangelion Test Type-01 Pseudo DMS Phase",
       "title": "Evangelion",
       "tier": "A",
       "page": "decklists/evangelion-test-type-01-pseudo-dms-phase.html",
-      "recent_top8": 39,
-      "recent_results": 45,
+      "recent_top8": 37,
+      "recent_results": 43,
       "meta_share": 0.04192365050610308,
       "contender_tier": "1",
-      "score": 267.096
+      "score": 243.996
     },
     {
-      "name": "Kaoru Kamiya",
-      "title": "Rurouni Kenshin",
+      "name": "Denji",
+      "title": "Chainsaw Man",
       "tier": "A",
-      "page": "decklists/rnk-tkg-kaoru-kamiya.html",
+      "page": "decklists/denji.html",
       "recent_top8": 35,
-      "recent_results": 43,
-      "meta_share": 0.02627187047982083,
-      "contender_tier": "3",
-      "score": 189.214
+      "recent_results": 38,
+      "meta_share": 0.024472030118900697,
+      "contender_tier": "1",
+      "score": 241.874
     },
     {
       "name": "Rei Ayanami",
@@ -77,7 +66,18 @@
       "recent_results": 33,
       "meta_share": 0.014606338886805572,
       "contender_tier": "2",
-      "score": 188.63
+      "score": 190.63
+    },
+    {
+      "name": "Kaoru Kamiya",
+      "title": "Rurouni Kenshin",
+      "tier": "A",
+      "page": "decklists/rnk-tkg-kaoru-kamiya.html",
+      "recent_top8": 33,
+      "recent_results": 39,
+      "meta_share": 0.02627187047982083,
+      "contender_tier": "3",
+      "score": 182.014
     },
     {
       "name": "Rem",
@@ -88,51 +88,7 @@
       "recent_results": 15,
       "meta_share": 0.023320161575100307,
       "contender_tier": "1",
-      "score": 165.166
-    },
-    {
-      "name": "Shin Asakura",
-      "title": "Sakamoto Days",
-      "tier": "B",
-      "page": "decklists/shin-asakura.html",
-      "recent_top8": 20,
-      "recent_results": 22,
-      "meta_share": 0.006805782410944609,
-      "contender_tier": "2",
-      "score": 160.69
-    },
-    {
-      "name": "Rimuru",
-      "title": "That Time I Got Reincarnated As A Slime",
-      "tier": "B",
-      "page": "decklists/rimuru-yellow.html",
-      "recent_top8": 15,
-      "recent_results": 24,
-      "meta_share": 0.01915201711196731,
-      "contender_tier": "2",
-      "score": 145.908
-    },
-    {
-      "name": "Aoi Todo",
-      "title": "Jujutsu Kaisen",
-      "tier": "B",
-      "page": "decklists/aoi-todo-blue.html",
-      "recent_top8": 17,
-      "recent_results": 19,
-      "meta_share": 0.006934957816731286,
-      "contender_tier": "2",
-      "score": 131.297
-    },
-    {
-      "name": "Heisuke Mashimo",
-      "title": "Sakamoto Days",
-      "tier": "B",
-      "page": "decklists/heisuke-mashimo.html",
-      "recent_top8": 16,
-      "recent_results": 21,
-      "meta_share": 0.024180737566951764,
-      "contender_tier": "2",
-      "score": 128.759
+      "score": 167.666
     },
     {
       "name": "Taro Sakamoto",
@@ -143,18 +99,62 @@
       "recent_results": 27,
       "meta_share": 0.014945134708728788,
       "contender_tier": "2",
-      "score": 127.097
+      "score": 128.097
+    },
+    {
+      "name": "Shin Asakura",
+      "title": "Sakamoto Days",
+      "tier": "B",
+      "page": "decklists/shin-asakura.html",
+      "recent_top8": 16,
+      "recent_results": 18,
+      "meta_share": 0.006805782410944609,
+      "contender_tier": "2",
+      "score": 126.99
+    },
+    {
+      "name": "Heisuke Mashimo",
+      "title": "Sakamoto Days",
+      "tier": "B",
+      "page": "decklists/heisuke-mashimo.html",
+      "recent_top8": 16,
+      "recent_results": 18,
+      "meta_share": 0.024180737566951764,
+      "contender_tier": "2",
+      "score": 125.609
+    },
+    {
+      "name": "Aoi Todo",
+      "title": "Jujutsu Kaisen",
+      "tier": "B",
+      "page": "decklists/aoi-todo-blue.html",
+      "recent_top8": 14,
+      "recent_results": 16,
+      "meta_share": 0.006934957816731286,
+      "contender_tier": "2",
+      "score": 119.897
+    },
+    {
+      "name": "Rimuru",
+      "title": "That Time I Got Reincarnated As A Slime",
+      "tier": "B",
+      "page": "decklists/rimuru-yellow.html",
+      "recent_top8": 12,
+      "recent_results": 20,
+      "meta_share": 0.01915201711196731,
+      "contender_tier": "2",
+      "score": 118.958
     },
     {
       "name": "Yuna",
       "title": "Sword Art Online",
       "tier": "B",
       "page": "decklists/yuna.html",
-      "recent_top8": 15,
-      "recent_results": 21,
+      "recent_top8": 14,
+      "recent_results": 20,
       "meta_share": 0.004506896714182638,
       "contender_tier": "4",
-      "score": 125.275
+      "score": 113.975
     },
     {
       "name": "Reno Ichikawa",
@@ -162,10 +162,10 @@
       "tier": "B",
       "page": "decklists/kj8-eva-jjk-reno-ichikawa.html",
       "recent_top8": 17,
-      "recent_results": 27,
+      "recent_results": 24,
       "meta_share": 0.01794556410147816,
       "contender_tier": "3",
-      "score": 116.497
+      "score": 113.597
     },
     {
       "name": "Hajime Saito",
@@ -183,22 +183,11 @@
       "title": "Evangelion",
       "tier": "B",
       "page": "decklists/evangelion-proto-type-00.html",
-      "recent_top8": 14,
-      "recent_results": 17,
+      "recent_top8": 12,
+      "recent_results": 15,
       "meta_share": 0.0078583504331871,
       "contender_tier": "2",
-      "score": 110.743
-    },
-    {
-      "name": "Asuka Shikinami Langley",
-      "title": "Evangelion",
-      "tier": "C",
-      "page": "decklists/asuka-shikinami-langley-red.html",
-      "recent_top8": 14,
-      "recent_results": 17,
-      "meta_share": 0.0009530420003755843,
-      "contender_tier": "4",
-      "score": 105.648
+      "score": 105.643
     },
     {
       "name": "Power",
@@ -209,7 +198,7 @@
       "recent_results": 17,
       "meta_share": 0.008207147799335826,
       "contender_tier": "2",
-      "score": 103.76
+      "score": 104.51
     },
     {
       "name": "Makima",
@@ -220,18 +209,18 @@
       "recent_results": 17,
       "meta_share": 0.00747277473001931,
       "contender_tier": "2",
-      "score": 98.224
+      "score": 98.724
     },
     {
-      "name": "Sango",
-      "title": "Inuyasha",
+      "name": "Erwin Smith",
+      "title": "Attack On Titan",
       "tier": "C",
-      "page": "decklists/sango.html",
-      "recent_top8": 13,
-      "recent_results": 13,
-      "meta_share": 0.012053010178998494,
+      "page": "decklists/attack-on-titan-erwin-smith.html",
+      "recent_top8": 5,
+      "recent_results": 6,
+      "meta_share": 0.003180593326519625,
       "contender_tier": "3",
-      "score": 97.003
+      "score": 96.709
     },
     {
       "name": "Kotaro Amon",
@@ -242,7 +231,18 @@
       "recent_results": 18,
       "meta_share": 0.012183913668815527,
       "contender_tier": "4",
-      "score": 96.259
+      "score": 96.509
+    },
+    {
+      "name": "Asuka Shikinami Langley",
+      "title": "Evangelion",
+      "tier": "C",
+      "page": "decklists/asuka-shikinami-langley-red.html",
+      "recent_top8": 12,
+      "recent_results": 15,
+      "meta_share": 0.0009530420003755843,
+      "contender_tier": "4",
+      "score": 95.298
     },
     {
       "name": "Emilia",
@@ -253,7 +253,7 @@
       "recent_results": 2,
       "meta_share": 0.015085074613137876,
       "contender_tier": "3",
-      "score": 91.104
+      "score": 93.354
     },
     {
       "name": "Ram",
@@ -264,18 +264,7 @@
       "recent_results": 3,
       "meta_share": 0.021615626452463288,
       "contender_tier": "3",
-      "score": 39.481
-    },
-    {
-      "name": "Crusch",
-      "title": "Re:Zero",
-      "tier": "D",
-      "page": "series/re-zero.html",
-      "recent_top8": 1,
-      "recent_results": 1,
-      "meta_share": 0.0,
-      "contender_tier": "",
-      "score": 31.3
+      "score": 39.981
     },
     {
       "name": "Beatrice",
@@ -286,7 +275,18 @@
       "recent_results": 1,
       "meta_share": 0.0,
       "contender_tier": "",
-      "score": 30.8
+      "score": 32.05
+    },
+    {
+      "name": "Crusch",
+      "title": "Re:Zero",
+      "tier": "D",
+      "page": "series/re-zero.html",
+      "recent_top8": 1,
+      "recent_results": 1,
+      "meta_share": 0.0,
+      "contender_tier": "",
+      "score": 31.55
     }
   ]
 }
