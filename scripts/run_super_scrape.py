@@ -18,8 +18,8 @@ import scrape_exburst
 import scrape_exburst_events
 import uadb
 
-# Last hosted fill closed 2026-10-01. Re-read that day for same-day leftovers.
-SINCE = "2026-10-01"
+# Last hosted fill closed 2026-10-03. Re-read that day for same-day leftovers.
+SINCE = "2026-10-03"
 TARGET_NEW = 2000
 SKIP_SLUGS = {
     "reddit-pic-does-anyone-know-the-most-optimal-purple-sao-song-deck-1qls",
