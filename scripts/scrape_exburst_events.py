@@ -9,6 +9,8 @@ results and does not read Asia gameid=ua cups.
 from __future__ import annotations
 
 import re
+import urllib.parse
+from concurrent.futures import ThreadPoolExecutor
 from datetime import date, timedelta
 
 import scrape_exburst
@@ -135,65 +137,135 @@ def chunked(values: list, size: int) -> list[list]:
     return [values[i : i + size] for i in range(0, len(values), size)]
 
 
-def fetch_finished_tournaments(key: str, cap: int = MAX_TOURNAMENTS) -> list[dict]:
-    query = (
-        f"gameid=eq.{GAME_ID}&hasBeenPublished=eq.true&status=eq.Finished"
-        f"&select={TOUR_SELECT}&order=startDate.desc"
-    )
+def normalize_api_tournament(row: dict) -> dict:
+    """Map the public tournament hub onto the Finished/published shape."""
+    if row.get("gameid") and "gameId" not in row:
+        return row
+    status = row.get("status") or ""
+    if status.lower() == "completed":
+        status = "Finished"
+    published = row.get("hasBeenPublished")
+    if published is None:
+        published = status == "Finished"
+    players = row.get("maxPlayers")
+    if players is None:
+        players = row.get("registrationCount") or 0
+    return {
+        **row,
+        "gameid": row.get("gameid") or row.get("gameId") or "",
+        "status": status,
+        "hasBeenPublished": published,
+        "maxPlayers": players,
+        "startDate": row.get("startDate") or "",
+        "name": row.get("name") or "",
+    }
+
+
+def map_registration(row: dict) -> dict:
+    deck = row.get("deck") if isinstance(row.get("deck"), dict) else {}
+    arches = deck.get("archetypes") or row.get("deckArchetypes") or []
+    if isinstance(arches, list):
+        arches = " ".join(str(bit) for bit in arches if bit)
+    return {
+        "id": row.get("id"),
+        "tournamentId": row.get("tournamentId"),
+        "deckLink": deck.get("deckLink") or row.get("deckLink") or "",
+        "placement": row.get("placement"),
+        "deckName": deck.get("name") or row.get("deckName") or "",
+        "deckSeries": (deck.get("series") or row.get("deckSeries") or ""),
+        "deckArchetypes": arches,
+        "name": row.get("name") or "",
+        "realPlayerName": row.get("realPlayerName") or "",
+        "status": row.get("status") or "",
+        "gameId": row.get("gameId") or GAME_ID,
+    }
+
+
+def fetch_finished_tournaments(key: str = "", cap: int = MAX_TOURNAMENTS) -> list[dict]:
+    del key
     out: list[dict] = []
-    offset = 0
+    cursor = ""
+    page = 0
     while len(out) < cap:
-        rows = scrape_exburst.rest_range(key, TOURNAMENT_TABLE, query, offset, PAGE_SIZE)
+        page += 1
+        query = f"/api/v1/{GAME_ID}/tournaments?scope=past&limit=40"
+        if cursor:
+            query += "&cursor=" + urllib.parse.quote(cursor, safe="")
+        payload = scrape_exburst.api_json(query)
+        rows = payload.get("data") or []
         if not rows:
             break
+        oldest = "9999-99-99"
         for row in rows:
-            if keep_tournament(row):
-                out.append(row)
+            when = (row.get("startDate") or "")[:10]
+            if when and when < oldest:
+                oldest = when
+            norm = normalize_api_tournament(row)
+            if keep_tournament(norm):
+                out.append(norm)
             if len(out) >= cap:
                 break
-        uadb.log("exburst events page", offset // PAGE_SIZE + 1, "rows", len(rows), "kept", len(out))
-        if len(rows) < PAGE_SIZE:
+        uadb.log("exburst events page", page, "rows", len(rows), "kept", len(out))
+        cursor = (payload.get("meta") or {}).get("nextCursor") or ""
+        if DATE_FROM and oldest < DATE_FROM:
             break
-        offset += PAGE_SIZE
+        if not cursor or len(rows) < 40:
+            break
     return out
 
 
 def fetch_registrations(key: str, tournament_ids: list[int]) -> dict[int, list[dict]]:
+    del key
     out: dict[int, list[dict]] = {tid: [] for tid in tournament_ids}
     if not tournament_ids:
         return out
-    for group in chunked(tournament_ids, 40):
-        ids = ",".join(str(tid) for tid in group)
-        query = (
-            f"gameId=eq.{GAME_ID}&tournamentId=in.({ids})&deckLink=neq."
-            f"&placement=not.is.null&select={REG_SELECT}&order=placement.asc"
-        )
-        offset = 0
-        while True:
-            rows = scrape_exburst.rest_range(key, REGISTRATION_TABLE, query, offset, PAGE_SIZE)
-            for row in rows:
-                if (row.get("gameId") or "") != GAME_ID:
-                    continue
-                tid = int(row.get("tournamentId") or 0)
-                if tid in out:
-                    out[tid].append(row)
-            if len(rows) < PAGE_SIZE:
-                break
-            offset += PAGE_SIZE
+
+    def one(tid: int) -> tuple[int, list[dict]]:
+        payload = scrape_exburst.api_json(f"/api/v1/{GAME_ID}/tournaments/{tid}/registrations")
+        rows = []
+        for row in payload.get("data") or []:
+            mapped = map_registration(row)
+            if not deck_id_of(mapped.get("deckLink")):
+                continue
+            place = mapped.get("placement")
+            if place is None or str(place).strip() == "":
+                continue
+            rows.append(mapped)
+        rows.sort(key=lambda row: int(row.get("placement") or 99))
+        return tid, rows
+
+    with ThreadPoolExecutor(max_workers=6) as pool:
+        for tid, rows in pool.map(one, tournament_ids):
+            out[tid] = rows
     return out
 
 
 def fetch_decks(key: str, deck_ids: list[int]) -> dict[int, dict]:
+    del key
     out: dict[int, dict] = {}
     if not deck_ids:
         return out
-    for group in chunked(deck_ids, 40):
-        ids = ",".join(str(did) for did in group)
-        query = f"id=in.({ids})&select={DECK_SELECT}"
-        rows = scrape_exburst.rest_range(key, DECK_TABLE, query, 0, max(len(group), 1))
-        for row in rows:
-            did = int(row.get("id") or 0)
-            if did:
+
+    def one(did: int) -> tuple[int, dict]:
+        payload = scrape_exburst.api_json(f"/api/v1/{GAME_ID}/decks/{did}")
+        data = payload.get("data") or {}
+        counts = scrape_exburst.counts_from_slots(data.get("slots"))
+        if not counts:
+            counts = scrape_exburst.counts_from_id_map(data.get("originalIdCounts") or {})
+        arches = data.get("archetypes") or []
+        if isinstance(arches, str):
+            arches = [arches]
+        return did, {
+            "id": did,
+            "decklist_name": data.get("name") or "",
+            "modified_date": data.get("updatedAt") or "",
+            "archetype": " ".join(str(bit) for bit in arches if bit),
+            "decklist_content": scrape_exburst.text_from_counts(counts),
+        }
+
+    with ThreadPoolExecutor(max_workers=6) as pool:
+        for did, row in pool.map(one, deck_ids):
+            if row.get("decklist_content"):
                 out[did] = row
     return out
 
@@ -258,11 +330,10 @@ def scrape_exburst_events(
     cap = MAX_LISTS if limit is None else limit
     if cap < 1:
         return 0
-    key = scrape_exburst.discover_anon_key()
     # Keep stored tournament rows even when the slug ends short of six
     # digits. Dropping those here deleted hosted 50s on the next scrape.
-    tours = fetch_finished_tournaments(key)
-    regs_by_tour = fetch_registrations(key, [int(t.get("id") or 0) for t in tours if t.get("id")])
+    tours = fetch_finished_tournaments()
+    regs_by_tour = fetch_registrations("", [int(t.get("id") or 0) for t in tours if t.get("id")])
     have = known_exburst_decks(found)
     wanted: list[tuple[dict, dict, int]] = []
     for tour in tours:
@@ -280,7 +351,7 @@ def scrape_exburst_events(
                 break
         if len(wanted) >= cap * 2:
             break
-    decks = fetch_decks(key, list(dict.fromkeys(did for _t, _r, did in wanted)))
+    decks = fetch_decks("", list(dict.fromkeys(did for _t, _r, did in wanted)))
     added = 0
     skipped = 0
     refreshed = 0
@@ -299,6 +370,10 @@ def scrape_exburst_events(
             continue
         event = (tour.get("name") or "").strip() or "Tournament"
         place = place_label(row.get("placement"))
+        if not (row.get("deckName") or "").strip() and payload.get("decklist_name"):
+            row = {**row, "deckName": payload.get("decklist_name")}
+        if not (row.get("deckArchetypes") or "").strip() and payload.get("archetype"):
+            row = {**row, "deckArchetypes": payload.get("archetype")}
         blob = series_blob(row, event)
         series = (row.get("deckSeries") or "").upper()
         arch_key = guess_key(blob, counts, cache, arches, set_hint=series)

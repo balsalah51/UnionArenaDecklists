@@ -57,6 +57,38 @@ class ExburstEventScrapeTests(unittest.TestCase):
         }
         self.assertTrue(scrape_exburst_events.keep_tournament(live))
 
+    def test_public_completed_event_maps_onto_finished(self):
+        from datetime import date
+
+        raw = {
+            "id": "10997",
+            "gameId": "uaen",
+            "name": "Top Level Games Weekly 10-10-26",
+            "status": "completed",
+            "startDate": "2026-10-11T03:00:00+00:00",
+            "maxPlayers": 23,
+            "registrationCount": 23,
+        }
+        norm = scrape_exburst_events.normalize_api_tournament(raw)
+        self.assertEqual(norm["gameid"], "uaen")
+        self.assertEqual(norm["status"], "Finished")
+        self.assertTrue(norm["hasBeenPublished"])
+        self.assertTrue(scrape_exburst_events.keep_tournament(norm, today=date(2026, 10, 12)))
+        cancelled = scrape_exburst_events.normalize_api_tournament(
+            {"gameId": "uaen", "name": "rained out", "status": "cancelled", "startDate": "2026-10-11"}
+        )
+        self.assertFalse(scrape_exburst_events.keep_tournament(cancelled, today=date(2026, 10, 12)))
+        mapped = scrape_exburst_events.map_registration(
+            {
+                "name": "Rakansen",
+                "placement": 2,
+                "deck": {"deckLink": "133072", "name": None, "series": "TSK", "archetypes": ["db_UE20BT/TSK-1-107"]},
+            }
+        )
+        self.assertEqual(mapped["deckLink"], "133072")
+        self.assertEqual(mapped["deckSeries"], "TSK")
+        self.assertIn("TSK-1-107", mapped["deckArchetypes"])
+
     def test_keeps_recent_small_locals(self):
         from datetime import date
 
