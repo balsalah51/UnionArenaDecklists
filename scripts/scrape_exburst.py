@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Pull public English Union Arena 50s from the ExBurst decklist catalog.
 
-Reads only is_public=1 rows from the same catalog the ExBurst site shows.
+Reads the public deck hub the ExBurst site shows (`/api/v1/uaen/decks/public`).
 """
 
 from __future__ import annotations
@@ -94,6 +94,91 @@ def rest_range(key: str, table: str, query: str, offset: int, limit: int = PAGE_
     return rows if isinstance(rows, list) else []
 
 
+def api_json(path: str) -> dict:
+    url = path if path.startswith("http") else "https://exburst.dev" + path
+    status, body = uadb.fetch(url, timeout=28, browser=True)
+    if status != 200 or not body.startswith("{"):
+        uadb.log("exburst api", status, path[:90], len(body))
+        return {}
+    try:
+        payload = json.loads(body)
+    except json.JSONDecodeError:
+        return {}
+    return payload if isinstance(payload, dict) else {}
+
+
+def counts_from_id_map(raw: dict | None) -> dict[str, int]:
+    lines = []
+    for cid, n in (raw or {}).items():
+        try:
+            qty = int(n)
+        except (TypeError, ValueError):
+            continue
+        if cid and qty > 0:
+            lines.append(f"{qty}x{cid}")
+    return uadb.parse_counts("\n".join(lines))
+
+
+def counts_from_slots(slots) -> dict[str, int]:
+    lines = []
+    for slot in slots or []:
+        cid = ""
+        qty = 0
+        if isinstance(slot, list) and len(slot) >= 2 and isinstance(slot[1], dict):
+            cid = str(slot[0] or (slot[1].get("card") or {}).get("id") or "")
+            qty = int(slot[1].get("count") or 0)
+        elif isinstance(slot, dict):
+            cid = str(slot.get("id") or (slot.get("card") or {}).get("id") or "")
+            qty = int(slot.get("count") or slot.get("quantity") or 0)
+        if cid and qty > 0:
+            lines.append(f"{qty}x{cid}")
+    return uadb.parse_counts("\n".join(lines))
+
+
+def text_from_counts(counts: dict[str, int]) -> str:
+    return "\n".join(f"{n}x{cid}" for cid, n in counts.items())
+
+
+def public_deck_pages(page_size: int = 50):
+    """Yield newest public decks, stopping once a date window is passed."""
+    cursor = ""
+    for page in range(MAX_PAGES):
+        query = f"/api/v1/uaen/decks/public?sort=recent&limit={page_size}"
+        if cursor:
+            query += "&cursor=" + urllib.parse.quote(cursor, safe="")
+        payload = api_json(query)
+        rows = payload.get("data") or []
+        meta = payload.get("meta") or {}
+        shaped = []
+        passed_window = False
+        for row in rows:
+            when = (row.get("updatedAt") or "")[:10]
+            if DATE_FROM and when and when < DATE_FROM:
+                passed_window = True
+                continue
+            if not in_date_window(when):
+                continue
+            counts = counts_from_id_map(row.get("originalIdCounts") or {})
+            arches = row.get("archetypes") or []
+            if isinstance(arches, str):
+                arches = [arches]
+            shaped.append(
+                {
+                    "id": row.get("id"),
+                    "decklist_name": row.get("name") or "",
+                    "modified_date": row.get("updatedAt") or "",
+                    "archetype": " ".join(bit for bit in [row.get("series") or "", *arches] if bit),
+                    "decklist_content": text_from_counts(counts),
+                }
+            )
+        uadb.log("exburst page", page + 1, "rows", len(rows), "kept", len(shaped))
+        yield shaped
+        cursor = meta.get("nextCursor") or ""
+        if passed_window or not cursor or not rows:
+            break
+        time.sleep(0.05)
+
+
 def in_date_window(when: str) -> bool:
     day = (when or "")[:10]
     if DATE_FROM and (not day or day < DATE_FROM):
@@ -148,19 +233,14 @@ def scrape_exburst(found: list[dict], seen: set[str], cache: dict, arches: list[
     cap = MAX_LISTS if limit is None else limit
     if cap < 1:
         return 0
-    key = discover_anon_key()
     have = known_exburst_ids(found)
     have_raw = {row.get("raw") for row in found if row.get("raw")}
     added = 0
     skipped = 0
-    offset = 0
-    for page in range(MAX_PAGES):
+    for rows in public_deck_pages():
         if added >= cap:
             break
-        rows = rest_rows(key, offset)
-        uadb.log("exburst page", page + 1, "offset", offset, "rows", len(rows), "added", added)
-        if not rows:
-            break
+        uadb.log("exburst page kept", "rows", len(rows), "added", added)
         for row in rows:
             if added >= cap:
                 break
@@ -204,10 +284,6 @@ def scrape_exburst(found: list[dict], seen: set[str], cache: dict, arches: list[
                 have.add(did)
                 have_raw.add(item.get("raw"))
                 added += 1
-        if len(rows) < PAGE_SIZE:
-            break
-        offset += PAGE_SIZE
-        time.sleep(0.08)
     uadb.log("exburst lists added", added, "skipped", skipped)
     return added
 

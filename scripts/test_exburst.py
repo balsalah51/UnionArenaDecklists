@@ -55,6 +55,21 @@ class ExburstScrapeTests(unittest.TestCase):
         self.assertLessEqual(len(slug), 70)
         self.assertTrue(slug.startswith("exburst-"))
 
+    def test_public_id_map_and_slots_become_counts(self):
+        counts = scrape_exburst.counts_from_id_map(
+            {"ue17bt/slg-1-022": 4, "ue17bt/slg-1-030": 12, "ue17bt/slg-1-001": 34}
+        )
+        self.assertEqual(counts.get("UE17BT/SLG-1-022"), 4)
+        self.assertEqual(counts.get("UE17BT/SLG-1-030"), 12)
+        slots = scrape_exburst.counts_from_slots(
+            [
+                ["UE22BT/CSM-1-008", {"count": 4, "card": {"id": "UE22BT/CSM-1-008"}}],
+                ["UE22BT/CSM-1-017", {"count": 4, "card": {"id": "UE22BT/CSM-1-017"}}],
+            ]
+        )
+        self.assertEqual(slots.get("UE22BT/CSM-1-008"), 4)
+        self.assertEqual(slots.get("UE22BT/CSM-1-017"), 4)
+
     def test_known_ids_from_source_url(self):
         have = scrape_exburst.known_exburst_ids(
             [{"source_url": "https://exburst.dev/ua/en/decklists/125053", "slug": "exburst-foo"}]
