@@ -2471,6 +2471,7 @@ def newest_set_share(
         "total": total,
         "title": title_name,
         "rows": keep,
+        "promo": True,
     }
 
 
@@ -2516,6 +2517,22 @@ def _pie_slice_path(cx: float, cy: float, r: float, start: float, sweep: float) 
     return f"M {cx} {cy} L {x1} {y1} A {r} {r} 0 {large} 1 {x2} {y2} Z"
 
 
+def spoiler_promo_html() -> str:
+    data = uadb.load_json("data/spoilers-uex08bt.json", {})
+    page = str(data.get("page") or "").lstrip("/")
+    code = str(data.get("code") or "")
+    short = str(data.get("short") or data.get("name") or "")
+    if not page or not (code or short):
+        return ""
+    label = f"{short} spoilers" if short else f"{code} spoilers"
+    when = str(data.get("release") or "")
+    note = f" Releases {when}." if when else ""
+    return (
+        f'<p class="hub-more"><a href="/{html.escape(page)}">{html.escape(label)}</a>'
+        f"{html.escape(note)}</p>"
+    )
+
+
 def render_newest_set_pie(share: dict) -> str:
     rows = [r for r in (share.get("rows") or []) if r.get("count")]
     if not rows:
@@ -2523,11 +2540,20 @@ def render_newest_set_pie(share: dict) -> str:
     set_code = share.get("set") or "newest booster"
     total = int(share.get("total") or 0)
     title = share.get("title") or ""
-    lead = (
-        f"{total} hosted 50s play at least one card from the newest booster, {set_code}."
-        + (f" Most of those lists are {title}." if title else "")
-        + " Slice size is each character's share of those lists."
-    )
+    unit = str(share.get("unit") or "list")
+    kicker = str(share.get("kicker") or "Newest booster")
+    heading = str(share.get("heading") or f"{set_code} share")
+    section_id = str(share.get("section_id") or "newest-set")
+    legend_label = str(share.get("legend_label") or "Newest booster list share")
+    aria = str(share.get("aria") or f"{set_code} list share")
+    promo = spoiler_promo_html() if share.get("promo") else ""
+    lead = str(share.get("lead") or "")
+    if not lead:
+        lead = (
+            f"{total} hosted 50s play at least one card from the newest booster, {set_code}."
+            + (f" Most of those lists are {title}." if title else "")
+            + " Slice size is each character's share of those lists."
+        )
     cx, cy, r = PIE_CX, PIE_CY, PIE_R
     start = 0.0
     slices = []
@@ -2646,33 +2672,246 @@ def render_newest_set_pie(share: dict) -> str:
                 {face}
                 <span class="pie-legend-copy">
                   <strong>{html.escape(row['name'])}</strong>
-                  <span class="muted">{html.escape(pct_label)} · {row['count']} list{'' if row['count'] == 1 else 's'}</span>
+                  <span class="muted">{html.escape(pct_label)} · {row['count']} {html.escape(unit)}{'' if row['count'] == 1 else 's'}</span>
                 </span>
                 {tier_html}
               </a>
             </li>"""
         )
-    svg = f"""          <svg class="set-pie" viewBox="0 0 {int(PIE_VIEW_W)} {int(PIE_VIEW_H)}" role="img" aria-label="{html.escape(set_code)} list share">
+    svg = f"""          <svg class="set-pie" viewBox="0 0 {int(PIE_VIEW_W)} {int(PIE_VIEW_H)}" role="img" aria-label="{html.escape(aria)}">
             <defs>
               {chr(10).join(clips)}
             </defs>
             {chr(10).join(slices)}
             {chr(10).join(callouts)}
           </svg>"""
-    return f"""        <section class="set-pie-block" id="newest-set">
+    return f"""        <section class="set-pie-block" id="{html.escape(section_id)}">
           <div class="set-pie-intro">
-            <p class="home-leaders-kicker">Newest booster</p>
-            <h2>{html.escape(set_code)} share</h2>
+            <p class="home-leaders-kicker">{html.escape(kicker)}</p>
+            <h2>{html.escape(heading)}</h2>
             <p>{html.escape(lead)}</p>
+            {promo}
           </div>
           <div class="set-pie-wrap">
 {svg}
           </div>
-          <ul class="set-pie-legend" aria-label="Newest booster list share">
+          <ul class="set-pie-legend" aria-label="{html.escape(legend_label)}">
 {chr(10).join(legend)}
           </ul>
         </section>
 """
+
+
+def _keep_share_rows(rows: list[dict], total: int) -> list[dict]:
+    rows = sorted(rows, key=lambda r: (-r["count"], r["name"]))
+    keep: list[dict] = []
+    other = 0
+    for row in rows:
+        if len(keep) < 8 and (row["pct"] >= 3 or row["count"] >= 3):
+            keep.append(row)
+        else:
+            other += row["count"]
+    if other and total:
+        keep.append(
+            {
+                "name": "Other",
+                "count": other,
+                "pct": 100.0 * other / total,
+                "img": "",
+                "href": "/characters.html",
+                "tier": "",
+            }
+        )
+    return keep
+
+
+def spoiler_tier_share(data: dict, plan: dict | None, arches: list[dict] | None) -> dict:
+    cards = [c for c in (data.get("cards") or []) if (c.get("category") or "").lower() == "character"]
+    grouped: dict[str, list[dict]] = defaultdict(list)
+    for card in cards:
+        name = (card.get("name") or "").strip()
+        if not name:
+            continue
+        grouped[name].append(card)
+    total = sum(len(v) for v in grouped.values())
+    if total < 1:
+        return {}
+    title = data.get("title") or ""
+    code = data.get("code") or "spoilers"
+    rows = []
+    for name, entries in grouped.items():
+        n = len(entries)
+        rows.append(
+            {
+                "name": name,
+                "count": n,
+                "pct": 100.0 * n / total,
+                "img": entries[0].get("image") or "",
+                "href": _href_for_name(name, arches or [], title),
+                "tier": _tier_for_name(name, plan or {}),
+            }
+        )
+    short = data.get("short") or data.get("name") or code
+    return {
+        "set": code,
+        "total": total,
+        "title": title,
+        "rows": _keep_share_rows(rows, total),
+        "unit": "printing",
+        "kicker": "Set spoilers",
+        "heading": f"{code} spoiler tiers",
+        "section_id": "spoiler-tiers",
+        "legend_label": f"{code} spoiler character tiers",
+        "aria": f"{code} spoiler character share",
+        "lead": (
+            f"{total} character printings in {short} ({code}). "
+            "Slice size is each name's share of those printings. "
+            "Tier badges are the current English Standard board. "
+            "A name with no hosted results stays unranked until lists show up."
+        ),
+    }
+
+
+def _spoiler_card_html(card: dict) -> str:
+    name = card.get("name") or card.get("id") or "Card"
+    cid = card.get("id") or ""
+    bits = [cid]
+    if card.get("rarity"):
+        bits.append(str(card["rarity"]))
+    if card.get("color"):
+        bits.append(str(card["color"]))
+    if card.get("cost"):
+        bits.append(f"{card['cost']} cost")
+    if card.get("bp") and card.get("bp") not in {"-", "—"}:
+        bits.append(f"{card['bp']} BP")
+    alts = card.get("alts") or []
+    if alts:
+        bits.append(f"{len(alts)} alt art{'s' if len(alts) != 1 else ''}")
+    img = card.get("image") or ""
+    effect = card.get("effect") or ""
+    trigger = card.get("trigger") or ""
+    detail = " ".join(bit for bit in (effect, trigger) if bit)
+    img_html = (
+        f'<img src="{html.escape(img)}" alt="{html.escape(name)} {html.escape(cid)}" loading="lazy" decoding="async" {uadb.card_img_size("card")} />'
+        if img
+        else ""
+    )
+    effect_html = f'<span class="muted">{html.escape(uadb.clip_meta(detail, 140))}</span>' if detail else ""
+    return f"""            <div class="leader-card">
+              <div class="leader-card-link">
+                {img_html}
+                <div class="caption">
+                  <strong>{html.escape(name)}</strong>
+                  <span class="hub-sub">{html.escape(" · ".join(bits))}</span>
+                  {effect_html}
+                </div>
+              </div>
+            </div>"""
+
+
+def write_spoilers(plan: dict | None = None, arches: list[dict] | None = None) -> list[str]:
+    data = uadb.load_json("data/spoilers-uex08bt.json", {})
+    cards = data.get("cards") or []
+    page = str(data.get("page") or "").lstrip("/")
+    if not cards or not page:
+        return []
+    code = str(data.get("code") or "UEX08BT")
+    short = str(data.get("short") or data.get("name") or code)
+    name = str(data.get("name") or short)
+    release = str(data.get("release") or "")
+    prerelease = str(data.get("prerelease") or "")
+    product = str(data.get("product") or "")
+    source = str(data.get("source") or "")
+    series = str(data.get("series_href") or "/series/bleach.html")
+    jp = str(data.get("jp_code") or "")
+    share = spoiler_tier_share(data, plan, arches)
+    pie = render_newest_set_pie(share) if share else ""
+    groups: dict[str, list[dict]] = defaultdict(list)
+    order: list[str] = []
+    for card in cards:
+        cat = (card.get("category") or "Card").strip() or "Card"
+        color = (card.get("color") or "").strip()
+        if cat.lower() == "character" and color:
+            label = f"{color} characters"
+        elif cat.lower() == "character":
+            label = "Characters"
+        elif cat.lower() == "ap":
+            label = "AP cards"
+        else:
+            label = cat if cat.endswith("s") else f"{cat}s"
+        if label not in groups:
+            order.append(label)
+        groups[label].append(card)
+    sections = []
+    for label in order:
+        rows = groups[label]
+        sections.append(
+            f"""        <section class="home-ip">
+          <h2 class="home-ip-title">{html.escape(label)}</h2>
+          <div class="leader-cards" aria-label="{html.escape(label)}">
+{chr(10).join(_spoiler_card_html(card) for card in rows)}
+          </div>
+        </section>"""
+        )
+    def spoken_day(iso: str) -> str:
+        try:
+            day = datetime.strptime(iso, "%Y-%m-%d")
+        except ValueError:
+            return iso
+        return f"{day.strftime('%B')} {day.day}, {day.year}"
+
+    when = []
+    if prerelease:
+        when.append(f"pre-release {spoken_day(prerelease)}")
+    if release:
+        when.append(f"wide release {spoken_day(release)}")
+    schedule = ", ".join(when)
+    links = [f'<a href="{html.escape(series)}">BLEACH decks</a>', '<a href="/tier-list.html">Tier list</a>']
+    if product:
+        links.append(f'<a href="{html.escape(product)}">Official product page</a>')
+    if source:
+        links.append(f'<a href="{html.escape(source)}">Official card list</a>')
+    desc = uadb.clip_meta(
+        f"{name} spoilers for English Union Arena {code}. "
+        f"{len(cards)} card numbers"
+        + (f", {schedule}" if schedule else "")
+        + ". Character pie uses the current Standard tier board."
+    )
+    body = f"""        {uadb.crumb_html([("/", "Home"), (None, f"{short} spoilers")])}
+        <h1>{html.escape(name)} spoilers</h1>
+        <p class="page-lead">{html.escape(name)} is the next English booster, {html.escape(code)}{(': ' + schedule) if schedule else ''}. The NA card list is not posted yet. These numbers match the official product page, and the pictures and text are the official English list filed as {html.escape(jp or code)}.</p>
+        <p>Cards are not Standard-legal until the pre-release in your region. The pie is not a Vol. 3 ranking. It shows which printed names already sit on the <a href="/tier-list.html">Standard tier list</a>.</p>
+{pie}
+{chr(10).join(sections)}
+        <p class="hub-more">{' · '.join(links)}</p>"""
+    title = uadb.page_title(f"{short} spoilers")
+    hero = ""
+    for card in cards:
+        if card.get("image") and (card.get("category") or "").lower() == "character":
+            hero = card["image"]
+            break
+    page_html = uadb.page_chrome(
+        title,
+        desc,
+        "color-red",
+        body,
+        path=page,
+        image=hero,
+        image_alt=f"{name} spoiler card",
+        json_ld=[
+            uadb.website_ld(),
+            uadb.breadcrumb_ld([("/", "Home"), (f"/{page}", f"{short} spoilers")]),
+            uadb.webpage_ld(page, title, desc, page_type="CollectionPage", image=hero),
+        ],
+    )
+    dest = uadb.ROOT / page
+    dest.parent.mkdir(parents=True, exist_ok=True)
+    dest.write_text(page_html)
+    if hero:
+        remember_image(page, hero, f"{short} spoilers")
+    remember_date(page, date.today().isoformat())
+    uadb.log("spoilers", page, "cards", len(cards))
+    return [page]
 
 
 def write_home(
@@ -3116,6 +3355,12 @@ def write_series_page(rec: dict, catalog: list[dict], features: dict, cache: dic
         '<a href="/format.html">Standard format</a>',
         '<a href="/shop.html">Shop supplies</a>',
     ]
+    if (rec.get("slug") or "") == "bleach":
+        spoiler = uadb.load_json("data/spoilers-uex08bt.json", {})
+        spoiler_page = str(spoiler.get("page") or "").lstrip("/")
+        spoiler_short = str(spoiler.get("short") or "Vol. 3")
+        if spoiler_page:
+            more_links.insert(0, f'<a href="/{html.escape(spoiler_page)}">{html.escape(spoiler_short)} spoilers</a>')
     lead = (
         f"{name} character pages and public 50-card Standard lists"
         + (f". Newest hosted list is {newest}" if newest else "")
@@ -3454,6 +3699,7 @@ def write_llms_txt(catalog: list[dict], recent: list[dict]) -> None:
         f"- Characters: {uadb.SITE}/characters.html",
         f"- Titles: {uadb.SITE}/series.html",
         f"- Tier list: {uadb.SITE}/tier-list.html",
+        f"- BLEACH Vol. 3 spoilers: {uadb.SITE}/spoilers/bleach-vol-3.html",
         f"- Format: {uadb.SITE}/format.html",
         f"- Guides: {uadb.SITE}/guides/",
         f"- Shop: {uadb.SITE}/shop.html",
@@ -3473,7 +3719,7 @@ def write_llms_txt(catalog: list[dict], recent: list[dict]) -> None:
 def write_404() -> None:
     body = """        <nav class="crumb" aria-label="Breadcrumb"><a href="/">Home</a> / Missing page</nav>
         <h1>That page is not here</h1>
-        <p>Try the <a href="/">home splash</a>, <a href="/tier-list.html">tier list</a>, <a href="/guides/">guides</a>, <a href="/characters.html">character pages</a>, <a href="/series.html">title pages</a>, <a href="/shop.html">shop</a>, or <a href="/#recent">recent lists</a>.</p>"""
+        <p>Try the <a href="/">home splash</a>, <a href="/tier-list.html">tier list</a>, <a href="/spoilers/bleach-vol-3.html">BLEACH Vol. 3 spoilers</a>, <a href="/guides/">guides</a>, <a href="/characters.html">character pages</a>, <a href="/series.html">title pages</a>, <a href="/shop.html">shop</a>, or <a href="/#recent">recent lists</a>.</p>"""
     page = uadb.page_chrome(
         "Page not found | Union Arena Decklists",
         "That Union Arena Decklists page is missing.",
@@ -3809,6 +4055,7 @@ def main() -> None:
     series = build_series_search(published, combo_arches, cache, features)
     uadb.save_json("data/character-search.json", {"characters": search, "series": series})
     uadb.log("home raid leaders", len(home_roster), "search characters", len(search), "titles", len(series))
+    sitemap.extend(write_spoilers(plan, combo_arches))
     write_home(
         home_roster,
         recent,
