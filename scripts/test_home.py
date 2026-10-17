@@ -32,6 +32,7 @@ from generate_site import (  # noqa: E402
     series_name,
     series_slug,
     write_home,
+    write_spoilers,
 )
 
 
@@ -717,6 +718,113 @@ class NewestSetPieTests(unittest.TestCase):
             self.assertNotIn("iys-i-wish-my-4th-kikyo-would-have-arrived-on-time", extra)
         finally:
             generate_site._COMMUNITY = None
+
+    def test_spoiler_page_tiers_pie(self):
+        payload = {
+            "code": "UEX08BT",
+            "jp_code": "EX15BT",
+            "name": "BLEACH: Thousand-Year Blood War Vol. 3",
+            "short": "BLEACH Vol. 3",
+            "title": "BLEACH",
+            "series_href": "/series/bleach.html",
+            "page": "spoilers/bleach-vol-3.html",
+            "release": "2026-11-13",
+            "prerelease": "2026-11-06",
+            "product": "https://www.unionarena-tcg.com/na/products/boosters/ex_blc-3.php",
+            "source": "https://www.unionarena-tcg.com/en/cardlist/?search=true&series=589215",
+            "cards": [
+                {
+                    "id": "UEX08BT/BLC-4-004",
+                    "name": "Uryu Ishida",
+                    "category": "Character",
+                    "color": "Yellow",
+                    "rarity": "SR",
+                    "cost": "4",
+                    "bp": "4000",
+                    "image": "https://example.test/uryu.png",
+                    "effect": "Impact nullification.",
+                    "alts": ["https://example.test/uryu-p1.png"],
+                },
+                {
+                    "id": "UEX08BT/BLC-4-010",
+                    "name": "Uryu Ishida",
+                    "category": "Character",
+                    "color": "Yellow",
+                    "rarity": "C",
+                    "cost": "1",
+                    "bp": "1500",
+                    "image": "https://example.test/uryu2.png",
+                },
+                {
+                    "id": "UEX08BT/BLC-4-020",
+                    "name": "Ichigo Kurosaki",
+                    "category": "Character",
+                    "color": "Purple",
+                    "rarity": "SR",
+                    "cost": "5",
+                    "bp": "5000",
+                    "image": "https://example.test/ichigo.png",
+                },
+                {
+                    "id": "UEX08BT/BLC-4-080",
+                    "name": "Bankai",
+                    "category": "Event",
+                    "color": "Yellow",
+                    "rarity": "U",
+                    "image": "https://example.test/bankai.png",
+                },
+            ],
+        }
+        plan = {"rows": [{"name": "Ichigo Kurosaki", "tier": "B"}]}
+        arches = [
+            {
+                "name": "Ichigo Kurosaki",
+                "page": "decklists/bleach-ichigo-kurosaki.html",
+                "title": "BLEACH",
+                "key": "bleach-ichigo-kurosaki",
+            }
+        ]
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            (root / "data").mkdir()
+            (root / "data" / "spoilers-uex08bt.json").write_text(
+                __import__("json").dumps(payload), encoding="utf-8"
+            )
+            with patch.object(generate_site.uadb, "ROOT", root):
+                paths = write_spoilers(plan, arches)
+                home = render_newest_set_pie(
+                    {
+                        "set": "UE24BT",
+                        "total": 2,
+                        "title": "Re:Zero",
+                        "rows": [
+                            {
+                                "name": "Rem",
+                                "count": 2,
+                                "pct": 100.0,
+                                "img": "",
+                                "href": "/decklists/rem.html",
+                                "tier": "A",
+                            }
+                        ],
+                        "promo": True,
+                    }
+                )
+            page = (root / "spoilers" / "bleach-vol-3.html").read_text(encoding="utf-8")
+        self.assertEqual(paths, ["spoilers/bleach-vol-3.html"])
+        self.assertIn('id="spoiler-tiers"', page)
+        self.assertIn("UEX08BT spoiler tiers", page)
+        self.assertIn("Ichigo Kurosaki", page)
+        self.assertIn("Tier B", page)
+        self.assertIn("Unranked", page)
+        self.assertIn("UEX08BT/BLC-4-004", page)
+        self.assertIn("1 alt art", page)
+        self.assertIn("Events", page)
+        self.assertIn("/decklists/bleach-ichigo-kurosaki.html", page)
+        self.assertIn("November 13, 2026", page)
+        self.assertIn("November 6, 2026", page)
+        self.assertIn('href="/spoilers/bleach-vol-3.html"', home)
+        self.assertIn("BLEACH Vol. 3 spoilers", home)
 
 
 if __name__ == "__main__":
