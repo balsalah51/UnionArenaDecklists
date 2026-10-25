@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Build Union Arena Deck Base from public sources.
+"""Build Union Arena Decklists from public sources.
 
 Order: TCG Contender decks + cards, official Bandai cardlist, YouTube + official
 top-placing lists (including on-screen YouTube lists), then HTML.
@@ -35,7 +35,16 @@ def main() -> None:
         scrape_community.main()
 
     print("=== HTML ===")
-    generate_site.main()
+    try:
+        generate_site.main()
+    except SystemExit as exc:
+        code = exc.code if isinstance(exc.code, int) else 1
+        if code:
+            # Pages and data/build-status.json are already written. Exit 0 so the
+            # refresh workflow can commit, then fail the job on build-status.ok.
+            print(f"generate finished with exit {code}; see data/build-status.json")
+        else:
+            return
     print("ingest done")
 
 

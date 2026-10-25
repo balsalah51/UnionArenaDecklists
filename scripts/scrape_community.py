@@ -321,9 +321,12 @@ def item_from_counts(
     source_url: str,
     slug: str,
     date: str = "",
+    placing: int | None = None,
+    event_name: str = "",
+    event_date: str = "",
 ) -> dict:
     raw = " ".join(f"{n}x{cid}" for cid, n in sorted(counts.items()))
-    return {
+    item = {
         "key": canonical_key(key, title),
         "kind": kind,
         "slug": slug[:70],
@@ -337,6 +340,16 @@ def item_from_counts(
         "cards": sum(counts.values()),
         "archetype": title[:110],
     }
+    if placing not in (None, ""):
+        try:
+            item["placing"] = int(placing)
+        except (TypeError, ValueError):
+            pass
+    if event_name:
+        item["event_name"] = event_name[:140]
+    if event_date:
+        item["event_date"] = event_date[:10]
+    return item
 
 
 def cid_from_bandai(card: dict) -> str | None:
@@ -673,16 +686,19 @@ def ingest_text(found: list[dict], seen: set[str], cache: dict, arches: list[dic
 def reddit_posts(data) -> list[dict]:
     posts: list[dict] = []
     if isinstance(data, dict):
-        children = ((data.get("data") or {}).get("children"))
-        if isinstance(children, list):
-            for child in children:
-                row = child.get("data") if isinstance(child, dict) else None
-                if isinstance(row, dict) and row.get("title"):
-                    posts.append(row)
         raw = data.get("data")
-        if isinstance(raw, list):
+        # pullpush sometimes returns data as a list. A list is truthy, so
+        # `(raw or {}).get` crashes and used to abort the weekly refresh.
+        if isinstance(raw, dict):
+            children = raw.get("children")
+            if isinstance(children, list):
+                for child in children:
+                    row = child.get("data") if isinstance(child, dict) else None
+                    if isinstance(row, dict) and row.get("title"):
+                        posts.append(row)
+        elif isinstance(raw, list):
             posts.extend(row for row in raw if isinstance(row, dict) and row.get("title"))
-        if data.get("title") and data.get("selftext") is not None:
+        if data.get("title") and data.get("selftext") is not None and data not in posts:
             posts.append(data)
     elif isinstance(data, list):
         for row in data:
@@ -864,6 +880,14 @@ def seed_existing(found: list[dict], seen: set[str]) -> None:
     uadb.log("seeded existing community lists", len(found))
 
 
+def _run_source(failures: list[dict], name: str, fn) -> None:
+    try:
+        fn()
+    except Exception as exc:  # noqa: BLE001
+        uadb.log("REFRESH FAIL", name, exc)
+        failures.append({"source": name, "error": f"{type(exc).__name__}: {exc}"})
+
+
 def main() -> None:
     cache = uadb.load_json("data/card-cache.json", {})
     extra = uadb.load_json("data/contender-cards.json", {})
@@ -872,47 +896,72 @@ def main() -> None:
     arches = archetypes()
     found: list[dict] = []
     seen: set[str] = set()
+    failures: list[dict] = []
     if "--replace" not in sys.argv:
         seed_existing(found, seen)
-    scrape_official(found, seen, cache, arches)
-    more = discover_blog_pages()
-    for url in more:
-        if url not in WEB_PAGES:
-            WEB_PAGES.append(url)
-    scrape_web_pages(found, seen, cache, arches)
-    scrape_reddit(found, seen, cache, arches)
+    _run_source(failures, "official", lambda: scrape_official(found, seen, cache, arches))
+    def _blogs() -> None:
+        more = discover_blog_pages()
+        for url in more:
+            if url not in WEB_PAGES:
+                WEB_PAGES.append(url)
+        scrape_web_pages(found, seen, cache, arches)
+
+    _run_source(failures, "web", _blogs)
+    _run_source(failures, "reddit", lambda: scrape_reddit(found, seen, cache, arches))
     if "--skip-x" not in sys.argv:
-        scrape_x(found, seen, cache, arches)
+        _run_source(failures, "x", lambda: scrape_x(found, seen, cache, arches))
     if "--skip-images" not in sys.argv:
         import scrape_image_lists
 
-        scrape_image_lists.scrape_images(
-            found,
-            seen,
-            cache,
-            arches,
-            include_other="--skip-other-images" not in sys.argv,
-            include_x="--skip-x" not in sys.argv,
+        _run_source(
+            failures,
+            "images",
+            lambda: scrape_image_lists.scrape_images(
+                found,
+                seen,
+                cache,
+                arches,
+                include_other="--skip-other-images" not in sys.argv,
+                include_x="--skip-x" not in sys.argv,
+            ),
         )
     if "--skip-events" not in sys.argv:
         import scrape_events
 
-        scrape_events.scrape_events(found, seen, cache, arches)
+        _run_source(failures, "events", lambda: scrape_events.scrape_events(found, seen, cache, arches))
     if "--skip-exburst-events" not in sys.argv and "--skip-exburst" not in sys.argv:
         import scrape_exburst_events
 
-        scrape_exburst_events.scrape_exburst_events(found, seen, cache, arches)
+        _run_source(
+            failures,
+            "exburst-events",
+            lambda: scrape_exburst_events.scrape_exburst_events(found, seen, cache, arches),
+        )
     if "--skip-exburst" not in sys.argv:
         import scrape_exburst
 
-        scrape_exburst.scrape_exburst(found, seen, cache, arches)
-    video_ids: list[tuple[str, str]] = []
+        _run_source(failures, "exburst", lambda: scrape_exburst.scrape_exburst(found, seen, cache, arches))
     if "--skip-youtube" not in sys.argv:
-        video_ids = scrape_youtube(found, seen, cache, arches)
-        if "--skip-ocr" not in sys.argv:
-            import scrape_youtube_ocr
+        def _youtube() -> None:
+            video_ids = scrape_youtube(found, seen, cache, arches)
+            if "--skip-ocr" not in sys.argv:
+                import scrape_youtube_ocr
 
-            scrape_youtube_ocr.scrape_ocr(found, seen, cache, arches, video_ids)
+                scrape_youtube_ocr.scrape_ocr(found, seen, cache, arches, video_ids)
+
+        _run_source(failures, "youtube", _youtube)
+    from datetime import datetime, timezone
+
+    uadb.save_json(
+        "data/refresh-log.json",
+        {
+            "updated": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
+            "failures": failures,
+        },
+    )
+    if failures:
+        uadb.log("community sources failed", len(failures), "see data/refresh-log.json")
     stored = collapse_by_slug(found)
     for item in stored:
         item["counts"] = item.get("counts") or {}
