@@ -1,0 +1,35 @@
+{
+  "note": "Source ids stay in the deck file and in Copy list. Display text and the TCGplayer mass-entry string use the target printing. Names below were checked against data/card-cache.json and Bandai's NA card list on 2026-10-25. Do not add a row unless the target name is on that card.",
+  "aliases": {
+    "UE08BT/BLC-1-081": {
+      "target": "UE01BT/BLC-1-081",
+      "name": "Kenpachi Zaraki",
+      "why": "UE08BT is the Black Clover set code. Bandai's detail page for UE01BT/BLC-1-081 is Kenpachi Zaraki, Character, green, required energy 4, BLEACH: Thousand-Year Blood War."
+    },
+    "UE08BT/BLC-1-047": {
+      "target": "UE01BT/BLC-1-047",
+      "name": "Renji Abarai",
+      "why": "Same set-code mixup. Cache and Bandai list UE01BT/BLC-1-047 as Renji Abarai (047), Character, purple, energy 4."
+    },
+    "UE08BT/BLC-1-041": {
+      "target": "UE01BT/BLC-1-041",
+      "name": "Ichigo Kurosaki",
+      "why": "Same set-code mixup. Cache and Bandai list UE01BT/BLC-1-041 as Ichigo Kurosaki (041), Character, purple, energy 5."
+    },
+    "UE08BT/BLC-1-085": {
+      "target": "UE01BT/BLC-1-085",
+      "name": "Toshiro Hitsugaya",
+      "why": "Same set-code mixup. Cache and Bandai list UE01BT/BLC-1-085 as Toshiro Hitsugaya (085), Character, green, energy 4."
+    },
+    "UE01BT/BLC-1-051": {
+      "target": "UEPR/BLC-1-051",
+      "name": "Rukia Kuchiki",
+      "why": "Bandai FAQ Q129, updated 2024-10-25, says there is no UE01BT/BLC-1-051 Rukia Kuchiki in the English booster. The English card is promo UEPR/BLC-1-051 Rukia Kuchiki from the Store Tournament 2026 Vol. 1 participation set. Official detail: Character, purple, required energy 0, AP 1, BP 1500."
+    },
+    "UE18BT/TKG-1-106": {
+      "target": "UE18ST/TKG-1-106",
+      "name": "Nishiki Nishio",
+      "why": "Bandai's detail page for UE18BT/TKG-1-106 returns no card. Booster Nishiki Nishio is UE18BT/TKG-1-053. Collector number 106 is starter UE18ST/TKG-1-106 Nishiki Nishio, Character, purple, required energy 3."
+    }
+  }
+}

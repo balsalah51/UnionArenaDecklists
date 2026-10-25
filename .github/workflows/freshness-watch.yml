@@ -1,0 +1,24 @@
+name: Watch data freshness
+on:
+  workflow_dispatch:
+  schedule:
+    # 18:00 UTC daily. That is 2:00 PM America/New_York during EDT and 1:00 PM during EST.
+    # The daily scrape runs at 12:00 UTC. This job reads the log that scrape committed
+    # and opens an issue if no source has succeeded in 48 hours, including when the
+    # scrape workflow never ran.
+    - cron: "0 18 * * *"
+jobs:
+  watch:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      issues: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Alert if no source has succeeded in 48 hours
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: python3 scripts/refresh_alert.py --stale-only

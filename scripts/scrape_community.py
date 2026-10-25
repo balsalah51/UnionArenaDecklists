@@ -13,7 +13,7 @@ import sys
 import time
 import urllib.parse
 from concurrent.futures import ThreadPoolExecutor, as_completed
-from datetime import datetime
+from datetime import datetime, timezone
 
 import uadb
 
@@ -880,12 +880,14 @@ def seed_existing(found: list[dict], seen: set[str]) -> None:
     uadb.log("seeded existing community lists", len(found))
 
 
-def _run_source(failures: list[dict], name: str, fn) -> None:
+def _run_source(failures: list[dict], successes: list[dict], name: str, fn) -> None:
     try:
         fn()
     except Exception as exc:  # noqa: BLE001
         uadb.log("REFRESH FAIL", name, exc)
         failures.append({"source": name, "error": f"{type(exc).__name__}: {exc}"})
+        return
+    successes.append({"source": name, "at": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")})
 
 
 def main() -> None:
@@ -897,9 +899,10 @@ def main() -> None:
     found: list[dict] = []
     seen: set[str] = set()
     failures: list[dict] = []
+    successes: list[dict] = []
     if "--replace" not in sys.argv:
         seed_existing(found, seen)
-    _run_source(failures, "official", lambda: scrape_official(found, seen, cache, arches))
+    _run_source(failures, successes, "official", lambda: scrape_official(found, seen, cache, arches))
     def _blogs() -> None:
         more = discover_blog_pages()
         for url in more:
@@ -907,15 +910,16 @@ def main() -> None:
                 WEB_PAGES.append(url)
         scrape_web_pages(found, seen, cache, arches)
 
-    _run_source(failures, "web", _blogs)
-    _run_source(failures, "reddit", lambda: scrape_reddit(found, seen, cache, arches))
+    _run_source(failures, successes, "web", _blogs)
+    _run_source(failures, successes, "reddit", lambda: scrape_reddit(found, seen, cache, arches))
     if "--skip-x" not in sys.argv:
-        _run_source(failures, "x", lambda: scrape_x(found, seen, cache, arches))
+        _run_source(failures, successes, "x", lambda: scrape_x(found, seen, cache, arches))
     if "--skip-images" not in sys.argv:
         import scrape_image_lists
 
         _run_source(
             failures,
+            successes,
             "images",
             lambda: scrape_image_lists.scrape_images(
                 found,
@@ -929,19 +933,20 @@ def main() -> None:
     if "--skip-events" not in sys.argv:
         import scrape_events
 
-        _run_source(failures, "events", lambda: scrape_events.scrape_events(found, seen, cache, arches))
+        _run_source(failures, successes, "events", lambda: scrape_events.scrape_events(found, seen, cache, arches))
     if "--skip-exburst-events" not in sys.argv and "--skip-exburst" not in sys.argv:
         import scrape_exburst_events
 
         _run_source(
             failures,
+            successes,
             "exburst-events",
             lambda: scrape_exburst_events.scrape_exburst_events(found, seen, cache, arches),
         )
     if "--skip-exburst" not in sys.argv:
         import scrape_exburst
 
-        _run_source(failures, "exburst", lambda: scrape_exburst.scrape_exburst(found, seen, cache, arches))
+        _run_source(failures, successes, "exburst", lambda: scrape_exburst.scrape_exburst(found, seen, cache, arches))
     if "--skip-youtube" not in sys.argv:
         def _youtube() -> None:
             video_ids = scrape_youtube(found, seen, cache, arches)
@@ -950,13 +955,19 @@ def main() -> None:
 
                 scrape_youtube_ocr.scrape_ocr(found, seen, cache, arches, video_ids)
 
-        _run_source(failures, "youtube", _youtube)
-    from datetime import datetime, timezone
-
+        _run_source(failures, successes, "youtube", _youtube)
+    checked_at = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
+    previous = uadb.load_json("data/refresh-log.json", {})
+    last_success = dict(previous.get("last_success") or {}) if isinstance(previous, dict) else {}
+    for row in successes:
+        last_success[row["source"]] = row["at"]
     uadb.save_json(
         "data/refresh-log.json",
         {
-            "updated": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
+            "checked_at": checked_at,
+            "updated": checked_at,
+            "successes": successes,
+            "last_success": last_success,
             "failures": failures,
         },
     )
