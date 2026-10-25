@@ -397,9 +397,15 @@ class RaidTests(unittest.TestCase):
         ]
         with tempfile.TemporaryDirectory() as tmp:
             root = Path(tmp)
-            with patch.object(generate_site.uadb, "ROOT", root):
+            with patch.object(generate_site.uadb, "ROOT", root), patch.object(uadb, "ROOT", root):
                 write_home(combo, recent, {}, {})
             html = (root / "index.html").read_text(encoding="utf-8")
+            go_pages = list((root / "go" / "tcgplayer").glob("*.html"))
+            self.assertTrue(go_pages)
+            go_html = go_pages[0].read_text(encoding="utf-8")
+        self.assertIn("partner.tcgplayer.com", go_html)
+        self.assertIn("7670706", go_html)
+        self.assertIn("noindex", go_html)
         self.assertIn('href="/shop.html"', html)
         self.assertIn("home-big-shop", html)
         self.assertIn("home-big-tier", html)
@@ -438,14 +444,15 @@ class RaidTests(unittest.TestCase):
         self.assertIn('href="/characters.html"', html)
         self.assertIn("buy-pill", html)
         self.assertIn("buy-tcg", html)
-        self.assertIn("partner.tcgplayer.com", html)
         self.assertIn("recent-row", html)
         self.assertIn("Sleeves, playmats, and more", html)
         self.assertNotIn("Sleeves and dice on Amazon", html)
         self.assertIn("ad-slot", html)
         self.assertIn("Advertisement", html)
         self.assertIn("/partners.html", html)
-        self.assertIn("onepiecedeckbase.com", html)
+        self.assertIn("onepiecedecklists.com", html)
+        self.assertIn("/go/tcgplayer/", html)
+        self.assertNotIn("massentry?productline", html)
 
     def test_shop_catalog_has_pictures(self):
         hrefs = [it["href"] for it in generate_site.SHOP_ITEMS]

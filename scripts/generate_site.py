@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Render Union Arena Deck Base HTML from scraped TCG Contender + official cards."""
+"""Render Union Arena Decklists HTML from scraped TCG Contender + official cards."""
 
 from __future__ import annotations
 
@@ -17,6 +17,7 @@ import discord_board
 import uadb
 
 COLOR_ONLY = {"purple", "red", "yellow", "green", "blue", "black"}
+GROUP_ORDER = ["Characters", "Events", "Sites", "AP cards", "Other"]
 COLOR_MARK = re.compile(r"【\s*(?:PURPLE|RED|YELLOW|GREEN|BLUE|BLACK)\s*】", re.I)
 MIN_FACE_COST = 4
 BOOSTER_SET_RE = re.compile(r"^UE(\d+)BT$", re.I)
@@ -191,6 +192,7 @@ COPY_LIST_HOW_TO = (
 )
 _SITEMAP_IMAGES: dict[str, list[tuple[str, str]] | tuple[str, str]] = {}
 _SITEMAP_DATES: dict[str, str] = {}
+_WRITTEN: set[str] = set()
 SHOP_GROUP_META = [
     ("Sleeves", "packs", "Card sleeves on Amazon"),
     ("Dice", "sets", "Dice on Amazon"),
@@ -343,7 +345,64 @@ def load_cache() -> dict:
     extra = uadb.load_json("data/contender-cards.json", {})
     for cid, card in extra.items():
         cache.setdefault(cid, {}).update({k: v for k, v in card.items() if v})
+    uadb.inherit_printings(cache)
     return cache
+
+
+def used_card_ids(published: list[dict] | None = None) -> list[str]:
+    ids: list[str] = []
+    seen: set[str] = set()
+    rows = published
+    if rows is None:
+        rows = uadb.load_json("data/community-decks.json", [])
+        for row in rows:
+            for cid in (row.get("counts") or {}):
+                if cid not in seen:
+                    seen.add(cid)
+                    ids.append(cid)
+        return ids
+    for entry in rows:
+        for it in entry.get("items") or []:
+            cid = it.get("id") or ""
+            if cid and cid not in seen:
+                seen.add(cid)
+                ids.append(cid)
+    return ids
+
+
+def complete_card_cache(cache: dict, ids: list[str] | None = None) -> list[str]:
+    """Inherit printings, fetch Bandai details for gaps, and list anything still open."""
+    import scrape_official_cards
+
+    uadb.inherit_printings(cache)
+    wanted = ids if ids is not None else used_card_ids()
+    unresolved = scrape_official_cards.fetch_missing(cache, wanted)
+    uadb.inherit_printings(cache)
+    still = [cid for cid in wanted if not uadb.card_is_resolved(cid, cache.get(cid))]
+    # AP cards and explicit unresolved placeholders are reported, not fetched again.
+    report = []
+    for cid in still:
+        if cid.endswith(("_p1", "_p2")) or "-AP" in cid.upper():
+            continue
+        if cid not in report:
+            report.append(cid)
+    uadb.save_json(
+        "data/unresolved-cards.json",
+        {"cards": report, "count": len(report)},
+    )
+    if report:
+        uadb.log("UNRESOLVED", len(report), "cards still missing name or type")
+        for cid in report:
+            uadb.log("UNRESOLVED CARD", cid)
+    else:
+        uadb.log("card cache complete for listed cards")
+    if unresolved or report:
+        uadb.save_json("data/card-cache.json", cache)
+    elif any(scrape_official_cards.needs_official_fetch(cid, cache.get(cid)) for cid in wanted[:1]):
+        pass
+    else:
+        uadb.save_json("data/card-cache.json", cache)
+    return report
 
 
 def contender_meta_share(row: dict | None) -> float:
@@ -576,7 +635,7 @@ def flatten_counts(counts: dict[str, int], cache: dict) -> list[dict]:
                 "count": int(n),
                 "id": cid,
                 "name": meta.get("name") or cid,
-                "group": uadb.group_for(meta.get("category") or "Character"),
+                "group": uadb.group_for(meta.get("category") or meta.get("type") or ""),
             }
         )
     return legalize_items(items, cache, cap_restricted=False)
@@ -635,7 +694,13 @@ def card_color(meta: dict) -> str:
 
 
 def is_character_card(meta: dict, item: dict | None = None) -> bool:
-    cat = (meta.get("category") or (item or {}).get("group") or "").lower()
+    """True only when the card's own type is Character.
+
+    A missing category must not fall through to the item group. That is how
+    events such as Titan Injection were treated as the deck's character.
+    """
+    del item
+    cat = (meta.get("category") or meta.get("type") or "").lower()
     return "character" in cat
 
 
@@ -1118,52 +1183,121 @@ def pick_combo_sample(entries: list[dict], display: str, color: str, cache: dict
 
 
 def pick_feature(items: list[dict], cache: dict, prefer_name: str | None = None) -> dict:
-    def char_of(it: dict) -> str:
-        meta = cache.get(it.get("id") or "") or {}
-        return card_character(meta.get("name") or it.get("name") or "")
-
-    pool = [it for it in items if it.get("group") != "AP cards"]
-    use = [it for it in pool if it.get("group") == "Characters"] or pool
-    prefer_n = norm_name(prefer_name or "")
-    if prefer_n and prefer_n not in COLOR_ONLY:
-        matched = [it for it in use if prefer_n in norm_name(char_of(it))]
-        if matched:
-            use = matched
-    totals: dict[str, int] = defaultdict(int)
-    by_name: dict[str, list] = defaultdict(list)
-    for it in use:
-        name = char_of(it)
-        if not name or norm_name(name) in COLOR_ONLY:
-            continue
-        totals[name] += int(it.get("count") or 0)
-        by_name[name].append((it, cache.get(it["id"]) or {}))
-    if not totals:
-        if pool:
-            it = pool[0]
-            meta = cache.get(it["id"]) or {}
-            return {
-                "id": it["id"],
-                "name": meta.get("name") or it.get("name") or "",
-                "meta": meta,
-                "character": card_character(meta.get("name") or it.get("name") or ""),
-            }
-        return {"id": "", "name": prefer_name or "", "meta": {}, "character": prefer_name or ""}
-    best = max(totals, key=lambda n: (totals[n], len(n)))
-    cands = by_name[best]
-    cands.sort(
-        key=lambda row: (
-            (card_cost(row[1]) or -1) >= MIN_FACE_COST,
-            card_cost(row[1]) or -1,
-            *_feature_score(row[0]["id"], row[1]),
-        ),
-        reverse=True,
-    )
-    it, meta = cands[0]
+    """Face card from Character-type cards only. prefer_name breaks ties."""
+    ident = assign_list_identity(items, cache, prefer_name=prefer_name)
+    face = ident.get("face") or {}
+    if face.get("id"):
+        return face
     return {
-        "id": it["id"],
-        "name": meta.get("name") or it.get("name") or best,
-        "meta": meta,
-        "character": best,
+        "id": "",
+        "name": ident.get("character") or "",
+        "meta": {},
+        "character": ident.get("character") or "",
+    }
+
+
+def assign_list_identity(items: list[dict], cache: dict, prefer_name: str | None = None) -> dict:
+    """Primary character, color, and series from Character cards in this list.
+
+    Event, Site, and AP cards never win. The archetype title is not a vote.
+    prefer_name only breaks an equal copy count.
+    """
+    buckets: dict[str, dict] = {}
+    for it in items or []:
+        if (it.get("group") or "") == "AP cards":
+            continue
+        cid = it.get("id") or ""
+        meta = cache.get(cid) or {}
+        if not is_character_card(meta, it):
+            continue
+        name = card_character(meta.get("name") or "")
+        if not name or norm_name(name) in COLOR_ONLY or looks_like_cid(name):
+            continue
+        nkey = norm_name(name)
+        try:
+            copies = int(it.get("count") or 0)
+        except (TypeError, ValueError):
+            copies = 0
+        cost = card_cost(meta)
+        rec = buckets.get(nkey)
+        if rec is None:
+            rec = {
+                "name": name,
+                "copies": 0,
+                "high": 0,
+                "max_cost": -1,
+                "colors": Counter(),
+                "titles": Counter(),
+                "face": None,
+                "face_key": None,
+            }
+            buckets[nkey] = rec
+        rec["copies"] += copies
+        if cost is not None and cost >= MIN_FACE_COST:
+            rec["high"] += copies
+        if cost is not None and cost > rec["max_cost"]:
+            rec["max_cost"] = cost
+        color = card_color(meta)
+        if color:
+            rec["colors"][color] += copies or 1
+        title = series_name(meta.get("title") or "")
+        if title:
+            rec["titles"][title] += copies or 1
+        face_key = ((cost or -1), *_feature_score(cid, meta))
+        if rec["face_key"] is None or face_key > rec["face_key"]:
+            rec["face_key"] = face_key
+            rec["face"] = {
+                "id": cid,
+                "name": meta.get("name") or name,
+                "meta": meta,
+                "character": name,
+            }
+    empty = {"character": "", "color": "", "title": "", "face": {}, "copies": 0}
+    if not buckets:
+        return empty
+    prefer_n = norm_name(prefer_name or "")
+
+    def rank(rec: dict) -> tuple:
+        prefer_hit = 1 if prefer_n and prefer_n == norm_name(rec["name"]) else 0
+        return (rec["high"], rec["copies"], rec["max_cost"], prefer_hit, len(rec["name"]))
+
+    best = max(buckets.values(), key=rank)
+    color = best["colors"].most_common(1)[0][0] if best["colors"] else ""
+    title = best["titles"].most_common(1)[0][0] if best["titles"] else ""
+    face = dict(best["face"] or {})
+    if face:
+        face["character"] = best["name"]
+        if color:
+            same = [
+                row
+                for row in (items or [])
+                if card_color(cache.get(row.get("id") or "") or {}) == color
+                and norm_name(card_character((cache.get(row.get("id") or "") or {}).get("name") or ""))
+                == norm_name(best["name"])
+                and is_character_card(cache.get(row.get("id") or "") or {}, row)
+            ]
+            if same:
+                same.sort(
+                    key=lambda row: (
+                        card_cost(cache.get(row.get("id") or "") or {}) or -1,
+                        *_feature_score(row.get("id") or "", cache.get(row.get("id") or "") or {}),
+                    ),
+                    reverse=True,
+                )
+                cid = same[0].get("id") or ""
+                meta = cache.get(cid) or {}
+                face = {
+                    "id": cid,
+                    "name": meta.get("name") or best["name"],
+                    "meta": meta,
+                    "character": best["name"],
+                }
+    return {
+        "character": best["name"],
+        "color": color,
+        "title": title,
+        "face": face,
+        "copies": best["copies"],
     }
 
 
@@ -1437,83 +1571,86 @@ def display_name_for_title(arch: dict) -> str:
     return name or uadb.no_em(arch.get("name") or "Deck")
 
 
+def deck_page_title(arch: dict, entry: dict) -> str:
+    """<Character> (<Color>) Decklist - <Deck name> (<date>). No numeric id."""
+    name = uadb.no_em(arch.get("name") or entry.get("character") or "Deck")
+    color = (entry.get("deck_color") or "").strip()
+    if not color and arch.get("color_hub"):
+        color = (arch.get("color") or "").split("/")[0].split(";")[0].strip()
+    color_bit = f" ({color.title()})" if color else ""
+    deck = uadb.no_em(entry.get("deck_name") or entry.get("title") or "List")
+    date = (entry.get("date") or "")[:10]
+    suffix = uadb.no_em(entry.get("title_suffix") or "")
+    core = f"{name}{color_bit} Decklist - "
+    date_bit = f" ({date})" if date else ""
+    suffix_bit = f" · {suffix}" if suffix else ""
+    brand = "UA Decklists"
+    tail = f"{date_bit}{suffix_bit} | {brand}"
+    budget = 110 - len(core) - len(tail)
+    if budget < 12:
+        budget = 12
+    if len(deck) > budget:
+        deck = deck[:budget].rsplit(" ", 1)[0].rstrip(" -·") or deck[:budget]
+    title = f"{core}{deck}{date_bit}{suffix_bit} | {brand}"
+    # Drop a trailing numeric token if a deck name was itself an id.
+    title = re.sub(r"\s+\d{5,}\b", "", title)
+    return uadb.no_em(title)
+
+
 def list_doc_title(arch: dict, entry: dict) -> str:
-    series = pretty_anime(arch.get("title") or "") or (arch.get("title") or "").strip()
-    key = arch.get("key") or ""
-    tail = key.rsplit("-", 1)[-1].lower()
-    if is_series_color_hub(arch) and tail in COLOR_ONLY:
-        name = f"{series} {tail.title()}".strip() if series else tail.title()
-    else:
-        name = display_name_for_title(arch)
-        if tail in COLOR_ONLY:
-            name = f"{name} {tail}"
-    kind = list_kind_label(entry.get("kind") or "")
-    date = entry.get("date") or ""
-    slug = entry.get("slug") or ""
-    blob = f"{slug} {entry.get('subtitle') or ''}"
-    place = ""
-    m = re.search(r"(?i)\b(\d+(?:st|nd|rd|th)|winner|top\s*\d+)\b", blob)
-    if m:
-        place = m.group(1)
-    primary = f"{name} {kind}".strip()
-    if place:
-        primary = f"{primary} {place}"
-    if date:
-        primary = f"{primary} ({date})"
-    token = slug.rsplit("-", 1)[-1]
-    if token and (token.isdigit() or (len(token) >= 5 and token.isalnum() and not token.isalpha())):
-        primary = f"{primary} {token}"
-    return uadb.page_title(primary)
+    return deck_page_title(arch, entry)
 
 
 def hub_doc_title(arch: dict) -> str:
-    name = display_name_for_title(arch)
+    name = uadb.no_em(arch.get("name") or "Deck")
     series = pretty_anime(arch.get("title") or "") or (arch.get("title") or "").strip()
-    key = arch.get("key") or ""
-    tail = key.rsplit("-", 1)[-1].lower()
-    if is_series_color_hub(arch) and tail in COLOR_ONLY:
-        color_label = tail.title()
-        primary = f"{series} {color_label} decks".strip() if series else f"{color_label} decks"
-        return uadb.page_title(primary)
-    color_bit = f" {tail}" if tail in COLOR_ONLY else ""
-    orig_slug = uadb.slugify(uadb.no_em(arch.get("name") or ""))
-    if key == orig_slug and series:
-        primary = f"{name} ({series}) decks"
+    color = ""
+    if arch.get("color_hub"):
+        color = (arch.get("color") or "").split("/")[0].split(";")[0].strip()
+        if not color:
+            tail = (arch.get("key") or "").rsplit("-", 1)[-1].lower()
+            if tail in COLOR_ONLY:
+                color = tail
+    if color:
+        primary = f"{name} ({color.title()}) decks"
     elif series and series.lower() not in name.lower():
-        primary = f"{series} {name}{color_bit} decklist"
+        primary = f"{name} ({series}) decks"
     else:
-        primary = f"{name}{color_bit} decklist"
+        primary = f"{name} decks"
     return uadb.page_title(primary)
 
 
 def list_doc_description(arch: dict, entry: dict, items: list[dict] | None = None) -> str:
-    full = arch.get("full") or arch.get("name") or "Union Arena"
-    sub = uadb.no_em(entry.get("subtitle") or "")
-    kind = list_kind_label(entry.get("kind") or "")
-    date = entry.get("date") or ""
-    bits = [f"{full} {kind}"]
-    if date:
-        bits.append(date)
-    if sub:
-        bits.append(sub)
-    cards = 0
+    name = uadb.no_em(arch.get("name") or "This deck")
+    color = (entry.get("deck_color") or "").strip()
+    color_bit = f" {color.title()}" if color else ""
+    date = (entry.get("date") or "")[:10]
+    when = f" from {date}" if date else ""
     names: list[str] = []
     for it in items or []:
-        if it.get("group") == "AP cards":
+        if it.get("group") in {"AP cards", "Other"}:
             continue
-        n = int(it.get("count") or 0)
-        cards += n
-        label = uadb.display_name(it.get("name") or "") or it.get("id") or ""
-        if label and len(names) < 4:
-            names.append(f"{n}x {label}" if n else label)
-    if cards:
-        bits.append(f"{cards}-card Standard list")
+        try:
+            n = int(it.get("count") or 0)
+        except (TypeError, ValueError):
+            n = 0
+        label = uadb.display_name(it.get("name") or "")
+        if not label or "/" in label or label == it.get("id"):
+            continue
+        if len(names) < 3:
+            names.append(f"{n} {label}" if n else label)
+    if len(names) >= 2:
+        cards = ", ".join(names[:-1]) + f", and {names[-1]}"
+    elif names:
+        cards = names[0]
     else:
-        bits.append("50-card Standard list")
-    if names:
-        bits.append("opens with " + ", ".join(names))
-    bits.append("Card pictures and TCGplayer links.")
-    return uadb.clip_meta(" · ".join(bits))
+        cards = "its character core"
+    sentence = f"A{color_bit} {name} Union Arena decklist{when}. The 50 plays {cards}."
+    if len(sentence) > 160:
+        sentence = f"A{color_bit} {name} Union Arena decklist{when}. The 50 plays {names[0]}." if names else sentence[:160].rsplit(" ", 1)[0] + "."
+    if len(sentence) > 160:
+        sentence = sentence[:157].rsplit(" ", 1)[0].rstrip(".,") + "."
+    return sentence
 
 
 def hub_doc_description(arch: dict, lists: list[dict]) -> str:
@@ -1665,6 +1802,27 @@ def remember_image(path: str, image: str, title: str = "") -> None:
     _SITEMAP_IMAGES[key] = rows
 
 
+def render_color_hubs(arch: dict) -> str:
+    pages = arch.get("color_pages") or []
+    if not pages:
+        return ""
+    items = []
+    for row in pages:
+        items.append(
+            f'<li><a href="{html.escape(row.get("href") or "")}">{html.escape(row.get("color") or "Color")}'
+            f'<span class="muted">{int(row.get("n") or 0)} lists</span></a></li>'
+        )
+    return f"""        <section class="related-block" aria-label="Colors">
+          <div class="section-title">
+            <h2>Colors</h2>
+            <div class="muted">Same character, separate hubs</div>
+          </div>
+          <ul class="related-grid">
+{chr(10).join(items)}
+          </ul>
+        </section>"""
+
+
 def render_related_hubs(heading: str, note: str, hubs: list[dict]) -> str:
     if not hubs:
         return ""
@@ -1690,7 +1848,8 @@ def render_related_hubs(heading: str, note: str, hubs: list[dict]) -> str:
 
 
 def render_sibling_lists(arch: dict, entry: dict, lists: list[dict]) -> str:
-    others = [row for row in lists if (row.get("slug") or "") != (entry.get("slug") or "")]
+    mine = entry.get("href") or entry.get("slug") or ""
+    others = [row for row in lists if (row.get("href") or row.get("slug") or "") != mine]
     if not others:
         return ""
     items = []
@@ -1742,7 +1901,7 @@ def render_text_deck(items: list[dict], cache: dict, heading: str = "Text list")
     grouped: dict[str, list] = defaultdict(list)
     for it in items:
         grouped[it["group"]].append(it)
-    order = ["Characters", "Events", "Sites", "AP cards"]
+    order = GROUP_ORDER
     cols = []
     for group in order:
         rows = grouped.get(group) or []
@@ -1753,20 +1912,24 @@ def render_text_deck(items: list[dict], cache: dict, heading: str = "Text list")
         for it in rows:
             meta = cache.get(it["id"], {})
             name = uadb.display_name(meta.get("name") or it["name"])
-            img = uadb.card_image_url(it["id"], cache)
-            buy = uadb.buy_deck_button(uadb.tcgplayer_card_search_url(it["id"], name), "Buy")
+            buy = uadb.buy_card_link(uadb.tcgplayer_card_search_url(it["id"], name), "Buy")
+            cost = meta.get("cost")
+            cost_html = f'<span class="muted">Energy {html.escape(str(cost))}</span>' if cost not in (None, "") else ""
+            effect = meta.get("effect") or meta.get("trigger") or ""
+            effect_html = f'<div class="text-effect">{html.escape(effect)}</div>' if effect else ""
             lines.append(
-                f"""            <li class="text-line" tabindex="0">
+                f"""            <li class="text-line">
               <span class="qty">{html.escape(str(it['count']))}x</span>
               <span class="card-title">{html.escape(name)}</span>
               <span class="muted card-id">{html.escape(it['id'])}</span>
+              {cost_html}
               {buy}
-              <img class="card-pop" src="{html.escape(img)}" alt="{html.escape(name)}" loading="lazy" decoding="async" />
+              {effect_html}
             </li>"""
             )
         cols.append(
             f"""          <div>
-            <h4>{html.escape(group)}</h4>
+            <h3>{html.escape(group)}</h3>
             <ul class="text-lines">
 {chr(10).join(lines)}
             </ul>
@@ -1775,10 +1938,10 @@ def render_text_deck(items: list[dict], cache: dict, heading: str = "Text list")
     actions = uadb.list_actions(uadb.copy_button(sim_text(items)))
     return f"""        <section class="text-deck">
           <div class="section-title">
-            <h3>{html.escape(heading)}</h3>
+            <h2>{html.escape(heading)}</h2>
             {actions}
           </div>
-          <p class="muted">Hover or tap a name for the picture. Copy pastes <code>NxSET/CODE</code> lines.</p>
+          <p class="muted">One picture per card is in the gallery below. Copy pastes <code>NxSET/CODE</code> lines.</p>
           <div class="text-deck-cols">
 {chr(10).join(cols)}
           </div>
@@ -1803,7 +1966,7 @@ def render_card_entry(item: dict, meta: dict, cache: dict) -> str:
     text = meta.get("effect") or meta.get("trigger") or ""
     buy = uadb.buy_card_link(uadb.tcgplayer_card_search_url(cid, name), "TCGplayer")
     return f"""        <article class="card-entry">
-          <img src="{html.escape(img)}" alt="{html.escape(name)} {html.escape(cid)}" loading="lazy" decoding="async" />
+          <img src="{html.escape(img)}" alt="{html.escape(name)} {html.escape(cid)}" loading="lazy" decoding="async" {uadb.card_img_size("card")} />
           <div>
             <div class="id"><span class="qty">{html.escape(str(item['count']))}x</span>{html.escape(cid)} · {html.escape(cat)}</div>
             <h4>{html.escape(name)}</h4>
@@ -1869,7 +2032,7 @@ def render_pictures(items: list[dict], cache: dict) -> str:
         grouped[it["group"]].append(it)
         totals[it["group"]] += it["count"]
     sections = []
-    for group in ["Characters", "Events", "Sites", "AP cards"]:
+    for group in GROUP_ORDER:
         rows = grouped.get(group) or []
         if not rows:
             continue
@@ -1890,7 +2053,7 @@ def render_pictures(items: list[dict], cache: dict) -> str:
         )
     return f"""        <section class="picture-summary">
           <div class="section-title">
-            <h3>Card pictures</h3>
+            <h2>Card pictures</h2>
             <div class="muted">Official Bandai art</div>
           </div>
 {chr(10).join(sections)}
@@ -1964,16 +2127,17 @@ def write_list_page(
             f"number count as one card. Restricted cards are 1-ofs. Shadow Soldiers may be up to 12. "
             f"This snapshot is {main_n} cards after those caps.</p>"
         )
-    buy = uadb.buy_deck_button(
-        uadb.tcgplayer_mass_entry_url(items, cache),
-        "Buy this list on TCGplayer",
-    )
+    mass = entry.get("buy_url") or uadb.tcgplayer_mass_entry_url(items, cache)
+    go = entry.get("go_href") or uadb.write_tcg_go(mass, entry.get("legacy_href") or entry.get("href") or entry.get("slug") or "")
+    buy = uadb.buy_deck_button(go, "Buy this list on TCGplayer", disclose=True)
     series = catalog_for_arch(arch, catalog or [])
     series_link = series["href"] if series else (series_href(arch["title"]) if arch.get("title") else "")
     crumbs = [("/", "Home"), ("/characters.html", "Characters")]
     if series:
         crumbs.append((series["href"], series["name"]))
-    crumbs.append((f"/{arch['page']}", arch["full"]))
+    if arch.get("parent_page"):
+        crumbs.append((f"/{arch['parent_page']}", arch.get("parent_name") or arch.get("name") or "Character"))
+    crumbs.append((f"/{arch['page']}", arch.get("full") or arch.get("name") or "Hub"))
     crumbs.append((None, "Decklist"))
     crumb_ld = [(href or f"/{arch['dir']}/{entry['slug']}.html", label) for href, label in crumbs[:-1]]
     crumb_ld.append((f"/{arch['dir']}/{entry['slug']}.html", title))
@@ -1982,7 +2146,7 @@ def write_list_page(
         "Other character pages in this title",
         related_character_hubs(arch, catalog or []),
     )
-    siblings_html = render_sibling_lists(arch, entry, siblings or [])
+    siblings_html = render_sibling_lists(arch, entry, siblings or arch.get("sibling_lists") or [])
     more_links = [
         f'<a href="/{html.escape(arch["page"])}">{html.escape(arch["full"])} hub</a>',
         '<a href="/format.html">Standard format</a>',
@@ -1993,8 +2157,9 @@ def write_list_page(
     if series:
         more_links.append(f'<a href="{html.escape(series["discord"])}">{html.escape(series["name"])} Discord</a>')
     img = uadb.card_image_url(feature.get("id") or "", cache) if feature.get("id") else (entry.get("img") or "")
+    og = arch.get("og_image") or ""
     list_path = f"{arch['dir']}/{entry['slug']}.html"
-    remember_image(list_path, img, title)
+    remember_image(list_path, og or img, title)
     body = f"""        {uadb.crumb_html(crumbs)}
         <h1>{html.escape(title)}</h1>
         <p>{html.escape(subtitle)}</p>
@@ -2006,7 +2171,7 @@ def write_list_page(
 {siblings_html}
 {related}
         <p class="hub-more">{' · '.join(more_links)}</p>
-        <p class="muted" style="margin-top:22px">{html.escape(kind_note)} Source: <a href="{html.escape(source)}">{html.escape(source)}</a>. Images hosted by Bandai. Buy links are TCGplayer affiliate links. Fan site, not affiliated with Bandai.</p>"""
+        <p class="muted" style="margin-top:22px">{html.escape(kind_note)} Source: <a href="{html.escape(source)}">{html.escape(source)}</a>. Card names and pictures: Bandai's official card list (hotlinked). Meta context: TCG Contender. Community lists: ExBurst. Fan site, not affiliated with Bandai.</p>"""
     page_title = list_doc_title(arch, entry)
     page_desc = list_doc_description(arch, entry, items)
     remember_date(list_path, entry.get("date") or "")
@@ -2016,7 +2181,7 @@ def write_list_page(
         color,
         body,
         path=list_path,
-        image=img,
+        image=og or img,
         image_alt=f"{title} Union Arena decklist",
         published=entry.get("date") or "",
         modified=entry.get("date") or "",
@@ -2028,7 +2193,7 @@ def write_list_page(
                 page_title,
                 page_desc,
                 date=entry.get("date") or "",
-                image=img,
+                image=og or img,
                 series=(series or {}).get("name") or arch.get("title") or "",
                 character=arch.get("name") or title,
             ),
@@ -2037,6 +2202,7 @@ def write_list_page(
     dest = uadb.ROOT / arch["dir"] / f"{entry['slug']}.html"
     dest.parent.mkdir(parents=True, exist_ok=True)
     dest.write_text(page)
+    _WRITTEN.add(list_path)
 
 
 def write_hub(
@@ -2123,9 +2289,11 @@ def write_hub(
               {pill_html}
             </div>
             {f'<div class="effect">{html.escape(effect)}</div>' if effect else ''}
-            {uadb.buy_deck_button(arch.get('buy_url') or uadb.tcgplayer_mass_entry_url(items, cache), 'Buy this 50 on TCGplayer')}
+            {uadb.buy_deck_button(arch.get('go_href') or uadb.write_tcg_go(arch.get('buy_url') or uadb.tcgplayer_mass_entry_url(items, cache), arch.get('page') or arch.get('key') or ''), 'Buy this 50 on TCGplayer', disclose=True)}
+            {f'<p class="muted">Last list dated {html.escape((lists[0].get("date") or "")[:10])}.</p>' if lists and lists[0].get("date") else ''}
           </div>
         </div>
+{render_color_hubs(arch)}
         <section class="leader-analysis" style="margin-top:22px">
           <div class="section-title">
             <h2>How it plays</h2>
@@ -2154,7 +2322,7 @@ def write_hub(
         body,
         "characters",
         path=arch["page"],
-        image=img,
+        image=arch.get("og_image") or img,
         image_alt=f"{arch['full']} Union Arena character card",
         modified=(lists[0].get("date") if lists else "") or "",
         json_ld=[
@@ -2166,7 +2334,7 @@ def write_hub(
                 desc,
                 page_type="CollectionPage",
                 date_modified=(lists[0].get("date") if lists else "") or "",
-                image=img,
+                image=arch.get("og_image") or img,
             ),
             uadb.item_list_ld(
                 f"{arch['full']} Union Arena decklists",
@@ -2184,7 +2352,8 @@ def write_hub(
     dest = uadb.ROOT / arch["page"]
     dest.parent.mkdir(parents=True, exist_ok=True)
     dest.write_text(page)
-    remember_image(arch["page"], img, arch.get("full") or arch.get("name") or "")
+    _WRITTEN.add(arch["page"])
+    remember_image(arch["page"], arch.get("og_image") or img, arch.get("full") or arch.get("name") or "")
 
 
 def best_in_format_card(arches: list[dict], features: dict, cache: dict) -> dict:
@@ -2310,6 +2479,9 @@ def _apply_face_aliases(blob: str) -> str:
 
 
 def attribute_list_face(entry: dict, pool: list[tuple[str, str]]) -> str:
+    assigned = (entry.get("character") or "").strip()
+    if assigned and not assigned.startswith("/"):
+        return assigned
     blob = " ".join(
         [
             str(entry.get("title") or ""),
@@ -2345,22 +2517,31 @@ def _tier_for_name(name: str, plan: dict) -> str:
 
 
 def _href_for_name(name: str, arches: list[dict], title: str = "") -> str:
+    """Link a character name to its character hub. Empty when no hub exists."""
+    del title
     want = norm_name(name)
-    slug = re.sub(r"[^a-z0-9]+", "-", want).strip("-")
+    if not want:
+        return ""
+    exact = ""
+    fuzzy = ""
     for arch in arches or []:
+        if arch.get("color_hub"):
+            continue
         page = arch.get("page") or ""
         if not page:
             continue
-        key = (arch.get("key") or "").lower()
-        if looks_like_cid(arch.get("name") or ""):
-            if slug and (key == slug or key.endswith("-" + slug)):
-                return f"/{page}"
-            continue
-        if norm_name(arch.get("name") or "") == want:
-            return f"/{page}"
-    if title:
-        return series_href(title)
-    return f"/characters.html?q={urllib.parse.quote(name)}"
+        n = norm_name(arch.get("name") or "")
+        if n == want and not exact:
+            exact = page
+        elif (
+            not fuzzy
+            and want
+            and min(len(want), len(n)) >= 4
+            and (n.startswith(want + " ") or want.startswith(n + " "))
+        ):
+            fuzzy = page
+    page = exact or fuzzy
+    return f"/{page}" if page else ""
 
 
 def _face_image(name: str, entries: list[dict], set_code: str, cache: dict, features: dict, arches: list[dict]) -> str:
@@ -2565,9 +2746,13 @@ def render_newest_set_pie(share: dict) -> str:
         path = _pie_slice_path(cx, cy, r, start, sweep)
         mid = start + sweep / 2
         pct_label = f"{row['pct']:.0f}%" if row["pct"] >= 10 else f"{row['pct']:.1f}%"
-        href = row.get("href") or "/characters.html"
+        href = row.get("href") or ""
+        if not href and row.get("name") == "Other":
+            href = "/characters.html"
         img = row.get("img") or ""
         name = row.get("name") or "List"
+        label_name = name if not str(name).startswith("/") else "List"
+        slice_aria = f"{label_name}, {pct_label}"
         if row["pct"] >= SMALL_PIE_PCT:
             fx, fy = _pie_point(cx, cy, r * 0.55, mid)
             face = ""
@@ -2580,19 +2765,23 @@ def render_newest_set_pie(share: dict) -> str:
                     f'width="44" height="44" preserveAspectRatio="xMidYMin slice" clip-path="url(#pie-face-{i})" />'
                     f'<circle cx="{fx:.1f}" cy="{fy - 8:.1f}" r="22.6" fill="none" stroke="#fff" stroke-width="2.4" />'
                 )
+            opener = f'<a href="{html.escape(href)}">' if href else "<g>"
+            closer = "</a>" if href else "</g>"
             slices.append(
-                f'<a href="{html.escape(href)}">'
+                f"{opener}<title>{html.escape(slice_aria)}</title>"
                 f'<path d="{path}" fill="{color}" stroke="#fff" stroke-width="3" />'
                 f"{face}"
                 f'<text x="{fx:.1f}" y="{fy + 28:.1f}" text-anchor="middle" class="pie-label">'
-                f"{html.escape(name)}</text>"
+                f"{html.escape(label_name)}</text>"
                 f'<text x="{fx:.1f}" y="{fy + 50:.1f}" text-anchor="middle" class="pie-pct">'
-                f"{html.escape(pct_label)}</text></a>"
+                f"{html.escape(pct_label)}</text>{closer}"
             )
         else:
+            opener = f'<a href="{html.escape(href)}">' if href else "<g>"
+            closer = "</a>" if href else "</g>"
             slices.append(
-                f'<a href="{html.escape(href)}">'
-                f'<path d="{path}" fill="{color}" stroke="#fff" stroke-width="3" /></a>'
+                f"{opener}<title>{html.escape(slice_aria)}</title>"
+                f'<path d="{path}" fill="{color}" stroke="#fff" stroke-width="3" />{closer}'
             )
             edge = _pie_point(cx, cy, r + 10, mid)
             pending.append(
@@ -2640,13 +2829,22 @@ def render_newest_set_pie(share: dict) -> str:
                 )
             else:
                 tx = box_x + 18.0
+            call_name = row["name"] if not str(row["name"]).startswith("/") else "List"
+            call_label = f"{call_name} {row['pct_label']}"
+            call_href = row["href"] or ""
+            call_open = (
+                f'<a href="{html.escape(call_href)}" class="pie-callout">'
+                if call_href
+                else '<g class="pie-callout">'
+            )
+            call_close = "</a>" if call_href else "</g>"
             callouts.append(
-                f'<a href="{html.escape(row["href"])}" class="pie-callout">'
+                f"{call_open}<title>{html.escape(call_label)}</title>"
                 f'<line x1="{edge_x}" y1="{edge_y}" x2="{elbow_x:.1f}" y2="{ly:.1f}" stroke="{row["color"]}" stroke-width="2" />'
                 f'<line x1="{elbow_x:.1f}" y1="{ly:.1f}" x2="{line_x:.1f}" y2="{ly:.1f}" stroke="{row["color"]}" stroke-width="2" />'
                 f"{pill}{img_tag}"
                 f'<text x="{tx:.1f}" y="{ly + 5:.1f}" text-anchor="{anchor}" class="pie-callout-text">'
-                f"{html.escape(label)}</text></a>"
+                f"{html.escape(call_label)}</text>{call_close}"
             )
     legend = []
     for i, row in enumerate(rows):
@@ -2665,9 +2863,18 @@ def render_newest_set_pie(share: dict) -> str:
             if img
             else '<span class="pie-legend-swatch" aria-hidden="true"></span>'
         )
+        legend_href = row.get("href") or ""
+        if not legend_href and row.get("name") == "Other":
+            legend_href = "/characters.html"
+        legend_open = (
+            f'<a class="pie-legend-item" href="{html.escape(legend_href)}">'
+            if legend_href
+            else '<div class="pie-legend-item">'
+        )
+        legend_close = "</a>" if legend_href else "</div>"
         legend.append(
             f"""            <li>
-              <a class="pie-legend-item" href="{html.escape(row.get('href') or '/characters.html')}">
+              {legend_open}
                 <span class="pie-legend-dot" style="background:{color}"></span>
                 {face}
                 <span class="pie-legend-copy">
@@ -2675,7 +2882,7 @@ def render_newest_set_pie(share: dict) -> str:
                   <span class="muted">{html.escape(pct_label)} · {row['count']} {html.escape(unit)}{'' if row['count'] == 1 else 's'}</span>
                 </span>
                 {tier_html}
-              </a>
+              {legend_close}
             </li>"""
         )
     svg = f"""          <svg class="set-pie" viewBox="0 0 {int(PIE_VIEW_W)} {int(PIE_VIEW_H)}" role="img" aria-label="{html.escape(aria)}">
@@ -2926,8 +3133,12 @@ def write_home(
     def tile_html(arch: dict) -> str:
         f = features.get(arch["key"]) or {}
         img = uadb.card_image_url(f.get("id") or "", cache) if f.get("id") else ""
-        color = ((f.get("meta") or {}).get("color") or arch.get("color") or "").strip()
-        buy = uadb.buy_deck_button(arch.get("buy_url") or "", "TCGplayer")
+        colors = [c for c in (arch.get("colors") or []) if c]
+        color = " · ".join(colors) if colors else ((f.get("meta") or {}).get("color") or arch.get("color") or "").strip()
+        buy = uadb.buy_deck_button(
+            arch.get("go_href") or uadb.write_tcg_go(arch.get("buy_url") or "", arch.get("page") or arch.get("key") or "hub"),
+            "TCGplayer",
+        )
         return f"""            <div class="leader-card">
               <a class="leader-card-link" href="/{html.escape(arch['page'])}">
                 <img src="{html.escape(img)}" alt="{html.escape(arch['full'])} Union Arena character card" loading="lazy" decoding="async" {uadb.card_img_size("card")} />
@@ -2957,25 +3168,42 @@ def write_home(
               </div>
             </section>"""
         )
-    rec_items = []
-    for i, row in enumerate(recent[:100]):
-        color = uadb.color_class((row.get("color") or ""))
-        buy = uadb.buy_deck_button(row.get("buy_url") or "", "TCGplayer")
-        eager = i < 4
-        load = "" if eager else ' loading="lazy"'
-        rec_items.append(
-            f"""            <li class="recent-row">
+    def recent_html(rows: list[dict], eager: bool) -> str:
+        items = []
+        for i, row in enumerate(rows):
+            color = uadb.color_class((row.get("color") or ""))
+            go = row.get("go_href") or uadb.write_tcg_go(row.get("buy_url") or "", row.get("href") or row.get("who") or "list")
+            buy = uadb.buy_deck_button(go, "TCGplayer")
+            load = "" if eager and i < 4 else ' loading="lazy"'
+            kind = list_kind_label(row.get("kind") or "") if row.get("kind") else ""
+            badge = f'<span class="source-badge">{html.escape(kind)}</span>' if kind else ""
+            items.append(
+                f"""            <li class="recent-row">
               <a class="recent-item {html.escape(color)}" href="{html.escape(row['href'])}">
                 <img class="recent-leader" src="{html.escape(row['img'])}" alt="{html.escape(row['name'])} Union Arena decklist"{load} decoding="async" {uadb.card_img_size("thumb")} />
                 <div class="recent-copy">
-                  <div class="who">{html.escape(row['who'])}</div>
+                  <div class="who">{badge}{html.escape(row['who'])}</div>
                   <div class="muted meta">{html.escape(row['meta'])}</div>
                 </div>
                 <div class="when">{html.escape(row.get('when') or '')}</div>
               </a>
               {buy}
             </li>"""
-        )
+            )
+        return "\n".join(items)
+
+    result_rows = [row for row in recent if (row.get("kind") or "") in {"event", "official", "tournament"}]
+    community_rows = [row for row in recent if (row.get("kind") or "") not in {"event", "official", "tournament"}]
+    if not result_rows and not community_rows:
+        community_rows = list(recent)
+    result_rows = result_rows[:40]
+    community_rows = community_rows[:40]
+    updated = ""
+    for row in recent:
+        when = (row.get("when") or "")[:10]
+        if when > updated:
+            updated = when
+    updated_line = f'<p class="muted">Last updated {html.escape(updated)}, from the newest list in this snapshot.</p>' if updated else ""
     pie_html = render_newest_set_pie(
         newest_set_share(
             published or [],
@@ -3007,6 +3235,7 @@ def write_home(
 {splash_card}
           <div class="home-splash-bar">
             <p>Recent lists up top. Character hubs below. Copy one and raid.</p>
+            {updated_line}
           </div>
         </section>
 
@@ -3088,9 +3317,17 @@ def write_home(
             <h2>Recent lists</h2>
             <div class="muted">{len(recent)} lists</div>
           </div>
-          <p class="muted">Newest published lists first. Subscribe with the <a href="/feed.xml">RSS feed</a> for new 50s.</p>
-          <ul class="recent-list" aria-label="Recent decklists">
-{chr(10).join(rec_items)}
+          {updated_line}
+          <p class="muted">Buy buttons are TCGplayer affiliate links. A purchase may earn this site a commission. Subscribe with the <a href="/feed.xml">RSS feed</a>.</p>
+          <h3>Hosted event results</h3>
+          <p class="muted">Official Bandai placings, ExBurst finished tournaments, and other event 50s. Placing, event name, and date are stored on the list.</p>
+          <ul class="recent-list" aria-label="Hosted event results">
+{recent_html(result_rows, True)}
+          </ul>
+          <h3>ExBurst and community lists</h3>
+          <p class="muted">Public community 50s, including ExBurst deck pages, plus TCG Contender consensus lists. These are not tournament placings.</p>
+          <ul class="recent-list" aria-label="Community lists">
+{recent_html(community_rows, False)}
           </ul>
         </section>
 """
@@ -3103,11 +3340,12 @@ def write_home(
     remember_image("", "/img/icon-512.png", f"{uadb.BRAND} logo")
     remember_date("", (recent[0].get("when") if recent else "") or "")
     home_desc = uadb.clip_meta(
-        f"{uadb.SITE_DESCRIPTION} {len(recent)} hosted 50s on this pass."
+        f"{uadb.SITE_DESCRIPTION} Newest list dated {updated}." if updated else uadb.SITE_DESCRIPTION
     )
     (uadb.ROOT / "index.html").write_text(
         uadb.home_chrome(
             body,
+            title=uadb.HOME_TITLE,
             description=home_desc,
             json_ld=[
                 uadb.organization_ld(),
@@ -3554,6 +3792,70 @@ def write_shop() -> None:
     (uadb.ROOT / "shop.html").write_text(page)
 
 
+def write_about() -> None:
+    body = f"""        {uadb.crumb_html([("/", "Home"), (None, "About")])}
+        <h1>About</h1>
+        <p>Union Arena Decklists is a fan-run index of public 50-card English lists, character hubs, and a Standard tier list. It is not Bandai, TCG Contender, ExBurst, or TCGplayer.</p>
+        <h2>Where the data comes from</h2>
+        <ul>
+          <li><a href="https://exburst.dev/ua">ExBurst</a> public deck pages and finished tournament results.</li>
+          <li><a href="https://tcgcontender.com/unionarena/meta">TCG Contender</a> for the Standard snapshot, consensus 50s, and numbered tiers.</li>
+          <li><a href="https://www.unionarena-tcg.com/na/cardlist/">Bandai's official card list</a> for card names, types, energy, effect text, and pictures. Pictures are hotlinked. This site does not keep a copy of the art, because Bandai's terms for reproducing card images are not clear.</li>
+          <li><a href="https://www.tcgplayer.com/">TCGplayer</a> for affiliate buy links. Listed prices from tcgcsv are used only to order the homepage roster. A deck price total is not shown, because republishing those prices is not clearly allowed.</li>
+        </ul>
+        <p>Use of each source should stay inside that source's terms. If a source asks for a change, the page should change.</p>
+        <p><a href="/contact.html">Contact</a> · <a href="/advertise.html">Advertise</a> · <a href="/privacy.html">Privacy</a></p>"""
+    page = uadb.page_chrome(
+        "About | Union Arena Decklists",
+        "About Union Arena Decklists: a fan index of public 50-card lists, with sources named.",
+        "color-red",
+        body,
+        path="about.html",
+        json_ld=[uadb.website_ld(), uadb.breadcrumb_ld([("/", "Home"), ("/about.html", "About")])],
+    )
+    (uadb.ROOT / "about.html").write_text(page)
+
+
+def write_contact() -> None:
+    body = f"""        {uadb.crumb_html([("/", "Home"), (None, "Contact")])}
+        <h1>Contact</h1>
+        <p>No public email address is published for this site.</p>
+        <p>The working contact is the Discord: <a href="{html.escape(uadb.DISCORD)}">{html.escape(uadb.DISCORD)}</a>.</p>
+        <p>Corrections to a list, a missing card name, or a bad hub assignment can go there.</p>"""
+    page = uadb.page_chrome(
+        "Contact | Union Arena Decklists",
+        "Contact Union Arena Decklists through the public Discord. No public email is published.",
+        "color-red",
+        body,
+        path="contact.html",
+        json_ld=[uadb.website_ld(), uadb.breadcrumb_ld([("/", "Home"), ("/contact.html", "Contact")])],
+    )
+    (uadb.ROOT / "contact.html").write_text(page)
+
+
+def write_advertise() -> None:
+    body = f"""        {uadb.crumb_html([("/", "Home"), (None, "Advertise")])}
+        <h1>Advertise</h1>
+        <p>This page is a media kit outline. Traffic numbers below are placeholders. They are not measurements.</p>
+        <ul>
+          <li><strong>Placeholder, not a measurement:</strong> monthly pageviews are not published.</li>
+          <li><strong>Placeholder, not a measurement:</strong> monthly visitors are not published.</li>
+          <li><strong>Placeholder, not a measurement:</strong> audience country split is not published.</li>
+        </ul>
+        <p>The site already runs Google AdSense ({html.escape(uadb.ADSENSE_CLIENT)}) and TCGplayer affiliate links. Direct sponsorships are not booked from this page.</p>
+        <p>No public email is published. Ask in the Discord linked from <a href="/contact.html">Contact</a>.</p>
+        <p class="amazon-note">As an Amazon Associate I earn from qualifying purchases. That line is for the shop, not for a sponsorship.</p>"""
+    page = uadb.page_chrome(
+        "Advertise | Union Arena Decklists",
+        "Advertise on Union Arena Decklists. Traffic figures on this page are unpublished placeholders.",
+        "color-red",
+        body,
+        path="advertise.html",
+        json_ld=[uadb.website_ld(), uadb.breadcrumb_ld([("/", "Home"), ("/advertise.html", "Advertise")])],
+    )
+    (uadb.ROOT / "advertise.html").write_text(page)
+
+
 def write_privacy() -> None:
     body = f"""        {uadb.crumb_html([("/", "Home"), (None, "Privacy Policy")])}
         <h1>Privacy Policy</h1>
@@ -3571,6 +3873,10 @@ def write_privacy() -> None:
         <section>
           <h3>Advertising</h3>
           <p>This site may display advertisements served by third-party providers, including Google AdSense. Labeled ad slots sit below the main article on most pages. You can opt out of personalized advertising at <a href="https://adssettings.google.com/" target="_blank" rel="noopener">Google's Ads Settings</a>.</p>
+        </section>
+        <section>
+          <h3>EEA and UK visitors</h3>
+          <p>A Google-certified consent management platform is not installed in this repository. AdSense ({html.escape(uadb.ADSENSE_CLIENT)}) loads on each page. For visitors in the EEA, the UK, and Switzerland, the publisher has to turn on Google's Privacy and messaging (Funding Choices) for that AdSense account and paste the message the console gives them. A banner written for this site would not be a certified CMP, so one is not shipped here.</p>
         </section>
         <section>
           <h3>TCGplayer</h3>
@@ -3902,8 +4208,12 @@ def extra_arches(existing: list[dict]) -> list[dict]:
 
 
 def main() -> None:
+    import primary_hubs
+
     pages_only = "--pages-only" in sys.argv
     cache = load_cache()
+    unresolved = complete_card_cache(cache)
+    legacy_files = primary_hubs.snapshot_decklist_html()
     arches = archetypes_from_contender()
     load_community(cache, arches)
     extra = extra_arches(arches)
@@ -3914,13 +4224,26 @@ def main() -> None:
     features = {}
     recent = []
     published = []
-    global _SITEMAP_IMAGES, _SITEMAP_DATES
+    global _SITEMAP_IMAGES, _SITEMAP_DATES, _WRITTEN
     _SITEMAP_IMAGES = {}
     _SITEMAP_DATES = {}
-    sitemap = ["", "characters.html", "series.html", "format.html", "shop.html", "partners.html", "privacy.html", "feed.xml", "llms.txt"]
+    _WRITTEN = set()
+    sitemap = [
+        "",
+        "characters.html",
+        "series.html",
+        "format.html",
+        "shop.html",
+        "partners.html",
+        "about.html",
+        "contact.html",
+        "advertise.html",
+        "privacy.html",
+        "feed.xml",
+        "llms.txt",
+    ]
     index = {}
     board_decks = []
-    hub_jobs = []
     for arch in arches:
         items = flatten_contender(arch, cache)
         comm_rows = community_for(arch["key"])
@@ -3947,6 +4270,8 @@ def main() -> None:
                 "img": uadb.card_image_url(feature.get("id") or "", cache),
                 "color": (feature.get("meta") or {}).get("color") or "",
                 "href": f"/{arch['dir']}/contender-consensus.html",
+                "legacy_href": f"/{arch['dir']}/contender-consensus.html",
+                "legacy_key": arch.get("key") or "",
                 "items": items,
             }
             cons_entry["_feat"] = feature
@@ -3973,6 +4298,9 @@ def main() -> None:
                 ),
                 "player": comm.get("player") or "",
                 "date": comm.get("date") or "",
+                "placing": comm.get("placing") or "",
+                "event_name": comm.get("event_name") or "",
+                "event_date": comm.get("event_date") or "",
                 "source_url": comm.get("source_url") or "",
                 "sim_text": sim_text(c_items),
                 "buy_url": uadb.tcgplayer_mass_entry_url(c_items, cache),
@@ -3980,64 +4308,62 @@ def main() -> None:
                 "color": (c_feat.get("meta") or {}).get("color") or "",
             }
             comm_entry["href"] = f"/{arch['dir']}/{comm_entry['slug']}.html"
+            comm_entry["legacy_href"] = comm_entry["href"]
+            comm_entry["legacy_key"] = arch.get("key") or ""
             comm_entry["items"] = c_items
             comm_entry["_feat"] = c_feat
             lists.append(comm_entry)
             published.append(comm_entry)
         lists.sort(key=lambda e: e.get("date") or "0000", reverse=True)
         arch["lists"] = lists
-        hub_jobs.append((arch, lists, items, feature, True))
-        sitemap.append(arch["page"])
-        for entry in lists:
-            sitemap.append(f"{arch['dir']}/{entry['slug']}.html")
-            recent.append(
-                {
-                    "href": entry.get("href") or f"/{arch['dir']}/{entry['slug']}.html",
-                    "img": entry.get("img") or uadb.card_image_url(feature.get("id") or "", cache),
-                    "name": entry.get("title") or arch["name"],
-                    "who": entry.get("title") or arch["name"],
-                    "meta": entry.get("subtitle") or arch["full"],
-                    "when": entry.get("date") or "",
-                    "color": entry.get("color") or arch.get("color") or "",
-                    "key": arch["key"],
-                    "buy_url": entry.get("buy_url") or "",
-                }
-            )
-        index[arch["key"]] = [
-            {"slug": e["slug"], "kind": e["kind"], "title": e["title"], "date": e.get("date")} for e in lists
-        ]
         board_decks.append(discord_board.deck_record(arch, items, cache, feature, lists))
-        uadb.log("hub", arch["key"], "lists", len(lists), "feature", feature.get("id"))
+        uadb.log("source", arch["key"], "lists", len(lists), "feature", feature.get("id"))
 
-    combo_arches, combo_features = build_character_color_hubs(published, cache, arches)
-    features.update(combo_features)
-    for arch in combo_arches:
-        feat = features.get(arch["key"]) or {}
-        hub_jobs.append((arch, arch.get("lists") or [], arch.get("cons_items") or [], feat, False))
-        if arch["page"] not in sitemap:
-            sitemap.append(arch["page"])
-        index[arch["key"]] = [
-            {"slug": e["slug"], "kind": e["kind"], "title": e["title"], "date": e.get("date")} for e in (arch.get("lists") or [])
-        ]
-        uadb.log("combo-hub", arch["key"], "lists", len(arch.get("lists") or []), "feature", feat.get("id"))
+    char_hubs, color_hubs, hub_features, redirect_map = primary_hubs.build(published, cache, arches)
+    features.update(hub_features)
+    try:
+        import og_images
 
-    catalog = build_title_catalog([job[0] for job in hub_jobs])
+        og_images.write_for_hubs(char_hubs + color_hubs)
+    except Exception as exc:  # noqa: BLE001
+        uadb.log("og images skipped", exc)
     import write_guides
 
-    plan = write_guides.build_plan(hub_jobs, cache, features)
+    char_jobs = [
+        (arch, arch.get("lists") or [], arch.get("cons_items") or [], features.get(arch["key"]) or {}, False)
+        for arch in char_hubs
+    ]
+    catalog = build_title_catalog(char_hubs)
+    plan = write_guides.build_plan(char_jobs, cache, features)
+    plan["data_updated"] = ""
+    for entry in published:
+        when = (entry.get("date") or "")[:10]
+        if when > plan["data_updated"]:
+            plan["data_updated"] = when
     if not pages_only:
-        for arch, lists, items, feature, write_lists in hub_jobs:
-            if write_lists:
-                for entry in lists:
-                    write_list_page(
-                        arch,
-                        entry,
-                        entry.get("items") or items,
-                        cache,
-                        entry.get("_feat") or feature,
-                        siblings=lists,
-                        catalog=catalog,
-                    )
+        for arch in color_hubs:
+            feature = features.get(arch["key"]) or {}
+            lists = arch.get("lists") or []
+            for entry in lists:
+                write_list_page(
+                    arch,
+                    entry,
+                    entry.get("items") or [],
+                    cache,
+                    entry.get("_feat") or feature,
+                    siblings=arch.get("sibling_lists") or lists,
+                    catalog=catalog,
+                )
+            write_hub(
+                arch,
+                lists,
+                arch.get("cons_items") or [],
+                cache,
+                feature,
+                catalog=catalog,
+                guide=write_guides.guide_for_arch(plan, arch),
+            )
+        for arch, lists, items, feature, _write in char_jobs:
             write_hub(
                 arch,
                 lists,
@@ -4047,15 +4373,33 @@ def main() -> None:
                 catalog=catalog,
                 guide=write_guides.guide_for_arch(plan, arch),
             )
+        primary_hubs.write_redirects(legacy_files, _WRITTEN, redirect_map)
+        try:
+            changed = primary_hubs.persist_event_fields(published)
+            uadb.log("event fields stored", changed)
+        except Exception as exc:  # noqa: BLE001
+            uadb.log("event field store failed", exc)
 
-    recent.sort(key=lambda r: r.get("when") or "0000", reverse=True)
+    for arch in char_hubs + color_hubs:
+        if arch["page"] not in sitemap:
+            sitemap.append(arch["page"])
+        index[arch["key"]] = [
+            {"slug": e["slug"], "kind": e["kind"], "title": e["title"], "date": e.get("date")}
+            for e in (arch.get("lists") or [])
+        ]
+    for entry in published:
+        href = (entry.get("href") or "").lstrip("/")
+        if href and href not in sitemap:
+            sitemap.append(href)
+
+    recent = primary_hubs.recent_rows(published, cache)
     prices = uadb.load_tcgplayer_prices()
-    home_roster = pick_home_raid_leaders(combo_arches, cache, features, prices=prices)
-    search = build_character_search(published, combo_arches, cache, features)
-    series = build_series_search(published, combo_arches, cache, features)
+    home_roster = pick_home_raid_leaders(char_hubs, cache, features, prices=prices)
+    search = build_character_search(published, char_hubs, cache, features)
+    series = build_series_search(published, char_hubs, cache, features)
     uadb.save_json("data/character-search.json", {"characters": search, "series": series})
     uadb.log("home raid leaders", len(home_roster), "search characters", len(search), "titles", len(series))
-    sitemap.extend(write_spoilers(plan, combo_arches))
+    sitemap.extend(write_spoilers(plan, char_hubs))
     write_home(
         home_roster,
         recent,
@@ -4063,7 +4407,7 @@ def main() -> None:
         features,
         plan=plan,
         published=published,
-        pie_arches=combo_arches,
+        pie_arches=char_hubs,
     )
     write_characters_index(home_roster, features, cache, catalog)
     sitemap.extend(write_series_pages(catalog, features, cache))
@@ -4071,6 +4415,9 @@ def main() -> None:
     sitemap.extend(write_guides.write_pages(plan, cache, features))
     write_shop()
     write_partners()
+    write_about()
+    write_contact()
+    write_advertise()
     write_privacy()
     lastmod = (recent[0].get("when") if recent else "") or date.today().isoformat()
     stamp = lastmod[:10] if lastmod else ""
@@ -4081,7 +4428,20 @@ def main() -> None:
     write_sitemap(sitemap, lastmod=stamp, images=_SITEMAP_IMAGES, dates=_SITEMAP_DATES)
     write_404()
     uadb.save_json("data/site-index.json", index)
+    ok = not unresolved
+    uadb.save_json(
+        "data/build-status.json",
+        {
+            "ok": ok,
+            "unresolved": unresolved,
+            "unresolved_count": len(unresolved),
+            "last_list": stamp,
+        },
+    )
     uadb.log("wrote site", "pages", len(sitemap), "discord themes", board.get("theme_count"))
+    if unresolved:
+        uadb.log("BUILD FAIL", len(unresolved), "listed cards have no name or type. See data/unresolved-cards.json")
+        raise SystemExit(1)
 
 
 if __name__ == "__main__":
