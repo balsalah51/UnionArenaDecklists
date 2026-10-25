@@ -386,6 +386,11 @@ def scrape_exburst_events(
         if slug in SKIP_SLUGS or (stored or {}).get("slug") in SKIP_SLUGS:
             continue
         when = (tour.get("startDate") or payload.get("modified_date") or "")[:10]
+        raw_place = row.get("placement")
+        try:
+            placing = int(raw_place)
+        except (TypeError, ValueError):
+            placing = None
         item = item_from_counts(
             counts,
             key=arch_key,
@@ -396,6 +401,9 @@ def scrape_exburst_events(
             source_url=f"https://exburst.dev/ua/en/tournaments/{tour.get('id')}",
             slug=(stored or {}).get("slug") or slug,
             date=when,
+            placing=placing,
+            event_name=event,
+            event_date=when,
         )
         if upsert_tournament(found, seen, have, item, did):
             if stored and (stored.get("kind") or "") == "tournament":

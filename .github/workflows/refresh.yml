@@ -2,7 +2,8 @@ name: Refresh Union Arena data
 on:
   workflow_dispatch:
   schedule:
-    - cron: "0 6 * * 1"
+    # 12:00 UTC daily. That is 8:00 AM America/New_York during EDT and 7:00 AM during EST.
+    - cron: "0 12 * * *"
 jobs:
   refresh:
     runs-on: ubuntu-latest
@@ -27,3 +28,19 @@ jobs:
           git add -A
           git diff --cached --quiet || git commit -m "chore: refresh Union Arena meta"
           git push
+      - name: Fail the job if a source or a card was unresolved
+        run: |
+          python3 - <<'PY'
+          import json, sys
+          from pathlib import Path
+          failed = False
+          refresh = json.loads(Path("data/refresh-log.json").read_text()) if Path("data/refresh-log.json").is_file() else {}
+          for row in refresh.get("failures") or []:
+              print("REFRESH FAIL", row.get("source"), row.get("error"))
+              failed = True
+          status = json.loads(Path("data/build-status.json").read_text()) if Path("data/build-status.json").is_file() else {}
+          if status and not status.get("ok", True):
+              print("BUILD FAIL unresolved cards", status.get("unresolved_count"))
+              failed = True
+          sys.exit(1 if failed else 0)
+          PY

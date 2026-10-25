@@ -57,7 +57,7 @@ img.logo{display:block;padding:0;border:0}
 .brand-kicker{
   font-family:Nunito,ui-sans-serif,sans-serif;
   font-size:11px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;
-  color:#8a6f6f
+  color:#5c403c
 }
 .brand-name{
   font-family:Bungee,"Trebuchet MS",sans-serif;
@@ -72,7 +72,7 @@ nav a{
   padding:6px 10px;border-radius:999px;font-weight:700;font-size:13px;
   transition:background var(--ease),color var(--ease)
 }
-nav a:hover,nav a[aria-current="page"]{color:var(--accent);background:var(--accent-bleed)}
+nav a:hover,nav a[aria-current="page"]{color:#9b1515;background:var(--accent-bleed)}
 nav a:focus-visible{outline:2px solid var(--brand);outline-offset:2px}
 .theme-toggle{
   display:inline-flex;align-items:center;gap:6px;margin-left:4px;
@@ -270,7 +270,7 @@ main.single{grid-template-columns:1fr}
 .pie-tier-b{background:#e6d08a;color:#2a1a10}
 .pie-tier-c{background:#c4d4b0;color:#2a1a10}
 .pie-tier-d{background:#b7c7d4;color:#2a1a10}
-.pie-tier-none{background:#ece7e3;color:#6b6f73}
+.pie-tier-none{background:#ece7e3;color:#3e4246}
 .home-leaders-flow{margin-top:28px}
 .home-leaders-intro{
   padding:22px 22px 18px;border-radius:16px 16px 0 0;color:#3a3333;
@@ -278,10 +278,11 @@ main.single{grid-template-columns:1fr}
 }
 .home-leaders-kicker{
   margin:0 0 6px;font-size:11px;letter-spacing:.08em;text-transform:uppercase;
-  font-weight:800;color:#8a6f6f
+  font-weight:800;color:#5c403c
 }
 .home-leaders-intro h3{margin:0;font-size:28px;color:#3a3333;letter-spacing:-.02em}
-.home-leaders-intro p{margin:6px 0 0;font-weight:600;color:#6b6f73}
+.home-leaders-intro p{margin:6px 0 0;font-weight:600;color:#3e4246}
+.home-splash .muted,.home-splash-bar .muted{color:#f4efe8}
 .home-leaders-intro-row{display:flex;justify-content:space-between;align-items:flex-end;gap:16px}
 .home-leaders-search-link{
   color:#6e3a3a;font-weight:800;text-decoration:none;white-space:nowrap;
@@ -291,7 +292,7 @@ main.single{grid-template-columns:1fr}
 .char-search{margin-top:16px;max-width:640px;width:100%}
 .char-search-label{
   display:flex;flex-direction:column;gap:6px;
-  font-size:12px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:#8a6f6f
+  font-size:12px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:#5c403c
 }
 .char-search input{
   width:100%;padding:10px 12px;border-radius:10px;border:1px solid rgba(0,0,0,.12);
@@ -325,7 +326,7 @@ main.single{grid-template-columns:1fr}
 .home-ip-title{
   margin:0 0 12px;padding-bottom:8px;border-bottom:1px solid rgba(0,0,0,.08);
   font-size:12px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;
-  color:#8a6f6f
+  color:#5c403c
 }
 .home-ip-title a{color:inherit;text-decoration:none}
 .home-ip-title a:hover{color:var(--accent)}
@@ -402,7 +403,7 @@ a.item:hover{border-color:rgba(211,47,47,0.25);box-shadow:var(--shadow);transfor
   border:1px solid var(--card-border);background:linear-gradient(180deg,rgba(122,46,46,.05),#fff)
 }
 .partner-kicker{
-  margin:0 0 6px;font-size:11px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:#8a6f6f
+  margin:0 0 6px;font-size:11px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:#5c403c
 }
 .partner-band h2,.partner-card h2{margin:0;font-size:20px;color:var(--text)}
 .partner-band p{margin:8px 0 0;color:var(--muted);line-height:1.55}
@@ -565,6 +566,9 @@ a.pill:hover{color:var(--accent)}
 .color-purple{--tile:#6a1b9a}
 .color-black{--tile:#212121}
 .color-yellow{--tile:#c9a227}
+.color-yellow .qty{color:#2a1a10}
+.color-yellow .text-line .card-title,
+.leader-tile.color-yellow .name{color:#7a5c0c}
 .color-red-green{--tile:#d32f2f}
 .color-blue-yellow{--tile:#1565c0}
 .color-red-blue{--tile:#d32f2f}
@@ -625,8 +629,8 @@ a.pill:hover{color:var(--accent)}
 .deck-stats .kicker{font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);font-weight:800}
 .stat-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:8px}
 .curve{display:flex;align-items:end;gap:4px;height:72px}
-.curve span{flex:1;min-width:0;background:var(--tile, var(--accent));border-radius:4px 4px 0 0;opacity:.85;position:relative}
-.curve span em{position:absolute;left:0;right:0;bottom:100%;font-style:normal;font-size:10px;text-align:center;color:var(--muted);font-weight:700}
+.curve span{flex:1;min-width:0;background:color-mix(in srgb, var(--tile, var(--accent)) 85%, white);border-radius:4px 4px 0 0;position:relative}
+.curve span em{position:absolute;left:0;right:0;bottom:100%;font-style:normal;font-size:10px;text-align:center;color:#3e4246;font-weight:700}
 .counter-pills{display:flex;flex-wrap:wrap;gap:8px;margin-top:6px}
 .list-filters{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0 4px}
 .list-filters input,.list-filters select{
@@ -965,8 +969,8 @@ body.discord-app .copy-sim{
   box-shadow:0 2px 10px rgba(16,22,26,0.04);background:#fff
 }
 .tier-label{
-  display:flex;align-items:center;justify-content:center;
-  font-weight:900;font-size:26px;letter-spacing:.02em;color:#1b1b1b
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;
+  font-weight:900;font-size:26px;letter-spacing:.02em;color:#1b1b1b;padding:8px
 }
 .tier-s .tier-label{background:#7a2e2e;color:#fff}
 .tier-a .tier-label{background:#c9a24a;color:#2a1a10}
@@ -1066,7 +1070,8 @@ html[data-theme="dark"] .home-leaders-intro h3,
 html[data-theme="dark"] .home-leaders-intro p,
 html[data-theme="dark"] .char-hit-name{color:var(--text)}
 html[data-theme="dark"] .home-leaders-kicker,
-html[data-theme="dark"] .char-search-label{color:#c4a8a4}
+html[data-theme="dark"] .char-search-label,
+html[data-theme="dark"] .home-ip-title{color:#c4a8a4}
 html[data-theme="dark"] .home-leaders-search-link{color:#f3d8d2;border-bottom-color:rgba(243,216,210,.35)}
 html[data-theme="dark"] .char-search input,
 html[data-theme="dark"] .list-filters input,
@@ -1104,10 +1109,17 @@ html[data-theme="dark"] .footer-grid{border-top-color:rgba(255,255,255,.08)}
 html[data-theme="dark"] .footer-mark{color:var(--text)}
 html[data-theme="dark"] .footer-nav a{background:rgba(255,255,255,.06)}
 html[data-theme="dark"] nav a:hover,
-html[data-theme="dark"] nav a[aria-current="page"]{background:var(--accent-bleed)}
+html[data-theme="dark"] nav a[aria-current="page"]{color:var(--accent);background:var(--accent-bleed)}
+html[data-theme="dark"] .curve span em{color:#f3eee9}
 html[data-theme="dark"] body.discord-app{
   background:var(--bg);color:var(--text)
 }
 html[data-theme="dark"] body.discord-app .theme-toggle{
   background:#2b2d31;color:#f2f3f5;border-color:rgba(255,255,255,.16)
 }
+.affiliate-note{display:block;margin-top:6px;font-size:12px;line-height:1.35;max-width:42rem}
+.buy-wrap{display:inline-flex;flex-direction:column;align-items:flex-start;gap:4px;max-width:100%}
+.source-badge{display:inline-block;margin-right:6px;padding:1px 6px;border:1px solid currentColor;border-radius:999px;font-size:11px;font-weight:700;letter-spacing:.03em;text-transform:uppercase;vertical-align:middle}
+.tier-sample{display:block;margin-top:6px;font-size:12px;font-weight:600;letter-spacing:0;text-transform:none;line-height:1.3;max-width:9rem}
+.text-effect{display:block;margin-top:4px;font-size:13px;line-height:1.4}
+.footer-sources{max-width:38rem}

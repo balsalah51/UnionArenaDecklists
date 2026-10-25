@@ -1,8 +1,9 @@
 #!/usr/bin/env python3
-"""Shared helpers for Union Arena Deck Base, GitHub Pages static site."""
+"""Shared helpers for the Union Arena Decklists GitHub Pages site."""
 
 from __future__ import annotations
 
+import hashlib
 import html
 import json
 import re
@@ -22,11 +23,11 @@ BROWSER_UA = (
     "(KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36"
 )
 DISCORD = "https://discord.gg/aY9RfB662"
-SISTER_SITE = "https://onepiecedeckbase.com"
-SISTER_NAME = "One Piece Deck Base"
+SISTER_SITE = "https://onepiecedecklists.com"
+SISTER_NAME = "One Piece Decklists"
 BRAND = "Union Arena Decklists"
 SUBTITLE = "Add this list to your hand"
-CSS_VER = "ua31"
+CSS_VER = "ua34"
 JS_VER = "ua10"
 THEME_COOKIE = "uadb-theme"
 THEME_BOOT = """  <script>
@@ -47,9 +48,10 @@ ICON_512 = f"{SITE}/img/icon-512.png"
 SEARCH_PATH = "/characters.html"
 DEFAULT_ROBOTS = "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
 SITE_DESCRIPTION = (
-    "Public 50-card Union Arena TCG lists for English Standard. "
-    "Recent event 50s, character hubs, and a sourced tier board."
+    "Union Arena decklists, a Standard tier list, and character hubs. "
+    "Public 50-card English lists, event results, and ExBurst community 50s."
 )
+HOME_TITLE = "Union Arena Decklists, Tier List & Meta"
 CARD_IMG_SIZE = {
     "thumb": (28, 40),
     "tile": (72, 100),
@@ -62,7 +64,8 @@ FONT_LINKS = f"""  <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="preconnect" href="https://www.unionarena-tcg.com" crossorigin />
   <link rel="dns-prefetch" href="https://www.unionarena-tcg.com" />
-  <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet" media="print" onload="this.media='all'" />
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Bungee&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet" /></noscript>
   <link rel="icon" href="/img/icon-48.png" type="image/png" sizes="48x48" />
   <link rel="icon" href="/img/icon-192.png" type="image/png" sizes="192x192" />
   <link rel="icon" href="/favicon.ico" sizes="48x48" />
@@ -679,6 +682,7 @@ def seo_head(
         or img.endswith("/img/og-logo.png")
         or img.rstrip("/") == HERO_IMAGE.rstrip("/")
         or img.endswith("/img/uadb-hero.png")
+        or "/img/og/" in img
     ):
         og_size = (
             f'  <meta property="og:image:width" content="{OG_WIDTH}" />\n'
@@ -745,6 +749,7 @@ def footer_links() -> str:
         '        <div class="footer-col">\n'
         f'          <p class="footer-mark">© <span id="year"></span> {html.escape(BRAND)}</p>\n'
         "          <p>Fan site, not affiliated with Bandai.</p>\n"
+        "          <p class=\"footer-sources\">Lists from ExBurst and public events. Meta from TCG Contender. Card names and pictures from Bandai's official card list. Shop links from TCGplayer and Amazon.</p>\n"
         f'          <p>Sister site: <a href="{html.escape(SISTER_SITE)}" target="_blank" rel="noopener">{html.escape(SISTER_NAME)}</a></p>\n'
         '          <p class="footer-amazon">As an Amazon Associate I earn from qualifying purchases.</p>\n'
         "        </div>\n"
@@ -757,6 +762,9 @@ def footer_links() -> str:
         '          <a href="/format.html">Format</a>\n'
         '          <a href="/shop.html">Shop</a>\n'
         '          <a href="/partners.html">Partners</a>\n'
+        '          <a href="/about.html">About</a>\n'
+        '          <a href="/contact.html">Contact</a>\n'
+        '          <a href="/advertise.html">Advertise</a>\n'
         '          <a href="/discord/welcome.html">Discord</a>\n'
         '          <a href="/feed.xml">RSS</a>\n'
         '          <a href="/privacy.html">Privacy</a>\n'
@@ -822,6 +830,48 @@ def page_chrome(
 """)
 
 
+def html_redirect(target: str, title: str = "Moved", *, canonical: str = "") -> str:
+    """Meta refresh plus location.replace. GitHub Pages does not emit HTTP 301s."""
+    safe_href = html.escape(target, quote=True)
+    js = json.dumps(target)
+    canon = ""
+    if canonical:
+        canon = f'  <link rel="canonical" href="{html.escape(absolute_url(canonical), quote=True)}" />\n'
+    elif target.startswith("/"):
+        canon = f'  <link rel="canonical" href="{html.escape(absolute_url(target), quote=True)}" />\n'
+    return f"""<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>{html.escape(title)}</title>
+  <meta name="robots" content="noindex, follow" />
+{canon}  <meta http-equiv="refresh" content="0;url={safe_href}" />
+  <script>location.replace({js});</script>
+</head>
+<body>
+  <p>This page moved to <a href="{safe_href}">{html.escape(target)}</a>.</p>
+</body>
+</html>
+"""
+
+
+def write_tcg_go(mass_url: str, stable_key: str) -> str:
+    """Short internal URL that redirects to the TCGplayer affiliate mass-entry link."""
+    dest_url = (mass_url or "").strip()
+    if not dest_url:
+        return ""
+    if dest_url.startswith("/go/tcgplayer/"):
+        return dest_url
+    digest = hashlib.sha1((stable_key or dest_url).encode("utf-8")).hexdigest()[:12]
+    rel = f"go/tcgplayer/{digest}.html"
+    path = ROOT / rel
+    path.parent.mkdir(parents=True, exist_ok=True)
+    partner = tcgplayer_affiliate_url(dest_url)
+    path.write_text(html_redirect(partner, "Buy on TCGplayer"))
+    return f"/{rel}"
+
+
 def home_chrome(
     body: str,
     *,
@@ -831,7 +881,7 @@ def home_chrome(
     image_alt: str = "",
     json_ld: list[dict] | None = None,
 ) -> str:
-    page_t = title or page_title(BRAND)
+    page_t = title or HOME_TITLE
     page_d = description or SITE_DESCRIPTION
     ld = json_ld or [organization_ld(), website_ld()]
     brand_image = image or OG_IMAGE
@@ -1096,13 +1146,22 @@ def tcgplayer_median_price(cid: str, prices: dict | None = None) -> float:
     return val if val > 0 else 0.0
 
 
-def buy_deck_button(url: str, label: str = "Buy on TCGplayer") -> str:
+AFFILIATE_NOTE = "Buy links to TCGplayer are affiliate links. A purchase may earn this site a commission."
+
+
+def buy_deck_button(url: str, label: str = "Buy on TCGplayer", *, disclose: bool = False) -> str:
     if not url:
         return ""
     dest = tcgplayer_affiliate_url(url)
-    return (
+    link = (
         f'<a class="buy-tcg buy-deck buy-pill" href="{html.escape(dest, quote=True)}" '
         f'target="_blank" rel="noopener sponsored">{html.escape(label)}</a>'
+    )
+    if not disclose:
+        return link
+    return (
+        f'<span class="buy-wrap">{link}'
+        f'<span class="affiliate-note">{html.escape(AFFILIATE_NOTE)}</span></span>'
     )
 
 
@@ -1124,14 +1183,86 @@ def list_actions(*bits: str) -> str:
 
 
 def group_for(card_type: str) -> str:
-    t = (card_type or "character").lower()
+    """Group a card by its source type. Unknown types stay Other, not Character."""
+    t = (card_type or "").lower().strip()
     if t.startswith("event"):
         return "Events"
     if t.startswith("site") or t.startswith("field") or t.startswith("stage"):
         return "Sites"
-    if "action" in t or t == "ap":
+    if "action" in t or t in {"ap", "ap card"}:
         return "AP cards"
-    return "Characters"
+    if "character" in t:
+        return "Characters"
+    return "Other"
+
+
+INHERIT_FIELDS = (
+    "category",
+    "name",
+    "cost",
+    "color",
+    "effect",
+    "trigger",
+    "ap",
+    "bp",
+    "title",
+    "image",
+    "rarity",
+)
+
+
+def inherit_printings(cache: dict) -> int:
+    """Fill empty fields from another printing of the same collector number.
+
+    Promo and base cards share a number. A missing category on the base
+    printing is why events were filed under Character.
+    """
+    buckets: dict[str, list[tuple[str, dict]]] = defaultdict(list)
+    for cid, meta in cache.items():
+        if isinstance(meta, dict) and "/" in str(cid):
+            buckets[legal_number(cid)].append((str(cid), meta))
+    filled = 0
+    for cid, meta in cache.items():
+        if not isinstance(meta, dict):
+            continue
+        siblings = [row for other, row in buckets.get(legal_number(str(cid)), []) if other != cid]
+        siblings.sort(
+            key=lambda row: (
+                0 if (row.get("category") or row.get("type")) else 1,
+                1 if str(row.get("id") or "").startswith("UEPR") else 0,
+            )
+        )
+        changed = False
+        for field in INHERIT_FIELDS:
+            if meta.get(field):
+                continue
+            for sib in siblings:
+                val = sib.get(field)
+                if val:
+                    meta[field] = val
+                    changed = True
+                    break
+        if not meta.get("category") and meta.get("type"):
+            meta["category"] = meta["type"]
+            changed = True
+        name = str(meta.get("name") or "")
+        if name.lower().startswith("action point") and not meta.get("category"):
+            meta["category"] = "Action Point"
+            changed = True
+        if changed:
+            filled += 1
+    return filled
+
+
+def card_is_resolved(cid: str, meta: dict | None) -> bool:
+    meta = meta or {}
+    if not cid or "UNRESOLVED" in cid or "/" not in cid:
+        return False
+    name = str(meta.get("name") or "").strip()
+    if not name or name.upper() == cid.upper() or "/" in name:
+        return False
+    category = str(meta.get("category") or meta.get("type") or "").strip()
+    return bool(category)
 
 
 def legal_number(cid: str) -> str:
@@ -1166,6 +1297,9 @@ def parse_named_card(label: str) -> tuple[str, str | None]:
     if m:
         number = m.group(1).zfill(3)
     cleaned = STAMP_RE.sub(" ", raw)
+    # "(Box Topper Silver Foil)" and "(Box Topper Gold Foil)" are print stamps.
+    # "(Beast Titan)" and "(Doomsday Titan)" are printed character names and stay.
+    cleaned = re.sub(r"\s*\([^)]*(?:foil|topper)[^)]*\)\s*", " ", cleaned, flags=re.I)
     cleaned = re.sub(r"\s*\(\d{2,3}\)\s*", " ", cleaned)
     cleaned = re.sub(r"\s+", " ", cleaned).strip(" -")
     return cleaned or raw, number

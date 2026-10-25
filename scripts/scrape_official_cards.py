@@ -97,10 +97,30 @@ DETAIL_RE = {
     "name": re.compile(r'class="cardNameCol">\s*([^<]+)', re.S),
     "id": re.compile(r'class="cardNumData">([^<]+)', re.S),
     "rarity": re.compile(r'class="rareData">([^<]+)', re.S),
-    "type": re.compile(r'class="categoryData".*?class="cardDataContents">([^<]+)', re.S),
-    "bp": re.compile(r'class="bpData".*?class="cardDataContents">([^<]+)', re.S),
-    "ap": re.compile(r'class="apData".*?class="cardDataContents">([^<]+)', re.S),
+    # Bandai puts the type in class="cardDataCol categoryData", not class="categoryData".
+    "type": re.compile(
+        r'class="[^"]*categoryData"[^>]*>.*?class="cardDataContents">\s*([^<]+)',
+        re.S,
+    ),
+    "bp": re.compile(
+        r'class="[^"]*\bbpData\b".*?class="cardDataContents">\s*([^<]+)',
+        re.S,
+    ),
+    "ap": re.compile(
+        r'class="[^"]*\bapData\b".*?class="cardDataContents">\s*([^<]+)',
+        re.S,
+    ),
 }
+TITLE_RE = re.compile(
+    r'class="cardDataTitleCol[^"]*"[^>]*>\s*<img[^>]*alt="([^"]+)"',
+    re.S,
+)
+
+
+def _detail_text(blob: str) -> str:
+    text = re.sub(r'<img[^>]*alt="([^"]*)"[^>]*>', r" [\1] ", blob or "", flags=re.I)
+    text = re.sub(r"<[^>]+>", " ", text)
+    return " ".join(htmlmod.unescape(text).split())
 
 
 def enrich_one(cid: str) -> dict:
@@ -113,14 +133,15 @@ def enrich_one(cid: str) -> dict:
         m = rx.search(body)
         if m:
             extra[key] = htmlmod.unescape(m.group(1)).strip()
-    em = re.search(r'class="effectData".*?class="cardDataContents">(.*?)</dd>', body, re.S)
+    em = re.search(r'class="[^"]*effectData".*?class="cardDataContents">(.*?)</dd>', body, re.S)
     if em:
-        text = re.sub(r"<[^>]+>", " ", em.group(1))
-        extra["effect"] = " ".join(htmlmod.unescape(text).split())
-    tm = re.search(r'class="triggerData".*?class="cardDataContents">(.*?)</dd>', body, re.S)
+        extra["effect"] = _detail_text(em.group(1))
+    tm = re.search(r'class="[^"]*triggerData".*?class="cardDataContents">(.*?)</dd>', body, re.S)
     if tm:
-        text = re.sub(r"<[^>]+>", " ", tm.group(1))
-        extra["trigger"] = " ".join(htmlmod.unescape(text).split())
+        extra["trigger"] = _detail_text(tm.group(1))
+    title = TITLE_RE.search(body)
+    if title:
+        extra["title"] = htmlmod.unescape(title.group(1)).strip()
     cm = re.search(r'ico_character_energy_([a-z]+)(\d+)', body, re.I)
     if cm:
         extra["color"] = cm.group(1).title()
@@ -150,6 +171,63 @@ def enrich(cache: dict, ids: set[str]) -> dict:
             if done % 40 == 0:
                 uadb.log("  details", done, "/", len(missing))
     return cache
+
+
+def needs_official_fetch(cid: str, meta: dict | None) -> bool:
+    meta = meta or {}
+    if not cid or "UNRESOLVED" in cid or "/" not in cid:
+        return False
+    if cid.endswith(("_p1", "_p2")) or "-AP" in cid.upper():
+        return False
+    name = str(meta.get("name") or "").strip()
+    category = str(meta.get("category") or meta.get("type") or "").strip()
+    if not name or name.upper() == cid.upper() or "/" in name:
+        return True
+    return not category
+
+
+def fetch_missing(cache: dict, ids: list[str]) -> list[str]:
+    """Fetch Bandai detail pages for list cards the cache cannot name or type.
+
+    Returns card ids that are still unresolved after the fetch.
+    """
+    wanted = []
+    seen: set[str] = set()
+    for cid in ids:
+        if cid in seen:
+            continue
+        seen.add(cid)
+        if needs_official_fetch(cid, cache.get(cid)):
+            wanted.append(cid)
+    uadb.log("bandai detail fetch", len(wanted))
+    if not wanted:
+        return []
+    with ThreadPoolExecutor(max_workers=8) as pool:
+        futs = {pool.submit(enrich_one, cid): cid for cid in wanted}
+        done = 0
+        for fut in as_completed(futs):
+            cid = futs[fut]
+            try:
+                extra = fut.result() or {}
+            except Exception as exc:  # noqa: BLE001
+                uadb.log("bandai detail error", cid, exc)
+                extra = {}
+            if extra.get("name"):
+                row = cache.setdefault(cid, {"id": cid})
+                row.update({k: v for k, v in extra.items() if v})
+                row.setdefault("source", f"https://www.unionarena-tcg.com/na/cardlist/detail.php?card_no={cid}")
+                if not row.get("image"):
+                    row["image"] = uadb.official_image(cid)
+                if row.get("type") and not row.get("category"):
+                    row["category"] = row["type"]
+            done += 1
+            if done % 25 == 0 or done == len(wanted):
+                uadb.log("  bandai details", done, "/", len(wanted))
+    uadb.inherit_printings(cache)
+    unresolved = [cid for cid in wanted if needs_official_fetch(cid, cache.get(cid))]
+    for cid in unresolved:
+        uadb.log("UNRESOLVED CARD", cid)
+    return unresolved
 
 
 def main(only_used: set[str] | None = None) -> dict:

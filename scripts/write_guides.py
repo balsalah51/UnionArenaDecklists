@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Tier list and strategy guides, adapted from One Piece Deck Base for Union Arena.
+"""Tier list and strategy guides for Union Arena.
 
 Ranks use TCG Contender's numbered snapshot plus hosted event 50s on this site.
 Does not invent tournament results or matchup percentages.
@@ -58,6 +58,20 @@ def recent_cutoff(today: date | None = None) -> str:
 
 
 def placement_of(entry: dict) -> int | None:
+    """Prefer a stored place. The text parser is the same fallback as before.
+
+    Stored values outside 1-8 are ignored so a 16th-place row does not
+    become a top 8. The score weights are unchanged.
+    """
+    raw = entry.get("placing")
+    if raw not in (None, ""):
+        try:
+            n = int(raw)
+        except (TypeError, ValueError):
+            n = 0
+        if 1 <= n <= 8:
+            return n
+        return None
     blob = " ".join(
         [
             str(entry.get("player") or ""),
@@ -348,7 +362,7 @@ def collect_characters(hub_jobs: list, cache: dict, today: date | None = None) -
         arch = pack["arch"]
         name = arch.get("name") or ""
         nkey = gen.norm_name(name)
-        if not nkey or nkey in gen.COLOR_ONLY or not _is_board_name(name):
+        if not nkey or nkey in gen.COLOR_ONLY or nkey == "unsorted" or not _is_board_name(name):
             continue
         rec = groups.get(nkey)
         if rec is None:
@@ -664,6 +678,9 @@ def render_tier_board(board: list[dict], cache: dict) -> str:
             elif row.get("list_count"):
                 meta.append(f"{row['list_count']} lists")
             note = meta[0] if meta else (row.get("title") or "")
+            color = (row.get("color") or "").strip()
+            if color:
+                note = f"{color} · {note}" if note else color
             img_tag = (
                 f'<img src="{html.escape(img)}" alt="{html.escape(row["name"])} Union Arena character" loading="lazy" decoding="async" />'
                 if img
@@ -677,9 +694,13 @@ def render_tier_board(board: list[dict], cache: dict) -> str:
             </a>"""
             )
         body = "\n".join(tiles) if tiles else '            <p class="muted" style="margin:12px">No names in this row from the current snapshot.</p>'
+        n_chars = len(groups[letter])
+        n_lists = sum(int(row.get("list_count") or 0) for row in groups[letter])
+        n_results = sum(int(row.get("recent_results") or 0) for row in groups[letter])
+        sample = f"{n_chars} characters · {n_lists} lists · {n_results} recent results"
         chunks.append(
             f"""          <div class="tier-row tier-{letter.lower()}" id="tier-{letter.lower()}">
-            <div class="tier-label" aria-label="Tier {letter}">{letter}</div>
+            <div class="tier-label" aria-label="Tier {letter}, {html.escape(sample)}">{letter}<span class="tier-sample">{html.escape(sample)}</span></div>
             <div class="tier-leaders">
 {body}
             </div>
@@ -694,11 +715,14 @@ def render_tier_table(board: list[dict]) -> str:
         href = f"/{row['page']}" if row.get("page") else "/characters.html"
         share = f"{row['meta_share'] * 100:.1f}%" if row.get("meta_share") else "—"
         cont = row.get("contender_tier") or "—"
+        color = (row.get("color") or "").strip()
         rows.append(
             f"""            <tr>
               <td><strong>{html.escape(row['tier'])}</strong></td>
               <td><a href="{html.escape(href)}">{html.escape(row['name'])}</a></td>
+              <td>{html.escape(color)}</td>
               <td>{html.escape(row.get('title') or '')}</td>
+              <td>{row['list_count']}</td>
               <td>{row['recent_top8']}</td>
               <td>{row['recent_results']}</td>
               <td>{html.escape(share)}</td>
@@ -715,11 +739,13 @@ def render_tier_table(board: list[dict]) -> str:
               <tr>
                 <th>Tier</th>
                 <th>Character</th>
+                <th>Color</th>
                 <th>Title</th>
+                <th>Lists in sample</th>
                 <th>Recent top 8s</th>
                 <th>Recent results</th>
                 <th>Contender share</th>
-                <th>Contender #</th>
+                <th>Contender tier</th>
               </tr>
             </thead>
             <tbody>
@@ -732,6 +758,7 @@ def render_tier_table(board: list[dict]) -> str:
 def write_tier_list(plan: dict, cache: dict) -> str:
     board = plan.get("board") or []
     today = plan.get("today") or date.today().isoformat()
+    data_updated = plan.get("data_updated") or ""
     recent_from = plan.get("recent_from") or recent_cutoff()
     s_names = [r["name"] for r in board if r["tier"] == "S"]
     intro = (
@@ -766,7 +793,7 @@ def write_tier_list(plan: dict, cache: dict) -> str:
     body = f"""        {uadb.crumb_html([("/", "Home"), (None, "Tier list")])}
         <h1>Standard tier list</h1>
         <p>{html.escape(intro)}</p>
-        <p class="muted">Updated {html.escape(today)}. Character pictures open the hub on this site.</p>
+        <p class="muted">Last updated {html.escape(data_updated or today)}, from the newest list in this snapshot. The score window still ends {html.escape(today)} and covers the previous {RECENT_DAYS} days. Contender tier is TCG Contender's own tier number. Each row shows how many lists and recent results sit behind that letter. Character pictures open the character hub.</p>
         <div class="tier-board" aria-label="Union Arena Standard character tier list">
 {render_tier_board(board, cache)}
         </div>
@@ -778,7 +805,7 @@ def write_tier_list(plan: dict, cache: dict) -> str:
           </div>
           <ol>
             <li><a href="https://tcgcontender.com/unionarena/meta">TCG Contender Union Arena Standard snapshot</a> - numbered tiers and meta share used as the starting rank.</li>
-            <li>Hosted official, event, and tournament 50s on this site dated {html.escape(recent_from)} to {html.escape(today)}. Top 8s are read from the list title, player line, or slug.</li>
+            <li>Hosted official, event, and tournament 50s on this site dated {html.escape(recent_from)} to {html.escape(today)}. A stored placing is used when the list has one. Otherwise the place is still read from the title, player line, or slug. Score weights are unchanged.</li>
           </ol>
         </section>
         <section class="faq" id="faq">
@@ -1398,9 +1425,52 @@ def write_guides_index(plan: dict) -> str:
     return "guides/"
 
 
+def retired_guide_target(filename: str, hub_pages: set[str], guide_pages: set[str]) -> str:
+    """Keep a removed guide URL pointed at the character hub or the guide index."""
+    name = filename.rsplit("/", 1)[-1]
+    slug = name[:-len(".html")] if name.endswith(".html") else name
+    if slug.endswith("-strategy"):
+        slug = slug[: -len("-strategy")]
+    replacement = f"guides/{slug}-strategy.html"
+    if replacement in guide_pages and replacement != f"guides/{name}":
+        return f"/{replacement}"
+    exact = f"decklists/{slug}.html"
+    if exact in hub_pages:
+        return f"/{exact}"
+    longer = []
+    prefixes = []
+    for page in hub_pages:
+        stem = page.rsplit("/", 1)[-1][:-len(".html")]
+        if stem.startswith(slug + "-"):
+            longer.append(stem)
+        elif slug.startswith(stem + "-"):
+            prefixes.append(stem)
+    if longer:
+        longer.sort(key=len)
+        return f"/decklists/{longer[0]}.html"
+    if prefixes:
+        prefixes.sort(key=len, reverse=True)
+        return f"/decklists/{prefixes[0]}.html"
+    return "/guides/"
+
+
+def _live_hub_pages() -> set[str]:
+    base = uadb.ROOT / "decklists"
+    pages = set()
+    if not base.is_dir():
+        return pages
+    for path in base.glob("*.html"):
+        head = path.read_text(encoding="utf-8", errors="ignore")[:400]
+        if "<title>Moved</title>" in head:
+            continue
+        pages.add(path.relative_to(uadb.ROOT).as_posix())
+    return pages
+
+
 def write_pages(plan: dict, cache: dict, features: dict | None = None) -> list[str]:
     features = features or {}
     guides_dir = uadb.ROOT / "guides"
+    old_names = {p.name for p in guides_dir.glob("*.html")} if guides_dir.exists() else set()
     if guides_dir.exists():
         for old in guides_dir.glob("*.html"):
             old.unlink()
@@ -1415,4 +1485,13 @@ def write_pages(plan: dict, cache: dict, features: dict | None = None) -> list[s
     for g in plan.get("topic_guides") or []:
         title, desc, body = topic_guide_body(g, plan)
         paths.append(_write_guide_page(g, title, desc, body))
+    written = set(paths)
+    hubs = _live_hub_pages()
+    for name in sorted(old_names):
+        rel = f"guides/{name}"
+        if rel in written or name == "index.html":
+            continue
+        target = retired_guide_target(name, hubs, written)
+        (guides_dir / name).write_text(uadb.html_redirect(target, "Moved"), encoding="utf-8")
+        paths.append(rel)
     return paths

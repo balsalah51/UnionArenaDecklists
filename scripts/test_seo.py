@@ -65,8 +65,10 @@ class SeoChromeTests(unittest.TestCase):
             {
                 "name": "Taro Sakamoto",
                 "title": "Sakamoto Days",
-                "key": "sakamoto-days-yellow",
+                "key": "taro-sakamoto-yellow",
                 "from_color": True,
+                "color": "Yellow",
+                "color_hub": True,
             }
         )
         mismatched = hub_doc_title(
@@ -76,16 +78,19 @@ class SeoChromeTests(unittest.TestCase):
                 "key": "fullmetal-alchemist-olivier-mira-armstrong",
             }
         )
-        self.assertNotEqual(series_hub, short_hub)
+        self.assertEqual(series_hub, short_hub)
+        self.assertIn("Taro Sakamoto", series_hub)
         self.assertNotEqual(series_hub, color_hub)
         self.assertIn("Yellow", color_hub)
-        self.assertIn("Olivier", mismatched)
-        self.assertNotIn("Roy", mismatched)
+        self.assertIn("Roy", mismatched)
+        self.assertNotIn("Olivier", mismatched)
         asuka_purple = hub_doc_title(
             {
                 "name": "Asuka Shikinami Langley",
                 "title": "Evangelion",
                 "key": "asuka-shikinami-langley-purple",
+                "color_hub": True,
+                "color": "Purple",
             }
         )
         eva_purple = hub_doc_title(
@@ -155,7 +160,7 @@ class SeoChromeTests(unittest.TestCase):
         home = uadb.home_chrome("body")
         self.assertIn("data-theme-toggle", home)
         self.assertIn("uadb-theme", home)
-        self.assertIn("<title>Union Arena Decklists</title>", home)
+        self.assertIn("<title>Union Arena Decklists, Tier List &amp; Meta</title>", home)
         self.assertNotIn("Standard TCG 50-card lists", home)
         self.assertIn("/img/og-logo.png", home)
         self.assertNotIn("/img/uadb-hero.png", home)
@@ -348,32 +353,50 @@ class SeriesLinkTests(unittest.TestCase):
         arch = {"name": "Sung Jinwoo", "full": "Solo Leveling - Sung Jinwoo"}
         title = list_doc_title(
             arch,
-            {"title": "Solo Leveling - Sung Jinwoo", "kind": "event", "date": "2026-08-16"},
+            {
+                "title": "Solo Leveling - Sung Jinwoo",
+                "deck_name": "Solo Leveling - Sung Jinwoo",
+                "deck_color": "Purple",
+                "kind": "event",
+                "date": "2026-08-16",
+            },
         )
-        self.assertIn("event list", title)
+        self.assertIn("Sung Jinwoo", title)
+        self.assertIn("Purple", title)
         self.assertIn("2026-08-16", title)
+        self.assertNotIn("1471350", title)
         other = list_doc_title(
             arch,
-            {"title": "Solo Leveling - Sung Jinwoo", "kind": "contender", "date": "2026-08-23"},
+            {
+                "title": "Solo Leveling - Sung Jinwoo",
+                "deck_name": "Solo Leveling - Sung Jinwoo",
+                "deck_color": "Purple",
+                "kind": "contender",
+                "date": "2026-08-23",
+            },
         )
         self.assertNotEqual(title, other)
         placed = list_doc_title(
             arch,
             {
                 "title": "Solo Leveling - Sung Jinwoo",
+                "deck_name": "1st Solo Leveling",
+                "deck_color": "Purple",
                 "kind": "event",
                 "date": "2026-08-16",
                 "slug": "event-1st-solo-leveling-sung-jinwoo-1471350",
             },
         )
         self.assertIn("1st", placed)
-        self.assertIn("1471350", placed)
+        self.assertNotIn("1471350", placed)
         a = list_doc_title(
             arch,
             {
                 "title": "Rurouni Kenshin - Kenshin Himura",
+                "deck_name": "Rurouni Kenshin - Kenshin Himura",
                 "kind": "official",
                 "date": "2025-12-25",
+                "title_suffix": "Locals A",
                 "slug": "official-1st-place-rurouni-kenshin-kenshin-himura-6ukbcj",
                 "subtitle": "1st Place",
             },
@@ -382,13 +405,16 @@ class SeriesLinkTests(unittest.TestCase):
             arch,
             {
                 "title": "Rurouni Kenshin - Kenshin Himura",
+                "deck_name": "Rurouni Kenshin - Kenshin Himura",
                 "kind": "official",
                 "date": "2025-12-25",
+                "title_suffix": "Locals B",
                 "slug": "official-1st-place-rurouni-kenshin-kenshin-himura-5pwvqn",
                 "subtitle": "1st Place",
             },
         )
         self.assertNotEqual(a, b)
+        self.assertNotIn("6ukbcj", a)
         desc = generate_site.list_doc_description(
             arch,
             {"kind": "event", "date": "2026-08-16", "subtitle": "1st"},
@@ -565,7 +591,7 @@ class SeriesLinkTests(unittest.TestCase):
         self.assertIn("TCGplayer", html)
         self.assertIn("Amazon Associates", html)
         self.assertIn("Google AdSense", html)
-        self.assertIn("onepiecedeckbase.com", html)
+        self.assertIn("onepiecedecklists.com", html)
         self.assertIn("Not live here yet", html)
         self.assertIn("partner.tcgplayer.com", html)
         self.assertIn("Nothing here is an official Bandai deal", html)
