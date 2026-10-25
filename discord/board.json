@@ -19045,7 +19045,7 @@
             },
             {
               "count": 4,
-              "id": "UE01BT/BLC-1-085",
+              "id": "UE08BT/BLC-1-085",
               "name": "Toshiro Hitsugaya (085)",
               "group": "Characters"
             },
@@ -19063,7 +19063,7 @@
             },
             {
               "count": 2,
-              "id": "UE01BT/BLC-1-081",
+              "id": "UE08BT/BLC-1-081",
               "name": "Kenpachi Zaraki (081)",
               "group": "Characters"
             },
@@ -19116,7 +19116,7 @@
               "group": "Characters"
             }
           ],
-          "sim_text": "4xUEX01BT/BLC-2-067\n4xUE01BT/BLC-1-083\n4xUE01BT/BLC-1-085\n4xUE01BT/BLC-1-100\n3xUE01BT/BLC-1-080\n2xUE01BT/BLC-1-081\n4xUE01BT/BLC-1-096\n4xUE01BT/BLC-1-088\n4xUE01NC/BLC-3-008\n4xUEX01BT/BLC-2-066\n4xUEX01BT/BLC-2-063\n4xUEX01BT/BLC-2-005\n3xUE01BT/BLC-1-076\n2xUE01NC/BLC-3-010",
+          "sim_text": "4xUEX01BT/BLC-2-067\n4xUE01BT/BLC-1-083\n4xUE08BT/BLC-1-085\n4xUE01BT/BLC-1-100\n3xUE01BT/BLC-1-080\n2xUE08BT/BLC-1-081\n4xUE01BT/BLC-1-096\n4xUE01BT/BLC-1-088\n4xUE01NC/BLC-3-008\n4xUEX01BT/BLC-2-066\n4xUEX01BT/BLC-2-063\n4xUEX01BT/BLC-2-005\n3xUE01BT/BLC-1-076\n2xUE01NC/BLC-3-010",
           "cards": 50,
           "list_count": 116,
           "recent_lists": [
@@ -19240,7 +19240,7 @@
             },
             {
               "count": 4,
-              "id": "UE01BT/BLC-1-081",
+              "id": "UE08BT/BLC-1-081",
               "name": "Kenpachi Zaraki (081)",
               "group": "Characters"
             },
@@ -19287,7 +19287,7 @@
               "group": "Characters"
             }
           ],
-          "sim_text": "4xUE01BT/BLC-1-100\n4xUEX01BT/BLC-2-067\n4xUE01BT/BLC-1-080\n1xUE01BT/BLC-1-087\n4xUE01BT/BLC-1-082\n4xUE01BT/BLC-1-088\n4xUE01NC/BLC-3-008\n4xUE01BT/BLC-1-081\n4xUEX01BT/BLC-2-073\n4xUEX01BT/BLC-2-063\n4xUEX01BT/BLC-2-005\n4xUE01BT/BLC-1-067\n2xUE01BT/BLC-1-076\n2xUEX01BT/BLC-2-064\n1xUE01NC/BLC-3-010",
+          "sim_text": "4xUE01BT/BLC-1-100\n4xUEX01BT/BLC-2-067\n4xUE01BT/BLC-1-080\n1xUE01BT/BLC-1-087\n4xUE01BT/BLC-1-082\n4xUE01BT/BLC-1-088\n4xUE01NC/BLC-3-008\n4xUE08BT/BLC-1-081\n4xUEX01BT/BLC-2-073\n4xUEX01BT/BLC-2-063\n4xUEX01BT/BLC-2-005\n4xUE01BT/BLC-1-067\n2xUE01BT/BLC-1-076\n2xUEX01BT/BLC-2-064\n1xUE01NC/BLC-3-010",
           "cards": 50,
           "list_count": 9,
           "recent_lists": [
@@ -19423,7 +19423,7 @@
             },
             {
               "count": 2,
-              "id": "UE01BT/BLC-1-041",
+              "id": "UE08BT/BLC-1-041",
               "name": "Ichigo Kurosaki (041)",
               "group": "Characters"
             },
@@ -19446,7 +19446,7 @@
               "group": "Characters"
             }
           ],
-          "sim_text": "4xUE01BT/BLC-1-066\n4xUEX01BT/BLC-2-016\n4xUEPR/BLC-2-017\n4xUEX01BT/BLC-2-019\n4xUE01BT/BLC-1-039\n4xUE01BT/BLC-1-040\n4xUEX01BT/BLC-2-051\n4xUE01ST/BLC-1-103\n4xUEX01BT/BLC-2-057\n2xUE01BT/BLC-1-041\n4xUE01NC/BLC-3-001\n4xUEX01BT/BLC-2-058\n4xUE01BT/BLC-1-057",
+          "sim_text": "4xUE01BT/BLC-1-066\n4xUEX01BT/BLC-2-016\n4xUEPR/BLC-2-017\n4xUEX01BT/BLC-2-019\n4xUE01BT/BLC-1-039\n4xUE01BT/BLC-1-040\n4xUEX01BT/BLC-2-051\n4xUE01ST/BLC-1-103\n4xUEX01BT/BLC-2-057\n2xUE08BT/BLC-1-041\n4xUE01NC/BLC-3-001\n4xUEX01BT/BLC-2-058\n4xUE01BT/BLC-1-057",
           "cards": 50,
           "list_count": 148,
           "recent_lists": [
@@ -19558,7 +19558,7 @@
             },
             {
               "count": 4,
-              "id": "UE01BT/BLC-1-085",
+              "id": "UE08BT/BLC-1-085",
               "name": "Toshiro Hitsugaya (085)",
               "group": "Characters"
             },
@@ -19582,7 +19582,7 @@
             },
             {
               "count": 4,
-              "id": "UE01BT/BLC-1-081",
+              "id": "UE08BT/BLC-1-081",
               "name": "Kenpachi Zaraki (081)",
               "group": "Characters"
             },
@@ -19605,7 +19605,7 @@
               "group": "Characters"
             }
           ],
-          "sim_text": "4xUEX01BT/BLC-2-067\n4xUE01BT/BLC-1-100\n4xUE01BT/BLC-1-071\n4xUEX01BT/BLC-2-069\n4xUE01BT/BLC-1-083\n4xUE01BT/BLC-1-085\n3xUE01BT/BLC-1-072\n4xUE01BT/BLC-1-096\n4xUE01BT/BLC-1-088\n4xUE01BT/BLC-1-081\n4xUEX01BT/BLC-2-005\n4xUEX01BT/BLC-2-072\n3xUEX01BT/BLC-2-063",
+          "sim_text": "4xUEX01BT/BLC-2-067\n4xUE01BT/BLC-1-100\n4xUE01BT/BLC-1-071\n4xUEX01BT/BLC-2-069\n4xUE01BT/BLC-1-083\n4xUE08BT/BLC-1-085\n3xUE01BT/BLC-1-072\n4xUE01BT/BLC-1-096\n4xUE01BT/BLC-1-088\n4xUE08BT/BLC-1-081\n4xUEX01BT/BLC-2-005\n4xUEX01BT/BLC-2-072\n3xUEX01BT/BLC-2-063",
           "cards": 50,
           "list_count": 53,
           "recent_lists": [
@@ -20897,8 +20897,8 @@
             {
               "count": 4,
               "id": "UE01BT/BLC-1-051",
-              "name": "UE01BT/BLC-1-051",
-              "group": "Other"
+              "name": "Rukia Kuchiki (051)",
+              "group": "Characters"
             },
             {
               "count": 4,

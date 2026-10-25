@@ -1,31 +1,7 @@
 {
   "note": "GitHub Pages with .nojekyll cannot send an HTTP 301. Each old URL is an HTML file with a meta refresh and location.replace. The _redirects list is the same map for a host that supports 301s.",
-  "count": 10314,
+  "count": 10301,
   "redirects": [
-    {
-      "from": "/decklists/aaa-wunder.html",
-      "to": "/characters.html"
-    },
-    {
-      "from": "/decklists/abengane.html",
-      "to": "/characters.html"
-    },
-    {
-      "from": "/decklists/administrator-u.html",
-      "to": "/characters.html"
-    },
-    {
-      "from": "/decklists/anji-yukyuzan.html",
-      "to": "/characters.html"
-    },
-    {
-      "from": "/decklists/anya-alstreim-u.html",
-      "to": "/characters.html"
-    },
-    {
-      "from": "/decklists/aoi-todo-blue.html",
-      "to": "/decklists/aoi-todo.html"
-    },
     {
       "from": "/decklists/aot-tsk-bertholdt-hoover-colossal-titan.html",
       "to": "/decklists/milim.html"
@@ -33,22 +9,6 @@
     {
       "from": "/decklists/aot-tsk-bertholdt-hoover-colossal-titan/event-10th-aot-tsk-bertholdt-hoover-colossal-titan-1374530.html",
       "to": "/decklists/milim-green/event-10th-aot-tsk-bertholdt-hoover-colossal-titan-1374530.html"
-    },
-    {
-      "from": "/decklists/armored-titan.html",
-      "to": "/characters.html"
-    },
-    {
-      "from": "/decklists/asuka-shikinami-langley-purple.html",
-      "to": "/decklists/asuka-shikinami-langley.html"
-    },
-    {
-      "from": "/decklists/asuna-green.html",
-      "to": "/decklists/asuna.html"
-    },
-    {
-      "from": "/decklists/atomic-samurai.html",
-      "to": "/characters.html"
     },
     {
       "from": "/decklists/attack-on-titan-annie-leonhart-female-titan.html",
@@ -4063,10 +4023,6 @@
       "to": "/decklists/levi-yellow/exburst-coalition-attack-on-titan-125198.html"
     },
     {
-      "from": "/decklists/attack-on-titan/exburst-dear-subjects-of-ymir-my-name-is-eren-jaeger-attack-on-titan-1.html",
-      "to": "/characters.html"
-    },
-    {
       "from": "/decklists/attack-on-titan/exburst-doomsday-titan-aot-attack-on-titan-123696.html",
       "to": "/decklists/eren-jaeger-doomsday-titan-yellow/exburst-doomsday-titan-aot-attack-on-titan-123696.html"
     },
@@ -4283,24 +4239,12 @@
       "to": "/decklists/zeke-jaeger-beast-titan-yellow/exburst-yellow-rumbling-missing-cards-attack-on-titan-124404.html"
     },
     {
-      "from": "/decklists/bakko.html",
-      "to": "/characters.html"
-    },
-    {
-      "from": "/decklists/bazz-b.html",
-      "to": "/characters.html"
-    },
-    {
       "from": "/decklists/bcv-cgh-yyh-noelle-silva.html",
       "to": "/decklists/noelle-silva.html"
     },
     {
       "from": "/decklists/bcv-cgh-yyh-noelle-silva/event-13th-bcv-cgh-yyh-noelle-silva-1374533.html",
       "to": "/decklists/noelle-silva-red/event-13th-bcv-cgh-yyh-noelle-silva-1374533.html"
-    },
-    {
-      "from": "/decklists/bisky.html",
-      "to": "/characters.html"
     },
     {
       "from": "/decklists/black-clover-asta.html",
@@ -5199,10 +5143,6 @@
       "to": "/decklists/bambietta-basterbine-yellow/event-2nd-bleach-ichigo-kurosaki-1452884.html"
     },
     {
-      "from": "/decklists/bleach-ichigo-kurosaki/event-2nd-bleach-ichigo-kurosaki-1479621.html",
-      "to": "/decklists/ichigo-kurosaki.html"
-    },
-    {
       "from": "/decklists/bleach-ichigo-kurosaki/event-3rd-bleach-ichigo-kurosaki-1253643.html",
       "to": "/decklists/senjumaru-shutara-purple/event-3rd-bleach-ichigo-kurosaki-1253643.html"
     },
@@ -5221,10 +5161,6 @@
     {
       "from": "/decklists/bleach-ichigo-kurosaki/event-5th-bleach-ichigo-kurosaki-1471404.html",
       "to": "/decklists/mayuri-kurotsuchi-blue/event-5th-bleach-ichigo-kurosaki-1471404.html"
-    },
-    {
-      "from": "/decklists/bleach-ichigo-kurosaki/event-5th-bleach-ichigo-kurosaki-1471409.html",
-      "to": "/decklists/ichigo-kurosaki.html"
     },
     {
       "from": "/decklists/bleach-ichigo-kurosaki/event-5th-bleach-ichigo-kurosaki-1489249.html",
@@ -5785,10 +5721,6 @@
     {
       "from": "/decklists/bleach-kenny.html",
       "to": "/decklists/kenpachi-zaraki.html"
-    },
-    {
-      "from": "/decklists/bleach-kenny/contender-consensus.html",
-      "to": "/characters.html"
     },
     {
       "from": "/decklists/bleach-kenny/event-11th-bleach-kenny-1507928.html",
@@ -6623,34 +6555,6 @@
       "to": "/decklists/yhwach-yellow/event-7th-bleach-yhwach-1336153.html"
     },
     {
-      "from": "/decklists/boros.html",
-      "to": "/characters.html"
-    },
-    {
-      "from": "/decklists/buccaneer.html",
-      "to": "/characters.html"
-    },
-    {
-      "from": "/decklists/bui.html",
-      "to": "/characters.html"
-    },
-    {
-      "from": "/decklists/byakuya-kuchiki-blue.html",
-      "to": "/decklists/byakuya-kuchiki.html"
-    },
-    {
-      "from": "/decklists/carnage-kabuto.html",
-      "to": "/characters.html"
-    },
-    {
-      "from": "/decklists/carrion.html",
-      "to": "/characters.html"
-    },
-    {
-      "from": "/decklists/centichoro.html",
-      "to": "/characters.html"
-    },
-    {
       "from": "/decklists/cgh-eva-gawain.html",
       "to": "/decklists/evangelion-production-model-new-02.html"
     },
@@ -6661,18 +6565,6 @@
     {
       "from": "/decklists/cgh-eva-gawain/event-7th-cgh-eva-gawain-1489275.html",
       "to": "/decklists/evangelion-production-model-new-02-purple/event-7th-cgh-eva-gawain-1489275.html"
-    },
-    {
-      "from": "/decklists/charlotte-roselei.html",
-      "to": "/characters.html"
-    },
-    {
-      "from": "/decklists/cho-sawagejo.html",
-      "to": "/characters.html"
-    },
-    {
-      "from": "/decklists/chu.html",
-      "to": "/characters.html"
     },
     {
       "from": "/decklists/code-geass-c-c.html",
@@ -6743,20 +6635,12 @@
       "to": "/decklists/suzaku-kururugi-green/contender-consensus.html"
     },
     {
-      "from": "/decklists/code-geass-suzaku-kururugi/event-10th-code-geass-suzaku-kururugi-1435488.html",
-      "to": "/decklists/suzaku-kururugi.html"
-    },
-    {
       "from": "/decklists/code-geass-suzaku-kururugi/event-10th-code-geass-suzaku-kururugi-62183.html",
       "to": "/decklists/suzaku-kururugi-green/event-10th-code-geass-suzaku-kururugi-62183.html"
     },
     {
       "from": "/decklists/code-geass-suzaku-kururugi/event-11th-code-geass-suzaku-kururugi-61821.html",
       "to": "/decklists/suzaku-kururugi-green/event-11th-code-geass-suzaku-kururugi-61821.html"
-    },
-    {
-      "from": "/decklists/code-geass-suzaku-kururugi/event-14th-code-geass-suzaku-kururugi-1461753.html",
-      "to": "/decklists/suzaku-kururugi.html"
     },
     {
       "from": "/decklists/code-geass-suzaku-kururugi/event-17th-code-geass-suzaku-kururugi-62190.html",
@@ -6809,10 +6693,6 @@
     {
       "from": "/decklists/code-geass-suzaku-kururugi/event-6th-code-geass-suzaku-kururugi-1402098.html",
       "to": "/decklists/suzaku-kururugi-green/event-6th-code-geass-suzaku-kururugi-1402098.html"
-    },
-    {
-      "from": "/decklists/code-geass-suzaku-kururugi/event-6th-code-geass-suzaku-kururugi-1471469.html",
-      "to": "/decklists/suzaku-kururugi.html"
     },
     {
       "from": "/decklists/code-geass-suzaku-kururugi/event-6th-code-geass-suzaku-kururugi-889964.html",
@@ -7423,14 +7303,6 @@
       "to": "/decklists/vincent-rolo-fighter-blue/event-5th-code-geass-vincent-rolo-fighter-1496615.html"
     },
     {
-      "from": "/decklists/colossal-titan-green.html",
-      "to": "/characters.html"
-    },
-    {
-      "from": "/decklists/colossal-titan.html",
-      "to": "/characters.html"
-    },
-    {
       "from": "/decklists/csm-aki-hayakawa.html",
       "to": "/decklists/aki-hayakawa.html"
     },
@@ -7455,10 +7327,6 @@
       "to": "/decklists/chainsaw-man-red/event-1st-csm-aki-hayakawa-1507920.html"
     },
     {
-      "from": "/decklists/csm-aki-hayakawa/event-2nd-csm-aki-hayakawa-1452869.html",
-      "to": "/characters.html"
-    },
-    {
       "from": "/decklists/csm-aki-hayakawa/event-2nd-csm-aki-hayakawa-1536693.html",
       "to": "/decklists/aki-hayakawa-red/event-2nd-csm-aki-hayakawa-1536693.html"
     },
@@ -7473,10 +7341,6 @@
     {
       "from": "/decklists/csm-aki-hayakawa/event-4th-csm-aki-hayakawa-1471345.html",
       "to": "/decklists/chainsaw-man-red/event-4th-csm-aki-hayakawa-1471345.html"
-    },
-    {
-      "from": "/decklists/csm-aki-hayakawa/event-4th-csm-aki-hayakawa-1479594.html",
-      "to": "/characters.html"
     },
     {
       "from": "/decklists/csm-aki-hayakawa/event-5th-csm-aki-hayakawa-1536723.html",
@@ -8319,10 +8183,6 @@
       "to": "/decklists/bomb-devil-purple/contender-consensus.html"
     },
     {
-      "from": "/decklists/csm-denji/event-10th-csm-denji-1461746.html",
-      "to": "/characters.html"
-    },
-    {
       "from": "/decklists/csm-denji/event-10th-csm-denji-1471332.html",
       "to": "/decklists/makima-purple/event-10th-csm-denji-1471332.html"
     },
@@ -8337,14 +8197,6 @@
     {
       "from": "/decklists/csm-denji/event-14th-csm-denji-1471448.html",
       "to": "/decklists/bomb-devil-purple/event-14th-csm-denji-1471448.html"
-    },
-    {
-      "from": "/decklists/csm-denji/event-14th-csm-denji-1489224.html",
-      "to": "/characters.html"
-    },
-    {
-      "from": "/decklists/csm-denji/event-1st-csm-denji-1446120.html",
-      "to": "/characters.html"
     },
     {
       "from": "/decklists/csm-denji/event-1st-csm-denji-1461740.html",
@@ -8399,10 +8251,6 @@
       "to": "/decklists/bomb-devil-purple/event-3rd-csm-denji-1446162.html"
     },
     {
-      "from": "/decklists/csm-denji/event-3rd-csm-denji-1452854.html",
-      "to": "/characters.html"
-    },
-    {
       "from": "/decklists/csm-denji/event-3rd-csm-denji-1628769.html",
       "to": "/decklists/bomb-devil-purple/event-3rd-csm-denji-1628769.html"
     },
@@ -8449,10 +8297,6 @@
     {
       "from": "/decklists/csm-denji/event-7th-csm-denji-1446126.html",
       "to": "/decklists/makima-purple/event-7th-csm-denji-1446126.html"
-    },
-    {
-      "from": "/decklists/csm-denji/event-7th-csm-denji-1452846.html",
-      "to": "/characters.html"
     },
     {
       "from": "/decklists/csm-denji/event-7th-csm-denji-1452858.html",
@@ -10019,10 +9863,6 @@
       "to": "/decklists/bomb-devil.html"
     },
     {
-      "from": "/decklists/csm-reze-wife/contender-consensus.html",
-      "to": "/characters.html"
-    },
-    {
       "from": "/decklists/csm-reze-wife/event-3rd-csm-reze-wife-1517204.html",
       "to": "/decklists/bomb-devil-purple/event-3rd-csm-reze-wife-1517204.html"
     },
@@ -10269,14 +10109,6 @@
     {
       "from": "/decklists/csm-yyh-elder-toguro/event-6th-csm-yyh-elder-toguro-1489274.html",
       "to": "/decklists/younger-toguro-purple/event-6th-csm-yyh-elder-toguro-1489274.html"
-    },
-    {
-      "from": "/decklists/daggrull.html",
-      "to": "/characters.html"
-    },
-    {
-      "from": "/decklists/daki.html",
-      "to": "/characters.html"
     },
     {
       "from": "/decklists/dante-zogratis/tournament-12th-dante-zogratis-108517.html",
@@ -11127,302 +10959,6 @@
       "to": "/decklists/zenitsu-agatsuma-red/event-8th-demon-slayer-zenitsu-agatsuma-62181.html"
     },
     {
-      "from": "/decklists/denji.html",
-      "to": "/characters.html"
-    },
-    {
-      "from": "/decklists/drake.html",
-      "to": "/characters.html"
-    },
-    {
-      "from": "/decklists/echidna-sr.html",
-      "to": "/characters.html"
-    },
-    {
-      "from": "/decklists/emilia-box-topper-gold-foil-yellow.html",
-      "to": "/decklists/emilia.html"
-    },
-    {
-      "from": "/decklists/emilia-box-topper-gold-foil-yellow/exburst-re-zero-2-starters-rez-emilia-131928.html",
-      "to": "/decklists/emilia.html"
-    },
-    {
-      "from": "/decklists/emilia-box-topper-gold-foil-yellow/exburst-selection-re-zero-emilia-127793.html",
-      "to": "/decklists/emilia.html"
-    },
-    {
-      "from": "/decklists/emilia-box-topper-gold-foil.html",
-      "to": "/decklists/emilia.html"
-    },
-    {
-      "from": "/decklists/eren-jaeger-doomsday-titan-box-topper-silver-foil-yellow.html",
-      "to": "/decklists/eren-jaeger-doomsday-titan.html"
-    },
-    {
-      "from": "/decklists/eren-jaeger-doomsday-titan-box-topper-silver-foil-yellow/exburst-and-after-i-die-i-want-her-to-be-hung-up-on-me-for-at-l-130676.html",
-      "to": "/decklists/eren-jaeger-doomsday-titan.html"
-    },
-    {
-      "from": "/decklists/eren-jaeger-doomsday-titan-box-topper-silver-foil-yellow/exburst-aot-rumbling-attack-on-titan-124327.html",
-      "to": "/decklists/eren-jaeger-doomsday-titan.html"
-    },
-    {
-      "from": "/decklists/eren-jaeger-doomsday-titan-box-topper-silver-foil-yellow/exburst-aot-rumbling-attack-on-titan-historia-reiss-130722.html",
-      "to": "/decklists/eren-jaeger-doomsday-titan.html"
-    },
-    {
-      "from": "/decklists/eren-jaeger-doomsday-titan-box-topper-silver-foil-yellow/exburst-aot-yellow-rumbling-vol2-v1-attack-on-titan-eren-jaeger-126499.html",
-      "to": "/decklists/eren-jaeger-doomsday-titan.html"
-    },
-    {
-      "from": "/decklists/eren-jaeger-doomsday-titan-box-topper-silver-foil-yellow/exburst-armin-eren-attack-on-titan-armin-arlelt-129967.html",
-      "to": "/decklists/eren-jaeger-doomsday-titan.html"
-    },
-    {
-      "from": "/decklists/eren-jaeger-doomsday-titan-box-topper-silver-foil-yellow/exburst-copy-doomsday-jaegar-of-shock-and-awe-attack-on-titan-z-126025.html",
-      "to": "/decklists/eren-jaeger-doomsday-titan.html"
-    },
-    {
-      "from": "/decklists/eren-jaeger-doomsday-titan-box-topper-silver-foil-yellow/exburst-doomsday-attack-on-titan-armin-arlelt-133939.html",
-      "to": "/decklists/eren-jaeger-doomsday-titan.html"
-    },
-    {
-      "from": "/decklists/eren-jaeger-doomsday-titan-box-topper-silver-foil-yellow/exburst-doomsday-attack-on-titan-zeke-jaeger-beast-titan-127038.html",
-      "to": "/decklists/eren-jaeger-doomsday-titan.html"
-    },
-    {
-      "from": "/decklists/eren-jaeger-doomsday-titan-box-topper-silver-foil-yellow/exburst-doomsday-titan-aot-attack-on-titan-123696.html",
-      "to": "/decklists/eren-jaeger-doomsday-titan.html"
-    },
-    {
-      "from": "/decklists/eren-jaeger-doomsday-titan-box-topper-silver-foil-yellow/exburst-doomsday-titan-aot-attack-on-titan-zeke-jaeger-beast-ti-125760.html",
-      "to": "/decklists/eren-jaeger-doomsday-titan.html"
-    },
-    {
-      "from": "/decklists/eren-jaeger-doomsday-titan-box-topper-silver-foil-yellow/exburst-doomsday-titan-attack-on-titan-zeke-jaeger-beast-titan-126116.html",
-      "to": "/decklists/eren-jaeger-doomsday-titan.html"
-    },
-    {
-      "from": "/decklists/eren-jaeger-doomsday-titan-box-topper-silver-foil-yellow/exburst-doooooooom-attack-on-titan-124772.html",
-      "to": "/decklists/eren-jaeger-doomsday-titan.html"
-    },
-    {
-      "from": "/decklists/eren-jaeger-doomsday-titan-box-topper-silver-foil-yellow/exburst-eren-jaegar-attack-on-titan-124842.html",
-      "to": "/decklists/eren-jaeger-doomsday-titan.html"
-    },
-    {
-      "from": "/decklists/eren-jaeger-doomsday-titan-box-topper-silver-foil-yellow/exburst-eren-jaeger-doomsday-titan-deck-attack-on-titan-124696.html",
-      "to": "/decklists/eren-jaeger-doomsday-titan.html"
-    },
-    {
-      "from": "/decklists/eren-jaeger-doomsday-titan-box-topper-silver-foil-yellow/exburst-eren-jaeger-doomsday-titan-deck-attack-on-titan-armin-a-130848.html",
-      "to": "/decklists/eren-jaeger-doomsday-titan.html"
-    },
-    {
-      "from": "/decklists/eren-jaeger-doomsday-titan-box-topper-silver-foil-yellow/exburst-eren-jaeger-doomsday-titan-deck-attack-on-titan-erwin-s-123086.html",
-      "to": "/decklists/eren-jaeger-doomsday-titan.html"
-    },
-    {
-      "from": "/decklists/eren-jaeger-doomsday-titan-box-topper-silver-foil-yellow/exburst-eren-jaeger-doomsday-titan-deck-attack-on-titan-erwin-s-127515.html",
-      "to": "/decklists/eren-jaeger-doomsday-titan.html"
-    },
-    {
-      "from": "/decklists/eren-jaeger-doomsday-titan-box-topper-silver-foil-yellow/exburst-eren-jaeger-doomsday-titan-deck-attack-on-titan-erwin-s-127834.html",
-      "to": "/decklists/eren-jaeger-doomsday-titan.html"
-    },
-    {
-      "from": "/decklists/eren-jaeger-doomsday-titan-box-topper-silver-foil-yellow/exburst-eren-jaeger-doomsday-titan-deck-attack-on-titan-erwin-s-128803.html",
-      "to": "/decklists/eren-jaeger-doomsday-titan.html"
-    },
-    {
-      "from": "/decklists/eren-jaeger-doomsday-titan-box-topper-silver-foil-yellow/exburst-eren-jaeger-doomsday-titan-deck-attack-on-titan-histori-130130.html",
-      "to": "/decklists/eren-jaeger-doomsday-titan.html"
-    },
-    {
-      "from": "/decklists/eren-jaeger-doomsday-titan-box-topper-silver-foil-yellow/exburst-eren-jaeger-doomsday-titan-deck-attack-on-titan-histori-130526.html",
-      "to": "/decklists/eren-jaeger-doomsday-titan.html"
-    },
-    {
-      "from": "/decklists/eren-jaeger-doomsday-titan-box-topper-silver-foil-yellow/exburst-eren-the-founder-attack-on-titan-zeke-jaeger-beast-tita-126130.html",
-      "to": "/decklists/eren-jaeger-doomsday-titan.html"
-    },
-    {
-      "from": "/decklists/eren-jaeger-doomsday-titan-box-topper-silver-foil-yellow/exburst-father-son-attack-on-titan-124425.html",
-      "to": "/decklists/eren-jaeger-doomsday-titan.html"
-    },
-    {
-      "from": "/decklists/eren-jaeger-doomsday-titan-box-topper-silver-foil-yellow/exburst-get-ready-to-rumble-attack-on-titan-124558.html",
-      "to": "/decklists/eren-jaeger-doomsday-titan.html"
-    },
-    {
-      "from": "/decklists/eren-jaeger-doomsday-titan-box-topper-silver-foil-yellow/exburst-let-s-get-ready-to-rumble-attack-on-titan-erwin-smith-127964.html",
-      "to": "/decklists/eren-jaeger-doomsday-titan.html"
-    },
-    {
-      "from": "/decklists/eren-jaeger-doomsday-titan-box-topper-silver-foil-yellow/exburst-ready-to-rumble-attack-on-titan-zeke-jaeger-beast-titan-126669.html",
-      "to": "/decklists/eren-jaeger-doomsday-titan.html"
-    },
-    {
-      "from": "/decklists/eren-jaeger-doomsday-titan-box-topper-silver-foil-yellow/exburst-rumble-my-bumble-attack-on-titan-armin-arlelt-130199.html",
-      "to": "/decklists/eren-jaeger-doomsday-titan.html"
-    },
-    {
-      "from": "/decklists/eren-jaeger-doomsday-titan-box-topper-silver-foil-yellow/exburst-rumbleeeee-attack-on-titan-erwin-smith-127379.html",
-      "to": "/decklists/eren-jaeger-doomsday-titan.html"
-    },
-    {
-      "from": "/decklists/eren-jaeger-doomsday-titan-box-topper-silver-foil-yellow/exburst-rumbling-attack-on-titan-124352.html",
-      "to": "/decklists/eren-jaeger-doomsday-titan.html"
-    },
-    {
-      "from": "/decklists/eren-jaeger-doomsday-titan-box-topper-silver-foil-yellow/exburst-rumbling-attack-on-titan-124517.html",
-      "to": "/decklists/eren-jaeger-doomsday-titan.html"
-    },
-    {
-      "from": "/decklists/eren-jaeger-doomsday-titan-box-topper-silver-foil-yellow/exburst-rumbling-attack-on-titan-124807.html",
-      "to": "/decklists/eren-jaeger-doomsday-titan.html"
-    },
-    {
-      "from": "/decklists/eren-jaeger-doomsday-titan-box-topper-silver-foil-yellow/exburst-rumbling-attack-on-titan-124872.html",
-      "to": "/decklists/eren-jaeger-doomsday-titan.html"
-    },
-    {
-      "from": "/decklists/eren-jaeger-doomsday-titan-box-topper-silver-foil-yellow/exburst-rumbling-attack-on-titan-125139.html",
-      "to": "/decklists/eren-jaeger-doomsday-titan.html"
-    },
-    {
-      "from": "/decklists/eren-jaeger-doomsday-titan-box-topper-silver-foil-yellow/exburst-rumbling-attack-on-titan-125332.html",
-      "to": "/decklists/eren-jaeger-doomsday-titan.html"
-    },
-    {
-      "from": "/decklists/eren-jaeger-doomsday-titan-box-topper-silver-foil-yellow/exburst-rumbling-attack-on-titan-armin-arlelt-123782.html",
-      "to": "/decklists/eren-jaeger-doomsday-titan.html"
-    },
-    {
-      "from": "/decklists/eren-jaeger-doomsday-titan-box-topper-silver-foil-yellow/exburst-rumbling-attack-on-titan-armin-arlelt-124373.html",
-      "to": "/decklists/eren-jaeger-doomsday-titan.html"
-    },
-    {
-      "from": "/decklists/eren-jaeger-doomsday-titan-box-topper-silver-foil-yellow/exburst-rumbling-attack-on-titan-eren-jaeger-attack-titan-123023.html",
-      "to": "/decklists/eren-jaeger-doomsday-titan.html"
-    },
-    {
-      "from": "/decklists/eren-jaeger-doomsday-titan-box-topper-silver-foil-yellow/exburst-rumbling-attack-on-titan-eren-jaeger-attack-titan-131648.html",
-      "to": "/decklists/eren-jaeger-doomsday-titan.html"
-    },
-    {
-      "from": "/decklists/eren-jaeger-doomsday-titan-box-topper-silver-foil-yellow/exburst-rumbling-attack-on-titan-eren-jaeger-attack-titan-131791.html",
-      "to": "/decklists/eren-jaeger-doomsday-titan.html"
-    },
-    {
-      "from": "/decklists/eren-jaeger-doomsday-titan-box-topper-silver-foil-yellow/exburst-rumbling-attack-on-titan-erwin-smith-126369.html",
-      "to": "/decklists/eren-jaeger-doomsday-titan.html"
-    },
-    {
-      "from": "/decklists/eren-jaeger-doomsday-titan-box-topper-silver-foil-yellow/exburst-rumbling-attack-on-titan-erwin-smith-127314.html",
-      "to": "/decklists/eren-jaeger-doomsday-titan.html"
-    },
-    {
-      "from": "/decklists/eren-jaeger-doomsday-titan-box-topper-silver-foil-yellow/exburst-rumbling-attack-on-titan-erwin-smith-127691.html",
-      "to": "/decklists/eren-jaeger-doomsday-titan.html"
-    },
-    {
-      "from": "/decklists/eren-jaeger-doomsday-titan-box-topper-silver-foil-yellow/exburst-rumbling-attack-on-titan-erwin-smith-128053.html",
-      "to": "/decklists/eren-jaeger-doomsday-titan.html"
-    },
-    {
-      "from": "/decklists/eren-jaeger-doomsday-titan-box-topper-silver-foil-yellow/exburst-rumbling-attack-on-titan-zeke-jaeger-beast-titan-126112.html",
-      "to": "/decklists/eren-jaeger-doomsday-titan.html"
-    },
-    {
-      "from": "/decklists/eren-jaeger-doomsday-titan-box-topper-silver-foil-yellow/exburst-rumbling-attack-on-titan-zeke-jaeger-beast-titan-127124.html",
-      "to": "/decklists/eren-jaeger-doomsday-titan.html"
-    },
-    {
-      "from": "/decklists/eren-jaeger-doomsday-titan-box-topper-silver-foil-yellow/exburst-rumbling-copy-attack-on-titan-armin-arlelt-130089.html",
-      "to": "/decklists/eren-jaeger-doomsday-titan.html"
-    },
-    {
-      "from": "/decklists/eren-jaeger-doomsday-titan-box-topper-silver-foil-yellow/exburst-rumbling-deck-attack-on-titan-armin-arlelt-130448.html",
-      "to": "/decklists/eren-jaeger-doomsday-titan.html"
-    },
-    {
-      "from": "/decklists/eren-jaeger-doomsday-titan-box-topper-silver-foil-yellow/exburst-rumbling-in-the-jungle-attack-on-titan-erwin-smith-127646.html",
-      "to": "/decklists/eren-jaeger-doomsday-titan.html"
-    },
-    {
-      "from": "/decklists/eren-jaeger-doomsday-titan-box-topper-silver-foil-yellow/exburst-rumbling-rumbling-attack-on-titan-erwin-smith-128330.html",
-      "to": "/decklists/eren-jaeger-doomsday-titan.html"
-    },
-    {
-      "from": "/decklists/eren-jaeger-doomsday-titan-box-topper-silver-foil-yellow/exburst-subjects-of-ymir-aot-attack-on-titan-zeke-jaeger-beast-125764.html",
-      "to": "/decklists/eren-jaeger-doomsday-titan.html"
-    },
-    {
-      "from": "/decklists/eren-jaeger-doomsday-titan-box-topper-silver-foil-yellow/exburst-suicidal-maniac-attack-on-titan-124933.html",
-      "to": "/decklists/eren-jaeger-doomsday-titan.html"
-    },
-    {
-      "from": "/decklists/eren-jaeger-doomsday-titan-box-topper-silver-foil-yellow/exburst-the-rumbling-attack-on-titan-122927.html",
-      "to": "/decklists/eren-jaeger-doomsday-titan.html"
-    },
-    {
-      "from": "/decklists/eren-jaeger-doomsday-titan-box-topper-silver-foil-yellow/exburst-the-rumbling-attack-on-titan-124277.html",
-      "to": "/decklists/eren-jaeger-doomsday-titan.html"
-    },
-    {
-      "from": "/decklists/eren-jaeger-doomsday-titan-box-topper-silver-foil-yellow/exburst-the-rumbling-attack-on-titan-125084.html",
-      "to": "/decklists/eren-jaeger-doomsday-titan.html"
-    },
-    {
-      "from": "/decklists/eren-jaeger-doomsday-titan-box-topper-silver-foil-yellow/exburst-the-rumbling-attack-on-titan-erwin-smith-123244.html",
-      "to": "/decklists/eren-jaeger-doomsday-titan.html"
-    },
-    {
-      "from": "/decklists/eren-jaeger-doomsday-titan-box-topper-silver-foil-yellow/exburst-the-rumbling-attack-on-titan-erwin-smith-127446.html",
-      "to": "/decklists/eren-jaeger-doomsday-titan.html"
-    },
-    {
-      "from": "/decklists/eren-jaeger-doomsday-titan-box-topper-silver-foil-yellow/exburst-the-rumbling-testing-attack-on-titan-125250.html",
-      "to": "/decklists/eren-jaeger-doomsday-titan.html"
-    },
-    {
-      "from": "/decklists/eren-jaeger-doomsday-titan-box-topper-silver-foil-yellow/exburst-yellow-attack-on-titan-rumbling-attack-on-titan-124707.html",
-      "to": "/decklists/eren-jaeger-doomsday-titan.html"
-    },
-    {
-      "from": "/decklists/eren-jaeger-doomsday-titan-box-topper-silver-foil-yellow/exburst-yellow-rumbling-attack-on-titan-erwin-smith-123864.html",
-      "to": "/decklists/eren-jaeger-doomsday-titan.html"
-    },
-    {
-      "from": "/decklists/eren-jaeger-doomsday-titan-box-topper-silver-foil-yellow/exburst-yellow-titan-attack-on-titan-erwin-smith-128384.html",
-      "to": "/decklists/eren-jaeger-doomsday-titan.html"
-    },
-    {
-      "from": "/decklists/eren-jaeger-doomsday-titan-box-topper-silver-foil-yellow/exburst-yellow-yes-rumbling-attack-on-titan-zeke-jaeger-beast-t-125749.html",
-      "to": "/decklists/eren-jaeger-doomsday-titan.html"
-    },
-    {
-      "from": "/decklists/eren-jaeger-doomsday-titan-box-topper-silver-foil-yellow/exburst-yellow-zeke-jaeger-beast-titan-deck-attack-on-titan-zek-127842.html",
-      "to": "/decklists/eren-jaeger-doomsday-titan.html"
-    },
-    {
-      "from": "/decklists/eren-jaeger-doomsday-titan-box-topper-silver-foil-yellow/exburst-zeke-jaeger-beast-titan-deck-attack-on-titan-zeke-jaege-128529.html",
-      "to": "/decklists/eren-jaeger-doomsday-titan.html"
-    },
-    {
-      "from": "/decklists/eren-jaeger-doomsday-titan-box-topper-silver-foil.html",
-      "to": "/decklists/eren-jaeger-doomsday-titan.html"
-    },
-    {
-      "from": "/decklists/eugeo-synthesis-thirty-two.html",
-      "to": "/characters.html"
-    },
-    {
-      "from": "/decklists/euphemia-li-britannia.html",
-      "to": "/characters.html"
-    },
-    {
       "from": "/decklists/eva-jjk-rei-ayanami.html",
       "to": "/decklists/rei-ayanami.html"
     },
@@ -11525,10 +11061,6 @@
     {
       "from": "/decklists/evangelion-asuka-shikinami-langley/event-11th-evangelion-asuka-shikinami-langley-1213921.html",
       "to": "/decklists/mari-makinami-illustrious-yellow/event-11th-evangelion-asuka-shikinami-langley-1213921.html"
-    },
-    {
-      "from": "/decklists/evangelion-asuka-shikinami-langley/event-11th-evangelion-asuka-shikinami-langley-1461738.html",
-      "to": "/decklists/asuka-shikinami-langley.html"
     },
     {
       "from": "/decklists/evangelion-asuka-shikinami-langley/event-13th-evangelion-asuka-shikinami-langley-62186.html",
@@ -11853,10 +11385,6 @@
     {
       "from": "/decklists/evangelion-asuka-shikinami-langley/event-7th-evangelion-asuka-shikinami-langley-1291328.html",
       "to": "/decklists/rei-ayanami-yellow/event-7th-evangelion-asuka-shikinami-langley-1291328.html"
-    },
-    {
-      "from": "/decklists/evangelion-asuka-shikinami-langley/event-7th-evangelion-asuka-shikinami-langley-1479585.html",
-      "to": "/decklists/asuka-shikinami-langley.html"
     },
     {
       "from": "/decklists/evangelion-asuka-shikinami-langley/event-7th-evangelion-asuka-shikinami-langley-829709.html",
@@ -13699,14 +13227,6 @@
       "to": "/decklists/evangelion-production-model-02-beast-form-red/event-9th-evangelion-no-triggers-red-1388068.html"
     },
     {
-      "from": "/decklists/evangelion-production-model-03.html",
-      "to": "/characters.html"
-    },
-    {
-      "from": "/decklists/evangelion-provisional-unit-05.html",
-      "to": "/characters.html"
-    },
-    {
       "from": "/decklists/evangelion-purple-spear.html",
       "to": "/decklists/shinji-ikari.html"
     },
@@ -13717,10 +13237,6 @@
     {
       "from": "/decklists/evangelion-purple.html",
       "to": "/decklists/shinji-ikari.html"
-    },
-    {
-      "from": "/decklists/evangelion-purple/contender-consensus.html",
-      "to": "/characters.html"
     },
     {
       "from": "/decklists/evangelion-purple/official-3rd-place-evangelion-purple-go6qs1.html",
@@ -13753,14 +13269,6 @@
     {
       "from": "/decklists/evangelion-red-eva/event-5th-evangelion-red-eva-1461759.html",
       "to": "/decklists/evangelion-proto-type-00-red/event-5th-evangelion-red-eva-1461759.html"
-    },
-    {
-      "from": "/decklists/evangelion-red.html",
-      "to": "/characters.html"
-    },
-    {
-      "from": "/decklists/evangelion-red/contender-consensus.html",
-      "to": "/characters.html"
     },
     {
       "from": "/decklists/evangelion-redeva.html",
@@ -14227,10 +13735,6 @@
       "to": "/decklists/mari-makinami-illustrious-yellow/event-5th-evangelion-rei-ayanami-1345773.html"
     },
     {
-      "from": "/decklists/evangelion-rei-ayanami/event-5th-evangelion-rei-ayanami-1461759.html",
-      "to": "/decklists/rei-ayanami.html"
-    },
-    {
       "from": "/decklists/evangelion-rei-ayanami/event-5th-evangelion-rei-ayanami-1536656.html",
       "to": "/decklists/mari-makinami-illustrious-yellow/event-5th-evangelion-rei-ayanami-1536656.html"
     },
@@ -14285,10 +13789,6 @@
     {
       "from": "/decklists/evangelion-rei-ayanami/event-7th-evangelion-rei-ayanami-1402106.html",
       "to": "/decklists/mari-makinami-illustrious-yellow/event-7th-evangelion-rei-ayanami-1402106.html"
-    },
-    {
-      "from": "/decklists/evangelion-rei-ayanami/event-7th-evangelion-rei-ayanami-1435486.html",
-      "to": "/decklists/rei-ayanami.html"
     },
     {
       "from": "/decklists/evangelion-rei-ayanami/event-7th-evangelion-rei-ayanami-1446134.html",
@@ -15283,10 +14783,6 @@
       "to": "/decklists/mari-makinami-illustrious-yellow/event-10th-evangelion-speeds-girls-1345793.html"
     },
     {
-      "from": "/decklists/evangelion-test-type-01-pseudo-dms-phase.html",
-      "to": "/characters.html"
-    },
-    {
       "from": "/decklists/evangelion-wille-gaius.html",
       "to": "/decklists/shinji-ikari.html"
     },
@@ -15363,22 +14859,6 @@
       "to": "/decklists/mari-makinami-illustrious-yellow/event-3rd-evangelion-yellow-girls-1461742.html"
     },
     {
-      "from": "/decklists/evangelion-yellow.html",
-      "to": "/characters.html"
-    },
-    {
-      "from": "/decklists/evangelion-yellow/contender-consensus.html",
-      "to": "/characters.html"
-    },
-    {
-      "from": "/decklists/feitan.html",
-      "to": "/characters.html"
-    },
-    {
-      "from": "/decklists/ferris.html",
-      "to": "/characters.html"
-    },
-    {
       "from": "/decklists/fma-kmy-eva-jjk-tkg-smd-muzan-kibutsuji.html",
       "to": "/decklists/lust.html"
     },
@@ -15401,10 +14881,6 @@
     {
       "from": "/decklists/fma-smd-envy/event-19th-fma-smd-envy-1213850.html",
       "to": "/decklists/nagumo-purple/event-19th-fma-smd-envy-1213850.html"
-    },
-    {
-      "from": "/decklists/fuegoleon-vermillion.html",
-      "to": "/characters.html"
     },
     {
       "from": "/decklists/fullmetal-alchemist-alphonse-elric.html",
@@ -16067,10 +15543,6 @@
       "to": "/decklists/alex-louis-armstrong-blue/event-1st-fullmetal-alchemist-olivier-mira-armstrong-1452902.html"
     },
     {
-      "from": "/decklists/fullmetal-alchemist-olivier-mira-armstrong/event-6th-fullmetal-alchemist-olivier-mira-armstrong-1489242.html",
-      "to": "/decklists/olivier-mira-armstrong.html"
-    },
-    {
       "from": "/decklists/fullmetal-alchemist-olivier-mira-armstrong/exburst-big-briggs-energy-fullmetal-alchemist-olivier-mira-armst-27279.html",
       "to": "/decklists/olivier-mira-armstrong-blue/exburst-big-briggs-energy-fullmetal-alchemist-olivier-mira-armst-27279.html"
     },
@@ -16295,68 +15767,8 @@
       "to": "/decklists/roy-mustang-blue/tournament-9th-place-fullmetal-alchemist-roy-mustang-123831.html"
     },
     {
-      "from": "/decklists/garfiel-tinsel.html",
-      "to": "/characters.html"
-    },
-    {
-      "from": "/decklists/gawain.html",
-      "to": "/characters.html"
-    },
-    {
-      "from": "/decklists/genya-shinazugawa.html",
-      "to": "/characters.html"
-    },
-    {
-      "from": "/decklists/ginshi-shirazu.html",
-      "to": "/characters.html"
-    },
-    {
-      "from": "/decklists/gluttony.html",
-      "to": "/characters.html"
-    },
-    {
       "from": "/decklists/gon-freecss/tournament-16th-gon-freecss-108521.html",
       "to": "/decklists/gon-freecss-green/tournament-16th-gon-freecss-108521.html"
-    },
-    {
-      "from": "/decklists/goto-ryuji.html",
-      "to": "/characters.html"
-    },
-    {
-      "from": "/decklists/greed-purple.html",
-      "to": "/decklists/greed.html"
-    },
-    {
-      "from": "/decklists/greed-u.html",
-      "to": "/decklists/greed.html"
-    },
-    {
-      "from": "/decklists/gyomei-himejima-u.html",
-      "to": "/decklists/gyomei-himejima.html"
-    },
-    {
-      "from": "/decklists/hantengu.html",
-      "to": "/characters.html"
-    },
-    {
-      "from": "/decklists/hanzo.html",
-      "to": "/characters.html"
-    },
-    {
-      "from": "/decklists/heathcliff.html",
-      "to": "/characters.html"
-    },
-    {
-      "from": "/decklists/hiei-green.html",
-      "to": "/decklists/hiei.html"
-    },
-    {
-      "from": "/decklists/hisoka-green.html",
-      "to": "/decklists/hisoka.html"
-    },
-    {
-      "from": "/decklists/hisoka-purple.html",
-      "to": "/decklists/hisoka.html"
     },
     {
       "from": "/decklists/htr-blc-fma-rnk-genthru.html",
@@ -16845,50 +16257,6 @@
     {
       "from": "/decklists/hunter-x-hunter-leorio/event-4th-hunter-x-hunter-leorio-1452886.html",
       "to": "/decklists/gon-freecss-green/event-4th-hunter-x-hunter-leorio-1452886.html"
-    },
-    {
-      "from": "/decklists/hunter-x-hunter-mereoleona-vermillion.html",
-      "to": "/decklists/mereoleona-vermillion.html"
-    },
-    {
-      "from": "/decklists/hunter-x-hunter-mereoleona-vermillion/event-5th-opm-bcv-kj8-htr-mereoleona-vermillion-1479583.html",
-      "to": "/decklists/mereoleona-vermillion.html"
-    },
-    {
-      "from": "/decklists/hunter-x-hunter-mereoleona-vermillion/event-5th-opm-bcv-kj8-htr-mereoleona-vermillion-1489273.html",
-      "to": "/decklists/mereoleona-vermillion.html"
-    },
-    {
-      "from": "/decklists/ikuto-hagiwara.html",
-      "to": "/characters.html"
-    },
-    {
-      "from": "/decklists/illumi-u.html",
-      "to": "/decklists/illumi.html"
-    },
-    {
-      "from": "/decklists/invisibility-suit.html",
-      "to": "/characters.html"
-    },
-    {
-      "from": "/decklists/iwao-kuroiwa.html",
-      "to": "/characters.html"
-    },
-    {
-      "from": "/decklists/iys-i-wish-my-4th-kikyo-would-have-arrived-on-time.html",
-      "to": "/characters.html"
-    },
-    {
-      "from": "/decklists/iys-i-wish-my-4th-kikyo-would-have-arrived-on-time/contender-consensus.html",
-      "to": "/characters.html"
-    },
-    {
-      "from": "/decklists/iys-i-wish-my-4th-kikyo-would-have-arrived-on-time/event-11th-iys-i-wish-my-4th-kikyo-would-have-arrived-on-time-1517208.html",
-      "to": "/characters.html"
-    },
-    {
-      "from": "/decklists/iys-i-wish-my-4th-kikyo-would-have-arrived-on-time/event-15th-iys-i-wish-my-4th-kikyo-would-have-arrived-on-time-1517171.html",
-      "to": "/characters.html"
     },
     {
       "from": "/decklists/iys-inuyasha-deck.html",
@@ -18383,10 +17751,6 @@
       "to": "/decklists/inuyasha-red/event-2nd-iys-sit-down-browdy-xd-1517163.html"
     },
     {
-      "from": "/decklists/jackal.html",
-      "to": "/characters.html"
-    },
-    {
       "from": "/decklists/jjk-kj8-blc-nobara-kugisaki.html",
       "to": "/decklists/mina-ashiro.html"
     },
@@ -18433,18 +17797,6 @@
     {
       "from": "/decklists/jjk-tkg-yyh-fma-aoi-todo/event-8th-jjk-tkg-yyh-fma-aoi-todo-1388204.html",
       "to": "/decklists/aoi-todo-purple/event-8th-jjk-tkg-yyh-fma-aoi-todo-1388204.html"
-    },
-    {
-      "from": "/decklists/jogo-purple.html",
-      "to": "/characters.html"
-    },
-    {
-      "from": "/decklists/jogo-red.html",
-      "to": "/characters.html"
-    },
-    {
-      "from": "/decklists/jogo.html",
-      "to": "/characters.html"
     },
     {
       "from": "/decklists/jujutsu-kaisen-aoi-todo.html",
@@ -18605,10 +17957,6 @@
     {
       "from": "/decklists/jujutsu-kaisen-aoi-todo/event-6th-jujutsu-kaisen-aoi-todo-1471424.html",
       "to": "/decklists/aoi-todo-purple/event-6th-jujutsu-kaisen-aoi-todo-1471424.html"
-    },
-    {
-      "from": "/decklists/jujutsu-kaisen-aoi-todo/event-6th-jujutsu-kaisen-aoi-todo-1479624.html",
-      "to": "/decklists/aoi-todo.html"
     },
     {
       "from": "/decklists/jujutsu-kaisen-aoi-todo/event-7th-jujutsu-kaisen-aoi-todo-1212810.html",
@@ -19459,10 +18807,6 @@
       "to": "/decklists/sukuna.html"
     },
     {
-      "from": "/decklists/jujutsu-kaisen-purple/contender-consensus.html",
-      "to": "/characters.html"
-    },
-    {
       "from": "/decklists/jujutsu-kaisen-purple/exburst-blue-jjk-removal-jujutsu-kaisen-purple-86015.html",
       "to": "/decklists/sukuna-blue/exburst-blue-jjk-removal-jujutsu-kaisen-purple-86015.html"
     },
@@ -19983,10 +19327,6 @@
       "to": "/decklists/chihiro-rokuhira-red/event-16th-kagurabachi-chihiro-rokuhira-1001882.html"
     },
     {
-      "from": "/decklists/kagurabachi-chihiro-rokuhira/event-17th-kagurabachi-chihiro-rokuhira-1446173.html",
-      "to": "/decklists/chihiro-rokuhira.html"
-    },
-    {
       "from": "/decklists/kagurabachi-chihiro-rokuhira/event-19th-kagurabachi-chihiro-rokuhira-1388140.html",
       "to": "/decklists/chihiro-rokuhira-red/event-19th-kagurabachi-chihiro-rokuhira-1388140.html"
     },
@@ -20139,10 +19479,6 @@
       "to": "/decklists/chihiro-rokuhira-red/event-4th-kagurabachi-chihiro-rokuhira-1166733.html"
     },
     {
-      "from": "/decklists/kagurabachi-chihiro-rokuhira/event-4th-kagurabachi-chihiro-rokuhira-1461733.html",
-      "to": "/decklists/chihiro-rokuhira.html"
-    },
-    {
       "from": "/decklists/kagurabachi-chihiro-rokuhira/event-4th-kagurabachi-chihiro-rokuhira-1507960.html",
       "to": "/decklists/iori-samura-purple/event-4th-kagurabachi-chihiro-rokuhira-1507960.html"
     },
@@ -20183,14 +19519,6 @@
       "to": "/decklists/chihiro-rokuhira-red/event-5th-kagurabachi-chihiro-rokuhira-1212855.html"
     },
     {
-      "from": "/decklists/kagurabachi-chihiro-rokuhira/event-5th-kagurabachi-chihiro-rokuhira-1435497.html",
-      "to": "/decklists/chihiro-rokuhira.html"
-    },
-    {
-      "from": "/decklists/kagurabachi-chihiro-rokuhira/event-5th-kagurabachi-chihiro-rokuhira-1471468.html",
-      "to": "/decklists/chihiro-rokuhira.html"
-    },
-    {
       "from": "/decklists/kagurabachi-chihiro-rokuhira/event-5th-kagurabachi-chihiro-rokuhira-61815.html",
       "to": "/decklists/iori-samura-purple/event-5th-kagurabachi-chihiro-rokuhira-61815.html"
     },
@@ -20217,10 +19545,6 @@
     {
       "from": "/decklists/kagurabachi-chihiro-rokuhira/event-6th-kagurabachi-chihiro-rokuhira-1213857.html",
       "to": "/decklists/chihiro-rokuhira-red/event-6th-kagurabachi-chihiro-rokuhira-1213857.html"
-    },
-    {
-      "from": "/decklists/kagurabachi-chihiro-rokuhira/event-6th-kagurabachi-chihiro-rokuhira-1461783.html",
-      "to": "/decklists/chihiro-rokuhira.html"
     },
     {
       "from": "/decklists/kagurabachi-chihiro-rokuhira/event-6th-kagurabachi-chihiro-rokuhira-61802.html",
@@ -20281,10 +19605,6 @@
     {
       "from": "/decklists/kagurabachi-chihiro-rokuhira/event-9th-kagurabachi-chihiro-rokuhira-1077420.html",
       "to": "/decklists/chihiro-rokuhira-red/event-9th-kagurabachi-chihiro-rokuhira-1077420.html"
-    },
-    {
-      "from": "/decklists/kagurabachi-chihiro-rokuhira/event-9th-kagurabachi-chihiro-rokuhira-1452868.html",
-      "to": "/decklists/chihiro-rokuhira.html"
     },
     {
       "from": "/decklists/kagurabachi-chihiro-rokuhira/event-9th-kagurabachi-chihiro-rokuhira-61819.html",
@@ -21083,14 +20403,6 @@
       "to": "/decklists/chihiro-rokuhira-red/event-4th-kagurabachi-red-chihiro-hakuri-807774.html"
     },
     {
-      "from": "/decklists/kagurabachi-red.html",
-      "to": "/characters.html"
-    },
-    {
-      "from": "/decklists/kagurabachi-red/contender-consensus.html",
-      "to": "/characters.html"
-    },
-    {
       "from": "/decklists/kagurabachi-togo-shiba.html",
       "to": "/decklists/chihiro-rokuhira.html"
     },
@@ -21887,34 +21199,6 @@
       "to": "/decklists/mina-ashiro-yellow/event-7th-kaiju-no-8-yellow-mina-1001908.html"
     },
     {
-      "from": "/decklists/karasu.html",
-      "to": "/characters.html"
-    },
-    {
-      "from": "/decklists/kastro.html",
-      "to": "/characters.html"
-    },
-    {
-      "from": "/decklists/kasumi-miwa.html",
-      "to": "/characters.html"
-    },
-    {
-      "from": "/decklists/kenny-ackermann.html",
-      "to": "/characters.html"
-    },
-    {
-      "from": "/decklists/kenshin-himura-blue.html",
-      "to": "/decklists/kenshin-himura.html"
-    },
-    {
-      "from": "/decklists/kenshin-himura-purple.html",
-      "to": "/decklists/kenshin-himura.html"
-    },
-    {
-      "from": "/decklists/kento-nanami-red.html",
-      "to": "/decklists/kento-nanami.html"
-    },
-    {
       "from": "/decklists/kikoru-shinomiya/event-1st-kikoru-shinomiya-807681.html",
       "to": "/decklists/kikoru-shinomiya-yellow/event-1st-kikoru-shinomiya-807681.html"
     },
@@ -21933,14 +21217,6 @@
     {
       "from": "/decklists/kikoru-shinomiya/exburst-yellow-kikoru-sojiro-team-up-kikoru-shinomiya-110847.html",
       "to": "/decklists/kikoru-shinomiya-yellow/exburst-yellow-kikoru-sojiro-team-up-kikoru-shinomiya-110847.html"
-    },
-    {
-      "from": "/decklists/killua-zoldyck-green.html",
-      "to": "/decklists/killua-zoldyck.html"
-    },
-    {
-      "from": "/decklists/kishibe.html",
-      "to": "/characters.html"
     },
     {
       "from": "/decklists/kj8-eva-jjk-reno-ichikawa.html",
@@ -21975,120 +21251,8 @@
       "to": "/decklists/sung-jinwoo-purple/event-23rd-kmy-eva-slg-muzan-kibutsuji-1374543.html"
     },
     {
-      "from": "/decklists/kuki-urie.html",
-      "to": "/characters.html"
-    },
-    {
-      "from": "/decklists/kurama-green.html",
-      "to": "/characters.html"
-    },
-    {
-      "from": "/decklists/kurama.html",
-      "to": "/characters.html"
-    },
-    {
-      "from": "/decklists/kyojuro-rengoku-yellow.html",
-      "to": "/decklists/kyojuro-rengoku.html"
-    },
-    {
-      "from": "/decklists/leon.html",
-      "to": "/characters.html"
-    },
-    {
-      "from": "/decklists/leorio.html",
-      "to": "/characters.html"
-    },
-    {
-      "from": "/decklists/levi-red.html",
-      "to": "/decklists/levi.html"
-    },
-    {
-      "from": "/decklists/levi-sr.html",
-      "to": "/decklists/levi.html"
-    },
-    {
-      "from": "/decklists/loropechika.html",
-      "to": "/characters.html"
-    },
-    {
-      "from": "/decklists/lu-shaotang.html",
-      "to": "/characters.html"
-    },
-    {
-      "from": "/decklists/luck-voltia.html",
-      "to": "/characters.html"
-    },
-    {
-      "from": "/decklists/luminus-green.html",
-      "to": "/decklists/luminus.html"
-    },
-    {
-      "from": "/decklists/mahito-red.html",
-      "to": "/decklists/mahito.html"
-    },
-    {
-      "from": "/decklists/makoto-shishio.html",
-      "to": "/characters.html"
-    },
-    {
-      "from": "/decklists/marian.html",
-      "to": "/characters.html"
-    },
-    {
-      "from": "/decklists/maxwell.html",
-      "to": "/characters.html"
-    },
-    {
-      "from": "/decklists/mei-mei.html",
-      "to": "/characters.html"
-    },
-    {
-      "from": "/decklists/mereoleona-vermillion-red.html",
-      "to": "/decklists/mereoleona-vermillion.html"
-    },
-    {
-      "from": "/decklists/mikasa-ackermann-blue.html",
-      "to": "/decklists/mikasa-ackermann.html"
-    },
-    {
-      "from": "/decklists/milim-p-006.html",
-      "to": "/decklists/milim.html"
-    },
-    {
-      "from": "/decklists/mimosa-vermillion.html",
-      "to": "/characters.html"
-    },
-    {
-      "from": "/decklists/mina-ashiro-green.html",
-      "to": "/decklists/mina-ashiro.html"
-    },
-    {
       "from": "/decklists/mina-ashiro/event-7th-mina-ashiro-1234603.html",
       "to": "/decklists/mina-ashiro-yellow/event-7th-mina-ashiro-1234603.html"
-    },
-    {
-      "from": "/decklists/modernia-purple.html",
-      "to": "/decklists/modernia.html"
-    },
-    {
-      "from": "/decklists/nagumo-yellow.html",
-      "to": "/decklists/nagumo.html"
-    },
-    {
-      "from": "/decklists/nano-eiai-yellow.html",
-      "to": "/decklists/nano-eiai.html"
-    },
-    {
-      "from": "/decklists/neon-yellow.html",
-      "to": "/characters.html"
-    },
-    {
-      "from": "/decklists/neon.html",
-      "to": "/characters.html"
-    },
-    {
-      "from": "/decklists/nezuko-kamado.html",
-      "to": "/characters.html"
     },
     {
       "from": "/decklists/nikke-alice.html",
@@ -22527,14 +21691,6 @@
       "to": "/decklists/noelle-silva-red/tournament-13th-noelle-silva-108518.html"
     },
     {
-      "from": "/decklists/noro.html",
-      "to": "/characters.html"
-    },
-    {
-      "from": "/decklists/nozel-silva.html",
-      "to": "/characters.html"
-    },
-    {
       "from": "/decklists/one-punch-man-esper-sisters-yellow.html",
       "to": "/decklists/terrible-tornado.html"
     },
@@ -22575,10 +21731,6 @@
       "to": "/decklists/saitama.html"
     },
     {
-      "from": "/decklists/one-punch-man-green/contender-consensus.html",
-      "to": "/characters.html"
-    },
-    {
       "from": "/decklists/one-punch-man-green/event-12th-one-punch-man-green-1019680.html",
       "to": "/decklists/saitama-green/event-12th-one-punch-man-green-1019680.html"
     },
@@ -22599,14 +21751,6 @@
       "to": "/decklists/metal-bat-green/event-1st-one-punch-man-green-1213803.html"
     },
     {
-      "from": "/decklists/one-punch-man-green/event-1st-one-punch-man-green-1452891.html",
-      "to": "/characters.html"
-    },
-    {
-      "from": "/decklists/one-punch-man-green/event-1st-one-punch-man-green-1471464.html",
-      "to": "/characters.html"
-    },
-    {
       "from": "/decklists/one-punch-man-green/event-1st-one-punch-man-green-807689.html",
       "to": "/decklists/genos-yellow/event-1st-one-punch-man-green-807689.html"
     },
@@ -22619,10 +21763,6 @@
       "to": "/decklists/speed-o-sound-sonic-red/event-1st-one-punch-man-green-832878.html"
     },
     {
-      "from": "/decklists/one-punch-man-green/event-2nd-one-punch-man-green-1489206.html",
-      "to": "/characters.html"
-    },
-    {
       "from": "/decklists/one-punch-man-green/event-30th-one-punch-man-green-1001896.html",
       "to": "/decklists/saitama-green/event-30th-one-punch-man-green-1001896.html"
     },
@@ -22631,20 +21771,8 @@
       "to": "/decklists/metal-bat-green/event-3rd-one-punch-man-green-815918.html"
     },
     {
-      "from": "/decklists/one-punch-man-green/event-4th-one-punch-man-green-1479582.html",
-      "to": "/characters.html"
-    },
-    {
-      "from": "/decklists/one-punch-man-green/event-4th-one-punch-man-green-1479636.html",
-      "to": "/characters.html"
-    },
-    {
       "from": "/decklists/one-punch-man-green/event-5th-one-punch-man-green-1143768.html",
       "to": "/decklists/saitama-yellow/event-5th-one-punch-man-green-1143768.html"
-    },
-    {
-      "from": "/decklists/one-punch-man-green/event-5th-one-punch-man-green-1471393.html",
-      "to": "/characters.html"
     },
     {
       "from": "/decklists/one-punch-man-green/event-7th-one-punch-man-green-62180.html",
@@ -23327,14 +22455,6 @@
       "to": "/decklists/terrible-tornado-yellow/event-4th-one-punch-man-yellow-terrible-tornado-61866.html"
     },
     {
-      "from": "/decklists/opm-bcv-kj8-htr-mereoleona-vermillion.html",
-      "to": "/characters.html"
-    },
-    {
-      "from": "/decklists/opm-bcv-kj8-htr-mereoleona-vermillion/event-5th-opm-bcv-kj8-htr-mereoleona-vermillion-1479583.html",
-      "to": "/characters.html"
-    },
-    {
       "from": "/decklists/opm-eva-cgh-rnk-speed-o-sound-sonic.html",
       "to": "/decklists/speed-o-sound-sonic.html"
     },
@@ -23353,22 +22473,6 @@
     {
       "from": "/decklists/opm-eva-evangelion-proto-type-00/event-4th-opm-eva-evangelion-proto-type-00-1489272.html",
       "to": "/decklists/garou-red/event-4th-opm-eva-evangelion-proto-type-00-1489272.html"
-    },
-    {
-      "from": "/decklists/panda.html",
-      "to": "/characters.html"
-    },
-    {
-      "from": "/decklists/pig-god.html",
-      "to": "/characters.html"
-    },
-    {
-      "from": "/decklists/quilge-opie.html",
-      "to": "/characters.html"
-    },
-    {
-      "from": "/decklists/ram-yellow/exburst-emilia-deck-re-zero-125659.html",
-      "to": "/decklists/ram-yellow.html"
     },
     {
       "from": "/decklists/re-zero-beatrice.html",
@@ -24875,10 +23979,6 @@
       "to": "/decklists/emilia-yellow/exburst-emilia-starter-re-zero-125153.html"
     },
     {
-      "from": "/decklists/re-zero/exburst-emilia-tan-will-conquer-the-shadows-not-just-in-my-hear-127302.html",
-      "to": "/characters.html"
-    },
-    {
       "from": "/decklists/re-zero/exburst-emilia-yellow-re-zero-125285.html",
       "to": "/decklists/emilia-yellow/exburst-emilia-yellow-re-zero-125285.html"
     },
@@ -24981,10 +24081,6 @@
     {
       "from": "/decklists/re-zero/exburst-i-am-a-larper-re-zero-126237.html",
       "to": "/decklists/emilia-purple/exburst-i-am-a-larper-re-zero-126237.html"
-    },
-    {
-      "from": "/decklists/re-zero/exburst-i-cannot-believe-that-we-did-not-get-a-subaru-emilia-de-123845.html",
-      "to": "/characters.html"
     },
     {
       "from": "/decklists/re-zero/exburst-i-love-emilia-re-zero-124541.html",
@@ -25377,10 +24473,6 @@
     {
       "from": "/decklists/re-zero/exburst-re-zero-starter-re-zero-126976.html",
       "to": "/decklists/emilia-yellow/exburst-re-zero-starter-re-zero-126976.html"
-    },
-    {
-      "from": "/decklists/re-zero/exburst-re-zero-starting-life-in-another-world-starter-deck-re--127377.html",
-      "to": "/characters.html"
     },
     {
       "from": "/decklists/re-zero/exburst-re-zero-upgraded-precon-re-zero-126102.html",
@@ -26155,24 +25247,12 @@
       "to": "/decklists/rem-blue/exburst-you-are-my-hero-re-zero-125522.html"
     },
     {
-      "from": "/decklists/rem-yellow/exburst-re-zero-starter-re-zero-126976.html",
-      "to": "/decklists/rem-yellow.html"
-    },
-    {
-      "from": "/decklists/renji-yomo.html",
-      "to": "/characters.html"
-    },
-    {
       "from": "/decklists/reno-ichikawa.html",
       "to": "/decklists/kikoru-shinomiya.html"
     },
     {
       "from": "/decklists/reno-ichikawa/event-2nd-reno-ichikawa-62165.html",
       "to": "/decklists/kikoru-shinomiya-yellow/event-2nd-reno-ichikawa-62165.html"
-    },
-    {
-      "from": "/decklists/rentaro-aijo.html",
-      "to": "/characters.html"
     },
     {
       "from": "/decklists/rez-beatrice.html",
@@ -27031,10 +26111,6 @@
       "to": "/decklists/rem-yellow/tournament-7th-rez-rem-131806.html"
     },
     {
-      "from": "/decklists/riza-hawkeye-sr.html",
-      "to": "/decklists/riza-hawkeye.html"
-    },
-    {
       "from": "/decklists/rnk-bcv-kenshin-himura.html",
       "to": "/decklists/kenshin-himura.html"
     },
@@ -27069,22 +26145,6 @@
     {
       "from": "/decklists/rnk-tkg-kaoru-kamiya/event-16th-rnk-tkg-kaoru-kamiya-1213847.html",
       "to": "/decklists/kotaro-amon-red/event-16th-rnk-tkg-kaoru-kamiya-1213847.html"
-    },
-    {
-      "from": "/decklists/rod-reiss-titan.html",
-      "to": "/characters.html"
-    },
-    {
-      "from": "/decklists/rolo-lamperouge-red.html",
-      "to": "/decklists/rolo-lamperouge.html"
-    },
-    {
-      "from": "/decklists/roy-mustang-yellow.html",
-      "to": "/decklists/roy-mustang.html"
-    },
-    {
-      "from": "/decklists/rukia-kuchiki-purple.html",
-      "to": "/decklists/rukia-kuchiki.html"
     },
     {
       "from": "/decklists/rurouni-kenshin-aoshi-shinomori.html",
@@ -27255,10 +26315,6 @@
       "to": "/decklists/hajime-saito-purple/event-2nd-rurouni-kenshin-hajime-saito-1402101.html"
     },
     {
-      "from": "/decklists/rurouni-kenshin-hajime-saito/event-2nd-rurouni-kenshin-hajime-saito-1446161.html",
-      "to": "/decklists/hajime-saito.html"
-    },
-    {
       "from": "/decklists/rurouni-kenshin-hajime-saito/event-2nd-rurouni-kenshin-hajime-saito-1471381.html",
       "to": "/decklists/hajime-saito-purple/event-2nd-rurouni-kenshin-hajime-saito-1471381.html"
     },
@@ -27365,10 +26421,6 @@
     {
       "from": "/decklists/rurouni-kenshin-hajime-saito/event-6th-rurouni-kenshin-hajime-saito-1417906.html",
       "to": "/decklists/hajime-saito-purple/event-6th-rurouni-kenshin-hajime-saito-1417906.html"
-    },
-    {
-      "from": "/decklists/rurouni-kenshin-hajime-saito/event-6th-rurouni-kenshin-hajime-saito-1435485.html",
-      "to": "/decklists/hajime-saito.html"
     },
     {
       "from": "/decklists/rurouni-kenshin-hajime-saito/event-6th-rurouni-kenshin-hajime-saito-1508010.html",
@@ -29071,14 +28123,6 @@
       "to": "/decklists/kenshin-himura-red/event-4th-rurouni-kenshin-red-speed-1388063.html"
     },
     {
-      "from": "/decklists/rurouni-kenshin-red.html",
-      "to": "/characters.html"
-    },
-    {
-      "from": "/decklists/rurouni-kenshin-red/contender-consensus.html",
-      "to": "/characters.html"
-    },
-    {
       "from": "/decklists/rurouni-kenshin-saito-da-carry.html",
       "to": "/decklists/hajime-saito.html"
     },
@@ -29275,14 +28319,6 @@
       "to": "/decklists/kenshin-himura-red/event-2nd-rurouni-kenshin-terrorism-incarnate-1402136.html"
     },
     {
-      "from": "/decklists/saitama-gold.html",
-      "to": "/decklists/saitama.html"
-    },
-    {
-      "from": "/decklists/sajin-komamura.html",
-      "to": "/characters.html"
-    },
-    {
       "from": "/decklists/sakamoto-days-bringing-order-to-the-world.html",
       "to": "/decklists/osaragi.html"
     },
@@ -29373,10 +28409,6 @@
     {
       "from": "/decklists/sakamoto-days-heisuke-mashimo/event-3rd-sakamoto-days-heisuke-mashimo-1461762.html",
       "to": "/decklists/taro-sakamoto-yellow/event-3rd-sakamoto-days-heisuke-mashimo-1461762.html"
-    },
-    {
-      "from": "/decklists/sakamoto-days-heisuke-mashimo/event-3rd-sakamoto-days-heisuke-mashimo-1471466.html",
-      "to": "/decklists/heisuke-mashimo.html"
     },
     {
       "from": "/decklists/sakamoto-days-heisuke-mashimo/event-4th-sakamoto-days-heisuke-mashimo-1234592.html",
@@ -30207,14 +29239,6 @@
       "to": "/decklists/osaragi-purple/event-5th-sakamoto-days-purple-order-1388059.html"
     },
     {
-      "from": "/decklists/sakamoto-days-purple.html",
-      "to": "/characters.html"
-    },
-    {
-      "from": "/decklists/sakamoto-days-purple/contender-consensus.html",
-      "to": "/characters.html"
-    },
-    {
       "from": "/decklists/sakamoto-days-sakamoto-and-nagumo.html",
       "to": "/decklists/nagumo.html"
     },
@@ -30719,10 +29743,6 @@
       "to": "/decklists/osaragi.html"
     },
     {
-      "from": "/decklists/sakamoto-days-shishiba/contender-consensus.html",
-      "to": "/decklists/shishiba.html"
-    },
-    {
       "from": "/decklists/sakamoto-days-shishiba/event-1st-sakamoto-days-shishiba-1212804.html",
       "to": "/decklists/natsuki-seba-purple/event-1st-sakamoto-days-shishiba-1212804.html"
     },
@@ -30867,10 +29887,6 @@
       "to": "/decklists/taro-sakamoto-yellow/event-10th-sakamoto-days-pumped-up-kicks-sakamoto-hybrid-1402099.html"
     },
     {
-      "from": "/decklists/sakamoto-days-taro-sakamoto/event-10th-sakamoto-days-taro-sakamoto-1435527.html",
-      "to": "/decklists/taro-sakamoto.html"
-    },
-    {
       "from": "/decklists/sakamoto-days-taro-sakamoto/event-11th-sakamoto-days-taro-sakamoto-1388132.html",
       "to": "/decklists/taro-sakamoto-yellow/event-11th-sakamoto-days-taro-sakamoto-1388132.html"
     },
@@ -30917,14 +29933,6 @@
     {
       "from": "/decklists/sakamoto-days-taro-sakamoto/event-1st-sakamoto-days-taro-sakamoto-1388162.html",
       "to": "/decklists/taro-sakamoto-yellow/event-1st-sakamoto-days-taro-sakamoto-1388162.html"
-    },
-    {
-      "from": "/decklists/sakamoto-days-taro-sakamoto/event-1st-sakamoto-days-taro-sakamoto-1452852.html",
-      "to": "/decklists/taro-sakamoto.html"
-    },
-    {
-      "from": "/decklists/sakamoto-days-taro-sakamoto/event-1st-sakamoto-days-taro-sakamoto-1461732.html",
-      "to": "/decklists/taro-sakamoto.html"
     },
     {
       "from": "/decklists/sakamoto-days-taro-sakamoto/event-20th-sakamoto-days-taro-sakamoto-1388141.html",
@@ -31903,22 +30911,6 @@
       "to": "/decklists/taro-sakamoto-yellow/event-3rd-sakamoto-days-yellow-taro-sakamoto-deck-1628806.html"
     },
     {
-      "from": "/decklists/sakamoto-days-yellow.html",
-      "to": "/characters.html"
-    },
-    {
-      "from": "/decklists/sakamoto-days-yellow/contender-consensus.html",
-      "to": "/characters.html"
-    },
-    {
-      "from": "/decklists/sanemi-shinazugawa.html",
-      "to": "/characters.html"
-    },
-    {
-      "from": "/decklists/sanosuke-sagara-gold.html",
-      "to": "/decklists/sanosuke-sagara.html"
-    },
-    {
       "from": "/decklists/sao-fma-kmy-bcv-tkg-jjk-yuna.html",
       "to": "/decklists/yuna.html"
     },
@@ -31929,62 +30921,6 @@
     {
       "from": "/decklists/sao-fma-kmy-bcv-tkg-jjk-yuna/event-7th-sao-fma-kmy-bcv-tkg-jjk-yuna-1388203.html",
       "to": "/decklists/yuna-purple/event-7th-sao-fma-kmy-bcv-tkg-jjk-yuna-1388203.html"
-    },
-    {
-      "from": "/decklists/satoru-gojo-blue.html",
-      "to": "/decklists/satoru-gojo.html"
-    },
-    {
-      "from": "/decklists/satoru-gojo-red.html",
-      "to": "/decklists/satoru-gojo.html"
-    },
-    {
-      "from": "/decklists/satoru-gojo-u.html",
-      "to": "/decklists/satoru-gojo.html"
-    },
-    {
-      "from": "/decklists/scar.html",
-      "to": "/characters.html"
-    },
-    {
-      "from": "/decklists/sesshomaru-s-mother.html",
-      "to": "/characters.html"
-    },
-    {
-      "from": "/decklists/shikijo.html",
-      "to": "/characters.html"
-    },
-    {
-      "from": "/decklists/shinji-hirako.html",
-      "to": "/characters.html"
-    },
-    {
-      "from": "/decklists/shinobu-kocho.html",
-      "to": "/characters.html"
-    },
-    {
-      "from": "/decklists/shion-p-005.html",
-      "to": "/decklists/shion.html"
-    },
-    {
-      "from": "/decklists/shishiwakamaru.html",
-      "to": "/characters.html"
-    },
-    {
-      "from": "/decklists/shizu-u.html",
-      "to": "/decklists/shizu.html"
-    },
-    {
-      "from": "/decklists/shunsui-kyoraku.html",
-      "to": "/characters.html"
-    },
-    {
-      "from": "/decklists/siegfried.html",
-      "to": "/characters.html"
-    },
-    {
-      "from": "/decklists/sinon-sun-goddess-solus.html",
-      "to": "/characters.html"
     },
     {
       "from": "/decklists/slg-fma-blc-esil.html",
@@ -32017,10 +30953,6 @@
     {
       "from": "/decklists/smd-tkg-nagumo/event-11th-smd-tkg-nagumo-1213842.html",
       "to": "/decklists/ken-kaneki-purple/event-11th-smd-tkg-nagumo-1213842.html"
-    },
-    {
-      "from": "/decklists/soi-fon.html",
-      "to": "/characters.html"
     },
     {
       "from": "/decklists/solo-leveling-cha-hae-in.html",
@@ -32963,14 +31895,6 @@
       "to": "/decklists/sung-jinwoo-purple/event-2nd-solo-leveling-sung-jinwoo-1446114.html"
     },
     {
-      "from": "/decklists/solo-leveling-sung-jinwoo/event-2nd-solo-leveling-sung-jinwoo-1471401.html",
-      "to": "/decklists/sung-jinwoo.html"
-    },
-    {
-      "from": "/decklists/solo-leveling-sung-jinwoo/event-2nd-solo-leveling-sung-jinwoo-1479648.html",
-      "to": "/decklists/sung-jinwoo.html"
-    },
-    {
       "from": "/decklists/solo-leveling-sung-jinwoo/event-2nd-solo-leveling-sung-jinwoo-1507958.html",
       "to": "/decklists/sung-jinwoo-purple/event-2nd-solo-leveling-sung-jinwoo-1507958.html"
     },
@@ -33025,10 +31949,6 @@
     {
       "from": "/decklists/solo-leveling-sung-jinwoo/event-3rd-solo-leveling-sung-jinwoo-1471421.html",
       "to": "/decklists/sung-jinwoo-purple/event-3rd-solo-leveling-sung-jinwoo-1471421.html"
-    },
-    {
-      "from": "/decklists/solo-leveling-sung-jinwoo/event-3rd-solo-leveling-sung-jinwoo-1479615.html",
-      "to": "/decklists/sung-jinwoo.html"
     },
     {
       "from": "/decklists/solo-leveling-sung-jinwoo/event-3rd-solo-leveling-sung-jinwoo-1517156.html",
@@ -33165,10 +32085,6 @@
     {
       "from": "/decklists/solo-leveling-sung-jinwoo/event-5th-solo-leveling-sung-jinwoo-1435494.html",
       "to": "/decklists/sung-jinwoo-purple/event-5th-solo-leveling-sung-jinwoo-1435494.html"
-    },
-    {
-      "from": "/decklists/solo-leveling-sung-jinwoo/event-5th-solo-leveling-sung-jinwoo-1461734.html",
-      "to": "/decklists/sung-jinwoo.html"
     },
     {
       "from": "/decklists/solo-leveling-sung-jinwoo/event-5th-solo-leveling-sung-jinwoo-1461751.html",
@@ -34815,10 +33731,6 @@
       "to": "/decklists/sung-jinwoo-purple/event-5th-solo-leveling-1461734.html"
     },
     {
-      "from": "/decklists/soshiro-azami.html",
-      "to": "/characters.html"
-    },
-    {
       "from": "/decklists/soshiro-hoshina/event-20th-soshiro-hoshina-1001886.html",
       "to": "/decklists/soshiro-hoshina-green/event-20th-soshiro-hoshina-1001886.html"
     },
@@ -34849,26 +33761,6 @@
     {
       "from": "/decklists/soshiro-hoshina/exburst-welcome-to-the-defense-force-soshiro-hoshina-48257.html",
       "to": "/decklists/soshiro-hoshina-green/exburst-welcome-to-the-defense-force-soshiro-hoshina-48257.html"
-    },
-    {
-      "from": "/decklists/soya-sazanami.html",
-      "to": "/characters.html"
-    },
-    {
-      "from": "/decklists/suguru-geto-yellow.html",
-      "to": "/decklists/suguru-geto.html"
-    },
-    {
-      "from": "/decklists/sung-il-hwan.html",
-      "to": "/characters.html"
-    },
-    {
-      "from": "/decklists/sung-jinwoo-judge.html",
-      "to": "/decklists/sung-jinwoo.html"
-    },
-    {
-      "from": "/decklists/super-s.html",
-      "to": "/characters.html"
     },
     {
       "from": "/decklists/sword-art-online-alo-wasn-t-that-bad.html",
@@ -35425,10 +34317,6 @@
     {
       "from": "/decklists/sword-art-online-yuna/event-1st-sword-art-online-yuna-1479579.html",
       "to": "/decklists/kagura-purple/event-1st-sword-art-online-yuna-1479579.html"
-    },
-    {
-      "from": "/decklists/sword-art-online-yuna/event-1st-sword-art-online-yuna-1479645.html",
-      "to": "/decklists/yuna.html"
     },
     {
       "from": "/decklists/sword-art-online-yuna/event-1st-sword-art-online-yuna-807716.html",
@@ -36367,26 +35255,6 @@
       "to": "/decklists/kirito-purple/tournament-9th-sword-art-online-yuna-126249.html"
     },
     {
-      "from": "/decklists/takamura.html",
-      "to": "/characters.html"
-    },
-    {
-      "from": "/decklists/tatara.html",
-      "to": "/characters.html"
-    },
-    {
-      "from": "/decklists/team-genthru.html",
-      "to": "/characters.html"
-    },
-    {
-      "from": "/decklists/tengen-uzui-u.html",
-      "to": "/decklists/tengen-uzui.html"
-    },
-    {
-      "from": "/decklists/terrible-tornado-promotion-pack-2025.html",
-      "to": "/decklists/terrible-tornado.html"
-    },
-    {
       "from": "/decklists/that-time-i-got-reincarnated-as-a-slime-diablo.html",
       "to": "/decklists/rimuru.html"
     },
@@ -37019,10 +35887,6 @@
       "to": "/decklists/rimuru-purple/event-14th-that-time-i-got-reincarnated-as-a-slime-secretary-of-destru.html"
     },
     {
-      "from": "/decklists/that-time-i-got-reincarnated-as-a-slime-rimuru/event-1st-that-time-i-got-reincarnated-as-a-slime-rimuru-1452863.html",
-      "to": "/decklists/rimuru.html"
-    },
-    {
       "from": "/decklists/that-time-i-got-reincarnated-as-a-slime-rimuru/event-1st-that-time-i-got-reincarnated-as-a-slime-rimuru-1479646.html",
       "to": "/decklists/rimuru-blue/event-1st-that-time-i-got-reincarnated-as-a-slime-rimuru-1479646.html"
     },
@@ -37101,14 +35965,6 @@
     {
       "from": "/decklists/that-time-i-got-reincarnated-as-a-slime-rimuru/event-7th-that-time-i-got-reincarnated-as-a-slime-rimuru-1388168.html",
       "to": "/decklists/rimuru-purple/event-7th-that-time-i-got-reincarnated-as-a-slime-rimuru-1388168.html"
-    },
-    {
-      "from": "/decklists/that-time-i-got-reincarnated-as-a-slime-rimuru/event-7th-that-time-i-got-reincarnated-as-a-slime-rimuru-1471406.html",
-      "to": "/decklists/rimuru.html"
-    },
-    {
-      "from": "/decklists/that-time-i-got-reincarnated-as-a-slime-rimuru/event-9th-that-time-i-got-reincarnated-as-a-slime-rimuru-1479616.html",
-      "to": "/decklists/rimuru.html"
     },
     {
       "from": "/decklists/that-time-i-got-reincarnated-as-a-slime-rimuru/event-9th-that-time-i-got-reincarnated-as-a-slime-rimuru-1507919.html",
@@ -38455,36 +37311,8 @@
       "to": "/decklists/nano-eiai-green/event-21st-the-100-girlfriends-shizuka-yoshimoto-1446148.html"
     },
     {
-      "from": "/decklists/the-100-girlfriends-shizuka-yoshimoto/event-2nd-the-100-girlfriends-shizuka-yoshimoto-1452842.html",
-      "to": "/decklists/shizuka-yoshimoto.html"
-    },
-    {
-      "from": "/decklists/the-100-girlfriends-shizuka-yoshimoto/event-4th-the-100-girlfriends-shizuka-yoshimoto-1479666.html",
-      "to": "/decklists/shizuka-yoshimoto.html"
-    },
-    {
-      "from": "/decklists/the-100-girlfriends-shizuka-yoshimoto/event-4th-the-100-girlfriends-shizuka-yoshimoto-1489248.html",
-      "to": "/decklists/shizuka-yoshimoto.html"
-    },
-    {
-      "from": "/decklists/the-100-girlfriends-shizuka-yoshimoto/event-6th-the-100-girlfriends-shizuka-yoshimoto-1461770.html",
-      "to": "/decklists/shizuka-yoshimoto.html"
-    },
-    {
       "from": "/decklists/the-100-girlfriends-shizuka-yoshimoto/event-8th-the-100-girlfriends-shizuka-yoshimoto-1435518.html",
       "to": "/decklists/karane-inda-yellow/event-8th-the-100-girlfriends-shizuka-yoshimoto-1435518.html"
-    },
-    {
-      "from": "/decklists/the-100-girlfriends-shizuka-yoshimoto/event-8th-the-100-girlfriends-shizuka-yoshimoto-1489266.html",
-      "to": "/decklists/shizuka-yoshimoto.html"
-    },
-    {
-      "from": "/decklists/the-100-girlfriends-shizuka-yoshimoto/event-9th-the-100-girlfriends-shizuka-yoshimoto-1435519.html",
-      "to": "/decklists/shizuka-yoshimoto.html"
-    },
-    {
-      "from": "/decklists/the-100-girlfriends-shizuka-yoshimoto/event-9th-the-100-girlfriends-shizuka-yoshimoto-1471399.html",
-      "to": "/decklists/shizuka-yoshimoto.html"
     },
     {
       "from": "/decklists/the-100-girlfriends-shizuka-yoshimoto/exburst-100-events-the-100-girlfriends-shizuka-yoshimoto-106387.html",
@@ -38865,10 +37693,6 @@
     {
       "from": "/decklists/the-100-girlfriends-shizuka-yoshimoto/tournament-9th-the-100-girlfriends-shizuka-yoshimoto-112700.html",
       "to": "/decklists/kusuri-yakuzen-green/tournament-9th-the-100-girlfriends-shizuka-yoshimoto-112700.html"
-    },
-    {
-      "from": "/decklists/togo-shiba.html",
-      "to": "/characters.html"
     },
     {
       "from": "/decklists/tokyo-ghoul-akira-mado.html",
@@ -39455,10 +38279,6 @@
       "to": "/decklists/kotaro-amon-red/event-4th-tokyo-ghoul-kotaro-amon-1402113.html"
     },
     {
-      "from": "/decklists/tokyo-ghoul-kotaro-amon/event-4th-tokyo-ghoul-kotaro-amon-1446108.html",
-      "to": "/decklists/kotaro-amon.html"
-    },
-    {
       "from": "/decklists/tokyo-ghoul-kotaro-amon/event-4th-tokyo-ghoul-kotaro-amon-1517194.html",
       "to": "/decklists/kotaro-amon-red/event-4th-tokyo-ghoul-kotaro-amon-1517194.html"
     },
@@ -39717,14 +38537,6 @@
     {
       "from": "/decklists/tokyo-ghoul-kotaro-amon/tournament-8th-tokyo-ghoul-kotaro-amon-113737.html",
       "to": "/decklists/kisho-arima-yellow/tournament-8th-tokyo-ghoul-kotaro-amon-113737.html"
-    },
-    {
-      "from": "/decklists/tokyo-ghoul-purple.html",
-      "to": "/characters.html"
-    },
-    {
-      "from": "/decklists/tokyo-ghoul-purple/contender-consensus.html",
-      "to": "/characters.html"
     },
     {
       "from": "/decklists/tokyo-ghoul-red-purple.html",
@@ -40511,70 +39323,6 @@
       "to": "/decklists/aoi-todo-purple/event-17th-tsk-jjk-blc-tkg-luminus-1374537.html"
     },
     {
-      "from": "/decklists/usui-uonuma.html",
-      "to": "/characters.html"
-    },
-    {
-      "from": "/decklists/uvogin.html",
-      "to": "/characters.html"
-    },
-    {
-      "from": "/decklists/veldora-green.html",
-      "to": "/characters.html"
-    },
-    {
-      "from": "/decklists/veldora.html",
-      "to": "/characters.html"
-    },
-    {
-      "from": "/decklists/war-hammer-titan.html",
-      "to": "/characters.html"
-    },
-    {
-      "from": "/decklists/wilhelm-van-astrea.html",
-      "to": "/characters.html"
-    },
-    {
-      "from": "/decklists/wrath.html",
-      "to": "/characters.html"
-    },
-    {
-      "from": "/decklists/x.html",
-      "to": "/characters.html"
-    },
-    {
-      "from": "/decklists/yachiru-unohana.html",
-      "to": "/characters.html"
-    },
-    {
-      "from": "/decklists/yami-sukehiro-purple.html",
-      "to": "/decklists/yami-sukehiro.html"
-    },
-    {
-      "from": "/decklists/yami-sukehiro-red.html",
-      "to": "/decklists/yami-sukehiro.html"
-    },
-    {
-      "from": "/decklists/ymir-jaw-titan.html",
-      "to": "/characters.html"
-    },
-    {
-      "from": "/decklists/yoji-uruha.html",
-      "to": "/characters.html"
-    },
-    {
-      "from": "/decklists/yoriichi-type-zero.html",
-      "to": "/characters.html"
-    },
-    {
-      "from": "/decklists/yoruichi-shihoin.html",
-      "to": "/characters.html"
-    },
-    {
-      "from": "/decklists/younger-toguro-u.html",
-      "to": "/decklists/younger-toguro.html"
-    },
-    {
       "from": "/decklists/younger-toguro/tournament-5th-younger-toguro-98511.html",
       "to": "/decklists/younger-toguro-purple/tournament-5th-younger-toguro-98511.html"
     },
@@ -41147,18 +39895,6 @@
       "to": "/decklists/yusuke-urameshi-green/tournament-8th-yu-yu-hakusho-yusuke-urameshi-104564.html"
     },
     {
-      "from": "/decklists/yukinori-shinohara.html",
-      "to": "/characters.html"
-    },
-    {
-      "from": "/decklists/yuno-red.html",
-      "to": "/decklists/yuno.html"
-    },
-    {
-      "from": "/decklists/yusuke-urameshi-red.html",
-      "to": "/decklists/yusuke-urameshi.html"
-    },
-    {
       "from": "/decklists/yyh-eva-fma-kmy-kgr-blc-younger-toguro.html",
       "to": "/decklists/younger-toguro.html"
     },
@@ -41179,14 +39915,6 @@
       "to": "/decklists/younger-toguro-purple/event-5th-yyh-fma-tkg-kmy-eva-kgr-younger-toguro-1388201.html"
     },
     {
-      "from": "/decklists/zangetsu.html",
-      "to": "/characters.html"
-    },
-    {
-      "from": "/decklists/zeno.html",
-      "to": "/characters.html"
-    },
-    {
       "from": "/decklists/zenon-zogratis/tournament-6th-zenon-zogratis-108511.html",
       "to": "/decklists/zenon-zogratis-purple/tournament-6th-zenon-zogratis-108511.html"
     },
@@ -41199,64 +39927,1284 @@
       "to": "/decklists/zenon-zogratis-purple/tournament-9th-zenon-zogratis-98516.html"
     },
     {
+      "from": "/decklists/aaa-wunder.html",
+      "to": "/characters.html"
+    },
+    {
+      "from": "/decklists/abengane.html",
+      "to": "/characters.html"
+    },
+    {
+      "from": "/decklists/administrator-u.html",
+      "to": "/characters.html"
+    },
+    {
+      "from": "/decklists/anji-yukyuzan.html",
+      "to": "/characters.html"
+    },
+    {
+      "from": "/decklists/anya-alstreim-u.html",
+      "to": "/characters.html"
+    },
+    {
+      "from": "/decklists/aoi-todo-blue.html",
+      "to": "/decklists/aoi-todo.html"
+    },
+    {
+      "from": "/decklists/armored-titan.html",
+      "to": "/characters.html"
+    },
+    {
+      "from": "/decklists/asuka-shikinami-langley-purple.html",
+      "to": "/decklists/asuka-shikinami-langley.html"
+    },
+    {
+      "from": "/decklists/asuna-green.html",
+      "to": "/decklists/asuna.html"
+    },
+    {
+      "from": "/decklists/atomic-samurai.html",
+      "to": "/characters.html"
+    },
+    {
+      "from": "/decklists/attack-on-titan/exburst-dear-subjects-of-ymir-my-name-is-eren-jaeger-attack-on-titan-1.html",
+      "to": "/characters.html"
+    },
+    {
+      "from": "/decklists/bakko.html",
+      "to": "/characters.html"
+    },
+    {
+      "from": "/decklists/bazz-b.html",
+      "to": "/characters.html"
+    },
+    {
+      "from": "/decklists/bisky.html",
+      "to": "/characters.html"
+    },
+    {
+      "from": "/decklists/bleach-ichigo-kurosaki/event-2nd-bleach-ichigo-kurosaki-1479621.html",
+      "to": "/decklists/ichigo-kurosaki.html"
+    },
+    {
+      "from": "/decklists/bleach-ichigo-kurosaki/event-5th-bleach-ichigo-kurosaki-1471409.html",
+      "to": "/decklists/ichigo-kurosaki.html"
+    },
+    {
+      "from": "/decklists/bleach-kenny/contender-consensus.html",
+      "to": "/characters.html"
+    },
+    {
+      "from": "/decklists/boros.html",
+      "to": "/characters.html"
+    },
+    {
+      "from": "/decklists/buccaneer.html",
+      "to": "/characters.html"
+    },
+    {
+      "from": "/decklists/bui.html",
+      "to": "/characters.html"
+    },
+    {
+      "from": "/decklists/byakuya-kuchiki-blue.html",
+      "to": "/decklists/byakuya-kuchiki.html"
+    },
+    {
+      "from": "/decklists/carnage-kabuto.html",
+      "to": "/characters.html"
+    },
+    {
+      "from": "/decklists/carrion.html",
+      "to": "/characters.html"
+    },
+    {
+      "from": "/decklists/centichoro.html",
+      "to": "/characters.html"
+    },
+    {
+      "from": "/decklists/charlotte-roselei.html",
+      "to": "/characters.html"
+    },
+    {
+      "from": "/decklists/cho-sawagejo.html",
+      "to": "/characters.html"
+    },
+    {
+      "from": "/decklists/chu.html",
+      "to": "/characters.html"
+    },
+    {
+      "from": "/decklists/code-geass-suzaku-kururugi/event-10th-code-geass-suzaku-kururugi-1435488.html",
+      "to": "/decklists/suzaku-kururugi.html"
+    },
+    {
+      "from": "/decklists/code-geass-suzaku-kururugi/event-14th-code-geass-suzaku-kururugi-1461753.html",
+      "to": "/decklists/suzaku-kururugi.html"
+    },
+    {
+      "from": "/decklists/code-geass-suzaku-kururugi/event-6th-code-geass-suzaku-kururugi-1471469.html",
+      "to": "/decklists/suzaku-kururugi.html"
+    },
+    {
+      "from": "/decklists/colossal-titan-green.html",
+      "to": "/characters.html"
+    },
+    {
+      "from": "/decklists/colossal-titan.html",
+      "to": "/characters.html"
+    },
+    {
+      "from": "/decklists/csm-aki-hayakawa/event-2nd-csm-aki-hayakawa-1452869.html",
+      "to": "/characters.html"
+    },
+    {
+      "from": "/decklists/csm-aki-hayakawa/event-4th-csm-aki-hayakawa-1479594.html",
+      "to": "/characters.html"
+    },
+    {
+      "from": "/decklists/csm-denji/event-10th-csm-denji-1461746.html",
+      "to": "/characters.html"
+    },
+    {
+      "from": "/decklists/csm-denji/event-14th-csm-denji-1489224.html",
+      "to": "/characters.html"
+    },
+    {
+      "from": "/decklists/csm-denji/event-1st-csm-denji-1446120.html",
+      "to": "/characters.html"
+    },
+    {
+      "from": "/decklists/csm-denji/event-3rd-csm-denji-1452854.html",
+      "to": "/characters.html"
+    },
+    {
+      "from": "/decklists/csm-denji/event-7th-csm-denji-1452846.html",
+      "to": "/characters.html"
+    },
+    {
+      "from": "/decklists/csm-reze-wife/contender-consensus.html",
+      "to": "/characters.html"
+    },
+    {
+      "from": "/decklists/daggrull.html",
+      "to": "/characters.html"
+    },
+    {
+      "from": "/decklists/daki.html",
+      "to": "/characters.html"
+    },
+    {
+      "from": "/decklists/denji.html",
+      "to": "/characters.html"
+    },
+    {
+      "from": "/decklists/drake.html",
+      "to": "/characters.html"
+    },
+    {
+      "from": "/decklists/echidna-sr.html",
+      "to": "/characters.html"
+    },
+    {
+      "from": "/decklists/emilia-box-topper-gold-foil-yellow.html",
+      "to": "/decklists/emilia.html"
+    },
+    {
+      "from": "/decklists/emilia-box-topper-gold-foil-yellow/exburst-re-zero-2-starters-rez-emilia-131928.html",
+      "to": "/decklists/emilia.html"
+    },
+    {
+      "from": "/decklists/emilia-box-topper-gold-foil-yellow/exburst-selection-re-zero-emilia-127793.html",
+      "to": "/decklists/emilia.html"
+    },
+    {
+      "from": "/decklists/emilia-box-topper-gold-foil.html",
+      "to": "/decklists/emilia.html"
+    },
+    {
+      "from": "/decklists/eren-jaeger-doomsday-titan-box-topper-silver-foil-yellow.html",
+      "to": "/decklists/eren-jaeger-doomsday-titan.html"
+    },
+    {
+      "from": "/decklists/eren-jaeger-doomsday-titan-box-topper-silver-foil-yellow/exburst-and-after-i-die-i-want-her-to-be-hung-up-on-me-for-at-l-130676.html",
+      "to": "/decklists/eren-jaeger-doomsday-titan.html"
+    },
+    {
+      "from": "/decklists/eren-jaeger-doomsday-titan-box-topper-silver-foil-yellow/exburst-aot-rumbling-attack-on-titan-124327.html",
+      "to": "/decklists/eren-jaeger-doomsday-titan.html"
+    },
+    {
+      "from": "/decklists/eren-jaeger-doomsday-titan-box-topper-silver-foil-yellow/exburst-aot-rumbling-attack-on-titan-historia-reiss-130722.html",
+      "to": "/decklists/eren-jaeger-doomsday-titan.html"
+    },
+    {
+      "from": "/decklists/eren-jaeger-doomsday-titan-box-topper-silver-foil-yellow/exburst-aot-yellow-rumbling-vol2-v1-attack-on-titan-eren-jaeger-126499.html",
+      "to": "/decklists/eren-jaeger-doomsday-titan.html"
+    },
+    {
+      "from": "/decklists/eren-jaeger-doomsday-titan-box-topper-silver-foil-yellow/exburst-armin-eren-attack-on-titan-armin-arlelt-129967.html",
+      "to": "/decklists/eren-jaeger-doomsday-titan.html"
+    },
+    {
+      "from": "/decklists/eren-jaeger-doomsday-titan-box-topper-silver-foil-yellow/exburst-copy-doomsday-jaegar-of-shock-and-awe-attack-on-titan-z-126025.html",
+      "to": "/decklists/eren-jaeger-doomsday-titan.html"
+    },
+    {
+      "from": "/decklists/eren-jaeger-doomsday-titan-box-topper-silver-foil-yellow/exburst-doomsday-attack-on-titan-armin-arlelt-133939.html",
+      "to": "/decklists/eren-jaeger-doomsday-titan.html"
+    },
+    {
+      "from": "/decklists/eren-jaeger-doomsday-titan-box-topper-silver-foil-yellow/exburst-doomsday-attack-on-titan-zeke-jaeger-beast-titan-127038.html",
+      "to": "/decklists/eren-jaeger-doomsday-titan.html"
+    },
+    {
+      "from": "/decklists/eren-jaeger-doomsday-titan-box-topper-silver-foil-yellow/exburst-doomsday-titan-aot-attack-on-titan-123696.html",
+      "to": "/decklists/eren-jaeger-doomsday-titan.html"
+    },
+    {
+      "from": "/decklists/eren-jaeger-doomsday-titan-box-topper-silver-foil-yellow/exburst-doomsday-titan-aot-attack-on-titan-zeke-jaeger-beast-ti-125760.html",
+      "to": "/decklists/eren-jaeger-doomsday-titan.html"
+    },
+    {
+      "from": "/decklists/eren-jaeger-doomsday-titan-box-topper-silver-foil-yellow/exburst-doomsday-titan-attack-on-titan-zeke-jaeger-beast-titan-126116.html",
+      "to": "/decklists/eren-jaeger-doomsday-titan.html"
+    },
+    {
+      "from": "/decklists/eren-jaeger-doomsday-titan-box-topper-silver-foil-yellow/exburst-doooooooom-attack-on-titan-124772.html",
+      "to": "/decklists/eren-jaeger-doomsday-titan.html"
+    },
+    {
+      "from": "/decklists/eren-jaeger-doomsday-titan-box-topper-silver-foil-yellow/exburst-eren-jaegar-attack-on-titan-124842.html",
+      "to": "/decklists/eren-jaeger-doomsday-titan.html"
+    },
+    {
+      "from": "/decklists/eren-jaeger-doomsday-titan-box-topper-silver-foil-yellow/exburst-eren-jaeger-doomsday-titan-deck-attack-on-titan-124696.html",
+      "to": "/decklists/eren-jaeger-doomsday-titan.html"
+    },
+    {
+      "from": "/decklists/eren-jaeger-doomsday-titan-box-topper-silver-foil-yellow/exburst-eren-jaeger-doomsday-titan-deck-attack-on-titan-armin-a-130848.html",
+      "to": "/decklists/eren-jaeger-doomsday-titan.html"
+    },
+    {
+      "from": "/decklists/eren-jaeger-doomsday-titan-box-topper-silver-foil-yellow/exburst-eren-jaeger-doomsday-titan-deck-attack-on-titan-erwin-s-123086.html",
+      "to": "/decklists/eren-jaeger-doomsday-titan.html"
+    },
+    {
+      "from": "/decklists/eren-jaeger-doomsday-titan-box-topper-silver-foil-yellow/exburst-eren-jaeger-doomsday-titan-deck-attack-on-titan-erwin-s-127515.html",
+      "to": "/decklists/eren-jaeger-doomsday-titan.html"
+    },
+    {
+      "from": "/decklists/eren-jaeger-doomsday-titan-box-topper-silver-foil-yellow/exburst-eren-jaeger-doomsday-titan-deck-attack-on-titan-erwin-s-127834.html",
+      "to": "/decklists/eren-jaeger-doomsday-titan.html"
+    },
+    {
+      "from": "/decklists/eren-jaeger-doomsday-titan-box-topper-silver-foil-yellow/exburst-eren-jaeger-doomsday-titan-deck-attack-on-titan-erwin-s-128803.html",
+      "to": "/decklists/eren-jaeger-doomsday-titan.html"
+    },
+    {
+      "from": "/decklists/eren-jaeger-doomsday-titan-box-topper-silver-foil-yellow/exburst-eren-jaeger-doomsday-titan-deck-attack-on-titan-histori-130130.html",
+      "to": "/decklists/eren-jaeger-doomsday-titan.html"
+    },
+    {
+      "from": "/decklists/eren-jaeger-doomsday-titan-box-topper-silver-foil-yellow/exburst-eren-jaeger-doomsday-titan-deck-attack-on-titan-histori-130526.html",
+      "to": "/decklists/eren-jaeger-doomsday-titan.html"
+    },
+    {
+      "from": "/decklists/eren-jaeger-doomsday-titan-box-topper-silver-foil-yellow/exburst-eren-the-founder-attack-on-titan-zeke-jaeger-beast-tita-126130.html",
+      "to": "/decklists/eren-jaeger-doomsday-titan.html"
+    },
+    {
+      "from": "/decklists/eren-jaeger-doomsday-titan-box-topper-silver-foil-yellow/exburst-father-son-attack-on-titan-124425.html",
+      "to": "/decklists/eren-jaeger-doomsday-titan.html"
+    },
+    {
+      "from": "/decklists/eren-jaeger-doomsday-titan-box-topper-silver-foil-yellow/exburst-get-ready-to-rumble-attack-on-titan-124558.html",
+      "to": "/decklists/eren-jaeger-doomsday-titan.html"
+    },
+    {
+      "from": "/decklists/eren-jaeger-doomsday-titan-box-topper-silver-foil-yellow/exburst-let-s-get-ready-to-rumble-attack-on-titan-erwin-smith-127964.html",
+      "to": "/decklists/eren-jaeger-doomsday-titan.html"
+    },
+    {
+      "from": "/decklists/eren-jaeger-doomsday-titan-box-topper-silver-foil-yellow/exburst-ready-to-rumble-attack-on-titan-zeke-jaeger-beast-titan-126669.html",
+      "to": "/decklists/eren-jaeger-doomsday-titan.html"
+    },
+    {
+      "from": "/decklists/eren-jaeger-doomsday-titan-box-topper-silver-foil-yellow/exburst-rumble-my-bumble-attack-on-titan-armin-arlelt-130199.html",
+      "to": "/decklists/eren-jaeger-doomsday-titan.html"
+    },
+    {
+      "from": "/decklists/eren-jaeger-doomsday-titan-box-topper-silver-foil-yellow/exburst-rumbleeeee-attack-on-titan-erwin-smith-127379.html",
+      "to": "/decklists/eren-jaeger-doomsday-titan.html"
+    },
+    {
+      "from": "/decklists/eren-jaeger-doomsday-titan-box-topper-silver-foil-yellow/exburst-rumbling-attack-on-titan-124352.html",
+      "to": "/decklists/eren-jaeger-doomsday-titan.html"
+    },
+    {
+      "from": "/decklists/eren-jaeger-doomsday-titan-box-topper-silver-foil-yellow/exburst-rumbling-attack-on-titan-124517.html",
+      "to": "/decklists/eren-jaeger-doomsday-titan.html"
+    },
+    {
+      "from": "/decklists/eren-jaeger-doomsday-titan-box-topper-silver-foil-yellow/exburst-rumbling-attack-on-titan-124807.html",
+      "to": "/decklists/eren-jaeger-doomsday-titan.html"
+    },
+    {
+      "from": "/decklists/eren-jaeger-doomsday-titan-box-topper-silver-foil-yellow/exburst-rumbling-attack-on-titan-124872.html",
+      "to": "/decklists/eren-jaeger-doomsday-titan.html"
+    },
+    {
+      "from": "/decklists/eren-jaeger-doomsday-titan-box-topper-silver-foil-yellow/exburst-rumbling-attack-on-titan-125139.html",
+      "to": "/decklists/eren-jaeger-doomsday-titan.html"
+    },
+    {
+      "from": "/decklists/eren-jaeger-doomsday-titan-box-topper-silver-foil-yellow/exburst-rumbling-attack-on-titan-125332.html",
+      "to": "/decklists/eren-jaeger-doomsday-titan.html"
+    },
+    {
+      "from": "/decklists/eren-jaeger-doomsday-titan-box-topper-silver-foil-yellow/exburst-rumbling-attack-on-titan-armin-arlelt-123782.html",
+      "to": "/decklists/eren-jaeger-doomsday-titan.html"
+    },
+    {
+      "from": "/decklists/eren-jaeger-doomsday-titan-box-topper-silver-foil-yellow/exburst-rumbling-attack-on-titan-armin-arlelt-124373.html",
+      "to": "/decklists/eren-jaeger-doomsday-titan.html"
+    },
+    {
+      "from": "/decklists/eren-jaeger-doomsday-titan-box-topper-silver-foil-yellow/exburst-rumbling-attack-on-titan-eren-jaeger-attack-titan-123023.html",
+      "to": "/decklists/eren-jaeger-doomsday-titan.html"
+    },
+    {
+      "from": "/decklists/eren-jaeger-doomsday-titan-box-topper-silver-foil-yellow/exburst-rumbling-attack-on-titan-eren-jaeger-attack-titan-131648.html",
+      "to": "/decklists/eren-jaeger-doomsday-titan.html"
+    },
+    {
+      "from": "/decklists/eren-jaeger-doomsday-titan-box-topper-silver-foil-yellow/exburst-rumbling-attack-on-titan-eren-jaeger-attack-titan-131791.html",
+      "to": "/decklists/eren-jaeger-doomsday-titan.html"
+    },
+    {
+      "from": "/decklists/eren-jaeger-doomsday-titan-box-topper-silver-foil-yellow/exburst-rumbling-attack-on-titan-erwin-smith-126369.html",
+      "to": "/decklists/eren-jaeger-doomsday-titan.html"
+    },
+    {
+      "from": "/decklists/eren-jaeger-doomsday-titan-box-topper-silver-foil-yellow/exburst-rumbling-attack-on-titan-erwin-smith-127314.html",
+      "to": "/decklists/eren-jaeger-doomsday-titan.html"
+    },
+    {
+      "from": "/decklists/eren-jaeger-doomsday-titan-box-topper-silver-foil-yellow/exburst-rumbling-attack-on-titan-erwin-smith-127691.html",
+      "to": "/decklists/eren-jaeger-doomsday-titan.html"
+    },
+    {
+      "from": "/decklists/eren-jaeger-doomsday-titan-box-topper-silver-foil-yellow/exburst-rumbling-attack-on-titan-erwin-smith-128053.html",
+      "to": "/decklists/eren-jaeger-doomsday-titan.html"
+    },
+    {
+      "from": "/decklists/eren-jaeger-doomsday-titan-box-topper-silver-foil-yellow/exburst-rumbling-attack-on-titan-zeke-jaeger-beast-titan-126112.html",
+      "to": "/decklists/eren-jaeger-doomsday-titan.html"
+    },
+    {
+      "from": "/decklists/eren-jaeger-doomsday-titan-box-topper-silver-foil-yellow/exburst-rumbling-attack-on-titan-zeke-jaeger-beast-titan-127124.html",
+      "to": "/decklists/eren-jaeger-doomsday-titan.html"
+    },
+    {
+      "from": "/decklists/eren-jaeger-doomsday-titan-box-topper-silver-foil-yellow/exburst-rumbling-copy-attack-on-titan-armin-arlelt-130089.html",
+      "to": "/decklists/eren-jaeger-doomsday-titan.html"
+    },
+    {
+      "from": "/decklists/eren-jaeger-doomsday-titan-box-topper-silver-foil-yellow/exburst-rumbling-deck-attack-on-titan-armin-arlelt-130448.html",
+      "to": "/decklists/eren-jaeger-doomsday-titan.html"
+    },
+    {
+      "from": "/decklists/eren-jaeger-doomsday-titan-box-topper-silver-foil-yellow/exburst-rumbling-in-the-jungle-attack-on-titan-erwin-smith-127646.html",
+      "to": "/decklists/eren-jaeger-doomsday-titan.html"
+    },
+    {
+      "from": "/decklists/eren-jaeger-doomsday-titan-box-topper-silver-foil-yellow/exburst-rumbling-rumbling-attack-on-titan-erwin-smith-128330.html",
+      "to": "/decklists/eren-jaeger-doomsday-titan.html"
+    },
+    {
+      "from": "/decklists/eren-jaeger-doomsday-titan-box-topper-silver-foil-yellow/exburst-subjects-of-ymir-aot-attack-on-titan-zeke-jaeger-beast-125764.html",
+      "to": "/decklists/eren-jaeger-doomsday-titan.html"
+    },
+    {
+      "from": "/decklists/eren-jaeger-doomsday-titan-box-topper-silver-foil-yellow/exburst-suicidal-maniac-attack-on-titan-124933.html",
+      "to": "/decklists/eren-jaeger-doomsday-titan.html"
+    },
+    {
+      "from": "/decklists/eren-jaeger-doomsday-titan-box-topper-silver-foil-yellow/exburst-the-rumbling-attack-on-titan-122927.html",
+      "to": "/decklists/eren-jaeger-doomsday-titan.html"
+    },
+    {
+      "from": "/decklists/eren-jaeger-doomsday-titan-box-topper-silver-foil-yellow/exburst-the-rumbling-attack-on-titan-124277.html",
+      "to": "/decklists/eren-jaeger-doomsday-titan.html"
+    },
+    {
+      "from": "/decklists/eren-jaeger-doomsday-titan-box-topper-silver-foil-yellow/exburst-the-rumbling-attack-on-titan-125084.html",
+      "to": "/decklists/eren-jaeger-doomsday-titan.html"
+    },
+    {
+      "from": "/decklists/eren-jaeger-doomsday-titan-box-topper-silver-foil-yellow/exburst-the-rumbling-attack-on-titan-erwin-smith-123244.html",
+      "to": "/decklists/eren-jaeger-doomsday-titan.html"
+    },
+    {
+      "from": "/decklists/eren-jaeger-doomsday-titan-box-topper-silver-foil-yellow/exburst-the-rumbling-attack-on-titan-erwin-smith-127446.html",
+      "to": "/decklists/eren-jaeger-doomsday-titan.html"
+    },
+    {
+      "from": "/decklists/eren-jaeger-doomsday-titan-box-topper-silver-foil-yellow/exburst-the-rumbling-testing-attack-on-titan-125250.html",
+      "to": "/decklists/eren-jaeger-doomsday-titan.html"
+    },
+    {
+      "from": "/decklists/eren-jaeger-doomsday-titan-box-topper-silver-foil-yellow/exburst-yellow-attack-on-titan-rumbling-attack-on-titan-124707.html",
+      "to": "/decklists/eren-jaeger-doomsday-titan.html"
+    },
+    {
+      "from": "/decklists/eren-jaeger-doomsday-titan-box-topper-silver-foil-yellow/exburst-yellow-rumbling-attack-on-titan-erwin-smith-123864.html",
+      "to": "/decklists/eren-jaeger-doomsday-titan.html"
+    },
+    {
+      "from": "/decklists/eren-jaeger-doomsday-titan-box-topper-silver-foil-yellow/exburst-yellow-titan-attack-on-titan-erwin-smith-128384.html",
+      "to": "/decklists/eren-jaeger-doomsday-titan.html"
+    },
+    {
+      "from": "/decklists/eren-jaeger-doomsday-titan-box-topper-silver-foil-yellow/exburst-yellow-yes-rumbling-attack-on-titan-zeke-jaeger-beast-t-125749.html",
+      "to": "/decklists/eren-jaeger-doomsday-titan.html"
+    },
+    {
+      "from": "/decklists/eren-jaeger-doomsday-titan-box-topper-silver-foil-yellow/exburst-yellow-zeke-jaeger-beast-titan-deck-attack-on-titan-zek-127842.html",
+      "to": "/decklists/eren-jaeger-doomsday-titan.html"
+    },
+    {
+      "from": "/decklists/eren-jaeger-doomsday-titan-box-topper-silver-foil-yellow/exburst-zeke-jaeger-beast-titan-deck-attack-on-titan-zeke-jaege-128529.html",
+      "to": "/decklists/eren-jaeger-doomsday-titan.html"
+    },
+    {
+      "from": "/decklists/eren-jaeger-doomsday-titan-box-topper-silver-foil.html",
+      "to": "/decklists/eren-jaeger-doomsday-titan.html"
+    },
+    {
+      "from": "/decklists/eugeo-synthesis-thirty-two.html",
+      "to": "/characters.html"
+    },
+    {
+      "from": "/decklists/euphemia-li-britannia.html",
+      "to": "/characters.html"
+    },
+    {
+      "from": "/decklists/evangelion-asuka-shikinami-langley/event-11th-evangelion-asuka-shikinami-langley-1461738.html",
+      "to": "/decklists/asuka-shikinami-langley.html"
+    },
+    {
+      "from": "/decklists/evangelion-asuka-shikinami-langley/event-7th-evangelion-asuka-shikinami-langley-1479585.html",
+      "to": "/decklists/asuka-shikinami-langley.html"
+    },
+    {
+      "from": "/decklists/evangelion-production-model-03.html",
+      "to": "/characters.html"
+    },
+    {
+      "from": "/decklists/evangelion-provisional-unit-05.html",
+      "to": "/characters.html"
+    },
+    {
+      "from": "/decklists/evangelion-purple/contender-consensus.html",
+      "to": "/characters.html"
+    },
+    {
+      "from": "/decklists/evangelion-red.html",
+      "to": "/characters.html"
+    },
+    {
+      "from": "/decklists/evangelion-red/contender-consensus.html",
+      "to": "/characters.html"
+    },
+    {
+      "from": "/decklists/evangelion-rei-ayanami/event-5th-evangelion-rei-ayanami-1461759.html",
+      "to": "/decklists/rei-ayanami.html"
+    },
+    {
+      "from": "/decklists/evangelion-rei-ayanami/event-7th-evangelion-rei-ayanami-1435486.html",
+      "to": "/decklists/rei-ayanami.html"
+    },
+    {
+      "from": "/decklists/evangelion-test-type-01-pseudo-dms-phase.html",
+      "to": "/characters.html"
+    },
+    {
+      "from": "/decklists/evangelion-yellow.html",
+      "to": "/characters.html"
+    },
+    {
+      "from": "/decklists/evangelion-yellow/contender-consensus.html",
+      "to": "/characters.html"
+    },
+    {
+      "from": "/decklists/feitan.html",
+      "to": "/characters.html"
+    },
+    {
+      "from": "/decklists/ferris.html",
+      "to": "/characters.html"
+    },
+    {
+      "from": "/decklists/fuegoleon-vermillion.html",
+      "to": "/characters.html"
+    },
+    {
+      "from": "/decklists/fullmetal-alchemist-olivier-mira-armstrong/event-6th-fullmetal-alchemist-olivier-mira-armstrong-1489242.html",
+      "to": "/decklists/olivier-mira-armstrong.html"
+    },
+    {
+      "from": "/decklists/garfiel-tinsel.html",
+      "to": "/characters.html"
+    },
+    {
+      "from": "/decklists/gawain.html",
+      "to": "/characters.html"
+    },
+    {
+      "from": "/decklists/genya-shinazugawa.html",
+      "to": "/characters.html"
+    },
+    {
+      "from": "/decklists/ginshi-shirazu.html",
+      "to": "/characters.html"
+    },
+    {
+      "from": "/decklists/gluttony.html",
+      "to": "/characters.html"
+    },
+    {
+      "from": "/decklists/goto-ryuji.html",
+      "to": "/characters.html"
+    },
+    {
+      "from": "/decklists/greed-purple.html",
+      "to": "/decklists/greed.html"
+    },
+    {
+      "from": "/decklists/greed-u.html",
+      "to": "/decklists/greed.html"
+    },
+    {
+      "from": "/decklists/gyomei-himejima-u.html",
+      "to": "/decklists/gyomei-himejima.html"
+    },
+    {
+      "from": "/decklists/hantengu.html",
+      "to": "/characters.html"
+    },
+    {
+      "from": "/decklists/hanzo.html",
+      "to": "/characters.html"
+    },
+    {
+      "from": "/decklists/heathcliff.html",
+      "to": "/characters.html"
+    },
+    {
+      "from": "/decklists/hiei-green.html",
+      "to": "/decklists/hiei.html"
+    },
+    {
+      "from": "/decklists/hisoka-green.html",
+      "to": "/decklists/hisoka.html"
+    },
+    {
+      "from": "/decklists/hisoka-purple.html",
+      "to": "/decklists/hisoka.html"
+    },
+    {
+      "from": "/decklists/hunter-x-hunter-mereoleona-vermillion.html",
+      "to": "/decklists/mereoleona-vermillion.html"
+    },
+    {
+      "from": "/decklists/hunter-x-hunter-mereoleona-vermillion/event-5th-opm-bcv-kj8-htr-mereoleona-vermillion-1479583.html",
+      "to": "/decklists/mereoleona-vermillion.html"
+    },
+    {
+      "from": "/decklists/hunter-x-hunter-mereoleona-vermillion/event-5th-opm-bcv-kj8-htr-mereoleona-vermillion-1489273.html",
+      "to": "/decklists/mereoleona-vermillion.html"
+    },
+    {
+      "from": "/decklists/ikuto-hagiwara.html",
+      "to": "/characters.html"
+    },
+    {
+      "from": "/decklists/illumi-u.html",
+      "to": "/decklists/illumi.html"
+    },
+    {
+      "from": "/decklists/invisibility-suit.html",
+      "to": "/characters.html"
+    },
+    {
+      "from": "/decklists/iwao-kuroiwa.html",
+      "to": "/characters.html"
+    },
+    {
+      "from": "/decklists/iys-i-wish-my-4th-kikyo-would-have-arrived-on-time.html",
+      "to": "/characters.html"
+    },
+    {
+      "from": "/decklists/iys-i-wish-my-4th-kikyo-would-have-arrived-on-time/contender-consensus.html",
+      "to": "/characters.html"
+    },
+    {
+      "from": "/decklists/iys-i-wish-my-4th-kikyo-would-have-arrived-on-time/event-11th-iys-i-wish-my-4th-kikyo-would-have-arrived-on-time-1517208.html",
+      "to": "/characters.html"
+    },
+    {
+      "from": "/decklists/iys-i-wish-my-4th-kikyo-would-have-arrived-on-time/event-15th-iys-i-wish-my-4th-kikyo-would-have-arrived-on-time-1517171.html",
+      "to": "/characters.html"
+    },
+    {
+      "from": "/decklists/jackal.html",
+      "to": "/characters.html"
+    },
+    {
+      "from": "/decklists/jogo-purple.html",
+      "to": "/characters.html"
+    },
+    {
+      "from": "/decklists/jogo-red.html",
+      "to": "/characters.html"
+    },
+    {
+      "from": "/decklists/jogo.html",
+      "to": "/characters.html"
+    },
+    {
+      "from": "/decklists/jujutsu-kaisen-aoi-todo/event-6th-jujutsu-kaisen-aoi-todo-1479624.html",
+      "to": "/decklists/aoi-todo.html"
+    },
+    {
+      "from": "/decklists/jujutsu-kaisen-purple/contender-consensus.html",
+      "to": "/characters.html"
+    },
+    {
+      "from": "/decklists/kagurabachi-chihiro-rokuhira/event-17th-kagurabachi-chihiro-rokuhira-1446173.html",
+      "to": "/decklists/chihiro-rokuhira.html"
+    },
+    {
+      "from": "/decklists/kagurabachi-chihiro-rokuhira/event-4th-kagurabachi-chihiro-rokuhira-1461733.html",
+      "to": "/decklists/chihiro-rokuhira.html"
+    },
+    {
+      "from": "/decklists/kagurabachi-chihiro-rokuhira/event-5th-kagurabachi-chihiro-rokuhira-1435497.html",
+      "to": "/decklists/chihiro-rokuhira.html"
+    },
+    {
+      "from": "/decklists/kagurabachi-chihiro-rokuhira/event-5th-kagurabachi-chihiro-rokuhira-1471468.html",
+      "to": "/decklists/chihiro-rokuhira.html"
+    },
+    {
+      "from": "/decklists/kagurabachi-chihiro-rokuhira/event-6th-kagurabachi-chihiro-rokuhira-1461783.html",
+      "to": "/decklists/chihiro-rokuhira.html"
+    },
+    {
+      "from": "/decklists/kagurabachi-chihiro-rokuhira/event-9th-kagurabachi-chihiro-rokuhira-1452868.html",
+      "to": "/decklists/chihiro-rokuhira.html"
+    },
+    {
+      "from": "/decklists/kagurabachi-red.html",
+      "to": "/characters.html"
+    },
+    {
+      "from": "/decklists/kagurabachi-red/contender-consensus.html",
+      "to": "/characters.html"
+    },
+    {
+      "from": "/decklists/karasu.html",
+      "to": "/characters.html"
+    },
+    {
+      "from": "/decklists/kastro.html",
+      "to": "/characters.html"
+    },
+    {
+      "from": "/decklists/kasumi-miwa.html",
+      "to": "/characters.html"
+    },
+    {
+      "from": "/decklists/kenny-ackermann.html",
+      "to": "/characters.html"
+    },
+    {
+      "from": "/decklists/kenshin-himura-blue.html",
+      "to": "/decklists/kenshin-himura.html"
+    },
+    {
+      "from": "/decklists/kenshin-himura-purple.html",
+      "to": "/decklists/kenshin-himura.html"
+    },
+    {
+      "from": "/decklists/kento-nanami-red.html",
+      "to": "/decklists/kento-nanami.html"
+    },
+    {
+      "from": "/decklists/killua-zoldyck-green.html",
+      "to": "/decklists/killua-zoldyck.html"
+    },
+    {
+      "from": "/decklists/kishibe.html",
+      "to": "/characters.html"
+    },
+    {
+      "from": "/decklists/kuki-urie.html",
+      "to": "/characters.html"
+    },
+    {
+      "from": "/decklists/kurama-green.html",
+      "to": "/characters.html"
+    },
+    {
+      "from": "/decklists/kurama.html",
+      "to": "/characters.html"
+    },
+    {
+      "from": "/decklists/kyojuro-rengoku-yellow.html",
+      "to": "/decklists/kyojuro-rengoku.html"
+    },
+    {
+      "from": "/decklists/leon.html",
+      "to": "/characters.html"
+    },
+    {
+      "from": "/decklists/leorio.html",
+      "to": "/characters.html"
+    },
+    {
+      "from": "/decklists/levi-red.html",
+      "to": "/decklists/levi.html"
+    },
+    {
+      "from": "/decklists/levi-sr.html",
+      "to": "/decklists/levi.html"
+    },
+    {
+      "from": "/decklists/loropechika.html",
+      "to": "/characters.html"
+    },
+    {
+      "from": "/decklists/lu-shaotang.html",
+      "to": "/characters.html"
+    },
+    {
+      "from": "/decklists/luck-voltia.html",
+      "to": "/characters.html"
+    },
+    {
+      "from": "/decklists/luminus-green.html",
+      "to": "/decklists/luminus.html"
+    },
+    {
+      "from": "/decklists/mahito-red.html",
+      "to": "/decklists/mahito.html"
+    },
+    {
+      "from": "/decklists/makoto-shishio.html",
+      "to": "/characters.html"
+    },
+    {
+      "from": "/decklists/marian.html",
+      "to": "/characters.html"
+    },
+    {
+      "from": "/decklists/maxwell.html",
+      "to": "/characters.html"
+    },
+    {
+      "from": "/decklists/mei-mei.html",
+      "to": "/characters.html"
+    },
+    {
+      "from": "/decklists/mereoleona-vermillion-red.html",
+      "to": "/decklists/mereoleona-vermillion.html"
+    },
+    {
+      "from": "/decklists/mikasa-ackermann-blue.html",
+      "to": "/decklists/mikasa-ackermann.html"
+    },
+    {
+      "from": "/decklists/milim-p-006.html",
+      "to": "/decklists/milim.html"
+    },
+    {
+      "from": "/decklists/mimosa-vermillion.html",
+      "to": "/characters.html"
+    },
+    {
+      "from": "/decklists/mina-ashiro-green.html",
+      "to": "/decklists/mina-ashiro.html"
+    },
+    {
+      "from": "/decklists/modernia-purple.html",
+      "to": "/decklists/modernia.html"
+    },
+    {
+      "from": "/decklists/nagumo-yellow.html",
+      "to": "/decklists/nagumo.html"
+    },
+    {
+      "from": "/decklists/nano-eiai-yellow.html",
+      "to": "/decklists/nano-eiai.html"
+    },
+    {
+      "from": "/decklists/neon-yellow.html",
+      "to": "/characters.html"
+    },
+    {
+      "from": "/decklists/neon.html",
+      "to": "/characters.html"
+    },
+    {
+      "from": "/decklists/nezuko-kamado.html",
+      "to": "/characters.html"
+    },
+    {
+      "from": "/decklists/noro.html",
+      "to": "/characters.html"
+    },
+    {
+      "from": "/decklists/nozel-silva.html",
+      "to": "/characters.html"
+    },
+    {
+      "from": "/decklists/one-punch-man-green/contender-consensus.html",
+      "to": "/characters.html"
+    },
+    {
+      "from": "/decklists/one-punch-man-green/event-1st-one-punch-man-green-1452891.html",
+      "to": "/characters.html"
+    },
+    {
+      "from": "/decklists/one-punch-man-green/event-1st-one-punch-man-green-1471464.html",
+      "to": "/characters.html"
+    },
+    {
+      "from": "/decklists/one-punch-man-green/event-2nd-one-punch-man-green-1489206.html",
+      "to": "/characters.html"
+    },
+    {
+      "from": "/decklists/one-punch-man-green/event-4th-one-punch-man-green-1479582.html",
+      "to": "/characters.html"
+    },
+    {
+      "from": "/decklists/one-punch-man-green/event-4th-one-punch-man-green-1479636.html",
+      "to": "/characters.html"
+    },
+    {
+      "from": "/decklists/one-punch-man-green/event-5th-one-punch-man-green-1471393.html",
+      "to": "/characters.html"
+    },
+    {
+      "from": "/decklists/opm-bcv-kj8-htr-mereoleona-vermillion.html",
+      "to": "/characters.html"
+    },
+    {
+      "from": "/decklists/opm-bcv-kj8-htr-mereoleona-vermillion/event-5th-opm-bcv-kj8-htr-mereoleona-vermillion-1479583.html",
+      "to": "/characters.html"
+    },
+    {
+      "from": "/decklists/panda.html",
+      "to": "/characters.html"
+    },
+    {
+      "from": "/decklists/pig-god.html",
+      "to": "/characters.html"
+    },
+    {
+      "from": "/decklists/quilge-opie.html",
+      "to": "/characters.html"
+    },
+    {
+      "from": "/decklists/ram-yellow/exburst-emilia-deck-re-zero-125659.html",
+      "to": "/decklists/ram-yellow.html"
+    },
+    {
+      "from": "/decklists/re-zero/exburst-emilia-tan-will-conquer-the-shadows-not-just-in-my-hear-127302.html",
+      "to": "/characters.html"
+    },
+    {
+      "from": "/decklists/re-zero/exburst-i-cannot-believe-that-we-did-not-get-a-subaru-emilia-de-123845.html",
+      "to": "/characters.html"
+    },
+    {
+      "from": "/decklists/re-zero/exburst-re-zero-starting-life-in-another-world-starter-deck-re--127377.html",
+      "to": "/characters.html"
+    },
+    {
+      "from": "/decklists/rem-yellow/exburst-re-zero-starter-re-zero-126976.html",
+      "to": "/decklists/rem-yellow.html"
+    },
+    {
+      "from": "/decklists/renji-yomo.html",
+      "to": "/characters.html"
+    },
+    {
+      "from": "/decklists/rentaro-aijo.html",
+      "to": "/characters.html"
+    },
+    {
+      "from": "/decklists/riza-hawkeye-sr.html",
+      "to": "/decklists/riza-hawkeye.html"
+    },
+    {
+      "from": "/decklists/rod-reiss-titan.html",
+      "to": "/characters.html"
+    },
+    {
+      "from": "/decklists/rolo-lamperouge-red.html",
+      "to": "/decklists/rolo-lamperouge.html"
+    },
+    {
+      "from": "/decklists/roy-mustang-yellow.html",
+      "to": "/decklists/roy-mustang.html"
+    },
+    {
+      "from": "/decklists/rukia-kuchiki-purple.html",
+      "to": "/decklists/rukia-kuchiki.html"
+    },
+    {
+      "from": "/decklists/rurouni-kenshin-hajime-saito/event-2nd-rurouni-kenshin-hajime-saito-1446161.html",
+      "to": "/decklists/hajime-saito.html"
+    },
+    {
+      "from": "/decklists/rurouni-kenshin-hajime-saito/event-6th-rurouni-kenshin-hajime-saito-1435485.html",
+      "to": "/decklists/hajime-saito.html"
+    },
+    {
+      "from": "/decklists/rurouni-kenshin-red.html",
+      "to": "/characters.html"
+    },
+    {
+      "from": "/decklists/rurouni-kenshin-red/contender-consensus.html",
+      "to": "/characters.html"
+    },
+    {
+      "from": "/decklists/saitama-gold.html",
+      "to": "/decklists/saitama.html"
+    },
+    {
+      "from": "/decklists/sajin-komamura.html",
+      "to": "/characters.html"
+    },
+    {
+      "from": "/decklists/sakamoto-days-heisuke-mashimo/event-3rd-sakamoto-days-heisuke-mashimo-1471466.html",
+      "to": "/decklists/heisuke-mashimo.html"
+    },
+    {
+      "from": "/decklists/sakamoto-days-purple.html",
+      "to": "/characters.html"
+    },
+    {
+      "from": "/decklists/sakamoto-days-purple/contender-consensus.html",
+      "to": "/characters.html"
+    },
+    {
+      "from": "/decklists/sakamoto-days-shishiba/contender-consensus.html",
+      "to": "/decklists/shishiba.html"
+    },
+    {
+      "from": "/decklists/sakamoto-days-taro-sakamoto/event-10th-sakamoto-days-taro-sakamoto-1435527.html",
+      "to": "/decklists/taro-sakamoto.html"
+    },
+    {
+      "from": "/decklists/sakamoto-days-taro-sakamoto/event-1st-sakamoto-days-taro-sakamoto-1452852.html",
+      "to": "/decklists/taro-sakamoto.html"
+    },
+    {
+      "from": "/decklists/sakamoto-days-taro-sakamoto/event-1st-sakamoto-days-taro-sakamoto-1461732.html",
+      "to": "/decklists/taro-sakamoto.html"
+    },
+    {
+      "from": "/decklists/sakamoto-days-yellow.html",
+      "to": "/characters.html"
+    },
+    {
+      "from": "/decklists/sakamoto-days-yellow/contender-consensus.html",
+      "to": "/characters.html"
+    },
+    {
+      "from": "/decklists/sanemi-shinazugawa.html",
+      "to": "/characters.html"
+    },
+    {
+      "from": "/decklists/sanosuke-sagara-gold.html",
+      "to": "/decklists/sanosuke-sagara.html"
+    },
+    {
+      "from": "/decklists/satoru-gojo-blue.html",
+      "to": "/decklists/satoru-gojo.html"
+    },
+    {
+      "from": "/decklists/satoru-gojo-red.html",
+      "to": "/decklists/satoru-gojo.html"
+    },
+    {
+      "from": "/decklists/satoru-gojo-u.html",
+      "to": "/decklists/satoru-gojo.html"
+    },
+    {
+      "from": "/decklists/scar.html",
+      "to": "/characters.html"
+    },
+    {
+      "from": "/decklists/sesshomaru-s-mother.html",
+      "to": "/characters.html"
+    },
+    {
+      "from": "/decklists/shikijo.html",
+      "to": "/characters.html"
+    },
+    {
+      "from": "/decklists/shinji-hirako.html",
+      "to": "/characters.html"
+    },
+    {
+      "from": "/decklists/shinobu-kocho.html",
+      "to": "/characters.html"
+    },
+    {
+      "from": "/decklists/shion-p-005.html",
+      "to": "/decklists/shion.html"
+    },
+    {
+      "from": "/decklists/shishiwakamaru.html",
+      "to": "/characters.html"
+    },
+    {
+      "from": "/decklists/shizu-u.html",
+      "to": "/decklists/shizu.html"
+    },
+    {
+      "from": "/decklists/shunsui-kyoraku.html",
+      "to": "/characters.html"
+    },
+    {
+      "from": "/decklists/siegfried.html",
+      "to": "/characters.html"
+    },
+    {
+      "from": "/decklists/sinon-sun-goddess-solus.html",
+      "to": "/characters.html"
+    },
+    {
+      "from": "/decklists/soi-fon.html",
+      "to": "/characters.html"
+    },
+    {
+      "from": "/decklists/solo-leveling-sung-jinwoo/event-2nd-solo-leveling-sung-jinwoo-1471401.html",
+      "to": "/decklists/sung-jinwoo.html"
+    },
+    {
+      "from": "/decklists/solo-leveling-sung-jinwoo/event-2nd-solo-leveling-sung-jinwoo-1479648.html",
+      "to": "/decklists/sung-jinwoo.html"
+    },
+    {
+      "from": "/decklists/solo-leveling-sung-jinwoo/event-3rd-solo-leveling-sung-jinwoo-1479615.html",
+      "to": "/decklists/sung-jinwoo.html"
+    },
+    {
+      "from": "/decklists/solo-leveling-sung-jinwoo/event-5th-solo-leveling-sung-jinwoo-1461734.html",
+      "to": "/decklists/sung-jinwoo.html"
+    },
+    {
+      "from": "/decklists/soshiro-azami.html",
+      "to": "/characters.html"
+    },
+    {
+      "from": "/decklists/soya-sazanami.html",
+      "to": "/characters.html"
+    },
+    {
+      "from": "/decklists/suguru-geto-yellow.html",
+      "to": "/decklists/suguru-geto.html"
+    },
+    {
+      "from": "/decklists/sung-il-hwan.html",
+      "to": "/characters.html"
+    },
+    {
+      "from": "/decklists/sung-jinwoo-judge.html",
+      "to": "/decklists/sung-jinwoo.html"
+    },
+    {
+      "from": "/decklists/super-s.html",
+      "to": "/characters.html"
+    },
+    {
+      "from": "/decklists/sword-art-online-yuna/event-1st-sword-art-online-yuna-1479645.html",
+      "to": "/decklists/yuna.html"
+    },
+    {
+      "from": "/decklists/takamura.html",
+      "to": "/characters.html"
+    },
+    {
+      "from": "/decklists/tatara.html",
+      "to": "/characters.html"
+    },
+    {
+      "from": "/decklists/team-genthru.html",
+      "to": "/characters.html"
+    },
+    {
+      "from": "/decklists/tengen-uzui-u.html",
+      "to": "/decklists/tengen-uzui.html"
+    },
+    {
+      "from": "/decklists/terrible-tornado-promotion-pack-2025.html",
+      "to": "/decklists/terrible-tornado.html"
+    },
+    {
+      "from": "/decklists/that-time-i-got-reincarnated-as-a-slime-rimuru/event-1st-that-time-i-got-reincarnated-as-a-slime-rimuru-1452863.html",
+      "to": "/decklists/rimuru.html"
+    },
+    {
+      "from": "/decklists/that-time-i-got-reincarnated-as-a-slime-rimuru/event-7th-that-time-i-got-reincarnated-as-a-slime-rimuru-1471406.html",
+      "to": "/decklists/rimuru.html"
+    },
+    {
+      "from": "/decklists/that-time-i-got-reincarnated-as-a-slime-rimuru/event-9th-that-time-i-got-reincarnated-as-a-slime-rimuru-1479616.html",
+      "to": "/decklists/rimuru.html"
+    },
+    {
+      "from": "/decklists/the-100-girlfriends-shizuka-yoshimoto/event-2nd-the-100-girlfriends-shizuka-yoshimoto-1452842.html",
+      "to": "/decklists/shizuka-yoshimoto.html"
+    },
+    {
+      "from": "/decklists/the-100-girlfriends-shizuka-yoshimoto/event-4th-the-100-girlfriends-shizuka-yoshimoto-1479666.html",
+      "to": "/decklists/shizuka-yoshimoto.html"
+    },
+    {
+      "from": "/decklists/the-100-girlfriends-shizuka-yoshimoto/event-4th-the-100-girlfriends-shizuka-yoshimoto-1489248.html",
+      "to": "/decklists/shizuka-yoshimoto.html"
+    },
+    {
+      "from": "/decklists/the-100-girlfriends-shizuka-yoshimoto/event-6th-the-100-girlfriends-shizuka-yoshimoto-1461770.html",
+      "to": "/decklists/shizuka-yoshimoto.html"
+    },
+    {
+      "from": "/decklists/the-100-girlfriends-shizuka-yoshimoto/event-8th-the-100-girlfriends-shizuka-yoshimoto-1489266.html",
+      "to": "/decklists/shizuka-yoshimoto.html"
+    },
+    {
+      "from": "/decklists/the-100-girlfriends-shizuka-yoshimoto/event-9th-the-100-girlfriends-shizuka-yoshimoto-1435519.html",
+      "to": "/decklists/shizuka-yoshimoto.html"
+    },
+    {
+      "from": "/decklists/the-100-girlfriends-shizuka-yoshimoto/event-9th-the-100-girlfriends-shizuka-yoshimoto-1471399.html",
+      "to": "/decklists/shizuka-yoshimoto.html"
+    },
+    {
+      "from": "/decklists/togo-shiba.html",
+      "to": "/characters.html"
+    },
+    {
+      "from": "/decklists/tokyo-ghoul-kotaro-amon/event-4th-tokyo-ghoul-kotaro-amon-1446108.html",
+      "to": "/decklists/kotaro-amon.html"
+    },
+    {
+      "from": "/decklists/tokyo-ghoul-purple.html",
+      "to": "/characters.html"
+    },
+    {
+      "from": "/decklists/tokyo-ghoul-purple/contender-consensus.html",
+      "to": "/characters.html"
+    },
+    {
+      "from": "/decklists/usui-uonuma.html",
+      "to": "/characters.html"
+    },
+    {
+      "from": "/decklists/uvogin.html",
+      "to": "/characters.html"
+    },
+    {
+      "from": "/decklists/veldora-green.html",
+      "to": "/characters.html"
+    },
+    {
+      "from": "/decklists/veldora.html",
+      "to": "/characters.html"
+    },
+    {
+      "from": "/decklists/war-hammer-titan.html",
+      "to": "/characters.html"
+    },
+    {
+      "from": "/decklists/wilhelm-van-astrea.html",
+      "to": "/characters.html"
+    },
+    {
+      "from": "/decklists/wrath.html",
+      "to": "/characters.html"
+    },
+    {
+      "from": "/decklists/x.html",
+      "to": "/characters.html"
+    },
+    {
+      "from": "/decklists/yachiru-unohana.html",
+      "to": "/characters.html"
+    },
+    {
+      "from": "/decklists/yami-sukehiro-purple.html",
+      "to": "/decklists/yami-sukehiro.html"
+    },
+    {
+      "from": "/decklists/yami-sukehiro-red.html",
+      "to": "/decklists/yami-sukehiro.html"
+    },
+    {
+      "from": "/decklists/ymir-jaw-titan.html",
+      "to": "/characters.html"
+    },
+    {
+      "from": "/decklists/yoji-uruha.html",
+      "to": "/characters.html"
+    },
+    {
+      "from": "/decklists/yoriichi-type-zero.html",
+      "to": "/characters.html"
+    },
+    {
+      "from": "/decklists/yoruichi-shihoin.html",
+      "to": "/characters.html"
+    },
+    {
+      "from": "/decklists/younger-toguro-u.html",
+      "to": "/decklists/younger-toguro.html"
+    },
+    {
+      "from": "/decklists/yukinori-shinohara.html",
+      "to": "/characters.html"
+    },
+    {
+      "from": "/decklists/yuno-red.html",
+      "to": "/decklists/yuno.html"
+    },
+    {
+      "from": "/decklists/yusuke-urameshi-red.html",
+      "to": "/decklists/yusuke-urameshi.html"
+    },
+    {
+      "from": "/decklists/zangetsu.html",
+      "to": "/characters.html"
+    },
+    {
+      "from": "/decklists/zeno.html",
+      "to": "/characters.html"
+    },
+    {
       "from": "/decklists/zeru.html",
       "to": "/characters.html"
     },
     {
       "from": "/decklists/zohakuten.html",
       "to": "/characters.html"
-    },
-    {
-      "from": "/guides/aki-hayakawa-strategy.html",
-      "to": "/decklists/aki-hayakawa.html"
-    },
-    {
-      "from": "/guides/armin-arlelt-strategy.html",
-      "to": "/decklists/armin-arlelt.html"
-    },
-    {
-      "from": "/guides/asuka-shikinami-langley-strategy.html",
-      "to": "/decklists/asuka-shikinami-langley.html"
-    },
-    {
-      "from": "/guides/crusch-strategy.html",
-      "to": "/decklists/crusch-karsten.html"
-    },
-    {
-      "from": "/guides/denji-strategy.html",
-      "to": "/guides/"
-    },
-    {
-      "from": "/guides/eren-jaeger-strategy.html",
-      "to": "/decklists/eren-jaeger.html"
-    },
-    {
-      "from": "/guides/erwin-smith-strategy.html",
-      "to": "/guides/"
-    },
-    {
-      "from": "/guides/evangelion-test-type-01-pseudo-dms-phase-strategy.html",
-      "to": "/decklists/evangelion-test-type-01.html"
-    },
-    {
-      "from": "/guides/kaoru-kamiya-strategy.html",
-      "to": "/guides/"
-    },
-    {
-      "from": "/guides/power-strategy.html",
-      "to": "/decklists/power.html"
-    },
-    {
-      "from": "/guides/ram-strategy.html",
-      "to": "/decklists/ram.html"
-    },
-    {
-      "from": "/guides/rei-ayanami-strategy.html",
-      "to": "/decklists/rei-ayanami.html"
-    },
-    {
-      "from": "/guides/shin-asakura-strategy.html",
-      "to": "/decklists/shin-asakura.html"
     }
   ]
 }
