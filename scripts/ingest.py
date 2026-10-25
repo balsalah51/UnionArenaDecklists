@@ -41,7 +41,7 @@ def main() -> None:
         code = exc.code if isinstance(exc.code, int) else 1
         if code:
             # Pages and data/build-status.json are already written. Exit 0 so the
-            # refresh workflow can commit, then fail the job on build-status.ok.
+            # refresh workflow can commit. scripts/refresh_alert.py files the warning.
             print(f"generate finished with exit {code}; see data/build-status.json")
         else:
             return

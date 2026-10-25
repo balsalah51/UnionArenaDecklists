@@ -59,6 +59,20 @@ def test_mass_entry() -> None:
         {},
     )
     assert "2 Rimuru (P-003) [UE20BT] UE20BT/TSK-P-003" in urllib.parse.unquote_plus(promo)
+    aliased = uadb.tcgplayer_mass_entry_url(
+        [{"id": "UE08BT/BLC-1-081", "name": "Kenpachi Zaraki", "count": 4, "group": "Characters"}],
+        {
+            "UE08BT/BLC-1-081": {
+                "name": "Kenpachi Zaraki (081)",
+                "category": "Character",
+                "alias_of": "UE01BT/BLC-1-081",
+            },
+            "UE01BT/BLC-1-081": {"name": "Kenpachi Zaraki (081)", "category": "Character"},
+        },
+    )
+    decoded_alias = urllib.parse.unquote_plus(aliased)
+    assert "4 Kenpachi Zaraki (081) [UE01BT] UE01BT/BLC-1-081" in decoded_alias
+    assert "UE08BT" not in decoded_alias
 
 
 def test_buttons() -> None:
@@ -91,8 +105,8 @@ def test_deck_page_buy_placement() -> None:
     ]
     cache = {"UE17BT/SLG-1-022": {"name": "Sung Jinwoo", "effect": "Raid", "category": "Character"}}
     text = generate_site.render_text_deck(items, cache)
-    assert "buy-card" not in text
-    assert 'class="buy-tcg buy-deck buy-pill"' in text
+    assert 'class="buy-tcg buy-card"' in text
+    assert "buy-deck" not in text
     assert ">Buy<" in text
     assert "partner.tcgplayer.com" in text
     assert "copy-sim" in text

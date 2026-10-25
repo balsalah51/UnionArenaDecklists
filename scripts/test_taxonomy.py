@@ -71,11 +71,45 @@ class TaxonomyTests(unittest.TestCase):
         self.assertIn("2026-10-16", title)
         self.assertNotIn("1471425", title)
 
-    def test_redirect_stub_is_noindex(self):
+    def test_redirect_stub_points_canonical_at_the_new_url(self):
         page = uadb.html_redirect("/decklists/zeke-jaeger.html", "Moved")
-        self.assertIn('content="noindex, follow"', page)
+        self.assertNotIn("noindex", page)
+        self.assertIn('rel="canonical"', page)
+        self.assertIn("https://unionarenadecklists.com/decklists/zeke-jaeger.html", page)
         self.assertIn('http-equiv="refresh"', page)
         self.assertIn("/decklists/zeke-jaeger.html", page)
+        affiliate = uadb.html_redirect(
+            "https://partner.tcgplayer.com/c/7670706/1780961/21018",
+            "Buy on TCGplayer",
+            robots="noindex, follow",
+        )
+        self.assertIn('content="noindex, follow"', affiliate)
+        self.assertNotIn('rel="canonical"', affiliate)
+
+    def test_alias_copies_a_matching_name_and_skips_a_mismatch(self):
+        cache = {
+            "UE01BT/BLC-1-081": {
+                "name": "Kenpachi Zaraki (081)",
+                "category": "Character",
+                "cost": "4",
+                "color": "Green",
+            },
+            "UEPR/BLC-1-051": {"name": "Byakuya Kuchiki", "category": "Character"},
+        }
+        skipped = uadb.apply_card_aliases(
+            cache,
+            {
+                "UE08BT/BLC-1-081": {"target": "UE01BT/BLC-1-081", "name": "Kenpachi Zaraki"},
+                "UE01BT/BLC-1-051": {"target": "UEPR/BLC-1-051", "name": "Rukia Kuchiki"},
+            },
+        )
+        self.assertEqual(skipped, ["UE01BT/BLC-1-051"])
+        self.assertEqual(cache["UE08BT/BLC-1-081"]["alias_of"], "UE01BT/BLC-1-081")
+        self.assertEqual(cache["UE08BT/BLC-1-081"]["name"], "Kenpachi Zaraki (081)")
+        self.assertNotIn("UE01BT/BLC-1-051", cache)
+        image = uadb.card_image_url("UE08BT/BLC-1-081", cache)
+        self.assertIn("UE01BT_BLC-1-081", image)
+        self.assertNotIn("UE08BT", image)
 
     def test_fallback_redirect_peels_color_and_does_not_guess_a_shorter_name(self):
         written = {

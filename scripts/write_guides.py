@@ -793,7 +793,7 @@ def write_tier_list(plan: dict, cache: dict) -> str:
     body = f"""        {uadb.crumb_html([("/", "Home"), (None, "Tier list")])}
         <h1>Standard tier list</h1>
         <p>{html.escape(intro)}</p>
-        <p class="muted">Last updated {html.escape(data_updated or today)}, from the newest list in this snapshot. The score window still ends {html.escape(today)} and covers the previous {RECENT_DAYS} days. Contender tier is TCG Contender's own tier number. Each row shows how many lists and recent results sit behind that letter. Character pictures open the character hub.</p>
+        <p class="muted">Last updated {html.escape(data_updated or today)}, from the newest list in this snapshot. The score window still ends {html.escape(today)} and covers the previous {RECENT_DAYS} days. Contender tier is TCG Contender's own tier number. Each row shows how many lists and recent results sit behind that letter. Character pictures open the character hub.{(' Data last checked ' + html.escape(uadb.refresh_checked_label()) + '. This time moves when a scrape finishes, including a scrape that adds no lists.') if uadb.refresh_checked_label() else ''}</p>
         <div class="tier-board" aria-label="Union Arena Standard character tier list">
 {render_tier_board(board, cache)}
         </div>
@@ -1471,8 +1471,12 @@ def write_pages(plan: dict, cache: dict, features: dict | None = None) -> list[s
     features = features or {}
     guides_dir = uadb.ROOT / "guides"
     old_names = {p.name for p in guides_dir.glob("*.html")} if guides_dir.exists() else set()
+    preserved: dict[str, str] = {}
     if guides_dir.exists():
         for old in guides_dir.glob("*.html"):
+            text = old.read_text(encoding="utf-8", errors="ignore")
+            if "<title>Moved</title>" not in text[:500]:
+                preserved[old.name] = text
             old.unlink()
     paths = [write_tier_list(plan, cache), write_guides_index(plan)]
     for g in plan.get("character_guides") or []:
@@ -1490,6 +1494,10 @@ def write_pages(plan: dict, cache: dict, features: dict | None = None) -> list[s
     for name in sorted(old_names):
         rel = f"guides/{name}"
         if rel in written or name == "index.html":
+            continue
+        if name in preserved:
+            (guides_dir / name).write_text(preserved[name], encoding="utf-8")
+            paths.append(rel)
             continue
         target = retired_guide_target(name, hubs, written)
         (guides_dir / name).write_text(uadb.html_redirect(target, "Moved"), encoding="utf-8")

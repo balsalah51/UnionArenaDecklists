@@ -15903,7 +15903,10 @@
     "title": "BLEACH",
     "image": "https://tcgcontender.com/cdn/cards/unionarena/123779/228724.webp",
     "source": "https://tcgcontender.com/unionarena/cards/ichigo-kurosaki-041",
-    "rarity": "UR"
+    "rarity": "SR",
+    "effect": "[Raid] <Ichigo Kurosaki> Switch to active. May move to the front line. [When Played] Place the top two cards of your deck into your sideline. Place any number of cards from your sideline into your removal area. If you do, choose up to one character on your opponent's front line. It loses 500 BP for each card placed into your removal area with this ability until the end of the turn.",
+    "generated": "Purple",
+    "type": "Character"
   },
   "UEX01BT/BLC-2-051": {
     "id": "UEX01BT/BLC-2-051",
@@ -19464,7 +19467,10 @@
     "types": "Thirteen Court Guard Squads",
     "title": "BLEACH",
     "image": "https://tcgcontender.com/cdn/cards/unionarena/123694/228639.webp",
-    "source": "https://tcgcontender.com/unionarena/cards/kenpachi-zaraki-081"
+    "source": "https://tcgcontender.com/unionarena/cards/kenpachi-zaraki-081",
+    "effect": "This card cannot be played onto or moved to your energy line. [Impact (1)] (When this character attacks and wins a battle, deal 1 damage to your opponent.) [When Played] Choose up to one character with {2000 or less BP} on your opponent's front line and sideline it. If six or more other [Thirteen Court Guard Squads] affinity cards are on your field, {4000 or less BP} instead.",
+    "rarity": "SR",
+    "type": "Character"
   },
   "UEPR/BLC-1-090": {
     "id": "UEPR/BLC-1-090",
@@ -28910,7 +28916,11 @@
     "types": "",
     "title": "Tokyo Ghoul",
     "image": "https://tcgcontender.com/cdn/cards/unionarena/482671/888367.webp",
-    "source": "https://tcgcontender.com/unionarena/cards/nishiki-nishio"
+    "source": "https://tcgcontender.com/unionarena/cards/nishiki-nishio",
+    "effect": "[When Played] Look at the top card of your deck, then place it on the top of your deck or into your sideline.",
+    "rarity": "C",
+    "generated": "Purple",
+    "type": "Character"
   },
   "UEPR/KGR-1-081": {
     "id": "UEPR/KGR-1-081",
@@ -32298,7 +32308,11 @@
     "types": "Thirteen Court Guard Squads",
     "title": "BLEACH",
     "image": "https://tcgcontender.com/cdn/cards/unionarena/123954/228899.webp",
-    "source": "https://tcgcontender.com/unionarena/cards/renji-abarai-047"
+    "source": "https://tcgcontender.com/unionarena/cards/renji-abarai-047",
+    "effect": "[Activate: Main] [Pay 1 AP] [Once Per Turn] This character gains [Damage (2)] (When this character attacks and deals direct damage, deal 2 damage instead) until the end of the turn. [Raid] <Renji Abarai> Switch to active. May move to the front line. [When Played] You may place four cards from your sideline into your removal area. If you do, choose up to one character on your opponent's front line. It loses 3000 BP until the end of the turn.",
+    "rarity": "SR",
+    "generated": "Purple",
+    "type": "Character"
   },
   "UEPR/BLC-2-052": {
     "id": "UEPR/BLC-2-052",
@@ -34082,7 +34096,11 @@
     "types": "Thirteen Court Guard Squads",
     "title": "BLEACH",
     "image": "https://tcgcontender.com/cdn/cards/unionarena/123653/228598.webp",
-    "source": "https://tcgcontender.com/unionarena/cards/rukia-kuchiki-051"
+    "source": "https://tcgcontender.com/unionarena/cards/rukia-kuchiki-051",
+    "effect": "[When Sidelined] Place the top two cards of your deck into your sideline.",
+    "rarity": "C",
+    "generated": "Purple",
+    "type": "Character"
   },
   "UE01BT/BLC-1-052": {
     "id": "UE01BT/BLC-1-052",
@@ -42315,7 +42333,11 @@
     "types": "Thirteen Court Guard Squads",
     "title": "BLEACH",
     "image": "https://tcgcontender.com/cdn/cards/unionarena/123656/228601.webp",
-    "source": "https://tcgcontender.com/unionarena/cards/toshiro-hitsugaya-085"
+    "source": "https://tcgcontender.com/unionarena/cards/toshiro-hitsugaya-085",
+    "effect": "[Raid] <Toshiro Hitsugaya> Switch to active. May move to the front line. [When Played] {Choose up to one character on your opponent's front line and switch it to resting. It} will remain set to resting until the end of their next attack phase. If six or more other [Thirteen Court Guard Squads] affinity cards are on your field, {Choose up to one character on your opponent's front line. Switch it and all characters on your opponent's energy line to resting. They} instead.",
+    "rarity": "SR",
+    "generated": "Green",
+    "type": "Character"
   },
   "UE05ST/KMY-1-029": {
     "id": "UE05ST/KMY-1-029",
@@ -47202,7 +47224,8 @@
     "category": "Character",
     "ap": "1",
     "bp": "4000",
-    "trigger": "[Raid] Add this card to your hand, or if you have the required energy, perform Raid with it."
+    "trigger": "[Raid] Add this card to your hand, or if you have the required energy, perform Raid with it.",
+    "effect": "[Raid] <Ichigo Kurosaki> Switch to active. May move to the front line. [When Played] Place the top two cards of your deck into your sideline. Place any number of cards from your sideline into your removal area. If you do, choose up to one character on your opponent's front line. It loses 500 BP for each card placed into your removal area with this ability until the end of the turn."
   },
   "UEPR/BLC-1-042": {
     "id": "UEPR/BLC-1-042",
@@ -77178,5 +77201,95 @@
     "category": "Character",
     "source": "https://www.unionarena-tcg.com/na/cardlist/detail.php?card_no=UEX07BT/AOT-2-053",
     "image": "https://www.unionarena-tcg.com/na/images/cardlist/card/UEX07BT_AOT-2-053.png"
+  },
+  "UE08BT/BLC-1-081": {
+    "id": "UE08BT/BLC-1-081",
+    "category": "Character",
+    "name": "Kenpachi Zaraki (081)",
+    "cost": "4",
+    "color": "Green",
+    "effect": "This card cannot be played onto or moved to your energy line. [Impact (1)] (When this character attacks and wins a battle, deal 1 damage to your opponent.) [When Played] Choose up to one character with {2000 or less BP} on your opponent's front line and sideline it. If six or more other [Thirteen Court Guard Squads] affinity cards are on your field, {4000 or less BP} instead.",
+    "trigger": "[Draw] Draw a card.",
+    "ap": "2",
+    "bp": "4000",
+    "title": "BLEACH",
+    "image": "https://tcgcontender.com/cdn/cards/unionarena/123694/228639.webp",
+    "rarity": "SR",
+    "alias_of": "UE01BT/BLC-1-081"
+  },
+  "UE08BT/BLC-1-047": {
+    "id": "UE08BT/BLC-1-047",
+    "category": "Character",
+    "name": "Renji Abarai (047)",
+    "cost": "4",
+    "color": "Purple",
+    "effect": "[Activate: Main] [Pay 1 AP] [Once Per Turn] This character gains [Damage (2)] (When this character attacks and deals direct damage, deal 2 damage instead) until the end of the turn. [Raid] <Renji Abarai> Switch to active. May move to the front line. [When Played] You may place four cards from your sideline into your removal area. If you do, choose up to one character on your opponent's front line. It loses 3000 BP until the end of the turn.",
+    "trigger": "[Raid] Add this card to your hand, or if you have the required energy, perform Raid with it.",
+    "ap": "1",
+    "bp": "4000",
+    "title": "BLEACH",
+    "image": "https://tcgcontender.com/cdn/cards/unionarena/123954/228899.webp",
+    "rarity": "SR",
+    "alias_of": "UE01BT/BLC-1-047"
+  },
+  "UE08BT/BLC-1-041": {
+    "id": "UE08BT/BLC-1-041",
+    "category": "Character",
+    "name": "Ichigo Kurosaki (041)",
+    "cost": "5",
+    "color": "Purple",
+    "effect": "[Raid] <Ichigo Kurosaki> Switch to active. May move to the front line. [When Played] Place the top two cards of your deck into your sideline. Place any number of cards from your sideline into your removal area. If you do, choose up to one character on your opponent's front line. It loses 500 BP for each card placed into your removal area with this ability until the end of the turn.",
+    "trigger": "[Raid] Add this card to your hand, or if you have the required energy, perform Raid with it.",
+    "ap": "1",
+    "bp": "4000",
+    "title": "BLEACH",
+    "image": "https://tcgcontender.com/cdn/cards/unionarena/123779/228724.webp",
+    "rarity": "SR",
+    "alias_of": "UE01BT/BLC-1-041"
+  },
+  "UE08BT/BLC-1-085": {
+    "id": "UE08BT/BLC-1-085",
+    "category": "Character",
+    "name": "Toshiro Hitsugaya (085)",
+    "cost": "4",
+    "color": "Green",
+    "effect": "[Raid] <Toshiro Hitsugaya> Switch to active. May move to the front line. [When Played] {Choose up to one character on your opponent's front line and switch it to resting. It} will remain set to resting until the end of their next attack phase. If six or more other [Thirteen Court Guard Squads] affinity cards are on your field, {Choose up to one character on your opponent's front line. Switch it and all characters on your opponent's energy line to resting. They} instead.",
+    "trigger": "[Raid] Add this card to your hand, or if you have the required energy, perform Raid with it.",
+    "ap": "1",
+    "bp": "4000",
+    "title": "BLEACH",
+    "image": "https://tcgcontender.com/cdn/cards/unionarena/123656/228601.webp",
+    "rarity": "SR",
+    "alias_of": "UE01BT/BLC-1-085"
+  },
+  "UE01BT/BLC-1-051": {
+    "id": "UE01BT/BLC-1-051",
+    "category": "Character",
+    "name": "Rukia Kuchiki (051)",
+    "cost": "0",
+    "color": "Purple",
+    "effect": "[When Sidelined] Place the top two cards of your deck into your sideline.",
+    "trigger": "[Draw] Draw a card",
+    "ap": "1",
+    "bp": "1500",
+    "title": "BLEACH",
+    "image": "https://tcgcontender.com/cdn/cards/unionarena/123653/228598.webp",
+    "rarity": "C",
+    "alias_of": "UEPR/BLC-1-051"
+  },
+  "UE18BT/TKG-1-106": {
+    "id": "UE18BT/TKG-1-106",
+    "category": "Character",
+    "name": "Nishiki Nishio",
+    "cost": "3",
+    "color": "Purple",
+    "effect": "[When Played] Look at the top card of your deck, then place it on the top of your deck or into your sideline.",
+    "trigger": "[Active] Choose one character on your field and switch it to active. It gains 3000 BP until the end of the turn.",
+    "ap": "1",
+    "bp": "3000",
+    "title": "Tokyo Ghoul",
+    "image": "https://tcgcontender.com/cdn/cards/unionarena/482671/888367.webp",
+    "rarity": "C",
+    "alias_of": "UE18ST/TKG-1-106"
   }
 }

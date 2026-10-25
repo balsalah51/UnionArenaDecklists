@@ -300,9 +300,12 @@ def official_image(cid: str) -> str:
 
 
 def card_image_url(cid: str, cache: dict | None = None) -> str:
+    meta = (cache or {}).get(cid) or {}
+    listed = str(meta.get("alias_of") or "").strip()
+    if listed and "/" in listed and "UNRESOLVED" not in listed:
+        return official_image(listed)
     if cid and "/" in cid and "UNRESOLVED" not in cid:
         return official_image(cid)
-    meta = (cache or {}).get(cid) or {}
     if meta.get("image"):
         img = meta["image"]
         if img.startswith("/"):
@@ -830,23 +833,34 @@ def page_chrome(
 """)
 
 
-def html_redirect(target: str, title: str = "Moved", *, canonical: str = "") -> str:
-    """Meta refresh plus location.replace. GitHub Pages does not emit HTTP 301s."""
+def html_redirect(
+    target: str,
+    title: str = "Moved",
+    *,
+    canonical: str = "",
+    robots: str = "",
+) -> str:
+    """Meta refresh plus location.replace. GitHub Pages does not emit HTTP 301s.
+
+    Moved pages point rel=canonical at the new URL and stay indexable, so
+    Google can consolidate them. noindex would make that canonical ignored.
+    Affiliate /go/ pages pass robots=\"noindex, follow\" because they are not
+    documents.
+    """
     safe_href = html.escape(target, quote=True)
     js = json.dumps(target)
+    canon_href = canonical or (target if target.startswith("/") else "")
     canon = ""
-    if canonical:
-        canon = f'  <link rel="canonical" href="{html.escape(absolute_url(canonical), quote=True)}" />\n'
-    elif target.startswith("/"):
-        canon = f'  <link rel="canonical" href="{html.escape(absolute_url(target), quote=True)}" />\n'
+    if canon_href:
+        canon = f'  <link rel="canonical" href="{html.escape(absolute_url(canon_href), quote=True)}" />\n'
+    robots_tag = f'  <meta name="robots" content="{html.escape(robots)}" />\n' if robots else ""
     return f"""<!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>{html.escape(title)}</title>
-  <meta name="robots" content="noindex, follow" />
-{canon}  <meta http-equiv="refresh" content="0;url={safe_href}" />
+{robots_tag}{canon}  <meta http-equiv="refresh" content="0;url={safe_href}" />
   <script>location.replace({js});</script>
 </head>
 <body>
@@ -868,7 +882,7 @@ def write_tcg_go(mass_url: str, stable_key: str) -> str:
     path = ROOT / rel
     path.parent.mkdir(parents=True, exist_ok=True)
     partner = tcgplayer_affiliate_url(dest_url)
-    path.write_text(html_redirect(partner, "Buy on TCGplayer"))
+    path.write_text(html_redirect(partner, "Buy on TCGplayer", robots="noindex, follow"))
     return f"/{rel}"
 
 
@@ -1005,10 +1019,14 @@ def tcgplayer_mass_entry_url(items: list | None, cache: dict | None = None) -> s
         if qty < 1:
             continue
         meta = cache.get(cid) or {}
-        set_code = cid.split("/", 1)[0] if "/" in cid else ""
+        listed = str(meta.get("alias_of") or cid)
+        if listed != cid:
+            meta = cache.get(listed) or meta
+        set_code = listed.split("/", 1)[0] if "/" in listed else ""
         label = _tcgplayer_mass_entry_name(
-            cid, meta.get("name") or it.get("name") or ""
+            listed, meta.get("name") or it.get("name") or ""
         )
+        cid = listed
         # TCGplayer Mass Entry: qty OfficialName (NNN) [SET] FULL-ID
         if label and set_code:
             line = f"{qty} {label} [{set_code}] {cid}"
@@ -1263,6 +1281,59 @@ def card_is_resolved(cid: str, meta: dict | None) -> bool:
         return False
     category = str(meta.get("category") or meta.get("type") or "").strip()
     return bool(category)
+
+
+def load_card_aliases() -> dict[str, dict]:
+    raw = load_json("data/card-aliases.json", {})
+    rows = raw.get("aliases") if isinstance(raw, dict) else {}
+    if not isinstance(rows, dict):
+        return {}
+    out: dict[str, dict] = {}
+    for src, info in rows.items():
+        if isinstance(info, str):
+            info = {"target": info}
+        if isinstance(info, dict) and info.get("target"):
+            out[str(src)] = info
+    return out
+
+
+def apply_card_aliases(cache: dict, spec: dict | None = None) -> list[str]:
+    """Copy a verified printing onto a source id that Bandai does not publish.
+
+    Returns source ids whose target is missing or whose name does not match
+    the alias file. Those stay unresolved.
+    """
+    spec = load_card_aliases() if spec is None else spec
+    skipped: list[str] = []
+    for src, info in spec.items():
+        target = str(info.get("target") or "")
+        meta = cache.get(target) or {}
+        expected = str(info.get("name") or "").strip().lower()
+        actual = str(meta.get("name") or "")
+        if not card_is_resolved(target, meta) or (expected and expected not in actual.lower()):
+            log("ALIAS SKIP", src, "target", target, "name", actual or "(none)")
+            skipped.append(src)
+            continue
+        row = cache.setdefault(src, {"id": src})
+        if not isinstance(row, dict):
+            row = {"id": src}
+            cache[src] = row
+        if not card_is_resolved(src, row):
+            for field in INHERIT_FIELDS:
+                if meta.get(field):
+                    row[field] = meta[field]
+        row["alias_of"] = target
+        row["id"] = src
+    return skipped
+
+
+def refresh_checked_label() -> str:
+    """UTC time of the last scrape, including a scrape that added no lists."""
+    log = load_json("data/refresh-log.json", {})
+    raw = str((log or {}).get("checked_at") or "").strip()
+    if not raw:
+        return ""
+    return raw.replace("T", " ").replace("Z", " UTC")
 
 
 def legal_number(cid: str) -> str:

@@ -374,10 +374,12 @@ def complete_card_cache(cache: dict, ids: list[str] | None = None) -> list[str]:
     """Inherit printings, fetch Bandai details for gaps, and list anything still open."""
     import scrape_official_cards
 
+    uadb.apply_card_aliases(cache)
     uadb.inherit_printings(cache)
     wanted = ids if ids is not None else used_card_ids()
     unresolved = scrape_official_cards.fetch_missing(cache, wanted)
     uadb.inherit_printings(cache)
+    uadb.apply_card_aliases(cache)
     still = [cid for cid in wanted if not uadb.card_is_resolved(cid, cache.get(cid))]
     # AP cards and explicit unresolved placeholders are reported, not fetched again.
     report = []
@@ -1912,17 +1914,23 @@ def render_text_deck(items: list[dict], cache: dict, heading: str = "Text list")
         for it in rows:
             meta = cache.get(it["id"], {})
             name = uadb.display_name(meta.get("name") or it["name"])
-            buy = uadb.buy_card_link(uadb.tcgplayer_card_search_url(it["id"], name), "Buy")
+            listed = str(meta.get("alias_of") or it["id"])
+            buy = uadb.buy_card_link(uadb.tcgplayer_card_search_url(listed, name), "Buy")
             cost = meta.get("cost")
             cost_html = f'<span class="muted">Energy {html.escape(str(cost))}</span>' if cost not in (None, "") else ""
             effect = meta.get("effect") or meta.get("trigger") or ""
             effect_html = f'<div class="text-effect">{html.escape(effect)}</div>' if effect else ""
+            alias = str(meta.get("alias_of") or "")
+            alias_html = (
+                f'<span class="muted">English printing {html.escape(alias)}</span>' if alias else ""
+            )
             lines.append(
                 f"""            <li class="text-line">
               <span class="qty">{html.escape(str(it['count']))}x</span>
               <span class="card-title">{html.escape(name)}</span>
               <span class="muted card-id">{html.escape(it['id'])}</span>
               {cost_html}
+              {alias_html}
               {buy}
               {effect_html}
             </li>"""
@@ -1964,7 +1972,8 @@ def render_card_entry(item: dict, meta: dict, cache: dict) -> str:
         bits.append(meta["color"])
     stats = " · ".join(bits)
     text = meta.get("effect") or meta.get("trigger") or ""
-    buy = uadb.buy_card_link(uadb.tcgplayer_card_search_url(cid, name), "TCGplayer")
+    listed = str(meta.get("alias_of") or cid)
+    buy = uadb.buy_card_link(uadb.tcgplayer_card_search_url(listed, name), "TCGplayer")
     return f"""        <article class="card-entry">
           <img src="{html.escape(img)}" alt="{html.escape(name)} {html.escape(cid)}" loading="lazy" decoding="async" {uadb.card_img_size("card")} />
           <div>
@@ -2280,7 +2289,7 @@ def write_hub(
     remember_date(arch["page"], (lists[0].get("date") if lists else "") or "")
     body = f"""        {uadb.crumb_html(crumbs)}
         <div class="leader-hero">
-          {f'<img src="{html.escape(img)}" alt="{html.escape(arch["full"])} Union Arena character card" fetchpriority="high" decoding="async" {uadb.card_img_size("hero")} />' if img else ''}
+          {f'<img src="{html.escape(img)}" alt="{html.escape(arch["full"])} Union Arena character card" fetchpriority="high" decoding="async" {uadb.card_img_size("hero")} onerror="this.onerror=null;this.src=\'/img/card-fallback.svg\'" />' if img else ''}
           <div>
             <h1>{html.escape(arch['full'])}</h1>
             <p class="page-lead">{html.escape(desc)}</p>
@@ -2291,6 +2300,7 @@ def write_hub(
             {f'<div class="effect">{html.escape(effect)}</div>' if effect else ''}
             {uadb.buy_deck_button(arch.get('go_href') or uadb.write_tcg_go(arch.get('buy_url') or uadb.tcgplayer_mass_entry_url(items, cache), arch.get('page') or arch.get('key') or ''), 'Buy this 50 on TCGplayer', disclose=True)}
             {f'<p class="muted">Last list dated {html.escape((lists[0].get("date") or "")[:10])}.</p>' if lists and lists[0].get("date") else ''}
+            {f'<p class="muted">Data last checked {html.escape(uadb.refresh_checked_label())}. This time moves when a scrape finishes, including a scrape that adds no lists.</p>' if uadb.refresh_checked_label() else ''}
           </div>
         </div>
 {render_color_hubs(arch)}
@@ -3204,6 +3214,13 @@ def write_home(
         if when > updated:
             updated = when
     updated_line = f'<p class="muted">Last updated {html.escape(updated)}, from the newest list in this snapshot.</p>' if updated else ""
+    checked = uadb.refresh_checked_label()
+    checked_line = (
+        f'<p class="muted">Data last checked {html.escape(checked)}. This time moves when a scrape finishes, including a scrape that adds no lists.</p>'
+        if checked
+        else ""
+    )
+    updated_line = updated_line + checked_line
     pie_html = render_newest_set_pie(
         newest_set_share(
             published or [],
@@ -4436,12 +4453,17 @@ def main() -> None:
             "unresolved": unresolved,
             "unresolved_count": len(unresolved),
             "last_list": stamp,
+            "checked_at": (uadb.load_json("data/refresh-log.json", {}) or {}).get("checked_at") or "",
+            "warning": "unresolved cards" if unresolved else "",
         },
     )
     uadb.log("wrote site", "pages", len(sitemap), "discord themes", board.get("theme_count"))
     if unresolved:
-        uadb.log("BUILD FAIL", len(unresolved), "listed cards have no name or type. See data/unresolved-cards.json")
-        raise SystemExit(1)
+        uadb.log(
+            "BUILD WARN",
+            len(unresolved),
+            "listed cards have no name or type. See data/unresolved-cards.json. The site was still written.",
+        )
 
 
 if __name__ == "__main__":

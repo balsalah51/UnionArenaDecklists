@@ -1,13 +1,8 @@
 {
-  "ok": false,
-  "unresolved": [
-    "UE08BT/BLC-1-081",
-    "UE08BT/BLC-1-047",
-    "UE08BT/BLC-1-041",
-    "UE08BT/BLC-1-085",
-    "UE01BT/BLC-1-051",
-    "UE18BT/TKG-1-106"
-  ],
-  "unresolved_count": 6,
-  "last_list": "2026-10-16"
+  "ok": true,
+  "unresolved": [],
+  "unresolved_count": 0,
+  "last_list": "2026-10-16",
+  "checked_at": "",
+  "warning": ""
 }
