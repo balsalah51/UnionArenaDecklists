@@ -23,28 +23,29 @@ DATE_TO = ""
 SKIP_SLUGS = {
     "reddit-pic-does-anyone-know-the-most-optimal-purple-sao-song-deck-1qls",
 }
-JS_BUNDLE_RE = re.compile(r"/ua/en/js/en\.[A-Za-z0-9]+\.js")
+JS_BUNDLE_RE = re.compile(r"(?:/_nuxt/[A-Za-z0-9]+/[A-Za-z0-9]+\.js|/ua/en/js/en\.[A-Za-z0-9]+\.js)")
 JWT_RE = re.compile(r"(eyJ[A-Za-z0-9_\-]{20,}\.[A-Za-z0-9_\-]{20,}\.[A-Za-z0-9_\-]{20,})")
-EN_CID_RE = re.compile(r"(?i)\b(?:UE|UEX|ST|PR)[A-Z0-9]{2,8}/")
+EN_CID_RE = re.compile(r"(?i)\b(?:UE|UEX|UP|ST|PR)[A-Z0-9]{2,8}/")
 
 
 def discover_anon_key() -> str:
     status, html = uadb.fetch("https://exburst.dev/ua/en/decklists", timeout=22, browser=True)
     if status != 200:
         raise RuntimeError(f"exburst html {status}")
-    bundle = JS_BUNDLE_RE.search(html)
-    if not bundle:
+    bundles = list(dict.fromkeys(JS_BUNDLE_RE.findall(html)))
+    if not bundles:
         raise RuntimeError("exburst js bundle not found")
-    url = "https://exburst.dev" + bundle.group(0)
-    st2, js = uadb.fetch(url, timeout=30, browser=True)
-    if st2 != 200:
-        raise RuntimeError(f"exburst js {st2}")
-    idx = js.find("auth.exburst.dev")
-    window = js[max(0, idx) : idx + 400] if idx >= 0 else js
-    m = JWT_RE.search(window) or JWT_RE.search(js)
-    if not m:
-        raise RuntimeError("exburst public key not found")
-    return m.group(1)
+    for bundle_path in bundles:
+        url = "https://exburst.dev" + bundle_path
+        st2, js = uadb.fetch(url, timeout=30, browser=True)
+        if st2 != 200:
+            continue
+        idx = js.find("auth.exburst.dev")
+        window = js[max(0, idx) : idx + 400] if idx >= 0 else js
+        m = JWT_RE.search(window) or JWT_RE.search(js)
+        if m:
+            return m.group(1)
+    raise RuntimeError("exburst public key not found in any bundle")
 
 
 def rest_range(key: str, table: str, query: str, offset: int, limit: int = PAGE_SIZE) -> list[dict]:

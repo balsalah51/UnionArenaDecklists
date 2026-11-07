@@ -36,6 +36,7 @@ TITLES = [
     "CHAINSAW MAN",
     "INUYASHA",
     "Re:ZERO -Starting Life in Another World-",
+    "Umamusume: Pretty Derby",
 ]
 
 IMG_RE = re.compile(

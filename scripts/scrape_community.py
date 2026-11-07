@@ -53,6 +53,7 @@ SET_PREFIX = {
     "MHA": "my-hero-academia",
     "REZ": "re-zero",
     "KJ8": "kaiju-no-8",
+    "UPD": "umamusume-pretty-derby",
 }
 WEB_PAGES = [
     "https://www.josephwriteranderson.com/blog/6-top-union-arena-decks-from-the-virginia-regionals-analyzed-by-deck-sensei",
@@ -78,11 +79,15 @@ X_SEARCHES = [
     "union arena UE19BT decklist",
     "union arena UE22BT deck",
     "union arena UE23BT decklist",
+    "union arena UEX08BT decklist",
+    "union arena UP01BT nikke decklist",
     "union arena inuyasha decklist",
     "\"union arena\" \"4xUE\" deck",
     "union arena sung jinwoo 4xUE",
     "union arena sakamoto decklist 4x",
     "union arena kaiju decklist",
+    "union arena nikke decklist",
+    "union arena bleach decklist UEX08BT",
 ]
 REDDIT_URLS = [
     "https://old.reddit.com/r/Union_Arena_TCG/new.json?limit=100&raw_json=1",
@@ -915,38 +920,41 @@ def main() -> None:
     if "--skip-x" not in sys.argv:
         _run_source(failures, successes, "x", lambda: scrape_x(found, seen, cache, arches))
     if "--skip-images" not in sys.argv:
-        import scrape_image_lists
-
-        _run_source(
-            failures,
-            successes,
-            "images",
-            lambda: scrape_image_lists.scrape_images(
+        def _images() -> None:
+            import scrape_image_lists
+            scrape_image_lists.scrape_images(
                 found,
                 seen,
                 cache,
                 arches,
                 include_other="--skip-other-images" not in sys.argv,
                 include_x="--skip-x" not in sys.argv,
-            ),
-        )
-    if "--skip-events" not in sys.argv:
-        import scrape_events
+            )
 
-        _run_source(failures, successes, "events", lambda: scrape_events.scrape_events(found, seen, cache, arches))
+        _run_source(failures, successes, "images", _images)
+    if "--skip-events" not in sys.argv:
+        def _events() -> None:
+            import scrape_events
+            scrape_events.scrape_events(found, seen, cache, arches)
+
+        _run_source(failures, successes, "events", _events)
     if "--skip-exburst-events" not in sys.argv and "--skip-exburst" not in sys.argv:
-        import scrape_exburst_events
+        def _exburst_events() -> None:
+            import scrape_exburst_events
+            scrape_exburst_events.scrape_exburst_events(found, seen, cache, arches)
 
         _run_source(
             failures,
             successes,
             "exburst-events",
-            lambda: scrape_exburst_events.scrape_exburst_events(found, seen, cache, arches),
+            _exburst_events,
         )
     if "--skip-exburst" not in sys.argv:
-        import scrape_exburst
+        def _exburst() -> None:
+            import scrape_exburst
+            scrape_exburst.scrape_exburst(found, seen, cache, arches)
 
-        _run_source(failures, successes, "exburst", lambda: scrape_exburst.scrape_exburst(found, seen, cache, arches))
+        _run_source(failures, successes, "exburst", _exburst)
     if "--skip-youtube" not in sys.argv:
         def _youtube() -> None:
             video_ids = scrape_youtube(found, seen, cache, arches)
