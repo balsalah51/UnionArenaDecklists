@@ -23536,8 +23536,15 @@
           ],
           "sim_text": "4xUE10BT/AOT-1-050\n4xUEPR/AOT-1-051\n4xUEX07BT/AOT-2-051\n4xUEX07BT/AOT-2-050\n4xUEX07BT/AOT-2-054\n4xUEX07BT/AOT-2-055\n4xUE10BT/AOT-1-058\n4xUEX07BT/AOT-2-060\n4xUE10BT/AOT-1-053\n4xUE10BT/AOT-1-065\n4xUEX07BT/AOT-2-056\n4xUEX07BT/AOT-2-059\n2xUEX07BT/AOT-2-061",
           "cards": 50,
-          "list_count": 79,
+          "list_count": 80,
           "recent_lists": [
+            {
+              "slug": "exburst-zeke-s-pure-titans-attack-on-titan-green-pieck-140258",
+              "kind": "web",
+              "title": "Attack On Titan - Zeke Jaeger (Beast Titan)",
+              "date": "2026-11-08",
+              "href": "decklists/attack-on-titan-green-pieck/exburst-zeke-s-pure-titans-attack-on-titan-green-pieck-140258.html"
+            },
             {
               "slug": "tournament-2nd-attack-on-titan-green-pieck-139929",
               "kind": "tournament",
@@ -23586,13 +23593,6 @@
               "title": "Attack On Titan - Bertholdt Hoover (Colossal Titan)",
               "date": "2026-11-05",
               "href": "decklists/attack-on-titan-green-pieck/exburst-marleyan-warriors-vol-2-attack-on-titan-green-pieck-139214.html"
-            },
-            {
-              "slug": "exburst-test-attack-on-titan-green-pieck-138969",
-              "kind": "web",
-              "title": "Attack On Titan - Annie Leonhart (Female Titan)",
-              "date": "2026-11-04",
-              "href": "decklists/attack-on-titan-green-pieck/exburst-test-attack-on-titan-green-pieck-138969.html"
             }
           ]
         },
@@ -42524,7 +42524,7 @@
           ],
           "sim_text": "4xUE01BT/BLC-1-100\n4xUEX01BT/BLC-2-067\n4xUE01BT/BLC-1-083\n4xUE08BT/BLC-1-085\n3xUE01BT/BLC-1-080\n3xUE08BT/BLC-1-081\n3xUE01BT/BLC-1-087\n4xUEX08BT/BLC-4-070\n4xUEX01BT/BLC-2-072\n4xUEX08BT/BLC-4-069\n4xUEX01BT/BLC-2-005\n3xUE01BT/BLC-1-096\n3xUE01BT/BLC-1-088\n3xUE01BT/BLC-1-076",
           "cards": 50,
-          "list_count": 207,
+          "list_count": 209,
           "recent_lists": [
             {
               "slug": "exburst-toshiro-bleach-kenpachi-zaraki-140199",
@@ -42826,7 +42826,7 @@
           ],
           "sim_text": "4xUE08BT/BLC-1-041\n4xUE01BT/BLC-1-039\n4xUEX01BT/BLC-2-051\n4xUE01ST/BLC-1-103\n4xUEX01BT/BLC-2-057\n4xUE01BT/BLC-1-066\n2xUE01ST/BLC-1-104\n4xUEX01BT/BLC-2-060\n4xUEX01BT/BLC-2-058\n4xUE01BT/BLC-1-057\n4xUEX01BT/BLC-2-056\n4xUEX01BT/BLC-2-061\n4xUEX01BT/BLC-2-059",
           "cards": 50,
-          "list_count": 600,
+          "list_count": 617,
           "recent_lists": [
             {
               "slug": "exburst-discard-bleach-ichigo-kurosaki-140221",
@@ -42985,7 +42985,7 @@
           ],
           "sim_text": "4xUE01BT/BLC-1-100\n4xUEX01BT/BLC-2-067\n4xUE01BT/BLC-1-080\n4xUE01BT/BLC-1-083\n4xUE08BT/BLC-1-085\n4xUEX08BT/BLC-4-070\n4xUE08BT/BLC-1-081\n4xUEX01BT/BLC-2-073\n4xUEX08BT/BLC-4-069\n4xUEX01BT/BLC-2-005\n4xUE01BT/BLC-1-076\n3xUE01BT/BLC-1-088\n3xUE01BT/BLC-1-082",
           "cards": 50,
-          "list_count": 278,
+          "list_count": 289,
           "recent_lists": [
             {
               "slug": "exburst-byakuya-kuchiki-deck-bleach-third-times-the-charm-140206",
@@ -43321,7 +43321,7 @@
           ],
           "sim_text": "4xUE01BT/BLC-1-100\n4xUE01BT/BLC-1-071\n4xUE01BT/BLC-1-072\n4xUE01BT/BLC-1-083\n4xUE08BT/BLC-1-085\n4xUE01BT/BLC-1-070\n3xUE01BT/BLC-1-074\n3xUEX01BT/BLC-2-069\n4xUE01BT/BLC-1-096\n4xUE01BT/BLC-1-088\n4xUEX01BT/BLC-2-005\n4xUEX08BT/BLC-4-069\n2xUEX01BT/BLC-2-072\n2xUEX08BT/BLC-4-072",
           "cards": 50,
-          "list_count": 156,
+          "list_count": 163,
           "recent_lists": [
             {
               "slug": "exburst-bambietta-basterbine-deck-bleach-toshiro-hitsugaya-140161",
@@ -43373,11 +43373,11 @@
               "href": "decklists/bleach-toshiro-hitsugaya/exburst-bleach-femritters-bleach-toshiro-hitsugaya-72028.html"
             },
             {
-              "slug": "exburst-new-bambies-bleach-toshiro-hitsugaya-139825",
+              "slug": "exburst-shunsui-kyoraku-deck-bleach-toshiro-hitsugaya-140278",
               "kind": "web",
-              "title": "Bleach - Bambietta Basterbine",
-              "date": "2026-11-07",
-              "href": "decklists/bleach-toshiro-hitsugaya/exburst-new-bambies-bleach-toshiro-hitsugaya-139825.html"
+              "title": "Bleach - Shunsui Kyoraku",
+              "date": "2026-11-08",
+              "href": "decklists/bleach-toshiro-hitsugaya/exburst-shunsui-kyoraku-deck-bleach-toshiro-hitsugaya-140278.html"
             }
           ]
         },
