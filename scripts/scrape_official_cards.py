@@ -36,13 +36,14 @@ TITLES = [
     "CHAINSAW MAN",
     "INUYASHA",
     "Re:ZERO -Starting Life in Another World-",
+    "Umamusume: Pretty Derby",
 ]
 
 IMG_RE = re.compile(
     r'data-src="(/na/images/cardlist/card/([^"]+))"\s+alt="([^"]+)"',
     re.I,
 )
-ID_RE = re.compile(r"((?:UE|UA|ST|PR|UEX)[A-Z0-9]{0,8}/[A-Z]{2,4}-\d-\d{3}(?:_p\d+)?)")
+ID_RE = re.compile(r"((?:UE|UA|UP|ST|PR|UEX)[A-Z0-9]{0,8}/[A-Z]{2,4}-\d-\d{3}(?:_p\d+)?)")
 
 
 def parse_list(body: str, title: str) -> dict[str, dict]:

@@ -21,7 +21,7 @@ GROUP_ORDER = ["Characters", "Events", "Sites", "AP cards", "Other"]
 COLOR_MARK = re.compile(r"【\s*(?:PURPLE|RED|YELLOW|GREEN|BLUE|BLACK)\s*】", re.I)
 MIN_FACE_COST = 4
 BOOSTER_SET_RE = re.compile(r"^UE(\d+)BT$", re.I)
-CID_NAME_RE = re.compile(r"^(?:UE|UA|ST|PR|UEX)[A-Z0-9]+/", re.I)
+CID_NAME_RE = re.compile(r"^(?:UE|UA|UP|ST|PR|UEX)[A-Z0-9]+/", re.I)
 SMALL_PIE_PCT = 16.0
 PIE_VIEW_W = 1000.0
 PIE_VIEW_H = 720.0
@@ -2420,7 +2420,7 @@ def best_in_format_card(arches: list[dict], features: dict, cache: dict) -> dict
 
 def looks_like_cid(name: str) -> bool:
     raw = (name or "").strip()
-    return bool(CID_NAME_RE.match(raw) or re.match(r"^(?:UE|UA|ST|PR|UEX)[A-Z0-9_-]+$", raw, re.I))
+    return bool(CID_NAME_RE.match(raw) or re.match(r"^(?:UE|UA|UP|ST|PR|UEX)[A-Z0-9_-]+$", raw, re.I))
 
 
 def list_card_ids(entry: dict) -> list[str]:
