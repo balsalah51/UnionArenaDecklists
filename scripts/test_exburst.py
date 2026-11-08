@@ -27,6 +27,18 @@ class ExburstScrapeTests(unittest.TestCase):
         self.assertEqual(counts.get("UE17BT/SLG-1-030"), 4)
         self.assertEqual(counts.get("UEX06BT/SAO-2-031"), 2)
 
+    def test_parses_up01bt_nikke_qty_lines(self):
+        text = "4xUP01BT/NIK-2-002 4xup01bt/nik-2-004 4xUE14BT/NIK-1-007"
+        counts = uadb.parse_counts(text)
+        self.assertEqual(counts.get("UP01BT/NIK-2-002"), 4)
+        self.assertEqual(counts.get("UP01BT/NIK-2-004"), 4)
+        self.assertEqual(counts.get("UE14BT/NIK-1-007"), 4)
+        self.assertTrue(
+            scrape_exburst.english_enough(
+                {"UP01BT/NIK-2-002": 4, "UP01BT/NIK-2-004": 4, "UE14BT/NIK-1-007": 42}
+            )
+        )
+
     def test_english_enough_rejects_asia_ua_lists(self):
         en = {"UE17BT/SLG-1-022": 4, "UE17BT/SLG-1-030": 12, "UE17BT/SLG-1-001": 34}
         ja = {"UA48BT/KGD-1-002": 4, "UA48BT/KGD-1-003": 46}

@@ -162,6 +162,11 @@ class TaxonomyTests(unittest.TestCase):
             "/guides/",
         )
 
+    def test_looks_like_cid_includes_up_prefix(self):
+        self.assertTrue(generate_site.looks_like_cid("UP01BT/NIK-2-002"))
+        self.assertTrue(generate_site.looks_like_cid("UEX08BT/BLC-4-001"))
+        self.assertFalse(generate_site.looks_like_cid("Rapi"))
+
     def test_href_for_name_skips_a_missing_hub(self):
         self.assertEqual(generate_site._href_for_name("Crusch Karsten", []), "")
         href = generate_site._href_for_name(

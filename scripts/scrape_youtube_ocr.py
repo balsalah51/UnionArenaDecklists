@@ -27,7 +27,7 @@ FFMPEG = shutil.which("ffmpeg") or "ffmpeg"
 TESSERACT = shutil.which("tesseract") or "tesseract"
 
 LOOSE_ID = re.compile(
-    r"((?:UEX|UE)\s*\d{2}\s*(?:BT|ST|PR))\W{0,8}([A-Z]{2,6}\d?)\W{0,6}(\d)\W{0,6}(\d{3})",
+    r"((?:UEX|UE|UP)\s*\d{2}\s*(?:BT|ST|PR))\W{0,8}([A-Z]{2,6}\d?)\W{0,6}(\d)\W{0,6}(\d{3})",
     re.I,
 )
 SHORT_ID = re.compile(r"\b([A-Z]{2,4}\d?-\d-\d{3})\b", re.I)
@@ -36,6 +36,8 @@ OCR_FIXES = (
     (re.compile(r"(?i)\bUE[Il](\d{2}BT)"), r"UE\1"),
     (re.compile(r"(?i)\b(UE\d{2}BT)\s+([A-Z]{2,4}\d?-\d-)"), r"\1/\2"),
     (re.compile(r"(?i)\b(UE\d{2}BT)[_|\\]+"), r"\1/"),
+    (re.compile(r"(?i)\b(UP\d{2}BT)\s+([A-Z]{2,4}\d?-\d-)"), r"\1/\2"),
+    (re.compile(r"(?i)\b(UP\d{2}BT)[_|\\]+"), r"\1/"),
 )
 PUB = re.compile(r'"publishDate"\s*:\s*"(\d{4}-\d{2}-\d{2})"')
 UPLOAD = re.compile(r'"uploadDate"\s*:\s*"(\d{4}-\d{2}-\d{2})"')

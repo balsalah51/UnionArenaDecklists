@@ -9914,16 +9914,21 @@
       }
     ],
     "evidence": {
-      "newestListDate": "2026-11-04",
-      "ageDays": 3,
+      "newestListDate": "2026-11-07",
+      "ageDays": 1,
       "stale": false
+    },
+    "newestSet": {
+      "name": "Bleach: Thousand Year Blood War Advanced Deck",
+      "slug": "ue01dc",
+      "releasedAt": "2026-11-06"
     },
     "metaShareSummary": {
       "sinceBanlistDate": "2026-02-14",
       "sinceBanlistSource": "firstTournament",
       "totalSampleSize": 610,
-      "recent30dSampleSize": 115,
-      "sinceBanlistSampleSize": 2733,
+      "recent30dSampleSize": 113,
+      "sinceBanlistSampleSize": 2738,
       "hhi": 277.81,
       "top3Share": 0.23598303
     }

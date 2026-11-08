@@ -97,7 +97,7 @@ STAMP_RE = re.compile(
     re.I,
 )
 LINE_RE = re.compile(
-    r"(?i)(\d+)\s*[x×*]\s*((?:UE|UA|ST|PR|UEX)[A-Z0-9]{0,8}[/_\-]+[A-Z]{2,4}\d?-(?:\d|P)-\d{3})"
+    r"(?i)(\d+)\s*[x×*]\s*((?:UE|UA|UP|ST|PR|UEX)[A-Z0-9]{0,8}[/_\-]+[A-Z]{2,4}\d?-(?:\d|P)-\d{3})"
 )
 CID_TOKEN_RE = re.compile(
     r"(?i)\b((?:UE|UA|UP|ST|PR|UEX)[A-Z0-9]{2,8})[/_\-]+([A-Z]{2,4}\d?-(?:\d|P)-\d{3})(?:-ALT\d+)?"

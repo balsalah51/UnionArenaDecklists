@@ -1,6 +1,6 @@
 {
   "note": "GitHub Pages with .nojekyll cannot send an HTTP 301. Each old URL is an HTML file with a meta refresh and location.replace. The _redirects list is the same map for a host that supports 301s.",
-  "count": 14993,
+  "count": 15190,
   "redirects": [
     {
       "from": "/decklists/aot-tsk-bertholdt-hoover-colossal-titan.html",
@@ -149,6 +149,10 @@
     {
       "from": "/decklists/attack-on-titan-armin-arlelt/exburst-104th-cadet-corps-attack-on-titan-armin-arlelt-124260.html",
       "to": "/decklists/eren-jaeger-attack-titan-red/exburst-104th-cadet-corps-attack-on-titan-armin-arlelt-124260.html"
+    },
+    {
+      "from": "/decklists/attack-on-titan-armin-arlelt/exburst-104th-cadet-corps-attack-on-titan-armin-arlelt-134597.html",
+      "to": "/decklists/eren-jaeger-red/exburst-104th-cadet-corps-attack-on-titan-armin-arlelt-134597.html"
     },
     {
       "from": "/decklists/attack-on-titan-armin-arlelt/exburst-104th-cadets-attack-on-titan-armin-arlelt-131913.html",
@@ -3271,6 +3275,10 @@
       "to": "/decklists/reiner-braun-armored-titan-green/exburst-green-titans-vol-2-attack-on-titan-green-pieck-134986.html"
     },
     {
+      "from": "/decklists/attack-on-titan-green-pieck/exburst-green-titans-womp-attack-on-titan-green-pieck-139938.html",
+      "to": "/decklists/reiner-braun-armored-titan-green/exburst-green-titans-womp-attack-on-titan-green-pieck-139938.html"
+    },
+    {
       "from": "/decklists/attack-on-titan-green-pieck/exburst-green-zeke-attack-on-titan-green-pieck-130010.html",
       "to": "/decklists/zeke-jaeger-beast-titan-green/exburst-green-zeke-attack-on-titan-green-pieck-130010.html"
     },
@@ -3431,6 +3439,10 @@
       "to": "/decklists/zeke-jaeger-beast-titan-green/exburst-zekin-it-attack-on-titan-green-pieck-134695.html"
     },
     {
+      "from": "/decklists/attack-on-titan-green-pieck/tournament-2nd-attack-on-titan-green-pieck-139929.html",
+      "to": "/decklists/zeke-jaeger-beast-titan-green/tournament-2nd-attack-on-titan-green-pieck-139929.html"
+    },
+    {
       "from": "/decklists/attack-on-titan-green-pieck/tournament-3rd-attack-on-titan-green-pieck-129243.html",
       "to": "/decklists/reiner-braun-armored-titan-green/tournament-3rd-attack-on-titan-green-pieck-129243.html"
     },
@@ -3441,6 +3453,10 @@
     {
       "from": "/decklists/attack-on-titan-green-pieck/tournament-6th-attack-on-titan-green-pieck-138540.html",
       "to": "/decklists/zeke-jaeger-beast-titan-green/tournament-6th-attack-on-titan-green-pieck-138540.html"
+    },
+    {
+      "from": "/decklists/attack-on-titan-green-pieck/tournament-6th-attack-on-titan-green-pieck-139924.html",
+      "to": "/decklists/zeke-jaeger-beast-titan-green/tournament-6th-attack-on-titan-green-pieck-139924.html"
     },
     {
       "from": "/decklists/attack-on-titan-green-pieck/tournament-9th-attack-on-titan-green-pieck-137273.html",
@@ -5607,6 +5623,10 @@
       "to": "/decklists/asta-red/exburst-asta-black-clover-asta-130857.html"
     },
     {
+      "from": "/decklists/black-clover-asta/exburst-asta-black-clover-asta-139841.html",
+      "to": "/decklists/asta-red/exburst-asta-black-clover-asta-139841.html"
+    },
+    {
       "from": "/decklists/black-clover-asta/exburst-asta-build-black-clover-asta-130480.html",
       "to": "/decklists/asta-red/exburst-asta-build-black-clover-asta-130480.html"
     },
@@ -5661,6 +5681,10 @@
     {
       "from": "/decklists/black-clover-asta/exburst-asta-deck-black-clover-asta-138780.html",
       "to": "/decklists/asta-purple/exburst-asta-deck-black-clover-asta-138780.html"
+    },
+    {
+      "from": "/decklists/black-clover-asta/exburst-asta-deck-black-clover-asta-140113.html",
+      "to": "/decklists/asta-red/exburst-asta-deck-black-clover-asta-140113.html"
     },
     {
       "from": "/decklists/black-clover-asta/exburst-asta-deck-completed-black-clover-asta-84045.html",
@@ -5741,6 +5765,10 @@
     {
       "from": "/decklists/black-clover-asta/exburst-black-bulls-black-clover-asta-137960.html",
       "to": "/decklists/asta-purple/exburst-black-bulls-black-clover-asta-137960.html"
+    },
+    {
+      "from": "/decklists/black-clover-asta/exburst-black-bulls-eye-black-clover-asta-140057.html",
+      "to": "/decklists/asta-purple/exburst-black-bulls-eye-black-clover-asta-140057.html"
     },
     {
       "from": "/decklists/black-clover-asta/exburst-black-bulls-purple-bc-black-clover-asta-118246.html",
@@ -5983,6 +6011,10 @@
       "to": "/decklists/noelle-silva-red/exburst-noelle-black-clover-asta-54977.html"
     },
     {
+      "from": "/decklists/black-clover-asta/exburst-noelle-mimosa-black-clover-asta-140116.html",
+      "to": "/decklists/noelle-silva-red/exburst-noelle-mimosa-black-clover-asta-140116.html"
+    },
+    {
       "from": "/decklists/black-clover-asta/exburst-noelle-silva-spell-slinger-black-clover-asta-131061.html",
       "to": "/decklists/noelle-silva-red/exburst-noelle-silva-spell-slinger-black-clover-asta-131061.html"
     },
@@ -5993,6 +6025,10 @@
     {
       "from": "/decklists/black-clover-asta/exburst-open-ip-tree-of-qliphoth-black-clover-asta-130957.html",
       "to": "/decklists/father-purple/exburst-open-ip-tree-of-qliphoth-black-clover-asta-130957.html"
+    },
+    {
+      "from": "/decklists/black-clover-asta/exburst-our-magic-is-never-giving-up-black-clover-asta-140048.html",
+      "to": "/decklists/noelle-silva-red/exburst-our-magic-is-never-giving-up-black-clover-asta-140048.html"
     },
     {
       "from": "/decklists/black-clover-asta/exburst-pure-magic-black-clover-asta-135284.html",
@@ -6735,6 +6771,14 @@
       "to": "/decklists/ichigo-kurosaki-purple/event-6th-bleach-delve-1402120.html"
     },
     {
+      "from": "/decklists/bleach-freez-tag.html",
+      "to": "/decklists/rukia-kuchiki.html"
+    },
+    {
+      "from": "/decklists/bleach-freez-tag/event-4th-bleach-freez-tag-1756450.html",
+      "to": "/decklists/rukia-kuchiki-blue/event-4th-bleach-freez-tag-1756450.html"
+    },
+    {
       "from": "/decklists/bleach-giselle-gewelle.html",
       "to": "/decklists/bambietta-basterbine.html"
     },
@@ -6907,6 +6951,10 @@
       "to": "/decklists/rukia-kuchiki-blue/exburst-2-ap-rukia-bleach-ichigo-kurosaki-135745.html"
     },
     {
+      "from": "/decklists/bleach-ichigo-kurosaki/exburst-2ap-freeze-bleach-ichigo-kurosaki-140131.html",
+      "to": "/decklists/rukia-kuchiki-blue/exburst-2ap-freeze-bleach-ichigo-kurosaki-140131.html"
+    },
+    {
       "from": "/decklists/bleach-ichigo-kurosaki/exburst-2ap-rukia-bleach-ichigo-kurosaki-137666.html",
       "to": "/decklists/rukia-kuchiki-blue/exburst-2ap-rukia-bleach-ichigo-kurosaki-137666.html"
     },
@@ -6941,6 +6989,10 @@
     {
       "from": "/decklists/bleach-ichigo-kurosaki/exburst-and-then-they-were-rivals-bleach-ichigo-kurosaki-139429.html",
       "to": "/decklists/ichigo-kurosaki-purple/exburst-and-then-they-were-rivals-bleach-ichigo-kurosaki-139429.html"
+    },
+    {
+      "from": "/decklists/bleach-ichigo-kurosaki/exburst-b-ichigo-bleach-ichigo-kurosaki-140202.html",
+      "to": "/decklists/ichigo-kurosaki-blue/exburst-b-ichigo-bleach-ichigo-kurosaki-140202.html"
     },
     {
       "from": "/decklists/bleach-ichigo-kurosaki/exburst-b-ichigo-bleach-ichigo-kurosaki-29845.html",
@@ -6981,6 +7033,10 @@
     {
       "from": "/decklists/bleach-ichigo-kurosaki/exburst-bdif-byakuya-ichigo-bleach-ichigo-kurosaki-138599.html",
       "to": "/decklists/byakuya-kuchiki-purple/exburst-bdif-byakuya-ichigo-bleach-ichigo-kurosaki-138599.html"
+    },
+    {
+      "from": "/decklists/bleach-ichigo-kurosaki/exburst-big-3-bleach-ichigo-kurosaki-84984.html",
+      "to": "/decklists/ichigo-kurosaki-purple/exburst-big-3-bleach-ichigo-kurosaki-84984.html"
     },
     {
       "from": "/decklists/bleach-ichigo-kurosaki/exburst-black-cat-bleach-ichigo-kurosaki-138936.html",
@@ -7367,6 +7423,10 @@
       "to": "/decklists/byakuya-kuchiki-purple/exburst-byakuya-kuchiki-deck-bleach-ichigo-kurosaki-139709.html"
     },
     {
+      "from": "/decklists/bleach-ichigo-kurosaki/exburst-byakuya-kuchiki-deck-bleach-ichigo-kurosaki-140204.html",
+      "to": "/decklists/byakuya-kuchiki-purple/exburst-byakuya-kuchiki-deck-bleach-ichigo-kurosaki-140204.html"
+    },
+    {
       "from": "/decklists/bleach-ichigo-kurosaki/exburst-byakuya-renji-bleach-ichigo-kurosaki-137680.html",
       "to": "/decklists/byakuya-kuchiki-purple/exburst-byakuya-renji-bleach-ichigo-kurosaki-137680.html"
     },
@@ -7449,6 +7509,10 @@
     {
       "from": "/decklists/bleach-ichigo-kurosaki/exburst-delve-bleach-ichigo-kurosaki-11287.html",
       "to": "/decklists/ichigo-kurosaki-purple/exburst-delve-bleach-ichigo-kurosaki-11287.html"
+    },
+    {
+      "from": "/decklists/bleach-ichigo-kurosaki/exburst-discard-bleach-ichigo-kurosaki-140221.html",
+      "to": "/decklists/ichigo-kurosaki-blue/exburst-discard-bleach-ichigo-kurosaki-140221.html"
     },
     {
       "from": "/decklists/bleach-ichigo-kurosaki/exburst-do-it-for-her-bleach-ichigo-kurosaki-18688.html",
@@ -7539,6 +7603,14 @@
       "to": "/decklists/ichigo-kurosaki-blue/exburst-grimmjow-jeagerjaques-deck-bleach-ichigo-kurosaki-139654.html"
     },
     {
+      "from": "/decklists/bleach-ichigo-kurosaki/exburst-grimmjow-jeagerjaques-deck-bleach-ichigo-kurosaki-139949.html",
+      "to": "/decklists/ichigo-kurosaki-blue/exburst-grimmjow-jeagerjaques-deck-bleach-ichigo-kurosaki-139949.html"
+    },
+    {
+      "from": "/decklists/bleach-ichigo-kurosaki/exburst-grimmjow-need-bleach-ichigo-kurosaki-140122.html",
+      "to": "/decklists/yoruichi-shihoin-blue/exburst-grimmjow-need-bleach-ichigo-kurosaki-140122.html"
+    },
+    {
       "from": "/decklists/bleach-ichigo-kurosaki/exburst-hakka-no-togame-bleach-ichigo-kurosaki-127569.html",
       "to": "/decklists/ichigo-kurosaki-blue/exburst-hakka-no-togame-bleach-ichigo-kurosaki-127569.html"
     },
@@ -7553,6 +7625,10 @@
     {
       "from": "/decklists/bleach-ichigo-kurosaki/exburst-his-name-is-zangestu-vol-3-bleach-ichigo-kurosaki-53368.html",
       "to": "/decklists/ichigo-kurosaki-blue/exburst-his-name-is-zangestu-vol-3-bleach-ichigo-kurosaki-53368.html"
+    },
+    {
+      "from": "/decklists/bleach-ichigo-kurosaki/exburst-i-get-to-play-grimmjow-bleach-ichigo-kurosaki-139912.html",
+      "to": "/decklists/ichigo-kurosaki-blue/exburst-i-get-to-play-grimmjow-bleach-ichigo-kurosaki-139912.html"
     },
     {
       "from": "/decklists/bleach-ichigo-kurosaki/exburst-i-m-okay-orihime-bleach-ichigo-kurosaki-139087.html",
@@ -7575,8 +7651,20 @@
       "to": "/decklists/ichigo-kurosaki-purple/exburst-ichi-ruki-bleach-ichigo-kurosaki-137781.html"
     },
     {
+      "from": "/decklists/bleach-ichigo-kurosaki/exburst-ichiblue-bleach-ichigo-kurosaki-140039.html",
+      "to": "/decklists/ichigo-kurosaki-blue/exburst-ichiblue-bleach-ichigo-kurosaki-140039.html"
+    },
+    {
       "from": "/decklists/bleach-ichigo-kurosaki/exburst-ichigo-2-0-bleach-ichigo-kurosaki-136706.html",
       "to": "/decklists/ichigo-kurosaki-purple/exburst-ichigo-2-0-bleach-ichigo-kurosaki-136706.html"
+    },
+    {
+      "from": "/decklists/bleach-ichigo-kurosaki/exburst-ichigo-3-0-bleach-ichigo-kurosaki-140014.html",
+      "to": "/decklists/ichigo-kurosaki-blue/exburst-ichigo-3-0-bleach-ichigo-kurosaki-140014.html"
+    },
+    {
+      "from": "/decklists/bleach-ichigo-kurosaki/exburst-ichigo-3-0-bleach-ichigo-kurosaki-39506.html",
+      "to": "/decklists/ichigo-kurosaki-purple/exburst-ichigo-3-0-bleach-ichigo-kurosaki-39506.html"
     },
     {
       "from": "/decklists/bleach-ichigo-kurosaki/exburst-ichigo-and-renji-bleach-ichigo-kurosaki-20266.html",
@@ -7669,6 +7757,10 @@
     {
       "from": "/decklists/bleach-ichigo-kurosaki/exburst-ichigo-kurosaki-deck-bleach-ichigo-kurosaki-133529.html",
       "to": "/decklists/ichigo-kurosaki-purple/exburst-ichigo-kurosaki-deck-bleach-ichigo-kurosaki-133529.html"
+    },
+    {
+      "from": "/decklists/bleach-ichigo-kurosaki/exburst-ichigo-kurosaki-deck-bleach-ichigo-kurosaki-133784.html",
+      "to": "/decklists/ichigo-kurosaki-purple/exburst-ichigo-kurosaki-deck-bleach-ichigo-kurosaki-133784.html"
     },
     {
       "from": "/decklists/bleach-ichigo-kurosaki/exburst-ichigo-kurosaki-deck-bleach-ichigo-kurosaki-137582.html",
@@ -7791,6 +7883,22 @@
       "to": "/decklists/ichigo-kurosaki-purple/exburst-ichigo-kurosaki-deck-bleach-ichigo-kurosaki-139799.html"
     },
     {
+      "from": "/decklists/bleach-ichigo-kurosaki/exburst-ichigo-kurosaki-deck-bleach-ichigo-kurosaki-139861.html",
+      "to": "/decklists/ichigo-kurosaki-purple/exburst-ichigo-kurosaki-deck-bleach-ichigo-kurosaki-139861.html"
+    },
+    {
+      "from": "/decklists/bleach-ichigo-kurosaki/exburst-ichigo-kurosaki-deck-bleach-ichigo-kurosaki-139910.html",
+      "to": "/decklists/ichigo-kurosaki-blue/exburst-ichigo-kurosaki-deck-bleach-ichigo-kurosaki-139910.html"
+    },
+    {
+      "from": "/decklists/bleach-ichigo-kurosaki/exburst-ichigo-kurosaki-deck-bleach-ichigo-kurosaki-139982.html",
+      "to": "/decklists/ichigo-kurosaki-purple/exburst-ichigo-kurosaki-deck-bleach-ichigo-kurosaki-139982.html"
+    },
+    {
+      "from": "/decklists/bleach-ichigo-kurosaki/exburst-ichigo-kurosaki-deck-bleach-ichigo-kurosaki-140099.html",
+      "to": "/decklists/ichigo-kurosaki-purple/exburst-ichigo-kurosaki-deck-bleach-ichigo-kurosaki-140099.html"
+    },
+    {
       "from": "/decklists/bleach-ichigo-kurosaki/exburst-ichigo-kurosaki-deck-v3-bleach-ichigo-kurosaki-138522.html",
       "to": "/decklists/ichigo-kurosaki-blue/exburst-ichigo-kurosaki-deck-v3-bleach-ichigo-kurosaki-138522.html"
     },
@@ -7895,6 +8003,10 @@
       "to": "/decklists/ichigo-kurosaki-blue/exburst-ichigo-rukia-hybrid-bleach-ichigo-kurosaki-137668.html"
     },
     {
+      "from": "/decklists/bleach-ichigo-kurosaki/exburst-ichigo-rukia-purple-bleach-bleach-ichigo-kurosaki-140078.html",
+      "to": "/decklists/ichigo-kurosaki-purple/exburst-ichigo-rukia-purple-bleach-bleach-ichigo-kurosaki-140078.html"
+    },
+    {
       "from": "/decklists/bleach-ichigo-kurosaki/exburst-ichigo-rukia-purple-bleach-ichigo-kurosaki-139493.html",
       "to": "/decklists/ichigo-kurosaki-purple/exburst-ichigo-rukia-purple-bleach-ichigo-kurosaki-139493.html"
     },
@@ -7905,6 +8017,10 @@
     {
       "from": "/decklists/bleach-ichigo-kurosaki/exburst-ichigo-rukia-vol-3-bleach-ichigo-kurosaki-80507.html",
       "to": "/decklists/ichigo-kurosaki-purple/exburst-ichigo-rukia-vol-3-bleach-ichigo-kurosaki-80507.html"
+    },
+    {
+      "from": "/decklists/bleach-ichigo-kurosaki/exburst-ichigo-s-domain-bleach-ichigo-kurosaki-140115.html",
+      "to": "/decklists/ichigo-kurosaki-blue/exburst-ichigo-s-domain-bleach-ichigo-kurosaki-140115.html"
     },
     {
       "from": "/decklists/bleach-ichigo-kurosaki/exburst-ichigo-squad-zero-bleach-ichigo-kurosaki-130322.html",
@@ -7933,6 +8049,10 @@
     {
       "from": "/decklists/bleach-ichigo-kurosaki/exburst-ichigo-yoruichi-bleach-ichigo-kurosaki-138390.html",
       "to": "/decklists/ichigo-kurosaki-blue/exburst-ichigo-yoruichi-bleach-ichigo-kurosaki-138390.html"
+    },
+    {
+      "from": "/decklists/bleach-ichigo-kurosaki/exburst-ichigo-yoruichi-hybrid-bleach-ichigo-kurosaki-139864.html",
+      "to": "/decklists/yoruichi-shihoin-blue/exburst-ichigo-yoruichi-hybrid-bleach-ichigo-kurosaki-139864.html"
     },
     {
       "from": "/decklists/bleach-ichigo-kurosaki/exburst-ichiruiji-bleach-ichigo-kurosaki-126065.html",
@@ -8019,6 +8139,10 @@
       "to": "/decklists/renji-abarai-purple/exburst-new-renji-rush-bleach-ichigo-kurosaki-139057.html"
     },
     {
+      "from": "/decklists/bleach-ichigo-kurosaki/exburst-new-rukia-bleach-ichigo-kurosaki-140130.html",
+      "to": "/decklists/rukia-kuchiki-blue/exburst-new-rukia-bleach-ichigo-kurosaki-140130.html"
+    },
+    {
       "from": "/decklists/bleach-ichigo-kurosaki/exburst-no-affinities-bleach-ichigo-kurosaki-125567.html",
       "to": "/decklists/ichigo-kurosaki-blue/exburst-no-affinities-bleach-ichigo-kurosaki-125567.html"
     },
@@ -8055,6 +8179,10 @@
       "to": "/decklists/yoruichi-shihoin-blue/exburst-orihime-inoue-deck-bleach-ichigo-kurosaki-139348.html"
     },
     {
+      "from": "/decklists/bleach-ichigo-kurosaki/exburst-orihime-inoue-deck-bleach-ichigo-kurosaki-139956.html",
+      "to": "/decklists/yoruichi-shihoin-blue/exburst-orihime-inoue-deck-bleach-ichigo-kurosaki-139956.html"
+    },
+    {
       "from": "/decklists/bleach-ichigo-kurosaki/exburst-pleach-bleach-ichigo-kurosaki-127011.html",
       "to": "/decklists/ichigo-kurosaki-purple/exburst-pleach-bleach-ichigo-kurosaki-127011.html"
     },
@@ -8065,6 +8193,10 @@
     {
       "from": "/decklists/bleach-ichigo-kurosaki/exburst-project-ichigo-kurosaki-bleach-ichigo-kurosaki-137822.html",
       "to": "/decklists/ichigo-kurosaki-blue/exburst-project-ichigo-kurosaki-bleach-ichigo-kurosaki-137822.html"
+    },
+    {
+      "from": "/decklists/bleach-ichigo-kurosaki/exburst-puke-bleach-ichigo-kurosaki-140220.html",
+      "to": "/decklists/renji-abarai-purple/exburst-puke-bleach-ichigo-kurosaki-140220.html"
     },
     {
       "from": "/decklists/bleach-ichigo-kurosaki/exburst-pure-byakuya-bleach-ichigo-kurosaki-137679.html",
@@ -8151,6 +8283,10 @@
       "to": "/decklists/ichigo-kurosaki-purple/exburst-purple-ichigo-rukia-bleach-ichigo-kurosaki-138251.html"
     },
     {
+      "from": "/decklists/bleach-ichigo-kurosaki/exburst-purple-ichigo-rukia-bleach-ichigo-kurosaki-139900.html",
+      "to": "/decklists/ichigo-kurosaki-purple/exburst-purple-ichigo-rukia-bleach-ichigo-kurosaki-139900.html"
+    },
+    {
       "from": "/decklists/bleach-ichigo-kurosaki/exburst-purple-ichigo-rukia-bleach-ichigo-kurosaki-73429.html",
       "to": "/decklists/ichigo-kurosaki-purple/exburst-purple-ichigo-rukia-bleach-ichigo-kurosaki-73429.html"
     },
@@ -8191,6 +8327,10 @@
       "to": "/decklists/yoruichi-shihoin-blue/exburst-queens-and-ichigo-bleach-ichigo-kurosaki-138748.html"
     },
     {
+      "from": "/decklists/bleach-ichigo-kurosaki/exburst-queens-test-bleach-ichigo-kurosaki-140025.html",
+      "to": "/decklists/yoruichi-shihoin-blue/exburst-queens-test-bleach-ichigo-kurosaki-140025.html"
+    },
+    {
       "from": "/decklists/bleach-ichigo-kurosaki/exburst-renji-abarai-build-bleach-ichigo-kurosaki-103005.html",
       "to": "/decklists/renji-abarai-purple/exburst-renji-abarai-build-bleach-ichigo-kurosaki-103005.html"
     },
@@ -8209,6 +8349,10 @@
     {
       "from": "/decklists/bleach-ichigo-kurosaki/exburst-renji-bleach-ichigo-kurosaki-138730.html",
       "to": "/decklists/renji-abarai-purple/exburst-renji-bleach-ichigo-kurosaki-138730.html"
+    },
+    {
+      "from": "/decklists/bleach-ichigo-kurosaki/exburst-renji-bleach-ichigo-kurosaki-140196.html",
+      "to": "/decklists/renji-abarai-purple/exburst-renji-bleach-ichigo-kurosaki-140196.html"
     },
     {
       "from": "/decklists/bleach-ichigo-kurosaki/exburst-renji-byakuya-bleach-ichigo-kurosaki-137774.html",
@@ -8279,6 +8423,14 @@
       "to": "/decklists/renji-abarai-purple/exburst-renji-rukia-ichigo-bleach-ichigo-kurosaki-138676.html"
     },
     {
+      "from": "/decklists/bleach-ichigo-kurosaki/exburst-renji-rukia-ichigo-bleach-ichigo-kurosaki-139590.html",
+      "to": "/decklists/renji-abarai-purple/exburst-renji-rukia-ichigo-bleach-ichigo-kurosaki-139590.html"
+    },
+    {
+      "from": "/decklists/bleach-ichigo-kurosaki/exburst-renji-rukia-ichigo-bleach-ichigo-kurosaki-140094.html",
+      "to": "/decklists/renji-abarai-purple/exburst-renji-rukia-ichigo-bleach-ichigo-kurosaki-140094.html"
+    },
+    {
       "from": "/decklists/bleach-ichigo-kurosaki/exburst-renji-rukia-rush-remove-everything-bleach-ichigo-kurosa-137570.html",
       "to": "/decklists/renji-abarai-purple/exburst-renji-rukia-rush-remove-everything-bleach-ichigo-kurosa-137570.html"
     },
@@ -8303,6 +8455,14 @@
       "to": "/decklists/ichigo-kurosaki-purple/exburst-renji-rush-bleach-ichigo-kurosaki-55846.html"
     },
     {
+      "from": "/decklists/bleach-ichigo-kurosaki/exburst-renji-x-ichigo-x-rukia-bleach-ichigo-kurosaki-140129.html",
+      "to": "/decklists/renji-abarai-purple/exburst-renji-x-ichigo-x-rukia-bleach-ichigo-kurosaki-140129.html"
+    },
+    {
+      "from": "/decklists/bleach-ichigo-kurosaki/exburst-renjukia-bleach-ichigo-kurosaki-140060.html",
+      "to": "/decklists/renji-abarai-purple/exburst-renjukia-bleach-ichigo-kurosaki-140060.html"
+    },
+    {
       "from": "/decklists/bleach-ichigo-kurosaki/exburst-renruki-bleach-ichigo-kurosaki-139463.html",
       "to": "/decklists/renji-abarai-purple/exburst-renruki-bleach-ichigo-kurosaki-139463.html"
     },
@@ -8313,6 +8473,10 @@
     {
       "from": "/decklists/bleach-ichigo-kurosaki/exburst-roar-zabimaru-bleach-ichigo-kurosaki-139578.html",
       "to": "/decklists/renji-abarai-purple/exburst-roar-zabimaru-bleach-ichigo-kurosaki-139578.html"
+    },
+    {
+      "from": "/decklists/bleach-ichigo-kurosaki/exburst-rough-draft-bleach-ichigo-kurosaki-139853.html",
+      "to": "/decklists/yoruichi-shihoin-blue/exburst-rough-draft-bleach-ichigo-kurosaki-139853.html"
     },
     {
       "from": "/decklists/bleach-ichigo-kurosaki/exburst-ruki-bleach-ichigo-kurosaki-57937.html",
@@ -8355,6 +8519,10 @@
       "to": "/decklists/rukia-kuchiki-blue/exburst-rukia-bleach-ichigo-kurosaki-138093.html"
     },
     {
+      "from": "/decklists/bleach-ichigo-kurosaki/exburst-rukia-bleach-ichigo-kurosaki-140211.html",
+      "to": "/decklists/rukia-kuchiki-blue/exburst-rukia-bleach-ichigo-kurosaki-140211.html"
+    },
+    {
       "from": "/decklists/bleach-ichigo-kurosaki/exburst-rukia-bleach-ichigo-kurosaki-21051.html",
       "to": "/decklists/rukia-kuchiki-blue/exburst-rukia-bleach-ichigo-kurosaki-21051.html"
     },
@@ -8365,6 +8533,10 @@
     {
       "from": "/decklists/bleach-ichigo-kurosaki/exburst-rukia-deck-bleach-ichigo-kurosaki-133517.html",
       "to": "/decklists/ichigo-kurosaki-blue/exburst-rukia-deck-bleach-ichigo-kurosaki-133517.html"
+    },
+    {
+      "from": "/decklists/bleach-ichigo-kurosaki/exburst-rukia-ichigo-bleach-ichigo-kurosaki-40790.html",
+      "to": "/decklists/ichigo-kurosaki-purple/exburst-rukia-ichigo-bleach-ichigo-kurosaki-40790.html"
     },
     {
       "from": "/decklists/bleach-ichigo-kurosaki/exburst-rukia-ichigo-bleach-ichigo-kurosaki-59073.html",
@@ -8451,6 +8623,10 @@
       "to": "/decklists/ichigo-kurosaki-purple/exburst-so-shiny-bleach-ichigo-kurosaki-139449.html"
     },
     {
+      "from": "/decklists/bleach-ichigo-kurosaki/exburst-spen-test-bleach-ichigo-kurosaki-140028.html",
+      "to": "/decklists/ichigo-kurosaki-blue/exburst-spen-test-bleach-ichigo-kurosaki-140028.html"
+    },
+    {
       "from": "/decklists/bleach-ichigo-kurosaki/exburst-sqaud-6-byakuya-renji-bleach-ichigo-kurosaki-127502.html",
       "to": "/decklists/renji-abarai-purple/exburst-sqaud-6-byakuya-renji-bleach-ichigo-kurosaki-127502.html"
     },
@@ -8535,12 +8711,20 @@
       "to": "/decklists/ichibe-hyosube-purple/exburst-squad-zero-bleach-ichigo-kurosaki-139158.html"
     },
     {
+      "from": "/decklists/bleach-ichigo-kurosaki/exburst-squad-zero-bleach-ichigo-kurosaki-140026.html",
+      "to": "/decklists/ichibe-hyosube-purple/exburst-squad-zero-bleach-ichigo-kurosaki-140026.html"
+    },
+    {
       "from": "/decklists/bleach-ichigo-kurosaki/exburst-squad-zero-bleach-ichigo-kurosaki-21506.html",
       "to": "/decklists/ichigo-kurosaki-purple/exburst-squad-zero-bleach-ichigo-kurosaki-21506.html"
     },
     {
       "from": "/decklists/bleach-ichigo-kurosaki/exburst-squad-zero-ichigo-bleach-ichigo-kurosaki-137675.html",
       "to": "/decklists/ichigo-kurosaki-purple/exburst-squad-zero-ichigo-bleach-ichigo-kurosaki-137675.html"
+    },
+    {
+      "from": "/decklists/bleach-ichigo-kurosaki/exburst-squad-zero-version-3-bleach-ichigo-kurosaki-139969.html",
+      "to": "/decklists/ichibe-hyosube-purple/exburst-squad-zero-version-3-bleach-ichigo-kurosaki-139969.html"
     },
     {
       "from": "/decklists/bleach-ichigo-kurosaki/exburst-stern-my-ritter-bleach-ichigo-kurosaki-104851.html",
@@ -8583,6 +8767,10 @@
       "to": "/decklists/ichigo-kurosaki-blue/exburst-toolbox-riruka-bleach-ichigo-kurosaki-139551.html"
     },
     {
+      "from": "/decklists/bleach-ichigo-kurosaki/exburst-trio-bleach-ichigo-kurosaki-20211.html",
+      "to": "/decklists/ichigo-kurosaki-blue/exburst-trio-bleach-ichigo-kurosaki-20211.html"
+    },
+    {
       "from": "/decklists/bleach-ichigo-kurosaki/exburst-two-sides-of-a-coin-bleach-ichigo-kurosaki-137849.html",
       "to": "/decklists/ichigo-kurosaki-purple/exburst-two-sides-of-a-coin-bleach-ichigo-kurosaki-137849.html"
     },
@@ -8599,6 +8787,10 @@
       "to": "/decklists/ichigo-kurosaki-blue/exburst-v3-blue-ichigo-bleach-ichigo-kurosaki-139223.html"
     },
     {
+      "from": "/decklists/bleach-ichigo-kurosaki/exburst-v3-blue-ichigo-bleach-ichigo-kurosaki-139875.html",
+      "to": "/decklists/ichigo-kurosaki-blue/exburst-v3-blue-ichigo-bleach-ichigo-kurosaki-139875.html"
+    },
+    {
       "from": "/decklists/bleach-ichigo-kurosaki/exburst-v3-bluechigo-bleach-ichigo-kurosaki-138176.html",
       "to": "/decklists/ichigo-kurosaki-blue/exburst-v3-bluechigo-bleach-ichigo-kurosaki-138176.html"
     },
@@ -8611,8 +8803,16 @@
       "to": "/decklists/ichigo-kurosaki-blue/exburst-v3-rukia-ichigo-hybrid-bleach-ichigo-kurosaki-137636.html"
     },
     {
+      "from": "/decklists/bleach-ichigo-kurosaki/exburst-v3-uryu-ichigo-tech-bleach-ichigo-kurosaki-139852.html",
+      "to": "/decklists/ichigo-kurosaki-purple/exburst-v3-uryu-ichigo-tech-bleach-ichigo-kurosaki-139852.html"
+    },
+    {
       "from": "/decklists/bleach-ichigo-kurosaki/exburst-vincent-s-yuruichi-shihoin-deck-bleach-ichigo-kurosaki-139249.html",
       "to": "/decklists/yoruichi-shihoin-blue/exburst-vincent-s-yuruichi-shihoin-deck-bleach-ichigo-kurosaki-139249.html"
+    },
+    {
+      "from": "/decklists/bleach-ichigo-kurosaki/exburst-vol-3-ad-bleach-ichigo-kurosaki-140179.html",
+      "to": "/decklists/ichigo-kurosaki-purple/exburst-vol-3-ad-bleach-ichigo-kurosaki-140179.html"
     },
     {
       "from": "/decklists/bleach-ichigo-kurosaki/exburst-vol-3-max-attacks-protection-bleach-ichigo-kurosaki-137633.html",
@@ -8691,6 +8891,10 @@
       "to": "/decklists/yoruichi-shihoin-blue/exburst-yoruichi-bleach-ichigo-kurosaki-139800.html"
     },
     {
+      "from": "/decklists/bleach-ichigo-kurosaki/exburst-yoruichi-bleach-ichigo-kurosaki-139863.html",
+      "to": "/decklists/yoruichi-shihoin-blue/exburst-yoruichi-bleach-ichigo-kurosaki-139863.html"
+    },
+    {
       "from": "/decklists/bleach-ichigo-kurosaki/exburst-yoruichi-bleach-ichigo-kurosaki-56566.html",
       "to": "/decklists/yoruichi-shihoin-blue/exburst-yoruichi-bleach-ichigo-kurosaki-56566.html"
     },
@@ -8707,6 +8911,10 @@
       "to": "/decklists/yoruichi-shihoin-blue/exburst-yoruichi-deck-bleach-ichigo-kurosaki-138960.html"
     },
     {
+      "from": "/decklists/bleach-ichigo-kurosaki/exburst-yoruichi-hime-bleach-ichigo-kurosaki-139857.html",
+      "to": "/decklists/yoruichi-shihoin-blue/exburst-yoruichi-hime-bleach-ichigo-kurosaki-139857.html"
+    },
+    {
       "from": "/decklists/bleach-ichigo-kurosaki/exburst-yoruichi-ichigo-bleach-ichigo-kurosaki-137769.html",
       "to": "/decklists/ichigo-kurosaki-blue/exburst-yoruichi-ichigo-bleach-ichigo-kurosaki-137769.html"
     },
@@ -8719,6 +8927,10 @@
       "to": "/decklists/yoruichi-shihoin-blue/exburst-yoruichi-max-speed-aggro-bleach-ichigo-kurosaki-137648.html"
     },
     {
+      "from": "/decklists/bleach-ichigo-kurosaki/exburst-yoruichi-shih-in-bleach-ichigo-kurosaki-140187.html",
+      "to": "/decklists/yoruichi-shihoin-blue/exburst-yoruichi-shih-in-bleach-ichigo-kurosaki-140187.html"
+    },
+    {
       "from": "/decklists/bleach-ichigo-kurosaki/exburst-yoruichi-shihoin-bleach-ichigo-kurosaki-138787.html",
       "to": "/decklists/yoruichi-shihoin-blue/exburst-yoruichi-shihoin-bleach-ichigo-kurosaki-138787.html"
     },
@@ -8729,6 +8941,10 @@
     {
       "from": "/decklists/bleach-ichigo-kurosaki/exburst-yoruichi-shihoin-deck-bleach-ichigo-kurosaki-139412.html",
       "to": "/decklists/yoruichi-shihoin-blue/exburst-yoruichi-shihoin-deck-bleach-ichigo-kurosaki-139412.html"
+    },
+    {
+      "from": "/decklists/bleach-ichigo-kurosaki/exburst-yoruichi-shihoin-deck-bleach-ichigo-kurosaki-140195.html",
+      "to": "/decklists/yoruichi-shihoin-blue/exburst-yoruichi-shihoin-deck-bleach-ichigo-kurosaki-140195.html"
     },
     {
       "from": "/decklists/bleach-ichigo-kurosaki/exburst-yoruichi-shihoin-ramp-bleach-ichigo-kurosaki-138515.html",
@@ -9315,6 +9531,10 @@
       "to": "/decklists/kenpachi-zaraki-green/exburst-green-bleach-kenpachi-bleach-kenpachi-zaraki-13283.html"
     },
     {
+      "from": "/decklists/bleach-kenpachi-zaraki/exburst-green-hitsugaya-deck-bleach-kenpachi-zaraki-54343.html",
+      "to": "/decklists/kenpachi-zaraki-green/exburst-green-hitsugaya-deck-bleach-kenpachi-zaraki-54343.html"
+    },
+    {
       "from": "/decklists/bleach-kenpachi-zaraki/exburst-green-kenny-bleach-kenpachi-zaraki-137896.html",
       "to": "/decklists/kenpachi-zaraki-green/exburst-green-kenny-bleach-kenpachi-zaraki-137896.html"
     },
@@ -9427,6 +9647,10 @@
       "to": "/decklists/kenpachi-zaraki-green/exburst-kenpachi-bleach-kenpachi-zaraki-95968.html"
     },
     {
+      "from": "/decklists/bleach-kenpachi-zaraki/exburst-kenpachi-centric-bleach-kenpachi-zaraki-140155.html",
+      "to": "/decklists/kenpachi-zaraki-green/exburst-kenpachi-centric-bleach-kenpachi-zaraki-140155.html"
+    },
+    {
       "from": "/decklists/bleach-kenpachi-zaraki/exburst-kenpachi-hitsugaya-bleach-kenpachi-zaraki-97654.html",
       "to": "/decklists/kenpachi-zaraki-green/exburst-kenpachi-hitsugaya-bleach-kenpachi-zaraki-97654.html"
     },
@@ -9493,6 +9717,18 @@
     {
       "from": "/decklists/bleach-kenpachi-zaraki/exburst-kenpachi-zaraki-deck-bleach-kenpachi-zaraki-139294.html",
       "to": "/decklists/kenpachi-zaraki-green/exburst-kenpachi-zaraki-deck-bleach-kenpachi-zaraki-139294.html"
+    },
+    {
+      "from": "/decklists/bleach-kenpachi-zaraki/exburst-kenpachi-zaraki-deck-bleach-kenpachi-zaraki-140008.html",
+      "to": "/decklists/kenpachi-zaraki-green/exburst-kenpachi-zaraki-deck-bleach-kenpachi-zaraki-140008.html"
+    },
+    {
+      "from": "/decklists/bleach-kenpachi-zaraki/exburst-kenpachi-zaraki-deck-bleach-kenpachi-zaraki-140040.html",
+      "to": "/decklists/kenpachi-zaraki-green/exburst-kenpachi-zaraki-deck-bleach-kenpachi-zaraki-140040.html"
+    },
+    {
+      "from": "/decklists/bleach-kenpachi-zaraki/exburst-kenpachi-zaraki-deck-bleach-kenpachi-zaraki-140098.html",
+      "to": "/decklists/kenpachi-zaraki-green/exburst-kenpachi-zaraki-deck-bleach-kenpachi-zaraki-140098.html"
     },
     {
       "from": "/decklists/bleach-kenpachi-zaraki/exburst-kenpachis-bleach-kenpachi-zaraki-21054.html",
@@ -9595,6 +9831,10 @@
       "to": "/decklists/kenpachi-zaraki-green/exburst-toshi-kenpachi-bleach-kenpachi-zaraki-138679.html"
     },
     {
+      "from": "/decklists/bleach-kenpachi-zaraki/exburst-toshi-kenpachi-bleach-kenpachi-zaraki-140163.html",
+      "to": "/decklists/kenpachi-zaraki-green/exburst-toshi-kenpachi-bleach-kenpachi-zaraki-140163.html"
+    },
+    {
       "from": "/decklists/bleach-kenpachi-zaraki/exburst-toshi-kenpachi-post-binder-bleach-kenpachi-zaraki-24688.html",
       "to": "/decklists/kenpachi-zaraki-green/exburst-toshi-kenpachi-post-binder-bleach-kenpachi-zaraki-24688.html"
     },
@@ -9615,6 +9855,10 @@
       "to": "/decklists/kenpachi-zaraki-green/exburst-toshiro-and-kenny-bleach-kenpachi-zaraki-125479.html"
     },
     {
+      "from": "/decklists/bleach-kenpachi-zaraki/exburst-toshiro-bleach-kenpachi-zaraki-140199.html",
+      "to": "/decklists/kenpachi-zaraki-green/exburst-toshiro-bleach-kenpachi-zaraki-140199.html"
+    },
+    {
       "from": "/decklists/bleach-kenpachi-zaraki/exburst-toshiro-deep-freeze-volume-2-2-low-temperature-bleach-ke-20579.html",
       "to": "/decklists/kenpachi-zaraki-green/exburst-toshiro-deep-freeze-volume-2-2-low-temperature-bleach-ke-20579.html"
     },
@@ -9627,8 +9871,16 @@
       "to": "/decklists/kenpachi-zaraki-green/exburst-toshiro-kenpachi-deck-budget-bleach-kenpachi-zaraki-130088.html"
     },
     {
+      "from": "/decklists/bleach-kenpachi-zaraki/exburst-toshiro-kenpachi-v3-bleach-kenpachi-zaraki-136628.html",
+      "to": "/decklists/kenpachi-zaraki-green/exburst-toshiro-kenpachi-v3-bleach-kenpachi-zaraki-136628.html"
+    },
+    {
       "from": "/decklists/bleach-kenpachi-zaraki/exburst-toshiro-kenpakchi-bleach-kenpachi-zaraki-137982.html",
       "to": "/decklists/kenpachi-zaraki-green/exburst-toshiro-kenpakchi-bleach-kenpachi-zaraki-137982.html"
+    },
+    {
+      "from": "/decklists/bleach-kenpachi-zaraki/exburst-twin-kenpachi-time-bleach-kenpachi-zaraki-140127.html",
+      "to": "/decklists/kenpachi-zaraki-green/exburst-twin-kenpachi-time-bleach-kenpachi-zaraki-140127.html"
     },
     {
       "from": "/decklists/bleach-kenpachi-zaraki/exburst-twinpachi-bleach-kenpachi-zaraki-120240.html",
@@ -9637,6 +9889,10 @@
     {
       "from": "/decklists/bleach-kenpachi-zaraki/exburst-v3-toshi-kenny-freeze-everything-bleach-kenpachi-zaraki-137877.html",
       "to": "/decklists/kenpachi-zaraki-green/exburst-v3-toshi-kenny-freeze-everything-bleach-kenpachi-zaraki-137877.html"
+    },
+    {
+      "from": "/decklists/bleach-kenpachi-zaraki/exburst-v3-zaraki-pummel-bleach-kenpachi-zaraki-139856.html",
+      "to": "/decklists/kenpachi-zaraki-green/exburst-v3-zaraki-pummel-bleach-kenpachi-zaraki-139856.html"
     },
     {
       "from": "/decklists/bleach-kenpachi-zaraki/exburst-vincents-zaraki-deck-bleach-kenpachi-zaraki-135532.html",
@@ -9653,6 +9909,10 @@
     {
       "from": "/decklists/bleach-kenpachi-zaraki/exburst-yamamoto-bleach-kenpachi-zaraki-131708.html",
       "to": "/decklists/shigekuni-genryusai-yamamoto-green/exburst-yamamoto-bleach-kenpachi-zaraki-131708.html"
+    },
+    {
+      "from": "/decklists/bleach-kenpachi-zaraki/exburst-yamamoto-bleach-kenpachi-zaraki-140135.html",
+      "to": "/decklists/shigekuni-genryusai-yamamoto-green/exburst-yamamoto-bleach-kenpachi-zaraki-140135.html"
     },
     {
       "from": "/decklists/bleach-kenpachi-zaraki/exburst-yhwach-bleach-kenpachi-zaraki-125568.html",
@@ -10043,6 +10303,10 @@
       "to": "/decklists/jugram-haschwalth-yellow/exburst-bazz-b-bleach-third-times-the-charm-139152.html"
     },
     {
+      "from": "/decklists/bleach-third-times-the-charm/exburst-bazz-b-bleach-third-times-the-charm-140086.html",
+      "to": "/decklists/bazz-b-yellow/exburst-bazz-b-bleach-third-times-the-charm-140086.html"
+    },
+    {
       "from": "/decklists/bleach-third-times-the-charm/exburst-bazz-b-deck-bleach-third-times-the-charm-137605.html",
       "to": "/decklists/bazz-b-yellow/exburst-bazz-b-deck-bleach-third-times-the-charm-137605.html"
     },
@@ -10089,6 +10353,10 @@
     {
       "from": "/decklists/bleach-third-times-the-charm/exburst-bleach-blue-mayuri-bleach-third-times-the-charm-139758.html",
       "to": "/decklists/mayuri-kurotsuchi-blue/exburst-bleach-blue-mayuri-bleach-third-times-the-charm-139758.html"
+    },
+    {
+      "from": "/decklists/bleach-third-times-the-charm/exburst-bleach-byakuya-vol3-bleach-third-times-the-charm-140034.html",
+      "to": "/decklists/byakuya-kuchiki-purple/exburst-bleach-byakuya-vol3-bleach-third-times-the-charm-140034.html"
     },
     {
       "from": "/decklists/bleach-third-times-the-charm/exburst-bleach-green-shunsui-nanao-bleach-third-times-the-charm-139764.html",
@@ -10171,6 +10439,10 @@
       "to": "/decklists/renji-abarai-purple/exburst-byakuya-deck-bleach-third-times-the-charm-18609.html"
     },
     {
+      "from": "/decklists/bleach-third-times-the-charm/exburst-byakuya-kuchiki-aggro-bleach-third-times-the-charm-140125.html",
+      "to": "/decklists/byakuya-kuchiki-purple/exburst-byakuya-kuchiki-aggro-bleach-third-times-the-charm-140125.html"
+    },
+    {
       "from": "/decklists/bleach-third-times-the-charm/exburst-byakuya-kuchiki-deck-bleach-third-times-the-charm-101222.html",
       "to": "/decklists/renji-abarai-purple/exburst-byakuya-kuchiki-deck-bleach-third-times-the-charm-101222.html"
     },
@@ -10205,6 +10477,14 @@
     {
       "from": "/decklists/bleach-third-times-the-charm/exburst-byakuya-kuchiki-deck-bleach-third-times-the-charm-139718.html",
       "to": "/decklists/byakuya-kuchiki-purple/exburst-byakuya-kuchiki-deck-bleach-third-times-the-charm-139718.html"
+    },
+    {
+      "from": "/decklists/bleach-third-times-the-charm/exburst-byakuya-kuchiki-deck-bleach-third-times-the-charm-140049.html",
+      "to": "/decklists/byakuya-kuchiki-purple/exburst-byakuya-kuchiki-deck-bleach-third-times-the-charm-140049.html"
+    },
+    {
+      "from": "/decklists/bleach-third-times-the-charm/exburst-byakuya-kuchiki-deck-bleach-third-times-the-charm-140206.html",
+      "to": "/decklists/byakuya-kuchiki-purple/exburst-byakuya-kuchiki-deck-bleach-third-times-the-charm-140206.html"
     },
     {
       "from": "/decklists/bleach-third-times-the-charm/exburst-byakuya-purple-bleach-third-times-the-charm-28906.html",
@@ -10299,6 +10579,14 @@
       "to": "/decklists/mayuri-kurotsuchi-blue/exburst-dudes-bleach-third-times-the-charm-139807.html"
     },
     {
+      "from": "/decklists/bleach-third-times-the-charm/exburst-eepy-boy-bleach-third-times-the-charm-139977.html",
+      "to": "/decklists/shunsui-kyoraku-green/exburst-eepy-boy-bleach-third-times-the-charm-139977.html"
+    },
+    {
+      "from": "/decklists/bleach-third-times-the-charm/exburst-end-game-bleach-third-times-the-charm-140019.html",
+      "to": "/decklists/yhwach-yellow/exburst-end-game-bleach-third-times-the-charm-140019.html"
+    },
+    {
       "from": "/decklists/bleach-third-times-the-charm/exburst-family-reunion-bleach-third-times-the-charm-139832.html",
       "to": "/decklists/byakuya-kuchiki-purple/exburst-family-reunion-bleach-third-times-the-charm-139832.html"
     },
@@ -10361,6 +10649,10 @@
     {
       "from": "/decklists/bleach-third-times-the-charm/exburst-green-yamamoto-bleach-third-times-the-charm-53120.html",
       "to": "/decklists/shigekuni-genryusai-yamamoto-green/exburst-green-yamamoto-bleach-third-times-the-charm-53120.html"
+    },
+    {
+      "from": "/decklists/bleach-third-times-the-charm/exburst-green-yamamoto-build-bleach-third-times-the-charm-70854.html",
+      "to": "/decklists/shigekuni-genryusai-yamamoto-green/exburst-green-yamamoto-build-bleach-third-times-the-charm-70854.html"
     },
     {
       "from": "/decklists/bleach-third-times-the-charm/exburst-heika-y-habahha-bleach-third-times-the-charm-138756.html",
@@ -10479,12 +10771,24 @@
       "to": "/decklists/mayuri-kurotsuchi-blue/exburst-mayuri-bleach-third-times-the-charm-138095.html"
     },
     {
+      "from": "/decklists/bleach-third-times-the-charm/exburst-mayuri-bleach-third-times-the-charm-140138.html",
+      "to": "/decklists/mayuri-kurotsuchi-blue/exburst-mayuri-bleach-third-times-the-charm-140138.html"
+    },
+    {
       "from": "/decklists/bleach-third-times-the-charm/exburst-mayuri-bleach-third-times-the-charm-21520.html",
       "to": "/decklists/mayuri-kurotsuchi-blue/exburst-mayuri-bleach-third-times-the-charm-21520.html"
     },
     {
       "from": "/decklists/bleach-third-times-the-charm/exburst-mayuri-bleach-third-times-the-charm-23257.html",
       "to": "/decklists/mayuri-kurotsuchi-blue/exburst-mayuri-bleach-third-times-the-charm-23257.html"
+    },
+    {
+      "from": "/decklists/bleach-third-times-the-charm/exburst-mayuri-but-i-only-have-1-binder-card-bleach-third-times-140067.html",
+      "to": "/decklists/mayuri-kurotsuchi-blue/exburst-mayuri-but-i-only-have-1-binder-card-bleach-third-times-140067.html"
+    },
+    {
+      "from": "/decklists/bleach-third-times-the-charm/exburst-mayuri-is-trash-bleach-third-times-the-charm-138585.html",
+      "to": "/decklists/mayuri-kurotsuchi-blue/exburst-mayuri-is-trash-bleach-third-times-the-charm-138585.html"
     },
     {
       "from": "/decklists/bleach-third-times-the-charm/exburst-mayuri-kurotsuchi-bleach-third-times-the-charm-138161.html",
@@ -10531,6 +10835,10 @@
       "to": "/decklists/jugram-haschwalth-yellow/exburst-me-and-bro-bleach-third-times-the-charm-139829.html"
     },
     {
+      "from": "/decklists/bleach-third-times-the-charm/exburst-minus-test-build-bleach-third-times-the-charm-140023.html",
+      "to": "/decklists/byakuya-kuchiki-purple/exburst-minus-test-build-bleach-third-times-the-charm-140023.html"
+    },
+    {
       "from": "/decklists/bleach-third-times-the-charm/exburst-multi-attack-madness-bleach-third-times-the-charm-137983.html",
       "to": "/decklists/shunsui-kyoraku-green/exburst-multi-attack-madness-bleach-third-times-the-charm-137983.html"
     },
@@ -10569,6 +10877,10 @@
     {
       "from": "/decklists/bleach-third-times-the-charm/exburst-p-bleach-brr-bleach-third-times-the-charm-138719.html",
       "to": "/decklists/renji-abarai-purple/exburst-p-bleach-brr-bleach-third-times-the-charm-138719.html"
+    },
+    {
+      "from": "/decklists/bleach-third-times-the-charm/exburst-petal-reducer-bleach-third-times-the-charm-140027.html",
+      "to": "/decklists/renji-abarai-purple/exburst-petal-reducer-bleach-third-times-the-charm-140027.html"
     },
     {
       "from": "/decklists/bleach-third-times-the-charm/exburst-purple-bankai-spam-bleach-third-times-the-charm-138755.html",
@@ -10623,6 +10935,10 @@
       "to": "/decklists/byakuya-kuchiki-purple/exburst-renji-abarai-storm-bleach-third-times-the-charm-139035.html"
     },
     {
+      "from": "/decklists/bleach-third-times-the-charm/exburst-renji-bleach-third-times-the-charm-140126.html",
+      "to": "/decklists/renji-abarai-purple/exburst-renji-bleach-third-times-the-charm-140126.html"
+    },
+    {
       "from": "/decklists/bleach-third-times-the-charm/exburst-renji-byak-rukia-bleach-third-times-the-charm-138310.html",
       "to": "/decklists/byakuya-kuchiki-purple/exburst-renji-byak-rukia-bleach-third-times-the-charm-138310.html"
     },
@@ -10649,6 +10965,10 @@
     {
       "from": "/decklists/bleach-third-times-the-charm/exburst-rivals-bazz-b-jugram-bleach-third-times-the-charm-138430.html",
       "to": "/decklists/jugram-haschwalth-yellow/exburst-rivals-bazz-b-jugram-bleach-third-times-the-charm-138430.html"
+    },
+    {
+      "from": "/decklists/bleach-third-times-the-charm/exburst-rukia-3-0-bleach-third-times-the-charm-32733.html",
+      "to": "/decklists/rukia-kuchiki-blue/exburst-rukia-3-0-bleach-third-times-the-charm-32733.html"
     },
     {
       "from": "/decklists/bleach-third-times-the-charm/exburst-rukia-bleach-third-times-the-charm-25140.html",
@@ -10691,6 +11011,14 @@
       "to": "/decklists/shigekuni-genryusai-yamamoto-green/exburst-shigekuni-genryusai-yamamoto-deck-bleach-third-times-th-139263.html"
     },
     {
+      "from": "/decklists/bleach-third-times-the-charm/exburst-shinken-kyokotsu-bleach-third-times-the-charm-140033.html",
+      "to": "/decklists/shunsui-kyoraku-green/exburst-shinken-kyokotsu-bleach-third-times-the-charm-140033.html"
+    },
+    {
+      "from": "/decklists/bleach-third-times-the-charm/exburst-shinsui-nanao-bleach-third-times-the-charm-139996.html",
+      "to": "/decklists/shunsui-kyoraku-green/exburst-shinsui-nanao-bleach-third-times-the-charm-139996.html"
+    },
+    {
       "from": "/decklists/bleach-third-times-the-charm/exburst-shunsui-bleach-third-times-the-charm-137874.html",
       "to": "/decklists/shunsui-kyoraku-green/exburst-shunsui-bleach-third-times-the-charm-137874.html"
     },
@@ -10705,6 +11033,10 @@
     {
       "from": "/decklists/bleach-third-times-the-charm/exburst-shunsui-bleach-third-times-the-charm-139724.html",
       "to": "/decklists/shunsui-kyoraku-green/exburst-shunsui-bleach-third-times-the-charm-139724.html"
+    },
+    {
+      "from": "/decklists/bleach-third-times-the-charm/exburst-shunsui-bleach-third-times-the-charm-139934.html",
+      "to": "/decklists/shunsui-kyoraku-green/exburst-shunsui-bleach-third-times-the-charm-139934.html"
     },
     {
       "from": "/decklists/bleach-third-times-the-charm/exburst-shunsui-deck-bleach-third-times-the-charm-137985.html",
@@ -10767,6 +11099,26 @@
       "to": "/decklists/shunsui-kyoraku-green/exburst-shunsui-kyoraku-deck-bleach-third-times-the-charm-139628.html"
     },
     {
+      "from": "/decklists/bleach-third-times-the-charm/exburst-shunsui-kyoraku-deck-bleach-third-times-the-charm-139960.html",
+      "to": "/decklists/shunsui-kyoraku-green/exburst-shunsui-kyoraku-deck-bleach-third-times-the-charm-139960.html"
+    },
+    {
+      "from": "/decklists/bleach-third-times-the-charm/exburst-shunsui-kyoraku-deck-bleach-third-times-the-charm-140018.html",
+      "to": "/decklists/shunsui-kyoraku-green/exburst-shunsui-kyoraku-deck-bleach-third-times-the-charm-140018.html"
+    },
+    {
+      "from": "/decklists/bleach-third-times-the-charm/exburst-shunsui-kyoraku-deck-bleach-third-times-the-charm-140114.html",
+      "to": "/decklists/shunsui-kyoraku-green/exburst-shunsui-kyoraku-deck-bleach-third-times-the-charm-140114.html"
+    },
+    {
+      "from": "/decklists/bleach-third-times-the-charm/exburst-shunsui-kyoraku-deck-bleach-third-times-the-charm-140140.html",
+      "to": "/decklists/shunsui-kyoraku-green/exburst-shunsui-kyoraku-deck-bleach-third-times-the-charm-140140.html"
+    },
+    {
+      "from": "/decklists/bleach-third-times-the-charm/exburst-shunsui-kyoraku-deck-bleach-third-times-the-charm-140157.html",
+      "to": "/decklists/shunsui-kyoraku-green/exburst-shunsui-kyoraku-deck-bleach-third-times-the-charm-140157.html"
+    },
+    {
       "from": "/decklists/bleach-third-times-the-charm/exburst-shunsui-lemme-crack-katen-please-bleach-third-times-the-138047.html",
       "to": "/decklists/shunsui-kyoraku-green/exburst-shunsui-lemme-crack-katen-please-bleach-third-times-the-138047.html"
     },
@@ -10811,6 +11163,10 @@
       "to": "/decklists/shigekuni-genryusai-yamamoto-green/exburst-the-first-seat-bleach-third-times-the-charm-136607.html"
     },
     {
+      "from": "/decklists/bleach-third-times-the-charm/exburst-the-new-boss-bleach-third-times-the-charm-140052.html",
+      "to": "/decklists/shunsui-kyoraku-green/exburst-the-new-boss-bleach-third-times-the-charm-140052.html"
+    },
+    {
       "from": "/decklists/bleach-third-times-the-charm/exburst-the-second-head-captain-bleach-third-times-the-charm-138287.html",
       "to": "/decklists/shunsui-kyoraku-green/exburst-the-second-head-captain-bleach-third-times-the-charm-138287.html"
     },
@@ -10823,8 +11179,16 @@
       "to": "/decklists/byakuya-kuchiki-purple/exburst-v3-byakuya-kuchiki-bleach-third-times-the-charm-139254.html"
     },
     {
+      "from": "/decklists/bleach-third-times-the-charm/exburst-v3-corpse-unit-bleach-third-times-the-charm-139848.html",
+      "to": "/decklists/mayuri-kurotsuchi-blue/exburst-v3-corpse-unit-bleach-third-times-the-charm-139848.html"
+    },
+    {
       "from": "/decklists/bleach-third-times-the-charm/exburst-v3-mayuri-corps-aggro-bleach-third-times-the-charm-137646.html",
       "to": "/decklists/mayuri-kurotsuchi-blue/exburst-v3-mayuri-corps-aggro-bleach-third-times-the-charm-137646.html"
+    },
+    {
+      "from": "/decklists/bleach-third-times-the-charm/exburst-v3-renruki-bleach-third-times-the-charm-139909.html",
+      "to": "/decklists/rukia-kuchiki-purple/exburst-v3-renruki-bleach-third-times-the-charm-139909.html"
     },
     {
       "from": "/decklists/bleach-third-times-the-charm/exburst-v3-shunsui-kyoraku-nanao-ise-bleach-third-times-the-cha-139835.html",
@@ -10947,6 +11311,10 @@
       "to": "/decklists/yhwach-yellow/exburst-yhwach-deck-bleach-third-times-the-charm-138952.html"
     },
     {
+      "from": "/decklists/bleach-third-times-the-charm/exburst-yhwach-funk-bleach-third-times-the-charm-139933.html",
+      "to": "/decklists/yhwach-yellow/exburst-yhwach-funk-bleach-third-times-the-charm-139933.html"
+    },
+    {
       "from": "/decklists/bleach-third-times-the-charm/exburst-yhwach-jugram-bleach-third-times-the-charm-73239.html",
       "to": "/decklists/jugram-haschwalth-yellow/exburst-yhwach-jugram-bleach-third-times-the-charm-73239.html"
     },
@@ -11043,6 +11411,14 @@
       "to": "/decklists/bambietta-basterbine-yellow/exburst-bambie-bleach-toshiro-hitsugaya-69887.html"
     },
     {
+      "from": "/decklists/bleach-toshiro-hitsugaya/exburst-bambies-3-0-bleach-toshiro-hitsugaya-139859.html",
+      "to": "/decklists/giselle-gewelle-yellow/exburst-bambies-3-0-bleach-toshiro-hitsugaya-139859.html"
+    },
+    {
+      "from": "/decklists/bleach-toshiro-hitsugaya/exburst-bambies-3-0-bleach-toshiro-hitsugaya-22497.html",
+      "to": "/decklists/bambietta-basterbine-yellow/exburst-bambies-3-0-bleach-toshiro-hitsugaya-22497.html"
+    },
+    {
       "from": "/decklists/bleach-toshiro-hitsugaya/exburst-bambies-bleach-toshiro-hitsugaya-118578.html",
       "to": "/decklists/bambietta-basterbine-yellow/exburst-bambies-bleach-toshiro-hitsugaya-118578.html"
     },
@@ -11077,6 +11453,10 @@
     {
       "from": "/decklists/bleach-toshiro-hitsugaya/exburst-bambies-bleach-toshiro-hitsugaya-138545.html",
       "to": "/decklists/bambietta-basterbine-yellow/exburst-bambies-bleach-toshiro-hitsugaya-138545.html"
+    },
+    {
+      "from": "/decklists/bleach-toshiro-hitsugaya/exburst-bambies-bleach-toshiro-hitsugaya-140149.html",
+      "to": "/decklists/bambietta-basterbine-yellow/exburst-bambies-bleach-toshiro-hitsugaya-140149.html"
     },
     {
       "from": "/decklists/bleach-toshiro-hitsugaya/exburst-bambies-bleach-toshiro-hitsugaya-14176.html",
@@ -11123,6 +11503,10 @@
       "to": "/decklists/giselle-gewelle-yellow/exburst-bambies-v3-bleach-toshiro-hitsugaya-137727.html"
     },
     {
+      "from": "/decklists/bleach-toshiro-hitsugaya/exburst-bambies-v3-bleach-toshiro-hitsugaya-137979.html",
+      "to": "/decklists/bambietta-basterbine-yellow/exburst-bambies-v3-bleach-toshiro-hitsugaya-137979.html"
+    },
+    {
       "from": "/decklists/bleach-toshiro-hitsugaya/exburst-bambies-vol-3-bleach-toshiro-hitsugaya-139191.html",
       "to": "/decklists/bambietta-basterbine-yellow/exburst-bambies-vol-3-bleach-toshiro-hitsugaya-139191.html"
     },
@@ -11145,6 +11529,14 @@
     {
       "from": "/decklists/bleach-toshiro-hitsugaya/exburst-bambietta-basterbine-deck-bleach-toshiro-hitsugaya-139251.html",
       "to": "/decklists/bambietta-basterbine-yellow/exburst-bambietta-basterbine-deck-bleach-toshiro-hitsugaya-139251.html"
+    },
+    {
+      "from": "/decklists/bleach-toshiro-hitsugaya/exburst-bambietta-basterbine-deck-bleach-toshiro-hitsugaya-140106.html",
+      "to": "/decklists/bambietta-basterbine-yellow/exburst-bambietta-basterbine-deck-bleach-toshiro-hitsugaya-140106.html"
+    },
+    {
+      "from": "/decklists/bleach-toshiro-hitsugaya/exburst-bambietta-basterbine-deck-bleach-toshiro-hitsugaya-140161.html",
+      "to": "/decklists/bambietta-basterbine-yellow/exburst-bambietta-basterbine-deck-bleach-toshiro-hitsugaya-140161.html"
     },
     {
       "from": "/decklists/bleach-toshiro-hitsugaya/exburst-bambietta-basterbine-protocol-bleach-toshiro-hitsugaya-137829.html",
@@ -11173,6 +11565,10 @@
     {
       "from": "/decklists/bleach-toshiro-hitsugaya/exburst-bleach-3-bambietta-the-bambies-bleach-toshiro-hitsugaya-131952.html",
       "to": "/decklists/bambietta-basterbine-yellow/exburst-bleach-3-bambietta-the-bambies-bleach-toshiro-hitsugaya-131952.html"
+    },
+    {
+      "from": "/decklists/bleach-toshiro-hitsugaya/exburst-bleach-femritters-bleach-toshiro-hitsugaya-72028.html",
+      "to": "/decklists/bambietta-basterbine-yellow/exburst-bleach-femritters-bleach-toshiro-hitsugaya-72028.html"
     },
     {
       "from": "/decklists/bleach-toshiro-hitsugaya/exburst-bleach-tybw-gotei-13-bleach-toshiro-hitsugaya-9427.html",
@@ -11205,6 +11601,10 @@
     {
       "from": "/decklists/bleach-toshiro-hitsugaya/exburst-giselle-gewelle-deck-bleach-toshiro-hitsugaya-130910.html",
       "to": "/decklists/bambietta-basterbine-yellow/exburst-giselle-gewelle-deck-bleach-toshiro-hitsugaya-130910.html"
+    },
+    {
+      "from": "/decklists/bleach-toshiro-hitsugaya/exburst-giselle-gewelle-deck-bleach-toshiro-hitsugaya-139896.html",
+      "to": "/decklists/giselle-gewelle-yellow/exburst-giselle-gewelle-deck-bleach-toshiro-hitsugaya-139896.html"
     },
     {
       "from": "/decklists/bleach-toshiro-hitsugaya/exburst-giselle-vol-3-bleach-toshiro-hitsugaya-60905.html",
@@ -11241,6 +11641,10 @@
     {
       "from": "/decklists/bleach-toshiro-hitsugaya/exburst-green-yamamoto-bleach-toshiro-hitsugaya-137607.html",
       "to": "/decklists/shigekuni-genryusai-yamamoto-green/exburst-green-yamamoto-bleach-toshiro-hitsugaya-137607.html"
+    },
+    {
+      "from": "/decklists/bleach-toshiro-hitsugaya/exburst-hitsugaya-bleach-toshiro-hitsugaya-98839.html",
+      "to": "/decklists/toshiro-hitsugaya-green/exburst-hitsugaya-bleach-toshiro-hitsugaya-98839.html"
     },
     {
       "from": "/decklists/bleach-toshiro-hitsugaya/exburst-hy-ketsu-bleach-toshiro-hitsugaya-132641.html",
@@ -11339,6 +11743,10 @@
       "to": "/decklists/shunsui-kyoraku-green/exburst-shunsui-kyoraku-deck-bleach-toshiro-hitsugaya-139371.html"
     },
     {
+      "from": "/decklists/bleach-toshiro-hitsugaya/exburst-shunsui-toshi-deck-bleach-toshiro-hitsugaya-139840.html",
+      "to": "/decklists/shunsui-kyoraku-green/exburst-shunsui-toshi-deck-bleach-toshiro-hitsugaya-139840.html"
+    },
+    {
       "from": "/decklists/bleach-toshiro-hitsugaya/exburst-shunsui-toshiro-bleach-toshiro-hitsugaya-138597.html",
       "to": "/decklists/shunsui-kyoraku-green/exburst-shunsui-toshiro-bleach-toshiro-hitsugaya-138597.html"
     },
@@ -11405,6 +11813,10 @@
     {
       "from": "/decklists/bleach-toshiro-hitsugaya/exburst-toshiro-hitsugaya-bleach-toshiro-hitsugaya-137993.html",
       "to": "/decklists/kenpachi-zaraki-green/exburst-toshiro-hitsugaya-bleach-toshiro-hitsugaya-137993.html"
+    },
+    {
+      "from": "/decklists/bleach-toshiro-hitsugaya/exburst-toshiro-hitsugaya-blitz-bleach-toshiro-hitsugaya-140107.html",
+      "to": "/decklists/toshiro-hitsugaya-green/exburst-toshiro-hitsugaya-blitz-bleach-toshiro-hitsugaya-140107.html"
     },
     {
       "from": "/decklists/bleach-toshiro-hitsugaya/exburst-toshiro-hitsugaya-deck-bleach-toshiro-hitsugaya-130079.html",
@@ -11947,6 +12359,14 @@
       "to": "/decklists/c-c-red/exburst-c-c-deck-code-geass-suzaku-kururugi-135083.html"
     },
     {
+      "from": "/decklists/code-geass-suzaku-kururugi/exburst-c-c-pizza-code-geass-suzaku-kururugi-140193.html",
+      "to": "/decklists/c-c-red/exburst-c-c-pizza-code-geass-suzaku-kururugi-140193.html"
+    },
+    {
+      "from": "/decklists/code-geass-suzaku-kururugi/exburst-c-c-s-pizza-code-geass-suzaku-kururugi-139913.html",
+      "to": "/decklists/c-c-red/exburst-c-c-s-pizza-code-geass-suzaku-kururugi-139913.html"
+    },
+    {
       "from": "/decklists/code-geass-suzaku-kururugi/exburst-c-c-s-pizza-is-not-brick-fired-code-geass-suzaku-kururu-139658.html",
       "to": "/decklists/c-c-red/exburst-c-c-s-pizza-is-not-brick-fired-code-geass-suzaku-kururu-139658.html"
     },
@@ -11981,6 +12401,10 @@
     {
       "from": "/decklists/code-geass-suzaku-kururugi/exburst-chinese-federation-code-geass-suzaku-kururugi-119960.html",
       "to": "/decklists/shen-hu-blue/exburst-chinese-federation-code-geass-suzaku-kururugi-119960.html"
+    },
+    {
+      "from": "/decklists/code-geass-suzaku-kururugi/exburst-chinese-federation-code-geass-suzaku-kururugi-140192.html",
+      "to": "/decklists/li-xingke-blue/exburst-chinese-federation-code-geass-suzaku-kururugi-140192.html"
     },
     {
       "from": "/decklists/code-geass-suzaku-kururugi/exburst-chinese-federation-code-geass-suzaku-kururugi-48563.html",
@@ -12295,6 +12719,10 @@
       "to": "/decklists/suzaku-kururugi-green/exburst-lancelot-green-cg-code-geass-suzaku-kururugi-122531.html"
     },
     {
+      "from": "/decklists/code-geass-suzaku-kururugi/exburst-lancelot-round-2-code-geass-suzaku-kururugi-140134.html",
+      "to": "/decklists/suzaku-kururugi-green/exburst-lancelot-round-2-code-geass-suzaku-kururugi-140134.html"
+    },
+    {
       "from": "/decklists/code-geass-suzaku-kururugi/exburst-lancelot-simple-ver-code-geass-suzaku-kururugi-136600.html",
       "to": "/decklists/suzaku-kururugi-green/exburst-lancelot-simple-ver-code-geass-suzaku-kururugi-136600.html"
     },
@@ -12385,6 +12813,10 @@
     {
       "from": "/decklists/code-geass-suzaku-kururugi/exburst-pizza-code-geass-suzaku-kururugi-47831.html",
       "to": "/decklists/c-c-red/exburst-pizza-code-geass-suzaku-kururugi-47831.html"
+    },
+    {
+      "from": "/decklists/code-geass-suzaku-kururugi/exburst-pizza-code-geass-suzaku-kururugi-98840.html",
+      "to": "/decklists/c-c-red/exburst-pizza-code-geass-suzaku-kururugi-98840.html"
     },
     {
       "from": "/decklists/code-geass-suzaku-kururugi/exburst-pizza-deck-code-geass-suzaku-kururugi-122589.html",
@@ -14675,6 +15107,14 @@
       "to": "/decklists/aki-hayakawa-red/event-6th-csm-himeno-1479596.html"
     },
     {
+      "from": "/decklists/csm-kobeni.html",
+      "to": "/decklists/chainsaw-man.html"
+    },
+    {
+      "from": "/decklists/csm-kobeni/reddit-pic-another-starter-deck-in-the-collection-1x4fteo.html",
+      "to": "/decklists/chainsaw-man-red/reddit-pic-another-starter-deck-in-the-collection-1x4fteo.html"
+    },
+    {
       "from": "/decklists/csm-maki-gal.html",
       "to": "/decklists/makima.html"
     },
@@ -15065,6 +15505,10 @@
     {
       "from": "/decklists/csm-makima/exburst-s-i-m-p-csm-makima-108920.html",
       "to": "/decklists/makima-purple/exburst-s-i-m-p-csm-makima-108920.html"
+    },
+    {
+      "from": "/decklists/csm-makima/reddit-pic-working-on-the-rest-of-the-deck-but-wanted-to-show-off-my-s.html",
+      "to": "/decklists/makima-purple/reddit-pic-working-on-the-rest-of-the-deck-but-wanted-to-show-off-my-s.html"
     },
     {
       "from": "/decklists/csm-makima/tournament-11th-csm-makima-108516.html",
@@ -17559,6 +18003,10 @@
       "to": "/decklists/evangelion-production-model-02-beast-form-red/exburst-mari-asuka-evangelion-asuka-shikinami-langley-123262.html"
     },
     {
+      "from": "/decklists/evangelion-asuka-shikinami-langley/exburst-mari-makinami-illustrious-squad-evangelion-asuka-shikin-140095.html",
+      "to": "/decklists/evangelion-production-model-08-purple/exburst-mari-makinami-illustrious-squad-evangelion-asuka-shikin-140095.html"
+    },
+    {
       "from": "/decklists/evangelion-asuka-shikinami-langley/exburst-mari-spear-evangelion-asuka-shikinami-langley-130887.html",
       "to": "/decklists/shinji-ikari-purple/exburst-mari-spear-evangelion-asuka-shikinami-langley-130887.html"
     },
@@ -17841,6 +18289,10 @@
     {
       "from": "/decklists/evangelion-asuka-shikinami-langley/tournament-1st-evangelion-asuka-shikinami-langley-137706.html",
       "to": "/decklists/evangelion-production-model-02-beast-form-red/tournament-1st-evangelion-asuka-shikinami-langley-137706.html"
+    },
+    {
+      "from": "/decklists/evangelion-asuka-shikinami-langley/tournament-1st-evangelion-asuka-shikinami-langley-140213.html",
+      "to": "/decklists/shinji-ikari-purple/tournament-1st-evangelion-asuka-shikinami-langley-140213.html"
     },
     {
       "from": "/decklists/evangelion-asuka-shikinami-langley/tournament-1st-place-evangelion-asuka-shikinami-langley-116830.html",
@@ -18165,6 +18617,10 @@
     {
       "from": "/decklists/evangelion-evangelion-13/exburst-purple-evangelion-13-spear-evangelion-evangelion-13-76721.html",
       "to": "/decklists/shinji-ikari-purple/exburst-purple-evangelion-13-spear-evangelion-evangelion-13-76721.html"
+    },
+    {
+      "from": "/decklists/evangelion-evangelion-13/exburst-spear-of-gaius-13-2-evangelion-evangelion-13-63729.html",
+      "to": "/decklists/shinji-ikari-purple/exburst-spear-of-gaius-13-2-evangelion-evangelion-13-63729.html"
     },
     {
       "from": "/decklists/evangelion-evangelion-13/exburst-spear-willie-wunder-rg-1-evangelion-evangelion-13-131722.html",
@@ -21263,6 +21719,10 @@
       "to": "/decklists/evangelion-proto-type-00-red/tournament-1st-evangelion-rei-ayanami-137698.html"
     },
     {
+      "from": "/decklists/evangelion-rei-ayanami/tournament-1st-evangelion-rei-ayanami-139920.html",
+      "to": "/decklists/mari-makinami-illustrious-yellow/tournament-1st-evangelion-rei-ayanami-139920.html"
+    },
+    {
       "from": "/decklists/evangelion-rei-ayanami/tournament-1st-place-evangelion-rei-ayanami-125264.html",
       "to": "/decklists/mari-makinami-illustrious-yellow/tournament-1st-place-evangelion-rei-ayanami-125264.html"
     },
@@ -21971,6 +22431,10 @@
       "to": "/decklists/edward-elric-yellow/exburst-alphonse-elric-deck-fullmetal-alchemist-alphonse-elric-133571.html"
     },
     {
+      "from": "/decklists/fullmetal-alchemist-alphonse-elric/exburst-alphonse-elric-deck-fullmetal-alchemist-alphonse-elric-140156.html",
+      "to": "/decklists/edward-elric-yellow/exburst-alphonse-elric-deck-fullmetal-alchemist-alphonse-elric-140156.html"
+    },
+    {
       "from": "/decklists/fullmetal-alchemist-alphonse-elric/exburst-armstrong-deck-fullmetal-alchemist-alphonse-elric-130550.html",
       "to": "/decklists/alex-louis-armstrong-blue/exburst-armstrong-deck-fullmetal-alchemist-alphonse-elric-130550.html"
     },
@@ -22017,6 +22481,10 @@
     {
       "from": "/decklists/fullmetal-alchemist-alphonse-elric/exburst-farther-deck-fullmetal-alchemist-alphonse-elric-134807.html",
       "to": "/decklists/king-bradley-purple/exburst-farther-deck-fullmetal-alchemist-alphonse-elric-134807.html"
+    },
+    {
+      "from": "/decklists/fullmetal-alchemist-alphonse-elric/exburst-father-brad-fullmetal-alchemist-alphonse-elric-139839.html",
+      "to": "/decklists/lust-purple/exburst-father-brad-fullmetal-alchemist-alphonse-elric-139839.html"
     },
     {
       "from": "/decklists/fullmetal-alchemist-alphonse-elric/exburst-father-deck-fullmetal-alchemist-alphonse-elric-137293.html",
@@ -22211,6 +22679,10 @@
       "to": "/decklists/kimblee-solf-j-kimblee-purple/exburst-purple-fma-fullmetal-alchemist-alphonse-elric-131679.html"
     },
     {
+      "from": "/decklists/fullmetal-alchemist-alphonse-elric/exburst-purple-fma-homunculus-fullmetal-alchemist-alphonse-elric-92964.html",
+      "to": "/decklists/king-bradley-purple/exburst-purple-fma-homunculus-fullmetal-alchemist-alphonse-elric-92964.html"
+    },
+    {
       "from": "/decklists/fullmetal-alchemist-alphonse-elric/exburst-riza-hawkeye-deck-fullmetal-alchemist-alphonse-elric-139230.html",
       "to": "/decklists/roy-mustang-blue/exburst-riza-hawkeye-deck-fullmetal-alchemist-alphonse-elric-139230.html"
     },
@@ -22295,6 +22767,10 @@
       "to": "/decklists/ling-yao-yellow/exburst-xing-fullmetal-alchemist-alphonse-elric-132054.html"
     },
     {
+      "from": "/decklists/fullmetal-alchemist-alphonse-elric/exburst-yellow-fma-xing-fullmetal-alchemist-alphonse-elric-33334.html",
+      "to": "/decklists/ling-yao-yellow/exburst-yellow-fma-xing-fullmetal-alchemist-alphonse-elric-33334.html"
+    },
+    {
       "from": "/decklists/fullmetal-alchemist-alphonse-elric/exburst-yellow-greed-fullmetal-alchemist-alphonse-elric-132296.html",
       "to": "/decklists/ling-yao-yellow/exburst-yellow-greed-fullmetal-alchemist-alphonse-elric-132296.html"
     },
@@ -22369,6 +22845,10 @@
     {
       "from": "/decklists/fullmetal-alchemist-edward-elric/event-2nd-fullmetal-alchemist-edward-elric-1452860.html",
       "to": "/decklists/edward-elric-yellow/event-2nd-fullmetal-alchemist-edward-elric-1452860.html"
+    },
+    {
+      "from": "/decklists/fullmetal-alchemist-edward-elric/event-2nd-fullmetal-alchemist-edward-elric-1756449.html",
+      "to": "/decklists/riza-hawkeye-blue/event-2nd-fullmetal-alchemist-edward-elric-1756449.html"
     },
     {
       "from": "/decklists/fullmetal-alchemist-edward-elric/event-3rd-fullmetal-alchemist-edward-elric-1388093.html",
@@ -22685,6 +23165,10 @@
     {
       "from": "/decklists/fullmetal-alchemist-edward-elric/exburst-xing-dynasty-fullmetal-alchemist-edward-elric-133957.html",
       "to": "/decklists/ling-yao-yellow/exburst-xing-dynasty-fullmetal-alchemist-edward-elric-133957.html"
+    },
+    {
+      "from": "/decklists/fullmetal-alchemist-edward-elric/exburst-yelllow-fma-brothers-fullmetal-alchemist-edward-elric-28039.html",
+      "to": "/decklists/edward-elric-yellow/exburst-yelllow-fma-brothers-fullmetal-alchemist-edward-elric-28039.html"
     },
     {
       "from": "/decklists/fullmetal-alchemist-edward-elric/exburst-yellow-alche-fullmetal-alchemist-edward-elric-131212.html",
@@ -25071,6 +25555,10 @@
       "to": "/decklists/sango-red/exburst-miroku-deck-iys-sango-135957.html"
     },
     {
+      "from": "/decklists/iys-sango/exburst-miroku-iys-sango-113681.html",
+      "to": "/decklists/miroku-red/exburst-miroku-iys-sango-113681.html"
+    },
+    {
       "from": "/decklists/iys-sango/exburst-miroku-iys-sango-119448.html",
       "to": "/decklists/sango-red/exburst-miroku-iys-sango-119448.html"
     },
@@ -27251,6 +27739,10 @@
       "to": "/decklists/sukuna-blue/event-5th-jujutsu-kaisen-yuji-itadori-1561249.html"
     },
     {
+      "from": "/decklists/jujutsu-kaisen-yuji-itadori/event-5th-jujutsu-kaisen-yuji-itadori-1756451.html",
+      "to": "/decklists/sukuna-blue/event-5th-jujutsu-kaisen-yuji-itadori-1756451.html"
+    },
+    {
       "from": "/decklists/jujutsu-kaisen-yuji-itadori/event-8th-jujutsu-kaisen-yuji-itadori-1253647.html",
       "to": "/decklists/yuji-itadori-red/event-8th-jujutsu-kaisen-yuji-itadori-1253647.html"
     },
@@ -27411,6 +27903,10 @@
       "to": "/decklists/satoru-gojo-yellow/exburst-gojo-events-jujutsu-kaisen-yuji-itadori-132550.html"
     },
     {
+      "from": "/decklists/jujutsu-kaisen-yuji-itadori/exburst-gojo-geto-hidden-inventory-jujutsu-kaisen-yuji-itadori-140167.html",
+      "to": "/decklists/satoru-gojo-yellow/exburst-gojo-geto-hidden-inventory-jujutsu-kaisen-yuji-itadori-140167.html"
+    },
+    {
       "from": "/decklists/jujutsu-kaisen-yuji-itadori/exburst-gojo-geto-jujutsu-kaisen-yuji-itadori-138514.html",
       "to": "/decklists/satoru-gojo-yellow/exburst-gojo-geto-jujutsu-kaisen-yuji-itadori-138514.html"
     },
@@ -27449,6 +27945,10 @@
     {
       "from": "/decklists/jujutsu-kaisen-yuji-itadori/exburst-jj-swing-jujutsu-kaisen-yuji-itadori-130894.html",
       "to": "/decklists/suzaku-kururugi-red/exburst-jj-swing-jujutsu-kaisen-yuji-itadori-130894.html"
+    },
+    {
+      "from": "/decklists/jujutsu-kaisen-yuji-itadori/exburst-jjk-blue-sukuna-jujutsu-kaisen-yuji-itadori-93400.html",
+      "to": "/decklists/sukuna-blue/exburst-jjk-blue-sukuna-jujutsu-kaisen-yuji-itadori-93400.html"
     },
     {
       "from": "/decklists/jujutsu-kaisen-yuji-itadori/exburst-jjk-box-combo-no-coleslaw-extra-gas-jujutsu-kaisen-yuji--54188.html",
@@ -27541,6 +28041,10 @@
     {
       "from": "/decklists/jujutsu-kaisen-yuji-itadori/exburst-mahito-jujutsu-kaisen-yuji-itadori-136790.html",
       "to": "/decklists/mahito-purple/exburst-mahito-jujutsu-kaisen-yuji-itadori-136790.html"
+    },
+    {
+      "from": "/decklists/jujutsu-kaisen-yuji-itadori/exburst-mahitojogo-purple-jujutsu-kaisen-yuji-itadori-139936.html",
+      "to": "/decklists/mahito-purple/exburst-mahitojogo-purple-jujutsu-kaisen-yuji-itadori-139936.html"
     },
     {
       "from": "/decklists/jujutsu-kaisen-yuji-itadori/exburst-maki-zen-in-deck-jujutsu-kaisen-yuji-itadori-135685.html",
@@ -27843,6 +28347,14 @@
       "to": "/decklists/sukuna-blue/exburst-sukuna-deck-jujutsu-kaisen-yuji-itadori-139678.html"
     },
     {
+      "from": "/decklists/jujutsu-kaisen-yuji-itadori/exburst-sukuna-deck-jujutsu-kaisen-yuji-itadori-139992.html",
+      "to": "/decklists/sukuna-blue/exburst-sukuna-deck-jujutsu-kaisen-yuji-itadori-139992.html"
+    },
+    {
+      "from": "/decklists/jujutsu-kaisen-yuji-itadori/exburst-sukuna-deck-jujutsu-kaisen-yuji-itadori-140110.html",
+      "to": "/decklists/sukuna-blue/exburst-sukuna-deck-jujutsu-kaisen-yuji-itadori-140110.html"
+    },
+    {
       "from": "/decklists/jujutsu-kaisen-yuji-itadori/exburst-sukuna-jujutsu-kaisen-yuji-itadori-104463.html",
       "to": "/decklists/sukuna-blue/exburst-sukuna-jujutsu-kaisen-yuji-itadori-104463.html"
     },
@@ -27951,8 +28463,16 @@
       "to": "/decklists/sukuna-blue/exburst-yuji-sukuna-snipe-jujutsu-kaisen-yuji-itadori-53030.html"
     },
     {
+      "from": "/decklists/jujutsu-kaisen-yuji-itadori/exburst-yujisukuna-blue-jujutsu-kaisen-yuji-itadori-139935.html",
+      "to": "/decklists/sukuna-blue/exburst-yujisukuna-blue-jujutsu-kaisen-yuji-itadori-139935.html"
+    },
+    {
       "from": "/decklists/jujutsu-kaisen-yuji-itadori/official-3rd-place-jujutsu-kaisen-yuji-itadori-9xldxz.html",
       "to": "/decklists/sukuna-blue/official-3rd-place-jujutsu-kaisen-yuji-itadori-9xldxz.html"
+    },
+    {
+      "from": "/decklists/jujutsu-kaisen-yuji-itadori/reddit-pic-how-hard-is-the-mahito-deck-to-pilot-1xn1xou.html",
+      "to": "/decklists/mei-mei-red/reddit-pic-how-hard-is-the-mahito-deck-to-pilot-1xn1xou.html"
     },
     {
       "from": "/decklists/jujutsu-kaisen-yuji-itadori/tournament-2nd-jujutsu-kaisen-yuji-itadori-137336.html",
@@ -29055,6 +29575,14 @@
       "to": "/decklists/chihiro-rokuhira-red/exburst-red-chihiro-kagurabachi-hakuri-sazanami-139283.html"
     },
     {
+      "from": "/decklists/kagurabachi-hakuri-sazanami/exburst-red-chihiro-kagurabachi-hakuri-sazanami-139985.html",
+      "to": "/decklists/chihiro-rokuhira-red/exburst-red-chihiro-kagurabachi-hakuri-sazanami-139985.html"
+    },
+    {
+      "from": "/decklists/kagurabachi-hakuri-sazanami/exburst-red-chihiro-kagurabachi-hakuri-sazanami-140068.html",
+      "to": "/decklists/chihiro-rokuhira-red/exburst-red-chihiro-kagurabachi-hakuri-sazanami-140068.html"
+    },
+    {
       "from": "/decklists/kagurabachi-hakuri-sazanami/exburst-red-chihiro-kagurabachi-hakuri-sazanami-68337.html",
       "to": "/decklists/chihiro-rokuhira-red/exburst-red-chihiro-kagurabachi-hakuri-sazanami-68337.html"
     },
@@ -29459,6 +29987,10 @@
       "to": "/decklists/iori-samura-purple/exburst-miguel-kagurabachi-iori-samura-138373.html"
     },
     {
+      "from": "/decklists/kagurabachi-iori-samura/exburst-my-style-is-total-purity-kagurabachi-iori-samura-139946.html",
+      "to": "/decklists/chihiro-rokuhira-purple/exburst-my-style-is-total-purity-kagurabachi-iori-samura-139946.html"
+    },
+    {
       "from": "/decklists/kagurabachi-iori-samura/exburst-proceed-kagurabachi-iori-samura-138704.html",
       "to": "/decklists/hiruhiko-purple/exburst-proceed-kagurabachi-iori-samura-138704.html"
     },
@@ -29821,6 +30353,10 @@
     {
       "from": "/decklists/kaiju-no-8-kaiju-no-8/exburst-kaiju-no-8-deck-kaiju-no-8-kaiju-no-8-136906.html",
       "to": "/decklists/soshiro-hoshina-green/exburst-kaiju-no-8-deck-kaiju-no-8-kaiju-no-8-136906.html"
+    },
+    {
+      "from": "/decklists/kaiju-no-8-kaiju-no-8/exburst-kaiju-no-8-deck-kaiju-no-8-kaiju-no-8-89024.html",
+      "to": "/decklists/kaiju-no-8-green/exburst-kaiju-no-8-deck-kaiju-no-8-kaiju-no-8-89024.html"
     },
     {
       "from": "/decklists/kaiju-no-8-kaiju-no-8/exburst-kaiju-no-8-kaiju-no-8-kaiju-no-8-101477.html",
@@ -30707,6 +31243,14 @@
       "to": "/decklists/anis-yellow/exburst-modernia-nikke-anis-116804.html"
     },
     {
+      "from": "/decklists/nikke-cinderella.html",
+      "to": "/decklists/cinderella.html"
+    },
+    {
+      "from": "/decklists/nikke-cinderella/event-6th-nikke-cinderella-1717696.html",
+      "to": "/decklists/cinderella-yellow/event-6th-nikke-cinderella-1717696.html"
+    },
+    {
       "from": "/decklists/nikke-dorothy.html",
       "to": "/decklists/dorothy.html"
     },
@@ -30923,6 +31467,14 @@
       "to": "/decklists/dorothy-purple/event-5th-nikke-plastic-memories-61808.html"
     },
     {
+      "from": "/decklists/nikke-plastic-memories/event-6th-nikke-plastic-memories-1746307.html",
+      "to": "/decklists/rapi-yellow/event-6th-nikke-plastic-memories-1746307.html"
+    },
+    {
+      "from": "/decklists/nikke-plastic-memories/event-7th-nikke-plastic-memories-1748385.html",
+      "to": "/decklists/cinderella-yellow/event-7th-nikke-plastic-memories-1748385.html"
+    },
+    {
       "from": "/decklists/nikke-plastic-memories/event-7th-nikke-plastic-memories-61809.html",
       "to": "/decklists/rapi-yellow/event-7th-nikke-plastic-memories-61809.html"
     },
@@ -31125,6 +31677,10 @@
     {
       "from": "/decklists/nikke-plastic-memories/exburst-bunny-girls-nikke-plastic-memories-136006.html",
       "to": "/decklists/alice-green/exburst-bunny-girls-nikke-plastic-memories-136006.html"
+    },
+    {
+      "from": "/decklists/nikke-plastic-memories/exburst-bunny-nikke-plastic-memories-140042.html",
+      "to": "/decklists/alice-green/exburst-bunny-nikke-plastic-memories-140042.html"
     },
     {
       "from": "/decklists/nikke-plastic-memories/exburst-buns-nikke-plastic-memories-137265.html",
@@ -31803,6 +32359,10 @@
       "to": "/decklists/red-hood-purple/exburst-gooness-of-victory-nikke-plastic-memories-136493.html"
     },
     {
+      "from": "/decklists/nikke-plastic-memories/exburst-goonies-gooners-nikke-plastic-memories-132553.html",
+      "to": "/decklists/laplace-green/exburst-goonies-gooners-nikke-plastic-memories-132553.html"
+    },
+    {
       "from": "/decklists/nikke-plastic-memories/exburst-goonnesses-of-victory-nikke-plastic-memories-136842.html",
       "to": "/decklists/scarlet-black-shadow-purple/exburst-goonnesses-of-victory-nikke-plastic-memories-136842.html"
     },
@@ -32231,6 +32791,10 @@
       "to": "/decklists/laplace-green/exburst-missilis-nikke-plastic-memories-80329.html"
     },
     {
+      "from": "/decklists/nikke-plastic-memories/exburst-missilis-og-nikke-plastic-memories-139950.html",
+      "to": "/decklists/laplace-green/exburst-missilis-og-nikke-plastic-memories-139950.html"
+    },
+    {
       "from": "/decklists/nikke-plastic-memories/exburst-missilis-rush-nikke-plastic-memories-133294.html",
       "to": "/decklists/laplace-green/exburst-missilis-rush-nikke-plastic-memories-133294.html"
     },
@@ -32305,6 +32869,10 @@
     {
       "from": "/decklists/nikke-plastic-memories/exburst-modernia-nikke-plastic-memories-139483.html",
       "to": "/decklists/rapi-yellow/exburst-modernia-nikke-plastic-memories-139483.html"
+    },
+    {
+      "from": "/decklists/nikke-plastic-memories/exburst-modernia-nikke-plastic-memories-140191.html",
+      "to": "/decklists/rapi-yellow/exburst-modernia-nikke-plastic-memories-140191.html"
     },
     {
       "from": "/decklists/nikke-plastic-memories/exburst-modernia-precious-booster-nikke-plastic-memories-134963.html",
@@ -32393,6 +32961,10 @@
     {
       "from": "/decklists/nikke-plastic-memories/exburst-nikke-g-laplace-nikke-plastic-memories-134499.html",
       "to": "/decklists/laplace-green/exburst-nikke-g-laplace-nikke-plastic-memories-134499.html"
+    },
+    {
+      "from": "/decklists/nikke-plastic-memories/exburst-nikke-goddess-110726-nikke-plastic-memories-139842.html",
+      "to": "/decklists/snow-white-innocent-days-purple/exburst-nikke-goddess-110726-nikke-plastic-memories-139842.html"
     },
     {
       "from": "/decklists/nikke-plastic-memories/exburst-nikke-missilis-nikke-plastic-memories-137546.html",
@@ -32581,6 +33153,10 @@
     {
       "from": "/decklists/nikke-plastic-memories/exburst-pilgrims-nikke-plastic-memories-135286.html",
       "to": "/decklists/scarlet-purple/exburst-pilgrims-nikke-plastic-memories-135286.html"
+    },
+    {
+      "from": "/decklists/nikke-plastic-memories/exburst-pilgrims-v2-nikke-plastic-memories-139958.html",
+      "to": "/decklists/dorothy-purple/exburst-pilgrims-v2-nikke-plastic-memories-139958.html"
     },
     {
       "from": "/decklists/nikke-plastic-memories/exburst-pilgrims-v2-nikke-plastic-memories-50719.html",
@@ -32947,6 +33523,10 @@
       "to": "/decklists/red-hood-purple/exburst-red-hood-sideline-play-nikke-plastic-memories-135126.html"
     },
     {
+      "from": "/decklists/nikke-plastic-memories/exburst-red-hood-snow-3-1-nikke-plastic-memories-140074.html",
+      "to": "/decklists/red-hood-purple/exburst-red-hood-snow-3-1-nikke-plastic-memories-140074.html"
+    },
+    {
       "from": "/decklists/nikke-plastic-memories/exburst-red-hood-test-nikke-plastic-memories-138453.html",
       "to": "/decklists/rapi-yellow/exburst-red-hood-test-nikke-plastic-memories-138453.html"
     },
@@ -33127,6 +33707,10 @@
       "to": "/decklists/yuni-yellow/exburst-so-exotic-nikke-plastic-memories-137288.html"
     },
     {
+      "from": "/decklists/nikke-plastic-memories/exburst-super-buff-nikke-plastic-memories-139860.html",
+      "to": "/decklists/laplace-green/exburst-super-buff-nikke-plastic-memories-139860.html"
+    },
+    {
       "from": "/decklists/nikke-plastic-memories/exburst-super-green-missilis-nikke-plastic-memories-49656.html",
       "to": "/decklists/laplace-green/exburst-super-green-missilis-nikke-plastic-memories-49656.html"
     },
@@ -33157,6 +33741,10 @@
     {
       "from": "/decklists/nikke-plastic-memories/exburst-tetra-deck-nikke-plastic-memories-89035.html",
       "to": "/decklists/alice-green/exburst-tetra-deck-nikke-plastic-memories-89035.html"
+    },
+    {
+      "from": "/decklists/nikke-plastic-memories/exburst-tetra-girls-nikke-plastic-memories-139951.html",
+      "to": "/decklists/alice-green/exburst-tetra-girls-nikke-plastic-memories-139951.html"
     },
     {
       "from": "/decklists/nikke-plastic-memories/exburst-tetra-line-nikke-plastic-memories-133614.html",
@@ -33337,6 +33925,10 @@
     {
       "from": "/decklists/nikke-plastic-memories/exburst-vol-2-modernia-lacking-nikke-plastic-memories-139599.html",
       "to": "/decklists/rapi-yellow/exburst-vol-2-modernia-lacking-nikke-plastic-memories-139599.html"
+    },
+    {
+      "from": "/decklists/nikke-plastic-memories/exburst-we-are-the-goddess-of-victory-nikke-plastic-memories-140136.html",
+      "to": "/decklists/red-hood-purple/exburst-we-are-the-goddess-of-victory-nikke-plastic-memories-140136.html"
     },
     {
       "from": "/decklists/nikke-plastic-memories/exburst-weird-anis-modernia-build-nikke-plastic-memories-133979.html",
@@ -33535,6 +34127,10 @@
       "to": "/decklists/cinderella-yellow/exburst-yellow-yiddies-nikke-plastic-memories-133958.html"
     },
     {
+      "from": "/decklists/nikke-plastic-memories/reddit-pic-can-i-have-input-on-my-red-hood-list-1xp73ha.html",
+      "to": "/decklists/rapunzel-purple/reddit-pic-can-i-have-input-on-my-red-hood-list-1xp73ha.html"
+    },
+    {
       "from": "/decklists/nikke-plastic-memories/tournament-10th-nikke-plastic-memories-134111.html",
       "to": "/decklists/marian-yellow/tournament-10th-nikke-plastic-memories-134111.html"
     },
@@ -33601,6 +34197,10 @@
     {
       "from": "/decklists/nikke-plastic-memories/tournament-7th-nikke-plastic-memories-138534.html",
       "to": "/decklists/cinderella-yellow/tournament-7th-nikke-plastic-memories-138534.html"
+    },
+    {
+      "from": "/decklists/nikke-plastic-memories/web-pic-union-arena-current-meta-tier-list-21.html",
+      "to": "/decklists/modernia-yellow/web-pic-union-arena-current-meta-tier-list-21.html"
     },
     {
       "from": "/decklists/nikke-rapi.html",
@@ -34705,6 +35305,10 @@
     {
       "from": "/decklists/one-punch-man-king/exburst-starter-saitama-genos-one-punch-man-king-128098.html",
       "to": "/decklists/genos-yellow/exburst-starter-saitama-genos-one-punch-man-king-128098.html"
+    },
+    {
+      "from": "/decklists/one-punch-man-king/exburst-tatsumaki-one-punch-man-king-139879.html",
+      "to": "/decklists/terrible-tornado-yellow/exburst-tatsumaki-one-punch-man-king-139879.html"
     },
     {
       "from": "/decklists/one-punch-man-king/exburst-terrible-sisters-one-punch-man-king-137458.html",
@@ -39427,6 +40031,10 @@
       "to": "/decklists/hajime-saito-purple/exburst-hajime-saito-build-rurouni-kenshin-hajime-saito-114272.html"
     },
     {
+      "from": "/decklists/rurouni-kenshin-hajime-saito/exburst-hajime-saito-deck-rurouni-kenshin-hajime-saito-67349.html",
+      "to": "/decklists/hajime-saito-purple/exburst-hajime-saito-deck-rurouni-kenshin-hajime-saito-67349.html"
+    },
+    {
       "from": "/decklists/rurouni-kenshin-hajime-saito/exburst-hajime-saito-purple-sale-rurouni-kenshin-hajime-saito-132330.html",
       "to": "/decklists/hajime-saito-purple/exburst-hajime-saito-purple-sale-rurouni-kenshin-hajime-saito-132330.html"
     },
@@ -40907,6 +41515,10 @@
       "to": "/decklists/kenshin-himura-red/exburst-kenshin-unleashed-no-promo-rurouni-kenshin-kenshin-himu-137030.html"
     },
     {
+      "from": "/decklists/rurouni-kenshin-kenshin-himura/exburst-kenshinred-rurouni-kenshin-kenshin-himura-139939.html",
+      "to": "/decklists/kenshin-himura-red/exburst-kenshinred-rurouni-kenshin-kenshin-himura-139939.html"
+    },
+    {
       "from": "/decklists/rurouni-kenshin-kenshin-himura/exburst-killshin-5k-with-buffer-rurouni-kenshin-kenshin-himura-133107.html",
       "to": "/decklists/kenshin-himura-red/exburst-killshin-5k-with-buffer-rurouni-kenshin-kenshin-himura-133107.html"
     },
@@ -40937,6 +41549,10 @@
     {
       "from": "/decklists/rurouni-kenshin-kenshin-himura/exburst-modified-kenshin-rurouni-kenshin-kenshin-himura-58442.html",
       "to": "/decklists/kenshin-himura-red/exburst-modified-kenshin-rurouni-kenshin-kenshin-himura-58442.html"
+    },
+    {
+      "from": "/decklists/rurouni-kenshin-kenshin-himura/exburst-my-glorious-king-rurouni-kenshin-kenshin-himura-37418.html",
+      "to": "/decklists/aoshi-shinomori-blue/exburst-my-glorious-king-rurouni-kenshin-kenshin-himura-37418.html"
     },
     {
       "from": "/decklists/rurouni-kenshin-kenshin-himura/exburst-new-deckkk-rurouni-kenshin-kenshin-himura-128406.html",
@@ -41351,6 +41967,10 @@
       "to": "/decklists/seijuro-hiko-blue/tournament-4th-rurouni-kenshin-kenshin-himura-139384.html"
     },
     {
+      "from": "/decklists/rurouni-kenshin-kenshin-himura/tournament-4th-rurouni-kenshin-kenshin-himura-139922.html",
+      "to": "/decklists/seijuro-hiko-blue/tournament-4th-rurouni-kenshin-kenshin-himura-139922.html"
+    },
+    {
       "from": "/decklists/rurouni-kenshin-kenshin-himura/tournament-5th-rurouni-kenshin-kenshin-himura-107330.html",
       "to": "/decklists/kenshin-himura-red/tournament-5th-rurouni-kenshin-kenshin-himura-107330.html"
     },
@@ -41707,6 +42327,10 @@
       "to": "/decklists/hajime-saito-purple/exburst-p-kenshin-rurouni-kenshin-saito-135881.html"
     },
     {
+      "from": "/decklists/rurouni-kenshin-saito/exburst-purple-saito-hybd-rurouni-kenshin-saito-139941.html",
+      "to": "/decklists/hajime-saito-purple/exburst-purple-saito-hybd-rurouni-kenshin-saito-139941.html"
+    },
+    {
       "from": "/decklists/rurouni-kenshin-saito/exburst-purple-saito-meta-build-rurouni-kenshin-saito-130928.html",
       "to": "/decklists/hajime-saito-purple/exburst-purple-saito-meta-build-rurouni-kenshin-saito-130928.html"
     },
@@ -41745,6 +42369,10 @@
     {
       "from": "/decklists/rurouni-kenshin-saito/official-3rd-place-rurouni-kenshin-saito-urwvv2.html",
       "to": "/decklists/hajime-saito-purple/official-3rd-place-rurouni-kenshin-saito-urwvv2.html"
+    },
+    {
+      "from": "/decklists/rurouni-kenshin-saito/tournament-5th-rurouni-kenshin-saito-139923.html",
+      "to": "/decklists/hajime-saito-purple/tournament-5th-rurouni-kenshin-saito-139923.html"
     },
     {
       "from": "/decklists/rurouni-kenshin-saito/web-rurouni-kenshin-saito-3-6-top-union-arena-decks-from-the-virginia-.html",
@@ -41941,6 +42569,10 @@
     {
       "from": "/decklists/rurouni-kenshin-sojiro-seta/tournament-3rd-place-rurouni-kenshin-sojiro-seta-120084.html",
       "to": "/decklists/sojiro-seta-purple/tournament-3rd-place-rurouni-kenshin-sojiro-seta-120084.html"
+    },
+    {
+      "from": "/decklists/rurouni-kenshin-sojiro-seta/tournament-4th-rurouni-kenshin-sojiro-seta-139930.html",
+      "to": "/decklists/sojiro-seta-purple/tournament-4th-rurouni-kenshin-sojiro-seta-139930.html"
     },
     {
       "from": "/decklists/rurouni-kenshin-sojiro-seta/tournament-6th-place-rurouni-kenshin-sojiro-seta-121686.html",
@@ -42601,6 +43233,10 @@
     {
       "from": "/decklists/sakamoto-days-natsuki-seba/exburst-2x-sneaky-labo-sakamoto-days-natsuki-seba-105742.html",
       "to": "/decklists/natsuki-seba-purple/exburst-2x-sneaky-labo-sakamoto-days-natsuki-seba-105742.html"
+    },
+    {
+      "from": "/decklists/sakamoto-days-natsuki-seba/exburst-back-to-the-labo-sakamoto-days-natsuki-seba-140145.html",
+      "to": "/decklists/natsuki-seba-purple/exburst-back-to-the-labo-sakamoto-days-natsuki-seba-140145.html"
     },
     {
       "from": "/decklists/sakamoto-days-natsuki-seba/exburst-i-got-my-labotomy-at-claire-s-sakamoto-days-natsuki-seb-139659.html",
@@ -43355,6 +43991,14 @@
       "to": "/decklists/taro-sakamoto-yellow/tournament-1st-sakamoto-days-sak-139555.html"
     },
     {
+      "from": "/decklists/sakamoto-days-sak/tournament-1st-sakamoto-days-sak-139928.html",
+      "to": "/decklists/taro-sakamoto-yellow/tournament-1st-sakamoto-days-sak-139928.html"
+    },
+    {
+      "from": "/decklists/sakamoto-days-sak/tournament-1st-sakamoto-days-sak-139980.html",
+      "to": "/decklists/taro-sakamoto-yellow/tournament-1st-sakamoto-days-sak-139980.html"
+    },
+    {
       "from": "/decklists/sakamoto-days-sak/tournament-25th-sakamoto-days-sak-138179.html",
       "to": "/decklists/heisuke-mashimo-yellow/tournament-25th-sakamoto-days-sak-138179.html"
     },
@@ -43381,6 +44025,10 @@
     {
       "from": "/decklists/sakamoto-days-sak/tournament-3rd-sakamoto-days-sak-137409.html",
       "to": "/decklists/taro-sakamoto-yellow/tournament-3rd-sakamoto-days-sak-137409.html"
+    },
+    {
+      "from": "/decklists/sakamoto-days-sak/tournament-3rd-sakamoto-days-sak-139921.html",
+      "to": "/decklists/shin-asakura-yellow/tournament-3rd-sakamoto-days-sak-139921.html"
     },
     {
       "from": "/decklists/sakamoto-days-sak/tournament-5th-sakamoto-days-sak-136445.html",
@@ -44671,6 +45319,10 @@
       "to": "/decklists/taro-sakamoto-purple/exburst-taragumo-sakamoto-days-taro-sakamoto-129110.html"
     },
     {
+      "from": "/decklists/sakamoto-days-taro-sakamoto/exburst-taro-sakamoto-build-sakamoto-days-taro-sakamoto-140207.html",
+      "to": "/decklists/taro-sakamoto-yellow/exburst-taro-sakamoto-build-sakamoto-days-taro-sakamoto-140207.html"
+    },
+    {
       "from": "/decklists/sakamoto-days-taro-sakamoto/exburst-taro-sakamoto-build-sakamoto-days-taro-sakamoto-94271.html",
       "to": "/decklists/taro-sakamoto-yellow/exburst-taro-sakamoto-build-sakamoto-days-taro-sakamoto-94271.html"
     },
@@ -45213,6 +45865,10 @@
     {
       "from": "/decklists/sakamoto-days-yellow-mixmoto.html",
       "to": "/decklists/taro-sakamoto.html"
+    },
+    {
+      "from": "/decklists/sakamoto-days-yellow-mixmoto/event-1st-sakamoto-days-yellow-mixmoto-1757145.html",
+      "to": "/decklists/taro-sakamoto-yellow/event-1st-sakamoto-days-yellow-mixmoto-1757145.html"
     },
     {
       "from": "/decklists/sakamoto-days-yellow-mixmoto/event-21st-sakamoto-days-yellow-mixmoto-1517210.html",
@@ -46105,6 +46761,14 @@
     {
       "from": "/decklists/solo-leveling-shadow-army/exburst-shadow-army-solo-leveling-shadow-army-74839.html",
       "to": "/decklists/sung-jinwoo-purple/exburst-shadow-army-solo-leveling-shadow-army-74839.html"
+    },
+    {
+      "from": "/decklists/solo-leveling-shadow-army/exburst-shadow-army-solo-leveling-shadow-army-79171.html",
+      "to": "/decklists/sung-jinwoo-purple/exburst-shadow-army-solo-leveling-shadow-army-79171.html"
+    },
+    {
+      "from": "/decklists/solo-leveling-shadow-army/exburst-shadow-army-solo-leveling-shadow-army-79419.html",
+      "to": "/decklists/sung-jinwoo-purple/exburst-shadow-army-solo-leveling-shadow-army-79419.html"
     },
     {
       "from": "/decklists/solo-leveling-shadow-army/exburst-shadow-army-solo-leveling-shadow-army-88835.html",
@@ -47271,6 +47935,10 @@
       "to": "/decklists/cha-hae-in-green/exburst-jeje-solo-leveling-sung-jinwoo-113104.html"
     },
     {
+      "from": "/decklists/solo-leveling-sung-jinwoo/exburst-jeju-island-brigade-solo-leveling-sung-jinwoo-140053.html",
+      "to": "/decklists/cha-hae-in-green/exburst-jeju-island-brigade-solo-leveling-sung-jinwoo-140053.html"
+    },
+    {
       "from": "/decklists/solo-leveling-sung-jinwoo/exburst-jeju-island-raid-solo-leveling-sung-jinwoo-134441.html",
       "to": "/decklists/cha-hae-in-green/exburst-jeju-island-raid-solo-leveling-sung-jinwoo-134441.html"
     },
@@ -47385,6 +48053,10 @@
     {
       "from": "/decklists/solo-leveling-sung-jinwoo/exburst-level-up-woo-solo-leveling-sung-jinwoo-127322.html",
       "to": "/decklists/sung-jinwoo-green/exburst-level-up-woo-solo-leveling-sung-jinwoo-127322.html"
+    },
+    {
+      "from": "/decklists/solo-leveling-sung-jinwoo/exburst-leveled-up-solo-leveling-sung-jinwoo-140046.html",
+      "to": "/decklists/sung-jinwoo-green/exburst-leveled-up-solo-leveling-sung-jinwoo-140046.html"
     },
     {
       "from": "/decklists/solo-leveling-sung-jinwoo/exburst-lvl-up-v1-solo-leveling-sung-jinwoo-133500.html",
@@ -47857,6 +48529,10 @@
     {
       "from": "/decklists/solo-leveling-sung-jinwoo/exburst-sung-s-summons-solo-leveling-sung-jinwoo-71867.html",
       "to": "/decklists/sung-jinwoo-purple/exburst-sung-s-summons-solo-leveling-sung-jinwoo-71867.html"
+    },
+    {
+      "from": "/decklists/solo-leveling-sung-jinwoo/exburst-the-elixir-of-life-solo-leveling-sung-jinwoo-140186.html",
+      "to": "/decklists/sung-jinwoo-purple/exburst-the-elixir-of-life-solo-leveling-sung-jinwoo-140186.html"
     },
     {
       "from": "/decklists/solo-leveling-sung-jinwoo/exburst-the-real-shadow-monarch-solo-leveling-sung-jinwoo-77787.html",
@@ -49039,6 +49715,10 @@
       "to": "/decklists/emilia-purple/exburst-always-greedy-solo-leveling-129499.html"
     },
     {
+      "from": "/decklists/solo-leveling/exburst-american-sniper-solo-leveling-96111.html",
+      "to": "/decklists/kurapika-green/exburst-american-sniper-solo-leveling-96111.html"
+    },
+    {
       "from": "/decklists/solo-leveling/exburst-bea-ru-solo-leveling-127397.html",
       "to": "/decklists/beatrice-purple/exburst-bea-ru-solo-leveling-127397.html"
     },
@@ -49611,6 +50291,10 @@
       "to": "/decklists/mina-ashiro-yellow/exburst-mina-control-solo-leveling-46720.html"
     },
     {
+      "from": "/decklists/solo-leveling/exburst-mina-kitty-kat-rush-solo-leveling-49051.html",
+      "to": "/decklists/mina-ashiro-yellow/exburst-mina-kitty-kat-rush-solo-leveling-49051.html"
+    },
+    {
       "from": "/decklists/solo-leveling/exburst-mina-solo-leveling-136495.html",
       "to": "/decklists/mina-ashiro-yellow/exburst-mina-solo-leveling-136495.html"
     },
@@ -49653,6 +50337,10 @@
     {
       "from": "/decklists/solo-leveling/exburst-muzan-deck-solo-leveling-137766.html",
       "to": "/decklists/muzan-kibutsuji-purple/exburst-muzan-deck-solo-leveling-137766.html"
+    },
+    {
+      "from": "/decklists/solo-leveling/exburst-muzan-kibutsuji-deck-solo-leveling-139898.html",
+      "to": "/decklists/muzan-kibutsuji-purple/exburst-muzan-kibutsuji-deck-solo-leveling-139898.html"
     },
     {
       "from": "/decklists/solo-leveling/exburst-muzan-s-blood-solo-leveling-134902.html",
@@ -49705,6 +50393,10 @@
     {
       "from": "/decklists/solo-leveling/exburst-no-name-solo-leveling-132745.html",
       "to": "/decklists/rem-blue/exburst-no-name-solo-leveling-132745.html"
+    },
+    {
+      "from": "/decklists/solo-leveling/exburst-not-a-good-deck-solo-leveling-140002.html",
+      "to": "/decklists/muichiro-tokito-blue/exburst-not-a-good-deck-solo-leveling-140002.html"
     },
     {
       "from": "/decklists/solo-leveling/exburst-oni-chan-solo-leveling-129884.html",
@@ -50143,6 +50835,10 @@
       "to": "/decklists/tanjiro-kamado-yellow/exburst-water-breathing-tenth-form-constant-flux-aggro-solo-lev-137276.html"
     },
     {
+      "from": "/decklists/solo-leveling/exburst-water-burger-solo-leveling-57645.html",
+      "to": "/decklists/tanjiro-kamado-blue/exburst-water-burger-solo-leveling-57645.html"
+    },
+    {
       "from": "/decklists/solo-leveling/exburst-white-haired-witches-solo-leveling-133304.html",
       "to": "/decklists/emilia-purple/exburst-white-haired-witches-solo-leveling-133304.html"
     },
@@ -50185,6 +50881,10 @@
     {
       "from": "/decklists/solo-leveling/exburst-yellow-hashira-solo-leveling-65406.html",
       "to": "/decklists/mitsuri-kanroji-yellow/exburst-yellow-hashira-solo-leveling-65406.html"
+    },
+    {
+      "from": "/decklists/solo-leveling/exburst-yellow-kikoru-solo-leveling-68279.html",
+      "to": "/decklists/kikoru-shinomiya-yellow/exburst-yellow-kikoru-solo-leveling-68279.html"
     },
     {
       "from": "/decklists/solo-leveling/exburst-yellow-re-zero-rem-ram-solo-leveling-134988.html",
@@ -50651,6 +51351,10 @@
       "to": "/decklists/yuuki-green/exburst-mother-s-rosario-tore-sword-art-online-asuna-135414.html"
     },
     {
+      "from": "/decklists/sword-art-online-asuna/exburst-mothers-girls-sword-art-online-asuna-139976.html",
+      "to": "/decklists/yuuki-green/exburst-mothers-girls-sword-art-online-asuna-139976.html"
+    },
+    {
       "from": "/decklists/sword-art-online-asuna/exburst-my-goddess-sword-art-online-asuna-64776.html",
       "to": "/decklists/leafa-earth-goddess-terraria-yellow/exburst-my-goddess-sword-art-online-asuna-64776.html"
     },
@@ -50681,6 +51385,10 @@
     {
       "from": "/decklists/sword-art-online-asuna/exburst-progressive-sword-art-online-asuna-138454.html",
       "to": "/decklists/asuna-purple/exburst-progressive-sword-art-online-asuna-138454.html"
+    },
+    {
+      "from": "/decklists/sword-art-online-asuna/exburst-progressive-sword-art-online-asuna-67819.html",
+      "to": "/decklists/asuna-purple/exburst-progressive-sword-art-online-asuna-67819.html"
     },
     {
       "from": "/decklists/sword-art-online-asuna/exburst-purp-sword-art-online-asuna-132852.html",
@@ -51035,6 +51743,10 @@
       "to": "/decklists/leafa-blue/exburst-blue-leafa-sword-art-online-kirito-137902.html"
     },
     {
+      "from": "/decklists/sword-art-online-kirito/exburst-blue-lisbeth-sword-art-online-kirito-140139.html",
+      "to": "/decklists/kirito-blue/exburst-blue-lisbeth-sword-art-online-kirito-140139.html"
+    },
+    {
       "from": "/decklists/sword-art-online-kirito/exburst-blue-sao-consistency-test-sword-art-online-kirito-26302.html",
       "to": "/decklists/kirito-blue/exburst-blue-sao-consistency-test-sword-art-online-kirito-26302.html"
     },
@@ -51073,6 +51785,10 @@
     {
       "from": "/decklists/sword-art-online-kirito/exburst-ingot-sword-art-online-kirito-130782.html",
       "to": "/decklists/kirito-blue/exburst-ingot-sword-art-online-kirito-130782.html"
+    },
+    {
+      "from": "/decklists/sword-art-online-kirito/exburst-integ-knights-sword-art-online-kirito-139978.html",
+      "to": "/decklists/alice-synthesis-thirty-yellow/exburst-integ-knights-sword-art-online-kirito-139978.html"
     },
     {
       "from": "/decklists/sword-art-online-kirito/exburst-integrity-knights-sword-art-online-kirito-106083.html",
@@ -51191,6 +51907,10 @@
       "to": "/decklists/kirito-yellow/tournament-7th-sword-art-online-kirito-133996.html"
     },
     {
+      "from": "/decklists/sword-art-online-kirito/tournament-8th-sword-art-online-kirito-139925.html",
+      "to": "/decklists/alice-synthesis-thirty-yellow/tournament-8th-sword-art-online-kirito-139925.html"
+    },
+    {
       "from": "/decklists/sword-art-online-leafa.html",
       "to": "/decklists/leafa.html"
     },
@@ -51271,6 +51991,10 @@
       "to": "/decklists/sinon-green/event-16th-sword-art-online-sinon-1571552.html"
     },
     {
+      "from": "/decklists/sword-art-online-sinon/event-1st-sword-art-online-sinon-1756448.html",
+      "to": "/decklists/sinon-green/event-1st-sword-art-online-sinon-1756448.html"
+    },
+    {
       "from": "/decklists/sword-art-online-sinon/event-2nd-sword-art-online-sinon-1536706.html",
       "to": "/decklists/sinon-green/event-2nd-sword-art-online-sinon-1536706.html"
     },
@@ -51313,6 +52037,10 @@
     {
       "from": "/decklists/sword-art-online-sinon/exburst-ggo-green-sword-art-online-sinon-131493.html",
       "to": "/decklists/sinon-green/exburst-ggo-green-sword-art-online-sinon-131493.html"
+    },
+    {
+      "from": "/decklists/sword-art-online-sinon/exburst-ggo-sniper-sword-art-online-sinon-139971.html",
+      "to": "/decklists/sinon-green/exburst-ggo-sniper-sword-art-online-sinon-139971.html"
     },
     {
       "from": "/decklists/sword-art-online-sinon/exburst-ggo-sword-art-online-sinon-101078.html",
@@ -52239,6 +52967,10 @@
       "to": "/decklists/kirito-purple/exburst-yuna-deck-sword-art-online-yuna-103581.html"
     },
     {
+      "from": "/decklists/sword-art-online-yuna/exburst-yuna-deck-sword-art-online-yuna-139897.html",
+      "to": "/decklists/yuna-purple/exburst-yuna-deck-sword-art-online-yuna-139897.html"
+    },
+    {
       "from": "/decklists/sword-art-online-yuna/exburst-yuna-deck-sword-art-online-yuna-59668.html",
       "to": "/decklists/kirito-purple/exburst-yuna-deck-sword-art-online-yuna-59668.html"
     },
@@ -53019,12 +53751,20 @@
       "to": "/decklists/milim-green/exburst-milim-deck-that-time-i-got-reincarnated-as-a-slime-mili-137279.html"
     },
     {
+      "from": "/decklists/that-time-i-got-reincarnated-as-a-slime-milim/exburst-milim-deck-that-time-i-got-reincarnated-as-a-slime-mili-140036.html",
+      "to": "/decklists/milim-green/exburst-milim-deck-that-time-i-got-reincarnated-as-a-slime-mili-140036.html"
+    },
+    {
       "from": "/decklists/that-time-i-got-reincarnated-as-a-slime-milim/exburst-milim-deck-that-time-i-got-reincarnated-as-a-slime-milim-12536.html",
       "to": "/decklists/milim-green/exburst-milim-deck-that-time-i-got-reincarnated-as-a-slime-milim-12536.html"
     },
     {
       "from": "/decklists/that-time-i-got-reincarnated-as-a-slime-milim/exburst-milim-deck-that-time-i-got-reincarnated-as-a-slime-milim-98765.html",
       "to": "/decklists/milim-green/exburst-milim-deck-that-time-i-got-reincarnated-as-a-slime-milim-98765.html"
+    },
+    {
+      "from": "/decklists/that-time-i-got-reincarnated-as-a-slime-milim/exburst-milim-deck-that-time-i-got-reincarnated-as-a-slime-milim-99909.html",
+      "to": "/decklists/milim-green/exburst-milim-deck-that-time-i-got-reincarnated-as-a-slime-milim-99909.html"
     },
     {
       "from": "/decklists/that-time-i-got-reincarnated-as-a-slime-milim/exburst-milim-deck-won-10-12-matches-that-time-i-got-reincarnat-131037.html",
@@ -53349,6 +54089,10 @@
     {
       "from": "/decklists/that-time-i-got-reincarnated-as-a-slime-rimuru-hybrid-deck/event-4th-that-time-i-got-reincarnated-as-a-slime-rimuru-hybrid-deck-1.html",
       "to": "/decklists/rimuru-purple/event-4th-that-time-i-got-reincarnated-as-a-slime-rimuru-hybrid-deck-1.html"
+    },
+    {
+      "from": "/decklists/that-time-i-got-reincarnated-as-a-slime-rimuru-hybrid-deck/exburst-hinata-that-time-i-got-reincarnated-as-a-slime-rimuru-h-140038.html",
+      "to": "/decklists/luminus-purple/exburst-hinata-that-time-i-got-reincarnated-as-a-slime-rimuru-h-140038.html"
     },
     {
       "from": "/decklists/that-time-i-got-reincarnated-as-a-slime-rimuru-hybrid-deck/tournament-4th-that-time-i-got-reincarnated-as-a-slime-rimuru-h-137190.html",
@@ -53937,6 +54681,10 @@
     {
       "from": "/decklists/that-time-i-got-reincarnated-as-a-slime-rimuru/exburst-rimuru-veldora-that-time-i-got-reincarnated-as-a-slime--133559.html",
       "to": "/decklists/rimuru-green/exburst-rimuru-veldora-that-time-i-got-reincarnated-as-a-slime-133559.html"
+    },
+    {
+      "from": "/decklists/that-time-i-got-reincarnated-as-a-slime-rimuru/exburst-rm-vel-that-time-i-got-reincarnated-as-a-slime-rimuru-140031.html",
+      "to": "/decklists/veldora-green/exburst-rm-vel-that-time-i-got-reincarnated-as-a-slime-rimuru-140031.html"
     },
     {
       "from": "/decklists/that-time-i-got-reincarnated-as-a-slime-rimuru/exburst-secretary-battle-squad-that-time-i-got-reincarnated-as--101652.html",
@@ -54907,6 +55655,10 @@
       "to": "/decklists/karane-inda-yellow/exburst-karane-inda-deck-the-100-girlfriends-karane-inda-102376.html"
     },
     {
+      "from": "/decklists/the-100-girlfriends-karane-inda/exburst-karane-inda-deck-the-100-girlfriends-karane-inda-139999.html",
+      "to": "/decklists/karane-inda-yellow/exburst-karane-inda-deck-the-100-girlfriends-karane-inda-139999.html"
+    },
+    {
       "from": "/decklists/the-100-girlfriends-karane-inda/exburst-karane-v6-the-100-girlfriends-karane-inda-131340.html",
       "to": "/decklists/karane-inda-yellow/exburst-karane-v6-the-100-girlfriends-karane-inda-131340.html"
     },
@@ -55131,6 +55883,18 @@
       "to": "/decklists/kusuri-yakuzen-green/exburst-nano-eiai-deck-the-100-girlfriends-nano-eiai-110804.html"
     },
     {
+      "from": "/decklists/the-100-girlfriends-nano-eiai/exburst-nano-eiai-deck-the-100-girlfriends-nano-eiai-140001.html",
+      "to": "/decklists/nano-eiai-green/exburst-nano-eiai-deck-the-100-girlfriends-nano-eiai-140001.html"
+    },
+    {
+      "from": "/decklists/the-100-girlfriends-nano-eiai/exburst-nano-eiai-deck-the-100-girlfriends-nano-eiai-140010.html",
+      "to": "/decklists/shizuka-yoshimoto-green/exburst-nano-eiai-deck-the-100-girlfriends-nano-eiai-140010.html"
+    },
+    {
+      "from": "/decklists/the-100-girlfriends-nano-eiai/exburst-nano-eiai-storm-the-100-girlfriends-nano-eiai-140083.html",
+      "to": "/decklists/nano-eiai-green/exburst-nano-eiai-storm-the-100-girlfriends-nano-eiai-140083.html"
+    },
+    {
       "from": "/decklists/the-100-girlfriends-nano-eiai/exburst-nano-kusuri-the-100-girlfriends-nano-eiai-129920.html",
       "to": "/decklists/nano-eiai-green/exburst-nano-kusuri-the-100-girlfriends-nano-eiai-129920.html"
     },
@@ -55351,6 +56115,10 @@
       "to": "/decklists/hahari-hanazono-yellow/exburst-hahari-and-hakari-the-100-girlfriends-shizuka-yoshimoto-103659.html"
     },
     {
+      "from": "/decklists/the-100-girlfriends-shizuka-yoshimoto/exburst-hahari-hanazono-deck-the-100-girlfriends-shizuka-yoshim-139995.html",
+      "to": "/decklists/hakari-hanazono-yellow/exburst-hahari-hanazono-deck-the-100-girlfriends-shizuka-yoshim-139995.html"
+    },
+    {
       "from": "/decklists/the-100-girlfriends-shizuka-yoshimoto/exburst-hahari-hanazono-deck-the-100-girlfriends-shizuka-yoshimoto-125.html",
       "to": "/decklists/hahari-hanazono-yellow/exburst-hahari-hanazono-deck-the-100-girlfriends-shizuka-yoshimoto-125.html"
     },
@@ -55433,6 +56201,10 @@
     {
       "from": "/decklists/the-100-girlfriends-shizuka-yoshimoto/exburst-kusuri-the-100-girlfriends-shizuka-yoshimoto-107838.html",
       "to": "/decklists/kusuri-yakuzen-green/exburst-kusuri-the-100-girlfriends-shizuka-yoshimoto-107838.html"
+    },
+    {
+      "from": "/decklists/the-100-girlfriends-shizuka-yoshimoto/exburst-kusuri-yakuzen-deck-the-100-girlfriends-shizuka-yoshimo-140005.html",
+      "to": "/decklists/kusuri-yakuzen-green/exburst-kusuri-yakuzen-deck-the-100-girlfriends-shizuka-yoshimo-140005.html"
     },
     {
       "from": "/decklists/the-100-girlfriends-shizuka-yoshimoto/exburst-kusuri-yakuzen-deck-the-100-girlfriends-shizuka-yoshimoto-1242.html",
@@ -55833,6 +56605,10 @@
     {
       "from": "/decklists/tokyo-ghoul-ken-kaneki/event-8th-tokyo-ghoul-ken-kaneki-1402134.html",
       "to": "/decklists/ken-kaneki-purple/event-8th-tokyo-ghoul-ken-kaneki-1402134.html"
+    },
+    {
+      "from": "/decklists/tokyo-ghoul-ken-kaneki/reddit-pic-created-my-own-cowboy-bebop-deck-based-on-the-madoka-deck-c.html",
+      "to": "/decklists/shu-tsukiyama-purple/reddit-pic-created-my-own-cowboy-bebop-deck-based-on-the-madoka-deck-c.html"
     },
     {
       "from": "/decklists/tokyo-ghoul-kisho-arima-tg.html",
@@ -56999,6 +57775,10 @@
       "to": "/decklists/haise-sasaki-yellow/exburst-akira-mado-deck-tokyo-ghoul-uta-138994.html"
     },
     {
+      "from": "/decklists/tokyo-ghoul-uta/exburst-akira-mado-deck-tokyo-ghoul-uta-93366.html",
+      "to": "/decklists/haise-sasaki-yellow/exburst-akira-mado-deck-tokyo-ghoul-uta-93366.html"
+    },
+    {
       "from": "/decklists/tokyo-ghoul-uta/exburst-aogiri-tree-deck-tokyo-ghoul-uta-134890.html",
       "to": "/decklists/ken-kaneki-red/exburst-aogiri-tree-deck-tokyo-ghoul-uta-134890.html"
     },
@@ -57371,6 +58151,10 @@
       "to": "/decklists/ken-kaneki-red/exburst-red-kaneki-life-manipulation-tokyo-ghoul-uta-129410.html"
     },
     {
+      "from": "/decklists/tokyo-ghoul-uta/exburst-red-ken-kaneki-deck-tokyo-ghoul-uta-93368.html",
+      "to": "/decklists/ken-kaneki-red/exburst-red-ken-kaneki-deck-tokyo-ghoul-uta-93368.html"
+    },
+    {
       "from": "/decklists/tokyo-ghoul-uta/exburst-red-ken-tokyo-ghoul-uta-134403.html",
       "to": "/decklists/ken-kaneki-red/exburst-red-ken-tokyo-ghoul-uta-134403.html"
     },
@@ -57411,6 +58195,10 @@
       "to": "/decklists/envy-purple/exburst-sin-tokyo-ghoul-uta-124712.html"
     },
     {
+      "from": "/decklists/tokyo-ghoul-uta/exburst-tasty-ghouls-tokyo-ghoul-uta-139942.html",
+      "to": "/decklists/shu-tsukiyama-purple/exburst-tasty-ghouls-tokyo-ghoul-uta-139942.html"
+    },
+    {
       "from": "/decklists/tokyo-ghoul-uta/exburst-test-tokyo-ghoul-uta-126567.html",
       "to": "/decklists/ken-kaneki-purple/exburst-test-tokyo-ghoul-uta-126567.html"
     },
@@ -57449,6 +58237,10 @@
     {
       "from": "/decklists/tokyo-ghoul-uta/exburst-tou-kaneki-tokyo-ghoul-uta-126248.html",
       "to": "/decklists/touka-kirishima-purple/exburst-tou-kaneki-tokyo-ghoul-uta-126248.html"
+    },
+    {
+      "from": "/decklists/tokyo-ghoul-uta/exburst-touka-and-kaneki-tokyo-ghoul-uta-140154.html",
+      "to": "/decklists/touka-kirishima-purple/exburst-touka-and-kaneki-tokyo-ghoul-uta-140154.html"
     },
     {
       "from": "/decklists/tokyo-ghoul-uta/exburst-touka-kaneki-budget-tokyo-ghoul-uta-134555.html",
@@ -57989,6 +58781,10 @@
     {
       "from": "/decklists/yu-yu-hakusho-elder-toguro/exburst-toguro-brothers-v2-yu-yu-hakusho-elder-toguro-59022.html",
       "to": "/decklists/younger-toguro-purple/exburst-toguro-brothers-v2-yu-yu-hakusho-elder-toguro-59022.html"
+    },
+    {
+      "from": "/decklists/yu-yu-hakusho-elder-toguro/exburst-toguro-power-yu-yu-hakusho-elder-toguro-139943.html",
+      "to": "/decklists/younger-toguro-purple/exburst-toguro-power-yu-yu-hakusho-elder-toguro-139943.html"
     },
     {
       "from": "/decklists/yu-yu-hakusho-elder-toguro/exburst-toguro-v2-copy-yu-yu-hakusho-elder-toguro-71237.html",
@@ -59908,14 +60704,6 @@
     },
     {
       "from": "/decklists/uvogin.html",
-      "to": "/characters.html"
-    },
-    {
-      "from": "/decklists/veldora-green.html",
-      "to": "/characters.html"
-    },
-    {
-      "from": "/decklists/veldora.html",
       "to": "/characters.html"
     },
     {
