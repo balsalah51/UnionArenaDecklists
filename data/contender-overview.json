@@ -6849,7 +6849,7 @@
         },
         "representativeCardName": "Crusch & Ferris",
         "representativeCardId": null,
-        "representativeImageUrl": "/cdn/cards/unionarena/1005555/1938287_thumb_0.webp",
+        "representativeImageUrl": "/cdn/cards/unionarena/1005555/1802882_thumb_0.webp",
         "colorIdentity": [
           "Blue"
         ],
@@ -9879,8 +9879,8 @@
       },
       {
         "cost": 2,
-        "totalCopies": 822,
-        "avgPerDeck": 6.2
+        "totalCopies": 802,
+        "avgPerDeck": 6
       },
       {
         "cost": 3,
@@ -9889,8 +9889,8 @@
       },
       {
         "cost": 4,
-        "totalCopies": 1459,
-        "avgPerDeck": 11
+        "totalCopies": 1479,
+        "avgPerDeck": 11.1
       },
       {
         "cost": 5,
@@ -9914,8 +9914,8 @@
       }
     ],
     "evidence": {
-      "newestListDate": "2026-11-07",
-      "ageDays": 2,
+      "newestListDate": "2026-11-09",
+      "ageDays": 1,
       "stale": false
     },
     "newestSet": {
@@ -9927,8 +9927,8 @@
       "sinceBanlistDate": "2026-02-14",
       "sinceBanlistSource": "firstTournament",
       "totalSampleSize": 610,
-      "recent30dSampleSize": 108,
-      "sinceBanlistSampleSize": 2740,
+      "recent30dSampleSize": 111,
+      "sinceBanlistSampleSize": 2753,
       "hhi": 277.81,
       "top3Share": 0.23598303
     }
