@@ -1,6 +1,12 @@
 {
   "akaza": [
     {
+      "slug": "exburst-muzan-deck-demon-slayer-akaza-142455",
+      "kind": "web",
+      "title": "Akaza (Purple)",
+      "date": "2026-11-14"
+    },
+    {
       "slug": "exburst-muzan-s-blood-solo-leveling-134902",
       "kind": "web",
       "title": "Akaza (Purple)",
@@ -762,6 +768,12 @@
     }
   ],
   "alice": [
+    {
+      "slug": "exburst-alice-nikke-yellow-cinderella-142484",
+      "kind": "web",
+      "title": "Alice (Green)",
+      "date": "2026-11-14"
+    },
     {
       "slug": "exburst-my-girl-nikke-plastic-memories-140771",
       "kind": "web",
@@ -2961,6 +2973,12 @@
   ],
   "armin-arlelt-colossal-titan-sr": [
     {
+      "slug": "exburst-chosa-heidan-deck-attack-on-titan-blue-levi-142554",
+      "kind": "web",
+      "title": "Armin Arlelt (Colossal Titan) (SR**) (Yellow)",
+      "date": "2026-11-14"
+    },
+    {
       "slug": "exburst-armin-arlelt-colossal-titan-deck-attack-on-titan-blue-l-142070",
       "kind": "web",
       "title": "Armin Arlelt (Colossal Titan) (SR**) (Yellow)",
@@ -3324,6 +3342,18 @@
     }
   ],
   "asta": [
+    {
+      "slug": "exburst-red-asta-deck-black-clover-red-asta-142448",
+      "kind": "web",
+      "title": "Asta (Red)",
+      "date": "2026-11-14"
+    },
+    {
+      "slug": "exburst-black-bulls-black-clover-green-mereoleona-vermillion-142305",
+      "kind": "web",
+      "title": "Asta (Purple)",
+      "date": "2026-11-13"
+    },
     {
       "slug": "exburst-asta-goat-deck-black-clover-green-mereoleona-vermillion-142250",
       "kind": "web",
@@ -4776,6 +4806,18 @@
     }
   ],
   "bambietta-basterbine": [
+    {
+      "slug": "exburst-bambies-bleach-blue-ichigo-kurosaki-25821",
+      "kind": "web",
+      "title": "Bambietta Basterbine (Yellow)",
+      "date": "2026-11-14"
+    },
+    {
+      "slug": "exburst-bambies-bleach-blue-ichigo-kurosaki-103987",
+      "kind": "web",
+      "title": "Bambietta Basterbine (Yellow)",
+      "date": "2026-11-14"
+    },
     {
       "slug": "tournament-4th-bleach-blue-ichigo-kurosaki-141943",
       "kind": "tournament",
@@ -6709,6 +6751,12 @@
   ],
   "benimaru": [
     {
+      "slug": "exburst-operation-benimaru-that-time-i-got-reincarnated-as-a-sl-142441",
+      "kind": "web",
+      "title": "Benimaru (Yellow)",
+      "date": "2026-11-14"
+    },
+    {
       "slug": "contender-consensus",
       "kind": "contender",
       "title": "Benimaru (Yellow)",
@@ -8467,6 +8515,36 @@
   ],
   "byakuya-kuchiki": [
     {
+      "slug": "exburst-purple-slop-bleach-blue-ichigo-kurosaki-142435",
+      "kind": "web",
+      "title": "Byakuya Kuchiki (Purple)",
+      "date": "2026-11-14"
+    },
+    {
+      "slug": "exburst-d6-bleach-blue-ichigo-kurosaki-1348",
+      "kind": "web",
+      "title": "Byakuya Kuchiki (Purple)",
+      "date": "2026-11-14"
+    },
+    {
+      "slug": "exburst-byakuya-kuchiki-deck-bleach-blue-ichigo-kurosaki-142569",
+      "kind": "web",
+      "title": "Byakuya Kuchiki (Purple)",
+      "date": "2026-11-14"
+    },
+    {
+      "slug": "exburst-byakuya-ichigo-splash-bleach-blue-ichigo-kurosaki-142485",
+      "kind": "web",
+      "title": "Byakuya Kuchiki (Purple)",
+      "date": "2026-11-14"
+    },
+    {
+      "slug": "exburst-byakuga-bleach-blue-ichigo-kurosaki-142008",
+      "kind": "web",
+      "title": "Byakuya Kuchiki (Purple)",
+      "date": "2026-11-14"
+    },
+    {
       "slug": "exburst-soul-society-s-executioners-bleach-blue-ichigo-kurosaki-141444",
       "kind": "web",
       "title": "Byakuya Kuchiki (Purple)",
@@ -9562,6 +9640,12 @@
     }
   ],
   "cha-hae-in": [
+    {
+      "slug": "exburst-jeju-island-raid-solo-leveling-green-cha-hae-in-142360",
+      "kind": "web",
+      "title": "Cha Hae-in (Green)",
+      "date": "2026-11-14"
+    },
     {
       "slug": "contender-consensus",
       "kind": "contender",
@@ -13595,6 +13679,12 @@
   ],
   "cinderella": [
     {
+      "slug": "exburst-cinderella-deck-nikke-yellow-cinderella-142005",
+      "kind": "web",
+      "title": "Cinderella (Yellow)",
+      "date": "2026-11-14"
+    },
+    {
       "slug": "exburst-cinderella-old-tales-nikke-yellow-cinderella-141994",
       "kind": "web",
       "title": "Cinderella (Yellow)",
@@ -15199,6 +15289,30 @@
   ],
   "dorothy": [
     {
+      "slug": "exburst-triggerless-purple-nikke-yellow-cinderella-89032",
+      "kind": "web",
+      "title": "Dorothy (Purple)",
+      "date": "2026-11-14"
+    },
+    {
+      "slug": "exburst-triggered-nikke-yellow-cinderella-52875",
+      "kind": "web",
+      "title": "Dorothy (Purple)",
+      "date": "2026-11-14"
+    },
+    {
+      "slug": "exburst-nikke-without-trigger-girls-deck-nikke-yellow-cinderell-142574",
+      "kind": "web",
+      "title": "Dorothy (Purple)",
+      "date": "2026-11-14"
+    },
+    {
+      "slug": "exburst-heretic-doro-nikke-yellow-cinderella-142461",
+      "kind": "web",
+      "title": "Dorothy (Purple)",
+      "date": "2026-11-14"
+    },
+    {
       "slug": "exburst-purple-dorothy-nikke-yellow-cinderella-142169",
       "kind": "web",
       "title": "Dorothy (Purple)",
@@ -15885,6 +15999,18 @@
   ],
   "edward-elric": [
     {
+      "slug": "exburst-elric-deck-fullmetal-alchemist-blue-roy-mustang-142545",
+      "kind": "web",
+      "title": "Edward Elric (Yellow)",
+      "date": "2026-11-14"
+    },
+    {
+      "slug": "exburst-elric-brothers-fullmetal-alchemist-blue-roy-mustang-142499",
+      "kind": "web",
+      "title": "Edward Elric (Yellow)",
+      "date": "2026-11-14"
+    },
+    {
       "slug": "exburst-vincent-s-elric-deck-fullmetal-alchemist-blue-roy-musta-142000",
       "kind": "web",
       "title": "Edward Elric (Yellow)",
@@ -16378,6 +16504,12 @@
     }
   ],
   "emilia": [
+    {
+      "slug": "exburst-tea-time-re-zero-starting-life-in-another-world-blue-cr-142215",
+      "kind": "web",
+      "title": "Emilia (Purple)",
+      "date": "2026-11-14"
+    },
     {
       "slug": "exburst-emilia-re-zero-starting-life-in-another-world-blue-crus-125599",
       "kind": "web",
@@ -18933,6 +19065,12 @@
   ],
   "envy": [
     {
+      "slug": "exburst-homunculus-deck-fullmetal-alchemist-blue-roy-mustang-108753",
+      "kind": "web",
+      "title": "Envy (Purple)",
+      "date": "2026-11-14"
+    },
+    {
       "slug": "contender-consensus",
       "kind": "contender",
       "title": "Envy (Purple)",
@@ -19788,6 +19926,18 @@
     }
   ],
   "eren-jaeger-attack-titan": [
+    {
+      "slug": "tournament-1st-attack-on-titan-blue-levi-142386",
+      "kind": "tournament",
+      "title": "Eren Jaeger (Attack Titan) (Red)",
+      "date": "2026-11-14"
+    },
+    {
+      "slug": "event-1st-attack-on-titan-red-eren-jaeger-1773448",
+      "kind": "event",
+      "title": "Eren Jaeger (Attack Titan) (Red)",
+      "date": "2026-11-14"
+    },
     {
       "slug": "exburst-shingeki-no-kyojin-attack-on-titan-blue-levi-141615",
       "kind": "web",
@@ -21783,6 +21933,18 @@
   ],
   "eren-jaeger-doomsday-titan": [
     {
+      "slug": "exburst-attack-on-titan-blue-levi-142496",
+      "kind": "web",
+      "title": "Eren Jaeger (Doomsday Titan) (Yellow)",
+      "date": "2026-11-14"
+    },
+    {
+      "slug": "exburst-rumbling-attack-on-titan-blue-levi-142256",
+      "kind": "web",
+      "title": "Eren Jaeger (Doomsday Titan) (Yellow)",
+      "date": "2026-11-13"
+    },
+    {
       "slug": "exburst-eren-jaeger-doomsday-titan-deck-attack-on-titan-blue-le-142069",
       "kind": "web",
       "title": "Eren Jaeger (Doomsday Titan) (Yellow)",
@@ -22476,6 +22638,18 @@
     }
   ],
   "evangelion-production-model-02-beast-form": [
+    {
+      "slug": "tournament-2nd-evangelion-purple-evangelion-test-type-01-142384",
+      "kind": "tournament",
+      "title": "Evangelion Production Model-02 (Beast Form) (Red)",
+      "date": "2026-11-14"
+    },
+    {
+      "slug": "event-2nd-evangelion-red-evangelion-production-model-02-1773449",
+      "kind": "event",
+      "title": "Evangelion Production Model-02 (Beast Form) (Red)",
+      "date": "2026-11-14"
+    },
     {
       "slug": "contender-consensus",
       "kind": "contender",
@@ -25955,6 +26129,12 @@
   ],
   "gekka-tohdoh-fighter": [
     {
+      "slug": "exburst-4-holy-sword-code-geass-green-lancelot-air-cavalry-142438",
+      "kind": "web",
+      "title": "Gekka (Tohdoh Fighter) (Purple)",
+      "date": "2026-11-14"
+    },
+    {
       "slug": "exburst-cg-starter-deck-code-geass-suzaku-kururugi-139731",
       "kind": "web",
       "title": "Gekka (Tohdoh Fighter) (Purple)",
@@ -26341,6 +26521,12 @@
   ],
   "giselle-gewelle": [
     {
+      "slug": "exburst-giselle-gewelle-deck-bleach-blue-ichigo-kurosaki-142584",
+      "kind": "web",
+      "title": "Giselle Gewelle (Yellow)",
+      "date": "2026-11-14"
+    },
+    {
       "slug": "exburst-giselle-gewelle-deck-bleach-toshiro-hitsugaya-139896",
       "kind": "web",
       "title": "Giselle Gewelle (Yellow)",
@@ -26496,6 +26682,12 @@
     }
   ],
   "gon-freecss": [
+    {
+      "slug": "exburst-let-s-go-gambling-hunter-x-hunter-yellow-hisoka-142431",
+      "kind": "web",
+      "title": "Gon Freecss (Blue)",
+      "date": "2026-11-14"
+    },
     {
       "slug": "exburst-gon-freecss-deck-hunter-x-hunter-yellow-hisoka-141838",
       "kind": "web",
@@ -27794,6 +27986,12 @@
     }
   ],
   "haise-sasaki": [
+    {
+      "slug": "exburst-mado-squad-tokyo-ghoul-purple-ken-kaneki-95249",
+      "kind": "web",
+      "title": "Haise Sasaki (Yellow)",
+      "date": "2026-11-13"
+    },
     {
       "slug": "exburst-mado-squad-tokyo-ghoul-purple-ken-kaneki-114349",
       "kind": "web",
@@ -29274,6 +29472,12 @@
     }
   ],
   "hakari-hanazono": [
+    {
+      "slug": "exburst-7momma-the-100-girlfriends-green-nano-eiai-142493",
+      "kind": "web",
+      "title": "Hakari Hanazono (Yellow)",
+      "date": "2026-11-14"
+    },
     {
       "slug": "exburst-hahari-hanazono-deck-the-100-girlfriends-shizuka-yoshim-139995",
       "kind": "web",
@@ -31335,6 +31539,12 @@
   ],
   "ichibe-hyosube": [
     {
+      "slug": "exburst-squad-0-feat-ichigoat-bleach-blue-ichigo-kurosaki-21478",
+      "kind": "web",
+      "title": "Ichibe Hyosube (Purple)",
+      "date": "2026-11-14"
+    },
+    {
       "slug": "exburst-zero-squad-bleach-blue-ichigo-kurosaki-141908",
       "kind": "web",
       "title": "Ichibe Hyosube (Purple)",
@@ -31493,6 +31703,114 @@
   ],
   "ichigo-kurosaki": [
     {
+      "slug": "exburst-rukigo-bleach-blue-ichigo-kurosaki-142428",
+      "kind": "web",
+      "title": "Ichigo Kurosaki (Purple)",
+      "date": "2026-11-14"
+    },
+    {
+      "slug": "exburst-pure-u-ichigo-bleach-blue-ichigo-kurosaki-142330",
+      "kind": "web",
+      "title": "Ichigo Kurosaki (Blue)",
+      "date": "2026-11-14"
+    },
+    {
+      "slug": "exburst-ichigo-rukia-uryu-bleach-blue-ichigo-kurosaki-142317",
+      "kind": "web",
+      "title": "Ichigo Kurosaki (Purple)",
+      "date": "2026-11-14"
+    },
+    {
+      "slug": "exburst-ichigo-rukia-deck-bleach-blue-ichigo-kurosaki-142580",
+      "kind": "web",
+      "title": "Ichigo Kurosaki (Purple)",
+      "date": "2026-11-14"
+    },
+    {
+      "slug": "exburst-ichigo-pepper-bleach-blue-ichigo-kurosaki-142322",
+      "kind": "web",
+      "title": "Ichigo Kurosaki (Purple)",
+      "date": "2026-11-14"
+    },
+    {
+      "slug": "exburst-ichigo-kurosaki-deck-bleach-blue-ichigo-kurosaki-142585",
+      "kind": "web",
+      "title": "Ichigo Kurosaki (Purple)",
+      "date": "2026-11-14"
+    },
+    {
+      "slug": "exburst-ichigo-kurosaki-deck-bleach-blue-ichigo-kurosaki-142427",
+      "kind": "web",
+      "title": "Ichigo Kurosaki (Purple)",
+      "date": "2026-11-14"
+    },
+    {
+      "slug": "exburst-ichigo-friends-bleach-blue-ichigo-kurosaki-142539",
+      "kind": "web",
+      "title": "Ichigo Kurosaki (Blue)",
+      "date": "2026-11-14"
+    },
+    {
+      "slug": "exburst-ichigo-bleach-blue-ichigo-kurosaki-142367",
+      "kind": "web",
+      "title": "Ichigo Kurosaki (Blue)",
+      "date": "2026-11-14"
+    },
+    {
+      "slug": "exburst-hybrid-u-rukia-ichigo-bleach-blue-ichigo-kurosaki-142333",
+      "kind": "web",
+      "title": "Ichigo Kurosaki (Blue)",
+      "date": "2026-11-14"
+    },
+    {
+      "slug": "exburst-grimmjow-jeagerjaques-deck-bleach-blue-ichigo-kurosaki-142578",
+      "kind": "web",
+      "title": "Ichigo Kurosaki (Blue)",
+      "date": "2026-11-14"
+    },
+    {
+      "slug": "exburst-grimmjow-jeagerjaques-deck-bleach-blue-ichigo-kurosaki-142526",
+      "kind": "web",
+      "title": "Ichigo Kurosaki (Blue)",
+      "date": "2026-11-14"
+    },
+    {
+      "slug": "exburst-grimmjow-jeagerjaques-deck-bleach-blue-ichigo-kurosaki-142356",
+      "kind": "web",
+      "title": "Ichigo Kurosaki (Blue)",
+      "date": "2026-11-14"
+    },
+    {
+      "slug": "exburst-box-of-junk-bleach-blue-ichigo-kurosaki-142521",
+      "kind": "web",
+      "title": "Ichigo Kurosaki (Blue)",
+      "date": "2026-11-14"
+    },
+    {
+      "slug": "exburst-blue-deck-bleach-blue-ichigo-kurosaki-142445",
+      "kind": "web",
+      "title": "Ichigo Kurosaki (Blue)",
+      "date": "2026-11-14"
+    },
+    {
+      "slug": "exburst-b-ichigo-old-bleach-blue-ichigo-kurosaki-142355",
+      "kind": "web",
+      "title": "Ichigo Kurosaki (Blue)",
+      "date": "2026-11-14"
+    },
+    {
+      "slug": "exburst-area-champion-p-rukia-ichigo-bleach-blue-ichigo-kurosak-142353",
+      "kind": "web",
+      "title": "Ichigo Kurosaki (Purple)",
+      "date": "2026-11-14"
+    },
+    {
+      "slug": "tournament-3rd-bleach-blue-ichigo-kurosaki-142564",
+      "kind": "tournament",
+      "title": "Ichigo Kurosaki (Purple)",
+      "date": "2026-11-13"
+    },
+    {
       "slug": "exburst-zangetsu-bleach-blue-ichigo-kurosaki-142119",
       "kind": "web",
       "title": "Ichigo Kurosaki (Blue)",
@@ -31506,6 +31824,18 @@
     },
     {
       "slug": "exburst-the-black-sun-and-white-moon-bleach-blue-ichigo-kurosak-137800",
+      "kind": "web",
+      "title": "Ichigo Kurosaki (Purple)",
+      "date": "2026-11-13"
+    },
+    {
+      "slug": "exburst-strawberry-v2-bleach-blue-ichigo-kurosaki-140606",
+      "kind": "web",
+      "title": "Ichigo Kurosaki (Purple)",
+      "date": "2026-11-13"
+    },
+    {
+      "slug": "exburst-strawberry-bleach-blue-ichigo-kurosaki-142303",
       "kind": "web",
       "title": "Ichigo Kurosaki (Purple)",
       "date": "2026-11-13"
@@ -34639,6 +34969,12 @@
   ],
   "inuyasha": [
     {
+      "slug": "exburst-inuyasha-deck-iys-inuyasha-142449",
+      "kind": "web",
+      "title": "Inuyasha (Red)",
+      "date": "2026-11-14"
+    },
+    {
       "slug": "exburst-kagome-inuyasha-kikyo-iys-inuyasha-141999",
       "kind": "web",
       "title": "Inuyasha (Red)",
@@ -35552,6 +35888,12 @@
     }
   ],
   "iori-samura": [
+    {
+      "slug": "exburst-ishowkfc-kagurabachi-purple-iori-samura-142446",
+      "kind": "web",
+      "title": "Iori Samura (Purple)",
+      "date": "2026-11-14"
+    },
     {
       "slug": "contender-consensus",
       "kind": "contender",
@@ -36761,6 +37103,12 @@
   ],
   "kaiju-no-8": [
     {
+      "slug": "exburst-kaiju-no-8-kafka-hibino-142366",
+      "kind": "web",
+      "title": "Kaiju No. 8 (Green)",
+      "date": "2026-11-14"
+    },
+    {
       "slug": "exburst-kafka-hibino-deck-kafka-hibino-141583",
       "kind": "web",
       "title": "Kaiju No. 8 (Green)",
@@ -37834,6 +38182,18 @@
     }
   ],
   "ken-kaneki": [
+    {
+      "slug": "exburst-suicide-kaneki-tokyo-ghoul-purple-ken-kaneki-142323",
+      "kind": "web",
+      "title": "Ken Kaneki (Red)",
+      "date": "2026-11-14"
+    },
+    {
+      "slug": "exburst-big-kaneki-tokyo-ghoul-purple-ken-kaneki-142320",
+      "kind": "web",
+      "title": "Ken Kaneki (Purple)",
+      "date": "2026-11-14"
+    },
     {
       "slug": "exburst-purple-tokyo-ghoul-ken-touka-tokyo-ghoul-purple-ken-kan-142245",
       "kind": "web",
@@ -39139,6 +39499,48 @@
   ],
   "kenpachi-zaraki": [
     {
+      "slug": "tournament-3rd-bleach-blue-ichigo-kurosaki-142385",
+      "kind": "tournament",
+      "title": "Kenpachi Zaraki (Green)",
+      "date": "2026-11-14"
+    },
+    {
+      "slug": "exburst-toshiro-kenpachi-v3-bleach-blue-ichigo-kurosaki-142575",
+      "kind": "web",
+      "title": "Kenpachi Zaraki (Green)",
+      "date": "2026-11-14"
+    },
+    {
+      "slug": "exburst-green-gotei-13-bleach-blue-ichigo-kurosaki-142324",
+      "kind": "web",
+      "title": "Kenpachi Zaraki (Green)",
+      "date": "2026-11-14"
+    },
+    {
+      "slug": "exburst-g-kenpachi-hitsugaya-bleach-blue-ichigo-kurosaki-142339",
+      "kind": "web",
+      "title": "Kenpachi Zaraki (Green)",
+      "date": "2026-11-14"
+    },
+    {
+      "slug": "exburst-brainfeez-bleach-blue-ichigo-kurosaki-141033",
+      "kind": "web",
+      "title": "Kenpachi Zaraki (Green)",
+      "date": "2026-11-14"
+    },
+    {
+      "slug": "event-3rd-bleach-green-kenpachi-zaraki-1773450",
+      "kind": "event",
+      "title": "Kenpachi Zaraki (Green)",
+      "date": "2026-11-14"
+    },
+    {
+      "slug": "tournament-1st-bleach-blue-ichigo-kurosaki-142562",
+      "kind": "tournament",
+      "title": "Kenpachi Zaraki (Green)",
+      "date": "2026-11-13"
+    },
+    {
       "slug": "exburst-toshi-v3-bleach-blue-ichigo-kurosaki-142017",
       "kind": "web",
       "title": "Kenpachi Zaraki (Green)",
@@ -39164,6 +39566,12 @@
     },
     {
       "slug": "exburst-kenpachi-zaraki-deck-bleach-blue-ichigo-kurosaki-142028",
+      "kind": "web",
+      "title": "Kenpachi Zaraki (Green)",
+      "date": "2026-11-13"
+    },
+    {
+      "slug": "exburst-kenpachi-bleach-blue-ichigo-kurosaki-3693",
       "kind": "web",
       "title": "Kenpachi Zaraki (Green)",
       "date": "2026-11-13"
@@ -40874,6 +41282,12 @@
     }
   ],
   "kenshin-himura": [
+    {
+      "slug": "exburst-this-show-will-never-get-a-final-season-or-vol-2-ruroun-142467",
+      "kind": "web",
+      "title": "Kenshin Himura (Red)",
+      "date": "2026-11-14"
+    },
     {
       "slug": "exburst-red-kenshin-rurouni-kenshin-purple-103340",
       "kind": "web",
@@ -43561,6 +43975,12 @@
   ],
   "kikoru-shinomiya": [
     {
+      "slug": "exburst-kfc-s-121st-place-florida-25-26-regional-yellow-kikoru-142459",
+      "kind": "web",
+      "title": "Kikoru Shinomiya (Yellow)",
+      "date": "2026-11-14"
+    },
+    {
       "slug": "exburst-yellow-kaiju-kikoru-shinomiya-114214",
       "kind": "web",
       "title": "Kikoru Shinomiya (Yellow)",
@@ -45305,6 +45725,12 @@
   ],
   "kisho-arima": [
     {
+      "slug": "exburst-ccg-reaper-tokyo-ghoul-purple-ken-kaneki-142326",
+      "kind": "web",
+      "title": "Kisho Arima (Yellow)",
+      "date": "2026-11-14"
+    },
+    {
       "slug": "exburst-kisho-arima-deck-tokyo-ghoul-purple-ken-kaneki-141847",
       "kind": "web",
       "title": "Kisho Arima (Yellow)",
@@ -46311,6 +46737,12 @@
   ],
   "kurapika": [
     {
+      "slug": "exburst-kurapika-is-now-drowning-in-an-indesribable-emptiness-h-142416",
+      "kind": "web",
+      "title": "Kurapika (Green)",
+      "date": "2026-11-14"
+    },
+    {
       "slug": "exburst-kurapika-solo-leveling-140986",
       "kind": "web",
       "title": "Kurapika (Green)",
@@ -47206,6 +47638,18 @@
     }
   ],
   "laplace": [
+    {
+      "slug": "exburst-laplace-no-alice-nikke-yellow-cinderella-67309",
+      "kind": "web",
+      "title": "Laplace (Green)",
+      "date": "2026-11-14"
+    },
+    {
+      "slug": "exburst-laplace-nikke-yellow-cinderella-142368",
+      "kind": "web",
+      "title": "Laplace (Green)",
+      "date": "2026-11-14"
+    },
     {
       "slug": "exburst-green-laplace-nikke-yellow-cinderella-141946",
       "kind": "web",
@@ -48506,6 +48950,12 @@
     }
   ],
   "levi": [
+    {
+      "slug": "exburst-levi-attack-on-titan-blue-levi-142488",
+      "kind": "web",
+      "title": "Levi (Blue)",
+      "date": "2026-11-14"
+    },
     {
       "slug": "contender-consensus",
       "kind": "contender",
@@ -50461,6 +50911,12 @@
   ],
   "mahito": [
     {
+      "slug": "exburst-cursed-mahito-deck-jujutsu-kaisen-blue-sukuna-142552",
+      "kind": "web",
+      "title": "Mahito (Purple)",
+      "date": "2026-11-14"
+    },
+    {
       "slug": "exburst-mahitojogo-purple-jujutsu-kaisen-yuji-itadori-139936",
       "kind": "web",
       "title": "Mahito (Purple)",
@@ -51576,6 +52032,12 @@
     }
   ],
   "mari-makinami-illustrious": [
+    {
+      "slug": "exburst-waifu-deck-evangelion-purple-evangelion-test-type-01-65641",
+      "kind": "web",
+      "title": "Mari Makinami Illustrious (Yellow)",
+      "date": "2026-11-14"
+    },
     {
       "slug": "contender-consensus",
       "kind": "contender",
@@ -53219,6 +53681,30 @@
   ],
   "mayuri-kurotsuchi": [
     {
+      "slug": "exburst-mayuri-kurotsuchi-deck-bleach-blue-ichigo-kurosaki-142345",
+      "kind": "web",
+      "title": "Mayuri Kurotsuchi (Blue)",
+      "date": "2026-11-14"
+    },
+    {
+      "slug": "exburst-mayuri-bleach-blue-ichigo-kurosaki-142363",
+      "kind": "web",
+      "title": "Mayuri Kurotsuchi (Blue)",
+      "date": "2026-11-14"
+    },
+    {
+      "slug": "exburst-blue-control-bleach-blue-ichigo-kurosaki-142551",
+      "kind": "web",
+      "title": "Mayuri Kurotsuchi (Blue)",
+      "date": "2026-11-14"
+    },
+    {
+      "slug": "exburst-blue-bleach-kurotsuchi-vol3-v1-bleach-blue-ichigo-kuros-142364",
+      "kind": "web",
+      "title": "Mayuri Kurotsuchi (Blue)",
+      "date": "2026-11-14"
+    },
+    {
       "slug": "exburst-vincent-s-mayuri-kurotsuchi-deck-bleach-blue-ichigo-kur-141997",
       "kind": "web",
       "title": "Mayuri Kurotsuchi (Blue)",
@@ -53856,6 +54342,18 @@
     }
   ],
   "megumi-fushiguro": [
+    {
+      "slug": "exburst-potential-jujutsu-kaisen-blue-sukuna-142337",
+      "kind": "web",
+      "title": "Megumi Fushiguro (Yellow)",
+      "date": "2026-11-14"
+    },
+    {
+      "slug": "exburst-megumi-fushiguro-deck-jujutsu-kaisen-blue-sukuna-90899",
+      "kind": "web",
+      "title": "Megumi Fushiguro (Yellow)",
+      "date": "2026-11-14"
+    },
     {
       "slug": "exburst-ten-shadows-jujutsu-kaisen-blue-sukuna-141957",
       "kind": "web",
@@ -55363,6 +55861,18 @@
   ],
   "mina-ashiro": [
     {
+      "slug": "exburst-mina-deck-mina-ashiro-68586",
+      "kind": "web",
+      "title": "Mina Ashiro (Yellow)",
+      "date": "2026-11-14"
+    },
+    {
+      "slug": "exburst-arty-should-ve-taken-this-to-nats-smh-mina-ashiro-142437",
+      "kind": "web",
+      "title": "Mina Ashiro (Yellow)",
+      "date": "2026-11-14"
+    },
+    {
       "slug": "exburst-mina-reno-solo-leveling-140773",
       "kind": "web",
       "title": "Mina Ashiro (Yellow)",
@@ -56421,6 +56931,12 @@
   ],
   "mitsuri-kanroji": [
     {
+      "slug": "exburst-mitsuri-demon-slayer-mitsuri-kanroji-142442",
+      "kind": "web",
+      "title": "Mitsuri Kanroji (Blue)",
+      "date": "2026-11-14"
+    },
+    {
       "slug": "exburst-mitsuri-kanroji-deck-solo-leveling-138739",
       "kind": "web",
       "title": "Mitsuri Kanroji (Blue)",
@@ -57002,6 +57518,12 @@
     }
   ],
   "nagumo": [
+    {
+      "slug": "exburst-old-order-deck-sakamoto-days-purple-natsuki-seba-142556",
+      "kind": "web",
+      "title": "Nagumo (Purple)",
+      "date": "2026-11-14"
+    },
     {
       "slug": "exburst-nagumo-deck-sakamoto-days-purple-natsuki-seba-141859",
       "kind": "web",
@@ -60918,6 +61440,18 @@
     }
   ],
   "red-hood": [
+    {
+      "slug": "exburst-red-hood-nikke-yellow-cinderella-142525",
+      "kind": "web",
+      "title": "Red Hood (Purple)",
+      "date": "2026-11-14"
+    },
+    {
+      "slug": "exburst-goddess-rare-nikke-yellow-cinderella-142543",
+      "kind": "web",
+      "title": "Red Hood (Purple)",
+      "date": "2026-11-14"
+    },
     {
       "slug": "exburst-purple-goddess-nikke-yellow-cinderella-142167",
       "kind": "web",
@@ -65525,6 +66059,36 @@
   ],
   "renji-abarai": [
     {
+      "slug": "exburst-renji-rukia-ichigo-v2-bleach-blue-ichigo-kurosaki-142400",
+      "kind": "web",
+      "title": "Renji Abarai (Purple)",
+      "date": "2026-11-14"
+    },
+    {
+      "slug": "exburst-renji-byakuya-bleach-blue-ichigo-kurosaki-142581",
+      "kind": "web",
+      "title": "Renji Abarai (Purple)",
+      "date": "2026-11-14"
+    },
+    {
+      "slug": "exburst-reng-heng-bleach-blue-ichigo-kurosaki-142572",
+      "kind": "web",
+      "title": "Renji Abarai (Purple)",
+      "date": "2026-11-14"
+    },
+    {
+      "slug": "exburst-ichigo-renji-rukia-bleach-blue-ichigo-kurosaki-140287",
+      "kind": "web",
+      "title": "Renji Abarai (Purple)",
+      "date": "2026-11-14"
+    },
+    {
+      "slug": "exburst-byakuya-bleach-blue-ichigo-kurosaki-66769",
+      "kind": "web",
+      "title": "Renji Abarai (Purple)",
+      "date": "2026-11-14"
+    },
+    {
       "slug": "exburst-rukia-renji-bleach-blue-ichigo-kurosaki-142213",
       "kind": "web",
       "title": "Renji Abarai (Purple)",
@@ -66488,6 +67052,18 @@
     }
   ],
   "rimuru": [
+    {
+      "slug": "exburst-team-reborn-that-time-i-got-reincarnated-as-a-slime-blu-142391",
+      "kind": "web",
+      "title": "Rimuru (Purple)",
+      "date": "2026-11-14"
+    },
+    {
+      "slug": "exburst-rimuru-shion-that-time-i-got-reincarnated-as-a-slime-bl-142378",
+      "kind": "web",
+      "title": "Rimuru (Blue)",
+      "date": "2026-11-14"
+    },
     {
       "slug": "exburst-project-veldora-that-time-i-got-reincarnated-as-a-slime-142149",
       "kind": "web",
@@ -68427,6 +69003,18 @@
   ],
   "roy-mustang": [
     {
+      "slug": "exburst-riza-hawkeye-deck-fullmetal-alchemist-blue-roy-mustang-142454",
+      "kind": "web",
+      "title": "Roy Mustang (Blue)",
+      "date": "2026-11-14"
+    },
+    {
+      "slug": "exburst-mustang-fullmetal-alchemist-blue-roy-mustang-142457",
+      "kind": "web",
+      "title": "Roy Mustang (Blue)",
+      "date": "2026-11-14"
+    },
+    {
       "slug": "exburst-4-drop-roy-fullmetal-alchemist-blue-roy-mustang-141948",
       "kind": "web",
       "title": "Roy Mustang (Blue)",
@@ -69046,6 +69634,36 @@
     }
   ],
   "rukia-kuchiki": [
+    {
+      "slug": "exburst-rukia-hyper-freeze-bleach-blue-ichigo-kurosaki-142486",
+      "kind": "web",
+      "title": "Rukia Kuchiki (Blue)",
+      "date": "2026-11-14"
+    },
+    {
+      "slug": "exburst-ice-queen-bleach-blue-ichigo-kurosaki-142477",
+      "kind": "web",
+      "title": "Rukia Kuchiki (Blue)",
+      "date": "2026-11-14"
+    },
+    {
+      "slug": "exburst-byakuya-kuchiki-deck-bleach-blue-ichigo-kurosaki-142550",
+      "kind": "web",
+      "title": "Rukia Kuchiki (Blue)",
+      "date": "2026-11-14"
+    },
+    {
+      "slug": "exburst-blue-rukia-bleach-blue-ichigo-kurosaki-142398",
+      "kind": "web",
+      "title": "Rukia Kuchiki (Blue)",
+      "date": "2026-11-14"
+    },
+    {
+      "slug": "exburst-ap-2-u-rukia-bleach-blue-ichigo-kurosaki-142334",
+      "kind": "web",
+      "title": "Rukia Kuchiki (Blue)",
+      "date": "2026-11-14"
+    },
     {
       "slug": "exburst-my-goat-bleach-blue-ichigo-kurosaki-142102",
       "kind": "web",
@@ -70821,6 +71439,18 @@
   ],
   "satoru-gojo": [
     {
+      "slug": "exburst-gojo-geto-jujutsu-kaisen-blue-sukuna-120684",
+      "kind": "web",
+      "title": "Satoru Gojo (Yellow)",
+      "date": "2026-11-14"
+    },
+    {
+      "slug": "exburst-datte-kimi-yowai-mo-jujutsu-kaisen-blue-sukuna-142548",
+      "kind": "web",
+      "title": "Satoru Gojo (Yellow)",
+      "date": "2026-11-14"
+    },
+    {
       "slug": "exburst-satoru-gojo-jujutsu-kaisen-blue-sukuna-107822",
       "kind": "web",
       "title": "Satoru Gojo (Yellow)",
@@ -71918,6 +72548,12 @@
     }
   ],
   "sesshomaru": [
+    {
+      "slug": "exburst-sesshomaru-deck-iys-sesshomaru-142451",
+      "kind": "web",
+      "title": "Sesshomaru (Purple)",
+      "date": "2026-11-14"
+    },
     {
       "slug": "contender-consensus",
       "kind": "contender",
@@ -75851,6 +76487,42 @@
   ],
   "shunsui-kyoraku": [
     {
+      "slug": "tournament-4th-bleach-blue-ichigo-kurosaki-142383",
+      "kind": "tournament",
+      "title": "Shunsui Kyoraku (Green)",
+      "date": "2026-11-14"
+    },
+    {
+      "slug": "exburst-shunsui-toshiro-deck-bleach-blue-ichigo-kurosaki-142571",
+      "kind": "web",
+      "title": "Shunsui Kyoraku (Green)",
+      "date": "2026-11-14"
+    },
+    {
+      "slug": "exburst-shunsui-kyoraku-deck-bleach-blue-ichigo-kurosaki-142357",
+      "kind": "web",
+      "title": "Shunsui Kyoraku (Green)",
+      "date": "2026-11-14"
+    },
+    {
+      "slug": "exburst-shunsui-kyoraku-bleach-blue-ichigo-kurosaki-142553",
+      "kind": "web",
+      "title": "Shunsui Kyoraku (Green)",
+      "date": "2026-11-14"
+    },
+    {
+      "slug": "exburst-katen-reborn-bleach-blue-ichigo-kurosaki-142381",
+      "kind": "web",
+      "title": "Shunsui Kyoraku (Green)",
+      "date": "2026-11-14"
+    },
+    {
+      "slug": "event-4th-bleach-green-shunsui-kyoraku-1773451",
+      "kind": "event",
+      "title": "Shunsui Kyoraku (Green)",
+      "date": "2026-11-14"
+    },
+    {
       "slug": "exburst-toshi-test-bleach-blue-ichigo-kurosaki-141975",
       "kind": "web",
       "title": "Shunsui Kyoraku (Green)",
@@ -75912,6 +76584,12 @@
     },
     {
       "slug": "exburst-shunsui-aizen-bleach-blue-ichigo-kurosaki-141977",
+      "kind": "web",
+      "title": "Shunsui Kyoraku (Green)",
+      "date": "2026-11-13"
+    },
+    {
+      "slug": "exburst-green-bleach-blue-ichigo-kurosaki-142255",
       "kind": "web",
       "title": "Shunsui Kyoraku (Green)",
       "date": "2026-11-13"
@@ -77359,6 +78037,12 @@
   ],
   "sojiro-seta": [
     {
+      "slug": "exburst-purple-ten-swords-rurouni-kenshin-purple-102294",
+      "kind": "web",
+      "title": "Sojiro Seta (Purple)",
+      "date": "2026-11-14"
+    },
+    {
       "slug": "contender-consensus",
       "kind": "contender",
       "title": "Sojiro Seta (Purple)",
@@ -78185,6 +78869,18 @@
   ],
   "sukuna": [
     {
+      "slug": "exburst-sukuna-jujutsu-kaisen-blue-sukuna-142561",
+      "kind": "web",
+      "title": "Sukuna (Blue)",
+      "date": "2026-11-14"
+    },
+    {
+      "slug": "exburst-sukuna-deck-jujutsu-kaisen-blue-sukuna-142308",
+      "kind": "web",
+      "title": "Sukuna (Blue)",
+      "date": "2026-11-13"
+    },
+    {
       "slug": "exburst-sukuna-jujutsu-kaisen-blue-sukuna-83049",
       "kind": "web",
       "title": "Sukuna (Blue)",
@@ -78996,6 +79692,30 @@
     }
   ],
   "sung-jinwoo": [
+    {
+      "slug": "exburst-shadow-army-solo-leveling-green-cha-hae-in-73676",
+      "kind": "web",
+      "title": "Sung Jinwoo (Purple)",
+      "date": "2026-11-14"
+    },
+    {
+      "slug": "exburst-millwoo-solo-leveling-green-cha-hae-in-142388",
+      "kind": "web",
+      "title": "Sung Jinwoo (Purple)",
+      "date": "2026-11-14"
+    },
+    {
+      "slug": "exburst-millwoo-solo-leveling-green-cha-hae-in-142352",
+      "kind": "web",
+      "title": "Sung Jinwoo (Purple)",
+      "date": "2026-11-14"
+    },
+    {
+      "slug": "exburst-solo-mill-solo-leveling-green-cha-hae-in-95254",
+      "kind": "web",
+      "title": "Sung Jinwoo (Purple)",
+      "date": "2026-11-13"
+    },
     {
       "slug": "tournament-5th-solo-leveling-green-cha-hae-in-141777",
       "kind": "tournament",
@@ -88453,6 +89173,12 @@
   ],
   "touka-kirishima": [
     {
+      "slug": "exburst-touken-tokyo-ghoul-purple-ken-kaneki-142389",
+      "kind": "web",
+      "title": "Touka Kirishima (Purple)",
+      "date": "2026-11-14"
+    },
+    {
       "slug": "exburst-touka-kaneki-tokyo-ghoul-purple-ken-kaneki-141967",
       "kind": "web",
       "title": "Touka Kirishima (Purple)",
@@ -89586,6 +90312,30 @@
     }
   ],
   "yoruichi-shihoin": [
+    {
+      "slug": "exburst-yoruichigo-bleach-blue-ichigo-kurosaki-142582",
+      "kind": "web",
+      "title": "Yoruichi Shihoin (Blue)",
+      "date": "2026-11-14"
+    },
+    {
+      "slug": "exburst-yoruichi-ichigo-bleach-blue-ichigo-kurosaki-142490",
+      "kind": "web",
+      "title": "Yoruichi Shihoin (Blue)",
+      "date": "2026-11-14"
+    },
+    {
+      "slug": "exburst-yoruichi-bleach-blue-ichigo-kurosaki-142579",
+      "kind": "web",
+      "title": "Yoruichi Shihoin (Blue)",
+      "date": "2026-11-14"
+    },
+    {
+      "slug": "exburst-yoruichi-3-bleach-blue-ichigo-kurosaki-142491",
+      "kind": "web",
+      "title": "Yoruichi Shihoin (Blue)",
+      "date": "2026-11-14"
+    },
     {
       "slug": "exburst-yoruichi-shihoin-deck-bleach-blue-ichigo-kurosaki-142145",
       "kind": "web",
@@ -91501,6 +92251,12 @@
   ],
   "yuno": [
     {
+      "slug": "exburst-green-asta-deck-black-clover-green-mereoleona-vermillio-142444",
+      "kind": "web",
+      "title": "Yuno (Green)",
+      "date": "2026-11-14"
+    },
+    {
       "slug": "exburst-rivals-black-clover-asta-122411",
       "kind": "web",
       "title": "Yuno (Green)",
@@ -93183,6 +93939,12 @@
   ],
   "zenitsu-agatsuma": [
     {
+      "slug": "exburst-zenitsu-friends-deck-demon-slayer-zenitsu-agatsuma-142460",
+      "kind": "web",
+      "title": "Zenitsu Agatsuma (Red)",
+      "date": "2026-11-14"
+    },
+    {
       "slug": "exburst-thunderous-backshots-solo-leveling-52308",
       "kind": "web",
       "title": "Zenitsu Agatsuma (Red)",
@@ -93416,6 +94178,12 @@
     }
   ],
   "akaza-purple": [
+    {
+      "slug": "exburst-muzan-deck-demon-slayer-akaza-142455",
+      "kind": "web",
+      "title": "Akaza (Purple)",
+      "date": "2026-11-14"
+    },
     {
       "slug": "exburst-muzan-s-blood-solo-leveling-134902",
       "kind": "web",
@@ -94178,6 +94946,12 @@
     }
   ],
   "alice-green": [
+    {
+      "slug": "exburst-alice-nikke-yellow-cinderella-142484",
+      "kind": "web",
+      "title": "Alice (Green)",
+      "date": "2026-11-14"
+    },
     {
       "slug": "exburst-my-girl-nikke-plastic-memories-140771",
       "kind": "web",
@@ -96377,6 +97151,12 @@
   ],
   "armin-arlelt-colossal-titan-sr-yellow": [
     {
+      "slug": "exburst-chosa-heidan-deck-attack-on-titan-blue-levi-142554",
+      "kind": "web",
+      "title": "Armin Arlelt (Colossal Titan) (SR**) (Yellow)",
+      "date": "2026-11-14"
+    },
+    {
       "slug": "exburst-armin-arlelt-colossal-titan-deck-attack-on-titan-blue-l-142070",
       "kind": "web",
       "title": "Armin Arlelt (Colossal Titan) (SR**) (Yellow)",
@@ -96740,6 +97520,12 @@
     }
   ],
   "asta-red": [
+    {
+      "slug": "exburst-red-asta-deck-black-clover-red-asta-142448",
+      "kind": "web",
+      "title": "Asta (Red)",
+      "date": "2026-11-14"
+    },
     {
       "slug": "exburst-asta-goat-deck-black-clover-green-mereoleona-vermillion-142250",
       "kind": "web",
@@ -97282,6 +98068,12 @@
     }
   ],
   "asta-purple": [
+    {
+      "slug": "exburst-black-bulls-black-clover-green-mereoleona-vermillion-142305",
+      "kind": "web",
+      "title": "Asta (Purple)",
+      "date": "2026-11-13"
+    },
     {
       "slug": "exburst-black-bulls-black-clover-asta-140877",
       "kind": "web",
@@ -98198,6 +98990,18 @@
     }
   ],
   "bambietta-basterbine-yellow": [
+    {
+      "slug": "exburst-bambies-bleach-blue-ichigo-kurosaki-25821",
+      "kind": "web",
+      "title": "Bambietta Basterbine (Yellow)",
+      "date": "2026-11-14"
+    },
+    {
+      "slug": "exburst-bambies-bleach-blue-ichigo-kurosaki-103987",
+      "kind": "web",
+      "title": "Bambietta Basterbine (Yellow)",
+      "date": "2026-11-14"
+    },
     {
       "slug": "tournament-4th-bleach-blue-ichigo-kurosaki-141943",
       "kind": "tournament",
@@ -100133,6 +100937,12 @@
   ],
   "benimaru-yellow": [
     {
+      "slug": "exburst-operation-benimaru-that-time-i-got-reincarnated-as-a-sl-142441",
+      "kind": "web",
+      "title": "Benimaru (Yellow)",
+      "date": "2026-11-14"
+    },
+    {
       "slug": "contender-consensus",
       "kind": "contender",
       "title": "Benimaru (Yellow)",
@@ -101891,6 +102701,36 @@
   ],
   "byakuya-kuchiki-purple": [
     {
+      "slug": "exburst-purple-slop-bleach-blue-ichigo-kurosaki-142435",
+      "kind": "web",
+      "title": "Byakuya Kuchiki (Purple)",
+      "date": "2026-11-14"
+    },
+    {
+      "slug": "exburst-d6-bleach-blue-ichigo-kurosaki-1348",
+      "kind": "web",
+      "title": "Byakuya Kuchiki (Purple)",
+      "date": "2026-11-14"
+    },
+    {
+      "slug": "exburst-byakuya-kuchiki-deck-bleach-blue-ichigo-kurosaki-142569",
+      "kind": "web",
+      "title": "Byakuya Kuchiki (Purple)",
+      "date": "2026-11-14"
+    },
+    {
+      "slug": "exburst-byakuya-ichigo-splash-bleach-blue-ichigo-kurosaki-142485",
+      "kind": "web",
+      "title": "Byakuya Kuchiki (Purple)",
+      "date": "2026-11-14"
+    },
+    {
+      "slug": "exburst-byakuga-bleach-blue-ichigo-kurosaki-142008",
+      "kind": "web",
+      "title": "Byakuya Kuchiki (Purple)",
+      "date": "2026-11-14"
+    },
+    {
       "slug": "exburst-soul-society-s-executioners-bleach-blue-ichigo-kurosaki-141444",
       "kind": "web",
       "title": "Byakuya Kuchiki (Purple)",
@@ -102986,6 +103826,12 @@
     }
   ],
   "cha-hae-in-green": [
+    {
+      "slug": "exburst-jeju-island-raid-solo-leveling-green-cha-hae-in-142360",
+      "kind": "web",
+      "title": "Cha Hae-in (Green)",
+      "date": "2026-11-14"
+    },
     {
       "slug": "contender-consensus",
       "kind": "contender",
@@ -107021,6 +107867,12 @@
   ],
   "cinderella-yellow": [
     {
+      "slug": "exburst-cinderella-deck-nikke-yellow-cinderella-142005",
+      "kind": "web",
+      "title": "Cinderella (Yellow)",
+      "date": "2026-11-14"
+    },
+    {
       "slug": "exburst-cinderella-old-tales-nikke-yellow-cinderella-141994",
       "kind": "web",
       "title": "Cinderella (Yellow)",
@@ -108625,6 +109477,30 @@
   ],
   "dorothy-purple": [
     {
+      "slug": "exburst-triggerless-purple-nikke-yellow-cinderella-89032",
+      "kind": "web",
+      "title": "Dorothy (Purple)",
+      "date": "2026-11-14"
+    },
+    {
+      "slug": "exburst-triggered-nikke-yellow-cinderella-52875",
+      "kind": "web",
+      "title": "Dorothy (Purple)",
+      "date": "2026-11-14"
+    },
+    {
+      "slug": "exburst-nikke-without-trigger-girls-deck-nikke-yellow-cinderell-142574",
+      "kind": "web",
+      "title": "Dorothy (Purple)",
+      "date": "2026-11-14"
+    },
+    {
+      "slug": "exburst-heretic-doro-nikke-yellow-cinderella-142461",
+      "kind": "web",
+      "title": "Dorothy (Purple)",
+      "date": "2026-11-14"
+    },
+    {
       "slug": "exburst-purple-dorothy-nikke-yellow-cinderella-142169",
       "kind": "web",
       "title": "Dorothy (Purple)",
@@ -109311,6 +110187,18 @@
   ],
   "edward-elric-yellow": [
     {
+      "slug": "exburst-elric-deck-fullmetal-alchemist-blue-roy-mustang-142545",
+      "kind": "web",
+      "title": "Edward Elric (Yellow)",
+      "date": "2026-11-14"
+    },
+    {
+      "slug": "exburst-elric-brothers-fullmetal-alchemist-blue-roy-mustang-142499",
+      "kind": "web",
+      "title": "Edward Elric (Yellow)",
+      "date": "2026-11-14"
+    },
+    {
       "slug": "exburst-vincent-s-elric-deck-fullmetal-alchemist-blue-roy-musta-142000",
       "kind": "web",
       "title": "Edward Elric (Yellow)",
@@ -109804,6 +110692,12 @@
     }
   ],
   "emilia-purple": [
+    {
+      "slug": "exburst-tea-time-re-zero-starting-life-in-another-world-blue-cr-142215",
+      "kind": "web",
+      "title": "Emilia (Purple)",
+      "date": "2026-11-14"
+    },
     {
       "slug": "exburst-emilia-re-zero-starting-life-in-another-world-blue-crus-125599",
       "kind": "web",
@@ -112361,6 +113255,12 @@
   ],
   "envy-purple": [
     {
+      "slug": "exburst-homunculus-deck-fullmetal-alchemist-blue-roy-mustang-108753",
+      "kind": "web",
+      "title": "Envy (Purple)",
+      "date": "2026-11-14"
+    },
+    {
       "slug": "contender-consensus",
       "kind": "contender",
       "title": "Envy (Purple)",
@@ -113216,6 +114116,18 @@
     }
   ],
   "eren-jaeger-attack-titan-red": [
+    {
+      "slug": "tournament-1st-attack-on-titan-blue-levi-142386",
+      "kind": "tournament",
+      "title": "Eren Jaeger (Attack Titan) (Red)",
+      "date": "2026-11-14"
+    },
+    {
+      "slug": "event-1st-attack-on-titan-red-eren-jaeger-1773448",
+      "kind": "event",
+      "title": "Eren Jaeger (Attack Titan) (Red)",
+      "date": "2026-11-14"
+    },
     {
       "slug": "exburst-shingeki-no-kyojin-attack-on-titan-blue-levi-141615",
       "kind": "web",
@@ -115211,6 +116123,18 @@
   ],
   "eren-jaeger-doomsday-titan-yellow": [
     {
+      "slug": "exburst-attack-on-titan-blue-levi-142496",
+      "kind": "web",
+      "title": "Eren Jaeger (Doomsday Titan) (Yellow)",
+      "date": "2026-11-14"
+    },
+    {
+      "slug": "exburst-rumbling-attack-on-titan-blue-levi-142256",
+      "kind": "web",
+      "title": "Eren Jaeger (Doomsday Titan) (Yellow)",
+      "date": "2026-11-13"
+    },
+    {
       "slug": "exburst-eren-jaeger-doomsday-titan-deck-attack-on-titan-blue-le-142069",
       "kind": "web",
       "title": "Eren Jaeger (Doomsday Titan) (Yellow)",
@@ -115904,6 +116828,18 @@
     }
   ],
   "evangelion-production-model-02-beast-form-red": [
+    {
+      "slug": "tournament-2nd-evangelion-purple-evangelion-test-type-01-142384",
+      "kind": "tournament",
+      "title": "Evangelion Production Model-02 (Beast Form) (Red)",
+      "date": "2026-11-14"
+    },
+    {
+      "slug": "event-2nd-evangelion-red-evangelion-production-model-02-1773449",
+      "kind": "event",
+      "title": "Evangelion Production Model-02 (Beast Form) (Red)",
+      "date": "2026-11-14"
+    },
     {
       "slug": "contender-consensus",
       "kind": "contender",
@@ -119383,6 +120319,12 @@
   ],
   "gekka-tohdoh-fighter-purple": [
     {
+      "slug": "exburst-4-holy-sword-code-geass-green-lancelot-air-cavalry-142438",
+      "kind": "web",
+      "title": "Gekka (Tohdoh Fighter) (Purple)",
+      "date": "2026-11-14"
+    },
+    {
       "slug": "exburst-cg-starter-deck-code-geass-suzaku-kururugi-139731",
       "kind": "web",
       "title": "Gekka (Tohdoh Fighter) (Purple)",
@@ -119770,6 +120712,12 @@
     }
   ],
   "giselle-gewelle-yellow": [
+    {
+      "slug": "exburst-giselle-gewelle-deck-bleach-blue-ichigo-kurosaki-142584",
+      "kind": "web",
+      "title": "Giselle Gewelle (Yellow)",
+      "date": "2026-11-14"
+    },
     {
       "slug": "exburst-giselle-gewelle-deck-bleach-toshiro-hitsugaya-139896",
       "kind": "web",
@@ -120210,6 +121158,12 @@
     }
   ],
   "gon-freecss-blue": [
+    {
+      "slug": "exburst-let-s-go-gambling-hunter-x-hunter-yellow-hisoka-142431",
+      "kind": "web",
+      "title": "Gon Freecss (Blue)",
+      "date": "2026-11-14"
+    },
     {
       "slug": "exburst-specified-slots-solo-leveling-139048",
       "kind": "web",
@@ -121230,6 +122184,12 @@
     }
   ],
   "haise-sasaki-yellow": [
+    {
+      "slug": "exburst-mado-squad-tokyo-ghoul-purple-ken-kaneki-95249",
+      "kind": "web",
+      "title": "Haise Sasaki (Yellow)",
+      "date": "2026-11-13"
+    },
     {
       "slug": "exburst-mado-squad-tokyo-ghoul-purple-ken-kaneki-114349",
       "kind": "web",
@@ -122712,6 +123672,12 @@
     }
   ],
   "hakari-hanazono-yellow": [
+    {
+      "slug": "exburst-7momma-the-100-girlfriends-green-nano-eiai-142493",
+      "kind": "web",
+      "title": "Hakari Hanazono (Yellow)",
+      "date": "2026-11-14"
+    },
     {
       "slug": "exburst-hahari-hanazono-deck-the-100-girlfriends-shizuka-yoshim-139995",
       "kind": "web",
@@ -124773,6 +125739,12 @@
   ],
   "ichibe-hyosube-purple": [
     {
+      "slug": "exburst-squad-0-feat-ichigoat-bleach-blue-ichigo-kurosaki-21478",
+      "kind": "web",
+      "title": "Ichibe Hyosube (Purple)",
+      "date": "2026-11-14"
+    },
+    {
       "slug": "exburst-zero-squad-bleach-blue-ichigo-kurosaki-141908",
       "kind": "web",
       "title": "Ichibe Hyosube (Purple)",
@@ -124931,7 +125903,67 @@
   ],
   "ichigo-kurosaki-purple": [
     {
+      "slug": "exburst-rukigo-bleach-blue-ichigo-kurosaki-142428",
+      "kind": "web",
+      "title": "Ichigo Kurosaki (Purple)",
+      "date": "2026-11-14"
+    },
+    {
+      "slug": "exburst-ichigo-rukia-uryu-bleach-blue-ichigo-kurosaki-142317",
+      "kind": "web",
+      "title": "Ichigo Kurosaki (Purple)",
+      "date": "2026-11-14"
+    },
+    {
+      "slug": "exburst-ichigo-rukia-deck-bleach-blue-ichigo-kurosaki-142580",
+      "kind": "web",
+      "title": "Ichigo Kurosaki (Purple)",
+      "date": "2026-11-14"
+    },
+    {
+      "slug": "exburst-ichigo-pepper-bleach-blue-ichigo-kurosaki-142322",
+      "kind": "web",
+      "title": "Ichigo Kurosaki (Purple)",
+      "date": "2026-11-14"
+    },
+    {
+      "slug": "exburst-ichigo-kurosaki-deck-bleach-blue-ichigo-kurosaki-142585",
+      "kind": "web",
+      "title": "Ichigo Kurosaki (Purple)",
+      "date": "2026-11-14"
+    },
+    {
+      "slug": "exburst-ichigo-kurosaki-deck-bleach-blue-ichigo-kurosaki-142427",
+      "kind": "web",
+      "title": "Ichigo Kurosaki (Purple)",
+      "date": "2026-11-14"
+    },
+    {
+      "slug": "exburst-area-champion-p-rukia-ichigo-bleach-blue-ichigo-kurosak-142353",
+      "kind": "web",
+      "title": "Ichigo Kurosaki (Purple)",
+      "date": "2026-11-14"
+    },
+    {
+      "slug": "tournament-3rd-bleach-blue-ichigo-kurosaki-142564",
+      "kind": "tournament",
+      "title": "Ichigo Kurosaki (Purple)",
+      "date": "2026-11-13"
+    },
+    {
       "slug": "exburst-the-black-sun-and-white-moon-bleach-blue-ichigo-kurosak-137800",
+      "kind": "web",
+      "title": "Ichigo Kurosaki (Purple)",
+      "date": "2026-11-13"
+    },
+    {
+      "slug": "exburst-strawberry-v2-bleach-blue-ichigo-kurosaki-140606",
+      "kind": "web",
+      "title": "Ichigo Kurosaki (Purple)",
+      "date": "2026-11-13"
+    },
+    {
+      "slug": "exburst-strawberry-bleach-blue-ichigo-kurosaki-142303",
       "kind": "web",
       "title": "Ichigo Kurosaki (Purple)",
       "date": "2026-11-13"
@@ -126733,6 +127765,66 @@
   ],
   "ichigo-kurosaki-blue": [
     {
+      "slug": "exburst-pure-u-ichigo-bleach-blue-ichigo-kurosaki-142330",
+      "kind": "web",
+      "title": "Ichigo Kurosaki (Blue)",
+      "date": "2026-11-14"
+    },
+    {
+      "slug": "exburst-ichigo-friends-bleach-blue-ichigo-kurosaki-142539",
+      "kind": "web",
+      "title": "Ichigo Kurosaki (Blue)",
+      "date": "2026-11-14"
+    },
+    {
+      "slug": "exburst-ichigo-bleach-blue-ichigo-kurosaki-142367",
+      "kind": "web",
+      "title": "Ichigo Kurosaki (Blue)",
+      "date": "2026-11-14"
+    },
+    {
+      "slug": "exburst-hybrid-u-rukia-ichigo-bleach-blue-ichigo-kurosaki-142333",
+      "kind": "web",
+      "title": "Ichigo Kurosaki (Blue)",
+      "date": "2026-11-14"
+    },
+    {
+      "slug": "exburst-grimmjow-jeagerjaques-deck-bleach-blue-ichigo-kurosaki-142578",
+      "kind": "web",
+      "title": "Ichigo Kurosaki (Blue)",
+      "date": "2026-11-14"
+    },
+    {
+      "slug": "exburst-grimmjow-jeagerjaques-deck-bleach-blue-ichigo-kurosaki-142526",
+      "kind": "web",
+      "title": "Ichigo Kurosaki (Blue)",
+      "date": "2026-11-14"
+    },
+    {
+      "slug": "exburst-grimmjow-jeagerjaques-deck-bleach-blue-ichigo-kurosaki-142356",
+      "kind": "web",
+      "title": "Ichigo Kurosaki (Blue)",
+      "date": "2026-11-14"
+    },
+    {
+      "slug": "exburst-box-of-junk-bleach-blue-ichigo-kurosaki-142521",
+      "kind": "web",
+      "title": "Ichigo Kurosaki (Blue)",
+      "date": "2026-11-14"
+    },
+    {
+      "slug": "exburst-blue-deck-bleach-blue-ichigo-kurosaki-142445",
+      "kind": "web",
+      "title": "Ichigo Kurosaki (Blue)",
+      "date": "2026-11-14"
+    },
+    {
+      "slug": "exburst-b-ichigo-old-bleach-blue-ichigo-kurosaki-142355",
+      "kind": "web",
+      "title": "Ichigo Kurosaki (Blue)",
+      "date": "2026-11-14"
+    },
+    {
       "slug": "exburst-zangetsu-bleach-blue-ichigo-kurosaki-142119",
       "kind": "web",
       "title": "Ichigo Kurosaki (Blue)",
@@ -128079,6 +129171,12 @@
   ],
   "inuyasha-red": [
     {
+      "slug": "exburst-inuyasha-deck-iys-inuyasha-142449",
+      "kind": "web",
+      "title": "Inuyasha (Red)",
+      "date": "2026-11-14"
+    },
+    {
       "slug": "exburst-kagome-inuyasha-kikyo-iys-inuyasha-141999",
       "kind": "web",
       "title": "Inuyasha (Red)",
@@ -128992,6 +130090,12 @@
     }
   ],
   "iori-samura-purple": [
+    {
+      "slug": "exburst-ishowkfc-kagurabachi-purple-iori-samura-142446",
+      "kind": "web",
+      "title": "Iori Samura (Purple)",
+      "date": "2026-11-14"
+    },
     {
       "slug": "contender-consensus",
       "kind": "contender",
@@ -130203,6 +131307,12 @@
   ],
   "kaiju-no-8-green": [
     {
+      "slug": "exburst-kaiju-no-8-kafka-hibino-142366",
+      "kind": "web",
+      "title": "Kaiju No. 8 (Green)",
+      "date": "2026-11-14"
+    },
+    {
       "slug": "exburst-kafka-hibino-deck-kafka-hibino-141583",
       "kind": "web",
       "title": "Kaiju No. 8 (Green)",
@@ -131277,6 +132387,12 @@
   ],
   "ken-kaneki-purple": [
     {
+      "slug": "exburst-big-kaneki-tokyo-ghoul-purple-ken-kaneki-142320",
+      "kind": "web",
+      "title": "Ken Kaneki (Purple)",
+      "date": "2026-11-14"
+    },
+    {
       "slug": "exburst-purple-tokyo-ghoul-ken-touka-tokyo-ghoul-purple-ken-kan-142245",
       "kind": "web",
       "title": "Ken Kaneki (Purple)",
@@ -132245,6 +133361,12 @@
   ],
   "ken-kaneki-red": [
     {
+      "slug": "exburst-suicide-kaneki-tokyo-ghoul-purple-ken-kaneki-142323",
+      "kind": "web",
+      "title": "Ken Kaneki (Red)",
+      "date": "2026-11-14"
+    },
+    {
       "slug": "exburst-kaneco-tokyo-ghoul-purple-ken-kaneki-141792",
       "kind": "web",
       "title": "Ken Kaneki (Red)",
@@ -132583,6 +133705,48 @@
   ],
   "kenpachi-zaraki-green": [
     {
+      "slug": "tournament-3rd-bleach-blue-ichigo-kurosaki-142385",
+      "kind": "tournament",
+      "title": "Kenpachi Zaraki (Green)",
+      "date": "2026-11-14"
+    },
+    {
+      "slug": "exburst-toshiro-kenpachi-v3-bleach-blue-ichigo-kurosaki-142575",
+      "kind": "web",
+      "title": "Kenpachi Zaraki (Green)",
+      "date": "2026-11-14"
+    },
+    {
+      "slug": "exburst-green-gotei-13-bleach-blue-ichigo-kurosaki-142324",
+      "kind": "web",
+      "title": "Kenpachi Zaraki (Green)",
+      "date": "2026-11-14"
+    },
+    {
+      "slug": "exburst-g-kenpachi-hitsugaya-bleach-blue-ichigo-kurosaki-142339",
+      "kind": "web",
+      "title": "Kenpachi Zaraki (Green)",
+      "date": "2026-11-14"
+    },
+    {
+      "slug": "exburst-brainfeez-bleach-blue-ichigo-kurosaki-141033",
+      "kind": "web",
+      "title": "Kenpachi Zaraki (Green)",
+      "date": "2026-11-14"
+    },
+    {
+      "slug": "event-3rd-bleach-green-kenpachi-zaraki-1773450",
+      "kind": "event",
+      "title": "Kenpachi Zaraki (Green)",
+      "date": "2026-11-14"
+    },
+    {
+      "slug": "tournament-1st-bleach-blue-ichigo-kurosaki-142562",
+      "kind": "tournament",
+      "title": "Kenpachi Zaraki (Green)",
+      "date": "2026-11-13"
+    },
+    {
       "slug": "exburst-toshi-v3-bleach-blue-ichigo-kurosaki-142017",
       "kind": "web",
       "title": "Kenpachi Zaraki (Green)",
@@ -132608,6 +133772,12 @@
     },
     {
       "slug": "exburst-kenpachi-zaraki-deck-bleach-blue-ichigo-kurosaki-142028",
+      "kind": "web",
+      "title": "Kenpachi Zaraki (Green)",
+      "date": "2026-11-13"
+    },
+    {
+      "slug": "exburst-kenpachi-bleach-blue-ichigo-kurosaki-3693",
       "kind": "web",
       "title": "Kenpachi Zaraki (Green)",
       "date": "2026-11-13"
@@ -134318,6 +135488,12 @@
     }
   ],
   "kenshin-himura-red": [
+    {
+      "slug": "exburst-this-show-will-never-get-a-final-season-or-vol-2-ruroun-142467",
+      "kind": "web",
+      "title": "Kenshin Himura (Red)",
+      "date": "2026-11-14"
+    },
     {
       "slug": "exburst-red-kenshin-rurouni-kenshin-purple-103340",
       "kind": "web",
@@ -137005,6 +138181,12 @@
   ],
   "kikoru-shinomiya-yellow": [
     {
+      "slug": "exburst-kfc-s-121st-place-florida-25-26-regional-yellow-kikoru-142459",
+      "kind": "web",
+      "title": "Kikoru Shinomiya (Yellow)",
+      "date": "2026-11-14"
+    },
+    {
       "slug": "exburst-yellow-kaiju-kikoru-shinomiya-114214",
       "kind": "web",
       "title": "Kikoru Shinomiya (Yellow)",
@@ -138755,6 +139937,12 @@
   ],
   "kisho-arima-yellow": [
     {
+      "slug": "exburst-ccg-reaper-tokyo-ghoul-purple-ken-kaneki-142326",
+      "kind": "web",
+      "title": "Kisho Arima (Yellow)",
+      "date": "2026-11-14"
+    },
+    {
       "slug": "exburst-kisho-arima-deck-tokyo-ghoul-purple-ken-kaneki-141847",
       "kind": "web",
       "title": "Kisho Arima (Yellow)",
@@ -139761,6 +140949,12 @@
   ],
   "kurapika-green": [
     {
+      "slug": "exburst-kurapika-is-now-drowning-in-an-indesribable-emptiness-h-142416",
+      "kind": "web",
+      "title": "Kurapika (Green)",
+      "date": "2026-11-14"
+    },
+    {
       "slug": "exburst-kurapika-solo-leveling-140986",
       "kind": "web",
       "title": "Kurapika (Green)",
@@ -140656,6 +141850,18 @@
     }
   ],
   "laplace-green": [
+    {
+      "slug": "exburst-laplace-no-alice-nikke-yellow-cinderella-67309",
+      "kind": "web",
+      "title": "Laplace (Green)",
+      "date": "2026-11-14"
+    },
+    {
+      "slug": "exburst-laplace-nikke-yellow-cinderella-142368",
+      "kind": "web",
+      "title": "Laplace (Green)",
+      "date": "2026-11-14"
+    },
     {
       "slug": "exburst-green-laplace-nikke-yellow-cinderella-141946",
       "kind": "web",
@@ -141958,6 +143164,12 @@
     }
   ],
   "levi-blue": [
+    {
+      "slug": "exburst-levi-attack-on-titan-blue-levi-142488",
+      "kind": "web",
+      "title": "Levi (Blue)",
+      "date": "2026-11-14"
+    },
     {
       "slug": "contender-consensus",
       "kind": "contender",
@@ -143915,6 +145127,12 @@
   ],
   "mahito-purple": [
     {
+      "slug": "exburst-cursed-mahito-deck-jujutsu-kaisen-blue-sukuna-142552",
+      "kind": "web",
+      "title": "Mahito (Purple)",
+      "date": "2026-11-14"
+    },
+    {
       "slug": "exburst-mahitojogo-purple-jujutsu-kaisen-yuji-itadori-139936",
       "kind": "web",
       "title": "Mahito (Purple)",
@@ -145032,6 +146250,12 @@
     }
   ],
   "mari-makinami-illustrious-yellow": [
+    {
+      "slug": "exburst-waifu-deck-evangelion-purple-evangelion-test-type-01-65641",
+      "kind": "web",
+      "title": "Mari Makinami Illustrious (Yellow)",
+      "date": "2026-11-14"
+    },
     {
       "slug": "contender-consensus",
       "kind": "contender",
@@ -146677,6 +147901,30 @@
   ],
   "mayuri-kurotsuchi-blue": [
     {
+      "slug": "exburst-mayuri-kurotsuchi-deck-bleach-blue-ichigo-kurosaki-142345",
+      "kind": "web",
+      "title": "Mayuri Kurotsuchi (Blue)",
+      "date": "2026-11-14"
+    },
+    {
+      "slug": "exburst-mayuri-bleach-blue-ichigo-kurosaki-142363",
+      "kind": "web",
+      "title": "Mayuri Kurotsuchi (Blue)",
+      "date": "2026-11-14"
+    },
+    {
+      "slug": "exburst-blue-control-bleach-blue-ichigo-kurosaki-142551",
+      "kind": "web",
+      "title": "Mayuri Kurotsuchi (Blue)",
+      "date": "2026-11-14"
+    },
+    {
+      "slug": "exburst-blue-bleach-kurotsuchi-vol3-v1-bleach-blue-ichigo-kuros-142364",
+      "kind": "web",
+      "title": "Mayuri Kurotsuchi (Blue)",
+      "date": "2026-11-14"
+    },
+    {
       "slug": "exburst-vincent-s-mayuri-kurotsuchi-deck-bleach-blue-ichigo-kur-141997",
       "kind": "web",
       "title": "Mayuri Kurotsuchi (Blue)",
@@ -147314,6 +148562,18 @@
     }
   ],
   "megumi-fushiguro-yellow": [
+    {
+      "slug": "exburst-potential-jujutsu-kaisen-blue-sukuna-142337",
+      "kind": "web",
+      "title": "Megumi Fushiguro (Yellow)",
+      "date": "2026-11-14"
+    },
+    {
+      "slug": "exburst-megumi-fushiguro-deck-jujutsu-kaisen-blue-sukuna-90899",
+      "kind": "web",
+      "title": "Megumi Fushiguro (Yellow)",
+      "date": "2026-11-14"
+    },
     {
       "slug": "exburst-ten-shadows-jujutsu-kaisen-blue-sukuna-141957",
       "kind": "web",
@@ -148825,6 +150085,18 @@
   ],
   "mina-ashiro-yellow": [
     {
+      "slug": "exburst-mina-deck-mina-ashiro-68586",
+      "kind": "web",
+      "title": "Mina Ashiro (Yellow)",
+      "date": "2026-11-14"
+    },
+    {
+      "slug": "exburst-arty-should-ve-taken-this-to-nats-smh-mina-ashiro-142437",
+      "kind": "web",
+      "title": "Mina Ashiro (Yellow)",
+      "date": "2026-11-14"
+    },
+    {
       "slug": "exburst-mina-reno-solo-leveling-140773",
       "kind": "web",
       "title": "Mina Ashiro (Yellow)",
@@ -149883,6 +151155,12 @@
   ],
   "mitsuri-kanroji-blue": [
     {
+      "slug": "exburst-mitsuri-demon-slayer-mitsuri-kanroji-142442",
+      "kind": "web",
+      "title": "Mitsuri Kanroji (Blue)",
+      "date": "2026-11-14"
+    },
+    {
       "slug": "exburst-mitsuri-kanroji-deck-solo-leveling-138739",
       "kind": "web",
       "title": "Mitsuri Kanroji (Blue)",
@@ -150470,6 +151748,12 @@
     }
   ],
   "nagumo-purple": [
+    {
+      "slug": "exburst-old-order-deck-sakamoto-days-purple-natsuki-seba-142556",
+      "kind": "web",
+      "title": "Nagumo (Purple)",
+      "date": "2026-11-14"
+    },
     {
       "slug": "exburst-nagumo-deck-sakamoto-days-purple-natsuki-seba-141859",
       "kind": "web",
@@ -154388,6 +155672,18 @@
     }
   ],
   "red-hood-purple": [
+    {
+      "slug": "exburst-red-hood-nikke-yellow-cinderella-142525",
+      "kind": "web",
+      "title": "Red Hood (Purple)",
+      "date": "2026-11-14"
+    },
+    {
+      "slug": "exburst-goddess-rare-nikke-yellow-cinderella-142543",
+      "kind": "web",
+      "title": "Red Hood (Purple)",
+      "date": "2026-11-14"
+    },
     {
       "slug": "exburst-purple-goddess-nikke-yellow-cinderella-142167",
       "kind": "web",
@@ -158999,6 +160295,36 @@
   ],
   "renji-abarai-purple": [
     {
+      "slug": "exburst-renji-rukia-ichigo-v2-bleach-blue-ichigo-kurosaki-142400",
+      "kind": "web",
+      "title": "Renji Abarai (Purple)",
+      "date": "2026-11-14"
+    },
+    {
+      "slug": "exburst-renji-byakuya-bleach-blue-ichigo-kurosaki-142581",
+      "kind": "web",
+      "title": "Renji Abarai (Purple)",
+      "date": "2026-11-14"
+    },
+    {
+      "slug": "exburst-reng-heng-bleach-blue-ichigo-kurosaki-142572",
+      "kind": "web",
+      "title": "Renji Abarai (Purple)",
+      "date": "2026-11-14"
+    },
+    {
+      "slug": "exburst-ichigo-renji-rukia-bleach-blue-ichigo-kurosaki-140287",
+      "kind": "web",
+      "title": "Renji Abarai (Purple)",
+      "date": "2026-11-14"
+    },
+    {
+      "slug": "exburst-byakuya-bleach-blue-ichigo-kurosaki-66769",
+      "kind": "web",
+      "title": "Renji Abarai (Purple)",
+      "date": "2026-11-14"
+    },
+    {
       "slug": "exburst-rukia-renji-bleach-blue-ichigo-kurosaki-142213",
       "kind": "web",
       "title": "Renji Abarai (Purple)",
@@ -159962,6 +161288,12 @@
     }
   ],
   "rimuru-blue": [
+    {
+      "slug": "exburst-rimuru-shion-that-time-i-got-reincarnated-as-a-slime-bl-142378",
+      "kind": "web",
+      "title": "Rimuru (Blue)",
+      "date": "2026-11-14"
+    },
     {
       "slug": "exburst-my-rimuru-that-time-i-got-reincarnated-as-a-slime-blue-142082",
       "kind": "web",
@@ -161003,6 +162335,12 @@
   ],
   "rimuru-purple": [
     {
+      "slug": "exburst-team-reborn-that-time-i-got-reincarnated-as-a-slime-blu-142391",
+      "kind": "web",
+      "title": "Rimuru (Purple)",
+      "date": "2026-11-14"
+    },
+    {
       "slug": "contender-consensus",
       "kind": "contender",
       "title": "Rimuru (Purple)",
@@ -161907,6 +163245,18 @@
   ],
   "roy-mustang-blue": [
     {
+      "slug": "exburst-riza-hawkeye-deck-fullmetal-alchemist-blue-roy-mustang-142454",
+      "kind": "web",
+      "title": "Roy Mustang (Blue)",
+      "date": "2026-11-14"
+    },
+    {
+      "slug": "exburst-mustang-fullmetal-alchemist-blue-roy-mustang-142457",
+      "kind": "web",
+      "title": "Roy Mustang (Blue)",
+      "date": "2026-11-14"
+    },
+    {
       "slug": "exburst-4-drop-roy-fullmetal-alchemist-blue-roy-mustang-141948",
       "kind": "web",
       "title": "Roy Mustang (Blue)",
@@ -162526,6 +163876,36 @@
     }
   ],
   "rukia-kuchiki-blue": [
+    {
+      "slug": "exburst-rukia-hyper-freeze-bleach-blue-ichigo-kurosaki-142486",
+      "kind": "web",
+      "title": "Rukia Kuchiki (Blue)",
+      "date": "2026-11-14"
+    },
+    {
+      "slug": "exburst-ice-queen-bleach-blue-ichigo-kurosaki-142477",
+      "kind": "web",
+      "title": "Rukia Kuchiki (Blue)",
+      "date": "2026-11-14"
+    },
+    {
+      "slug": "exburst-byakuya-kuchiki-deck-bleach-blue-ichigo-kurosaki-142550",
+      "kind": "web",
+      "title": "Rukia Kuchiki (Blue)",
+      "date": "2026-11-14"
+    },
+    {
+      "slug": "exburst-blue-rukia-bleach-blue-ichigo-kurosaki-142398",
+      "kind": "web",
+      "title": "Rukia Kuchiki (Blue)",
+      "date": "2026-11-14"
+    },
+    {
+      "slug": "exburst-ap-2-u-rukia-bleach-blue-ichigo-kurosaki-142334",
+      "kind": "web",
+      "title": "Rukia Kuchiki (Blue)",
+      "date": "2026-11-14"
+    },
     {
       "slug": "exburst-my-goat-bleach-blue-ichigo-kurosaki-142102",
       "kind": "web",
@@ -164305,6 +165685,18 @@
   ],
   "satoru-gojo-yellow": [
     {
+      "slug": "exburst-gojo-geto-jujutsu-kaisen-blue-sukuna-120684",
+      "kind": "web",
+      "title": "Satoru Gojo (Yellow)",
+      "date": "2026-11-14"
+    },
+    {
+      "slug": "exburst-datte-kimi-yowai-mo-jujutsu-kaisen-blue-sukuna-142548",
+      "kind": "web",
+      "title": "Satoru Gojo (Yellow)",
+      "date": "2026-11-14"
+    },
+    {
       "slug": "exburst-satoru-gojo-jujutsu-kaisen-blue-sukuna-107822",
       "kind": "web",
       "title": "Satoru Gojo (Yellow)",
@@ -165402,6 +166794,12 @@
     }
   ],
   "sesshomaru-purple": [
+    {
+      "slug": "exburst-sesshomaru-deck-iys-sesshomaru-142451",
+      "kind": "web",
+      "title": "Sesshomaru (Purple)",
+      "date": "2026-11-14"
+    },
     {
       "slug": "contender-consensus",
       "kind": "contender",
@@ -169341,6 +170739,42 @@
   ],
   "shunsui-kyoraku-green": [
     {
+      "slug": "tournament-4th-bleach-blue-ichigo-kurosaki-142383",
+      "kind": "tournament",
+      "title": "Shunsui Kyoraku (Green)",
+      "date": "2026-11-14"
+    },
+    {
+      "slug": "exburst-shunsui-toshiro-deck-bleach-blue-ichigo-kurosaki-142571",
+      "kind": "web",
+      "title": "Shunsui Kyoraku (Green)",
+      "date": "2026-11-14"
+    },
+    {
+      "slug": "exburst-shunsui-kyoraku-deck-bleach-blue-ichigo-kurosaki-142357",
+      "kind": "web",
+      "title": "Shunsui Kyoraku (Green)",
+      "date": "2026-11-14"
+    },
+    {
+      "slug": "exburst-shunsui-kyoraku-bleach-blue-ichigo-kurosaki-142553",
+      "kind": "web",
+      "title": "Shunsui Kyoraku (Green)",
+      "date": "2026-11-14"
+    },
+    {
+      "slug": "exburst-katen-reborn-bleach-blue-ichigo-kurosaki-142381",
+      "kind": "web",
+      "title": "Shunsui Kyoraku (Green)",
+      "date": "2026-11-14"
+    },
+    {
+      "slug": "event-4th-bleach-green-shunsui-kyoraku-1773451",
+      "kind": "event",
+      "title": "Shunsui Kyoraku (Green)",
+      "date": "2026-11-14"
+    },
+    {
       "slug": "exburst-toshi-test-bleach-blue-ichigo-kurosaki-141975",
       "kind": "web",
       "title": "Shunsui Kyoraku (Green)",
@@ -169402,6 +170836,12 @@
     },
     {
       "slug": "exburst-shunsui-aizen-bleach-blue-ichigo-kurosaki-141977",
+      "kind": "web",
+      "title": "Shunsui Kyoraku (Green)",
+      "date": "2026-11-13"
+    },
+    {
+      "slug": "exburst-green-bleach-blue-ichigo-kurosaki-142255",
       "kind": "web",
       "title": "Shunsui Kyoraku (Green)",
       "date": "2026-11-13"
@@ -170851,6 +172291,12 @@
   ],
   "sojiro-seta-purple": [
     {
+      "slug": "exburst-purple-ten-swords-rurouni-kenshin-purple-102294",
+      "kind": "web",
+      "title": "Sojiro Seta (Purple)",
+      "date": "2026-11-14"
+    },
+    {
       "slug": "contender-consensus",
       "kind": "contender",
       "title": "Sojiro Seta (Purple)",
@@ -171681,6 +173127,18 @@
   ],
   "sukuna-blue": [
     {
+      "slug": "exburst-sukuna-jujutsu-kaisen-blue-sukuna-142561",
+      "kind": "web",
+      "title": "Sukuna (Blue)",
+      "date": "2026-11-14"
+    },
+    {
+      "slug": "exburst-sukuna-deck-jujutsu-kaisen-blue-sukuna-142308",
+      "kind": "web",
+      "title": "Sukuna (Blue)",
+      "date": "2026-11-13"
+    },
+    {
       "slug": "exburst-sukuna-jujutsu-kaisen-blue-sukuna-83049",
       "kind": "web",
       "title": "Sukuna (Blue)",
@@ -172492,6 +173950,30 @@
     }
   ],
   "sung-jinwoo-purple": [
+    {
+      "slug": "exburst-shadow-army-solo-leveling-green-cha-hae-in-73676",
+      "kind": "web",
+      "title": "Sung Jinwoo (Purple)",
+      "date": "2026-11-14"
+    },
+    {
+      "slug": "exburst-millwoo-solo-leveling-green-cha-hae-in-142388",
+      "kind": "web",
+      "title": "Sung Jinwoo (Purple)",
+      "date": "2026-11-14"
+    },
+    {
+      "slug": "exburst-millwoo-solo-leveling-green-cha-hae-in-142352",
+      "kind": "web",
+      "title": "Sung Jinwoo (Purple)",
+      "date": "2026-11-14"
+    },
+    {
+      "slug": "exburst-solo-mill-solo-leveling-green-cha-hae-in-95254",
+      "kind": "web",
+      "title": "Sung Jinwoo (Purple)",
+      "date": "2026-11-13"
+    },
     {
       "slug": "tournament-5th-solo-leveling-green-cha-hae-in-141777",
       "kind": "tournament",
@@ -181961,6 +183443,12 @@
   ],
   "touka-kirishima-purple": [
     {
+      "slug": "exburst-touken-tokyo-ghoul-purple-ken-kaneki-142389",
+      "kind": "web",
+      "title": "Touka Kirishima (Purple)",
+      "date": "2026-11-14"
+    },
+    {
       "slug": "exburst-touka-kaneki-tokyo-ghoul-purple-ken-kaneki-141967",
       "kind": "web",
       "title": "Touka Kirishima (Purple)",
@@ -183094,6 +184582,30 @@
     }
   ],
   "yoruichi-shihoin-blue": [
+    {
+      "slug": "exburst-yoruichigo-bleach-blue-ichigo-kurosaki-142582",
+      "kind": "web",
+      "title": "Yoruichi Shihoin (Blue)",
+      "date": "2026-11-14"
+    },
+    {
+      "slug": "exburst-yoruichi-ichigo-bleach-blue-ichigo-kurosaki-142490",
+      "kind": "web",
+      "title": "Yoruichi Shihoin (Blue)",
+      "date": "2026-11-14"
+    },
+    {
+      "slug": "exburst-yoruichi-bleach-blue-ichigo-kurosaki-142579",
+      "kind": "web",
+      "title": "Yoruichi Shihoin (Blue)",
+      "date": "2026-11-14"
+    },
+    {
+      "slug": "exburst-yoruichi-3-bleach-blue-ichigo-kurosaki-142491",
+      "kind": "web",
+      "title": "Yoruichi Shihoin (Blue)",
+      "date": "2026-11-14"
+    },
     {
       "slug": "exburst-yoruichi-shihoin-deck-bleach-blue-ichigo-kurosaki-142145",
       "kind": "web",
@@ -185013,6 +186525,12 @@
   ],
   "yuno-green": [
     {
+      "slug": "exburst-green-asta-deck-black-clover-green-mereoleona-vermillio-142444",
+      "kind": "web",
+      "title": "Yuno (Green)",
+      "date": "2026-11-14"
+    },
+    {
       "slug": "exburst-rivals-black-clover-asta-122411",
       "kind": "web",
       "title": "Yuno (Green)",
@@ -186698,6 +188216,12 @@
     }
   ],
   "zenitsu-agatsuma-red": [
+    {
+      "slug": "exburst-zenitsu-friends-deck-demon-slayer-zenitsu-agatsuma-142460",
+      "kind": "web",
+      "title": "Zenitsu Agatsuma (Red)",
+      "date": "2026-11-14"
+    },
     {
       "slug": "exburst-thunderous-backshots-solo-leveling-52308",
       "kind": "web",
