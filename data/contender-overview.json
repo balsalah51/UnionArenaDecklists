@@ -8,7 +8,8 @@
         "desc": "All released cards legal unless restricted",
         "isDefault": true,
         "sortOrder": 0,
-        "hasPlayRates": true
+        "hasPlayRates": true,
+        "hasDecks": true
       }
     ]
   },
@@ -6097,18 +6098,18 @@
     "energyCurve": [
       {
         "cost": 0,
-        "totalCopies": 795,
-        "avgPerDeck": 10.7
+        "totalCopies": 799,
+        "avgPerDeck": 10.8
       },
       {
         "cost": 1,
-        "totalCopies": 351,
+        "totalCopies": 347,
         "avgPerDeck": 4.7
       },
       {
         "cost": 2,
-        "totalCopies": 422,
-        "avgPerDeck": 5.7
+        "totalCopies": 418,
+        "avgPerDeck": 5.6
       },
       {
         "cost": 3,
@@ -6122,8 +6123,8 @@
       },
       {
         "cost": 5,
-        "totalCopies": 170,
-        "avgPerDeck": 2.3
+        "totalCopies": 174,
+        "avgPerDeck": 2.4
       },
       {
         "cost": 6,
@@ -6143,7 +6144,7 @@
     ],
     "evidence": {
       "newestListDate": "2026-11-14",
-      "ageDays": 0,
+      "ageDays": 1,
       "stale": false
     },
     "newestSet": {
@@ -6155,8 +6156,8 @@
       "sinceBanlistDate": "2026-02-14",
       "sinceBanlistSource": "firstTournament",
       "totalSampleSize": 536,
-      "recent30dSampleSize": 84,
-      "sinceBanlistSampleSize": 2762,
+      "recent30dSampleSize": 87,
+      "sinceBanlistSampleSize": 2769,
       "hhi": 518.6189,
       "top3Share": 0.3204888
     }
