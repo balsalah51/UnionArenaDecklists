@@ -6143,7 +6143,7 @@
       }
     ],
     "evidence": {
-      "newestListDate": "2026-11-14",
+      "newestListDate": "2026-11-15",
       "ageDays": 1,
       "stale": false
     },
@@ -6156,8 +6156,8 @@
       "sinceBanlistDate": "2026-02-14",
       "sinceBanlistSource": "firstTournament",
       "totalSampleSize": 536,
-      "recent30dSampleSize": 87,
-      "sinceBanlistSampleSize": 2769,
+      "recent30dSampleSize": 100,
+      "sinceBanlistSampleSize": 2782,
       "hhi": 518.6189,
       "top3Share": 0.3204888
     }
