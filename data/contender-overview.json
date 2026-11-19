@@ -6371,12 +6371,12 @@
       },
       {
         "cost": 1,
-        "totalCopies": 369,
-        "avgPerDeck": 4.7
+        "totalCopies": 373,
+        "avgPerDeck": 4.8
       },
       {
         "cost": 2,
-        "totalCopies": 447,
+        "totalCopies": 448,
         "avgPerDeck": 5.7
       },
       {
@@ -6386,13 +6386,13 @@
       },
       {
         "cost": 4,
-        "totalCopies": 881,
+        "totalCopies": 880,
         "avgPerDeck": 11.3
       },
       {
         "cost": 5,
-        "totalCopies": 193,
-        "avgPerDeck": 2.5
+        "totalCopies": 189,
+        "avgPerDeck": 2.4
       },
       {
         "cost": 6,
@@ -6411,8 +6411,8 @@
       }
     ],
     "evidence": {
-      "newestListDate": "2026-11-17",
-      "ageDays": 1,
+      "newestListDate": "2026-11-19",
+      "ageDays": 0,
       "stale": false
     },
     "newestSet": {
@@ -6424,8 +6424,8 @@
       "sinceBanlistDate": "2026-02-14",
       "sinceBanlistSource": "firstTournament",
       "totalSampleSize": 499,
-      "recent30dSampleSize": 114,
-      "sinceBanlistSampleSize": 2796,
+      "recent30dSampleSize": 118,
+      "sinceBanlistSampleSize": 2801,
       "hhi": 423.47507,
       "top3Share": 0.28388953
     }
