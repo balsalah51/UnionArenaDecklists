@@ -1,50 +1,39 @@
 {
-  "updated": "2026-11-19",
-  "recent_from": "2026-10-05",
+  "updated": "2026-11-20",
+  "recent_from": "2026-10-06",
   "characters": [
-    {
-      "name": "Evangelion Proto Type-00",
-      "title": "Evangelion",
-      "tier": "S",
-      "page": "decklists/evangelion-proto-type-00.html",
-      "recent_top8": 50,
-      "recent_results": 56,
-      "meta_share": 0.06535460707749255,
-      "contender_tier": "1",
-      "score": 365.068
-    },
     {
       "name": "Ichigo Kurosaki",
       "title": "Bleach",
       "tier": "S",
       "page": "decklists/ichigo-kurosaki.html",
-      "recent_top8": 37,
-      "recent_results": 45,
+      "recent_top8": 38,
+      "recent_results": 46,
       "meta_share": 0.10973881949723797,
       "contender_tier": "1",
-      "score": 353.737
+      "score": 360.287
+    },
+    {
+      "name": "Evangelion Proto Type-00",
+      "title": "Evangelion",
+      "tier": "S",
+      "page": "decklists/evangelion-proto-type-00.html",
+      "recent_top8": 48,
+      "recent_results": 54,
+      "meta_share": 0.06535460707749255,
+      "contender_tier": "1",
+      "score": 359.218
     },
     {
       "name": "Sung Jinwoo",
       "title": "Solo Leveling",
       "tier": "S",
       "page": "decklists/sung-jinwoo.html",
-      "recent_top8": 57,
-      "recent_results": 60,
+      "recent_top8": 55,
+      "recent_results": 58,
       "meta_share": 0.03298604321869097,
       "contender_tier": "1",
-      "score": 325.899
-    },
-    {
-      "name": "Rem",
-      "title": "Re:Zero",
-      "tier": "A",
-      "page": "decklists/rem.html",
-      "recent_top8": 41,
-      "recent_results": 47,
-      "meta_share": 0.02097750490744683,
-      "contender_tier": "1",
-      "score": 312.649
+      "score": 302.049
     },
     {
       "name": "Kenshin Himura",
@@ -52,21 +41,43 @@
       "tier": "A",
       "page": "decklists/kenshin-himura.html",
       "recent_top8": 43,
-      "recent_results": 52,
+      "recent_results": 50,
       "meta_share": 0.03458169688580881,
       "contender_tier": "2",
-      "score": 293.079
+      "score": 290.729
+    },
+    {
+      "name": "Rem",
+      "title": "Re:Zero",
+      "tier": "A",
+      "page": "decklists/rem.html",
+      "recent_top8": 32,
+      "recent_results": 36,
+      "meta_share": 0.02097750490744683,
+      "contender_tier": "1",
+      "score": 257.599
     },
     {
       "name": "Taro Sakamoto",
       "title": "Sakamoto Days",
       "tier": "A",
       "page": "decklists/taro-sakamoto.html",
-      "recent_top8": 29,
-      "recent_results": 38,
+      "recent_top8": 27,
+      "recent_results": 36,
       "meta_share": 0.10879611422088363,
       "contender_tier": "1",
-      "score": 246.59
+      "score": 234.49
+    },
+    {
+      "name": "Chainsaw Man",
+      "title": "Chainsaw Man",
+      "tier": "A",
+      "page": "decklists/chainsaw-man.html",
+      "recent_top8": 29,
+      "recent_results": 32,
+      "meta_share": 0.029812224407369175,
+      "contender_tier": "1",
+      "score": 186.591
     },
     {
       "name": "Kenpachi Zaraki",
@@ -77,18 +88,7 @@
       "recent_results": 22,
       "meta_share": 0.03314394120188386,
       "contender_tier": "3",
-      "score": 175.007
-    },
-    {
-      "name": "Chainsaw Man",
-      "title": "Chainsaw Man",
-      "tier": "B",
-      "page": "decklists/chainsaw-man.html",
-      "recent_top8": 26,
-      "recent_results": 29,
-      "meta_share": 0.029812224407369175,
-      "contender_tier": "1",
-      "score": 173.191
+      "score": 175.507
     },
     {
       "name": "Eren Jaeger (Attack Titan)",
@@ -99,7 +99,7 @@
       "recent_results": 23,
       "meta_share": 0.050600690702056916,
       "contender_tier": "2",
-      "score": 157.93
+      "score": 156.93
     },
     {
       "name": "Rimuru",
@@ -110,7 +110,7 @@
       "recent_results": 24,
       "meta_share": 0.018617639740166378,
       "contender_tier": "3",
-      "score": 145.631
+      "score": 145.131
     },
     {
       "name": "Mari Makinami Illustrious",
@@ -121,40 +121,29 @@
       "recent_results": 35,
       "meta_share": 0.030133147645321618,
       "contender_tier": "3",
-      "score": 142.257
+      "score": 141.757
     },
     {
       "name": "Bomb Devil",
       "title": "Chainsaw Man",
       "tier": "B",
       "page": "decklists/bomb-devil.html",
-      "recent_top8": 16,
-      "recent_results": 21,
+      "recent_top8": 15,
+      "recent_results": 20,
       "meta_share": 0.029812224407369175,
       "contender_tier": "1",
-      "score": 133.541
+      "score": 127.241
     },
     {
       "name": "Cinderella",
       "title": "Nikke",
       "tier": "B",
       "page": "decklists/cinderella.html",
-      "recent_top8": 13,
-      "recent_results": 16,
+      "recent_top8": 16,
+      "recent_results": 19,
       "meta_share": 0.02305594233302761,
       "contender_tier": "3",
-      "score": 110.703
-    },
-    {
-      "name": "Shinji Ikari",
-      "title": "Evangelion",
-      "tier": "B",
-      "page": "decklists/shinji-ikari.html",
-      "recent_top8": 13,
-      "recent_results": 13,
-      "meta_share": 0.0021617412669941117,
-      "contender_tier": "3",
-      "score": 96.008
+      "score": 124.603
     },
     {
       "name": "Inuyasha",
@@ -165,7 +154,29 @@
       "recent_results": 12,
       "meta_share": 0.0038314845256894976,
       "contender_tier": "4",
-      "score": 92.292
+      "score": 92.042
+    },
+    {
+      "name": "Shinji Ikari",
+      "title": "Evangelion",
+      "tier": "B",
+      "page": "decklists/shinji-ikari.html",
+      "recent_top8": 11,
+      "recent_results": 11,
+      "meta_share": 0.0021617412669941117,
+      "contender_tier": "3",
+      "score": 90.908
+    },
+    {
+      "name": "Shunsui Kyoraku",
+      "title": "Bleach",
+      "tier": "B",
+      "page": "decklists/shunsui-kyoraku.html",
+      "recent_top8": 5,
+      "recent_results": 5,
+      "meta_share": 0.01622979219501204,
+      "contender_tier": "2",
+      "score": 88.061
     },
     {
       "name": "Beatrice",
@@ -176,29 +187,18 @@
       "recent_results": 14,
       "meta_share": 0.001361609053085588,
       "contender_tier": "3",
-      "score": 85.768
+      "score": 85.268
     },
     {
-      "name": "Shunsui Kyoraku",
+      "name": "Mayuri Kurotsuchi",
       "title": "Bleach",
       "tier": "C",
-      "page": "decklists/shunsui-kyoraku.html",
-      "recent_top8": 4,
-      "recent_results": 4,
+      "page": "decklists/mayuri-kurotsuchi.html",
+      "recent_top8": 8,
+      "recent_results": 13,
       "meta_share": 0.01622979219501204,
       "contender_tier": "2",
-      "score": 84.511
-    },
-    {
-      "name": "Hajime Saito",
-      "title": "Rurouni Kenshin",
-      "tier": "C",
-      "page": "decklists/hajime-saito.html",
-      "recent_top8": 10,
-      "recent_results": 10,
-      "meta_share": 0.008984785413109613,
-      "contender_tier": "2",
-      "score": 83.949
+      "score": 78.711
     },
     {
       "name": "Aoi Todo",
@@ -212,26 +212,26 @@
       "score": 75.924
     },
     {
-      "name": "Emilia",
-      "title": "Re:Zero",
-      "tier": "D",
-      "page": "decklists/emilia.html",
-      "recent_top8": 7,
-      "recent_results": 12,
-      "meta_share": 0.0008010782958047543,
-      "contender_tier": "4",
-      "score": 75.89
-    },
-    {
       "name": "Kaiju No. 8",
       "title": "Kaiju No. 8",
-      "tier": "D",
+      "tier": "C",
       "page": "decklists/kaiju-no-8.html",
       "recent_top8": 12,
-      "recent_results": 14,
+      "recent_results": 12,
       "meta_share": 0.01863764315897488,
       "contender_tier": "3",
-      "score": 75.382
+      "score": 72.532
+    },
+    {
+      "name": "Renji Abarai",
+      "title": "Bleach",
+      "tier": "C",
+      "page": "decklists/renji-abarai.html",
+      "recent_top8": 4,
+      "recent_results": 8,
+      "meta_share": 0.0,
+      "contender_tier": "",
+      "score": 69.4
     },
     {
       "name": "Chihiro Rokuhira",
@@ -242,7 +242,18 @@
       "recent_results": 12,
       "meta_share": 0.006501066388398797,
       "contender_tier": "3",
-      "score": 69.175
+      "score": 68.675
+    },
+    {
+      "name": "Emilia",
+      "title": "Re:Zero",
+      "tier": "D",
+      "page": "decklists/emilia.html",
+      "recent_top8": 6,
+      "recent_results": 12,
+      "meta_share": 0.0008010782958047543,
+      "contender_tier": "4",
+      "score": 64.64
     }
   ]
 }

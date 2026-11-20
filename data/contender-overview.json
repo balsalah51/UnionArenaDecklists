@@ -4553,7 +4553,7 @@
         },
         "representativeCardName": "Kisho Arima (084)",
         "representativeCardId": null,
-        "representativeImageUrl": "/cdn/cards/unionarena/482666/892521_thumb_0.webp",
+        "representativeImageUrl": "/cdn/cards/unionarena/482666/888362_thumb_0.webp",
         "colorIdentity": [
           "Red"
         ],
@@ -6376,7 +6376,7 @@
       },
       {
         "cost": 2,
-        "totalCopies": 448,
+        "totalCopies": 444,
         "avgPerDeck": 5.7
       },
       {
@@ -6386,7 +6386,7 @@
       },
       {
         "cost": 4,
-        "totalCopies": 880,
+        "totalCopies": 884,
         "avgPerDeck": 11.3
       },
       {
@@ -6412,7 +6412,7 @@
     ],
     "evidence": {
       "newestListDate": "2026-11-19",
-      "ageDays": 0,
+      "ageDays": 1,
       "stale": false
     },
     "newestSet": {
@@ -6424,8 +6424,8 @@
       "sinceBanlistDate": "2026-02-14",
       "sinceBanlistSource": "firstTournament",
       "totalSampleSize": 499,
-      "recent30dSampleSize": 118,
-      "sinceBanlistSampleSize": 2801,
+      "recent30dSampleSize": 116,
+      "sinceBanlistSampleSize": 2804,
       "hhi": 423.47507,
       "top3Share": 0.28388953
     }
