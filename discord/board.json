@@ -1,5 +1,5 @@
 {
-  "updated": "2026-11-24",
+  "updated": "2026-11-25",
   "site": "https://unionarenadecklists.com",
   "discord_invite": "https://discord.gg/aY9RfB662",
   "welcome": {
@@ -10,7 +10,7 @@
     {
       "id": "format-pulse",
       "title": "Format pulse",
-      "date": "2026-11-24",
+      "date": "2026-11-25",
       "body": "English events are single-title Standard: 50 cards, usually one IP. Names showing up most on public lists right now: Bleach - Ichigo Kurosaki, Sakamoto Days - Heisuke Mashimo, Solo Leveling - Sung Jinwoo, Bleach - Kenpachi Zaraki."
     },
     {
@@ -22,13 +22,13 @@
     {
       "id": "how-lists-land",
       "title": "How lists land here",
-      "date": "2026-11-24",
+      "date": "2026-11-25",
       "body": "Consensus 50s come from TCG Contender Standard snapshots. Official top-placing recipes and public YouTube lists sit next to them. The board refreshes with the weekly site ingest."
     },
     {
       "id": "share-a-50",
       "title": "Share a 50",
-      "date": "2026-11-24",
+      "date": "2026-11-25",
       "body": "Paste `NxSET/CODE` lines in the matching anime or manga thread. Copy on any list page dumps that format. One thread per title: Solo Leveling, Yu Yu Hakusho, Evangelion, and the rest."
     }
   ],
@@ -143,7 +143,7 @@
           ],
           "sim_text": "4xUE01BT/BLC-1-066\n4xUE01BT/BLC-1-039\n4xUE01BT/BLC-1-040\n4xUE08BT/BLC-1-041\n4xUE01DC/BLC-4-082\n4xUE01ST/BLC-1-103\n4xUE01ST/BLC-1-104\n4xUE01BT/BLC-1-053\n4xUE01DC/BLC-4-083\n3xUE01BT/BLC-1-051\n3xUEPR/BLC-2-054\n4xUE01BT/BLC-1-064\n4xUE01BT/BLC-1-034",
           "cards": 50,
-          "list_count": 13,
+          "list_count": 14,
           "recent_lists": [
             {
               "slug": "event-8th-bleach-purple-ichigo-kurosaki-1796078",
@@ -151,6 +151,13 @@
               "title": "Bleach - Ichigo Kurosaki",
               "date": "2026-11-24",
               "href": "decklists/bleach-purple-ichigo-kurosaki/event-8th-bleach-purple-ichigo-kurosaki-1796078.html"
+            },
+            {
+              "slug": "event-1st-bleach-purple-ichigo-kurosaki-1799901",
+              "kind": "event",
+              "title": "Bleach - Ichigo Kurosaki",
+              "date": "2026-11-23",
+              "href": "decklists/bleach-purple-ichigo-kurosaki/event-1st-bleach-purple-ichigo-kurosaki-1799901.html"
             },
             {
               "slug": "contender-consensus",
@@ -193,13 +200,6 @@
               "title": "Bleach - Ichigo Kurosaki",
               "date": "2026-11-16",
               "href": "decklists/bleach-purple-ichigo-kurosaki/event-1st-bleach-purple-ichigo-kurosaki-1783607.html"
-            },
-            {
-              "slug": "event-3rd-bleach-purple-ichigo-kurosaki-1777141",
-              "kind": "event",
-              "title": "Bleach - Ichigo Kurosaki",
-              "date": "2026-11-15",
-              "href": "decklists/bleach-purple-ichigo-kurosaki/event-3rd-bleach-purple-ichigo-kurosaki-1777141.html"
             }
           ]
         },
@@ -320,8 +320,15 @@
           ],
           "sim_text": "4xUE01BT/BLC-1-100\n4xUEX01BT/BLC-2-067\n4xUE01BT/BLC-1-083\n4xUE08BT/BLC-1-085\n3xUE01BT/BLC-1-080\n1xUE08BT/BLC-1-081\n4xUE01BT/BLC-1-088\n4xUEX08BT/BLC-4-070\n4xUEX01BT/BLC-2-066\n4xUEX08BT/BLC-4-069\n4xUEX01BT/BLC-2-005\n3xUEX01BT/BLC-2-073\n2xUE01NC/BLC-3-008\n2xUE01BT/BLC-1-082\n2xUE01BT/BLC-1-076\n1xUE01BT/BLC-1-096",
           "cards": 50,
-          "list_count": 6,
+          "list_count": 7,
           "recent_lists": [
+            {
+              "slug": "event-3rd-bleach-green-kenpachi-zaraki-1799902",
+              "kind": "event",
+              "title": "Bleach - Kenpachi Zaraki",
+              "date": "2026-11-23",
+              "href": "decklists/bleach-green-kenpachi-zaraki/event-3rd-bleach-green-kenpachi-zaraki-1799902.html"
+            },
             {
               "slug": "contender-consensus",
               "kind": "contender",
@@ -1247,63 +1254,63 @@
           ],
           "sim_text": "4xUEX01BT/BLC-2-030\n4xUEX01BT/BLC-2-016\n4xUEPR/BLC-2-017\n4xUEX01BT/BLC-2-018\n4xUEX01BT/BLC-2-019\n4xUEX01BT/BLC-2-031\n4xUEX01BT/BLC-2-033\n4xUEX01BT/BLC-2-034\n3xUEPR/BLC-2-026\n4xUEX08BT/BLC-4-080\n4xUEX08BT/BLC-4-027\n4xUEX01BT/BLC-2-021\n3xUEX01BT/BLC-2-048",
           "cards": 50,
-          "list_count": 857,
+          "list_count": 912,
           "recent_lists": [
             {
-              "slug": "tournament-2nd-bleach-blue-ichigo-kurosaki-145110",
-              "kind": "tournament",
-              "title": "Bleach - Bambietta Basterbine",
-              "date": "2026-11-24",
-              "href": "decklists/bleach-blue-ichigo-kurosaki/tournament-2nd-bleach-blue-ichigo-kurosaki-145110.html"
+              "slug": "exburst-muken-fight-club-bleach-blue-ichigo-kurosaki-145452",
+              "kind": "web",
+              "title": "Bleach - Kenpachi Zaraki",
+              "date": "2026-11-25",
+              "href": "decklists/bleach-blue-ichigo-kurosaki/exburst-muken-fight-club-bleach-blue-ichigo-kurosaki-145452.html"
             },
             {
-              "slug": "tournament-6th-bleach-blue-ichigo-kurosaki-145092",
-              "kind": "tournament",
-              "title": "Bleach - Renji Abarai",
-              "date": "2026-11-24",
-              "href": "decklists/bleach-blue-ichigo-kurosaki/tournament-6th-bleach-blue-ichigo-kurosaki-145092.html"
-            },
-            {
-              "slug": "tournament-7th-bleach-blue-ichigo-kurosaki-145093",
-              "kind": "tournament",
-              "title": "Bleach - Ichigo Kurosaki",
-              "date": "2026-11-24",
-              "href": "decklists/bleach-blue-ichigo-kurosaki/tournament-7th-bleach-blue-ichigo-kurosaki-145093.html"
-            },
-            {
-              "slug": "tournament-8th-bleach-blue-ichigo-kurosaki-145094",
-              "kind": "tournament",
-              "title": "Bleach - Ichigo Kurosaki",
-              "date": "2026-11-24",
-              "href": "decklists/bleach-blue-ichigo-kurosaki/tournament-8th-bleach-blue-ichigo-kurosaki-145094.html"
-            },
-            {
-              "slug": "tournament-9th-bleach-blue-ichigo-kurosaki-145095",
-              "kind": "tournament",
+              "slug": "exburst-captain-lieutenant-of-squad-6-bleach-blue-ichigo-kurosa-145450",
+              "kind": "web",
               "title": "Bleach - Byakuya Kuchiki",
-              "date": "2026-11-24",
-              "href": "decklists/bleach-blue-ichigo-kurosaki/tournament-9th-bleach-blue-ichigo-kurosaki-145095.html"
+              "date": "2026-11-25",
+              "href": "decklists/bleach-blue-ichigo-kurosaki/exburst-captain-lieutenant-of-squad-6-bleach-blue-ichigo-kurosa-145450.html"
             },
             {
-              "slug": "tournament-12th-bleach-blue-ichigo-kurosaki-145098",
-              "kind": "tournament",
-              "title": "Bleach - Mayuri Kurotsuchi",
-              "date": "2026-11-24",
-              "href": "decklists/bleach-blue-ichigo-kurosaki/tournament-12th-bleach-blue-ichigo-kurosaki-145098.html"
+              "slug": "exburst-kenpachi-zaraki-deck-bleach-blue-ichigo-kurosaki-145436",
+              "kind": "web",
+              "title": "Bleach - Kenpachi Zaraki",
+              "date": "2026-11-25",
+              "href": "decklists/bleach-blue-ichigo-kurosaki/exburst-kenpachi-zaraki-deck-bleach-blue-ichigo-kurosaki-145436.html"
             },
             {
-              "slug": "tournament-13th-bleach-blue-ichigo-kurosaki-145099",
-              "kind": "tournament",
+              "slug": "exburst-shigekuni-genryusai-yamamoto-deck-bleach-blue-ichigo-ku-145432",
+              "kind": "web",
+              "title": "Bleach - Shunsui Kyoraku",
+              "date": "2026-11-25",
+              "href": "decklists/bleach-blue-ichigo-kurosaki/exburst-shigekuni-genryusai-yamamoto-deck-bleach-blue-ichigo-ku-145432.html"
+            },
+            {
+              "slug": "exburst-frozen-sites-bleach-blue-ichigo-kurosaki-145428",
+              "kind": "web",
+              "title": "Bleach - Shunsui Kyoraku",
+              "date": "2026-11-25",
+              "href": "decklists/bleach-blue-ichigo-kurosaki/exburst-frozen-sites-bleach-blue-ichigo-kurosaki-145428.html"
+            },
+            {
+              "slug": "exburst-squad-bleach-blue-ichigo-kurosaki-145422",
+              "kind": "web",
+              "title": "Bleach - Ichibe Hyosube",
+              "date": "2026-11-25",
+              "href": "decklists/bleach-blue-ichigo-kurosaki/exburst-squad-bleach-blue-ichigo-kurosaki-145422.html"
+            },
+            {
+              "slug": "exburst-ichigo-kurosaki-deck-bleach-blue-ichigo-kurosaki-145421",
+              "kind": "web",
               "title": "Bleach - Renji Abarai",
-              "date": "2026-11-24",
-              "href": "decklists/bleach-blue-ichigo-kurosaki/tournament-13th-bleach-blue-ichigo-kurosaki-145099.html"
+              "date": "2026-11-25",
+              "href": "decklists/bleach-blue-ichigo-kurosaki/exburst-ichigo-kurosaki-deck-bleach-blue-ichigo-kurosaki-145421.html"
             },
             {
-              "slug": "tournament-15th-bleach-blue-ichigo-kurosaki-145101",
-              "kind": "tournament",
+              "slug": "exburst-byakuya-don-t-stop-reducing-bleach-blue-ichigo-kurosaki-145414",
+              "kind": "web",
               "title": "Bleach - Byakuya Kuchiki",
-              "date": "2026-11-24",
-              "href": "decklists/bleach-blue-ichigo-kurosaki/tournament-15th-bleach-blue-ichigo-kurosaki-145101.html"
+              "date": "2026-11-25",
+              "href": "decklists/bleach-blue-ichigo-kurosaki/exburst-byakuya-don-t-stop-reducing-bleach-blue-ichigo-kurosaki-145414.html"
             }
           ]
         },
@@ -5593,8 +5600,29 @@
           ],
           "sim_text": "4xUE19BT/SMD-1-065\n4xUE19BT/SMD-1-067\n4xUE19BT/SMD-1-068\n4xUE19BT/SMD-1-069\n3xUE19BT/SMD-1-052\n4xUE19BT/SMD-1-075\n4xUE19BT/SMD-1-071\n4xUE19BT/SMD-1-078\n4xUE19BT/SMD-1-063\n4xUE19BT/SMD-1-073\n4xUE19BT/SMD-1-080\n4xUE19BT/SMD-1-070\n3xUE19BT/SMD-1-072",
           "cards": 50,
-          "list_count": 75,
+          "list_count": 79,
           "recent_lists": [
+            {
+              "slug": "exburst-nagumo-deck-sakamoto-days-purple-natsuki-seba-145454",
+              "kind": "web",
+              "title": "Sakamoto Days - Taro Sakamoto",
+              "date": "2026-11-25",
+              "href": "decklists/sakamoto-days-purple-natsuki-seba/exburst-nagumo-deck-sakamoto-days-purple-natsuki-seba-145454.html"
+            },
+            {
+              "slug": "exburst-let-me-see-sakamoto-days-purple-natsuki-seba-92195",
+              "kind": "web",
+              "title": "Sakamoto Days - Taro Sakamoto",
+              "date": "2026-11-25",
+              "href": "decklists/sakamoto-days-purple-natsuki-seba/exburst-let-me-see-sakamoto-days-purple-natsuki-seba-92195.html"
+            },
+            {
+              "slug": "exburst-pure-store-sakamoto-days-purple-natsuki-seba-145351",
+              "kind": "web",
+              "title": "Sakamoto Days - Taro Sakamoto",
+              "date": "2026-11-25",
+              "href": "decklists/sakamoto-days-purple-natsuki-seba/exburst-pure-store-sakamoto-days-purple-natsuki-seba-145351.html"
+            },
             {
               "slug": "tournament-3rd-sakamoto-days-purple-natsuki-seba-145089",
               "kind": "tournament",
@@ -5629,27 +5657,6 @@
               "title": "Sakamoto Days - Taro Sakamoto",
               "date": "2026-11-24",
               "href": "decklists/sakamoto-days-purple-natsuki-seba/exburst-shop-sakamoto-days-purple-natsuki-seba-107701.html"
-            },
-            {
-              "slug": "exburst-i-sent-my-bitch-to-the-store-cause-we-ran-out-of-soda-sa-99139",
-              "kind": "web",
-              "title": "Sakamoto Days - Taro Sakamoto",
-              "date": "2026-11-24",
-              "href": "decklists/sakamoto-days-purple-natsuki-seba/exburst-i-sent-my-bitch-to-the-store-cause-we-ran-out-of-soda-sa-99139.html"
-            },
-            {
-              "slug": "exburst-sakamoto-fam-aggro-sakamoto-days-purple-natsuki-seba-145221",
-              "kind": "web",
-              "title": "Sakamoto Days - Taro Sakamoto",
-              "date": "2026-11-24",
-              "href": "decklists/sakamoto-days-purple-natsuki-seba/exburst-sakamoto-fam-aggro-sakamoto-days-purple-natsuki-seba-145221.html"
-            },
-            {
-              "slug": "exburst-store-sakamoto-days-purple-natsuki-seba-145215",
-              "kind": "web",
-              "title": "Sakamoto Days - Taro Sakamoto",
-              "date": "2026-11-24",
-              "href": "decklists/sakamoto-days-purple-natsuki-seba/exburst-store-sakamoto-days-purple-natsuki-seba-145215.html"
             }
           ]
         },
@@ -11347,8 +11354,36 @@
           ],
           "sim_text": "4xUE10BT/AOT-1-001\n4xUE10BT/AOT-1-002\n4xUE10BT/AOT-1-007\n4xUE10BT/AOT-1-009\n4xUE10BT/AOT-1-010\n4xUE10BT/AOT-1-011\n4xUEX07BT/AOT-2-040\n4xUEX07BT/AOT-2-042\n2xUEX07BT/AOT-2-041\n4xUE10BT/AOT-1-004\n4xUE10BT/AOT-1-034\n4xUE10BT/AOT-1-006\n4xUE10BT/AOT-1-030",
           "cards": 50,
-          "list_count": 70,
+          "list_count": 74,
           "recent_lists": [
+            {
+              "slug": "exburst-freedom-attack-on-titan-blue-levi-145439",
+              "kind": "web",
+              "title": "Attack On Titan - Armin Arlelt (Colossal Titan) (SR**)",
+              "date": "2026-11-25",
+              "href": "decklists/attack-on-titan-blue-levi/exburst-freedom-attack-on-titan-blue-levi-145439.html"
+            },
+            {
+              "slug": "exburst-showme-yotummy-attack-on-titan-blue-levi-145425",
+              "kind": "web",
+              "title": "Attack On Titan - Zeke Jaeger (Beast Titan)",
+              "date": "2026-11-25",
+              "href": "decklists/attack-on-titan-blue-levi/exburst-showme-yotummy-attack-on-titan-blue-levi-145425.html"
+            },
+            {
+              "slug": "exburst-annie-x-reiner-test-attack-on-titan-blue-levi-145423",
+              "kind": "web",
+              "title": "Attack On Titan - Reiner Braun (Armored Titan)",
+              "date": "2026-11-25",
+              "href": "decklists/attack-on-titan-blue-levi/exburst-annie-x-reiner-test-attack-on-titan-blue-levi-145423.html"
+            },
+            {
+              "slug": "exburst-the-rumbling-attack-on-titan-blue-levi-145285",
+              "kind": "web",
+              "title": "Attack On Titan - Colossal Titan",
+              "date": "2026-11-25",
+              "href": "decklists/attack-on-titan-blue-levi/exburst-the-rumbling-attack-on-titan-blue-levi-145285.html"
+            },
             {
               "slug": "tournament-14th-attack-on-titan-blue-levi-145100",
               "kind": "tournament",
@@ -11376,34 +11411,6 @@
               "title": "Attack On Titan - Sasha Braus",
               "date": "2026-11-23",
               "href": "decklists/attack-on-titan-blue-levi/exburst-sasha-fat-attack-on-titan-blue-levi-144960.html"
-            },
-            {
-              "slug": "exburst-eren-jaeger-doomsday-titan-deck-attack-on-titan-blue-le-144951",
-              "kind": "web",
-              "title": "Attack On Titan - Eren Jaeger (Doomsday Titan)",
-              "date": "2026-11-23",
-              "href": "decklists/attack-on-titan-blue-levi/exburst-eren-jaeger-doomsday-titan-deck-attack-on-titan-blue-le-144951.html"
-            },
-            {
-              "slug": "exburst-warriors-attack-on-titan-blue-levi-38321",
-              "kind": "web",
-              "title": "Attack On Titan - Reiner Braun (Armored Titan)",
-              "date": "2026-11-23",
-              "href": "decklists/attack-on-titan-blue-levi/exburst-warriors-attack-on-titan-blue-levi-38321.html"
-            },
-            {
-              "slug": "contender-consensus",
-              "kind": "contender",
-              "title": "Attack On Titan - Levi",
-              "date": "2026-11-22",
-              "href": "decklists/attack-on-titan-blue-levi/contender-consensus.html"
-            },
-            {
-              "slug": "exburst-eren-jaeger-doomsday-titan-deck-attack-on-titan-blue-le-144629",
-              "kind": "web",
-              "title": "Attack On Titan - Zeke Jaeger (Beast Titan)",
-              "date": "2026-11-22",
-              "href": "decklists/attack-on-titan-blue-levi/exburst-eren-jaeger-doomsday-titan-deck-attack-on-titan-blue-le-144629.html"
             }
           ]
         },
@@ -25679,8 +25686,22 @@
           ],
           "sim_text": "4xUE11BT/RNK-1-035\n4xUE11BT/RNK-1-036\n4xUEPR/RNK-1-037\n4xUE11BT/RNK-1-038\n4xUE11BT/RNK-1-039\n4xUE11BT/RNK-1-040\n4xUEPR/RNK-1-045\n4xUEPR/RNK-1-046\n4xUEPR/RNK-1-047\n4xUE11BT/RNK-1-048\n2xUE11BT/RNK-1-042\n4xUE11BT/RNK-1-063\n4xUE11BT/RNK-1-064",
           "cards": 50,
-          "list_count": 35,
+          "list_count": 37,
           "recent_lists": [
+            {
+              "slug": "exburst-hajime-rurouni-kenshin-purple-hajime-saito-145387",
+              "kind": "web",
+              "title": "Rurouni Kenshin - Hajime Saito",
+              "date": "2026-11-25",
+              "href": "decklists/rurouni-kenshin-purple-hajime-saito/exburst-hajime-rurouni-kenshin-purple-hajime-saito-145387.html"
+            },
+            {
+              "slug": "exburst-oniwaban-rurouni-kenshin-purple-hajime-saito-48070",
+              "kind": "web",
+              "title": "Rurouni Kenshin - Aoshi Shinomori",
+              "date": "2026-11-25",
+              "href": "decklists/rurouni-kenshin-purple-hajime-saito/exburst-oniwaban-rurouni-kenshin-purple-hajime-saito-48070.html"
+            },
             {
               "slug": "tournament-5th-rurouni-kenshin-purple-hajime-saito-145091",
               "kind": "tournament",
@@ -25722,20 +25743,6 @@
               "title": "Rurouni Kenshin - Seijuro Hiko",
               "date": "2026-11-23",
               "href": "decklists/rurouni-kenshin-purple-hajime-saito/exburst-kenshin-no-final-no-special-test-rurouni-kenshin-purple-144853.html"
-            },
-            {
-              "slug": "contender-consensus",
-              "kind": "contender",
-              "title": "Rurouni Kenshin - Hajime Saito",
-              "date": "2026-11-22",
-              "href": "decklists/rurouni-kenshin-purple-hajime-saito/contender-consensus.html"
-            },
-            {
-              "slug": "exburst-vincent-s-kenshin-deck-rurouni-kenshin-purple-hajime-sa-144457",
-              "kind": "web",
-              "title": "Rurouni Kenshin - Kenshin Himura",
-              "date": "2026-11-22",
-              "href": "decklists/rurouni-kenshin-purple-hajime-saito/exburst-vincent-s-kenshin-deck-rurouni-kenshin-purple-hajime-sa-144457.html"
             }
           ]
         },
@@ -28538,8 +28545,36 @@
           ],
           "sim_text": "4xUE03BT/JJK-1-043\n4xUEX02BT/JJK-3-013\n4xUE03BT/JJK-1-037\n4xUEPR/JJK-1-067\n3xUEX02BT/JJK-3-015\n3xUE03BT/JJK-1-047\n3xUE03BT/JJK-1-038\n3xUE03ST/JJK-1-101\n2xUEX02BT/JJK-2-006\n1xUE03BT/JJK-1-040\n4xUEX02BT/JJK-3-045\n4xUE03ST/JJK-1-105\n4xUE03BT/JJK-1-063\n4xUE03BT/JJK-1-062\n3xUE03BT/JJK-1-061",
           "cards": 50,
-          "list_count": 113,
+          "list_count": 117,
           "recent_lists": [
+            {
+              "slug": "exburst-mahito-deck-jujutsu-kaisen-blue-sukuna-145427",
+              "kind": "web",
+              "title": "Jujutsu Kaisen - Mahito",
+              "date": "2026-11-25",
+              "href": "decklists/jujutsu-kaisen-blue-sukuna/exburst-mahito-deck-jujutsu-kaisen-blue-sukuna-145427.html"
+            },
+            {
+              "slug": "exburst-kyoto-high-jujutsu-kaisen-blue-sukuna-73734",
+              "kind": "web",
+              "title": "Jujutsu Kaisen - Aoi Todo",
+              "date": "2026-11-25",
+              "href": "decklists/jujutsu-kaisen-blue-sukuna/exburst-kyoto-high-jujutsu-kaisen-blue-sukuna-73734.html"
+            },
+            {
+              "slug": "exburst-control-your-lust-jujutsu-kaisen-blue-sukuna-145354",
+              "kind": "web",
+              "title": "Jujutsu Kaisen - Sukuna",
+              "date": "2026-11-25",
+              "href": "decklists/jujutsu-kaisen-blue-sukuna/exburst-control-your-lust-jujutsu-kaisen-blue-sukuna-145354.html"
+            },
+            {
+              "slug": "exburst-malaysia-jujutsu-kaisen-blue-sukuna-145302",
+              "kind": "web",
+              "title": "Jujutsu Kaisen - Kento Nanami",
+              "date": "2026-11-25",
+              "href": "decklists/jujutsu-kaisen-blue-sukuna/exburst-malaysia-jujutsu-kaisen-blue-sukuna-145302.html"
+            },
             {
               "slug": "exburst-gta-6-has-a-bang-bus-jujutsu-kaisen-blue-sukuna-145235",
               "kind": "web",
@@ -28567,34 +28602,6 @@
               "title": "Jujutsu Kaisen - Mahito",
               "date": "2026-11-24",
               "href": "decklists/jujutsu-kaisen-blue-sukuna/exburst-mahito-overdrive-jujutsu-kaisen-blue-sukuna-145214.html"
-            },
-            {
-              "slug": "exburst-purple-jujutsu-kaisen-transfigured-human-vol-2-jujutsu-k-24022",
-              "kind": "web",
-              "title": "Jujutsu Kaisen - Mahito",
-              "date": "2026-11-24",
-              "href": "decklists/jujutsu-kaisen-blue-sukuna/exburst-purple-jujutsu-kaisen-transfigured-human-vol-2-jujutsu-k-24022.html"
-            },
-            {
-              "slug": "exburst-blue-jujustu-kaisen-kento-vol-2-jujutsu-kaisen-blue-suku-14258",
-              "kind": "web",
-              "title": "Jujutsu Kaisen - Kento Nanami",
-              "date": "2026-11-24",
-              "href": "decklists/jujutsu-kaisen-blue-sukuna/exburst-blue-jujustu-kaisen-kento-vol-2-jujutsu-kaisen-blue-suku-14258.html"
-            },
-            {
-              "slug": "exburst-purple-mahito-jujutsu-kaisen-blue-sukuna-145165",
-              "kind": "web",
-              "title": "Jujutsu Kaisen - Mahito",
-              "date": "2026-11-24",
-              "href": "decklists/jujutsu-kaisen-blue-sukuna/exburst-purple-mahito-jujutsu-kaisen-blue-sukuna-145165.html"
-            },
-            {
-              "slug": "exburst-todo-jujutsu-kaisen-blue-sukuna-144990",
-              "kind": "web",
-              "title": "Jujutsu Kaisen - Aoi Todo",
-              "date": "2026-11-23",
-              "href": "decklists/jujutsu-kaisen-blue-sukuna/exburst-todo-jujutsu-kaisen-blue-sukuna-144990.html"
             }
           ]
         },
@@ -31605,8 +31612,15 @@
           ],
           "sim_text": "4xUP01BT/NIK-2-012\n4xUP01BT/NIK-2-013\n4xUP01BT/NIK-2-014\n4xUEPR/NIK-1-029\n4xUP01BT/NIK-2-009\n4xUP01BT/NIK-2-010\n4xUP01BT/NIK-2-011\n4xUP01BT/NIK-2-016\n4xUP01BT/NIK-2-017\n4xUEPR/NIK-1-007\n4xUP01BT/NIK-2-001\n4xUEPR/NIK-2-015\n2xUP01BT/NIK-2-002",
           "cards": 50,
-          "list_count": 97,
+          "list_count": 98,
           "recent_lists": [
+            {
+              "slug": "exburst-matis-nikke-yellow-cinderella-134928",
+              "kind": "web",
+              "title": "Nikke - Laplace",
+              "date": "2026-11-25",
+              "href": "decklists/nikke-yellow-cinderella/exburst-matis-nikke-yellow-cinderella-134928.html"
+            },
             {
               "slug": "exburst-laplace-deck-nikke-yellow-cinderella-145169",
               "kind": "web",
@@ -31655,13 +31669,6 @@
               "title": "Nikke - Laplace",
               "date": "2026-11-24",
               "href": "decklists/nikke-yellow-cinderella/exburst-green-missilis-nikke-yellow-cinderella-145084.html"
-            },
-            {
-              "slug": "exburst-counters-nikke-yellow-cinderella-116119",
-              "kind": "web",
-              "title": "Nikke - Marian",
-              "date": "2026-11-23",
-              "href": "decklists/nikke-yellow-cinderella/exburst-counters-nikke-yellow-cinderella-116119.html"
             }
           ]
         },
@@ -32669,8 +32676,22 @@
           ],
           "sim_text": "4xUE18BT/TKG-1-055\n4xUE18BT/TKG-1-038\n4xUE18BT/TKG-1-039\n4xUE18BT/TKG-1-042\n4xUE18BT/TKG-1-049\n4xUE18BT/TKG-1-052\n4xUE18BT/TKG-1-037\n3xUE18BT/TKG-1-040\n3xUE18BT/TKG-1-041\n2xUE18BT/TKG-1-059\n1xUE18ST/TKG-1-102\n3xUE18BT/TKG-1-061\n3xUE18BT/TKG-1-057\n3xUE18BT/TKG-1-065\n2xUE18BT/TKG-1-106\n2xUE18BT/TKG-1-063",
           "cards": 50,
-          "list_count": 53,
+          "list_count": 55,
           "recent_lists": [
+            {
+              "slug": "exburst-purple-ken-kaneki-deck-tokyo-ghoul-purple-ken-kaneki-116255",
+              "kind": "web",
+              "title": "Tokyo Ghoul - Ken Kaneki",
+              "date": "2026-11-25",
+              "href": "decklists/tokyo-ghoul-purple-ken-kaneki/exburst-purple-ken-kaneki-deck-tokyo-ghoul-purple-ken-kaneki-116255.html"
+            },
+            {
+              "slug": "exburst-yellow-mado-tokyo-ghoul-purple-ken-kaneki-83819",
+              "kind": "web",
+              "title": "Tokyo Ghoul - Haise Sasaki",
+              "date": "2026-11-25",
+              "href": "decklists/tokyo-ghoul-purple-ken-kaneki/exburst-yellow-mado-tokyo-ghoul-purple-ken-kaneki-83819.html"
+            },
             {
               "slug": "event-20th-tokyo-ghoul-purple-ken-kaneki-1796086",
               "kind": "event",
@@ -32712,20 +32733,6 @@
               "title": "Tokyo Ghoul - Ken Kaneki",
               "date": "2026-11-22",
               "href": "decklists/tokyo-ghoul-purple-ken-kaneki/contender-consensus.html"
-            },
-            {
-              "slug": "exburst-kisho-gamble-tokyo-ghoul-purple-ken-kaneki-144596",
-              "kind": "web",
-              "title": "Tokyo Ghoul - Kisho Arima",
-              "date": "2026-11-22",
-              "href": "decklists/tokyo-ghoul-purple-ken-kaneki/exburst-kisho-gamble-tokyo-ghoul-purple-ken-kaneki-144596.html"
-            },
-            {
-              "slug": "exburst-kisho-arima-deck-tokyo-ghoul-purple-ken-kaneki-137025",
-              "kind": "web",
-              "title": "Tokyo Ghoul - Kisho Arima",
-              "date": "2026-11-22",
-              "href": "decklists/tokyo-ghoul-purple-ken-kaneki/exburst-kisho-arima-deck-tokyo-ghoul-purple-ken-kaneki-137025.html"
             }
           ]
         },
@@ -37433,14 +37440,35 @@
           ],
           "sim_text": "4xUEPR/OPM-1-046\n4xUEPR/OPM-1-047\n4xUEPR/OPM-1-039\n4xUEPR/OPM-1-040\n4xUE06BT/OPM-1-041\n4xUE06BT/OPM-1-060\n4xUE06BT/OPM-1-062\n4xUE06BT/OPM-1-049\n4xUE06BT/OPM-1-111\n2xUE06BT/OPM-1-061\n4xUE06BT/OPM-1-065\n4xUE06BT/OPM-1-064\n4xUEPR/OPM-1-034",
           "cards": 50,
-          "list_count": 31,
+          "list_count": 34,
           "recent_lists": [
+            {
+              "slug": "exburst-speed-o-sound-sonic-deck-one-punch-man-green-saitama-145347",
+              "kind": "web",
+              "title": "One Punch Man - Speed-o'-Sound Sonic",
+              "date": "2026-11-25",
+              "href": "decklists/one-punch-man-green-saitama/exburst-speed-o-sound-sonic-deck-one-punch-man-green-saitama-145347.html"
+            },
+            {
+              "slug": "exburst-garou-one-punch-man-green-saitama-145339",
+              "kind": "web",
+              "title": "One Punch Man - Garou",
+              "date": "2026-11-25",
+              "href": "decklists/one-punch-man-green-saitama/exburst-garou-one-punch-man-green-saitama-145339.html"
+            },
             {
               "slug": "exburst-saitama-genos-blizzard-deck-one-punch-man-green-saitama-145048",
               "kind": "web",
               "title": "One Punch Man - Genos",
               "date": "2026-11-24",
               "href": "decklists/one-punch-man-green-saitama/exburst-saitama-genos-blizzard-deck-one-punch-man-green-saitama-145048.html"
+            },
+            {
+              "slug": "exburst-yellow-saitama-apartment-one-punch-man-green-saitama-145271",
+              "kind": "web",
+              "title": "One Punch Man - Saitama",
+              "date": "2026-11-24",
+              "href": "decklists/one-punch-man-green-saitama/exburst-yellow-saitama-apartment-one-punch-man-green-saitama-145271.html"
             },
             {
               "slug": "exburst-green-saitama-one-punch-man-green-saitama-107036",
@@ -37469,27 +37497,6 @@
               "title": "One Punch Man - Metal Bat",
               "date": "2026-11-23",
               "href": "decklists/one-punch-man-green-saitama/exburst-flashy-bat-one-punch-man-green-saitama-144713.html"
-            },
-            {
-              "slug": "contender-consensus",
-              "kind": "contender",
-              "title": "One Punch Man - Saitama",
-              "date": "2026-11-22",
-              "href": "decklists/one-punch-man-green-saitama/contender-consensus.html"
-            },
-            {
-              "slug": "exburst-garou-one-punch-man-green-saitama-144616",
-              "kind": "web",
-              "title": "One Punch Man - Garou",
-              "date": "2026-11-22",
-              "href": "decklists/one-punch-man-green-saitama/exburst-garou-one-punch-man-green-saitama-144616.html"
-            },
-            {
-              "slug": "exburst-sonic-lite-one-punch-man-green-saitama-144612",
-              "kind": "web",
-              "title": "One Punch Man - Speed-o'-Sound Sonic",
-              "date": "2026-11-22",
-              "href": "decklists/one-punch-man-green-saitama/exburst-sonic-lite-one-punch-man-green-saitama-144612.html"
             }
           ]
         },
@@ -38737,8 +38744,22 @@
           ],
           "sim_text": "4xUE24BT/REZ-1-055\n4xUE24BT/REZ-1-056\n4xUE24BT/REZ-1-057\n4xUE24BT/REZ-1-058\n4xUE24BT/REZ-1-042\n4xUE24BT/REZ-1-044\n4xUE24BT/REZ-1-038\n4xUE24ST/REZ-1-111\n4xUE24BT/REZ-1-066\n4xUE24BT/REZ-1-047\n4xUE24BT/REZ-1-064\n4xUE24BT/REZ-1-034\n2xUE24BT/REZ-1-065",
           "cards": 50,
-          "list_count": 43,
+          "list_count": 46,
           "recent_lists": [
+            {
+              "slug": "exburst-emilia-deck-re-zero-starting-life-in-another-world-blue-145340",
+              "kind": "web",
+              "title": "Re:Zero - Emilia",
+              "date": "2026-11-25",
+              "href": "decklists/re-zero-starting-life-in-another-world-blue-crusch-karsten/exburst-emilia-deck-re-zero-starting-life-in-another-world-blue-145340.html"
+            },
+            {
+              "slug": "exburst-stand-up-re-zero-starting-life-in-another-world-blue-cr-145328",
+              "kind": "web",
+              "title": "Re:Zero - Rem",
+              "date": "2026-11-25",
+              "href": "decklists/re-zero-starting-life-in-another-world-blue-crusch-karsten/exburst-stand-up-re-zero-starting-life-in-another-world-blue-cr-145328.html"
+            },
             {
               "slug": "tournament-1st-re-zero-starting-life-in-another-world-blue-crus-145087",
               "kind": "tournament",
@@ -38775,25 +38796,11 @@
               "href": "decklists/re-zero-starting-life-in-another-world-blue-crusch-karsten/exburst-echidna-deck-re-zero-starting-life-in-another-world-blu-145135.html"
             },
             {
-              "slug": "exburst-from-zero-to-hero-re-zero-starting-life-in-another-worl-144806",
+              "slug": "exburst-emilia-event-re-zero-starting-life-in-another-world-blu-145255",
               "kind": "web",
-              "title": "Re:Zero - Rem",
-              "date": "2026-11-23",
-              "href": "decklists/re-zero-starting-life-in-another-world-blue-crusch-karsten/exburst-from-zero-to-hero-re-zero-starting-life-in-another-worl-144806.html"
-            },
-            {
-              "slug": "exburst-rem-ram-re-zero-starting-life-in-another-world-blue-cru-144727",
-              "kind": "web",
-              "title": "Re:Zero - Rem",
-              "date": "2026-11-23",
-              "href": "decklists/re-zero-starting-life-in-another-world-blue-crusch-karsten/exburst-rem-ram-re-zero-starting-life-in-another-world-blue-cru-144727.html"
-            },
-            {
-              "slug": "contender-consensus",
-              "kind": "contender",
-              "title": "Re:Zero - Crusch Karsten",
-              "date": "2026-11-22",
-              "href": "decklists/re-zero-starting-life-in-another-world-blue-crusch-karsten/contender-consensus.html"
+              "title": "Re:Zero - Emilia",
+              "date": "2026-11-24",
+              "href": "decklists/re-zero-starting-life-in-another-world-blue-crusch-karsten/exburst-emilia-event-re-zero-starting-life-in-another-world-blu-145255.html"
             }
           ]
         },
@@ -40371,8 +40378,22 @@
           ],
           "sim_text": "4xUE05BT/KMY-1-076\n4xUE05BT/KMY-1-079\n4xUEPR/KMY-3-063\n4xUEX05BT/KMY-3-064\n4xUE05BT/KMY-1-073\n4xUEPR/KMY-1-099\n4xUE05BT/KMY-1-068\n4xUE05BT/KMY-1-069\n2xUE05BT/KMY-1-071\n4xUE05BT/KMY-1-091\n4xUE05BT/KMY-1-092\n4xUE05BT/KMY-1-097\n4xUEX05BT/KMY-3-062",
           "cards": 50,
-          "list_count": 16,
+          "list_count": 18,
           "recent_lists": [
+            {
+              "slug": "exburst-tanjiro-nezuko-demon-slayer-red-zenitsu-agatsuma-145380",
+              "kind": "web",
+              "title": "Demon Slayer - Tanjiro Kamado",
+              "date": "2026-11-25",
+              "href": "decklists/demon-slayer-red-zenitsu-agatsuma/exburst-tanjiro-nezuko-demon-slayer-red-zenitsu-agatsuma-145380.html"
+            },
+            {
+              "slug": "exburst-sword-love-birds-demon-slayer-red-zenitsu-agatsuma-54630",
+              "kind": "web",
+              "title": "Demon Slayer - Mitsuri Kanroji",
+              "date": "2026-11-25",
+              "href": "decklists/demon-slayer-red-zenitsu-agatsuma/exburst-sword-love-birds-demon-slayer-red-zenitsu-agatsuma-54630.html"
+            },
             {
               "slug": "exburst-tengen-uzui-deck-demon-slayer-red-zenitsu-agatsuma-145172",
               "kind": "web",
@@ -40414,20 +40435,6 @@
               "title": "Demon Slayer - Tanjiro Kamado",
               "date": "2026-11-22",
               "href": "decklists/demon-slayer-red-zenitsu-agatsuma/exburst-slayer-siblings-demon-slayer-red-zenitsu-agatsuma-70537.html"
-            },
-            {
-              "slug": "exburst-muzan-kibutsuji-deck-demon-slayer-red-zenitsu-agatsuma-144550",
-              "kind": "web",
-              "title": "Demon Slayer - Gyokko",
-              "date": "2026-11-22",
-              "href": "decklists/demon-slayer-red-zenitsu-agatsuma/exburst-muzan-kibutsuji-deck-demon-slayer-red-zenitsu-agatsuma-144550.html"
-            },
-            {
-              "slug": "exburst-blue-hashira-demon-slayer-red-zenitsu-agatsuma-71574",
-              "kind": "web",
-              "title": "Demon Slayer - Muichiro Tokito",
-              "date": "2026-11-22",
-              "href": "decklists/demon-slayer-red-zenitsu-agatsuma/exburst-blue-hashira-demon-slayer-red-zenitsu-agatsuma-71574.html"
             }
           ]
         },
@@ -41373,8 +41380,22 @@
           ],
           "sim_text": "4xUE09BT/FMA-1-046\n4xUE09BT/FMA-1-048\n4xUEPR/FMA-1-049\n4xUE09BT/FMA-1-051\n4xUE09BT/FMA-1-052\n4xUE09BT/FMA-1-055\n4xUE09BT/FMA-1-050\n4xUE09BT/FMA-1-053\n4xUE09BT/FMA-1-054\n2xUE09ST/FMA-1-111\n4xUE09BT/FMA-1-067\n4xUE09BT/FMA-1-065\n4xUE09BT/FMA-1-056",
           "cards": 50,
-          "list_count": 42,
+          "list_count": 44,
           "recent_lists": [
+            {
+              "slug": "exburst-truth-fullmetal-alchemist-blue-roy-mustang-145419",
+              "kind": "web",
+              "title": "Fullmetal Alchemist - Edward Elric",
+              "date": "2026-11-25",
+              "href": "decklists/fullmetal-alchemist-blue-roy-mustang/exburst-truth-fullmetal-alchemist-blue-roy-mustang-145419.html"
+            },
+            {
+              "slug": "exburst-riza-hawkeye-deck-fullmetal-alchemist-blue-roy-mustang-145358",
+              "kind": "web",
+              "title": "Fullmetal Alchemist - Roy Mustang",
+              "date": "2026-11-25",
+              "href": "decklists/fullmetal-alchemist-blue-roy-mustang/exburst-riza-hawkeye-deck-fullmetal-alchemist-blue-roy-mustang-145358.html"
+            },
             {
               "slug": "exburst-elric-deck-fullmetal-alchemist-blue-roy-mustang-145237",
               "kind": "web",
@@ -41416,20 +41437,6 @@
               "title": "Fullmetal Alchemist - Envy",
               "date": "2026-11-22",
               "href": "decklists/fullmetal-alchemist-blue-roy-mustang/exburst-purple-homonculi-fullmetal-alchemist-blue-roy-mustang-69401.html"
-            },
-            {
-              "slug": "exburst-xing-dynasty-fullmetal-alchemist-blue-roy-mustang-56913",
-              "kind": "web",
-              "title": "Fullmetal Alchemist - Ling Yao",
-              "date": "2026-11-22",
-              "href": "decklists/fullmetal-alchemist-blue-roy-mustang/exburst-xing-dynasty-fullmetal-alchemist-blue-roy-mustang-56913.html"
-            },
-            {
-              "slug": "exburst-double-starter-fullmetal-alchemist-blue-roy-mustang-144659",
-              "kind": "web",
-              "title": "Fullmetal Alchemist - Edward Elric",
-              "date": "2026-11-22",
-              "href": "decklists/fullmetal-alchemist-blue-roy-mustang/exburst-double-starter-fullmetal-alchemist-blue-roy-mustang-144659.html"
             }
           ]
         },
@@ -45883,8 +45890,22 @@
           ],
           "sim_text": "4xUE20BT/TSK-1-062\n4xUE20BT/TSK-1-040\n4xUE20BT/TSK-2-017\n4xUE20BT/TSK-1-107\n4xUE20BT/TSK-1-059\n4xUE20BT/TSK-1-060\n2xUE20BT/TSK-1-052\n2xUE20BT/TSK-1-053\n2xUE20BT/TSK-2-019\n2xUE20BT/TSK-1-058\n1xUE20BT/TSK-2-018\n4xUE20BT/TSK-2-024\n4xUE20BT/TSK-P-004\n3xUE20BT/TSK-2-021\n2xUE20BT/TSK-1-065\n2xUE20BT/TSK-1-067\n2xUE20BT/TSK-P-002",
           "cards": 50,
-          "list_count": 34,
+          "list_count": 36,
           "recent_lists": [
+            {
+              "slug": "exburst-milim-that-time-i-got-reincarnated-as-a-slime-blue-rimu-145434",
+              "kind": "web",
+              "title": "That Time I Got Reincarnated as a Slime - Milim",
+              "date": "2026-11-25",
+              "href": "decklists/that-time-i-got-reincarnated-as-a-slime-blue-rimuru/exburst-milim-that-time-i-got-reincarnated-as-a-slime-blue-rimu-145434.html"
+            },
+            {
+              "slug": "exburst-milim-deck-that-time-i-got-reincarnated-as-a-slime-blue-145243",
+              "kind": "web",
+              "title": "That Time I Got Reincarnated as a Slime - Veldora",
+              "date": "2026-11-24",
+              "href": "decklists/that-time-i-got-reincarnated-as-a-slime-blue-rimuru/exburst-milim-deck-that-time-i-got-reincarnated-as-a-slime-blue-145243.html"
+            },
             {
               "slug": "exburst-no-final-no-special-diablo-test-that-time-i-got-reincar-144825",
               "kind": "web",
@@ -45926,20 +45947,6 @@
               "title": "That Time I Got Reincarnated as a Slime - Rimuru",
               "date": "2026-11-21",
               "href": "decklists/that-time-i-got-reincarnated-as-a-slime-blue-rimuru/exburst-diablo-and-rimuru-that-time-i-got-reincarnated-as-a-sli-144311.html"
-            },
-            {
-              "slug": "exburst-shizu-that-time-i-got-reincarnated-as-a-slime-blue-rimu-144234",
-              "kind": "web",
-              "title": "That Time I Got Reincarnated as a Slime - Rimuru",
-              "date": "2026-11-21",
-              "href": "decklists/that-time-i-got-reincarnated-as-a-slime-blue-rimuru/exburst-shizu-that-time-i-got-reincarnated-as-a-slime-blue-rimu-144234.html"
-            },
-            {
-              "slug": "exburst-yangief-milim-that-time-i-got-reincarnated-as-a-slime-b-144033",
-              "kind": "web",
-              "title": "That Time I Got Reincarnated as a Slime - Milim",
-              "date": "2026-11-20",
-              "href": "decklists/that-time-i-got-reincarnated-as-a-slime-blue-rimuru/exburst-yangief-milim-that-time-i-got-reincarnated-as-a-slime-b-144033.html"
             }
           ]
         },
@@ -47011,8 +47018,29 @@
           ],
           "sim_text": "4xUEX06BT/SAO-2-071\n4xUE07BT/SAO-1-084\n4xUE07BT/SAO-1-086\n4xUEPR/SAO-2-066\n4xUEPR/SAO-2-072\n4xUEX06BT/SAO-2-073\n4xUE07BT/SAO-1-088\n4xUE07BT/SAO-1-090\n4xUE07BT/SAO-1-091\n3xUE07BT/SAO-1-087\n4xUE07BT/SAO-1-097\n3xUE07BT/SAO-1-099\n3xUE07BT/SAO-1-073\n1xUE07BT/SAO-1-098",
           "cards": 50,
-          "list_count": 35,
+          "list_count": 39,
           "recent_lists": [
+            {
+              "slug": "exburst-asuna-mito-sword-art-online-green-kirito-145341",
+              "kind": "web",
+              "title": "Sword Art Online - Mito",
+              "date": "2026-11-25",
+              "href": "decklists/sword-art-online-green-kirito/exburst-asuna-mito-sword-art-online-green-kirito-145341.html"
+            },
+            {
+              "slug": "exburst-sword-prog-purple-sword-art-online-green-kirito-87990",
+              "kind": "web",
+              "title": "Sword Art Online - Mito",
+              "date": "2026-11-25",
+              "href": "decklists/sword-art-online-green-kirito/exburst-sword-prog-purple-sword-art-online-green-kirito-87990.html"
+            },
+            {
+              "slug": "exburst-alo-sword-art-online-green-kirito-17677",
+              "kind": "web",
+              "title": "Sword Art Online - Kirito",
+              "date": "2026-11-25",
+              "href": "decklists/sword-art-online-green-kirito/exburst-alo-sword-art-online-green-kirito-17677.html"
+            },
             {
               "slug": "tournament-19th-sword-art-online-green-kirito-145105",
               "kind": "tournament",
@@ -47035,39 +47063,18 @@
               "href": "decklists/sword-art-online-green-kirito/exburst-asuna-and-kirito-deck-sword-art-online-green-kirito-145072.html"
             },
             {
+              "slug": "exburst-goddess-sword-art-online-green-kirito-145258",
+              "kind": "web",
+              "title": "Sword Art Online - Leafa (Earth Goddess, Terraria)",
+              "date": "2026-11-24",
+              "href": "decklists/sword-art-online-green-kirito/exburst-goddess-sword-art-online-green-kirito-145258.html"
+            },
+            {
               "slug": "exburst-no-name-sword-art-online-green-kirito-144703",
               "kind": "web",
               "title": "Sword Art Online - Asuna",
               "date": "2026-11-23",
               "href": "decklists/sword-art-online-green-kirito/exburst-no-name-sword-art-online-green-kirito-144703.html"
-            },
-            {
-              "slug": "exburst-progressive-deck-sword-art-online-green-kirito-59684",
-              "kind": "web",
-              "title": "Sword Art Online - Asuna",
-              "date": "2026-11-23",
-              "href": "decklists/sword-art-online-green-kirito/exburst-progressive-deck-sword-art-online-green-kirito-59684.html"
-            },
-            {
-              "slug": "contender-consensus",
-              "kind": "contender",
-              "title": "Sword Art Online - Sinon",
-              "date": "2026-11-22",
-              "href": "decklists/sword-art-online-green-kirito/contender-consensus.html"
-            },
-            {
-              "slug": "exburst-wallace-made-deck-in-testing-sword-art-online-green-kir-144520",
-              "kind": "web",
-              "title": "Sword Art Online - Asuna",
-              "date": "2026-11-22",
-              "href": "decklists/sword-art-online-green-kirito/exburst-wallace-made-deck-in-testing-sword-art-online-green-kir-144520.html"
-            },
-            {
-              "slug": "exburst-bait-n-switch-sword-art-online-green-kirito-144505",
-              "kind": "web",
-              "title": "Sword Art Online - Kirito",
-              "date": "2026-11-22",
-              "href": "decklists/sword-art-online-green-kirito/exburst-bait-n-switch-sword-art-online-green-kirito-144505.html"
             }
           ]
         },
@@ -49755,8 +49762,22 @@
           ],
           "sim_text": "4xUEPR/BCV-1-048\n4xUE08BT/BCV-1-040\n4xUEPR/BCV-1-041\n4xUE08BT/BCV-1-042\n4xUEPR/BCV-1-051\n3xUE08BT/BCV-1-035\n3xUE08BT/BCV-1-052\n4xUE08BT/BCV-1-037\n4xUE08BT/BCV-1-066\n4xUE08BT/BCV-1-064\n4xUE08BT/BCV-1-061\n3xUE08BT/BCV-1-039\n3xUE08BT/BCV-1-062\n2xUE08BT/BCV-1-036",
           "cards": 50,
-          "list_count": 40,
+          "list_count": 42,
           "recent_lists": [
+            {
+              "slug": "exburst-asta-yuno-black-clover-green-mereoleona-vermillion-145378",
+              "kind": "web",
+              "title": "Black Clover - Yuno",
+              "date": "2026-11-25",
+              "href": "decklists/black-clover-green-mereoleona-vermillion/exburst-asta-yuno-black-clover-green-mereoleona-vermillion-145378.html"
+            },
+            {
+              "slug": "exburst-mereoleona-vermillion-deck-black-clover-green-mereoleon-145301",
+              "kind": "web",
+              "title": "Black Clover - Yami Sukehiro",
+              "date": "2026-11-25",
+              "href": "decklists/black-clover-green-mereoleona-vermillion/exburst-mereoleona-vermillion-deck-black-clover-green-mereoleon-145301.html"
+            },
             {
               "slug": "exburst-red-black-clover-asta-noelle-black-clover-green-mereoleo-25863",
               "kind": "web",
@@ -49798,20 +49819,6 @@
               "title": "Black Clover - Asta",
               "date": "2026-11-22",
               "href": "decklists/black-clover-green-mereoleona-vermillion/exburst-red-bulls-black-clover-green-mereoleona-vermillion-144576.html"
-            },
-            {
-              "slug": "exburst-asta-deck-black-clover-green-mereoleona-vermillion-144495",
-              "kind": "web",
-              "title": "Black Clover - Asta",
-              "date": "2026-11-22",
-              "href": "decklists/black-clover-green-mereoleona-vermillion/exburst-asta-deck-black-clover-green-mereoleona-vermillion-144495.html"
-            },
-            {
-              "slug": "exburst-triad-black-clover-green-mereoleona-vermillion-144706",
-              "kind": "web",
-              "title": "Black Clover - Dante Zogratis",
-              "date": "2026-11-22",
-              "href": "decklists/black-clover-green-mereoleona-vermillion/exburst-triad-black-clover-green-mereoleona-vermillion-144706.html"
             }
           ]
         },
@@ -51625,8 +51632,15 @@
           ],
           "sim_text": "4xUEX04BT/HTR-2-019\n4xUEX04BT/HTR-2-021\n4xUEX04BT/HTR-2-014\n4xUEX04BT/HTR-2-015\n4xUEX04BT/HTR-2-016\n4xUEX04BT/HTR-2-022\n4xUEX04BT/HTR-2-024\n4xUEPR/HTR-2-027\n4xUEPR/HTR-2-028\n4xUEX04BT/HTR-2-029\n4xUEX04BT/HTR-2-074\n4xUEX04BT/HTR-2-036\n2xUEX04BT/HTR-2-032",
           "cards": 50,
-          "list_count": 30,
+          "list_count": 31,
           "recent_lists": [
+            {
+              "slug": "exburst-let-s-go-gambling-hunter-x-hunter-yellow-hisoka-120517",
+              "kind": "web",
+              "title": "Hunter x Hunter - Genthru",
+              "date": "2026-11-25",
+              "href": "decklists/hunter-x-hunter-yellow-hisoka/exburst-let-s-go-gambling-hunter-x-hunter-yellow-hisoka-120517.html"
+            },
             {
               "slug": "exburst-gon-hunter-x-hunter-yellow-hisoka-5529",
               "kind": "web",
@@ -51675,13 +51689,6 @@
               "title": "Hunter x Hunter - Yusuke Urameshi",
               "date": "2026-11-21",
               "href": "decklists/hunter-x-hunter-yellow-hisoka/exburst-sniper-snipe-hunter-x-hunter-yellow-hisoka-58023.html"
-            },
-            {
-              "slug": "exburst-og-kurapika-hunter-x-hunter-yellow-hisoka-112845",
-              "kind": "web",
-              "title": "Hunter x Hunter - Kurapika",
-              "date": "2026-11-21",
-              "href": "decklists/hunter-x-hunter-yellow-hisoka/exburst-og-kurapika-hunter-x-hunter-yellow-hisoka-112845.html"
             }
           ]
         },
@@ -53222,8 +53229,15 @@
           ],
           "sim_text": "4xUE16BT/KGR-1-012\n4xUEPR/KGR-1-013\n4xUE16BT/KGR-1-015\n4xUE16BT/KGR-1-004\n4xUE16BT/KGR-1-006\n4xUE16BT/KGR-1-018\n3xUE16BT/KGR-1-014\n3xUE16BT/KGR-1-005\n3xUE16BT/KGR-1-021\n1xUE16BT/KGR-1-020\n4xUE16BT/KGR-1-038\n4xUE16BT/KGR-1-039\n4xUE16BT/KGR-1-003\n4xUE16BT/KGR-1-016",
           "cards": 50,
-          "list_count": 53,
+          "list_count": 55,
           "recent_lists": [
+            {
+              "slug": "exburst-chihiro-rokuhira-deck-kagurabachi-purple-iori-samura-145370",
+              "kind": "web",
+              "title": "Kagurabachi - Chihiro Rokuhira",
+              "date": "2026-11-25",
+              "href": "decklists/kagurabachi-purple-iori-samura/exburst-chihiro-rokuhira-deck-kagurabachi-purple-iori-samura-145370.html"
+            },
             {
               "slug": "tournament-21st-kagurabachi-purple-iori-samura-145107",
               "kind": "tournament",
@@ -53253,6 +53267,13 @@
               "href": "decklists/kagurabachi-purple-iori-samura/exburst-iai-white-purity-style-kagurabachi-purple-iori-samura-145182.html"
             },
             {
+              "slug": "exburst-iai-kagurabachi-purple-iori-samura-145266",
+              "kind": "web",
+              "title": "Kagurabachi - Iori Samura",
+              "date": "2026-11-24",
+              "href": "decklists/kagurabachi-purple-iori-samura/exburst-iai-kagurabachi-purple-iori-samura-145266.html"
+            },
+            {
               "slug": "exburst-chihiro-rokuhira-deck-kagurabachi-purple-iori-samura-144915",
               "kind": "web",
               "title": "Kagurabachi - Hiyuki Kagari",
@@ -53265,20 +53286,6 @@
               "title": "Kagurabachi - Iori Samura",
               "date": "2026-11-23",
               "href": "decklists/kagurabachi-purple-iori-samura/exburst-purity-style-kagurabachi-purple-iori-samura-144712.html"
-            },
-            {
-              "slug": "contender-consensus",
-              "kind": "contender",
-              "title": "Kagurabachi - Chihiro Rokuhira",
-              "date": "2026-11-22",
-              "href": "decklists/kagurabachi-purple-iori-samura/contender-consensus.html"
-            },
-            {
-              "slug": "exburst-the-hishaku-and-also-two-hakuri-cards-kagurabachi-purpl-144628",
-              "kind": "web",
-              "title": "Kagurabachi - Genichi Sojo",
-              "date": "2026-11-22",
-              "href": "decklists/kagurabachi-purple-iori-samura/exburst-the-hishaku-and-also-two-hakuri-cards-kagurabachi-purpl-144628.html"
             }
           ]
         },
@@ -58168,8 +58175,36 @@
           ],
           "sim_text": "4xUE13BT/YYH-1-006\n4xUEPR/YYH-1-007\n4xUE13BT/YYH-P-001\n4xUE13BT/YYH-1-025\n4xUE13BT/YYH-1-111\n4xUE13BT/YYH-1-008\n2xUE13BT/YYH-1-023\n4xUE13BT/YYH-1-032\n4xUE13BT/YYH-1-022\n4xUE13BT/YYH-1-033\n4xUE13BT/YYH-1-011\n4xUE13BT/YYH-1-026\n4xUE13BT/YYH-1-021",
           "cards": 50,
-          "list_count": 33,
+          "list_count": 37,
           "recent_lists": [
+            {
+              "slug": "exburst-kazuma-yu-yu-hakusho-purple-younger-toguro-47463",
+              "kind": "web",
+              "title": "Yu Yu Hakusho - Kazuma Kuwabara",
+              "date": "2026-11-25",
+              "href": "decklists/yu-yu-hakusho-purple-younger-toguro/exburst-kazuma-yu-yu-hakusho-purple-younger-toguro-47463.html"
+            },
+            {
+              "slug": "exburst-kurama-yu-yu-hakusho-purple-younger-toguro-47453",
+              "kind": "web",
+              "title": "Yu Yu Hakusho - Youko Kurama",
+              "date": "2026-11-25",
+              "href": "decklists/yu-yu-hakusho-purple-younger-toguro/exburst-kurama-yu-yu-hakusho-purple-younger-toguro-47453.html"
+            },
+            {
+              "slug": "exburst-yuoko-kurama-deck-yu-yu-hakusho-purple-younger-toguro-80594",
+              "kind": "web",
+              "title": "Yu Yu Hakusho - Youko Kurama",
+              "date": "2026-11-25",
+              "href": "decklists/yu-yu-hakusho-purple-younger-toguro/exburst-yuoko-kurama-deck-yu-yu-hakusho-purple-younger-toguro-80594.html"
+            },
+            {
+              "slug": "exburst-jin-push-back-yu-yu-hakusho-purple-younger-toguro-145281",
+              "kind": "web",
+              "title": "Yu Yu Hakusho - Jin",
+              "date": "2026-11-25",
+              "href": "decklists/yu-yu-hakusho-purple-younger-toguro/exburst-jin-push-back-yu-yu-hakusho-purple-younger-toguro-145281.html"
+            },
             {
               "slug": "exburst-vincent-s-jin-deck-yu-yu-hakusho-purple-younger-toguro-145009",
               "kind": "web",
@@ -58197,34 +58232,6 @@
               "title": "Yu Yu Hakusho - Yusuke Urameshi",
               "date": "2026-11-22",
               "href": "decklists/yu-yu-hakusho-purple-younger-toguro/exburst-yusuke-yu-yu-hakusho-purple-younger-toguro-70544.html"
-            },
-            {
-              "slug": "exburst-purple-torguro-yu-yu-hakusho-purple-younger-toguro-144463",
-              "kind": "web",
-              "title": "Yu Yu Hakusho - Younger Toguro",
-              "date": "2026-11-22",
-              "href": "decklists/yu-yu-hakusho-purple-younger-toguro/exburst-purple-torguro-yu-yu-hakusho-purple-younger-toguro-144463.html"
-            },
-            {
-              "slug": "exburst-vincent-s-toguro-deck-yu-yu-hakusho-purple-younger-togu-144460",
-              "kind": "web",
-              "title": "Yu Yu Hakusho - Younger Toguro",
-              "date": "2026-11-22",
-              "href": "decklists/yu-yu-hakusho-purple-younger-toguro/exburst-vincent-s-toguro-deck-yu-yu-hakusho-purple-younger-togu-144460.html"
-            },
-            {
-              "slug": "exburst-yusuke-urameshi-yu-yu-hakusho-purple-younger-toguro-144677",
-              "kind": "web",
-              "title": "Yu Yu Hakusho - Yusuke Urameshi",
-              "date": "2026-11-22",
-              "href": "decklists/yu-yu-hakusho-purple-younger-toguro/exburst-yusuke-urameshi-yu-yu-hakusho-purple-younger-toguro-144677.html"
-            },
-            {
-              "slug": "exburst-vincent-s-kuwabara-deck-yu-yu-hakusho-purple-younger-to-144337",
-              "kind": "web",
-              "title": "Yu Yu Hakusho - Kazuma Kuwabara",
-              "date": "2026-11-21",
-              "href": "decklists/yu-yu-hakusho-purple-younger-toguro/exburst-vincent-s-kuwabara-deck-yu-yu-hakusho-purple-younger-to-144337.html"
             }
           ]
         },

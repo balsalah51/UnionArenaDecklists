@@ -1,28 +1,17 @@
 {
-  "updated": "2026-11-24",
-  "recent_from": "2026-10-10",
+  "updated": "2026-11-25",
+  "recent_from": "2026-10-11",
   "characters": [
     {
       "name": "Ichigo Kurosaki",
       "title": "Bleach",
       "tier": "S",
       "page": "decklists/ichigo-kurosaki.html",
-      "recent_top8": 49,
+      "recent_top8": 51,
       "recent_results": 60,
       "meta_share": 0.12504171743273843,
       "contender_tier": "1",
-      "score": 424.502
-    },
-    {
-      "name": "Evangelion Proto Type-00",
-      "title": "Evangelion",
-      "tier": "S",
-      "page": "decklists/evangelion-proto-type-00.html",
-      "recent_top8": 43,
-      "recent_results": 51,
-      "meta_share": 0.03903318730786963,
-      "contender_tier": "1",
-      "score": 323.002
+      "score": 444.752
     },
     {
       "name": "Kenshin Himura",
@@ -33,40 +22,51 @@
       "recent_results": 52,
       "meta_share": 0.033752840695256955,
       "contender_tier": "2",
-      "score": 300.538
+      "score": 300.288
+    },
+    {
+      "name": "Evangelion Proto Type-00",
+      "title": "Evangelion",
+      "tier": "S",
+      "page": "decklists/evangelion-proto-type-00.html",
+      "recent_top8": 40,
+      "recent_results": 48,
+      "meta_share": 0.03903318730786963,
+      "contender_tier": "1",
+      "score": 288.352
     },
     {
       "name": "Sung Jinwoo",
       "title": "Solo Leveling",
       "tier": "A",
       "page": "decklists/sung-jinwoo.html",
-      "recent_top8": 49,
-      "recent_results": 54,
+      "recent_top8": 46,
+      "recent_results": 51,
       "meta_share": 0.05636762802597682,
       "contender_tier": "1",
-      "score": 278.268
+      "score": 261.118
     },
     {
       "name": "Rem",
       "title": "Re:Zero",
       "tier": "A",
       "page": "decklists/rem.html",
-      "recent_top8": 30,
-      "recent_results": 37,
+      "recent_top8": 29,
+      "recent_results": 36,
       "meta_share": 0.01256781727251507,
       "contender_tier": "2",
-      "score": 239.728
+      "score": 233.928
     },
     {
       "name": "Taro Sakamoto",
       "title": "Sakamoto Days",
       "tier": "A",
       "page": "decklists/taro-sakamoto.html",
-      "recent_top8": 26,
-      "recent_results": 35,
+      "recent_top8": 24,
+      "recent_results": 33,
       "meta_share": 0.0018845002486999963,
       "contender_tier": "2",
-      "score": 205.344
+      "score": 200.744
     },
     {
       "name": "Eren Jaeger (Attack Titan)",
@@ -77,7 +77,7 @@
       "recent_results": 29,
       "meta_share": 0.04635079333689915,
       "contender_tier": "3",
-      "score": 188.018
+      "score": 187.768
     },
     {
       "name": "Kenpachi Zaraki",
@@ -88,18 +88,7 @@
       "recent_results": 21,
       "meta_share": 0.04746999938861009,
       "contender_tier": "3",
-      "score": 184.923
-    },
-    {
-      "name": "Chainsaw Man",
-      "title": "Chainsaw Man",
-      "tier": "B",
-      "page": "decklists/chainsaw-man.html",
-      "recent_top8": 26,
-      "recent_results": 29,
-      "meta_share": 0.02709168850852594,
-      "contender_tier": "3",
-      "score": 166.805
+      "score": 186.423
     },
     {
       "name": "Cinderella",
@@ -110,7 +99,7 @@
       "recent_results": 25,
       "meta_share": 0.02699924649438076,
       "contender_tier": "3",
-      "score": 160.1
+      "score": 159.35
     },
     {
       "name": "Mari Makinami Illustrious",
@@ -124,6 +113,17 @@
       "score": 154.654
     },
     {
+      "name": "Chainsaw Man",
+      "title": "Chainsaw Man",
+      "tier": "B",
+      "page": "decklists/chainsaw-man.html",
+      "recent_top8": 22,
+      "recent_results": 25,
+      "meta_share": 0.02709168850852594,
+      "contender_tier": "3",
+      "score": 144.105
+    },
+    {
       "name": "Rimuru",
       "title": "That Time I Got Reincarnated As A Slime",
       "tier": "B",
@@ -132,7 +132,7 @@
       "recent_results": 22,
       "meta_share": 0.011143935119945486,
       "contender_tier": "3",
-      "score": 120.657
+      "score": 120.157
     },
     {
       "name": "Shunsui Kyoraku",
@@ -143,18 +143,7 @@
       "recent_results": 7,
       "meta_share": 0.009759372862099847,
       "contender_tier": "2",
-      "score": 103.088
-    },
-    {
-      "name": "Bomb Devil",
-      "title": "Chainsaw Man",
-      "tier": "B",
-      "page": "decklists/bomb-devil.html",
-      "recent_top8": 13,
-      "recent_results": 18,
-      "meta_share": 0.017703225969210774,
-      "contender_tier": "2",
-      "score": 96.285
+      "score": 105.588
     },
     {
       "name": "Renji Abarai",
@@ -165,7 +154,18 @@
       "recent_results": 12,
       "meta_share": 0.013135141815071173,
       "contender_tier": "2",
-      "score": 93.757
+      "score": 95.507
+    },
+    {
+      "name": "Bomb Devil",
+      "title": "Chainsaw Man",
+      "tier": "B",
+      "page": "decklists/bomb-devil.html",
+      "recent_top8": 11,
+      "recent_results": 16,
+      "meta_share": 0.017703225969210774,
+      "contender_tier": "2",
+      "score": 91.185
     },
     {
       "name": "Aoi Todo",
@@ -176,18 +176,7 @@
       "recent_results": 13,
       "meta_share": 0.02101314341495897,
       "contender_tier": "4",
-      "score": 87.701
-    },
-    {
-      "name": "Beatrice",
-      "title": "Re:Zero",
-      "tier": "C",
-      "page": "decklists/beatrice.html",
-      "recent_top8": 14,
-      "recent_results": 14,
-      "meta_share": 0.0007209879254923094,
-      "contender_tier": "3",
-      "score": 84.236
+      "score": 87.201
     },
     {
       "name": "Mayuri Kurotsuchi",
@@ -198,7 +187,18 @@
       "recent_results": 15,
       "meta_share": 0.03739688701580951,
       "contender_tier": "3",
-      "score": 84.12
+      "score": 85.62
+    },
+    {
+      "name": "Beatrice",
+      "title": "Re:Zero",
+      "tier": "C",
+      "page": "decklists/beatrice.html",
+      "recent_top8": 14,
+      "recent_results": 14,
+      "meta_share": 0.0007209879254923094,
+      "contender_tier": "3",
+      "score": 83.986
     },
     {
       "name": "Shinji Ikari",
@@ -231,7 +231,7 @@
       "recent_results": 11,
       "meta_share": 0.0022193713369761097,
       "contender_tier": "4",
-      "score": 72.161
+      "score": 71.411
     },
     {
       "name": "Chihiro Rokuhira",
@@ -242,7 +242,7 @@
       "recent_results": 14,
       "meta_share": 0.003909250970271071,
       "contender_tier": "3",
-      "score": 70.395
+      "score": 70.645
     },
     {
       "name": "Emilia",

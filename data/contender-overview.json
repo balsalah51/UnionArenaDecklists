@@ -6536,7 +6536,7 @@
     "energyCurve": [
       {
         "cost": 0,
-        "totalCopies": 893,
+        "totalCopies": 887,
         "avgPerDeck": 11
       },
       {
@@ -6546,8 +6546,8 @@
       },
       {
         "cost": 2,
-        "totalCopies": 487,
-        "avgPerDeck": 6
+        "totalCopies": 493,
+        "avgPerDeck": 6.1
       },
       {
         "cost": 3,
@@ -6582,7 +6582,7 @@
     ],
     "evidence": {
       "newestListDate": "2026-11-24",
-      "ageDays": 0,
+      "ageDays": 1,
       "stale": false
     },
     "newestSet": {
@@ -6594,8 +6594,8 @@
       "sinceBanlistDate": "2026-02-14",
       "sinceBanlistSource": "firstTournament",
       "totalSampleSize": 424,
-      "recent30dSampleSize": 130,
-      "sinceBanlistSampleSize": 2828,
+      "recent30dSampleSize": 131,
+      "sinceBanlistSampleSize": 2830,
       "hhi": 428.13495,
       "top3Share": 0.26943496
     }
